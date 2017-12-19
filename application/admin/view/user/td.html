@@ -1,0 +1,19 @@
+<td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td>{$vo.id|high_light=$Request.param.id}</td>
+<td>{$vo.mobile|high_light=$Request.param.mobile}</td>
+<td>{$vo.balance}</td>
+<td>{$vo.name|high_light=$Request.param.name}</td>
+<td>
+{if condition="$vo.user_type eq 0"}个人用户
+{else /}
+企业用户
+{/if}
+</td>
+<td>
+{if condition="$vo.status eq 1"}
+<i class="Hui-iconfont status c-success" title="正常"></i>
+{else /}
+<i class="Hui-iconfont status c-warning" title="禁用"></i>
+{/if}
+</td>
+<td>{$vo.login_time}</td>

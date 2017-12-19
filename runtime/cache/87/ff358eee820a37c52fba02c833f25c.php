@@ -1,0 +1,3 @@
+<?php
+//000000000300a:1:{s:5:"ADMIN";a:3:{s:10:"ADMINGROUP";a:5:{s:5:"INDEX";a:0:{}s:3:"ADD";a:0:{}s:4:"EDIT";a:0:{}s:6:"FORBID";a:0:{}s:6:"RESUME";a:0:{}}s:9:"ADMINROLE";a:7:{s:4:"USER";a:0:{}s:6:"ACCESS";a:0:{}s:5:"INDEX";a:0:{}s:3:"ADD";a:0:{}s:4:"EDIT";a:0:{}s:6:"FORBID";a:0:{}s:6:"RESUME";a:0:{}}s:9:"ADMINUSER";a:4:{s:3:"ADD";a:0:{}s:8:"PASSWORD";a:0:{}s:5:"INDEX";a:0:{}s:4:"EDIT";a:0:{}}}}
+?>

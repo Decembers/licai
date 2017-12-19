@@ -1,0 +1,107 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <form class="form form-horizontal" id="form" method="post" action="{:\\think\\Request::instance()->baseUrl()}">
+        <input type="hidden" name="id" value="{$vo.id ?? ''}">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">订单编号：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="订单编号" name="number" value="{$vo.number ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">订单金额：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="订单金额" name="order_price" value="{$vo.order_price ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">商品单价：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="商品单价" name="sp_price" value="{$vo.sp_price ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">商品数量：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="商品数量" name="sp_count" value="{$vo.sp_count ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">订单是否完成：</label>
+            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
+                <div class="radio-box">
+                    {if condition="$vo.status eq 1"}<input type="radio" name="status" id="status-1" value="1" checked>{else /}
+                    <input type="radio" name="status" id="status-1" value="1" >
+                    {/if}
+                    <label for="status-1">完成</label>
+                </div>
+                <div class="radio-box">
+                {if condition="$vo.status eq 0"}<input type="radio" name="status" id="status-0" value="0" checked>{else /}
+                    <input type="radio" name="status" id="status-0" value="0">
+                {/if}
+                    <label for="status-0">未完成</label>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">订单是否支付：</label>
+            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
+                <div class="radio-box">
+                    {if condition="$vo.sfpay eq 1"}<input type="radio" name="sfpay" id="status-1" value="1" checked>{else /}
+                    <input type="radio" name="status" id="status-1" value="1">
+                    {/if}
+                    <label for="status-1">已支付</label>
+                </div>
+                <div class="radio-box">
+                    {if condition="$vo.sfpay eq 0"}<input type="radio" name="sfpay" id="status-0" value="0" checked>{else /}
+                    <input type="radio" name="status" id="status-0" value="0">
+                    {/if}
+                    <label for="status-0">未支付</label>
+                </div>
+                <div class="radio-box">
+                    {if condition="$vo.sfpay eq 2"}<input type="radio" name="sfpay" id="status-2" value="2" checked>{else /}
+                    <input type="radio" name="status" id="status-2" value="2">
+                    {/if}
+                    <label for="status-0">已取消</label>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary radius">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
+                <button type="button" class="btn btn-default radius ml-20" onClick="layer_close();">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript" src="__LIB__/Validform/5.3.2/Validform.min.js"></script>
+<script>
+    $(function () {
+
+
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form").Validform({
+            tiptype: 2,
+            ajaxPost: true,
+            showAllError: true,
+            callback: function (ret){
+                ajax_progress(ret);
+            }
+        });
+    })
+</script>
+{/block}

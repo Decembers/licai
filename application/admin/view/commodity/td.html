@@ -1,0 +1,18 @@
+<td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td>{$vo.id}</td>
+<td>{$vo.com_number}</td>
+<td>{$vo.name}</td>
+<td><img src="{$vo.image}" width="80" height="80"></td>
+<td>{$vo.price}</td>
+<td>{$vo.rate}</td>
+<!-- <td>{$vo.content}</td> -->
+<td>{$vo.number}</td>
+<td>
+{if condition="$vo.classify eq 1"}
+常规
+{elseif condition="$vo.classify eq 2"/}
+辅助
+{else /}
+VIP
+{/if}
+</td>

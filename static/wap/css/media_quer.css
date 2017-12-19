@@ -1,0 +1,41 @@
+/*媒体查询 页面小于900px*/
+
+@media screen and (max-width: 900px) {
+	.wrapper {
+		width: 100%;
+		background-color: white;
+	}
+	.footer {
+		width: 100%;
+	}
+	.background {
+		display: none;
+	}
+}
+
+
+/*媒体查询 页面大于900px*/
+
+@media screen and (min-width: 900px) {
+	.background {
+		display: block;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-image: url(../img/beijing.jpeg);
+		filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+		-moz-background-size: 100% 100%;
+		background-size: 100% 100%;
+		z-index: -1;
+	}
+	.wrapper {
+		width: 800px;
+		margin: 0 auto;
+		background-color: white;
+	}
+	.footer {
+		width: 800px;
+	}
+}

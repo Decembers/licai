@@ -1,0 +1,30 @@
+{extend name="template/base" /}
+{block name="nav"}{/block}
+{block name="content"}
+<div class="page-container">
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+        <th width="400">用户id</th>
+        <th width="400">用户昵称</th>
+        <th width="400">购买数量</th>
+        <th width="400">购买时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+        <td>{$vo.id}</td>
+        <td>{$vo.name}</td>
+        <td>{$vo.number}</td>
+        <td>{$vo.time}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript" src="__LIB__/Validform/5.3.2/Validform.min.js"></script>
+{/block}

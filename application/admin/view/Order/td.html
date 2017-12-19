@@ -1,0 +1,14 @@
+<td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td>{$vo.number}</td>
+<td>{$vo.order_price}</td>
+<td>{$vo.sp_price}</td>
+<td>{$vo.sp_count}</td>
+<td>
+{if condition="$vo.sfpay eq 0"}
+<p style="color:#EE2C2C">未支付</p>
+{elseif condition="$vo.sfpay eq 1"/}
+<p style="color:#66CDAA">已支付</p>
+{elseif condition="$vo.sfpay eq 2"/}
+<p style="color:#4876FF">已退款</p>
+{/if}
+</td>
