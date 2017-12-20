@@ -3,13 +3,14 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-12 11:31:49
+ * @Last Modified time: 2017-12-19 16:47:18
  */
 namespace app\wap\controller;
 use think\Controller;
 use think\Request;
 use think\Db;
-use app\wap\model\User;
+use think\Session;
+use app\common\model\User;
 /**
 * 会员管理
 */
@@ -167,5 +168,20 @@ class Login extends Controller
                 }else{
                     return json(['code'=>1, 'msg'=>'非法请求']);
                 }
+    }
+
+    /*
+     * 测试用登录
+     */
+    public function admin()
+    {
+       $arr = User::where(['id'=>33])->find();
+       Session::set('user',$arr);
+       echo 'ok';
+    }
+    public function noadmin()
+    {
+       Session::delete('user');
+       echo 'ok';
     }
 }

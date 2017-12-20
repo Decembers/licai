@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipys.html";i:1513415583;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipys.html";i:1513763555;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -109,9 +109,9 @@
 					</div>
 				</div>
 				<div class="detail2">
-					<p>VIP私人订制续订羊群171213</p>
+					<p><?php echo $arr['name']; ?></p>
 					<p><span>项目编号</span><span class="em"><?php echo $arr['com_number']; ?></span></p>
-					<p><span>开放时间</span><span id="timer" class="timer-simple-seconds" timer="7800">
+					<p><span>开放时间</span><span id="timer" class="timer-simple-seconds" timer="<?php echo $time; ?>">
 							<span class="day">0</span>天<span class="hour">0</span>时<span class="minute">0</span>分<span class="second" >0</span>秒
 						</span>
 					</p>
@@ -119,7 +119,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">0.00</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"><?php echo session('user.balance'); ?></span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>

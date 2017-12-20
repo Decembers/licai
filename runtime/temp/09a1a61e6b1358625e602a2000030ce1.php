@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:61:"E:\GitHub\licai./application/admin\view\commodity\comadd.html";i:1513650005;s:58:"E:\GitHub\licai./application/admin\view\template\base.html";i:1488899632;s:69:"E:\GitHub\licai./application/admin\view\template\javascript_vars.html";i:1488899632;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:61:"E:\GitHub\licai./application/admin\view\commodity\comadd.html";i:1513765129;s:58:"E:\GitHub\licai./application/admin\view\template\base.html";i:1488899632;s:69:"E:\GitHub\licai./application/admin\view\template\javascript_vars.html";i:1488899632;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -100,10 +100,17 @@
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>vip邀请码：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="vip邀请码" name="vip6">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>商品购买开始时间：</label>
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="demo">
-                    <div class="lie"><input name="preselle_time" id="startTime" class="kbtn" /></div>
+                    <div class="lie"><input name="preselle_time" id="startTime" class="kbtn"/></div>
                 </div>
                 <div id="datePlugin"></div>
             </div>
@@ -113,7 +120,7 @@
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>商品结束购买时间：</label>
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="demo">
-                    <div class="lie"><input name="down_time" id="endTime" class="kbtn" /></div>
+                    <div class="lie"><input name="down_time" id="endTime" class="kbtn"/></div>
                 </div>
                 <div id="datePlugin"></div>
             </div>

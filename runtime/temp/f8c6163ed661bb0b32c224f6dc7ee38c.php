@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\fzsx.html";i:1513414772;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\fzsx.html";i:1513763187;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -65,14 +65,14 @@
 					</div>
 				</div>
 				<div class="detail2">
-					<p>蒙高丽亚店铺辅助羊群171213</p>
+					<p><?php echo $arr['name']; ?></p>
 					<p><span>项目编号</span><span class="em"><?php echo $arr['com_number']; ?></span></p>
 					<p><span>开放时间</span><span id="" class="em">售羲</span>
 				</div>
 				<div class="detail3" style="display: none;">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{session('balance');}</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"><?php echo session('user.balance'); ?></span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>

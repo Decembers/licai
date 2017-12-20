@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\fzgm.html";i:1513416355;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\fzgm.html";i:1513761741;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -77,7 +77,7 @@
 				<h3>项目详情</h3>
 				<a href="####" style="opacity: 0;">交易统计</a>
 			</div>
-			<!---->
+			<input type="hidden" name="id" value="<?php echo $arr['id']; ?>" id="sp_id">
 			<div class="detail">
 				<div class="detail1">
 					<div class="detail1_top">
@@ -91,15 +91,15 @@
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span><?php echo $arr['number']; ?></span><span class="em">只苏尼特羊</span></p>
+						<p><span id="num"><?php echo $arr['number']; ?></span><span class="em">只苏尼特羊</span></p>
 						<p><span><?php echo $arr['rate']; ?></span><span class="em">天联养周期</span></p>
 						<p><span><?php echo $arr['return_price']; ?></span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
 				</div>
 				<div class="detail2">
-					<p>蒙高丽亚店铺辅助羊群171213</p>
+					<p><?php echo $arr['name']; ?></p>
 					<p><span>项目编号</span><span class="em"><?php echo $arr['com_number']; ?></span></p>
-					<p><span>开放时间</span><span id="timer" class="timer-simple-seconds" timer="60">
+					<p><span>开放时间</span><span id="timer" class="timer-simple-seconds" timer="<?php echo $time; ?>">
 							<span class="day">0</span>天<span class="hour">0</span>时<span class="minute">0</span>分<span class="second">0</span>秒
 						</span>
 					</p>
@@ -107,7 +107,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{session('balance');}</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"><?php echo session('user.balance'); ?></span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -148,7 +148,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="index1-shop-protocol.html">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='index1-shop-deal1.html'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4">
@@ -178,7 +178,7 @@
 			<p>确定</p>
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/times.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*羊数量 - */
 			$("#subtract").click(function() {
@@ -202,7 +202,21 @@
 				/*获取羊数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if(num >= zui) {
-					$("#number").val(zui);
+					var sp_id = $("#sp_id").val();
+	 				$.ajax({
+	                    type : "POST",  //提交方式
+	                    url : "<?php echo url('Order/number'); ?>",//路径
+	                    data : {
+	                        "id" : sp_id
+	                    },
+	                    dataType : "json",//数据，这里使用的是Json格式进行传输
+	                    success : function(result) {
+							var aa = JSON.parse(result);
+							$(".detail1_top div:nth-child(2) p:nth-child(2)").text(aa.number);
+							$("#num").text(aa.number);
+							$("#number").val(aa.number);
+						}
+				    });
 					bian();
 					overtop();
 				} else {
@@ -310,9 +324,32 @@
 					$(".overtop1 .overtop_text").text("请输入支付密码");
 				} else if($("#max6").val().length !== 6) {
 					$(".overtop1 .overtop_text").text("支付密码错误");
-				} else if($("#max6").val().length == 6) {
-					$(".overtop1 .overtop_text").text("余额不足");
 				}
+				var sp_id = $("#sp_id").val();
+				var number = $("#number").val();
+				var max6 = $("#max6").val();
+ 				$.ajax({
+                    type : "POST",  //提交方式
+                    url : "<?php echo url('Order/info'); ?>",//路径
+                    data : {
+                        "sp_id" : sp_id,
+                        "number" : number,
+                        "pay_pass" : max6
+                    },
+                    dataType : "json",//数据，这里使用的是Json格式进行传输
+                    success : function(result) {
+						var aa = JSON.parse(result);
+						//console.log(aa);
+						if (aa.code==0) {
+							$(".overtop1 .overtop_text").text(aa.msg);
+						}else{
+							$(".overtop1 .overtop_text").text(aa.msg);
+						}
+                    },
+                    error : function (){
+                    	$(".overtop1 .overtop_text").text('请刷新页面重试');
+                	}
+				});
 			})
 			/* 弹窗提示的确定*/
 			$(".overtop1 p:nth-child(2)").click(function() {

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipsx.html";i:1513416504;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipsx.html";i:1513765315;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -90,13 +90,13 @@
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span><?php echo $arr['number']; ?></span><span class="em">只苏尼特羊</span></p>
+						<p><span><?php echo $arr['numbers']; ?></span><span class="em">只苏尼特羊</span></p>
 						<p><span><?php echo $arr['rate']; ?></span><span class="em">天联养周期</span></p>
 						<p><span><?php echo $arr['return_price']; ?></span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
 				</div>
 				<div class="detail2">
-					<p>VIP 私人订制续订羊群B171211</p>
+					<p><?php echo $arr['name']; ?></p>
 					<p><span>项目编号</span><span class="em"><?php echo $arr['com_number']; ?></span></p>
 					<p><span>开放时间</span><span id="" class="em">售羲</span>
 					</p>

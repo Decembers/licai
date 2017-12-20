@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\index\index.html";i:1513406617;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\index\index.html";i:1513766693;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -139,7 +139,7 @@
 						</div>
 						<div class="navs">
 							<a href="index1-navs2.html" class="icon0"><span class="icon2"></span></a>
-							<a href="index1-navs2.html">购买羊只</a>
+							<a href="<?php echo url('Index/orlist'); ?>">购买羊只</a>
 						</div>
 						<div class="navs">
 							<a href="index1-navs3.html" class="icon0"><span class="icon3"></span></a>
@@ -164,7 +164,7 @@
 			</div>
 			<div class="shop">
 
-			<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['classify'] == 1): ?>
+			<?php if(is_array($row) || $row instanceof \think\Collection || $row instanceof \think\Paginator): $i = 0; $__LIST__ = $row;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['classify'] == 1): ?>
 				<!--常规羊群-->
 				<a href="<?php echo url('Order/info',['id'=>$vo['id']]);; ?>" class="shop1">
 					<div class="shops_top">
@@ -179,7 +179,7 @@
 							<p>羊单价</p>
 						</div>
 						<div class="">
-							<h2><?php echo $vo['number']; ?><em>只</em></h2>
+							<h2><?php echo $vo['numbers']; ?><em>只</em></h2>
 							<p>羊数量</p>
 						</div>
 						<div class="">
@@ -208,7 +208,7 @@
 							<p>羊单价</p>
 						</div>
 						<div class="">
-							<h2><?php echo $vo['number']; ?><em>只</em></h2>
+							<h2><?php echo $vo['numbers']; ?><em>只</em></h2>
 							<p>羊数量</p>
 						</div>
 						<div class="">

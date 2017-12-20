@@ -61,6 +61,7 @@ class Commodity extends Controller
             $data['down_time'] = strtotime($data['down_time']);
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
+            $data['numbers'] = $data['number'];
 
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {

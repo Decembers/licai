@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgsx.html";i:1513416313;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgsx.html";i:1513754504;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -94,7 +94,7 @@
 					</div>
 				</div>
 				<div class="detail2">
-					<p>原生态苏尼特羔羊171208</p>
+					<p><?php echo $arr['name']; ?></p>
 					<p><span>项目编号</span><span class="em"><?php echo $arr['com_number']; ?></span></p>
 					<p><span>开放时间</span><span id="" class="em">售羲</span>
 					</p>
@@ -102,7 +102,7 @@
 				<div class="detail3" style="display: none;">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">0.00</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"><?php echo session('user.balance'); ?></span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -126,7 +126,7 @@
 					</div>
 					<div class="row">
 
-						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian">780.00</span>
+						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian"><?php echo session('user.balance'); ?></span>
 							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">10.75</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>

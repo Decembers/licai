@@ -64,14 +64,14 @@
 					</div>
 				</div>
 				<div class="detail2">
-					<p>蒙高丽亚店铺辅助羊群171213</p>
+					<p>{$arr.name}</p>
 					<p><span>项目编号</span><span class="em">{$arr.com_number}</span></p>
 					<p><span>开放时间</span><span id="" class="em">售羲</span>
 				</div>
 				<div class="detail3" style="display: none;">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{session('balance');}</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{:session('user.balance')}</span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>

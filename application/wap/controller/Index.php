@@ -9,14 +9,18 @@ class Index extends Controller
     {
         $where['isdelete'] = 0;
         $where['status'] = 1;
-        $arr = C::where($where)->order('classify')->field('id,com_number,name,price,rate,return_price,number,classify')->select();
-        //var_dump($arr);die;
-        $this->assign('arr',$arr);
+        $cc = new C;
+        $row = $cc->index($where);
+        $this->assign('row',$row);
         return $this->fetch();
     }
 
-    public function create(){
-        //查询最后一个商品
+    /*
+     *羊群列表
+     */
+    public function orlist()
+    {
+        return $this->fetch();
     }
 
 }

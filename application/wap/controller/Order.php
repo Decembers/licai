@@ -3,13 +3,15 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-19 11:17:37
+ * @Last Modified time: 2017-12-20 18:14:13
  */
 namespace app\wap\controller;
 use think\Controller;
 use think\Session;
+use think\Db;
 use app\common\model\Order as O;
 use app\common\model\Commodity as C;
+use app\common\model\User as U;
 
 class Order extends Controller
 {
@@ -20,66 +22,92 @@ class Order extends Controller
         $controller = 'Order';
 
         if ($this->request->isAjax()) {
-
+            $arr = ['code'=>-200,'data'=>'','msg'=>''];
             $data = $this->request->post();
             $sp_id = $data['sp_id'];//商品id
             $comm = C::where(['id'=>$sp_id])->find();//查询商品的限购数量
             $restriction = $comm['restrict'];
             $num = $data['number'];//用户购买数量
+            $user_id = Session::get('user.id');
+
+            if ($comm['classify'] == 3) {
+                if ($data['vip6']!=$comm['vip6']) {
+                    $arr['msg']='您输入的vip邀请码不正确';
+                    return json_encode($arr);
+                }
+            }
+
+            $row['number'] = date('YmdHis') . rand(10000000,99999999);
+            $row['user_id'] = $user_id;
+            $row['sp_id'] = $sp_id;
+            $row['order_price'] = $num*$comm['price'];
+            $row['sp_price'] = $comm['price'];
+            $row['sp_count'] = $num;
+            $row['status'] = 0;
+            $row['sfpay'] = 1;
+            $row['isdelete'] = 0;
+            $row['create_time'] = time();
+            $row['update_time'] = time();
 
             if ($num>$restriction) {
-                $arr = ['code'=>-200,'data'=>'','msg'=>'购买数量超出'.$restriction.'个限购数'];
-                return ajax_return_adv_error($arr);
+                $arr['msg'] = '购买数量超出'.$restriction.'个限购数';
+                return json_encode($arr);
             };
+            if ($num<1) {
+                $arr['msg'] = '购买数量不可小于1';
+                return json_encode($arr);
+            }
             //每个用户限购的数量 查询用户购买数量为这个商品id的购买记录
-            $sp_count = O::where(['sp_id'=>$sp_id])->sum('sp_count');
+            $sp_count = O::where(['user_id'=>$user_id,'sp_id'=>$sp_id])->sum('sp_count');
             $z_count = $sp_count+$num;
             $y_count = $restriction - $sp_count;
             if ($z_count>$restriction) {
-                $arr = ['code'=>-200,'data'=>'','msg'=>'您已购买过'.$sp_count.'个,最多还可购买'.$y_count.'个'];
-                return ajax_return_adv_error($arr);
+                $arr['msg'] = '您已购买过'.$sp_count.'个,最多还可购买'.$y_count.'个';
+                return json_encode($arr);
             }
 
             $pay_pass = md5($data['pay_pass']);
             if (Session::get('user.pay_pass')!=$pay_pass) {
-                $arr = ['code'=>-200,'data'=>'','msg'=>'您输入的支付密码不正确'];
-                return ajax_return_adv_error($arr);
+                $arr['msg']='您输入的支付密码不正确';
+                return json_encode($arr);
             }
 
-
-            // 验证
-            if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
-                $validate = new $validateClass();
-                if (!$validate->check($data)) {
-                    return ajax_return_adv_error($validate->getError());
+            Db::startTrans();
+            try{
+                //扣除用户余额
+                $user = Db::table('tp_user')->where(['id'=>$user_id])->find();
+                $balance = $user['balance'] - $row['order_price'];
+                if ($balance < 0) {
+                    $arr['msg'] = '您的余额不足!请充值!';
+                    throw new \think\Exception();
                 }
-            }
+                Db::table('tp_user')->where(['id'=>$user_id])->update(['balance' => $balance]);
 
-            // 写入数据
-            if (
-                class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $this->parseCamelCase($controller)))
-                || class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $controller))
-            ) {
-                //使用模型写入，可以在模型中定义更高级的操作
-                $model = new $modelClass();
-                $ret = $model->isUpdate(false)->save($data);
-            } else {
-                // 简单的直接使用db写入
-                Db::startTrans();
-                try {
-                    $model = Db::name($this->parseTable($controller));
-                    $ret = $model->insert($data);
-                    // 提交事务
-                    Db::commit();
-                } catch (\Exception $e) {
-                    // 回滚事务
-                    Db::rollback();
-
-                    return ajax_return_adv_error($e->getMessage());
+                $ara = Db::table('tp_order')->insert($row);
+                if ($ara !== 1) {
+                    $arr['msg'] = '订单创建失败';
+                    throw new \think\Exception();
                 }
-            }
 
-            return ajax_return_adv('添加成功');
+                $comms = Db::table('tp_commodity')->where(['id'=>$sp_id])->lock(true)->find();
+                $numbers = $comms['number'] - $num;
+                if ($numbers < 0) {
+                    $arr['msg'] = '商品数量不足';
+                    throw new \think\Exception();
+                }
+                Db::table('tp_commodity')->where(['id'=>$sp_id])->update(['number' => $numbers]);
+
+                Session::set('user.balance',$balance);
+                // 提交事务
+                Db::commit();
+            } catch (\think\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                return json_encode($arr);
+            }
+            $arr['msg'] = '订单创建成功';
+            $arr['code'] = 0;
+            return json_encode($arr);
 
         } else {
 
@@ -122,6 +150,9 @@ class Order extends Controller
                     //购买 计算还剩多少购买时间
                     $time = $arr['down_time']-time();
                     $this->assign('time',$time);
+                    if ($arr['number']<=0) {
+                        return $this->fetch('cgsx');
+                    }
                     return $this->fetch('cggm');
                  }else{
                     return $this->fetch('cgsx');
@@ -138,6 +169,9 @@ class Order extends Controller
                     //购买
                     $time = $arr['down_time']-time();
                     $this->assign('time',$time);
+                    if ($arr['number']<=0) {
+                        return $this->fetch('fzsx');
+                    }
                     return $this->fetch('fzgm');
                  }else{
                     return $this->fetch('fzsx');
@@ -154,6 +188,9 @@ class Order extends Controller
                     //购买
                     $time = $arr['down_time']-time();
                     $this->assign('time',$time);
+                    if ($arr['number']<=0) {
+                        return $this->fetch('vipsx');
+                    }
                     return $this->fetch('vipgm');
                  }else{
                     return $this->fetch('vipsx');
@@ -162,5 +199,43 @@ class Order extends Controller
 
 
         }
+    }
+    /*
+     *查询商品的剩余数量
+     */
+    public function number()
+    {
+         if ($this->request->isAjax()) {
+            $data = $this->request->post();
+            $sp_id = $data['id'];//商品id
+            $comm = C::where(['id'=>$sp_id])->find();
+            $arr['number'] = $comm['number'];
+            return json_encode($arr);
+         }
+    }
+
+    /*
+     *商品购买详情
+     */
+    public function infolist()
+    {
+        $id = input('id');
+        $arr = O::where(['sp_id'=>$id])->field('user_id,create_time,sp_count')->select();
+        $row = [];
+        $status = [];
+        if (isset($arr)) {
+            $status['status'] = 1;
+            foreach ($arr as $k => $v) {
+                $user = U::where(['id'=>$v['user_id']])->find();
+                $row[$k]['name'] = $user['name'];
+                $row[$k]['create_time'] = $arr[$k]['create_time'];
+                $row[$k]['sp_count'] = $arr[$k]['sp_count'];
+            }
+        }else{
+            $status['status'] = 2;
+        }
+        $this -> assign('row',$row);
+        $this -> assign('status',$status);
+        return $this -> fetch();
     }
 }

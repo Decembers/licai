@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgys.html";i:1513654341;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgys.html";i:1513655702;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -124,13 +124,13 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{session('balance');}</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"></span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
 						<p>
 							<span id="subtract">-</span>
-							<input type="tel" name="" id="number" value="1" />
+							<input type="tel" name="sp_count" id="number" value="1" />
 							<span id="plus">+</span>
 						</p>
 					</div>

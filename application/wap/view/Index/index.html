@@ -138,7 +138,7 @@
 						</div>
 						<div class="navs">
 							<a href="index1-navs2.html" class="icon0"><span class="icon2"></span></a>
-							<a href="index1-navs2.html">购买羊只</a>
+							<a href="{:url('Index/orlist')}">购买羊只</a>
 						</div>
 						<div class="navs">
 							<a href="index1-navs3.html" class="icon0"><span class="icon3"></span></a>
@@ -163,7 +163,7 @@
 			</div>
 			<div class="shop">
 
-			{volist name="arr" id="vo"}
+			{volist name="row" id="vo"}
 			{if condition="$vo.classify eq 1"}
 				<!--常规羊群-->
 				<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop1">
@@ -179,7 +179,7 @@
 							<p>羊单价</p>
 						</div>
 						<div class="">
-							<h2>{$vo.number}<em>只</em></h2>
+							<h2>{$vo.numbers}<em>只</em></h2>
 							<p>羊数量</p>
 						</div>
 						<div class="">
@@ -208,7 +208,7 @@
 							<p>羊单价</p>
 						</div>
 						<div class="">
-							<h2>{$vo.number}<em>只</em></h2>
+							<h2>{$vo.numbers}<em>只</em></h2>
 							<p>羊数量</p>
 						</div>
 						<div class="">

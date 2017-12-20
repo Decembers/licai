@@ -108,9 +108,9 @@
 					</div>
 				</div>
 				<div class="detail2">
-					<p>VIP私人订制续订羊群171213</p>
+					<p>{$arr.name}</p>
 					<p><span>项目编号</span><span class="em">{$arr.com_number}</span></p>
-					<p><span>开放时间</span><span id="timer" class="timer-simple-seconds" timer="7800">
+					<p><span>开放时间</span><span id="timer" class="timer-simple-seconds" timer="{$time}">
 							<span class="day">0</span>天<span class="hour">0</span>时<span class="minute">0</span>分<span class="second" >0</span>秒
 						</span>
 					</p>
@@ -118,7 +118,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">0.00</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{:session('user.balance')}</span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -208,7 +208,7 @@
 			<p>确定</p>
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/times.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*买养 按钮禁用*/
 			$("#big-button").attr({

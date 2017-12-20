@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"E:\GitHub\licai./application/admin\view\commodity\edit.html";i:1513137463;s:58:"E:\GitHub\licai./application/admin\view\template\base.html";i:1488899632;s:69:"E:\GitHub\licai./application/admin\view\template\javascript_vars.html";i:1488899632;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"E:\GitHub\licai./application/admin\view\commodity\edit.html";i:1513765207;s:58:"E:\GitHub\licai./application/admin\view\template\base.html";i:1488899632;s:69:"E:\GitHub\licai./application/admin\view\template\javascript_vars.html";i:1488899632;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -44,6 +44,7 @@
 </nav>
 
 
+<link href="__ADMIN__/datetime/css/date.css" rel="stylesheet" type="text/css" />
 <div class="page-container">
     <form class="form form-horizontal" id="form" method="post" action="<?php echo \think\Request::instance()->baseUrl(); ?>">
         <input type="hidden" name="id" value="<?php echo isset($vo['id']) ? $vo['id'] :  ''; ?>">
@@ -98,6 +99,44 @@
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>vip邀请码：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="vip邀请码" name="vip6" value="<?php echo isset($vo['vip6']) ? $vo['vip6'] :  ''; ?>">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>商品购买开始时间：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <div class="demo">
+                    <div class="lie"><input name="preselle_time" id="startTime" class="kbtn" value="<?php echo (date("y-m-d h:i:s",$vo['preselle_time'])) ? date("y-m-d h:i:s",$vo['preselle_time']) :  ''; ?>"/></div>
+                </div>
+                <div id="datePlugin"></div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>商品结束购买时间：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <div class="demo">
+                    <div class="lie"><input name="down_time" id="endTime" class="kbtn" value="<?php echo (date("y-m-d h:i:s",$vo['down_time'])) ? date("y-m-d h:i:s",$vo['down_time']) :  ''; ?>"/></div>
+                </div>
+                <div id="datePlugin"></div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>商品准备时间：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <div class="demo">
+                    <div class="lie"><input name="deal_time" id="zbTime" class="kbtn" value="<?php echo (date("y-m-d h:i:s",$vo['deal_time'])) ? date("y-m-d h:i:s",$vo['deal_time']) :  ''; ?>"/></div>
+                </div>
+                <div id="datePlugin"></div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3">商品利润返还方式：</label>
             <div class="formControls col-xs-6 col-sm-6 skin-minimal">
@@ -216,6 +255,14 @@
             }
         });
     })
+</script>
+<script type="text/javascript" src="__ADMIN__/datetime/js/date.js" ></script>
+<script type="text/javascript">
+$(function(){
+    $('#startTime').date({theme:"datetime"});
+    $('#endTime').date({theme:"datetime"});
+    $('#zbTime').date({theme:"datetime"});
+});
 </script>
 
 </body>
