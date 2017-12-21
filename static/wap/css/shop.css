@@ -67,9 +67,7 @@ body,
 				-webkit-outline-style: none;
 			}
 			/*shop 样式*/
-			.wrapper{
-				position: relative;
-			}
+			
 			.detail {
 				width: 95%;
 				margin: 0 auto;
@@ -499,7 +497,25 @@ body,
 				opacity: 0.65;
 				/*filter: alpha(opacity=65);*/
 			}
-			
+			/*红包弹出*/
+			#red_select_list1 {
+				width: 100%;
+				height: 100vh;
+				position: fixed;
+				top: 120vh;
+				left: 0;
+				z-index: 1200;
+				background-color: #F0F0F3;
+				transition: top 0.3s;
+			}
+			/*红包关闭*/
+			.closeList span {
+				font-size: 0.9rem;
+			}
+			/*红包 样式*/
+			.default_red span {
+				font-size: 0.9rem;
+			}
 			/*红包 结束*/
 			　::-webkit-input-placeholder { /* WebKit browsers */
 　　    color: #a9a9a9;

@@ -61,7 +61,8 @@ a:hover {
 	text-decoration: none;
 	color: #337ab7;
 }
-
+/**/
+a,input,button,textarea{-webkit-tap-highlight-color:rgba(255,0,0,0);} 
 .item img,
 .activity,
 .nav,
@@ -77,10 +78,12 @@ a:hover {
 i.clear {
 	clear: both;
 }
-
+i {
+				font-style: normal;
+			}
 input,
 button,
-a {
+a ,textarea{
 	outline: none;
 	border: none;
 	-moz-outline: none;
@@ -101,11 +104,6 @@ span {
 	-webkit-outline-style: none;
 }
 
-a,
-input {
-	-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
-}
-
 
 /*段落间字与字距离调整*/
 
@@ -115,7 +113,7 @@ input {
 }
 
 
-/*index 的nav 样式*/
+/*主页 的nav 样式   开始*/
 
 .nav1 {
 	display: flex;
@@ -135,12 +133,8 @@ input {
 	margin-top: 5px;
 	color: black;
 }
-
-
-/*index1 index2 index3 index4   */
-
-
-/*index1 index2 index3 index4   footer样式*/
+/*主页 的nav 样式   结束*/
+/*主页的底部 样式 开始*/
 
 .footer {
 	position: fixed;
@@ -158,7 +152,7 @@ input {
 	text-align: center;
 	font-size: 1.3rem;
 }
-
+/*主页的底部 css精灵图片*/
 .footer .icons {
 	width: 30px;
 	height: 30px;
@@ -180,7 +174,7 @@ input {
 	background: url(../img/iconlist_05.png) no-repeat center 42.5%;
 	background-size: 3rem;
 }
-
+/*主页的底部 样式 结束*/
 
 /*.footer a:nth-child(2) .icons{
 	background: url(../img/iconlist_02.png) no-repeat center 69.5%;
@@ -196,7 +190,7 @@ input {
 }*/
 
 
-/*子页面头部样式*/
+/*子页面头部样式 开始*/
 
 div.header {
 	position: fixed;
@@ -206,14 +200,17 @@ div.header {
 	background-color: white;
 	box-sizing: border-box;
 	padding: 0 0.5rem;
-	box-sizing: border-box;
+	
 	height: 2.2rem;
-	display: flex;
-	justify-content: space-between;
+	min-height: 40px;
+	    border-bottom: 1px solid #d9d9d9;
 }
 
 .header div {
 	display: flex;
+	position: absolute;
+	top:0;
+	left: 1rem;
 }
 
 .header span.icon {
@@ -232,188 +229,202 @@ div.header {
 
 .header h3 {
 	margin: 0;
-	line-height: 2.2rem;
+	
 	font-weight: 400;
 	font-size: 1.1rem;
+	width: 100%;
+	text-align: center;
+	line-height: 40px;
 }
+
 
 .header a {
-	font-size: 0.9rem;
-	line-height: 2.2rem;
-	height: 2.2rem;
+	/*font-size: 0.9rem;*/
+	line-height: 30px;
+	height: 30px;
 	color: grey;
 	border: 0;
-}
-
-
-/* */
-
-.menu {
-	width: 95%;
-	margin: 0 auto;
-}
-
-.subnav {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
-
-.subnav p {
-	width: 31%;
-	height: 2.2rem;
-	line-height: 2.2rem;
-	text-align: center;
-	border-radius: 1rem;
-	font-size: 1rem;
-}
-
-.subnav p:nth-child(1) {
-	border: 1px solid #3db4cc;
-	color: #3db4cc;
-}
-
-.subnav p:nth-child(2) {
-	border: 1px solid #fec257;
-	color: #fec257;
-}
-
-.subnav p:nth-child(3) {
-	border: 1px solid #4bd1a4;
-	color: #4bd1a4;
-}
-
-.menu .subnav>.active1 {
-	color: white;
-	background: linear-gradient(to right, #3db4cc, #6fd6ea);
-}
-
-.menu .subnav>.active2 {
-	color: white;
-	background: linear-gradient(to right, #ffbe4c, #facc70);
-}
-
-.menu .subnav>.active3 {
-	color: white;
-	background: linear-gradient(to right, #41d1a1, #6de3a4);
-}
-
-.recommended_nav_2,
-.recommended_nav_2 li {
-	width: 100%;
-}
-
-.recommended_nav_2 li {
-	box-sizing: border-box;
-	border-radius: 0.4rem;
-	padding: 0 0.6rem;
-	margin: 0.5rem 0;
-	position: relative;
-}
-
-.recommended_nav_2 li .con_height {
-	width: 100%;
-	/* height: 3rem;*/
-	padding: 0.5rem 0;
-}
-
-.tc {
-	text-align: center;
-}
-
-.w_b {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-}
-
-.recommended_nav_2 li .con_height .tl {
-	width: 33.33%;
-	text-align: center;
-	color: #fff;
-}
-
-.recommended_nav_2 li .con_height .big {
-	font-size: 1.8rem;
-	line-height: 1.5rem;
-}
-
-.recommended_nav_2 li .con_height .small {
-	font-size: 0.75rem;
-	padding: 0;
-}
-
-.recommended_nav_2 li .con_height .small {
-	font-size: 0.8rem;
-	padding: 0;
-}
-
-
-/*常规羊群*/
-
-.fillet {
-	border: 1px solid #ededed;
-	border-radius: 0.4rem;
-	background: #fff;
-}
-
-.stage {
-	width: 2.5rem;
-	height: 2rem;
-	line-height: 2rem;
-	font-size: 0.85rem;
-	text-align: center;
-	background: #fff;
-	opacity: 0.9;
-	margin-right: 0.3rem;
 	position: absolute;
-	left: 0.6rem;
-	top: 0;
+	top: 10px;
+	right: 1rem;
 }
+/*子页面头部样式 结束*/
 
-.sellOut03 {
-	color: #fff;
-	background: #41d1a1;
-}
-
-.project_name {
-	color: #fff;
-	font-size: 0.75rem;
-	line-height: 2rem;
-	padding-left: 3rem;
-}
-
-.a9 {
-	color: #a9a9a9;
-}
-
-.project_name .fr {
-	position: absolute;
-	right: 0.85rem;
-	top: 0;
-	text-align: right;
-}
-
-.m_co {
-	color: #3db4cc;
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-}
-
-.sellOut01 {
-	color: #fff;
-	background: #3db4cc;
-}
-
-.sellOut02 {
-	color: #fff;
-	background: #ffbe4c;
-}
-
-
+/*index1-navs2.html 样式 开始*/
+			
+			.menu {
+				width: 95%;
+				margin: 0 auto;
+			}
+			/*navs2 点击选择 开始*/
+			
+			.subnav {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+			}
+			
+			.subnav p {
+				width: 31%;
+				height: 2.2rem;
+				line-height: 2.2rem;
+				text-align: center;
+				border-radius: 1rem;
+				font-size: 1rem;
+			}
+			
+			.subnav p:nth-child(1) {
+				border: 1px solid #3db4cc;
+				color: #3db4cc;
+			}
+			
+			.subnav p:nth-child(2) {
+				border: 1px solid #fec257;
+				color: #fec257;
+			}
+			
+			.subnav p:nth-child(3) {
+				border: 1px solid #4bd1a4;
+				color: #4bd1a4;
+			}
+			/*navs2 点击选择选中状态 样式*/
+			
+			.menu .subnav>.active1 {
+				color: white;
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
+			}
+			
+			.menu .subnav>.active2 {
+				color: white;
+				background: linear-gradient(to right, #ffbe4c, #facc70);
+			}
+			
+			.menu .subnav>.active3 {
+				color: white;
+				background: linear-gradient(to right, #41d1a1, #6de3a4);
+			}
+			/*navs2 点击选择 结束*/
+			/*navs2 点击选择选中 购买羊只列 开始*/
+			
+			.recommended_nav_2,
+			.recommended_nav_2 li {
+				width: 100%;
+			}
+			/*公用样式 开始*/
+			
+			.recommended_nav_2 li {
+				box-sizing: border-box;
+				border-radius: 0.4rem;
+				padding: 0 0.6rem;
+				margin: 0.5rem 0;
+				position: relative;
+			}
+			
+			.recommended_nav_2 li .con_height {
+				width: 100%;
+				
+				padding: 0.5rem 0 1rem 0;
+				
+			}
+			
+			.tc {
+				text-align: center;
+			}
+			
+			.w_b {
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+			}
+			
+			.recommended_nav_2 li .con_height .tl {
+				width: 33.33%;
+				text-align: center;
+				color: #fff;
+			}
+			
+			.recommended_nav_2 li .con_height .big {
+				font-size: 1.8rem;
+				line-height: 1.5rem;
+			}
+			
+			.recommended_nav_2 li .con_height .small {
+				font-size: 0.75rem;
+				padding: 0;
+			}
+			
+			.recommended_nav_2 li .con_height .small {
+				font-size: 0.8rem;
+				padding: 0;
+			}
+			/*公用样式 结束*/
+			/*常规羊群 开始*/
+			
+			.fillet {
+				border-radius: 0.4rem;
+				background: #fff;
+			}
+			
+			.stage {
+				width: 2.5rem;
+				height: 2rem;
+				line-height: 2rem;
+				font-size: 0.85rem;
+				text-align: center;
+				background: #fff;
+				opacity: 0.9;
+				margin-right: 0.3rem;
+				position: absolute;
+				left: 0.6rem;
+				top: 0;
+			}
+			/*辅助*/
+			
+			.sellOut03 {
+				color: #fff;
+				background: #41d1a1;
+			}
+			
+			.project_name {
+				font-size: 0.75rem;
+				line-height: 2rem;
+				padding-left: 3rem;
+			}
+			
+			.a9 {
+				color: #a9a9a9;
+			}
+			
+			.project_name .fr {
+				position: absolute;
+				right: 0.85rem;
+				top: 0;
+				text-align: right;
+			}
+			
+			.m_co {
+				color: #3db4cc;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				margin: 0.4rem 0;
+			}
+			/*常规*/
+			
+			.sellOut01 {
+				color: #fff;
+				background: #3db4cc;
+			}
+			/*VIP*/
+			
+			.sellOut02 {
+				color: #fff;
+				background: #ffbe4c;
+			}
+			
+/*index1-navs2.html 样式 结束*/
 /*shop 页面 购买提示 
  *  数量超出提示*/
 .overtop {
@@ -438,6 +449,7 @@ div.header {
 	opacity: 1;
 	transition: opacity 1s;
 }
+/*购买提示 */
 .overtop1 {
 	position: fixed;	
 	height: auto;
@@ -460,4 +472,24 @@ div.header {
 .overtop1 .overtop_text {
 	border-bottom: 1px solid darkgray;
 	font-weight: 400;
+}
+.big-button {
+    display: block;
+    width: 85%;
+    height: 3rem;
+    line-height: 3rem;
+    margin: 0.5rem auto 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 1.125rem;
+    background: linear-gradient(to right, #3db4cc, #6fd6ea);
+    margin: 2rem auto;
+}
+.no_record {
+    width: 12rem;
+    height: 13rem;
+    margin: 7.5rem auto 0 auto;
+    background: url(../img/no_record.png) no-repeat center center;
+    background-size: 100% 100%;
 }

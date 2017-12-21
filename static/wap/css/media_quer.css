@@ -4,6 +4,9 @@
 	.wrapper {
 		width: 100%;
 		background-color: white;
+		position: fixed;
+		left: 0;
+		top: 0;
 	}
 	.footer {
 		width: 100%;
@@ -12,8 +15,46 @@
 		display: none;
 	}
 }
+body{
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.wrapper{
+	    height: 100vh;
+	    box-sizing: border-box;
+	    overflow: auto;
+	    -webkit-overflow-scrolling: touch;
+}
 
-
+::-webkit-scrollbar  
+{  
+    width: 1px;  
+    height: 1px;  
+    background-color: white;  
+   
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);  
+    border-radius: 1px;  
+    background-color: white;  
+   
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 1px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);  
+    background-color: white;  
+   
+}  
 /*媒体查询 页面大于900px*/
 
 @media screen and (min-width: 900px) {
@@ -34,6 +75,9 @@
 		width: 800px;
 		margin: 0 auto;
 		background-color: white;
+		position: fixed;
+		
+		top: 0;
 	}
 	.footer {
 		width: 800px;

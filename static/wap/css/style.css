@@ -1,3 +1,4 @@
+/*index1 辅助  常规  VIP  开始*/
 .shop>a{
 	width: 95%;	
 	margin: 15px auto;
@@ -99,7 +100,8 @@
 .shop>a.shop3{
 	margin-bottom: 5px;
 }
-/*新手指导*/
+/*index1 辅助  常规  VIP  结束*/
+/*新手指导   开始*/
 .floor1{
 	width: 100%;	   
     background: url(../img/guide01.jpg) no-repeat center top;
@@ -300,7 +302,8 @@
     line-height: 1.8rem;
     text-align: center;
 }
-/*index3  发现*/
+/*新手指导   结束*/
+/*index3  发现  开始*/
 .activity li{
 	margin-top: 15px;
 }
@@ -327,9 +330,9 @@
 .a1 {
     color: #1a1a1f!important;
 }
-.activity_con {
-    height: 1.8rem;
-    line-height: 1.8rem;
+.activity_con {    
+   padding-top: 0.5rem;
+    overflow: hidden;
 }
 .a9 {
     color: #a9a9a9!important;
@@ -346,9 +349,11 @@
     float: right;
 }
 .activety_time {
+	width: 100%;
+	height: 2rem;
     font-size: 1.4rem;
     line-height: 2rem;
-    text-align: left;
+  
 }
 /* index2 超市*/
 header.bar {
@@ -513,20 +518,29 @@ header h1 {
     box-sizing: border-box;
     padding: 0;
 }*/
-
-/*index4 我的*/
+/*index3 发现 结束*/
+/*index4 我的 开始*/
+/*one 信息*/
 .uc_c_top {
     box-sizing: border-box;
     width: 100%;
-    height: 4rem;
+    height: 7rem;
     background: linear-gradient(to right,#33b3cc,#6fd6ea);
     border-radius: 0.4rem;
     padding: 0.8rem 0.6rem 0.8rem 0.7rem;
+    margin-top: 1rem;
     color: #fff;
+   
+}
+.uc_c_top_conten{
+	box-sizing: border-box;
+	width: 100%;height: 5rem;
+	padding:  0.5rem 1rem ;
+	box-sizing: border-box;
 }
 .uc_img_bor_small {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 4rem;
+    height: 4rem;
     border: 2px solid #fff;
     border-radius: 50%;
     background: #f7f7f7;
@@ -547,29 +561,33 @@ header h1 {
     opacity: 0;
     z-index: 999;
 }
-form {
+/*form {
     display: block;
     margin-top: 0em;
-}
+}*/
+/*昵称*/
 .uc_c_top .user_name {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     color: #fff;
     font-weight: 600;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
 }
-.authened {
-    opacity: 0.5;
-}
+/*签到积分*/
 .authen, .authened {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    opacity: 0.5;
 }
 .uc_c_top .integral {
     position: relative;
     display: flex;
+   
 }
 .uc_c_top .integral a {
-    font-size: 0.75rem;
+    font-size: 1.4rem;
     color: #f7f7f7;
-    line-height: 2.4rem;
+    line-height: 4rem;
     margin-left: 0.5rem;
 }
 .increase {
@@ -579,21 +597,16 @@ form {
     color: #fff;
     opacity: 0;
 }
-.uc_c_top .integral a {
-    font-size: 0.75rem;
-    color: #f7f7f7;
-    line-height: 2.4rem;
-    margin-left: 0.5rem;
-}
+/*身份认证后才可购买羊只、提现哦。*/
 .authen_tip {
-    font-size: 0.9rem;
-    line-height: 1.8rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
 }
+/* 账户明细*/
 .account {
     box-sizing: border-box;
-    height: 8.2rem;
     margin: 0.5rem 0;
-    position: relative;
+   /* position: relative;*/
 }
 .fillet {
     border: 1px solid #ededed;
@@ -603,30 +616,30 @@ form {
 .account p {
     text-align: center;
 }
+
 .detailed {
-    font-size: 0.75rem;
     margin-top: 0.6rem;
     text-align: center;
 }
-.detailed a {
+.detailed a,.acc-bal {
     display: block;
     width: 100%;
     text-align: center;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+.account-balance {
+    font-size: 2.5rem;
+    line-height: 3rem;
 }
 
-.account-balance {
-    font-size: 1.5rem;
-}
-.acc-bal {
-    font-size: 0.7rem;
-}
+/*充值提现*/
 .money_operation {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
+    width: 100%;  
     border-top: 1px solid #ededed;
+}
+.money_operation ul{
+	overflow: auto;
 }
 .money_operation li.incharge {
     border-right: 1px solid #ededed;
@@ -635,9 +648,9 @@ form {
     box-sizing: border-box;   
     float: left;
     width: 50%;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    font-size: 0.9rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.4rem;
     padding-left: 2rem;
 }
 .money_operation a {
@@ -656,80 +669,75 @@ form {
     margin-right: 1rem;
 }*/
 .money_operation .incharge .icon {
-	 width: 2.2rem;
-    height: 2.5rem;
-    background: url(../img/iconlist_03.png) no-repeat center -0.5%;
-     background-size: 2.2rem;
+	 width: 3.2rem;
+    height: 3.5rem;
+    background: url(../img/iconlist_03.png) no-repeat center -2%;
+     background-size: 2rem;  
+     margin-top: 0.25rem;
 }
 .a1 {
     color: #1a1a1f!important;
 }
 
 .money_operation .carry .icon {
-	 width: 2.2rem;
-    height: 2.5rem;
-	/*border: 1px solid cornflowerblue;*/
-  /*  background: url(../img/iconlist_03.png) no-repeat center 5.3%;
-     background-size: 4rem;*/
-     background: url(../img/iconlist_03.png) no-repeat center 8.8%;
-    background-size: 2.2rem;
+	  width: 3.2rem;
+    height: 3.5rem;
+     background: url(../img/iconlist_03.png) no-repeat center 7.7%;
+    background-size: 2rem;
+     margin-top: 0.25rem;
 }
-.money_operation a p{
-	margin-left: 1rem;
-}
-.uc_c_middle {
-   
+
+.uc_c_middle { 
     position: relative;
 }
-/**/
-.fillet {
-    border: 1px solid #ededed;
-    border-radius: 0.4rem;
-    background: #fff;
-}
+/*列表项*/
+
 .uc_c_middle li, .uc_c_bottom li {
     box-sizing: border-box;
-    height: 5rem;
-    line-height: 5rem;
+    height: 4rem;
+    line-height: 4rem;
     border-bottom: 1px solid #ededed;
-    padding-right: 0.35rem;
-    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    font-size: 1.6rem;
 }
-#uc_center .uc_c_middle a, #uc_center .uc_c_bottom a {
+ .uc_c_middle a,.uc_c_bottom a {
     display: block;
     width: 100%;
 }
-#uc_center .uc_c_middle a p, #uc_center .uc_c_bottom a p{
-   line-height: 3rem;
-   height: 3rem;
+.uc_c_middle a p,.uc_c_bottom a p{
+   line-height: 4rem;
+   height: 4rem;
+   margin-left: 1rem;
+   color: black !important;
 }
-
+/*右边方向箭头*/
 .entered {
     display: inline-block;
     width: 2rem;
     height: 3rem;
-    margin-top: 1rem;   
-    background: url(../img/iconlist_02.png) no-repeat -10px 101%;
+    margin-top: 0.5rem;   
+    background: url(../img/iconlist_02.png) no-repeat -15px 101%;
    background-size: 3rem;
 }
+/*← 图标*/
 .contract div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     background: url(../img/iconlist_03.png) no-repeat center 27.5%;
 	background-size: 1.5rem;
 }
 .invitation div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
        background: url(../img/iconlist_03.png) no-repeat center 37%;
 	background-size: 1.5rem;
 }
 .dingdan div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
        background: url(../img/dingdan.png) no-repeat center center;
 	background-size: 1.4rem;
 	/*background-size: 0.85rem 1.075rem!important;*/
@@ -737,35 +745,40 @@ form {
 .voucher div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
        background: url(../img/iconlist_03.png) no-repeat center 67%;
 	background-size: 1.5rem;
 }
 .address div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
        background: url(../img/iconlist_03.png) no-repeat center 77%;
 	background-size: 1.5rem;
 }
 .integral div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
           background: url(../img/iconlist_03.png) no-repeat center 57%;
 	background-size: 1.5rem;
 }
 .setting div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
-       background: url(http://www.caifumuchang.com/wap/tpl/fanwe/images/iconlist_03.png) no-repeat center 86.5%;
+    margin-top: 0.5rem;
+       background: url(../img/iconlist_03.png) no-repeat center 86.5%;
 	background-size: 1.5rem;
 }
 .help div.icon{
 	 width: 2.2rem;
     height: 3rem;
-    margin-top: 1rem;
-    background: url(http://www.caifumuchang.com/wap/tpl/fanwe/images/iconlist_03.png) no-repeat center 96%;
+    margin-top: 0.5rem;
+    background: url(../img/iconlist_03.png) no-repeat center 96%;
 	background-size: 1.5rem;
 }
+.official_record{
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+/*index4 我的 结束*/
