@@ -3,17 +3,17 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-20 18:14:13
+ * @Last Modified time: 2017-12-21 14:33:23
  */
 namespace app\wap\controller;
-use think\Controller;
+use app\wap\controller\Yang;
 use think\Session;
 use think\Db;
 use app\common\model\Order as O;
 use app\common\model\Commodity as C;
 use app\common\model\User as U;
 
-class Order extends Controller
+class Order extends Yang
 {
     use \app\admin\traits\controller\Controller;
 
@@ -29,6 +29,11 @@ class Order extends Controller
             $restriction = $comm['restrict'];
             $num = $data['number'];//用户购买数量
             $user_id = Session::get('user.id');
+
+            if (!isset($user_id)) {
+                $arr['msg']='请登陆后购买!';
+                return json_encode($arr);
+            }
 
             if ($comm['classify'] == 3) {
                 if ($data['vip6']!=$comm['vip6']) {

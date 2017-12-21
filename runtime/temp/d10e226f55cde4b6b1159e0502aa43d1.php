@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipys.html";i:1513763555;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipys.html";i:1513827934;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -167,7 +167,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="index1-shop-protocol3.html">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='index1-shop-deal1.html'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>
 
 				</div>
@@ -209,7 +209,7 @@
 			<p>确定</p>
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/times.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*买养 按钮禁用*/
 			$("#big-button").attr({

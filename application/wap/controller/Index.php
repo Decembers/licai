@@ -1,14 +1,14 @@
 <?php
 namespace app\wap\controller;
-use think\Controller;
+use app\wap\controller\Yang;
 use app\common\model\Commodity as C;
 
-class Index extends Controller
+class Index extends Yang
 {
     public function index()
     {
-        $where['isdelete'] = 0;
         $where['status'] = 1;
+        $where['isdelete'] = 0;
         $cc = new C;
         $row = $cc->index($where);
         $this->assign('row',$row);
@@ -20,6 +20,21 @@ class Index extends Controller
      */
     public function orlist()
     {
+        $where['status'] = 1;
+        $where['classify'] = 1;
+        $cc = new C;
+        //常规羊群
+        $cgy = $cc->orlist($where);
+        $this->assign('cgy',$cgy);
+        //辅助羊群
+        $where['classify'] = 2;
+        $fzy = $cc->orlist($where);
+        $this->assign('fzy',$fzy);
+        //vip羊群
+        $where['classify'] = 3;
+        $vipy = $cc->orlist($where);
+        $this->assign('vipy',$vipy);
+
         return $this->fetch();
     }
 

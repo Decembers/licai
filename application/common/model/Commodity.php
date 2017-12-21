@@ -25,4 +25,11 @@ class Commodity extends Model
         }
         return $row;
     }
+
+    public function orlist($where)
+    {
+        $obj = new commodity;
+        $arr = $obj->where($where)->order('isdelete,preselle_time')->field('id,com_number,name,price,rate,return_price,number,classify,numbers,deal_time,isdelete')->select();
+        return $arr;
+    }
 }

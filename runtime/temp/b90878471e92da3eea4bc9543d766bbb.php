@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipsx.html";i:1513765315;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\order\vipsx.html";i:1513828317;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -86,7 +86,7 @@
 						</div>
 						<div>
 							<p>剩余羊只（只）</p>
-							<p><?php echo $arr['number']; ?></p>
+							<p>0</p>
 						</div>
 					</div>
 					<div class="detail1_bottom">
@@ -145,7 +145,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="index1-shop-protocol.html">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4" >
@@ -325,7 +325,7 @@
 						$(".overtop1 .overtop_text").text("支付密码错误");
 					}
 				}*/
-				window.location.href = "index1-shop-deal2.html";
+				window.location.href = '<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>';
 			})
 			$(".overtop1 p:nth-child(2)").click(function() {
 				$("#goodcover").css("display", "none");

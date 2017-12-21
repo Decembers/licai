@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\login\login.html";i:1513848575;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -376,7 +377,7 @@
 					var password=$("#pwd").val();
 					$.ajax({
 	                    type : "POST",  //提交方式
-	                    url : "{:url('Login/checkindex')}",//路径
+	                    url : "<?php echo url('Login/checkindex'); ?>",//路径
 	                    data : {
 	                        "mobile" : mobile,
 	                        "password" : password,
@@ -392,7 +393,7 @@
 								$(".overtop").text(result.msg);
 								overtop();
 								setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-								window.location='{:url("index/index");}';
+								window.location='<?php echo url("index/index");; ?>';
 								},10000);
 							}
 	                    },
@@ -467,7 +468,7 @@
 										var referer= $("#referer").val();
 										$.ajax({
 						                    type : "POST",  //提交方式
-						                    url : "{:url('Login/checkreg')}",//路径
+						                    url : "<?php echo url('Login/checkreg'); ?>",//路径
 						                    data : {
 						                        "mobile" : mobile,
 						                        "password" : password,
@@ -484,8 +485,8 @@
 													$(".overtop").text(result.msg);
 													overtop();
 													setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-													window.location='{:url("Login/login");}';
-													},1000);
+													window.location='<?php echo url("Login/login");; ?>';
+													},10000);
 												}
 						                    },
 						                    error : function (){
@@ -545,7 +546,7 @@
 										var code = $("#mobile_code1").val();
 										$.ajax({
 						                    type : "POST",  //提交方式
-						                    url : "{:url('Login/nopassword')}",//路径
+						                    url : "<?php echo url('Login/nopassword'); ?>",//路径
 						                    data : {
 						                        "mobile" : mobile,
 						                        "password" : password,
@@ -560,8 +561,8 @@
 													$(".overtop").text(result.msg);
 													overtop();
 													setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-													window.location='{:url("Login/login");}';
-													},1000);
+													window.location='<?php echo url("Login/login");; ?>';
+													},10000);
 												}
 						                    },
 						                    error : function (){
