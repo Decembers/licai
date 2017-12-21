@@ -3,13 +3,14 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-19 16:47:18
+ * @Last Modified time: 2017-12-21 17:52:26
  */
 namespace app\wap\controller;
 use think\Controller;
 use think\Request;
 use think\Db;
 use think\Session;
+use think\Cookie;
 use app\common\model\User;
 /**
 * 会员管理
@@ -31,6 +32,7 @@ class Login extends Controller
             $password=input('post.password');
             $arr = input('post.');
             $arr['password'] = md5($password);
+            //return json($arr);
 
         if (!$mobile) {
             return json(['code'=>1, 'msg'=>'手机号不能为空']);
@@ -41,14 +43,23 @@ class Login extends Controller
         if (!checkMobile($mobile)) {
             return json(['code'=>1, 'msg'=>'手机号格式不正确']);
         }
-        $res = User::where($arr)->find();
+        $res = User::where(['mobile'=>$arr['mobile']])->find();
 
-        if (is_array($res)) {
-
-            $url = Url::build('index/index');
-            return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
+        if (isset($res)) {
+            if ($res['password']==$arr['password']) {
+                //存cookie
+                unset($res['password']);
+                unset($res['pay_pass']);
+                unset($res['isdelete']);
+                Session::set('user',$res);
+                $user = serialize($res);
+                Cookie::set('user',$user,2592000);
+                return json(['code'=>200, 'msg'=>'登录成功']);
+            }else{
+                return json(['code'=>1, 'msg'=>'密码错误']);
+            }
         } else {
-            return json(['code'=>1, 'msg'=>'帐号或密码错误']);
+            return json(['code'=>1, 'msg'=>'用户名不存在']);
         }
             return json(['code'=>1, 'msg'=>'登录失败']);
 
@@ -56,12 +67,6 @@ class Login extends Controller
             return json(['code'=>1, 'msg'=>'非法请求']);
         }
     }
-
-    public function reg()
-    {
-        return $this->fetch();
-    }
-
     /**
      * 用户注册操作 tml 20170920
      */
@@ -69,12 +74,17 @@ class Login extends Controller
     {
         if ($this->request->isAjax() && $this->request->isPost())
         {
-            $add       = input('post.');
             $mobile    = input('post.mobile');
-            $name    = input('post.name');
-            //$code      = input('post.code');
-            $user_type  =input('post.user_type');
             $password  = input('post.password');
+            $name    = input('post.name');
+            $code      = input('post.code');//验证码
+            $referer  =input('post.referer');
+
+            $row['mobile']=input('post.mobile');
+            $row['password']=input('post.password');
+            $row['name']=input('post.name');
+            $row['referrer']=input('post.referrer');
+
 
 
             if (!$mobile) {
@@ -104,11 +114,11 @@ class Login extends Controller
                 return json(['code'=>1, 'msg'=>'密码长度需在6~20位之间']);
             }
 
-            $add['createt_time']=time();
-            $add['status']=1;
-            $add['login_time']=time();
-            $add['password']=md5($password);
-            $res = User::insert($add);
+            $row['create_time']=time();
+            $row['status']=1;
+            $row['login_time']=time();
+            $row['password']=md5($password);
+            $res = User::insert($row);
             if ($res!==false) {
                 return json(['code'=>200, 'msg'=>'注册成功,即将跳转到登录页']);
             }
@@ -125,9 +135,9 @@ class Login extends Controller
                 {
                 $mobile=input('post.mobile');
                 $password=input('post.password');
-                $arr = input('post.');
+                $arr['mobile']= input('post.mobile');
                 $arr['password'] = md5($password);
-                //$code      = input('post.code');手机验证码
+                $code      = input('post.code');
 
                 if (!$mobile) {
                     return json(['code'=>1, 'msg'=>'手机号不能为空']);
@@ -154,11 +164,10 @@ class Login extends Controller
 
                 $res = User::where(['mobile'=>$mobile])->find();
 
-                if (is_array($res)) {
+                if (isset($res)) {
 
-                    $url = Url::build('login/login');
-                    $ress = User::where(['mobile'=>$mobile])->save($arr);
-                    return json(['code'=>200, 'msg'=>'重置密码成功,请登录','url'=>$url]);
+                    $ress = User::where(['mobile'=>$mobile])->update($arr);
+                    return json(['code'=>200, 'msg'=>'重置密码成功,请登录']);
                 } else {
                     return json(['code'=>1, 'msg'=>'手机号码不存在']);
                 }

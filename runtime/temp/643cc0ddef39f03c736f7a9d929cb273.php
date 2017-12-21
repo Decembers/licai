@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgsx.html";i:1513754504;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgsx.html";i:1513828281;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -88,7 +88,7 @@
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span>0</span><span class="em">只苏尼特羊</span></p>
+						<p><span><?php echo $arr['numbers']; ?></span><span class="em">只苏尼特羊</span></p>
 						<p><span><?php echo $arr['rate']; ?></span><span class="em">天联养周期</span></p>
 						<p><span><?php echo $arr['return_price']; ?></span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
@@ -143,14 +143,14 @@
 							<span>朕已阅读并同意</span>
 							<a href="index1-shop-protocol.html">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='index1-shop-deal.html'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4" >
 
 				</div>
 			</div>
-			<button class="big-button press" id="big-button"><!--<span class="icon"></span><span>10点开抢</span>-->交易详情</button>
+			<button class="big-button press" id="big-button">交易详情</button>
 			<a href="#" class="found m_co sh_au-ex" style="padding-bottom: 10px; display: none;">商铺辅助羊群说明</a>
 			<div id="goodcover"></div>
 			<!-- 商铺辅助羊群群说明-->
@@ -323,7 +323,7 @@
 						$(".overtop1 .overtop_text").text("支付密码错误");
 					}
 				}*/
-				window.location.href = "index1-shop-deal.html";
+				window.location.href = '<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>';
 			})
 			$(".overtop1 p:nth-child(2)").click(function() {
 				$("#goodcover").css("display", "none");

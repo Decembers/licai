@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgys.html";i:1513655702;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cgys.html";i:1513827905;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -112,7 +112,7 @@
 					</div>
 				</div>
 				<div class="detail2">
-					<p>原生态苏尼特羔羊171208</p>
+					<p><?php echo $arr['name']; ?></p>
 					<p><span>项目编号</span><span class="em"><?php echo $arr['com_number']; ?></span></p>
 					<p><span>开放时间</span>
 						<span id="timer" class="timer-simple-seconds" timer="<?php echo $time; ?>">
@@ -124,7 +124,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"></span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;"><?php echo session('user.balance'); ?></span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -148,7 +148,7 @@
 					</div>
 					<div class="row">
 
-						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian">780.00</span>
+						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian"><?php echo session('user.balance'); ?></span>
 							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span>
 							<span class="em" style="font-size: 0.6rem;color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">41.60</span>
 							<span class="em"></span><span style="font-size: 0.6rem;">）</span>
@@ -167,7 +167,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="index1-shop-protocol.html">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='index1-shop-deal.html'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4">

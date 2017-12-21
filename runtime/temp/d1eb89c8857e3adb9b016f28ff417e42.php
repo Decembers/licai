@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\index\orlist.html";i:1513753995;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\index\orlist.html";i:1513827981;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -43,38 +43,46 @@
 			}
 
 
-
-			.recommended_nav_2  .m_co {
-				margin: 0.4rem 0;
+			#nav1>li.type1 {
+				background-color: #3db4cc !important;
 			}
 
-			.recommended_nav_2 li .con_height {
-				padding-bottom: 1rem;
-			}
-			.recommended_nav_2 .type1:nth-child(1) {
-				background-color: #3db4cc;
-				color: white;
-			}
-			.recommended_nav_2 .type3:nth-child(1) {
-				background-color: #41d1a1;
-				color: white;
-			}
-			.recommended_nav_2 .type1:nth-child(1) .sellOut01 {
-				background-color: white;
-				color: #3db4cc;
-			}
-			.recommended_nav_2 .type1:nth-child(1) .sellOut01 {
-				background-color: white;
-				color: #41d1a1;
-			}
-			.recommended_nav_2 .type1:nth-child(1) .m_co,.recommended_nav_2 .type3:nth-child(1) .m_co,.recommended_nav_2 .type2:nth-child(1) .m_co{
-			color: white;
-		}
-		.recommended_nav_2 .type2:nth-child(1) {
+			#nav2>li.type1 {
 				background-image: url(__WAP__/img/vip.jpg) !important;
-				  -moz-background-size:100% 100% !important;
-			   background-size:100% 100% !important;
-				color: white;
+				-moz-background-size: 100% 100% !important;
+				background-size: 100% 100% !important;
+			}
+
+			#nav3>li.type1 {
+				background-color: #41d1a1 !important;
+			}
+
+			#nav1 li.type1 .sellOut01 {
+				color: #3db4cc !important;
+				background: #fff !important;
+			}
+
+			#nav2 li.type1 .sellOut02 {
+				color: #ffbe4c !important;
+				background: #fff !important;
+			}
+
+			#nav3 li.type1 .sellOut03 {
+				color: #41d1a1;
+				!important;
+				background: #fff !important;
+			}
+
+			#nav1 li.type1 .project_name,
+			#nav2 li.type1 .project_name,
+			#nav3 li.type1 .project_name {
+				color: white !important;
+			}
+
+			#nav1 li.type1 .m_co,
+			#nav2 li.type1 .m_co,
+			#nav3 li.type1 .m_co {
+				color: white !important;
 			}
 		</style>
 	</head>
@@ -94,73 +102,155 @@
 					<p id="type2">VIP羊群</p>
 					<p id="type3">辅助羊群</p>
 				</div>
-				<ul class="recommended_nav_2" 	>
-					<li class="type1 fillet" onclick="window.location='index1-shop1.html'">
-						<div class="stage sellOut01  fl" style="background-color: white; color: #3db4cc;">进行</div>
-						<p class="project_name">原生态苏尼特羔羊171211A<span class=" fr">剩余：150</span></p>
+				<!--常规羊群-->
+				<ul class="recommended_nav_2" id="nav1">
+					<?php if(is_array($cgy) || $cgy instanceof \think\Collection || $cgy instanceof \think\Paginator): $i = 0; $__LIST__ = $cgy;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['isdelete'] != 1): ?>
+					<li class="type1 fillet" onclick="window.location='<?php echo url("Order/info",["id"=>$vo['id']]);; ?>'">
+						<div class="stage sellOut01  fl">进行</div>
+						<p class="project_name">原生态苏尼特羔羊171211A<span class=" fr">剩余：<?php echo $vo['number']; ?></span></p>
 						<div class="title_nav">
 							<div class="con_height">
 								<div class="w_b tc">
 									<div class="tl je">
-										<p class="m_co"><i class="big">780</i><i class="small">元</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['price']; ?></i><i class="small">元</i></p>
 										<p class="small">羊单价</p>
 									</div>
 									<div class="tl sj">
-										<p class="m_co"><i class="big">150</i><i class="small">只</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['numbers']; ?></i><i class="small">只</i></p>
 										<p class="small">羊只数量</p>
 									</div>
 									<div class="tl lv">
-										<p class="m_co"><i class="big">120</i><i class="small">天</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['rate']; ?></i><i class="small">天</i></p>
 										<p class="small">联养周期</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="type2 fillet"onclick="window.location='index1-shop3.html'" style="background-image: url(__WAP__/img/vip.jpg);   background-size:100% 100% ; color: white;">
-						<div class="stage sellOut02  fl" style="background-color: white;color: #FDC45D; ">进行</div>
-						<p class="project_name">VIP私人订制续订羊群B171211<span class="fr">剩余：100</span></p>
+					<?php else: ?>
+					<li class="fillet" onclick="window.location='<?php echo url("Order/info",["id"=>$vo['id']]);; ?>'">
+						<div class="stage sellOut01  fl">售完</div>
+						<p class="project_name">原生态苏尼特羔羊171211A<span class=" fr">剩余：0</span></p>
 						<div class="title_nav">
 							<div class="con_height">
 								<div class="w_b tc">
 									<div class="tl je">
-										<p class="m_co" style="color: white;"><i class="big">780</i><i class="small">元</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['price']; ?></i><i class="small">元</i></p>
 										<p class="small">羊单价</p>
 									</div>
 									<div class="tl sj">
-										<p class="m_co" style="color: white;"><i class="big">130</i><i class="small">只</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['numbers']; ?></i><i class="small">只</i></p>
 										<p class="small">羊只数量</p>
 									</div>
 									<div class="tl lv">
-										<p class="m_co" style="color: white;"><i class="big">120</i><i class="small">天</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['rate']; ?></i><i class="small">天</i></p>
 										<p class="small">联养周期</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="type3 fillet" style="background-color: #41d1a1;color: white;" onclick="window.location='index1-shop2.html'">
-						<div class="stage sellOut03  fl" style="background-color: white; color:  #41d1a1;">进行</div>
-						<p class="project_name ">蒙高丽亚店铺辅助羊群171211<span class=" fr">剩余：150</span></p>
+					<?php endif; endforeach; endif; else: echo "" ;endif; ?>
+				</ul>
+				<!--VIP羊群-->
+				<ul class="recommended_nav_2"  id="nav2">
+					<?php if(is_array($vipy) || $vipy instanceof \think\Collection || $vipy instanceof \think\Paginator): $i = 0; $__LIST__ = $vipy;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['isdelete'] != 1): ?>
+					<li class="type1 fillet"onclick="window.location='<?php echo url("Order/info",["id"=>$vo['id']]);; ?>'">
+						<div class="stage sellOut02  fl">进行</div>
+						<p class="project_name">VIP私人订制续订羊群B171211<span class="fr">剩余：<?php echo $vo['number']; ?></span></p>
 						<div class="title_nav">
 							<div class="con_height">
 								<div class="w_b tc">
 									<div class="tl je">
-										<p class="m_co" style="color: white;"><i class="big">770</i><i class="small">元</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['price']; ?></i><i class="small">元</i></p>
 										<p class="small">羊单价</p>
 									</div>
 									<div class="tl sj">
-										<p class="m_co" style="color: white;"><i class="big">50</i><i class="small">只</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['numbers']; ?></i><i class="small">只</i></p>
 										<p class="small">羊只数量</p>
 									</div>
 									<div class="tl lv">
-										<p class="m_co" style="color: white;"><i class="big">35</i><i class="small">天</i></p>
+										<p class="m_co"><i class="big"><?php echo $vo['rate']; ?></i><i class="small">天</i></p>
 										<p class="small">联养周期</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
+					<?php else: ?>
+					<li class="fillet" onclick="window.location='<?php echo url("Order/info",["id"=>$vo['id']]);; ?>'">
+						<div class="stage sellOut02  fl">售完</div>
+						<p class="project_name a9">VIP私人订制续订羊群B171211<span class="a9 fr">剩余：0</span></p>
+						<div class="title_nav">
+							<div class="con_height">
+								<div class="w_b tc">
+									<div class="tl je">
+										<p class="m_co"><i class="big"><?php echo $vo['price']; ?></i><i class="small">元</i></p>
+										<p class="small a9">羊单价</p>
+									</div>
+									<div class="tl sj">
+										<p class="m_co"><i class="big"><?php echo $vo['numbers']; ?></i><i class="small">只</i></p>
+										<p class="small a9">羊只数量</p>
+									</div>
+									<div class="tl lv">
+										<p class="m_co"><i class="big"><?php echo $vo['rate']; ?></i><i class="small">天</i></p>
+										<p class="small a9">联养周期</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<?php endif; endforeach; endif; else: echo "" ;endif; ?>
+				</ul>
+				<!--辅助羊群-->
+				<ul class="recommended_nav_2" 	 id="nav3">
+					<?php if(is_array($fzy) || $fzy instanceof \think\Collection || $fzy instanceof \think\Paginator): $i = 0; $__LIST__ = $fzy;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['isdelete'] != 1): ?>
+					<li class="type1 fillet"onclick="window.location='<?php echo url("Order/info",["id"=>$vo['id']]);; ?>'">
+						<div class="stage sellOut03  fl">进行</div>
+						<p class="project_name ">蒙高丽亚店铺辅助羊群171211<span class=" fr">剩余：<?php echo $vo['number']; ?></span></p>
+						<div class="title_nav">
+							<div class="con_height">
+								<div class="w_b tc">
+									<div class="tl je">
+										<p class="m_co"><i class="big"><?php echo $vo['price']; ?></i><i class="small">元</i></p>
+										<p class="small">羊单价</p>
+									</div>
+									<div class="tl sj">
+										<p class="m_co"><i class="big"><?php echo $vo['numbers']; ?></i><i class="small">只</i></p>
+										<p class="small">羊只数量</p>
+									</div>
+									<div class="tl lv">
+										<p class="m_co"><i class="big"><?php echo $vo['rate']; ?></i><i class="small">天</i></p>
+										<p class="small">联养周期</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<?php else: ?>
+					<li class="fillet" onclick="window.location='<?php echo url("Order/info",["id"=>$vo['id']]);; ?>'">
+						<div class="stage sellOut03  fl">售完</div>
+						<p class="project_name a9">蒙高丽亚店铺辅助羊群171211<span class="a9 fr">剩余：<?php echo $vo['number']; ?></span></p>
+						<div class="title_nav">
+							<div class="con_height">
+								<div class="w_b tc">
+									<div class="tl je">
+										<p class="m_co"><i class="big"><?php echo $vo['price']; ?></i><i class="small">元</i></p>
+										<p class="small a9">羊单价</p>
+									</div>
+									<div class="tl sj">
+										<p class="m_co"><i class="big"><?php echo $vo['numbers']; ?></i><i class="small">只</i></p>
+										<p class="small a9">羊只数量</p>
+									</div>
+									<div class="tl lv">
+										<p class="m_co"><i class="big"><?php echo $vo['rate']; ?></i><i class="small">天</i></p>
+										<p class="small a9">联养周期</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<?php endif; endforeach; endif; else: echo "" ;endif; ?>
 				</ul>
 			</div>
 		</div>
@@ -169,26 +259,26 @@
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(".menu .recommended_nav_2 li").css("display", "none");
-			$(".menu .recommended_nav_2 .type1").css("display", "block");
+			$(".menu .recommended_nav_2").css("display", "none");
+			$("#nav1").css("display", "block");
 			/*点击切换*/
 			$(".menu .subnav p").click(function() {
 				tt = $(".menu .subnav p").index($(this));
 				if(tt == 0) {
 					$(".menu .subnav p").removeClass();
 					$(this).addClass("active1");
-					$(".menu .recommended_nav_2 li").css("display", "none");
-					$(".menu .recommended_nav_2 .type1").css("display", "block");
+					$(".menu .recommended_nav_2").css("display", "none");
+					$("#nav1").css("display", "block");
 				} else if(tt == 1) {
 					$(".menu .subnav p").removeClass();
 					$(this).addClass("active2");
-					$(".menu .recommended_nav_2 li").css("display", "none");
-					$(".menu .recommended_nav_2 .type2").css("display", "block");
+					$(".menu .recommended_nav_2").css("display", "none");
+					$("#nav2").css("display", "block");
 				} else if(tt == 2) {
 					$(".menu .subnav p").removeClass();
 					$(this).addClass("active3");
-					$(".menu .recommended_nav_2 li").css("display", "none");
-					$(".menu .recommended_nav_2 .type3").css("display", "block");
+					$(".menu .recommended_nav_2").css("display", "none");
+					$("#nav3").css("display", "block");
 				}
 			})
 

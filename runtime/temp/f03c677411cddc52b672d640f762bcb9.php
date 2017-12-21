@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cggm.html";i:1513755477;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cggm.html";i:1513760462;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -160,7 +160,7 @@
 								<span>√</span>
 							</div>
 							<span>朕已阅读并同意</span>
-							<a href="index1-shop-protocol1.html">《财富牧场服务协议》</a>
+							<a href="#">《财富牧场服务协议》</a>
 						</div>
 						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>

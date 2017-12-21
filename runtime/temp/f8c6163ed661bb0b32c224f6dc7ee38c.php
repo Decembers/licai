@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\fzsx.html";i:1513763187;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\fzsx.html";i:1513828307;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span><?php echo $arr['number']; ?></span><span class="em">只苏尼特羊</span></p>
+						<p><span><?php echo $arr['numbers']; ?></span><span class="em">只苏尼特羊</span></p>
 						<p><span><?php echo $arr['rate']; ?></span><span class="em">天联养周期</span></p>
 						<p><span><?php echo $arr['return_price']; ?></span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
@@ -113,7 +113,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="index1-shop-protocol.html">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='index1-shop-deal.html'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4">
@@ -344,7 +344,7 @@
 				}else if($("#max6").val().length == 6){
 					$(".overtop1 .overtop_text").text("还未开始");
 				}*/
-				window.location.href = "index1-shop-deal.html";
+				window.location.href = '<?php echo url("Order/infolist",["id"=>$arr['id']]); ?>';
 			})
 			$(".overtop1 p:nth-child(2)").click(function(){
 				$("#goodcover").css("display", "none");

@@ -1,6 +1,6 @@
 /*@font-face {
 	font-family: "微软雅黑";
-	
+
 }*/
 
 @font-face {
@@ -62,7 +62,11 @@ a:hover {
 	color: #337ab7;
 }
 /**/
+<<<<<<< HEAD
 a,input,button,textarea{-webkit-tap-highlight-color:rgba(255,0,0,0);} 
+=======
+a,input,button,textarea{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 .item img,
 .activity,
 .nav,
@@ -200,7 +204,11 @@ div.header {
 	background-color: white;
 	box-sizing: border-box;
 	padding: 0 0.5rem;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 	height: 2.2rem;
 	min-height: 40px;
 	    border-bottom: 1px solid #d9d9d9;
@@ -229,7 +237,11 @@ div.header {
 
 .header h3 {
 	margin: 0;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 	font-weight: 400;
 	font-size: 1.1rem;
 	width: 100%;
@@ -251,13 +263,21 @@ div.header {
 /*子页面头部样式 结束*/
 
 /*index1-navs2.html 样式 开始*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.menu {
 				width: 95%;
 				margin: 0 auto;
 			}
 			/*navs2 点击选择 开始*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.subnav {
 				width: 100%;
 				display: flex;
@@ -265,7 +285,11 @@ div.header {
 				margin-top: 1rem;
 				margin-bottom: 1rem;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.subnav p {
 				width: 31%;
 				height: 2.2rem;
@@ -274,46 +298,78 @@ div.header {
 				border-radius: 1rem;
 				font-size: 1rem;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.subnav p:nth-child(1) {
 				border: 1px solid #3db4cc;
 				color: #3db4cc;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.subnav p:nth-child(2) {
 				border: 1px solid #fec257;
 				color: #fec257;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.subnav p:nth-child(3) {
 				border: 1px solid #4bd1a4;
 				color: #4bd1a4;
 			}
 			/*navs2 点击选择选中状态 样式*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.menu .subnav>.active1 {
 				color: white;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.menu .subnav>.active2 {
 				color: white;
 				background: linear-gradient(to right, #ffbe4c, #facc70);
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.menu .subnav>.active3 {
 				color: white;
 				background: linear-gradient(to right, #41d1a1, #6de3a4);
 			}
 			/*navs2 点击选择 结束*/
 			/*navs2 点击选择选中 购买羊只列 开始*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.recommended_nav_2,
 			.recommended_nav_2 li {
 				width: 100%;
 			}
 			/*公用样式 开始*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.recommended_nav_2 li {
 				box-sizing: border-box;
 				border-radius: 0.4rem;
@@ -321,6 +377,7 @@ div.header {
 				margin: 0.5rem 0;
 				position: relative;
 			}
+<<<<<<< HEAD
 			
 			.recommended_nav_2 li .con_height {
 				width: 100%;
@@ -333,40 +390,78 @@ div.header {
 				text-align: center;
 			}
 			
+=======
+
+			.recommended_nav_2 li .con_height {
+				width: 100%;
+
+				padding: 0.5rem 0 1rem 0;
+
+			}
+
+			.tc {
+				text-align: center;
+			}
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.w_b {
 				display: -webkit-box;
 				display: -moz-box;
 				display: -ms-flexbox;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.recommended_nav_2 li .con_height .tl {
 				width: 33.33%;
 				text-align: center;
 				color: #fff;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.recommended_nav_2 li .con_height .big {
 				font-size: 1.8rem;
 				line-height: 1.5rem;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.recommended_nav_2 li .con_height .small {
 				font-size: 0.75rem;
 				padding: 0;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.recommended_nav_2 li .con_height .small {
 				font-size: 0.8rem;
 				padding: 0;
 			}
 			/*公用样式 结束*/
 			/*常规羊群 开始*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.fillet {
 				border-radius: 0.4rem;
 				background: #fff;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.stage {
 				width: 2.5rem;
 				height: 2rem;
@@ -381,29 +476,49 @@ div.header {
 				top: 0;
 			}
 			/*辅助*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.sellOut03 {
 				color: #fff;
 				background: #41d1a1;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.project_name {
 				font-size: 0.75rem;
 				line-height: 2rem;
 				padding-left: 3rem;
 			}
+<<<<<<< HEAD
 			
 			.a9 {
 				color: #a9a9a9;
 			}
 			
+=======
+
+			.a9 {
+				color: #a9a9a9;
+			}
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.project_name .fr {
 				position: absolute;
 				right: 0.85rem;
 				top: 0;
 				text-align: right;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.m_co {
 				color: #3db4cc;
 				display: flex;
@@ -412,20 +527,34 @@ div.header {
 				margin: 0.4rem 0;
 			}
 			/*常规*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.sellOut01 {
 				color: #fff;
 				background: #3db4cc;
 			}
 			/*VIP*/
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
 			.sellOut02 {
 				color: #fff;
 				background: #ffbe4c;
 			}
+<<<<<<< HEAD
 			
 /*index1-navs2.html 样式 结束*/
 /*shop 页面 购买提示 
+=======
+
+/*index1-navs2.html 样式 结束*/
+/*shop 页面 购买提示
+>>>>>>> ca6cde5cf211fcc97e42c28cb987341974eb3240
  *  数量超出提示*/
 .overtop {
 	position: absolute;
@@ -445,13 +574,13 @@ div.header {
 	text-align: center;
 	border-radius: 0.5rem;
 	display: none;
-	z-index: 1000;	
+	z-index: 1000;
 	opacity: 1;
 	transition: opacity 1s;
 }
 /*购买提示 */
 .overtop1 {
-	position: fixed;	
+	position: fixed;
 	height: auto;
 	left: 10vw;
 	top: 40%;
