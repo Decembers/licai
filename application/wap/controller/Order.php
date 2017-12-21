@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-21 14:33:23
+ * @Last Modified time: 2017-12-21 18:36:19
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -143,9 +143,12 @@ class Order extends Yang
             // $arr = C::where(['id'=>$id])->find();
             //var_dump($arr);die;
             $this->assign('arr',$arr);
-
+            $price = $arr['price']*($arr['return_price']/100)*($arr['rate']/360);
+            $price = sprintf("%.2f",substr(sprintf("%.3f", $price), 0, -2));
+            $this->assign('price',$price);
             if ($arr['classify']==1) {
-                //常规羊群
+                //常规羊群 计算购买利润
+
                  if (time() < $arr['preselle_time']) {
                     //预售中 计算还剩多少时间开始购买
                     $time = $arr['preselle_time']-time();
@@ -155,6 +158,7 @@ class Order extends Yang
                     //购买 计算还剩多少购买时间
                     $time = $arr['down_time']-time();
                     $this->assign('time',$time);
+
                     if ($arr['number']<=0) {
                         return $this->fetch('cgsx');
                     }

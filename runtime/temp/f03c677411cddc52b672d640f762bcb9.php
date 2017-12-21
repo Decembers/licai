@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cggm.html";i:1513760462;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\order\cggm.html";i:1513852596;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -150,7 +150,7 @@
 
 						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian"><?php echo $arr['price']; ?>.00</span>
 							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span>
-							<span class="em" style="font-size: 0.6rem;color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">41.60</span>
+							<span class="em" style="font-size: 0.6rem;color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;"><?php echo $price; ?></span>
 							<span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
