@@ -1,4 +1,4 @@
-/*有.footer 时 .wrapper 下面的外边距 */
+u/*有.footer 时 .wrapper 下面的外边距 */
 $(".wrapper").css("padding-bottom", $(".footer").height() + "px");
 
 /*有.footer 时他与 .wrapper 的宽等宽 */
