@@ -1,8 +1,8 @@
 /*index1 辅助  常规  VIP  开始*/
 .shop>a{
-	width: 95%;	
+	width: 95%;
 	margin: 15px auto;
-	
+
 	border-radius:15px ;
 	box-sizing: border-box;
 	padding: 0 15px 0.2rem;
@@ -41,7 +41,7 @@
 .shop>a .shops_top p:nth-child(2){
 	float: left;
 	margin-left: 5px;
-	 font-size: 1.2rem;  
+	 font-size: 1.2rem;
 }
 
 .shop>a .shops_top p:nth-child(3){
@@ -49,7 +49,7 @@
 	font-size: 1.2rem;
 }
 
-.shop>a .shops_cen{	
+.shop>a .shops_cen{
 	overflow: hidden;
 	margin-bottom: 0.1rem;
 }
@@ -68,13 +68,13 @@
 	text-align: center;
 }
 .shop>a .shops_cen div h2 em{
-	    font-style: normal;	
-	    font-size: 1rem;  
+	    font-style: normal;
+	    font-size: 1rem;
 }
 .return {
    font-size: 1.2rem;
     line-height:1.5em;
- 
+
     color: #fff;
     opacity: 0.6;
     padding-left: 1em;
@@ -82,7 +82,7 @@
     background-size: 3.5em;
     width: 100%;
     white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
-    
+
 }
 .shop>a .shops_cen div p{
 	 font-size: 1.2rem;
@@ -103,7 +103,7 @@
 /*index1 辅助  常规  VIP  结束*/
 /*新手指导   开始*/
 .floor1{
-	width: 100%;	   
+	width: 100%;
     background: url(../img/guide01.jpg) no-repeat center top;
      background-size:100% ;
     text-align: center;
@@ -305,7 +305,7 @@
 /*新手指导   结束*/
 /*index3  发现  开始*/
 .activity li{
-	margin-top: 15px;
+	margin: 1rem  auto;
 }
 .activitys{
 	width: 95%;
@@ -330,7 +330,7 @@
 .a1 {
     color: #1a1a1f!important;
 }
-.activity_con {    
+.activity_con {
    padding-top: 0.5rem;
     overflow: hidden;
 }
@@ -339,7 +339,7 @@
 }
 .fl {
     float: left;
-    
+
 }
 .a9 {
     color: #a9a9a9!important;
@@ -353,7 +353,7 @@
 	height: 2rem;
     font-size: 1.4rem;
     line-height: 2rem;
-  
+
 }
 /* index2 超市*/
 header.bar {
@@ -445,8 +445,8 @@ header h1 {
     line-height: 1.55rem;
 }
 .content{
-	
-} 
+
+}
 #shopping_mall .integral_goods {
     padding: 0 0.5rem;
     margin-top: 0.5rem;
@@ -476,7 +476,7 @@ header h1 {
     border-bottom: 1px solid #ededed;
 }
 #shopping_mall .pro_pic img {
-    width: 100%;  
+    width: 100%;
 }
 #shopping_mall .text_int {
     padding-top: 5px;
@@ -530,7 +530,7 @@ header h1 {
     padding: 0.8rem 0.6rem 0.8rem 0.7rem;
     margin-top: 1rem;
     color: #fff;
-   
+
 }
 .uc_c_top_conten{
 	box-sizing: border-box;
@@ -582,7 +582,7 @@ header h1 {
 .uc_c_top .integral {
     position: relative;
     display: flex;
-   
+
 }
 .uc_c_top .integral a {
     font-size: 1.4rem;
@@ -601,7 +601,15 @@ header h1 {
 .authen_tip {
     font-size: 1.2rem;
     line-height: 2rem;
+    overflow:hidden;
+    width:95%;
+
 }
+.authen_tip span{
+    width:50%;
+
+}
+
 /* 账户明细*/
 .account {
     box-sizing: border-box;
@@ -635,7 +643,7 @@ header h1 {
 
 /*充值提现*/
 .money_operation {
-    width: 100%;  
+    width: 100%;
     border-top: 1px solid #ededed;
 }
 .money_operation ul{
@@ -645,7 +653,7 @@ header h1 {
     border-right: 1px solid #ededed;
 }
 .money_operation li {
-    box-sizing: border-box;   
+    box-sizing: border-box;
     float: left;
     width: 50%;
     height: 4rem;
@@ -672,7 +680,7 @@ header h1 {
 	 width: 3.2rem;
     height: 3.5rem;
     background: url(../img/iconlist_03.png) no-repeat center -2%;
-     background-size: 2rem;  
+     background-size: 2rem;
      margin-top: 0.25rem;
 }
 .a1 {
@@ -687,7 +695,7 @@ header h1 {
      margin-top: 0.25rem;
 }
 
-.uc_c_middle { 
+.uc_c_middle {
     position: relative;
 }
 /*列表项*/
@@ -715,7 +723,7 @@ header h1 {
     display: inline-block;
     width: 2rem;
     height: 3rem;
-    margin-top: 0.5rem;   
+    margin-top: 0.5rem;
     background: url(../img/iconlist_02.png) no-repeat -15px 101%;
    background-size: 3rem;
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\index\index.html";i:1513828813;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\index\index.html";i:1513908685;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -251,7 +251,7 @@
 			</div>
 			<!--footer-->
 			<div class="footer">
-				<a href="index1.html">
+				<a href="<?php echo url('index/index'); ?>">
 					<span class="icons "></span>
 					<p>牧场</p>
 				</a>
@@ -263,7 +263,7 @@
 					<span class="icons"></span>
 					<p>发现</p>
 				</a>
-				<a href="index4.html">
+				<a href="<?php echo url('member/index'); ?>">
 					<span class="icons"></span>
 					<p>我的</p>
 				</a>
