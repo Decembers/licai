@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\off\file\licai./application/wap\view\index\index.html";i:1513847192;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\off\file\licai./application/wap\view\index\index.html";i:1513851018;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -138,7 +138,7 @@
 							<a href="index1-navs1.html">新手指导</a>
 						</div>
 						<div class="navs">
-							<a href="index1-navs2.html" class="icon0"><span class="icon2"></span></a>
+							<a href="<?php echo url('Index/orlist'); ?>" class="icon0"><span class="icon2"></span></a>
 							<a href="<?php echo url('Index/orlist'); ?>">购买羊只</a>
 						</div>
 						<div class="navs">
