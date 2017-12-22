@@ -18,13 +18,13 @@ $(document).keydown(function(e) {
 		return false;
 	}
 })*/
-/**/
+
 if($("body").width() > 900) {
 	$(".wrapper").css("left", ($("body").width() - 800) / 2 + "px");
 }
 $("div.header>div").click(function() {
 	history.go(-1)
-//	history.back(-1)
+/*history.back(-1)*/
 })
 /*提示*/
 function overtop() {
