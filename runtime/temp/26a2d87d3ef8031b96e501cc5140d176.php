@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\login\login.html";i:1513848575;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\login\login.html";i:1513850229;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -486,7 +486,7 @@
 													overtop();
 													setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 													window.location='<?php echo url("Login/login");; ?>';
-													},10000);
+													},1000);
 												}
 						                    },
 						                    error : function (){
@@ -562,7 +562,7 @@
 													overtop();
 													setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 													window.location='<?php echo url("Login/login");; ?>';
-													},10000);
+													},1000);
 												}
 						                    },
 						                    error : function (){

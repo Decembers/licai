@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-21 17:52:36
+ * @Last Modified time: 2017-12-21 18:06:38
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -24,11 +24,11 @@ class yang extends Controller
         if (!in_array($url,$this->arr)) {
             $suser = Session::get('user');
             if (!isset($suser)) {
-                    $cuser = Cookie::get('name');
+                    $cuser = Cookie::get('user');
                 if (!isset($cuser)) {
                     $this->redirect('wap/login/login');
                 }else{
-                    $user = Cookie::get('name');
+                    $user = Cookie::get('user');
                     $arr = unserialize($user);
                     Session::set('user',$arr);
                 }
