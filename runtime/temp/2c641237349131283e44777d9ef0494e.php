@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1513910420;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1513932843;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -52,10 +52,15 @@
 				<p class="authen_tip a9 clearfix"><span class="fl">身份认证后才可购买羊只、提现哦。</span><span class="fr">（设置-身份认证）</span></p>
 				<div class="account fillet">
 					<p class="detailed">
-						<a href="index4-balance.html" class="m_co">账户明细
+						<a href="<?php echo url('member/userinfo'); ?>" class="m_co">账户明细
 						</a>
 					</p>
-					<p class="account-balance">￥<?php echo $balance; ?></p>
+					<p class="account-balance">
+					<?php if($balance): ?>
+					￥<?php echo $balance; else: ?>
+					￥0.00
+					<?php endif; ?>
+					</p>
 					<p class="acc-bal a9">账户余额</p>
 					<div class="money_operation">
 						<ul>
@@ -66,7 +71,7 @@
 								</a>
 							</li>
 							<li class="carry">
-								<a href="index4-withdraw.html">
+								<a href="<?php echo url('member/withdraw'); ?>">
 									<div class="icon fl"></div>
 									<p class="a1 fl">提现</p>
 								</a>
@@ -78,7 +83,7 @@
 					<ul>
 						<!-- 我的合同-->
 						<li class="contract">
-							<a href="index4-li1.html">
+							<a href="<?php echo url('member/contract'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">我的合同</p>
 								<span class="entered fr"></span>
@@ -86,21 +91,15 @@
 						</li>
 						<!-- 我的邀请-->
 						<li class="invitation">
-							<a href="index4-li2.html">
+							<a href="<?php echo url('member/invite'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">我的邀请</p>
 								<span class="entered fr"></span>
 							</a>
 						</li>
-						<!-- <li class="pasture">
-				<a href="#" onclick="RouterURL('/wap/member.php?ctl=uc_invest&status=2','#uc_invest',2);">
-					<div class="icon fl"></div>
-					<p class="fl">我的牧场</p>
-					<span class="entered fr"></span>
-				</a>
-			</li> -->
+
 						<li class="dingdan">
-							<a href="index4-li3.html">
+							<a href="<?php echo url('member/shopplog'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">购物清单</p>
 								<span class="entered fr"></span>
@@ -108,7 +107,7 @@
 						</li>
 
 						<li class="voucher">
-							<a href="index4-li4.html">
+							<a href="<?php echo url('member/packet'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">现金红包</p>
 								<span class="entered fr"></span>
@@ -116,7 +115,7 @@
 						</li>
 						<!-- 设置地址-->
 						<li class="address">
-							<a href="index4-li5.html">
+							<a href="<?php echo url('member/address'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">收货地址</p>
 								<span class="entered fr"></span>
@@ -134,14 +133,14 @@
 				<div class="uc_c_bottom fillet">
 					<ul>
 						<li class="setting">
-							<a href="index4-li7.html">
+							<a href="<?php echo url('member/setting'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">设置</p>
 								<span class="entered fr"></span>
 							</a>
 						</li>
 						<li class="help">
-							<a href="index4-li8.html">
+							<a href="<?php echo url('member/help'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">帮助</p>
 								<span class="entered fr"></span>

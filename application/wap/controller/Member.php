@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-22 10:36:50
+ * @Last Modified time: 2017-12-22 16:50:33
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -28,13 +28,78 @@ class Member extends Yang
         $this->assign('authti',$authti);
         return $this->fetch();
     }
-
-    /*
-     *充值
-     */
+    public function userinfo()
+    {
+        return $this->fetch();
+    }
     public function pay()
     {
         return $this->fetch();
     }
-
+    public function paylog()
+    {
+        return $this->fetch();
+    }
+    public function withdraw()
+    {
+        return $this->fetch();
+    }
+    public function withdrawlog()
+    {
+        return $this->fetch();
+    }
+    //合同
+    public function contract()
+    {
+        return $this->fetch();
+    }
+    //邀请
+    public function invite()
+    {
+        return $this->fetch();
+    }
+    public function invitehb()
+    {
+        return $this->fetch();
+    }
+    public function tggz()
+    {
+        return $this->fetch();
+    }
+    public function wdhy()
+    {
+        return $this->fetch();
+    }
+    public function tghb()
+    {
+        return $this->fetch();
+    }
+    public function shopplog()
+    {
+        return $this->fetch();
+    }
+    public function packet()
+    {
+        return $this->fetch();
+    }
+    public function dhpacket()
+    {
+        return $this->fetch();
+    }
+    public function address()
+    {
+        return $this->fetch();
+    }
+    public function setting()
+    {
+        return $this->fetch();
+    }
+    public function help()
+    {
+        return $this->fetch();
+    }
+    public function helpinfo()
+    {
+        return $this->fetch();
+    }
 }

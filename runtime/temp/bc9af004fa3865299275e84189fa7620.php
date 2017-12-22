@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\member\pay.html";i:1513910418;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\member\pay.html";i:1513910833;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -192,7 +192,7 @@
 					<span class="icon"></span><span>返回</span>
 				</div>
 				<h3>充值</h3>
-				<a href="index4-recharge-chongzhi.html">充值记录</a>
+				<a href="<?php echo url('member/paylog'); ?>">充值记录</a>
 			</div>
 			<ul class="top">
 				<li class="active">线上充值</li>

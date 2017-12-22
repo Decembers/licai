@@ -1,0 +1,62 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:54:"E:\GitHub\licai./application/wap\view\member\tggz.html";i:1513912306;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<!--<title>我的</title>-->
+		<title>趣味农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<style type="text/css">
+
+			.commission_rule
+			{
+				width: 95%;
+				margin: 0  auto;
+			}
+			.commission_rule h6{
+				margin: 0;
+				padding: 0;
+				color: black;
+				line-height: 4rem;
+				font-size: 2rem;
+			}
+			.commission_rule p{
+				font-size: 1.6rem;
+				line-height: 2rem;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="wrapper">
+
+			<div class="commission_rule">
+				<h6>财富牧场推广规则</h6>
+				<p class="time a9">2017-02-17</p>
+				<div class="rule_content">
+					<p>财富牧场注册用户均可以邀请好友和做站外推广，作为回报，均可获得被推荐人交易额0.5%邀请回报。</p>
+					<p class="titles">一.推荐方法</p>
+					<p>您可通过“我的-我的邀请”转发您的邀请链接，凡是通过您转发的链接注册成功的会员，均记为您的被推荐人。</p>
+					<p class="titles">二.推荐人邀请回报计算方法</p>
+					<p>您的邀请回报为被推荐人交易额的0.5%。</p>
+					<p>邀请回报计算公式：邀请回报=A*X*0.5%</p>
+					<p>注：A为羊单价，X为买羊数量</p>
+					<p>例如：</p>
+					<p>当羊单价为780元时，被推荐人某一期购买羊只100只，邀请回报=780*100*0.5%=390元。</p>
+				</div>
+			</div>
+		</div>
+		<div class="background"></div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
