@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-22 10:09:41
+ * @Last Modified time: 2017-12-22 10:36:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -30,12 +30,10 @@ class Member extends Yang
     }
 
     /*
-     *羊群列表
+     *充值
      */
-    public function orlist()
+    public function pay()
     {
-        $this->assign('vipy',$vipy);
-
         return $this->fetch();
     }
 

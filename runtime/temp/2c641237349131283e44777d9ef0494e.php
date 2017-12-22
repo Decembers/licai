@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1513908663;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1513910420;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +7,7 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<!--<title>我的</title>-->
 		<title>趣味农场</title>
-		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/__WAP__/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
@@ -60,7 +60,7 @@
 					<div class="money_operation">
 						<ul>
 							<li class="incharge">
-								<a href="index4-recharge.html">
+								<a href="<?php echo url('member/pay'); ?>">
 									<div class="icon fl"></div>
 									<p class="a1 fl">充值</p>
 								</a>
