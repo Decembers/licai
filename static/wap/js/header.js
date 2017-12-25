@@ -20,11 +20,25 @@ $(document).keydown(function(e) {
 	}
 })*/
 
+<<<<<<< HEAD
+=======
+// /*禁止右键 点击  复制*/
+// $(document).bind("contextmenu copy selectstart", function() {
+// 	return false;
+// });
+// $(document).keydown(function(e) {
+// 	if(e.ctrlKey && (e.keyCode == 65 || e.keyCode == 67)) {
+// 		return false;
+// 	}
+// })
+/**/
+>>>>>>> c0b0ba8cec1e350bc920f2a3b4a9ea86bbae853b
 if($("body").width() > 900) {
 	$(".wrapper").css("left", ($("body").width() - 800) / 2 + "px");
 }
 $("div.header>div").click(function() {
 	history.go(-1)
+<<<<<<< HEAD
 /*history.back(-1)*/
 })
 /*提示*/
@@ -32,6 +46,14 @@ function overtop() {
 				$(".wrapper>div:nth-child(1)").after($("body>p.overtop").clone(true));
 				var ss1 = $(".wrapper .overtop");
 				$(".wrapper .overtop").css("background-color","rgba(0,0,0,0.7)");
+=======
+//	history.back(-1)
+})
+/*提示*/
+function overtop() {
+				$(".detail").after($("body>p.overtop").clone(true));
+				var ss1 = $(".wrapper .overtop");
+>>>>>>> c0b0ba8cec1e350bc920f2a3b4a9ea86bbae853b
 				ss1.css("display", "block");
 				ss1.css("opacity", "1");
 				setTimeout(function() {

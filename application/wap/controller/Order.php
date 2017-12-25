@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-21 18:36:19
+ * @Last Modified time: 2017-12-25 10:41:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -29,6 +29,11 @@ class Order extends Yang
             $restriction = $comm['restrict'];
             $num = $data['number'];//用户购买数量
             $user_id = Session::get('user.id');
+            $authentication = Session::get('user.authentication');
+            if ($authentication!=1) {
+                $arr['msg']='请实名认证后购买!';
+                return json_encode($arr);
+            }
 
             if (!isset($user_id)) {
                 $arr['msg']='请登陆后购买!';
