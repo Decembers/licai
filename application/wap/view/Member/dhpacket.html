@@ -153,84 +153,21 @@
 
 			<div class="voucher_ex_block clearfix">
 				<ul>
+{volist name="arr" id="vo"}
 					<li>
-						<div class="name">购羊红包</div>
+						<div class="name">{$vo.remark}</div>
 						<div class="value">
 							<span class="symbol">￥</span>
-							<span class="num">10</span>
+							<span class="num">{$vo.money}</span>
 							<span class="cheng">X</span>
-							<span class="num">20</span>
+							<span class="num">{$vo.number}</span>
 							<span class="symbol">个</span>
 						</div>
 						<div class="consume">有效期至：无限</div>
-						<div class="consume">所需积分：<i>9999</i>积分</div>
-						<a class="exchange" href="#" url=" " data-id="28">兑换</a>
+						<div class="consume">所需积分：<i>{$vo.integral}</i>积分</div>
+						<a class="exchange" href="#" url=" " data-id="28" onclick="duihuan({$vo.id})">兑换</a>
 					</li>
-					<li>
-						<div class="name">购羊红包</div>
-						<div class="value">
-							<span class="symbol">￥</span>
-							<span class="num">10</span>
-							<span class="cheng">X</span>
-							<span class="num">10</span>
-							<span class="symbol">个</span>
-						</div>
-						<div class="consume">有效期至：无限</div>
-						<div class="consume">所需积分：<i>6666</i>积分</div>
-						<a class="exchange" href="#" url="" data-id="27">兑换</a>
-					</li>
-					<li>
-						<div class="name">购羊红包</div>
-						<div class="value">
-							<span class="symbol">￥</span>
-							<span class="num">5</span>
-							<span class="cheng">X</span>
-							<span class="num">5</span>
-							<span class="symbol">个</span>
-						</div>
-						<div class="consume">有效期至：无限</div>
-						<div class="consume">所需积分：<i>1888</i>积分</div>
-						<a class="exchange" href="#" url=" " data-id="26">兑换</a>
-					</li>
-					<li>
-						<div class="name">购羊红包</div>
-						<div class="value">
-							<span class="symbol">￥</span>
-							<span class="num">10</span>
-							<span class="cheng">X</span>
-							<span class="num">5</span>
-							<span class="symbol">个</span>
-						</div>
-						<div class="consume">有效期至：无限</div>
-						<div class="consume">所需积分：<i>3888</i>积分</div>
-						<a class="exchange" href="#" url=" " data-id="25">兑换</a>
-					</li>
-					<li>
-						<div class="name">购羊红包</div>
-						<div class="value">
-							<span class="symbol">￥</span>
-							<span class="num">5</span>
-							<span class="cheng">X</span>
-							<span class="num">10</span>
-							<span class="symbol">个</span>
-						</div>
-						<div class="consume">有效期至：无限</div>
-						<div class="consume">所需积分：<i>3666</i>积分</div>
-						<a class="exchange" href="#" url=" " data-id="24">兑换</a>
-					</li>
-					<li>
-						<div class="name">购羊红包</div>
-						<div class="value">
-							<span class="symbol">￥</span>
-							<span class="num">10</span>
-							<span class="cheng">X</span>
-							<span class="num">1</span>
-							<span class="symbol">个</span>
-						</div>
-						<div class="consume">有效期至：无限</div>
-						<div class="consume">所需积分：<i>999</i>积分</div>
-						<a class="exchange" href="#" url=" " data-id="23">兑换</a>
-					</li>
+{/volist}
 				</ul>
 			</div>
 
@@ -244,29 +181,44 @@
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			var t0 = 99999;
-			var t1 = 0;
-			$(".voucher_ex_block ul li a").click(function() {
-				var tt1 = $(".voucher_ex_block ul li").index($(this).parent());
+			// var t0 = 99999;
+			// var t1 = 0;
+			// $(".voucher_ex_block ul li a").click(function() {
+			// 	var tt1 = $(".voucher_ex_block ul li").index($(this).parent());
+			// 	$(".modal1").css("display", "block");
+			// 	$("#goodcover").css("display", "block");
+			// 	t1 = $(".voucher_ex_block ul li:nth-child(" + (tt1 + 1) + ") .consume i").text();
+
+			// })
+
+			var id;
+			function duihuan(pid){
 				$(".modal1").css("display", "block");
 				$("#goodcover").css("display", "block");
-				t1 = $(".voucher_ex_block ul li:nth-child(" + (tt1 + 1) + ") .consume i").text();
+				id = pid;
+			}
 
-			})
-			$(".modal1_p span").click(function() {
-				tt = $(".modal1_p span").index($(this));
+
+			$(".modal1_p span:last").click(function() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
-				if(tt == 0) {} else if(tt == 1) {
-					if(t0 > t1) {
-						t0 = t0 - t1;
-						$("body>p.overtop").text("兑换成功");
-						overtop1();
-					} else {
-						$("body>p.overtop").text("积分不足");
+				$.ajax({
+                    type : "POST",  //提交方式
+                    url : "{:url('member/dhpacket')}",//路径
+                    data : {
+                        "id" : id
+                    },
+                    dataType : "json",//数据，这里使用的是Json格式进行传输
+                    success : function(result) {
+						var aa = JSON.parse(result);
+						$("body>p.overtop").text(aa.msg);
 						overtop1();
 					}
-				}
+			    });
+			})
+			$(".modal1_p span:first").click(function() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
 			})
 			$("#goodcover").click(function(){
 				$(".modal1").css("display", "none");
@@ -282,6 +234,9 @@
 							ss1.remove();
 						}, 1000);
 			}
+
+
+
 		</script>
 	</body>
 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"E:\GitHub\licai./application/wap\view\member\address.html";i:1513915355;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"E:\GitHub\licai./application/wap\view\member\address.html";i:1514191202;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -34,20 +34,20 @@
 
 			.mysheep h5 {
 				color: #fff;
-				font-size: 3.1rem;
+				font-size: 24px;
 				line-height: 2.9rem;
 				margin: 1rem 0;
 			}
 			/*我的羊只 */
 
 			.my_sheep {
-				font-size: 0.9rem;
+				font-size: 14px;
 			}
 			/*成长*/
 
 			.grow {
 				line-height: 2.3rem;
-				font-size: 0.9rem;
+				font-size: 14px;
 				display: flex;
 				justify-content: center;
 			}
@@ -83,10 +83,6 @@
 				display: block;
 			}
 
-			.uc_invest-box ul,
-			.bank_bg {
-				display: none;
-			}
 
 			.bank_bg {
 				width: 95%;
@@ -138,7 +134,7 @@
 				width: 100%;
 				height: 2rem;
 				line-height: 2rem;
-				margin-top: 0.8rem;
+				font-size: 15px;
 				font-size: 1rem;
 			}
 
@@ -146,8 +142,9 @@
 				width: 100%;
 				line-height: 2rem;
 				height: 2rem;
-				margin-top: 0.8rem;
-				font-size: 1.1rem;
+				font-size: 15px;
+
+				margin-top: 0.5rem;
 			}
 
 			.region_select div {
@@ -157,7 +154,7 @@
 			.region_select div select {
 				width: 33%;
 				height: 2rem;
-				margin-top: 0.8rem;
+				font-size: 15px;
 				color: gray;
 			}
 
@@ -286,6 +283,9 @@
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
+			.uc_invest-box{
+				display: none;
+			}
 		</style>
 	</head>
 
@@ -295,7 +295,7 @@
 				<div class="">
 					<span class="icon"></span><span>返回</span>
 				</div>
-				<h3>收货地址</h3>
+				<h3>收货信息</h3>
 				<!--<a href="###">交易统计</a>-->
 			</div>
 			<div class="content infinite-scroll bgCo native-scroll" data-distance="0" now_page="1">
@@ -380,7 +380,7 @@
 						</li>
 					</ul>
 				</div>
-				<button class="big-button press">添加收货地址</button>
+				<button class="big-button press">朕填好了</button>
 				<!-- 交易统计弹出框成功弹出-->
 
 				<!-- 加载提示符 -->
@@ -404,9 +404,10 @@
 		<div class="background">
 
 		</div>
+		<p class="overtop">超出剩余数量</p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
+			/*$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");*/
 			$("button").focus(function() {
 				this.blur()
 			});
@@ -419,23 +420,24 @@
 				label = label + 1;
 				lable1();
 			})
-			$(".uc_invest-box ul li .lip3 .labels").click(function() {
+			/*$(".uc_invest-box ul li .lip3 .labels").click(function() {
 				if($(this).text() == "已设为默认") {
 					label = 1;
 					var ts = $(".uc_invest-box ul li").index($(this).parent().parent());
-					alert(ts);
+					$(".overtop").text(ts);
 					zuan1();
 					lable1();
 					moren(ts);
 				}
-			})
+			})*/
 			$(".big-button").click(function() {
 				if($(this).text() == "添加收货地址") {
-					label = 0;
+					/*label = 0;
 					lable1();
-					zuan1();
+					zuan1();*/
 				} else if($(this).text() == "朕填好了") {
 					kong();
+
 				}
 			});
 
@@ -460,28 +462,81 @@
 			/*朕填好了 点击 判断*/
 			function kong() {
 				if($("#names").val() == "") {
-					alert("请输入收货人姓名")
+					$(".overtop").text("请输入持卡人姓名");
+					overtop();
 				} else {
 					if($("#bankcard").val() == "") {
-						alert("请输入电话号码")
+						$(".overtop").text("请输入电话号码")
+
+					overtop();
 					} else {
 						if($("#address").val() == "") {
-							alert("请输入详细地址")
+							$(".overtop").text("请输入详细地址")
+
+					overtop();
+
 						} else {
 							if($("#bankzone").val() == "") {
-								alert("请输入邮政编码")
+								$(".overtop").text("请输入邮政编码")
+
+					overtop();
 							} else {
 								if($("#s_province  option:selected").text() == "省份") {
-									alert("请选择所在地")
+									$(".overtop").text("请选择所在地")
+
+					overtop();
 								} else {
 									if($("#s_city  option:selected").text() == "城市") {
-										alert("请选择所在地")
+										$(".overtop").text("请选择所在地")
+
+					overtop();
 									} else {
 										if($("#s_county option:selected").text() == "城区") {
-											alert("请选择所在地")
+											$(".overtop").text("请选择所在地")
+
+					overtop();
 										} else {
-											huoqu();
-											hui();
+											var name=$("#names").val();
+											var mobile=$("#bankcard").val();
+											var address=$("#address").val();
+											var postcode=$("#bankzone").val();
+											var province_name=$("#s_province  option:selected").text();
+											var city_name=$("#s_city  option:selected").text();
+											var district_name=$("#s_county option:selected").text();
+												$.ajax({
+								                    type : "POST",  //提交方式
+								                    url : "<?php echo url('member/address'); ?>",//路径
+								                    data : {
+								                        "name" : name,
+								                        "mobile" : mobile,
+								                        "address" : address,
+								                        "postcode" : postcode,
+								                        "province_name" : province_name,
+								                        "city_name" : city_name,
+								                        "district_name" : district_name
+								                    },
+								                    dataType : "json",//数据，这里使用的是Json格式进行传输
+								                    success : function(result) {
+								                    	//alert("请输入用111户名")
+														var aa = JSON.parse(result);
+														if (aa.code==1) {
+															$(".overtop").text(aa.msg);
+															overtop();
+														}else{
+															alert('dfsfgdsf');
+															$(".overtop").text(aa.msg);
+															overtop();
+															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+															window.location='<?php echo url("member/listress");; ?>';
+															},5000);
+														}
+								                    },
+								                    error : function (){
+								                    	$(".overtop").text('请刷新页面重试');
+														overtop();
+								                }
+												});
+
 										}
 									}
 								}
@@ -514,9 +569,9 @@
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 .sz .sz1").text($("#s_province  option:selected").text());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 .sz .sz2").text($("#s_city  option:selected").text());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 .sz .sz3").text($("#s_county option:selected").text());
-
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip3 span:nth-child(1)").text($("#bankzone").val());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip3 span:nth-child(2)").text(mo);
+
 				val();
 			}
 			/* 填写区域清空*/

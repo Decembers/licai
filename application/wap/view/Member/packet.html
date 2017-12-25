@@ -88,21 +88,22 @@
 			</div>
 
 			<ul>
+{volist name="arr" id="vo"}
 				<li>
 					<div class="redPackets_0 fl">
 
 					</div>
 					<div class="fw_left fl">
-						<div class="chtx a1">注册红包</div>
+						<div class="chtx a1">{$vo.remark}</div>
 						<div class="exlimit">
 							<span class="name">有效期至:</span>无限 </div>
 					</div>
 					<div class="fw_right fr">
-						<div class="ri"><span>￥</span><span>10</span></div>
-						<div>剩余：20个</div>
+						<div class="ri"><span>￥</span><span>{$vo.money}</span></div>
+						<div>剩余：{$vo.number}个</div>
 					</div>
-
 				</li>
+{/volist}
 			</ul>
 
 		</div>

@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\listress.html";i:1514185297;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -82,6 +83,10 @@
 				display: block;
 			}
 
+			.uc_invest-box ul,
+			.bank_bg {
+				/* display: none; */
+			}
 
 			.bank_bg {
 				width: 95%;
@@ -142,8 +147,7 @@
 				line-height: 2rem;
 				height: 2rem;
 				font-size: 15px;
-
-				margin-top: 0.5rem;
+				font-size: 1.1rem;
 			}
 
 			.region_select div {
@@ -282,9 +286,6 @@
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
-			.uc_invest-box{
-				display: none;
-			}
 		</style>
 	</head>
 
@@ -294,92 +295,33 @@
 				<div class="">
 					<span class="icon"></span><span>返回</span>
 				</div>
-				<h3>收货信息</h3>
+				<h3>收货地址</h3>
 				<!--<a href="###">交易统计</a>-->
 			</div>
 			<div class="content infinite-scroll bgCo native-scroll" data-distance="0" now_page="1">
 				<!-- 这里是页面内容区 -->
 				<input type="hidden" id="response_code" value="1">
-
 				<!--我的牧场-->
 				<div class="uc_invest-box" all_page="0" ajaxurl="/wap/member.php?ctl=uc_invest&amp;status=2">
 					<!-- 如果没有羊，则显示-->
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有羊结束-->
-					<div class="no_sheep"></div>
-					<ul>
-						<li class="lis">
-							<p class="lip1"><span></span><span></span></p>
-							<p class="lip2"><span class="dz">2222</span><span class="sz"><i class="sz1"></i><i class="sz2"></i><i class="sz3"></i></span></p>
-							<p class="lip3"><span class="youbian">111</span><span class="labels"></span></p>
-						</li>
-					</ul>
+					<?php if($arr): ?>
+						<ul >
+							<li class="lis">
+								<p class="lip1"><span></span><span></span></p>
+								<p class="lip2"><span class="dz">2222</span><span class="sz"><i class="sz1"></i><i class="sz2"></i><i class="sz3"></i></span></p>
+								<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+									<p class="lip3"><span class="youbian"><?php echo $vo['name']; ?></span><span class="labels"></span></p>
+								<?php endforeach; endif; else: echo "" ;endif; ?>
 
+							</li>
+						</ul>
+					<?php else: ?>
+						<div class="no_sheep"></div>
+					<?php endif; ?>
 				</div>
-				<div class="bank_bg white fillet">
-					<ul>
-						<li class="dl">
-							<span class="name">姓名</span>
-							<div class="info">
-								<input type="text" id="names" value="" placeholder="请输入收货人姓名">
-							</div>
-						</li>
-						<li class="dl">
-							<span class="name">电      话</span>
-							<div class="info">
-								<input id="bankcard" type="text" placeholder="请输入电话号码">
-							</div>
-						</li>
-						<li class="dl region_select">
-							<span class="name">所&nbsp;在&nbsp;地</span>
-							<div>
-								<select id="s_province" name="s_province">
-
-									<option value="省份">省份</option>
-
-								</select>
-								<select id="s_city" name="s_city">
-
-									<option value="城市">城市</option>
-								</select>
-								<select id="s_county" name="s_county">
-
-									<option value="城区">城区</option>
-								</select>
-								<script class="resources library" src="__WAP__/js/area.js" type="text/javascript"></script>
-
-								<script type="text/javascript">
-									_init_area();
-								</script>
-							</div>
-
-						</li>
-						<li class="dl">
-							<span class="name">详细地址</span>
-							<div class=" bank_list open-popup">
-								<textarea id="address" name="address" value="" placeholder="请输入详细地址" rows="1"></textarea>
-							</div>
-						</li>
-						<li class="dl">
-							<span class="name">邮    编</span>
-							<div class="info">
-								<input id="bankzone" type="text" placeholder="请输入邮政编码">
-							</div>
-						</li>
-						<li class="dl">
-							<span class="name">设为默认</span>
-							<div class=" clearfix">
-								<div id="label">
-									<div class="">
-										<span></span><span></span>
-									</div>
-									<p></p>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<button class="big-button press">朕填好了</button>
+				<button class="big-button press">添加收货地址</button>
 				<!-- 交易统计弹出框成功弹出-->
 
 				<!-- 加载提示符 -->
@@ -403,10 +345,9 @@
 		<div class="background">
 
 		</div>
-		<p class="overtop">超出剩余数量</p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			/*$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");*/
+			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
 			$("button").focus(function() {
 				this.blur()
 			});
@@ -419,24 +360,24 @@
 				label = label + 1;
 				lable1();
 			})
-			/*$(".uc_invest-box ul li .lip3 .labels").click(function() {
+			$(".uc_invest-box ul li .lip3 .labels").click(function() {
 				if($(this).text() == "已设为默认") {
 					label = 1;
 					var ts = $(".uc_invest-box ul li").index($(this).parent().parent());
-					$(".overtop").text(ts);
+					alert(ts);
 					zuan1();
 					lable1();
 					moren(ts);
 				}
-			})*/
+			})
 			$(".big-button").click(function() {
 				if($(this).text() == "添加收货地址") {
 					/*label = 0;
 					lable1();
 					zuan1();*/
+					window.location.href="<?php echo url('member/address'); ?>";
 				} else if($(this).text() == "朕填好了") {
-					kong();
-
+					/*kong();*/
 				}
 			});
 
@@ -461,81 +402,28 @@
 			/*朕填好了 点击 判断*/
 			function kong() {
 				if($("#names").val() == "") {
-					$(".overtop").text("请输入持卡人姓名");
-					overtop();
+					alert("请输入收货人姓名")
 				} else {
 					if($("#bankcard").val() == "") {
-						$(".overtop").text("请输入电话号码")
-
-					overtop();
+						alert("请输入电话号码")
 					} else {
 						if($("#address").val() == "") {
-							$(".overtop").text("请输入详细地址")
-
-					overtop();
-
+							alert("请输入详细地址")
 						} else {
 							if($("#bankzone").val() == "") {
-								$(".overtop").text("请输入邮政编码")
-
-					overtop();
+								alert("请输入邮政编码")
 							} else {
 								if($("#s_province  option:selected").text() == "省份") {
-									$(".overtop").text("请选择所在地")
-
-					overtop();
+									alert("请选择所在地")
 								} else {
 									if($("#s_city  option:selected").text() == "城市") {
-										$(".overtop").text("请选择所在地")
-
-					overtop();
+										alert("请选择所在地")
 									} else {
 										if($("#s_county option:selected").text() == "城区") {
-											$(".overtop").text("请选择所在地")
-
-					overtop();
+											alert("请选择所在地")
 										} else {
-											var name=$("#names").val();
-											var mobile=$("#bankcard").val();
-											var address=$("#address").val();
-											var postcode=$("#bankzone").val();
-											var province_name=$("#s_province  option:selected").text();
-											var city_name=$("#s_city  option:selected").text();
-											var district_name=$("#s_county option:selected").text();
-												$.ajax({
-								                    type : "POST",  //提交方式
-								                    url : "{:url('member/address')}",//路径
-								                    data : {
-								                        "name" : name,
-								                        "mobile" : mobile,
-								                        "address" : address,
-								                        "postcode" : postcode,
-								                        "province_name" : province_name,
-								                        "city_name" : city_name,
-								                        "district_name" : district_name
-								                    },
-								                    dataType : "json",//数据，这里使用的是Json格式进行传输
-								                    success : function(result) {
-								                    	//alert("请输入用111户名")
-														var aa = JSON.parse(result);
-														if (aa.code==1) {
-															$(".overtop").text(aa.msg);
-															overtop();
-														}else{
-															alert('dfsfgdsf');
-															$(".overtop").text(aa.msg);
-															overtop();
-															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-															window.location='{:url("member/listress");}';
-															},5000);
-														}
-								                    },
-								                    error : function (){
-								                    	$(".overtop").text('请刷新页面重试');
-														overtop();
-								                }
-												});
-
+											huoqu();
+											hui();
 										}
 									}
 								}

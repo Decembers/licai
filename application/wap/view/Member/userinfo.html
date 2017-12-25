@@ -80,21 +80,23 @@
 				<a href="###"></a>
 			</div>
 			<div class="integrel_balance">
-				<h5>￥0.00</h5>
+				<h5>￥{$balance}</h5>
 				<p>账户余额</p>
 			</div>
 
 			<ul>
+			{volist name="arr" id="vo"}
 				<li>
 					<div class="fw_left fl">
-						<div class="chtx a1">0.00元</div>
+						<div class="chtx a1">{$vo.money}元</div>
 						<div>操作金额</div>
 					</div>
 					<div class="fw_right fr">
-						<div >开户奖励</div>
-						<div>2017-12-06 16:58:20</div>
+						<div >{$vo.comment}</div>
+						<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
 					</div>
 				</li>
+			{/volist}
 			</ul>
 
 		</div>

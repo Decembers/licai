@@ -71,7 +71,12 @@
 							<a href="##">
 								<div class="icon fl"></div>
 								<p class="fl">身份认证</p>
-								<span class="fr">已认证</span>
+								{if condition="$authentication eq 1"}
+									<span class="fr">已认证</span>
+								{else /}
+									<a href="{:url('member/identity')}"><span class="entered fr"></span></a>
+								{/if}
+
 							</a>
 						</li>
 						<!-- 我的邀请-->

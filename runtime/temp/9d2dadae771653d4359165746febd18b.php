@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"E:\GitHub\licai./application/wap\view\member\withdrawlog.html";i:1513911279;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"E:\GitHub\licai./application/wap\view\member\withdrawlog.html";i:1514169326;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -43,7 +43,7 @@
 			</div>
 			<ul class="Money_Log invest">
 				<p class="total_transaction a9 white">
-					提现总额：<span class="a1">￥0.00</span>
+					提现总额：<span class="a1">￥<?php echo $money; ?></span>
 				</p>
 				<!-- 如果没有记录，充值总额为0，显示以下-->
 				<!--<div class="no_record"></div>-->

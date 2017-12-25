@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\userinfo.html";i:1513932666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\userinfo.html";i:1514167719;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -81,21 +81,23 @@
 				<a href="###"></a>
 			</div>
 			<div class="integrel_balance">
-				<h5>￥0.00</h5>
+				<h5>￥<?php echo $balance; ?></h5>
 				<p>账户余额</p>
 			</div>
 
 			<ul>
+			<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 				<li>
 					<div class="fw_left fl">
-						<div class="chtx a1">0.00元</div>
+						<div class="chtx a1"><?php echo $vo['money']; ?>元</div>
 						<div>操作金额</div>
 					</div>
 					<div class="fw_right fr">
-						<div >开户奖励</div>
-						<div>2017-12-06 16:58:20</div>
+						<div ><?php echo $vo['comment']; ?></div>
+						<div><?php echo (date("y-m-d h:i:s",$vo['create_time'])) ? date("y-m-d h:i:s",$vo['create_time']) :  ''; ?></div>
 					</div>
 				</li>
+			<?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 
 		</div>

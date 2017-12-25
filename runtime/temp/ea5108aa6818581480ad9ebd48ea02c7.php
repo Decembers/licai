@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"E:\GitHub\licai./application/wap\view\member\packet.html";i:1513915151;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"E:\GitHub\licai./application/wap\view\member\packet.html";i:1514171606;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -89,21 +89,22 @@
 			</div>
 
 			<ul>
+<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 				<li>
 					<div class="redPackets_0 fl">
 
 					</div>
 					<div class="fw_left fl">
-						<div class="chtx a1">注册红包</div>
+						<div class="chtx a1"><?php echo $vo['remark']; ?></div>
 						<div class="exlimit">
 							<span class="name">有效期至:</span>无限 </div>
 					</div>
 					<div class="fw_right fr">
-						<div class="ri"><span>￥</span><span>10</span></div>
-						<div>剩余：20个</div>
+						<div class="ri"><span>￥</span><span><?php echo $vo['money']; ?></span></div>
+						<div>剩余：<?php echo $vo['number']; ?>个</div>
 					</div>
-
 				</li>
+<?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 
 		</div>

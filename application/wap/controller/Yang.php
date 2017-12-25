@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-21 18:06:38
+ * @Last Modified time: 2017-12-25 09:52:04
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -14,6 +14,8 @@ use think\Cookie;
 class yang extends Controller
 {
     protected $arr = ['Index/index','Login/login','Login/nopassword','Login/checkreg','Login/checkindex','Login/reg','Login/admin'];
+    public $id = null;
+
     public function __construct()
     {
         parent::__construct();
@@ -32,6 +34,8 @@ class yang extends Controller
                     $arr = unserialize($user);
                     Session::set('user',$arr);
                 }
+            }else{
+                $this->id =Session::get('user.id');
             }
         }
 

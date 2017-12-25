@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1513932843;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1514183759;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -115,7 +115,7 @@
 						</li>
 						<!-- 设置地址-->
 						<li class="address">
-							<a href="<?php echo url('member/address'); ?>">
+							<a href="<?php echo url('member/listress'); ?>">
 								<div class="icon fl"></div>
 								<p class="fl">收货地址</p>
 								<span class="entered fr"></span>

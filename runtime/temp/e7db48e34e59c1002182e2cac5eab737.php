@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\withdraw.html";i:1513911471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\withdraw.html";i:1514169266;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -243,7 +243,11 @@
 					</li>
 				</ul>
 			</div>
+			<?php if($authentication == 1): ?>
 			<button id="add" class="big-button press">添加银行卡</button>
+			<?php else: ?>
+			<button id="" class="big-button press" style="background:#ccc">添加银行卡</button>
+			<?php endif; ?>
 			<div id="red_select_list1">
 
 				<ul class="red_seclet white">
