@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<!--<title>我的</title>-->
+		<title>趣味农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
+		<style type="text/css">
+			.fillet {
+				box-sizing: border-box;
+				padding: 0 1rem;
+				margin: 0.5rem 0;
+			}
+
+			.fillet ul li {
+				margin: 0 1rem;
+				padding: 1rem 0;
+				border-top: 1px solid #e5e5e5;
+			}
+
+			.fillet ul li:nth-child(1) {
+				border: none;
+			}
+
+			.form_modify {
+				position: relative;
+				margin: 0 auto;
+			}
+
+			.form_modify .number {
+				background-position: left 55.5%;
+			}
+
+			.form_modify .code {
+				background-position: left 67.5%;
+			}
+
+			.form_modify .upwd,
+			.form_modify .more {
+				background-position: left 40%;
+			}
+
+			.form_modify span {
+				position: absolute;
+				top: 1rem;
+				left: 0.5rem;
+				display: inline-block;
+				width: 2rem;
+				height: 3rem;
+				background: url(__WAP__/img/iconlist_01.png) no-repeat;
+				background-size: cover;
+			}
+
+			.form_modify .ver_code,
+			.count_down {
+				position: absolute;
+				right: 0;
+				top: 1rem;
+				width: 8rem;
+				height: 3rem;
+				line-height: 3rem;
+				border-radius: 1.5rem;
+				font-size: 1.3rem;
+				color: #fff;
+				padding: 0;
+				border-bottom: 0;
+				background-color: #5ac3d8;
+				box-sizing: border-box;
+			}
+
+			.count_down {
+				background-color: rgba(0, 0, 0, 0.6);
+			}
+
+			.form_modify input {
+				width: 100%;
+				height: 3rem;
+				line-height: 3rem;
+				padding-left: 3rem;
+				box-sizing: border-box;
+				font-size: 1.3rem;
+			}
+
+			.changed,
+			.pay-changed {
+				display: block;
+				width: 80%;
+				height: 4rem;
+				line-height: 4rem;
+				border-radius: 2rem;
+				font-size: 2rem;
+				color: #fff;
+				border: 0;
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
+				margin-left: 10%;
+				margin-top: 3rem;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>身份认证</h3>
+				<!--<a href="###">交易统计</a>-->
+			</div>
+			<div class="content bgCo native-scroll">
+				<!-- 这里是页面内容区 -->
+
+				<div class="register_login bgCo" id="mb_re_pwd">
+					<div class="modify_login fillet">
+						<ul>
+							<li class="form_modify">
+								<span class="number"></span>
+								<input type="text" id="dl_mobile" name="dl_mobile" value="" placeholder="请输入姓名" maxlength="11">
+							</li>
+
+							<li class="form_modify">
+								<span class="more"></span>
+								<span class="delect"></span>
+								<input type="text" id="dl_user_pwd" name="dl_user_pwd" placeholder="请输入身份证号" maxlength="">
+							</li>
+
+						</ul>
+					</div>
+					<input type="submit" value="保存" class="changed confirm" name="dl-submit" id="dl-submit">
+				</div>
+
+			</div>
+
+		</div>
+		<p class="overtop">签到成功</p>
+		<div class="background"></div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*footer 当前页选中状态*/
+			$(".changed").click(function() {
+				if($("#dl_mobile").val() == "") {
+					$(".overtop").text("请输入姓名")
+					overtop();
+				} else {
+					if($("#dl_user_pwd").val() == "") {
+						$(".overtop").text("请输入身份证号")
+						overtop();
+					} else {
+						var pwd = $("#dl_user_pwd");
+						if($("#dl_user_pwd").val().length ==  15){
+							yanz(pwd,/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/);
+						}else if($("#dl_user_pwd").val().length ==  18){
+							yanz(pwd,/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/);
+						}else{
+							$(".overtop").text("身份证号错误，重新输入")
+							overtop();
+						}
+												var name=$("#dl_mobile").val();
+												var identity_card=$("#dl_user_pwd").val();
+												$.ajax({
+								                    type : "POST",  //提交方式
+								                    url : "{:url('member/identity')}",//路径
+								                    data : {
+								                        "name" : name,
+								                        "identity_card" : identity_card
+								                    },
+								                    dataType : "json",//数据，这里使用的是Json格式进行传输
+								                    success : function(result) {
+								                    	//alert("请输入用111户名")
+														var aa = JSON.parse(result);
+														if (aa.code==1) {
+															$(".overtop").text(aa.msg);
+															overtop();
+															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+															window.location='{:url("member/index");}';
+															},1000);
+														}else{
+															$(".overtop").text(aa.msg);
+															overtop();
+														}
+								                    },
+								                    error : function (){
+								                    	$(".overtop").text('请刷新页面重试');
+														overtop();
+								                }
+												});
+
+					}
+				}
+			})
+
+			function yanz(tag, reg) {
+
+				if(reg.test(tag.value)) {
+
+				} else {
+					$(".overtop").text("身份证号错误，重新输入")
+					overtop();
+				}
+			}
+
+			/*15位数身份证验证正则表达式：
+			isIDCard1=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;
+			18位数身份证验证正则表达式 ：
+			isIDCard2=/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;*/
+		</script>
+	</body>
+
+</html>

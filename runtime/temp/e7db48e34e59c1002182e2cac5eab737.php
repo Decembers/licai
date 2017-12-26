@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\withdraw.html";i:1514169266;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\withdraw.html";i:1514197319;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -20,19 +20,8 @@
 				margin: 0 auto;
 			}
 
-			.no_record {
-				width: 11rem;
-				height: 12rem;
-				margin: 7.5rem auto 0 auto;
-				background: url(__WAP__/img/no_bank.png) no-repeat center center;
-				background-size: 100% 100%;
-			}
-
 			.big-button {
-				position: fixed;
-				left: 50%;
-				bottom: 3.75rem;
-				margin-left: -42.5vw;
+
 			}
 
 			.bank_bg {
@@ -80,7 +69,7 @@
 				height: 3rem;
 				line-height: 3rem;
 				margin-top: 0.8rem;
-				font-size: 1.5rem;
+				font-size: 15px;
 			}
 
 			.region_select div {
@@ -92,6 +81,7 @@
 				height: 2rem;
 				margin-top: 1.5rem;
 				color: gray;
+				font-size: 15px;
 			}
 
 			.this_bank {
@@ -140,7 +130,7 @@
 			}
 
 			#red_select_list1 li span {
-				font-size: 1.5rem;
+				font-size: 16px;
 			}
 
 			#red_select_list1 li input {
@@ -163,6 +153,83 @@
 			.clearfix {
 				display: flex;
 			}
+
+			.bank_queue {
+				display: none;
+			}
+
+			.kahao {
+				width: 95%;
+				margin: 1rem auto;
+				min-height:300px;
+			}
+			/*min-height:100px;//最小高度
+max-height:200px;//最大高度*/
+			.kahao li {
+				box-sizing: border-box;
+				height: 6rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.checkin {
+				position: relative;
+				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
+			}
+
+			.white {
+				background: #fff;
+			}
+
+			.fillet {
+				border: 1px solid #ededed;
+				border-radius: 0.4rem;
+				background: #fff;
+			}
+
+			.checkin .bank_icon {
+				position: absolute;
+				top: 1.2rem;
+				left: 0.75rem;
+			}
+
+			.bank_icon img {
+				margin: 0;
+				padding: 0;
+				margin-left: -40px;
+				transition: All 0.4s ease-in-out;
+				-webkit-transition: All 0.4s ease-in-out;
+				-moz-transition: All 0.4s ease-in-out;
+				-o-transition: All 0.4s ease-in-out;
+				transform: rotateY(60deg);
+				-webkit-transform: rotateY(60deg);
+				-moz-transform: rotateY(60deg);
+				-o-transform: rotateY(60deg);
+				-ms-transform: rotateY(60deg);
+			}
+
+			.kahao li a {
+				position: absolute;
+				left: 100px;
+				top: 1rem;
+			}
+
+			.detail h6 {
+				padding: 0;
+				margin: 0;
+				color: black;
+				font-size: 18px;
+				margin-top: 5px;
+			}
+
+			.detail span {
+				font-size: 14px;
+				color: gray;
+				margin-top: 5px;
+			}
+
+			body>li {
+				display: none;
+			}
 		</style>
 	</head>
 
@@ -173,7 +240,7 @@
 					<span class="icon"></span><span>返回</span>
 				</div>
 				<h3>提现</h3>
-				<a href="<?php echo url('member/withdrawlog'); ?>">提现记录</a>
+				<a href="<?php echo url('member/withdrawlog');; ?>">提现记录</a>
 			</div>
 			<div class="bank_queue">
 				<!-- 如果没有银行卡，则以下显示-->
@@ -185,12 +252,27 @@
 				<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 				<div class="no_record"></div>
 			</div>
+			<ul class="kahao">
+				<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+				<li class="checkin white fillet">
+					<div class="bank_icon">
+						<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
+					</div>
+					<a href="###">
+						<div class="detail">
+							<h6><?php echo $vo['bank_name']; ?></h6>
+							<span>尾号<?php echo $vo['cardnum']; ?>储蓄卡</span>
+						</div>
+					</a>
+				</li>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
+			</ul>
 			<div class="bank_bg white fillet">
 				<ul>
 					<li class="dl">
 						<span class="name">持 卡 人</span>
 						<div class="info">
-							<input type="text" value="" placeholder="请输入持卡人姓名">
+							<input type="text" value="" id="names" placeholder="请输入持卡人姓名">
 						</div>
 					</li>
 					<li class="dl">
@@ -243,11 +325,7 @@
 					</li>
 				</ul>
 			</div>
-			<?php if($authentication == 1): ?>
-			<button id="add" class="big-button press">添加银行卡</button>
-			<?php else: ?>
-			<button id="" class="big-button press" style="background:#ccc">添加银行卡</button>
-			<?php endif; ?>
+			<button id="add" class="big-button press"><a href="<?php echo url('member/addwithdraw'); ?>">添加银行卡</a></button>
 			<div id="red_select_list1">
 
 				<ul class="red_seclet white">
@@ -401,6 +479,17 @@
 			</div>
 		</div>
 		<p class="overtop">签到成功</p>
+		<li class="checkin white fillet">
+			<div class="bank_icon">
+				<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
+			</div>
+			<a href="###">
+				<div class="detail">
+					<h6></h6>
+					<span></span>
+				</div>
+			</a>
+		</li>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -409,18 +498,19 @@
 			$(".dl div select").focus(function() {
 				$(this).css("color", "black");
 			})
-			$("#add").click(function() {
+			/*$("#add").click(function() {
 				if($(this).text() == "添加银行卡") {
 					$(".bank_queue").css("display", "none");
 					$(".bank_bg").css("display", "block");
 					$(".header h3 ").text("添加银行卡");
 					$(".header a").css("display", "none");
 					$(".header div").css("display", "none");
+					$(".kahao").css("display", "none");
 					$(this).text("确认添加");
 				} else if($(this).text() == "确认添加") {
-
+					queren();
 				}
-			})
+			})*/
 			/*红包选择 弹出*/
 			$(".bank_list").click(function() {
 				$("#red_select_list1").css("top", "0");
@@ -438,6 +528,96 @@
 					$(".bank_list p").css("color", "black");
 				}
 			})
+
+			function queren() {
+				if($("#names").val() == "") {
+					$(".overtop").text("请输入持卡人姓名");
+					overtop();
+				} else {
+					if($("#bankcard").val() == "") {
+						$(".overtop").text("请输入卡号");
+						overtop();
+					} else {
+						if($("#bankcard").val().length > 15 && $("#bankcard").val().length < 20) {
+
+							if($(".this_bank").text() == "请查看银行列表") {
+								$(".overtop").text("请查看银行列表");
+								overtop();
+							} else {
+								if($("#bankzone").val() == "") {
+									$(".overtop").text("请输入开户行");
+									overtop();
+								} else {
+									if($("#s_province  option:selected").text() == "省份") {
+
+										$(".overtop").text("请选择所在地");
+										overtop();
+									} else {
+										if($("#s_city  option:selected").text() == "城市") {
+
+											$(".overtop").text("请选择所在地");
+											overtop();
+										} else {
+											if($("#s_county option:selected").text() == "城区") {
+
+												$(".overtop").text("请选择所在地");
+												overtop();
+											} else {
+
+												huoqu();
+												hui();
+											}
+										}
+									}
+								}
+							}
+						}else{
+							$(".overtop").text("卡号错误，请重新输入");
+												overtop();
+						}
+
+					}
+				}
+			}
+
+			/* 填写完成 后  判断      lis 是否复制*/
+			function huoqu() {
+				var liss = $(".kahao li").length;
+				if($(".kahao li:nth-child(" + liss + ") a .detail h6").text() == "") {
+					xieru(liss);
+				} else {
+					$(".kahao li:nth-child(" + liss + ")").after($("body>li").clone(true));
+					xieru($(".kahao li").length);
+				}
+			}
+			/* 把填写的内容 写入 复制 区域*/
+			function xieru(len) {
+				/*$("#bankcard").val().substr(-4, 4);*/
+					/*.substr(start, length)*/
+				$(".kahao li:nth-child(" + len + ") a .detail h6").text($(".this_bank").text());
+				$(".kahao li:nth-child(" + len + ") a .detail span").text("尾号"+$("#bankcard").val().substr(-4, 4)+"储蓄卡");
+				$(".kahao li:nth-child(" + len + ") .bank_icon img").attr("alt",$(".this_bank").text());
+				/*$(".kahao li:nth-child(" + len + ") .bank_icon img").attr("src","new_src");*/
+				val();
+			}
+			/* 填写区域清空*/
+			function val() {
+				$(".bank_bg ul li div input").val("");
+				$(".bank_bg ul li div textarea").val("");
+				$("#s_province  option:selected").text("省份");
+				$("#s_city  option:selected").text("城市");
+				$("#s_county option:selected").text("城区");
+			}
+			/*转换*/
+			function hui() {
+				$(".uc_invest-box").css("display", "block");
+				$(".uc_invest-box .no_sheep").css("display", "none");
+				$(".uc_invest-box ul").css("display", "block");
+				$(".bank_bg").css("display", "none");
+				$(".header h3 ").text("提现");
+				$("#add").text("添加银行卡");
+				$(".kahao").css("display", "block");
+			}
 		</script>
 	</body>
 

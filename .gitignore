@@ -1,3 +1,7 @@
 .idea
 *.log
 runtime/log/201712/20.log
+*.php
+*.php
+*.php
+runtime/temp/1574de95fa93674408f2ce0cee639c2d.php

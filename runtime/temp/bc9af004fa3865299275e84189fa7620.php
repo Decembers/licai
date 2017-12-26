@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\member\pay.html";i:1513910833;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:53:"E:\GitHub\licai./application/wap\view\member\pay.html";i:1514256334;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -222,7 +222,7 @@
 						温馨提示：当您的充值用途不是购买财富牧场的羊只时，7个自然日内我们不支持提现，7个自然日之后您申请提现时我们将收取0.6%的手续费哦∩_∩。
 					</div>
 					<button class="big-button press" id="big-button">朕要充值</button>
-					<a href="index4-recharge-2.html" class="big-a">充值、提现规则</a>
+					<a href="<?php echo url('member/paygz'); ?>" class="big-a">充值、提现规则</a>
 
 				</li>
 				<li style="display: none;">

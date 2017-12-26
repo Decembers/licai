@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\listress.html";i:1514185297;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:58:"E:\GitHub\licai./application/wap\view\member\listress.html";i:1514258954;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -308,14 +308,13 @@
 					<!-- 没有羊结束-->
 					<?php if($arr): ?>
 						<ul >
-							<li class="lis">
-								<p class="lip1"><span></span><span></span></p>
-								<p class="lip2"><span class="dz">2222</span><span class="sz"><i class="sz1"></i><i class="sz2"></i><i class="sz3"></i></span></p>
-								<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-									<p class="lip3"><span class="youbian"><?php echo $vo['name']; ?></span><span class="labels"></span></p>
-								<?php endforeach; endif; else: echo "" ;endif; ?>
-
-							</li>
+						<?php if(is_array($arr) || $arr instanceof \think\Collection || $arr instanceof \think\Paginator): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+						<li class="lis">
+							<p class="lip1"><span><?php echo $vo['name']; ?></span><span><?php echo $vo['mobile']; ?></span></p>
+							<p class="lip2"><span class="dz"><?php echo $vo['address']; ?></span><span class="sz"><i class="sz1"><?php echo $vo['province_name']; ?></i><i class="sz2"><?php echo $vo['city_name']; ?></i><i class="sz3"><?php echo $vo['district_name']; ?></i></span></p>
+							<p class="lip3"><span class="youbian"><?php echo $vo['postcode']; ?></span><span class="labels" onclick="shemr(<?php echo $vo['id']; ?>)">设为默认</span></p>
+						</li>
+						<?php endforeach; endif; else: echo "" ;endif; ?>
 						</ul>
 					<?php else: ?>
 						<div class="no_sheep"></div>
@@ -380,6 +379,35 @@
 					/*kong();*/
 				}
 			});
+
+			function shemr(id) {
+				$.ajax({
+                    type : "POST",  //提交方式
+                    url : "<?php echo url('member/listress'); ?>",//路径
+                    data : {
+                        "id" : id,
+                    },
+                    dataType : "json",//数据，这里使用的是Json格式进行传输
+                    success : function(result) {
+                    	//alert("请输入用111户名")
+						var aa = JSON.parse(result);
+						if (aa.code==1) {
+							$(".overtop").text(aa.msg);
+							overtop();
+							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+							window.location='<?php echo url("member/listress");; ?>';
+							},1000);
+						}else{
+							$(".overtop").text(aa.msg);
+							overtop();
+						}
+                    },
+                    error : function (){
+                    	$(".overtop").text('请刷新页面重试');
+						overtop();
+                }
+				});
+			}
 
 			function zuan1() {
 				$(".uc_invest-box").css("display", "none");

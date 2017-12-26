@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"E:\GitHub\licai./application/wap\view\member\paylog.html";i:1513915494;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"E:\GitHub\licai./application/wap\view\member\paylog.html";i:1514256476;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +45,10 @@
 			</div>
 			<ul class="Money_Log invest">
 				<p class="total_transaction a9 white">
-					充值总额：<span class="a1">￥0.00</span>
+					充值总额：<span class="a1">￥<?php if($money): ?>
+					<?php echo $money; else: ?>
+					0.00
+					<?php endif; ?></span>
 				</p>
 				<!-- 如果没有记录，充值总额为0，显示以下-->
 				<!--<div class="no_record"></div>-->

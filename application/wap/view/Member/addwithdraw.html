@@ -46,7 +46,7 @@
 			}
 
 			.bank_bg ul li:nth-child(1) {
-				border: none;
+				/* border: none; */
 			}
 
 			.bank_bg ul li>span {
@@ -251,22 +251,20 @@ max-height:200px;//最大高度*/
 				<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 				<div class="no_record"></div>
 			</div>
-			<ul class="kahao">
-				{volist name="arr" id="vo"}
+			<ul class="kahao" >
 				<li class="checkin white fillet">
 					<div class="bank_icon">
 						<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
 					</div>
 					<a href="###">
 						<div class="detail">
-							<h6>{$vo.bank_name}</h6>
-							<span>尾号{$vo.cardnum}储蓄卡</span>
+							<h6>中国工商银行</h6>
+							<span>尾号6789储蓄卡</span>
 						</div>
 					</a>
 				</li>
-				{/volist}
 			</ul>
-			<div class="bank_bg white fillet">
+			<div class="bank_bg white fillet" >
 				<ul>
 					<li class="dl">
 						<span class="name">持 卡 人</span>
@@ -324,7 +322,7 @@ max-height:200px;//最大高度*/
 					</li>
 				</ul>
 			</div>
-			<button id="add" class="big-button press"><a href="{:url('member/addwithdraw')}">添加银行卡</a></button>
+			<button id="add" class="big-button press">添加银行卡</button>
 			<div id="red_select_list1">
 
 				<ul class="red_seclet white">
@@ -493,7 +491,7 @@ max-height:200px;//最大高度*/
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
-			$(".bank_bg").css("display", "none");
+			$(".kahao").css("display", "none");
 			$(".dl div select").focus(function() {
 				$(this).css("color", "black");
 			})
@@ -527,7 +525,9 @@ max-height:200px;//最大高度*/
 					$(".bank_list p").css("color", "black");
 				}
 			})
-
+			$("#add").click(function(){
+				queren();
+			})
 			function queren() {
 				if($("#names").val() == "") {
 					$(".overtop").text("请输入持卡人姓名");
@@ -563,8 +563,45 @@ max-height:200px;//最大高度*/
 												overtop();
 											} else {
 
-												huoqu();
-												hui();
+												var name=$("#names").val();
+												var cardnum=$("#bankcard").val();
+												var bank_name=$(".this_bank").text();
+												var bank_opening=$("#bankzone").val();
+												var province_name=$("#s_province  option:selected").text();
+												var city_name=$("#s_city  option:selected").text();
+												var district_name=$("#s_county option:selected").text();
+												$.ajax({
+								                    type : "POST",  //提交方式
+								                    url : "{:url('member/withdraw')}",//路径
+								                    data : {
+								                        "name" : name,
+								                        "cardnum" : cardnum,
+								                        "bank_name" : bank_name,
+								                        "bank_opening" : bank_opening,
+								                        "province_name" : province_name,
+								                        "city_name" : city_name,
+								                        "district_name" : district_name,
+								                    },
+								                    dataType : "json",//数据，这里使用的是Json格式进行传输
+								                    success : function(result) {
+								                    	//alert("请输入用111户名")
+														var aa = JSON.parse(result);
+														if (aa.code==1) {
+															$(".overtop").text(aa.msg);
+															overtop();
+															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+															window.location='{:url("member/listress");}';
+															},1000);
+														}else{
+															$(".overtop").text(aa.msg);
+															overtop();
+														}
+								                    },
+								                    error : function (){
+								                    	$(".overtop").text('请刷新页面重试');
+														overtop();
+								                }
+												});
 											}
 										}
 									}

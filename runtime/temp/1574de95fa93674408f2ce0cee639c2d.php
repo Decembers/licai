@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"E:\GitHub\licai./application/wap\view\member\address.html";i:1514191202;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"E:\GitHub\licai./application/wap\view\member\address.html";i:1514257170;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -513,7 +513,8 @@
 								                        "postcode" : postcode,
 								                        "province_name" : province_name,
 								                        "city_name" : city_name,
-								                        "district_name" : district_name
+								                        "district_name" : district_name,
+								                        "is_default" : label
 								                    },
 								                    dataType : "json",//数据，这里使用的是Json格式进行传输
 								                    success : function(result) {
@@ -522,13 +523,12 @@
 														if (aa.code==1) {
 															$(".overtop").text(aa.msg);
 															overtop();
-														}else{
-															alert('dfsfgdsf');
-															$(".overtop").text(aa.msg);
-															overtop();
 															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 															window.location='<?php echo url("member/listress");; ?>';
-															},5000);
+															},1000);
+														}else{
+															$(".overtop").text(aa.msg);
+															overtop();
 														}
 								                    },
 								                    error : function (){

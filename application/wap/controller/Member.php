@@ -3,11 +3,13 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-25 16:29:25
+ * @Last Modified time: 2017-12-26 11:40:24
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
 use think\Session;
+use think\Cookie;
+use think\Db;
 use app\common\model\User as U;
 use app\common\model\Detail as D;
 use app\common\model\Order as O;
@@ -52,7 +54,11 @@ class Member extends Yang
      */
     public function pay()
     {
-        return $this->fetch();
+        if ($this->request->isAjax()) {
+
+        }else{
+            return $this->fetch();
+        }
     }
     public function paylog()
     {
@@ -62,6 +68,10 @@ class Member extends Yang
         $this->assign('money',$money);
         return $this->fetch();
     }
+    public function paygz()
+    {
+        return $this->fetch();
+    }
     /*
      *提现
      */
@@ -69,7 +79,31 @@ class Member extends Yang
     {
         $authentication = Session::get('user.authentication');
         $this->assign('authentication',$authentication);
+        $arr = B::where(['user_id'=>$this->id])->select();
+        foreach ($arr as $k => $v) {
+            $arr[$k]['cardnum'] = substr($v['cardnum'],-4);
+        }
+        $this->assign('arr',$arr);
         return $this->fetch();
+    }
+    public function addwithdraw()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'添加银行卡失败'];
+        if ($this->request->isAjax()) {
+             $data = input();
+             $data['user_id'] = $this->id;
+             $data['create_time'] = time();
+             $add = B::insert($data);
+             if ($add) {
+                $arr['code'] = 1;
+                $arr['msg'] = '添加银行卡成功';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            return $this->fetch();
+        }
     }
     public function withdrawlog()
     {
@@ -110,6 +144,12 @@ class Member extends Yang
     }
     public function shopplog()
     {
+        $arr = O::where(['user_id'=>$this->id])->select();
+        foreach ($arr as $k => $v) {
+            $com = C::where(['id'=>$v['id']])->find();
+            $arr[$k]['name'] = $com['name'];
+        }
+        $this->assign('arr',$arr);
         return $this->fetch();
     }
     /*
@@ -161,15 +201,37 @@ class Member extends Yang
      */
     public function listress()
     {
-        $arr = R::where(['user_id'=>$this->id])->select();
-        $this->assign('arr',$arr);
-        return $this->fetch();
+         if ($this->request->isAjax()) {
+            $id = input('id');
+            $arr = ['code'=>-200,'data'=>'','msg'=>'设置默认地址失败'];
+            Db::startTrans();
+            try{
+                R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
+                R::where(['id'=>$id,'user_id'=>$this->id])->update(['is_default'=>1]);
+                // 提交事务
+                Db::commit();
+            } catch (\think\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                return json_encode($arr);
+            }
+            $arr['code'] = 1;
+            $arr['msg'] = '设置成功';
+            return json_encode($arr);
+         }else{
+            $arr = R::where(['user_id'=>$this->id])->select();
+            $this->assign('arr',$arr);
+            return $this->fetch();
+        }
     }
     public function address()
     {
         $arr = ['code'=>-200,'data'=>'','msg'=>'添加地址失败'];
         if ($this->request->isAjax()) {
              $data = input();
+             if ($data['is_default']==1) {
+                 R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
+             }
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $add = R::insert($data);
@@ -191,6 +253,17 @@ class Member extends Yang
     public function setting()
     {
         $authentication = Session::get('user.authentication');
+        $user = Session::get('user');
+        if ($authentication == 1) {
+            $au = I::where(['user_id'=>$this->id])->find();
+            if ($au['status'] == 1) {
+                U::where(['id'=>$this->id])->update(['authentication'=>2]);
+                Session::set('user.authentication',2);
+                $user['authentication'] = 2;
+                Cookie::set('user',serialize($user),2592000);
+                $authentication = 2;
+            }
+        }
         $this->assign('authentication',$authentication);
         return $this->fetch();
     }
@@ -228,6 +301,9 @@ class Member extends Yang
         $arr = ['code'=>-200,'data'=>'','msg'=>'身份认证提交失败'];
         if ($this->request->isAjax()) {
              $data = input();
+             $data['user_id'] = $this->id;
+             $data['create_time'] = time();
+             $data['update_time'] = time();
              $add = I::insert($data);
              if ($add) {
                 $arr['code'] = 1;

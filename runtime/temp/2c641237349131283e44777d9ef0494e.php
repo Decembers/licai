@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1514183759;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:55:"E:\GitHub\licai./application/wap\view\member\index.html";i:1514194140;}*/ ?>
 <!DOCTYPE html>
 <html>
 

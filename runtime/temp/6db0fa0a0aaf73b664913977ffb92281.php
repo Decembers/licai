@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"E:\GitHub\licai./application/wap\view\member\setting.html";i:1514188456;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"E:\GitHub\licai./application/wap\view\member\setting.html";i:1514255654;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -72,8 +72,10 @@
 							<a href="##">
 								<div class="icon fl"></div>
 								<p class="fl">身份认证</p>
-								<?php if($authentication == 1): ?>
+								<?php if($authentication == 2): ?>
 									<span class="fr">已认证</span>
+								<?php elseif($authentication == 1): ?>
+									<span class="fr">认证中</span>
 								<?php else: ?>
 									<a href="<?php echo url('member/identity'); ?>"><span class="entered fr"></span></a>
 								<?php endif; ?>

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-25 10:41:50
+ * @Last Modified time: 2017-12-26 12:00:15
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -30,16 +30,17 @@ class Order extends Yang
             $num = $data['number'];//用户购买数量
             $user_id = Session::get('user.id');
             $authentication = Session::get('user.authentication');
-            if ($authentication!=1) {
-                $arr['msg']='请实名认证后购买!';
+            if ($authentication==1) {
+                $arr['msg']='请等待实名认证成功后购买';
+                return json_encode($arr);
+            }elseif($authentication==0){
+                $arr['msg']='请实名认证后购买';
                 return json_encode($arr);
             }
-
             if (!isset($user_id)) {
                 $arr['msg']='请登陆后购买!';
                 return json_encode($arr);
             }
-
             if ($comm['classify'] == 3) {
                 if ($data['vip6']!=$comm['vip6']) {
                     $arr['msg']='您输入的vip邀请码不正确';
@@ -59,6 +60,8 @@ class Order extends Yang
             $row['create_time'] = time();
             $row['update_time'] = time();
 
+
+
             if ($num>$restriction) {
                 $arr['msg'] = '购买数量超出'.$restriction.'个限购数';
                 return json_encode($arr);
@@ -76,16 +79,17 @@ class Order extends Yang
                 return json_encode($arr);
             }
 
-            $pay_pass = md5($data['pay_pass']);
-            if (Session::get('user.pay_pass')!=$pay_pass) {
-                $arr['msg']='您输入的支付密码不正确';
-                return json_encode($arr);
-            }
 
             Db::startTrans();
             try{
                 //扣除用户余额
                 $user = Db::table('tp_user')->where(['id'=>$user_id])->find();
+            $pay_pass = md5($data['pay_pass']);
+            if ($user['pay_pass']!=$pay_pass) {
+                $arr['msg']='您输入的支付密码不正确';
+                //return json_encode($arr);
+                throw new \think\Exception();
+            }
                 $balance = $user['balance'] - $row['order_price'];
                 if ($balance < 0) {
                     $arr['msg'] = '您的余额不足!请充值!';
