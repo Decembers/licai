@@ -121,10 +121,7 @@
 				<div class="register_login bgCo" id="mb_re_pwd">
 					<div class="modify_login fillet">
 						<ul>
-							<li class="form_modify">
-								<span class="number"></span>
-								<input type="text" id="dl_mobile" name="dl_mobile" value="" placeholder="请输入手机号" maxlength="11">
-							</li>
+
 							<li class="form_modify">
 								<span class="code"></span>
 								<input type="text" id="dl_mobile_code" name="dl_mobile_code" placeholder="请输入验证码" maxlength="6">
@@ -155,9 +152,6 @@
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
 			$(".changed").click(function() {
-				if($("#dl_mobile").val() == "") {
-					alert("请输入手机号")
-				} else {
 					if($("#dl_mobile_code").val() == "") {
 						alert("请输入验证码")
 					} else {
@@ -169,13 +163,11 @@
 							} else {
 								if($("#dl_user_pwd_confirm").val() == $("#dl_user_pwd").val()) {
 											var password=$("#dl_user_pwd").val();
-											var mobile = $("#dl_mobile").val();
 											var code = $("#dl_mobile_code").val();
 											$.ajax({
 							                    type : "POST",  //提交方式
 							                    url : "{:url('Login/nopay')}",//路径
 							                    data : {
-							                        "mobile" : mobile,
 							                        "pay_pass" : password,
 							                        "code" : code,
 							                    },
@@ -202,7 +194,7 @@
 							}
 						}
 					}
-				}
+
 			})
 
 			$('#dl_getcode').click(function() {

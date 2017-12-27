@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-26 12:00:15
+ * @Last Modified time: 2017-12-26 17:39:28
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -12,6 +12,7 @@ use think\Db;
 use app\common\model\Order as O;
 use app\common\model\Commodity as C;
 use app\common\model\User as U;
+use app\common\model\Detail as D;
 
 class Order extends Yang
 {
@@ -97,9 +98,10 @@ class Order extends Yang
                 }
                 Db::table('tp_user')->where(['id'=>$user_id])->update(['balance' => $balance]);
 
+                $arr['msg'] = '订单创建失败';
                 $ara = Db::table('tp_order')->insert($row);
                 if ($ara !== 1) {
-                    $arr['msg'] = '订单创建失败';
+
                     throw new \think\Exception();
                 }
 
@@ -111,6 +113,15 @@ class Order extends Yang
                 }
                 Db::table('tp_commodity')->where(['id'=>$sp_id])->update(['number' => $numbers]);
 
+                $detail['user_id']=$this->id;
+                $detail['or']=3;
+                $detail['money']=$row['order_price'];
+                $detail['comment']='购买羊只';
+                $detail['status']=1;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
+                $arr['msg'] = '添加详细信息失败';
+                Db::table('tp_detail')->insert($detail);
                 Session::set('user.balance',$balance);
                 // 提交事务
                 Db::commit();

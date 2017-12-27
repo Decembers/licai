@@ -390,6 +390,9 @@
 						//console.log(aa);
 						if (aa.code==0) {
 							$(".overtop1 .overtop_text").text(aa.msg);
+							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+							window.location='{:url("Rancher/index")}';
+							},1000);
 						}else{
 							$(".overtop1 .overtop_text").text(aa.msg);
 						}

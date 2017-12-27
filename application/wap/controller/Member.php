@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-26 11:40:24
+ * @Last Modified time: 2017-12-26 18:54:08
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -37,6 +37,18 @@ class Member extends Yang
         $this->assign('balance',$balance);
         $this->assign('authti',$authti);
         return $this->fetch();
+    }
+    /*
+     *签到
+     */
+    public function qiandao()
+    {
+        $arr = ['code'=>1,'data'=>'','msg'=>''];
+        $user = U::where(['id'=>$this->id])->find();
+        $id = Session::get('user.id');
+        $integral = $user['integral']+20;
+        U::where(['id'=>$this->id])->update(['integral'=>$integral]);
+        return json_encode($arr);
     }
     /*
      *账户明细
@@ -306,6 +318,11 @@ class Member extends Yang
              $data['update_time'] = time();
              $add = I::insert($data);
              if ($add) {
+                $user = Session::get('user');
+                U::where(['id'=>$this->id])->update(['authentication'=>1]);
+                Session::set('user.authentication',1);
+                $user['authentication'] = 1;
+                Cookie::set('user',serialize($user),2592000);
                 $arr['code'] = 1;
                 $arr['msg'] = '身份认证提交成功';
                 return json_encode($arr);

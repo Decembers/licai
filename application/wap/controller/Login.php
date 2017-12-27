@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-22 16:42:59
+ * @Last Modified time: 2017-12-26 18:49:04
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -133,22 +133,15 @@ class Login extends Controller
     {
           if ($this->request->isAjax() && $this->request->isPost())
                 {
-                $mobile=input('post.mobile');
+                $mobile=Session::get('user.mobile');
                 $password=input('post.password');
-                $arr['mobile']= input('post.mobile');
+                $arr['mobile']= $mobile;
                 $arr['password'] = md5($password);
                 $code      = input('post.code');
 
-                if (!$mobile) {
-                    return json(['code'=>1, 'msg'=>'手机号不能为空']);
-                }
                 if (!$password) {
                     return json(['code'=>1, 'msg'=>'密码不能为空']);
                 }
-                if (!checkMobile($mobile)) {
-                    return json(['code'=>1, 'msg'=>'手机号格式不正确']);
-                }
-
                 //$scode = empty($_SESSION['code'][$mobile]['code']) ? '' : $_SESSION['code'][$mobile]['code'];
                 //$stime = empty($_SESSION['code'][$mobile]['time']) ? 0 : $_SESSION['code'][$mobile]['time'];
                 //if (!$scode || $scode != $messcode) {
@@ -168,8 +161,6 @@ class Login extends Controller
 
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
                     return json(['code'=>200, 'msg'=>'重置密码成功,请登录']);
-                } else {
-                    return json(['code'=>1, 'msg'=>'手机号码不存在']);
                 }
 
                 return json(['code'=>1, 'msg'=>'重置密码失败']);
@@ -184,22 +175,14 @@ class Login extends Controller
      */
     public function nopay(){
         if ($this->request->isAjax() && $this->request->isPost()){
-                $mobile=input('post.mobile');
+                $mobile=Session::get('user.mobile');
                 $pay_pass=input('post.pay_pass');
-                $arr['mobile']= input('post.mobile');
+                $arr['mobile']= $mobile;
                 $arr['pay_pass'] = md5($pay_pass);
                 $code      = input('post.code');
-
-                if (!$mobile) {
-                    return json(['code'=>1, 'msg'=>'手机号不能为空']);
-                }
                 if (!$pay_pass) {
                     return json(['code'=>1, 'msg'=>'支付密码不能为空']);
                 }
-                if (!checkMobile($mobile)) {
-                    return json(['code'=>1, 'msg'=>'手机号格式不正确']);
-                }
-
                 //$scode = empty($_SESSION['code'][$mobile]['code']) ? '' : $_SESSION['code'][$mobile]['code'];
                 //$stime = empty($_SESSION['code'][$mobile]['time']) ? 0 : $_SESSION['code'][$mobile]['time'];
                 //if (!$scode || $scode != $messcode) {
@@ -219,8 +202,6 @@ class Login extends Controller
 
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
                     return json(['code'=>200, 'msg'=>'重置支付密码成功,请登录']);
-                } else {
-                    return json(['code'=>1, 'msg'=>'手机号码不存在']);
                 }
 
                 return json(['code'=>1, 'msg'=>'重置支付密码失败']);

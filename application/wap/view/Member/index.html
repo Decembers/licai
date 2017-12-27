@@ -39,7 +39,7 @@
 								<div class="authened">{$authti}</div>
 							</div>
 							<div class="integral fr">
-								<a class="sign_success">签到赚积分</a>
+								<a class="sign_success" id="shan">签到赚积分</a>
 								<span class="increase">+20</span>
 								<a href="#">
 									我的积分
@@ -150,23 +150,40 @@
 				</div>
 				<p class="official_record a9" style="text-align:center">© 2016 内蒙古蒙蓝科技有限公司 All rights reserved <br>蒙ICP备15002147号-2</p>
 			</div>
-			<div class="footer" style="z-index: 99;">
+			<div class="footer">
+
 				<a href="{:url('index/index')}">
+
 					<span class="icons "></span>
+
 					<p>牧场</p>
+
 				</a>
-				<a href="index2.html">
+
+				<a href="{:url('Supermarket/index')}">
+
 					<span class="icons"></span>
+
 					<p>超市</p>
+
 				</a>
-				<a href="index3.html">
+
+				<a href="{:url('Discover/index')}">
+
 					<span class="icons"></span>
+
 					<p>发现</p>
+
 				</a>
+
 				<a href="{:url('member/index')}">
+
 					<span class="icons"></span>
+
 					<p>我的</p>
+
 				</a>
+
 			</div>
 		</div>
 		<p class="overtop">签到成功</p>
@@ -177,6 +194,17 @@
 			$(".footer a:nth-child(4) .icons").css("background", "url(__WAP__/img/iconlist_05.png) no-repeat center 53%");
 			$(".footer a:nth-child(4) .icons").css("background-size", "3rem");
 			$(".sign_success").click(function() {
+
+				// $.ajax({
+    //                 type : "POST",  //提交方式
+    //                 url : "{:url('member/qiandao')}",//路径
+    //                 dataType : "json",//数据，这里使用的是Json格式进行传输
+    //                 error : function (){
+    //                 	$(".overtop").text('请刷新页面重试');
+				// 		overtop();
+				// 		return false;
+    //             }
+				// });
 				$(this).text("已签到");
 				$(this).css("opacity", "0.5")
 				$(".overtop").css("display", "block");
@@ -184,6 +212,7 @@
 				setTimeout(function() {
 					$(".overtop").css("opacity", "0");
 				}, 2000);
+
 			})
 
 

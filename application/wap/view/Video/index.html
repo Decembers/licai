@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--<title>牧场视频</title>-->
+		<title>趣味农场</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+		<style type="text/css">
+
+			input,
+			button,
+			a {
+				outline: none;
+				border: none;
+				-moz-outline: none;
+				-moz-border: none;
+				-webkit-outline: none;
+				-webkit-border: none;
+				background-color: rgba(0, 0, 0, 0);
+			}
+
+			span {
+				-webkit-appearance: none;
+			}
+
+			a,
+			input {
+				-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+			}
+
+			a,
+			span {
+				outline: none;
+				-moz-outline-style: none;
+				-webkit-outline-style: none;
+			}
+
+			.content {
+				width: 95%;
+				margin-left: 2.5%;
+			}
+			/*按钮选择开始*/
+			.buttons-tab {
+				margin: 0.9rem 0 0.75rem 0;
+			}
+
+			.buttons-tab {
+				position: relative;
+			}
+
+			.buttons-tab {
+				display: flex;
+			}
+
+			.content .buttons-tab .active {
+				color: #fff;
+				border: 0;
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
+			}
+
+			.buttons-tab .tab-link {
+				box-sizing: border-box;
+				width: 22.5%;
+				margin-right: 3%;
+				height: 2rem;
+				line-height: 2rem;
+				font-size: 0.8rem;
+				color: #3db4cc;
+				border: 1px solid #3db4cc;
+				border-radius: 1rem;
+				text-align: center;
+			}
+			/*按钮选择结束*/
+			/*内容开始*/
+			.content-block,
+			.tabs,
+			.tab {
+				width: 100%;
+			}
+			/*隐藏*/
+			.content-block .tabs .tab {
+				display: none;
+			}
+			/*选中出现*/
+			.content-block .tabs .active {
+				display: block;
+			}
+
+			.tab ul {
+				overflow: hidden;
+			}
+
+			.tab ul li {
+				box-sizing: border-box;
+				float: left;
+				width: 49%;
+				height: 6.75rem;
+				margin-right: 2%;
+				margin-top: 0.4rem;
+				overflow: hidden;
+			}
+
+			.tab ul li:nth-child(even) {
+				margin-right: 0;
+			}
+
+			.content-block li {
+				position: relative;
+			}
+
+			.fillet {
+				border: 1px solid #ededed;
+				border-radius: 0.4rem;
+				background: #fff;
+			}
+			/*内容图片*/
+			.content-block .video_pic {
+				width: 100%;
+				height: 5.25rem;
+				background: url(__WAP__/img/vedio_pic.jpg) no-repeat center top;
+				background-size: cover;
+				border-bottom: 1px solid #ededed;
+			}
+			/*内容文字*/
+			.content-block li p {
+				font-size: 0.75rem;
+				line-height: 1.45rem;
+				position: absolute;
+				bottom: 0;
+				left: 0.5rem;
+			}
+			/*内容结束*/
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>牧场视频</h3>
+				<a href="####" style="opacity: 0;">交易统计</a>
+			</div>
+			<div class="content ">
+				<!-- 这里是页面内容区 -->
+				<div class="buttons-tab">
+					<a href="#tab1" class="tab-link active">牧场</a>
+					<a href="#tab2" class="tab-link">加工厂</a>
+					<a href="#tab3" class="tab-link">火锅店</a>
+					<a href="#tab4" class="tab-link">实体店</a>
+				</div>
+				<div class="content-block">
+					<div class="tabs">
+						<div id="tab1" class="tab active">
+							<div class="content-block">
+								<!-- <div class="vedio_address fillet">
+                            <h6>阿民乌苏牧场</h6>
+                            <p class="a9">阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场</p>
+                        </div> -->
+								<ul>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>牧场视频一</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>牧场视频二</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="tab2_1" class="tab">
+							<div class="content-block">
+								<!--<div class="vedio_address fillet">
+									<h6>加工厂</h6>
+									 <p class="a9">阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场</p>
+								</div>-->
+								<ul>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>加工厂视频一</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>加工厂视频二</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>加工厂视频三</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>加工厂视频四</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="tab3_1" class="tab">
+							<div class="content-block">
+								<!--<div class="vedio_address fillet">
+									<h6>火锅店</h6>
+									<p class="a9">阿民乌苏牧场阿民乌苏牧场阿场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场</p>
+								</div>-->
+								<ul>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>火锅店视频一</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>火锅店视频二</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>火锅店视频三</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>火锅店视频四</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="tab4_1" class="tab">
+							<div class="content-block">
+								<!--<div class="vedio_address fillet">
+									<h6>实体店</h6>
+									<p class="a9">阿民乌苏牧场阿民乌民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场阿民乌苏牧场</p>
+								</div>-->
+								<ul>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>实体店视频一</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>实体店视频二</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>实体店视频三</p>
+										</a>
+									</li>
+									<li class="fillet">
+										<a href="#">
+											<div class="video_pic"></div>
+											<p>实体店视频四</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="background">
+
+		</div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".content .buttons-tab a").click(function() {
+				tt = $(".content .buttons-tab a").index($(this));
+				$(".content .buttons-tab a").removeClass("active");
+				$(this).addClass("active");
+				$(".content .content-block .tabs .tab").css("display", "none");
+				$(".content .content-block .tabs .tab:nth-child(" + (tt + 1) + ")").css("display", "block");
+			})
+		</script>
+	</body>
+
+</html>

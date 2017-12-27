@@ -38,4 +38,19 @@ class Index extends Yang
         return $this->fetch();
     }
 
+    public function zhidao()
+    {
+        return $this->fetch();
+    }
+    /*
+     *公告
+     */
+    public function gonggao()
+    {
+        return $this->fetch();
+    }
+    public function baozhang()
+    {
+        return $this->fetch();
+    }
 }

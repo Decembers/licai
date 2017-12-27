@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<!--<title>牧场超市</title>-->
+		<title>趣味农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+		<style type="text/css">
+
+
+			.details {
+				width: 95%;
+				margin: 0 auto;
+			}
+
+			.detail01,
+			.detail02,
+			.detail03 {
+				border-radius: 0.5rem;
+				overflow: hidden;
+				background-color: white;
+				margin: 0.5rem 0;
+			}
+
+			.detail01,
+			.detail01 .row,
+			.detail01 .row:nth-child(3) img {
+				width: 100%;
+			}
+
+			.detail01 .row {
+				padding: 0 1rem;
+				box-sizing: border-box;
+			}
+
+			.detail01 .row:nth-child(1) {
+				display: flex;
+				font-size: 18px;
+				line-height: 3rem;
+				font-weight: 600;
+			}
+
+			.detail01 .row:nth-child(1) span {
+				margin-right: 0.5rem;
+				flex-wrap: 500;
+				color: #1a1a1f;
+			}
+
+			.detail01 .row:nth-child(1) .shopname {
+				opacity: 0.8;
+			}
+
+			.detail01 .row:nth-child(1) #pay_inmoney {
+				flex-wrap: 600;
+			}
+
+			.detail01 .row:nth-child(2) {
+				color: #a9a9a9;
+				font-size: 14px;
+				line-height: 18px;
+			}
+
+			.detail01 .row:nth-child(4) {
+				font-size: 15px;
+				line-height: 2rem;
+				flex-flow: 400;
+			}
+
+			.detail02 li {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				line-height: 3rem;
+				height: 3rem;
+				box-sizing: border-box;
+				padding: 0 1rem;
+				border-bottom: 1px solid #ededed;
+			}
+
+			.detail02 li p {
+				display: flex;
+			}
+
+			.detail02 li p:nth-child(1) {
+				font-size: 0.9rem;
+			}
+			.detail02 li p:nth-child(2) {
+				font-size:1rem;
+			}
+
+			.detail02 li p:nth-child(1) span:nth-child(2) {
+				color: gray;
+				margin-left: 0.5rem;
+			}
+
+			.shu span {
+				width: 2.5rem;
+				height: 2rem;
+				line-height: 2rem;
+				text-align: center;
+				font-size: 1rem;
+				background: #e6e6e6;
+				color: #a9a9a9;
+				margin-top: 0.5rem;
+				border-radius: 0.4rem;
+			}
+
+			.shu input {
+				width: 2rem;
+				text-align: center;
+			}
+
+			.detail03 {
+				padding: 0.5rem 1rem;
+				box-sizing: border-box;
+				margin-bottom: 3.5rem;
+			}
+
+			.detail03 img {
+				width: 100%;
+			}
+			.detail04{
+				width: 100%;
+				position: fixed;
+			bottom: 0;
+			left: 0;
+			height: 3rem;
+			background-color: white;
+			display: flex;
+			justify-content: flex-end;
+			}
+			.detail04 div{
+				line-height: 3rem;
+				height: 3rem;
+				display: flex;
+				margin-left: 1rem;
+			}
+			.detail04 div:nth-child(1) span{
+				color: #a9a9a9;;
+				font-size: 0.9rem;
+				/*margin: 0 0.1rem;*/
+			}
+			.detail04 div:nth-child(1) span.em{
+				color: black;
+			}
+			.detail04 div:nth-child(2) p{
+				line-height: 3rem;
+				height: 3rem;
+				padding: 0 1rem;
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper" id="shopping_mall">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>牧场超市</h3>
+				<a href="{:url('Supermarket/lists')}" >购物清单</a>
+			</div>
+			<div class="details">
+				<div class="detail01">
+					<div class="row">
+						<span class="shopname">平装礼盒</span>￥<span id="pay_inmoney">199</span>
+					</div>
+					<div class="row">
+						羊肉馅600g/袋*1、蒙古包子450g/袋*1、羊肉片320g/袋*1
+					</div>
+					<div class="row">
+						<img src="__WAP__/img/5959ee9350d4c.jpg">
+					</div>
+					<div class="row">
+						（包邮）平装礼盒1.37kg
+					</div>
+				</div>
+				<ul class="detail02">
+					<li>
+						<p>资金余额</p>
+						<p><span class="em">￥</span><span class="em" style="font-size:1rem;">0.00</span></p>
+					</li>
+					<li>
+						<p><span>购养数量</span><span>可手动输入</span></p>
+						<p class="shu">
+							<span id="subtract">-</span>
+							<input type="tel" name="" id="number" value="1" maxlength="5" />
+							<span id="plus">+</span>
+						</p>
+					</li>
+				</ul>
+				<div class="detail03">
+					<img src="__WAP__/img/5959ee6315e84.jpg" />
+				</div>
+			</div>
+			<div class="detail04">
+				<div class="">
+					<span>共</span>
+					<span class="em" id="numbers">1</span>
+					<span>件</span>
+					<span>小计</span>
+					<span>￥</span>
+					<span class="em" id="qian">199</span>
+
+				</div>
+				<div class="">
+					<p>朕要购买</p>
+				</div>
+			</div>
+
+		</div>
+				<div class="background"></div>
+				<p class="overtop"></p>
+				<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+				<script type="text/javascript">
+					$("a,input,button").focus(function(){this.blur()});
+					/*羊数量 - */
+			$("#subtract").click(function() {
+				var num = parseInt($("#number").val());
+				if($("#number").val() == "") {
+					num = 0;
+					$("#number").val("1");
+					bian();
+				}
+				if(num > 1) {
+					$("#number").val(num - 1);
+					bian();
+				}else{
+					$("#number").val("1");
+					$(".overtop").text("购买数量不能小于1")
+					overtop();
+					bian();
+				}
+			})
+			/*羊数量 + */
+			$("#plus").click(function() {
+				var num = parseInt($("#number").val());
+				if($("#number").val() == "") {
+					num = 0;
+				}
+				/*获取羊数量 剩余*/
+				if(num >= 5) {
+					$("#number").val("5");
+					$(".overtop").text("购买数量不能大于5")
+					overtop();
+					bian();
+				} else {
+					$("#number").val(num + 1);
+					bian();
+				}
+
+			})
+			/*羊数量输入时时变更*/
+
+			function overtop() {
+				$(".details").after($("body>p.overtop").clone(true));
+				var ss1 = $(".wrapper .overtop");
+				ss1.css("display", "block");
+				ss1.css("opacity", "1");
+				setTimeout(function() {
+					ss1.css("opacity", "0");
+					ss1.remove();
+				}, 1000);
+			}
+
+			function bian() {
+				/*羊只数量 输出*/
+				if($("#number").val() == "") {
+					$("#numbers").text(0);
+				} else {
+					$("#numbers").text(Math.abs($("#number").val()));
+				}
+				tofix($("#qian"), 199); /*羊总价*/
+			}
+			function tofix(st, fs) {
+				var zong = $("#number").val() * fs;
+				var zo = zong.toString();
+				var one = zong % 1;
+				var one2 = zong % 0.1;
+				if(one == 0) {
+					st.text(zo + ".00");
+				} else {
+					if(one2 == 0) {
+						st.text(zo + "0");
+					} else {
+						st.text(zong.toFixed(2));
+					}
+				}
+			}
+				</script>
+	</body>
+
+</html>

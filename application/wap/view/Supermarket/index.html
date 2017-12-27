@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<!--<title>牧场超市</title>-->
+		<title>趣味农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+	</head>
+
+	<body >
+		<div class="wrapper"  id="shopping_mall">
+			<!--header -->
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>牧场超市</h3>
+				<a href="{:url('Supermarket/lists')}" >购物清单</a>
+			</div>
+			<div class="content infinite-scroll native-scroll">
+				<!--超市物品展示-->
+				<div>
+					<ul class="integral_goods clearfix">
+						<li>
+							<a href="{:url('Supermarket/info')}" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/5959ee9350d4c.jpg">
+								</div>
+								<div class="text_int">
+									<h5>平装礼盒</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥199</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number13">19</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/5959edd60688c.jpg">
+								</div>
+								<div class="text_int">
+									<h5>精品礼盒</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥299</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number12">18</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/5959edd60688c.jpg">
+								</div>
+								<div class="text_int">
+									<h5>豪华礼盒</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥499</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number11">18</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595616fe7b16f.jpg">
+								</div>
+								<div class="text_int">
+									<h5>白条羊</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥1080</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number1">18</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595617b6e853f.jpg">
+								</div>
+								<div class="text_int">
+									<h5>羊寸排</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥92</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number2">10</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/59561844b1f79.jpg">
+								</div>
+								<div class="text_int">
+									<h5>高钙肉切块</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥89</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number3">13</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595618e48412b.jpg">
+								</div>
+								<div class="text_int">
+									<h5>羊前腿</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥95</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number4">9</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595619515cddc.jpg">
+								</div>
+								<div class="text_int">
+									<h5>羔羊大卷</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥229</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number5">9</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595619ce1b33b.jpg">
+								</div>
+								<div class="text_int">
+									<h5>太阳卷</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥139</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number6">9</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/59561a4011f9e.jpg">
+								</div>
+								<div class="text_int">
+									<h5>后腿肉包</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥229</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number7">9</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595726f32e641.jpg">
+								</div>
+								<div class="text_int">
+									<h5>羊脊骨切块</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥79</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number8">8</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595727034793d.jpg">
+								</div>
+								<div class="text_int">
+									<h5>手工肉馅</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥85</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number9">10</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595726ca6ee88.jpg">
+								</div>
+								<div class="text_int">
+									<h5>蒙古包子</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥60</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number10">11</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!--<div class="no_more">没有更多数据了哦</div>-->
+				</div>
+			</div>
+			<!--footer-->
+			<div class="footer">
+
+				<a href="{:url('index/index')}">
+
+					<span class="icons "></span>
+
+					<p>牧场</p>
+
+				</a>
+
+				<a href="{:url('Supermarket/index')}">
+
+					<span class="icons"></span>
+
+					<p>超市</p>
+
+				</a>
+
+				<a href="{:url('Discover/index')}">
+
+					<span class="icons"></span>
+
+					<p>发现</p>
+
+				</a>
+
+				<a href="{:url('member/index')}">
+
+					<span class="icons"></span>
+
+					<p>我的</p>
+
+				</a>
+
+			</div>
+
+		</div>
+		<div class="background"></div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*footer 当前页选中状态*/
+			$(".footer a:nth-child(2) .icons").css("background", "url(__WAP__/img/iconlist_02.png) no-repeat center 69.5%");
+			$(".footer a:nth-child(2) .icons").css("background-size", "3rem");
+
+		</script>
+	</body>
+
+</html>
