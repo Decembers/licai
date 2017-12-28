@@ -689,7 +689,7 @@ header h1 {
 	font-size: 1.5rem;
 	color: #fff;
 	font-weight: 600;
-	line-height: 1.5rem;
+	line-height: 2rem;
 	margin-top: 0.5rem;
 }
 
@@ -711,7 +711,7 @@ header h1 {
 .uc_c_top .integral a {
 	font-size: 1.4rem;
 	color: #f7f7f7;
-	line-height: 4rem;
+	line-height: 5rem;
 	margin-left: 0.5rem;
 }
 
@@ -730,11 +730,10 @@ header h1 {
 	font-size: 1.2rem;
 	line-height: 2rem;
 	overflow: hidden;
-	width: 95%;
+	width: 100%;
 }
-
-.authen_tip span {
-	width: 50%;
+.authen_tip .fl{
+	 white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 }
 
 
