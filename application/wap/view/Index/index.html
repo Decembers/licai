@@ -278,7 +278,7 @@
 
 							<a href="{:url('Index/orlist')}" class="icon0"><span class="icon2"></span></a>
 
-							<a href="{:url('Index/orlist')}">购买数量</a>
+							<a href="{:url('Index/orlist')}">委托养殖</a>
 
 						</div>
 
@@ -286,7 +286,7 @@
 
 							<a href="{:url('Rancher/index')}" class="icon0"><span class="icon3"></span></a>
 
-							<a href="{:url('Rancher/index')}">我的牧场</a>
+							<a href="{:url('Rancher/index')}">我的农场</a>
 
 						</div>
 
@@ -306,7 +306,7 @@
 
 							<a href="{:url('Video/index')}" class="icon0"><span class="icon5"></span></a>
 
-							<a href="{:url('Video/index')}">牧场视频</a>
+							<a href="{:url('Video/index')}">农场视频</a>
 
 						</div>
 
@@ -354,7 +354,7 @@
 
 							<h2>{$vo.price}<em>元</em></h2>
 
-							<p>羊单价</p>
+							<p>鹅单价</p>
 
 						</div>
 
@@ -362,7 +362,7 @@
 
 							<h2>{$vo.numbers}<em>只</em></h2>
 
-							<p>羊数量</p>
+							<p>鹅数量</p>
 
 						</div>
 
@@ -380,7 +380,7 @@
 
 						<!--<span class="icon icon7"></span>-->
 
-						<p class="return">本羊群年联养回报{$vo.return_price}%，快养只自己的小羊吧！</p>
+						<p class="return">本鹅群年联养回报{$vo.return_price}%，快养只自己的小鹅吧！</p>
 
 					</div>
 
@@ -390,7 +390,7 @@
 
 			{elseif condition="$vo.classify eq 2"/}
 
-				<!--辅助羊群-->
+				<!--辅助鹅群-->
 
 				<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop2">
 
@@ -412,7 +412,7 @@
 
 							<h2>{$vo.price}<em>元</em></h2>
 
-							<p>羊单价</p>
+							<p>鹅单价</p>
 
 						</div>
 
@@ -420,7 +420,7 @@
 
 							<h2>{$vo.numbers}<em>只</em></h2>
 
-							<p>羊数量</p>
+							<p>鹅数量</p>
 
 						</div>
 
@@ -438,7 +438,7 @@
 
 
 
-						<p class="return">本羊群年联养回报{$vo.return_price}% , 快养只自己的小羊吧！</p>
+						<p class="return">本鹅群年联养回报{$vo.return_price}% , 快养只自己的小鹅吧！</p>
 
 
 
@@ -450,7 +450,7 @@
 
 			{elseif condition="$vo.classify eq 3"/}
 
-				<!--VIP羊群-->
+				<!--VIP鹅群-->
 
 				<a href="{:url('Order/info',['id'=>$vo.id]);}"  class="shop3">
 
@@ -482,7 +482,7 @@
 
 
 
-						<p class="return">VIP羊群年联养回报{$vo.return_price}%，私人订制，回报尊享！</p>
+						<p class="return">VIP鹅群年联养回报{$vo.return_price}%，私人订制，回报尊享！</p>
 
 
 
@@ -510,7 +510,7 @@
 
 					<span class="icons "></span>
 
-					<p>牧场</p>
+					<p>农场</p>
 
 				</a>
 
