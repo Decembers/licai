@@ -252,6 +252,7 @@ max-height:200px;//最大高度*/
 				<div class="no_record"></div>
 			</div>
 			<ul class="kahao">
+			{if condition="$arr"}
 				{volist name="arr" id="vo"}
 				<li class="checkin white fillet">
 					<div class="bank_icon">
@@ -265,6 +266,9 @@ max-height:200px;//最大高度*/
 					</a>
 				</li>
 				{/volist}
+			{else /}
+				<div class="no_record"></div>
+			{/if}
 			</ul>
 			<div class="bank_bg white fillet">
 				<ul>

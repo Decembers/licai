@@ -37,6 +37,10 @@ class Index extends Yang
 
         return $this->fetch();
     }
+    public function introduce()
+    {
+        return $this->fetch();
+    }
 
     public function zhidao()
     {

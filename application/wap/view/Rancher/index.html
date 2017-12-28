@@ -205,11 +205,11 @@
 				<!-- 这里是页面内容区 -->
 				<input type="hidden" id="response_code" value="1">
 				<div class="fillet mysheep">
-					<h5>0</h5>
+					<h5>{$arr.sp_count}</h5>
 					<p class="my_sheep">我的羊只</p>
 					<p class="grow">
-						<span class="ing">成长中：0只</span>
-						<span>已出栏：0只</span>
+						<span class="ing">成长中：{$arr.nofulfill}只</span>
+						<span>已出栏：{$arr.fulfill}只</span>
 					</p>
 				</div>
 				<!--我的牧场-->
@@ -226,26 +226,26 @@
 					<div class="total_top">
 						<div class="collect_total">
 							<p class="thirty_six">交易统计</p>
-							<h6>0.00</h6>
+							<h6>{$arr.dshou}</h6>
 							<p class="twenty_six">待收金额(元)</p>
 						</div>
 						<div class="collect">
 							<div class="fl">
-								<div class="integer">0.00</div>
+								<div class="integer">{$arr.dprincipal}</div>
 								<div>待收本金（元）</div>
 							</div>
 							<div class="fl">
-								<div class="integer">0.00</div>
+								<div class="integer">{$arr.dlirun}</div>
 								<div>待收回报（元）</div>
 							</div>
 						</div>
 					</div>
 					<div class="total_bottom a9">
 						<ul>
-							<li><span class="fl">交易总额</span><span class="fr">￥0.00</span></li>
-							<li><span class="fl">购买期数</span><span class="fr">0</span></li>
-							<li><span class="fl">已收本金</span><span class="fr">￥0.00</span></li>
-							<li><span class="fl">已收回报</span><span class="fr">￥0.00</span></li>
+							<li><span class="fl">交易总额</span><span class="fr">￥{$arr.money}</span></li>
+							<li><span class="fl">购买期数</span><span class="fr">{$arr.count}</span></li>
+							<li><span class="fl">已收本金</span><span class="fr">￥{$arr.principal}</span></li>
+							<li><span class="fl">已收回报</span><span class="fr">￥{$arr.return_price}</span></li>
 
 						</ul>
 					</div>
@@ -260,39 +260,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="goodcover"></div>
-			<div id="exchange_appli">
-				<div class="total_top">
-					<div class="collect_total">
-						<p class="thirty_six">交易统计</p>
-						<h6>0.00</h6>
-						<p class="twenty_six">待收金额(元)</p>
-					</div>
-					<div class="collect">
-						<div class="fl">
-							<div class="integer">0.00</div>
-							<div>待收本金（元）</div>
-						</div>
-						<div class="fl">
-							<div class="integer">0.00</div>
-							<div>待收回报（元）</div>
-						</div>
-					</div>
-				</div>
-				<div class="total_bottom a9">
-					<ul>
-						<li><span class="fl">交易总额</span><span class="fr">￥0.00</span></li>
-						<li><span class="fl">购买期数</span><span class="fr">0</span></li>
-						<li><span class="fl">已收本金</span><span class="fr">￥0.00</span></li>
-						<li><span class="fl">已收回报</span><span class="fr">￥0.00</span></li>
 
-					</ul>
-				</div>
-				<!-- 关闭按钮-->
-				<div class="close">
-					<a href="#" id="closebtn"></a>
-				</div>
-			</div>
 
 		</div>
 		<div class="background">

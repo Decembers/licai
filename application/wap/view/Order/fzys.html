@@ -114,7 +114,7 @@
 					<div class="row">
 
 						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian">{$arr.price}.00</span>
-							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">{$price}</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
+							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">{$arr.profit}</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
 					<div class="row row6">
@@ -128,7 +128,7 @@
 								<label><i class="mdi mdi-check"></i></label>
 							</div>-->
 							<span>朕已阅读并同意</span>
-							<a href="index1-shop-protocol2.html">《财富牧场服务协议》</a>
+							<a href="{:url('Order/xieyi')}">《财富牧场服务协议》</a>
 						</div>
 						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist",["id"=>$arr.id])}'">交易详情</p>
 					</div>

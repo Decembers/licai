@@ -53,6 +53,8 @@ class Commodity extends Controller
         if ($this->request->isAjax()) {
             // 插入
             $data = $this->request->except(['id']);
+            $zong = $data['return_price']/100 * $data['price'] / 12;
+            $zong = sprintf("%.2f",substr(sprintf("%.3f", $zong), 0, -2));//保留两位小数 不四舍五入
 
             $content = $_POST['content'];
             $data['content'] = $content;
@@ -62,6 +64,13 @@ class Commodity extends Controller
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
             $data['numbers'] = $data['number'];
+            $data['expect'] = $zong; //每只羊每期应返还利润
+            if ($data['return_mode'] == 1) {
+                $yer = $data['rate']/30;
+                $data['nexpect'] = $yer;
+            }else{
+                $data['nexpect'] = 1;//按期返还
+            }
 
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {

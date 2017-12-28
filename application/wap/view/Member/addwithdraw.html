@@ -325,7 +325,7 @@ max-height:200px;//最大高度*/
 			<button id="add" class="big-button press">添加银行卡</button>
 			<div id="red_select_list1">
 
-				<ul class="red_seclet white">
+<ul class="red_seclet white">
 					<li class="closeList" id="closeList"><span class="">关闭</span></li>
 
 					<li class="close-popup">
@@ -356,22 +356,13 @@ max-height:200px;//最大高度*/
 						<span class="bankName">兴业银行</span>
 						<input type="radio" value="7">
 					</li>
-					<li class="close-popup">
-						<span class="bankName">苏格兰皇家银行</span>
-						<input type="radio" value="36">
-					</li>
+
 					<li class="close-popup">
 						<span class="bankName">交通银行</span>
 						<input type="radio" value="9">
 					</li>
-					<li class="close-popup">
-						<span class="bankName">深圳发展银行</span>
-						<input type="radio" value="16">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">上海浦东发展银行</span>
-						<input type="radio" value="12">
-					</li>
+
+
 					<li class="close-popup">
 						<span class="bankName">中国银行</span>
 						<input type="radio" value="8">
@@ -392,10 +383,7 @@ max-height:200px;//最大高度*/
 						<span class="bankName">恒丰银行</span>
 						<input type="radio" value="14">
 					</li>
-					<li class="close-popup">
-						<span class="bankName">广东发展银行</span>
-						<input type="radio" value="15">
-					</li>
+
 					<li class="close-popup">
 						<span class="bankName">中国民生银行</span>
 						<input type="radio" value="17">
@@ -420,14 +408,7 @@ max-height:200px;//最大高度*/
 						<span class="bankName">农村合作银行</span>
 						<input type="radio" value="22">
 					</li>
-					<li class="close-popup">
-						<span class="bankName">浙商银行</span>
-						<input type="radio" value="23">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">上海农商银行</span>
-						<input type="radio" value="24">
-					</li>
+
 					<li class="close-popup">
 						<span class="bankName">中国进出口银行</span>
 						<input type="radio" value="25">
@@ -438,39 +419,7 @@ max-height:200px;//最大高度*/
 					</li>
 					<li class="close-popup">
 						<span class="bankName">国家开发银行</span>
-
-					</li>
-					<li class="close-popup">
-						<span class="bankName">村镇银行</span>
-						<input type="radio" value="28">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">徽商银行股份有限公司</span>
-						<input type="radio" value="29">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">南洋商业银行</span>
-						<input type="radio" value="30">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">韩亚银行</span>
-						<input type="radio" value="31">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">花旗银行</span>
-						<input type="radio" value="32">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">渣打银行</span>
-						<input type="radio" value="33">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">华一银行</span>
-						<input type="radio" value="34">
-					</li>
-					<li class="close-popup">
-						<span class="bankName">东亚银行</span>
-						<input type="radio" value="35">
+						<input type="radio" value="27">
 					</li>
 				</ul>
 			</div>
@@ -514,6 +463,7 @@ max-height:200px;//最大高度*/
 				$(this).css("color", "black");
 			})
 			/*选择红包 或关闭*/
+			var inp;
 			$("#red_select_list1 ul li").click(function() {
 				var tt = $("#red_select_list1 ul li").index($(this));
 				if(tt == 0) {
@@ -523,6 +473,7 @@ max-height:200px;//最大高度*/
 					var s1 = $(this).children().text();
 					$(".bank_list p").text(s1);
 					$(".bank_list p").css("color", "black");
+					inp = $(this).children().next().val();
 				}
 			})
 			$("#add").click(function(){
@@ -562,7 +513,7 @@ max-height:200px;//最大高度*/
 												$(".overtop").text("请选择所在地");
 												overtop();
 											} else {
-
+												alert(inp);return;
 												var name=$("#names").val();
 												var cardnum=$("#bankcard").val();
 												var bank_name=$(".this_bank").text();
@@ -572,7 +523,7 @@ max-height:200px;//最大高度*/
 												var district_name=$("#s_county option:selected").text();
 												$.ajax({
 								                    type : "POST",  //提交方式
-								                    url : "{:url('member/withdraw')}",//路径
+								                    url : "{:url('member/addwithdraw')}",//路径
 								                    data : {
 								                        "name" : name,
 								                        "cardnum" : cardnum,
@@ -590,7 +541,7 @@ max-height:200px;//最大高度*/
 															$(".overtop").text(aa.msg);
 															overtop();
 															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-															window.location='{:url("member/listress");}';
+															window.location='{:url("member/withdraw");}';
 															},1000);
 														}else{
 															$(".overtop").text(aa.msg);

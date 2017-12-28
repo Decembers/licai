@@ -144,7 +144,7 @@
 					<div class="row">
 
 						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian">{$arr.price}.00</span>
-							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">{$price}</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
+							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">{$arr.profit}</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
 					<div class="row row6">
@@ -153,7 +153,7 @@
 								<span>√</span>
 							</div>
 							<span>朕已阅读并同意</span>
-							<a href="index1-shop-protocol.html">《财富牧场服务协议》</a>
+							<a href="{:url('Order/xieyi')}">《财富牧场服务协议》</a>
 						</div>
 						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist",["id"=>$arr.id])}'">交易详情</p>
 					</div>
@@ -335,16 +335,11 @@
 					} else if($("#max6").val().length !== 6) {
 
 						$(".overtop1 .overtop_text").text("支付密码错误");
-					} else if($("#max6").val().length == 6) {
-						$(".overtop1 .overtop_text").text("余额不足");
-					}
-				}
-				else{
-					$(".overtop1 .overtop_text").text("您输入的VIP邀请码不正确");
-
-				}
-
-				var sp_id = $("#sp_id").val();
+					} else {
+						/*if($("#max6").val().length == 6) {
+							$(".overtop1 .overtop_text").text("余额不足");
+						}*/
+var sp_id = $("#sp_id").val();
 				var number = $("#number").val();
 				var max6 = $("#max6").val();
 				var vip6 = $("#vip6").val();
@@ -363,8 +358,18 @@
 						//console.log(aa);
 						if (aa.code==0) {
 							$(".overtop1 .overtop_text").text(aa.msg);
+							$(".overtop1 .overtop_text").css("border","none");
+							$(".overtop1>p:nth-child(2)").css("display","none");
+							$("#goodcover").css("display", "block");
+							$(".overtop1").css("display", "block");
+							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+							window.location='{:url("Rancher/index")}';
+							},500);
 						}else{
 							$(".overtop1 .overtop_text").text(aa.msg);
+							$(".overtop1 .overtop_text").css("border","none");
+							$("#goodcover").css("display", "block");
+							$(".overtop1").css("display", "block");
 						}
                     },
                     error : function (){
@@ -372,6 +377,12 @@
                 }
 			});
 
+					}
+				}
+				else{
+					$(".overtop1 .overtop_text").text("您输入的VIP邀请码不正确");
+
+				}
 			})
 				/* 弹窗提示的确定*/
 			$(".overtop1 p:nth-child(2)").click(function(){

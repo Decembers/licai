@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-26 18:49:04
+ * @Last Modified time: 2017-12-27 14:27:45
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -160,7 +160,7 @@ class Login extends Controller
                 if (isset($res)) {
 
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
-                    return json(['code'=>200, 'msg'=>'重置密码成功,请登录']);
+                    return json(['code'=>200, 'msg'=>'重置密码成功']);
                 }
 
                 return json(['code'=>1, 'msg'=>'重置密码失败']);
@@ -287,6 +287,6 @@ class Login extends Controller
     {
        Session::delete('user');
        Cookie::delete('user');
-       echo 'ok';
+       $this->redirect('Index/index');
     }
 }

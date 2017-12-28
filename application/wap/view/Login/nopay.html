@@ -177,9 +177,9 @@
 														alert(result.msg);
 													}else{
 														alert(result.msg);
-														// setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-														// window.location='{:url("Login/login");}';
-														// },1000);
+														setTimeout(function() {
+															window.location='{:url("member/setting")}';
+														}, 1000);
 													}
 							                    },
 							                    error : function (){

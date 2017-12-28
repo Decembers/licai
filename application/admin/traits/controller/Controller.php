@@ -276,37 +276,40 @@ trait Controller
     {
         $order = new app\common\model\Order;
         $commodity = new app\common\model\Commodity;
-        $orders = $order->where(['user_id'=>$id,'isdelete'=>1,'sfpay'=>1,'status'=>0])->select();//查询出未被删除,已付款,未完成的订单信息
+        $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         foreach ($orders as $k => $v) {
             $sp_id = $v['id'];//商品id
             $commoditys = $commodity -> where(['id'=>$sp_id]) -> find();//商品信息
+            if (time()>$commoditys['begin_time']) {
+                continue;
+            }
             $return_mode = $commoditys['return_mode'];
 
             //判断是否牧民买羊准备时间结束
-            if ($commoditys['status_time']==3) {
-                //准备中
-                if (time()>$v['deal_time']) {
-                    $commodity->where(['id'=>$sp_id])->save(['status_time'=>4]);
-                }
-                continue;
-            }elseif($commoditys['status_time']==2){
-                if (time()>$commoditys['deal_time']) {
-                    $commodity->where(['id'=>$sp_id])->save(['status_time'=>4]);
-                }elseif(time()>$commoditys['down_time']){
-                    $commodity->where(['id'=>$sp_id])->save(['status_time'=>3]);
-                    continue;
-                }
-            }elseif($commoditys['status_time']==1){
-                if (time()>$commoditys['deal_time']) {
-                    $commodity->where(['id'=>$sp_id])->save(['status_time'=>4]);
-                }elseif(time()>$commoditys['down_time']){
-                    $commodity->where(['id'=>$sp_id])->save(['status_time'=>3]);
-                    continue;
-                }elseif(time()>$commoditys['preselle_time']){
-                    $commodity->where(['id'=>$sp_id])->save(['status_time'=>2]);
-                    continue;
-                }
-            }
+            // if ($commoditys['status_time']==3) {
+            //     //准备中
+            //     if (time()>$v['deal_time']) {
+            //         $commodity->where(['id'=>$sp_id])->save(['status_time'=>4]);
+            //     }
+            //     continue;
+            // }elseif($commoditys['status_time']==2){
+            //     if (time()>$commoditys['deal_time']) {
+            //         $commodity->where(['id'=>$sp_id])->save(['status_time'=>4]);
+            //     }elseif(time()>$commoditys['down_time']){
+            //         $commodity->where(['id'=>$sp_id])->save(['status_time'=>3]);
+            //         continue;
+            //     }
+            // }elseif($commoditys['status_time']==1){
+            //     if (time()>$commoditys['deal_time']) {
+            //         $commodity->where(['id'=>$sp_id])->save(['status_time'=>4]);
+            //     }elseif(time()>$commoditys['down_time']){
+            //         $commodity->where(['id'=>$sp_id])->save(['status_time'=>3]);
+            //         continue;
+            //     }elseif(time()>$commoditys['preselle_time']){
+            //         $commodity->where(['id'=>$sp_id])->save(['status_time'=>2]);
+            //         continue;
+            //     }
+            // }
 
             $record = new app\common\model\Record;
             if ($return_mode==1) {

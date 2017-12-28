@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-26 17:39:28
+ * @Last Modified time: 2017-12-28 11:54:56
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -26,18 +26,11 @@ class Order extends Yang
             $arr = ['code'=>-200,'data'=>'','msg'=>''];
             $data = $this->request->post();
             $sp_id = $data['sp_id'];//商品id
-            $comm = C::where(['id'=>$sp_id])->find();//查询商品的限购数量
+            $comm = C::where(['id'=>$sp_id])->find();//查询商品信息
             $restriction = $comm['restrict'];
             $num = $data['number'];//用户购买数量
             $user_id = Session::get('user.id');
             $authentication = Session::get('user.authentication');
-            if ($authentication==1) {
-                $arr['msg']='请等待实名认证成功后购买';
-                return json_encode($arr);
-            }elseif($authentication==0){
-                $arr['msg']='请实名认证后购买';
-                return json_encode($arr);
-            }
             if (!isset($user_id)) {
                 $arr['msg']='请登陆后购买!';
                 return json_encode($arr);
@@ -49,10 +42,11 @@ class Order extends Yang
                 }
             }
 
+            $order_price =  $num*$comm['price'];
             $row['number'] = date('YmdHis') . rand(10000000,99999999);
             $row['user_id'] = $user_id;
             $row['sp_id'] = $sp_id;
-            $row['order_price'] = $num*$comm['price'];
+            $row['order_price'] = $order_price;
             $row['sp_price'] = $comm['price'];
             $row['sp_count'] = $num;
             $row['status'] = 0;
@@ -85,12 +79,19 @@ class Order extends Yang
             try{
                 //扣除用户余额
                 $user = Db::table('tp_user')->where(['id'=>$user_id])->find();
-            $pay_pass = md5($data['pay_pass']);
-            if ($user['pay_pass']!=$pay_pass) {
-                $arr['msg']='您输入的支付密码不正确';
-                //return json_encode($arr);
-                throw new \think\Exception();
-            }
+                $pay_pass = md5($data['pay_pass']);
+                if ($user['pay_pass']!=$pay_pass) {
+                    $arr['msg']='您输入的支付密码不正确';
+                    //return json_encode($arr);
+                    throw new \think\Exception();
+                }
+                if ($authentication==1) {
+                    $arr['msg']='请等待实名认证成功后购买';
+                    throw new \think\Exception();
+                }elseif($authentication==0){
+                    $arr['msg']='请实名认证后购买';
+                    throw new \think\Exception();
+                }
                 $balance = $user['balance'] - $row['order_price'];
                 if ($balance < 0) {
                     $arr['msg'] = '您的余额不足!请充值!';
@@ -99,6 +100,8 @@ class Order extends Yang
                 Db::table('tp_user')->where(['id'=>$user_id])->update(['balance' => $balance]);
 
                 $arr['msg'] = '订单创建失败';
+                $row['zexpect'] = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润 羊只数量 *
+                $row['nexpect'] = $comm['nexpect'];//返还几期
                 $ara = Db::table('tp_order')->insert($row);
                 if ($ara !== 1) {
 
@@ -162,12 +165,10 @@ class Order extends Yang
             // }
             // $arr = C::where(['id'=>$id])->find();
             //var_dump($arr);die;
+            $arr['profit'] = $arr['expect'] * $arr['nexpect'];
             $this->assign('arr',$arr);
-            $price = $arr['price']*($arr['return_price']/100)*($arr['rate']/360);
-            $price = sprintf("%.2f",substr(sprintf("%.3f", $price), 0, -2));
-            $this->assign('price',$price);
             if ($arr['classify']==1) {
-                //常规羊群 计算购买利润
+                //常规羊群
 
                  if (time() < $arr['preselle_time']) {
                     //预售中 计算还剩多少时间开始购买
@@ -265,6 +266,10 @@ class Order extends Yang
         }
         $this -> assign('row',$row);
         $this -> assign('status',$status);
+        return $this -> fetch();
+    }
+    public function xieyi()
+    {
         return $this -> fetch();
     }
 }
