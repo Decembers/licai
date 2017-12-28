@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<!--<title>购买羊只</title>-->
+		<!--<title>购买鹅只</title>-->
 		<title>趣味农场</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
@@ -14,7 +14,7 @@
 		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
-			/*我的羊只 */
+			/*我的鹅只 */
 
 			.mysheep {
 				width: 100%;
@@ -28,7 +28,7 @@
 				font-size: 0.7rem;
 				margin-bottom: 0.5rem;
 			}
-			/*我的羊只 数量 */
+			/*我的鹅只 数量 */
 
 			.mysheep h5 {
 				color: #fff;
@@ -36,7 +36,7 @@
 				line-height: 2.9rem;
 				margin: 1rem 0;
 			}
-			/*我的羊只 */
+			/*我的鹅只 */
 
 			.my_sheep {
 				font-size: 0.9rem;
@@ -198,7 +198,7 @@
 				<div class="">
 					<span class="icon"></span><span>返回</span>
 				</div>
-				<h3>我的牧场</h3>
+				<h3>我的农场</h3>
 				<a href="###">交易统计</a>
 			</div>
 			<div class="content infinite-scroll bgCo native-scroll" data-distance="0" now_page="1">
@@ -206,19 +206,19 @@
 				<input type="hidden" id="response_code" value="1">
 				<div class="fillet mysheep">
 					<h5>{$arr.sp_count}</h5>
-					<p class="my_sheep">我的羊只</p>
+					<p class="my_sheep">我的鹅只</p>
 					<p class="grow">
 						<span class="ing">成长中：{$arr.nofulfill}只</span>
 						<span>已出栏：{$arr.fulfill}只</span>
 					</p>
 				</div>
-				<!--我的牧场-->
+				<!--我的农场-->
 				<div class="uc_invest-box" all_page="0" ajaxurl="/wap/member.php?ctl=uc_invest&amp;status=2">
-					<!-- 如果没有羊，则显示-->
+					<!-- 如果没有鹅，则显示-->
 					<!--<div class="no_sheep"></div>-->
-					<!-- 没有羊结束-->
+					<!-- 没有鹅结束-->
 					<div class="no_sheep"></div>
-					<button class="big-button press" onclick="window.location='{:url("Index/orlist")}'">朕去买羊</button>
+					<button class="big-button press" onclick="window.location='{:url("Index/orlist")}'">朕去买鹅</button>
 				</div>
 				<!-- 交易统计弹出框成功弹出-->
 				<div id="goodcover"></div>

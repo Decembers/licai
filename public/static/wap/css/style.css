@@ -10,11 +10,11 @@
 }
 
 .shop>a.shop1 {
-	background-color: #3db4cc;
+	    background: linear-gradient(to right,#3db4cc,#6fd6ea)!important;
 }
 
 .shop>a.shop2 {
-	background-color: #51d2a7;
+	    background: linear-gradient(to right,#41d1a1,#6de3a4)!important;
 }
 
 .shop>a.shop3 {
