@@ -55,7 +55,10 @@ class Commodity extends Controller
             $data = $this->request->except(['id']);
             $zong = $data['return_price']/100 * $data['price'] / 12;
             $zong = sprintf("%.2f",substr(sprintf("%.3f", $zong), 0, -2));//保留两位小数 不四舍五入
+            $time = date('ymd', time());
+            $name = $data['name'].$time;
 
+            $data['name'] = $name;
             $content = $_POST['content'];
             $data['content'] = $content;
             $data['com_number'] = 'YAN'.date("Ymd").'1000';//订单编号

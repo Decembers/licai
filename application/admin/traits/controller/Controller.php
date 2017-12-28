@@ -14,6 +14,7 @@ use think\Db;
 use think\Loader;
 use think\exception\HttpException;
 use think\Config;
+use think\Session;
 
 trait Controller
 {
@@ -276,6 +277,8 @@ trait Controller
     {
         $order = new app\common\model\Order;
         $commodity = new app\common\model\Commodity;
+        $record = new app\common\model\Record;
+        $user_id = Session::get('uesr.id');
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         foreach ($orders as $k => $v) {
             $sp_id = $v['id'];//商品id
@@ -310,10 +313,17 @@ trait Controller
             //         continue;
             //     }
             // }
-
-            $record = new app\common\model\Record;
             if ($return_mode==1) {
                     //按月返还
+
+
+                if ($v['which']==0) {
+                    //第一次返还
+
+                }
+
+
+
                     $sulite = $record ->where(['order_id'=>$v['id']]) ->select();
                     //是否返还过
                     if (isset($sulite)) {
@@ -394,21 +404,18 @@ trait Controller
                 $rate_time = $commoditys['rate'] * 86400 + $commoditys['begin_time'];//返还的时间
                 if (time() >= $rate_time) {
                     //返还全部金额
-                    $year = intval($commoditys['rate']/30);
-                    $return_price = $commoditys['return_price']/100;//计算年回报率
-                    $return_prices = $v['price'] * $v['number'] * $return_price/12 * $year;
-                    $return_prices = sprintf("%.2f",substr(sprintf("%.3f", $return_prices), 0, -2));//保留两位小数 不四舍五入
-
-                    $row = [];//返还利润表数据
+                    //返还利润表数据
                     $row['order_id'] = $v['id'];
+                    $row['user_id'] = $user_id;
                     $row['ruturn_time'] = time();
-                    $row['return_price'] = $v['price'] * $v['number'] + $return_prices;
+                    $row['return_price'] = $v['zexpect'] + $v['order_price'];
                     $row['return_user_time'] = $rate_time;
                     $row['is_principal'] = 1;
-                    $row['remark'] = '第1次返利';
+                    $row['remark'] = $commoditys['name'].'返利完成';
                     $row['next'] = 1;
+                    $record->insert($row);
 
-                    $or = ['status'=>1];
+                    $or = ['status'=>1,'which'=>1];
                     //修改order表状态 可能修改不成功
                     $order->where(['order_id'=>$v['id']])->save($or);
                 }
