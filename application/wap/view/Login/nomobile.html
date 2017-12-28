@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 	<head>
@@ -148,17 +148,17 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
-			$(".changed").click(function() {
+$(".changed").click(function() {
 				if($("#dl_mobile").val() == "") {
-					alert("请输入手机号")
+					$(".overtop").text("请输入手机号");overtop();
 				} else {
 					if($("#dl_mobile1").val() == "") {
-						alert("请输入新手机号")
+						$(".overtop").text("请输入新手机号");overtop();
 					} else {
 						if($("#dl_mobile_code").val() == "") {
-							alert("请输入验证码")
+							$(".overtop").text("请输入验证码");overtop();
 						} else {
-								var mobilex=$("#dl_mobile1").val();
+							var mobilex=$("#dl_mobile1").val();
 								var mobile = $("#dl_mobile").val();
 								var code = $("#dl_mobile_code").val();
 								$.ajax({
@@ -172,19 +172,22 @@
 				                    dataType : "json",//数据，这里使用的是Json格式进行传输
 				                    success : function(result) {
 										if (result.code==1) {
-											alert(result.msg);
 											setTimeout(function() {
 												window.location='{:url("member/setting")}';
 											}, 1000);
+
+
+$(".overtop").text(result.msg);overtop();
+
 										}else{
-											alert(result.msg);
-											// setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-											// window.location='{:url("Login/login");}';
-											// },1000);
+
+$(".overtop").text(result.msg);overtop();
+
 										}
 				                    },
 				                    error : function (){
-				                    	alert('请刷新页面重试')
+
+$(".overtop").text("'请刷新页面重试'");overtop();
 				                }
 								});
 						}
@@ -192,9 +195,11 @@
 				}
 			})
 
+
 			$('#dl_getcode').click(function() {
 				if($("#dl_mobile1").val() == "") {
-					alert("请输入新手机号")
+					$(".overtop").text("请输入新手机号");
+					overtop();
 				} else {
 					if($("#dl_mobile1").val().length == 11) {
 						$(".count_down").css("display", "block");
@@ -214,20 +219,11 @@
 							}
 						}, 1000)
 					} else {
-						alert("请重新输入新手机号")
+						$(".overtop").text("请重新输入新手机号");
+						overtop();
 					}
 				}
 			})
-			function overtop() {
-				$(".content").after($("body>p.overtop").clone(true));
-				var ss1 = $(".wrapper .overtop");
-				ss1.css("display", "block");
-				ss1.css("opacity", "1");
-				setTimeout(function() {
-					ss1.css("opacity", "0");
-					ss1.remove();
-				}, 1000);
-			}
 		</script>
 	</body>
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 	<head>
@@ -153,13 +153,13 @@
 			/*footer 当前页选中状态*/
 			$(".changed").click(function() {
 					if($("#dl_mobile_code").val() == "") {
-						alert("请输入验证码")
+						$(".overtop").text("请输入验证码");overtop();
 					} else {
 						if($("#dl_user_pwd").val() == "") {
-							alert("请输入支付密码")
+							$(".overtop").text("请输入支付密码");overtop();
 						} else {
 							if($("#dl_user_pwd_confirm").val() == "") {
-								alert("请再次输入支付密码")
+								$(".overtop").text("请再次输入支付密码");overtop();
 							} else {
 								if($("#dl_user_pwd_confirm").val() == $("#dl_user_pwd").val()) {
 											var password=$("#dl_user_pwd").val();
@@ -174,22 +174,24 @@
 							                    dataType : "json",//数据，这里使用的是Json格式进行传输
 							                    success : function(result) {
 													if (result.code==1) {
-														alert(result.msg);
+														$(".overtop").text(result.msg);overtop();
 													}else{
-														alert(result.msg);
+
 														setTimeout(function() {
 															window.location='{:url("member/setting")}';
 														}, 1000);
+														$(".overtop").text(result.msg);overtop();
+
 													}
 							                    },
 							                    error : function (){
-							                    	alert('请刷新页面重试')
+							                    	$(".overtop").text('请刷新页面重试');overtop();
 
 							                }
 											});
 
 								} else {
-									alert("请再次输入支付密码")
+									$(".overtop").text("请再次输入支付密码");overtop();
 								}
 							}
 						}
@@ -199,7 +201,7 @@
 
 			$('#dl_getcode').click(function() {
 				if($("#dl_mobile").val() == "") {
-					alert("请输入手机号")
+					$(".overtop").text("请输入手机号");overtop();
 				} else {
 					if($("#dl_mobile").val().length == 11) {
 						$(".count_down").css("display", "block");
@@ -215,7 +217,7 @@
 							}
 						}, 1000)
 					} else {
-						alert("请重新输入手机号")
+						$(".overtop").text("请重新输入手机号");overtop();
 					}
 				}
 			})

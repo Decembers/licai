@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 	<head>
@@ -107,7 +107,7 @@
 						</li>
 
 						<li class="voucher">
-							<a href="{:url('member/packet')}">
+							<a href="###">
 								<div class="icon fl"></div>
 								<p class="fl">现金红包</p>
 								<span class="entered fr"></span>
@@ -193,27 +193,8 @@
 			/*footer 当前页选中状态*/
 			$(".footer a:nth-child(4) .icons").css("background", "url(__WAP__/img/iconlist_05.png) no-repeat center 53%");
 			$(".footer a:nth-child(4) .icons").css("background-size", "3rem");
-			$(".sign_success").click(function() {
-
-				// $.ajax({
-    //                 type : "POST",  //提交方式
-    //                 url : "{:url('member/qiandao')}",//路径
-    //                 dataType : "json",//数据，这里使用的是Json格式进行传输
-    //                 error : function (){
-    //                 	$(".overtop").text('请刷新页面重试');
-				// 		overtop();
-				// 		return false;
-    //             }
-				// });
-				$(this).text("已签到");
-				$(this).css("opacity", "0.5")
-				$(".overtop").css("display", "block");
-				$(".overtop").css("opacity", "1");
-				setTimeout(function() {
-					$(".overtop").css("opacity", "0");
-				}, 2000);
-
-			})
+			
+		
 
 
 		</script>
