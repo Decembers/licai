@@ -173,7 +173,7 @@
 							                    },
 							                    dataType : "json",//数据，这里使用的是Json格式进行传输
 							                    success : function(result) {
-													if (result.code==1) {
+													if (result.code==200) {
 														$(".overtop").text(result.msg);overtop();
 													}else{
 
@@ -200,13 +200,6 @@
 			})
 
 			$('#dl_getcode').click(function() {
-				if($("#dl_mobile").val() == "") {
-					$(".overtop").text("请输入手机号");overtop();
-				} else {
-					if($("#dl_mobile").val().length == 11) {
-						$(".count_down").css("display", "block");
-						$(".count_down").css("z-index", "10");
-						$(".count_down").css("text-align", "center");
 						var s = 60;
 						var j = setInterval(function() {
 							s = s - 1;
@@ -216,10 +209,6 @@
 								clearInterval(j);
 							}
 						}, 1000)
-					} else {
-						$(".overtop").text("请重新输入手机号");overtop();
-					}
-				}
 			})
 		</script>
 	</body>
