@@ -105,7 +105,7 @@
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span>{$arr.number}</span> &nbsp;&nbsp;&nbsp;<span class="em">{$arr.name}</span></p>
+						<p><span>{$arr.numbers}</span> &nbsp;&nbsp;&nbsp;<span class="em">{$arr.name}</span></p>
 						<p><span>{$arr.rate}</span><span class="em">天联养周期</span></p>
 						<p><span>{$arr.return_price}</span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
@@ -293,8 +293,8 @@
 					ss1.remove();
 				}, 1000);
 			}
-var qian = parseInt($("#qian").text()); /*鹅单价*/
-			var profit = parseInt($("#profit").text()); /*鹅利润*/
+var qian = $("#qian").text(); /*鹅单价*/
+			var profit = $("#profit").text(); /*鹅利润*/
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
