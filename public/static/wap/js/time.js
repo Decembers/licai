@@ -77,7 +77,7 @@
 						second.text((t < 10 ? "0" : "") + t);
 					}
 					if(day.text()==00&&hour.text()==00&&minute.text()==00&& second.text()==00){
-						alert("00000")
+						window.location.reload();
 					}
 					//一秒过去了...
 					total--;
