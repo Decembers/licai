@@ -93,16 +93,16 @@
 				<div class="detail1">
 					<div class="detail1_top">
 						<div>
-							<p>羊单价(元)</p>
+							<p>鹅单价(元)</p>
 							<p><span>{$arr.price}.</span><span class="em">00</span></p>
 						</div>
 						<div>
-							<p>剩余羊只（只）</p>
+							<p>剩余鹅只（只）</p>
 							<p>{$arr.number}</p>
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span>{$arr.number}</span><span class="em">只苏尼特羊</span></p>
+						<p><span>{$arr.number}</span><span class="em">只苏尼特鹅</span></p>
 						<p><span>{$arr.rate}</span><span class="em">天联养周期</span></p>
 						<p><span>{$arr.return_price}</span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
@@ -149,7 +149,7 @@
 
 					<div class="row">
 
-						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian">{$arr.price}.00</span>
+						<p><span>共</span><span class="em" id="numbers">1</span><span>只鹅:   </span><span class="em">￥</span><span class="em" id="qian">{$arr.price}.00</span>
 							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">{$arr.profit}</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
@@ -175,12 +175,12 @@
 				</div>
 			</div>
 			<button class="big-button press" id="big-button"><span class="icon"></span><span>10点开抢</span></button>
-			<a href="#" class="found m_co sh_au-ex" style="display: none;">商铺辅助羊群说明</a>
+			<a href="#" class="found m_co sh_au-ex" style="display: none;">商铺辅助鹅群说明</a>
 			<div id="goodcover"></div>
-			<!-- 商铺辅助羊群群说明-->
+			<!-- 商铺辅助鹅群群说明-->
 			<div id="code" style="display: none;">
-				<h6 class="shop_title">商铺辅助羊群说明</h6>
-				<p class="shop_explain">各位亲爱的牧主大大的羊只出栏后，蒙高丽亚公司代购牧主们的羊只，但从屠宰场到实体店再到消费者，一个整体的产销流程需要35天左右，所以我们增加了蒙高丽亚商铺辅助羊群。常规羊群出栏后，牧主未兑换羊肉的羊只由下一任辅助牧主接收，直到羊只真正流入终端，辅助牧主也会得到相应的回报。</p>
+				<h6 class="shop_title">商铺辅助鹅群说明</h6>
+				<p class="shop_explain">各位亲爱的牧主大大的鹅只出栏后，蒙高丽亚公司代购牧主们的鹅只，但从屠宰场到实体店再到消费者，一个整体的产销流程需要35天左右，所以我们增加了蒙高丽亚商铺辅助鹅群。常规鹅群出栏后，牧主未兑换鹅肉的鹅只由下一任辅助牧主接收，直到鹅只真正流入终端，辅助牧主也会得到相应的回报。</p>
 				<!-- 关闭按钮-->
 				<div class="close">
 					<a href="#" id="closebt"></a>
@@ -235,7 +235,7 @@
 				}
 
 			})
-			/*羊数量 - */
+			/*鹅数量 - */
 			$("#subtract").click(function() {
 				var num = parseInt($("#number").val());
 				if($("#number").val() == "") {
@@ -248,13 +248,13 @@
 					bian();
 				}
 			})
-			/*羊数量 + */
+			/*鹅数量 + */
 			$("#plus").click(function() {
 				var num = parseInt($("#number").val());
 				if($("#number").val() == "") {
 					num = 0;
 				}
-				/*获取羊数量 剩余*/
+				/*获取鹅数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if(num >= zui) {
 					$("#number").val(zui);
@@ -266,12 +266,12 @@
 				}
 
 			})
-			/*羊数量输入时时变更*/
+			/*鹅数量输入时时变更*/
 			$("#number").bind('input', function() {
 				if($(this).val() < 0) {
 					$(this).val("0");
 				}
-				/*获取羊数量 剩余*/
+				/*获取鹅数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if($(this).val() >= zui) {
 					overtop();
@@ -280,7 +280,7 @@
 				bian();
 			})
 
-		/*羊数量超出 剩余 提升*/
+		/*鹅数量超出 剩余 提升*/
 			function overtop() {
 				$(".detail").after($("body>p.overtop").clone(true));
 				var ss1 = $(".wrapper .overtop");
@@ -294,14 +294,14 @@
 
 
 			function bian() {
-				/*羊只数量 输出*/
+				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
 					$("#numbers").text(0);
 				} else {
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				tofix($("#qian"), 780.00); /*羊总价*/
-				tofix($("#profit"), 46.80); /*羊利润*/
+				tofix($("#qian"), 780.00); /*鹅总价*/
+				tofix($("#profit"), 46.80); /*鹅利润*/
 			}
 			/* 总价 利润 输出*/
 			function tofix(st, fs) {
@@ -319,12 +319,12 @@
 					}
 				}
 			}
-			/*商铺辅助羊群说明*/
+			/*商铺辅助鹅群说明*/
 			$("a.found").click(function() {
 				$("#goodcover").css("display", "block");
 				$("#code").css("display", "block");
 			})
-			/*商铺辅助羊群说明 关闭*/
+			/*商铺辅助鹅群说明 关闭*/
 			$(".close").click(function() {
 				$("#goodcover").css("display", "none");
 				$("#code").css("display", "none");
@@ -336,7 +336,7 @@
 			})*/
 
 
-/*买羊按钮点击*/
+/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 				$("#goodcover").css("display", "block");
 				$(".overtop1").css("display", "block");

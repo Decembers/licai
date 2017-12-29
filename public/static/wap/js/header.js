@@ -13,7 +13,10 @@ $(".overtop").css("overflow","hidden");
 if($("body").width() > 900) {
 	$(".wrapper").css("left", ($("body").width() - 800) / 2 + "px");
 }
-
+$("div.header>div").click(function() {
+	history.go(-1)
+/*history.back(-1)*/
+})
 /*提示*/
 function overtop() {
 				$(".wrapper>div:nth-child(1)").after($("body>p.overtop").clone(true));
