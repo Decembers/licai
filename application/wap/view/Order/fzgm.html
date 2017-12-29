@@ -249,7 +249,8 @@
 					ss1.remove();
 				}, 1000);
 			}
-
+var qian = parseInt($("#qian").text()); /*鹅单价*/
+			var profit = parseInt($("#profit").text()); /*鹅利润*/
 			function bian() {
 				/*羊只数量 输出*/
 				if($("#number").val() == "") {
@@ -257,8 +258,8 @@
 				} else {
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				tofix($("#qian"), 780.00); /*羊总价*/
-				tofix($("#profit"), 39.00); /*羊利润*/
+				tofix($("#qian"), qian); /*羊总价*/
+				tofix($("#profit"), profit); /*羊利润*/
 			}
 			/* 总价 利润 输出*/
 			function tofix(st, fs) {
@@ -355,6 +356,11 @@
 							$(".overtop1").css("display", "block");
 							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 							window.location='{:url("Rancher/index")}';
+										$("#em1").text($("#em1").text() - $("#qian").text());										
+										$("#number").val(1);
+										$("#numbers").text(1);
+										$("#qian").text(qian);$("#profit").text(profit);										
+										$("#max6").val("");
 							},500);
 						}else{
 							$(".overtop1 .overtop_text").text(aa.msg);

@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
 			/*我的鹅只 */
-
+			
 			.mysheep {
 				width: 100%;
 				/*height: 7.45rem;*/
@@ -29,7 +29,7 @@
 				margin-bottom: 0.5rem;
 			}
 			/*我的鹅只 数量 */
-
+			
 			.mysheep h5 {
 				color: #fff;
 				font-size: 3.1rem;
@@ -37,23 +37,23 @@
 				margin: 1rem 0;
 			}
 			/*我的鹅只 */
-
+			
 			.my_sheep {
 				font-size: 0.9rem;
 			}
 			/*成长*/
-
+			
 			.grow {
 				line-height: 2.3rem;
 				font-size: 0.9rem;
 				display: flex;
 				justify-content: center;
 			}
-
+			
 			.ing {
 				margin-right: 0.7rem;
 			}
-
+			
 			.no_sheep {
 				width: 12rem;
 				height: 13rem;
@@ -62,7 +62,7 @@
 				background-size: 100%;
 			}
 			/*交易弹窗 黑色背景*/
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -76,7 +76,7 @@
 				opacity: 0.65;
 			}
 			/*交易弹窗 开始*/
-
+			
 			#exchange_appli {
 				width: 17rem;
 				height: auto;
@@ -94,7 +94,7 @@
 				animation: bounceIn 0.3s;
 			}
 			/*交易弹窗 上*/
-
+			
 			.total_top {
 				height: 9rem;
 				background: linear-gradient(to right, #41d1a1, #6de3a4);
@@ -103,28 +103,28 @@
 				border-radius: 0.4rem 0.4rem 0 0;
 			}
 			/*交易统计*/
-
+			
 			.collect_total {
 				height: 6rem;
 			}
-
+			
 			.total_top .thirty_six {
 				font-size: 1.1rem;
 				padding: 0.5rem 0;
 			}
-
+			
 			.total_top h6 {
 				font-size: 1.6rem;
 				line-height: 1.6rem;
 				font-weight: normal;
 				margin: 0;
 			}
-
+			
 			.twenty_six {
 				font-size: 0.9rem;
 			}
 			/*本金 回报*/
-
+			
 			.collect {
 				height: 3rem;
 				border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -132,26 +132,26 @@
 				padding-top: 0.2rem;
 				display: flex;
 			}
-
+			
 			.collect div.fl {
 				width: 50%;
 				margin: 0 auto;
 				font-size: 0.9rem;
 			}
-
+			
 			.collect div.fl div:nth-child(2) {
 				font-size: 0.8rem;
 			}
-
+			
 			.collect .integer {
 				font-size: 1.1rem;
 			}
 			/*交易弹窗 下*/
-
+			
 			.total_bottom {
 				padding: 0 1.5rem;
 			}
-
+			
 			.total_bottom li {
 				height: 2rem;
 				line-height: 2rem;
@@ -160,16 +160,16 @@
 				justify-content: space-between;
 				font-size: 0.95rem;
 			}
-
+			
 			.total_bottom li span:nth-child(2) {
 				font-size: 1rem;
 			}
-
+			
 			.total_bottom li span {
 				width: auto;
 			}
 			/*交易弹窗 关闭按钮*/
-
+			
 			.close {
 				position: absolute;
 				top: 100%;
@@ -180,13 +180,23 @@
 				background: url(__WAP__/img/iconlist_01.png) center 100% no-repeat;
 				background-size: cover;
 			}
-
+			
 			#closebtn {
 				display: block;
 				width: 1.75rem;
 				height: 1.75rem;
 				margin-top: 1.125rem;
 				border-radius: 50%;
+			}
+			
+			.header p {
+				position: absolute;
+				top: 10px;
+				right: 1rem;
+				line-height: 20px;
+				height: 20px;
+				font-size: 15px;
+				color: gray;
 			}
 			/*交易弹窗 结束*/
 		</style>
@@ -199,7 +209,7 @@
 					<span class="icon"></span><span>返回</span>
 				</div>
 				<h3>我的农场</h3>
-				<a href="###">交易统计</a>
+				<p>交易统计</p>
 			</div>
 			<div class="content infinite-scroll bgCo native-scroll" data-distance="0" now_page="1">
 				<!-- 这里是页面内容区 -->
@@ -218,7 +228,7 @@
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有鹅结束-->
 					<div class="no_sheep"></div>
-					<button class="big-button press" onclick="window.location='{:url("Index/orlist")}'">朕去买鹅</button>
+					<button class="big-button press" onclick="window.location='{:url(" Index/orlist ")}'">朕去买鹅</button>
 				</div>
 				<!-- 交易统计弹出框成功弹出-->
 				<div id="goodcover"></div>
@@ -261,7 +271,6 @@
 				</div>
 			</div>
 
-
 		</div>
 		<div class="background">
 
@@ -273,7 +282,7 @@
 				this.blur()
 			});
 			/*点击切换*/
-			$(".header a").click(function() {
+			$(".header p").click(function() {
 				$("#goodcover").css("display", "block");
 				$("#exchange_appli").css("display", "block");
 			})

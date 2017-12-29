@@ -28,16 +28,22 @@
 .shop>a .shops_bottom {
 	width: 100%;
 }
-
+.shop>a .shops_top{
+	position: relative;
+}
 .shop>a .shops_top p {
 	padding: 5px 0;
 }
 
 .shop>a .shops_top p:nth-child(1) {
-	float: left;
+	position: absolute;
+	left: 0;
+	top: 0;
 	background-color: rgba(255, 255, 255, 0.8);
+	width: 40px;
 	color: #3db4cc;
 	padding: 5px;
+	text-align: center;
 }
 
 .shop>a.shop2 .shops_top p:nth-child(1) {
@@ -49,14 +55,21 @@
 }
 
 .shop>a .shops_top p:nth-child(2) {
-	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 40px;
 	margin-left: 5px;
 	font-size: 1.2rem;
+	line-height: 20px;
+	white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 }
 
 .shop>a .shops_top p:nth-child(3) {
-	float: right;
+	position: absolute;
+	right: 0;
+	top: 0;
 	font-size: 1.2rem;
+	line-height: 20px;
 }
 
 .shop>a .shops_cen {
