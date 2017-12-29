@@ -7,13 +7,14 @@ $(".header").css("width", $(".wrapper").width() + "px");
 $(".wrapper").css("padding-top", ($(".header").height()) + "px");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
 
-$(".overtop").css("border-radius","1.5rem");
-$(".overtop").css("overflow","hidden");
+/*$(".overtop").css("border-radius","1.5rem");
+$(".overtop").css("overflow","hidden");*/
 
-if($("body").width() > 900) {
-	$(".wrapper").css("left", ($("body").width() - 800) / 2 + "px");
-}
 
+$("div.header>div").click(function() {
+	history.go(-1)
+/*history.back(-1)*/
+})
 /*提示*/
 function overtop() {
 				$(".wrapper>div:nth-child(1)").after($("body>p.overtop").clone(true));

@@ -2,8 +2,6 @@
 
 <html>
 
-
-
 	<head>
 
 		<meta charset="utf-8" />
@@ -28,36 +26,20 @@
 
 		<script src="__WAP__/bootstrap-3.3.7/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 
-
-
 		<style type="text/css">
-
 			body,
-
 			div,
-
 			ul,
-
 			li,
-
 			p,
-
 			a,
-
 			span,
-
 			i {
-
 				margin: 0;
-
 				padding: 0;
-
 				display: block;
-
 			}
-
 			/*移动端 长按下滑 	未实现*/
-
 			/*.pull-to-refresh-layer {
 
 				position: relative;
@@ -177,16 +159,11 @@
 				transition-duration: .3s;
 
 			}*/
-
 		</style>
 
 	</head>
 
-
-
 	<body>
-
-
 
 		<div class="wrapper" style="padding-bottom: 1px;">
 
@@ -256,8 +233,6 @@
 
 			</div>
 
-
-
 			<div class="navigation">
 
 				<!--nav 导航-->
@@ -326,11 +301,7 @@
 
 			<div class="shop">
 
-
-
-			{volist name="row" id="vo"}
-
-			{if condition="$vo.classify eq 1"}
+				{volist name="row" id="vo"} {if condition="$vo.classify eq 1"}
 
 				<!--大白鹅-->
 
@@ -384,11 +355,9 @@
 
 					</div>
 
-
-
 				</a>
 
-			{elseif condition="$vo.classify eq 2"/}
+				{elseif condition="$vo.classify eq 2"/}
 
 				<!--辅助鹅群-->
 
@@ -436,31 +405,23 @@
 
 					<div class="shops_bottom">
 
-
-
 						<p class="return">本鹅群年联养回报{$vo.return_price}% , 快养只自己的小鹅吧！</p>
-
-
 
 					</div>
 
-
-
 				</a>
 
-			{elseif condition="$vo.classify eq 3"/}
+				{elseif condition="$vo.classify eq 3"/}
 
 				<!--VIP鹅群-->
 
-				<a href="{:url('Order/info',['id'=>$vo.id]);}"  class="shop3">
+				<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop3">
 
 					<div class="shops_top">
 
 						<p>VIP</p>
 
 						<p>{$vo.name}(请联系客服订购)</p>
-
-
 
 						<i class="clear"></i>
 
@@ -472,33 +433,19 @@
 
 							<h2>私人订制  做超级牧主</h2>
 
-
-
 						</div>
 
 					</div>
 
 					<div class="shops_bottom">
 
-
-
 						<p class="return">VIP鹅群年联养回报{$vo.return_price}%，私人订制，回报尊享！</p>
-
-
 
 					</div>
 
-
-
 				</a>
 
-			{/if}
-
-			{/volist}
-
-
-
-
+				{/if} {/volist}
 
 			</div>
 
@@ -544,17 +491,14 @@
 
 		<div class="background">
 
-
-
 		</div>
 
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-
 			/*轮播 左右 箭头 行高
 
-			 */
+						 */
 
 			$("#myCarousel .carousel-control").css("line-height", $("#myCarousel").height() + "px");
 
@@ -563,14 +507,11 @@
 			$(".footer a:nth-child(1) .icons").css("background", "url(__WAP__/img/iconlist_05.png) no-repeat center 10%");
 
 			$(".footer a:nth-child(1) .icons").css("background-size", "3rem");
-			
-			/*$("shop3 .shops_top p:nth-child(2)").width(($(this).parent().width()-$(this).prev().width()-$(this).next().width()-20)+"px");*/
-			$(".shops_top p:nth-child(2)").css("padding-right",$(this).next().width()+"px");
 
+			/*$("shop3 .shops_top p:nth-child(2)").width(($(this).parent().width()-$(this).prev().width()-$(this).next().width()-20)+"px");*/
+			$(".shops_top p:nth-child(2)").css("padding-right", $(this).next().width() + "px");
 		</script>
 
 	</body>
-
-
 
 </html>

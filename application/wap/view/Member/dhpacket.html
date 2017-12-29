@@ -12,21 +12,19 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
 		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
-		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
-
-
 			.wrapper ul {
 				width: 95%;
 				overflow: auto;
 				margin: 0 auto;
 				padding: 1rem 0;
 			}
-
+			
 			.voucher_ex_block li:nth-child(odd) {
 				float: left;
 			}
-
+			
 			.voucher_ex_block li {
 				width: 48.5%;
 				box-sizing: border-box;
@@ -38,25 +36,25 @@
 				text-align: center;
 				color: #fff;
 			}
-
+			
 			.voucher_ex_block li:nth-child(even) {
 				float: right;
 				margin-right: 0;
 			}
-
+			
 			.voucher_ex_block .name {
 				font-size: 1.7rem;
 				margin-top: 0.75rem;
 				line-height: 2rem;
 			}
-
+			
 			.value {
 				display: flex;
 				justify-content: center;
 				font-size: 2rem;
 				line-height: 3rem;
 			}
-
+			
 			.consume,
 			.consume {
 				font-size: 1rem;
@@ -64,11 +62,11 @@
 				display: flex;
 				justify-content: center;
 			}
-
+			
 			.consume i {
 				font-style: normal;
 			}
-
+			
 			.voucher_ex_block .exchange {
 				display: block;
 				box-sizing: border-box;
@@ -82,7 +80,7 @@
 				color: #fff;
 				margin: 0.8rem auto 0.5rem auto;
 			}
-
+			
 			.modal1 {
 				width: 20rem;
 				height: 8rem;
@@ -98,17 +96,17 @@
 				color: #3d4145;
 				display: none;
 			}
-
+			
 			.modal1 p {
 				line-height: 4rem;
 				font-size: 1.5rem;
 			}
-
+			
 			.modal1 p:nth-child(2) {
 				display: flex;
 				border-top: 1px solid white;
 			}
-
+			
 			.modal1 p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
@@ -121,11 +119,11 @@
 				box-sizing: border-box;
 				margin-top: 1rem;
 			}
-
+			
 			.modal1 p:nth-child(2) span:nth-child(1) {
 				border-right: 1px solid white;
 			}
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -153,7 +151,7 @@
 
 			<div class="voucher_ex_block clearfix">
 				<ul>
-{volist name="arr" id="vo"}
+					{volist name="arr" id="vo"}
 					<li>
 						<div class="name">{$vo.remark}</div>
 						<div class="value">
@@ -167,7 +165,7 @@
 						<div class="consume">所需积分：<i>{$vo.integral}</i>积分</div>
 						<a class="exchange" href="#" url=" " data-id="28" onclick="duihuan({$vo.id})">兑换</a>
 					</li>
-{/volist}
+					{/volist}
 				</ul>
 			</div>
 
@@ -192,51 +190,49 @@
 			// })
 
 			var id;
-			function duihuan(pid){
+
+			function duihuan(pid) {
 				$(".modal1").css("display", "block");
 				$("#goodcover").css("display", "block");
 				id = pid;
 			}
 
-
 			$(".modal1_p span:last").click(function() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
 				$.ajax({
-                    type : "POST",  //提交方式
-                    url : "{:url('member/dhpacket')}",//路径
-                    data : {
-                        "id" : id
-                    },
-                    dataType : "json",//数据，这里使用的是Json格式进行传输
-                    success : function(result) {
+					type: "POST", //提交方式
+					url: "{:url('member/dhpacket')}", //路径
+					data: {
+						"id": id
+					},
+					dataType: "json", //数据，这里使用的是Json格式进行传输
+					success: function(result) {
 						var aa = JSON.parse(result);
 						$("body>p.overtop").text(aa.msg);
 						overtop1();
 					}
-			    });
+				});
 			})
 			$(".modal1_p span:first").click(function() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
 			})
-			$("#goodcover").click(function(){
+			$("#goodcover").click(function() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
 			})
-			function overtop1(){
+
+			function overtop1() {
 				$(".header").after($("body>p.overtop").clone(true));
-						var ss1 = $(".wrapper .overtop");
-						ss1.css("display", "block");
-						ss1.css("opacity", "1");
-						setTimeout(function() {
-							ss1.css("opacity", "0");
-							ss1.remove();
-						}, 1000);
+				var ss1 = $(".wrapper .overtop");
+				ss1.css("display", "block");
+				ss1.css("opacity", "1");
+				setTimeout(function() {
+					ss1.css("opacity", "0");
+					ss1.remove();
+				}, 1000);
 			}
-
-
-
 		</script>
 	</body>
 

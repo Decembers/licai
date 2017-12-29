@@ -78,16 +78,16 @@
 				<div class="detail1">
 					<div class="detail1_top">
 						<div>
-							<p>羊单价(元)</p>
+							<p>鹅单价(元)</p>
 							<p><span>{$arr.price}.</span><span class="em">00</span></p>
 						</div>
 						<div>
-							<p>剩余羊只（只）</p>
+							<p>剩余鹅只（只）</p>
 							<p>0</p>
 						</div>
 					</div>
 					<div class="detail1_bottom">
-						<p><span>{$arr.numbers}</span><span class="em">只苏尼特羊</span></p>
+						<p><span>{$arr.numbers}</span><span class="em">只大白鹅</span></p>
 						<p><span>{$arr.rate}</span><span class="em">天联养周期</span></p>
 						<p><span>{$arr.return_price}</span><span class="em"><em>%</em>年联养回报</span></p>
 					</div>
@@ -125,7 +125,7 @@
 					</div>
 					<div class="row">
 
-						<p><span>共</span><span class="em" id="numbers">1</span><span>只羊:   </span><span class="em">￥</span><span class="em" id="qian">{:session('user.balance')}</span>
+						<p><span>共</span><span class="em" id="numbers">1</span><span>只鹅:</span><span class="em">￥</span><span class="em" id="qian">{:session('user.balance')}</span>
 							<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span><span class="em" style="font-size: 0.6rem;     color: #a9a9a9;">￥</span><span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">10.75</span><span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
@@ -150,12 +150,12 @@
 				</div>
 			</div>
 			<button class="big-button press" id="big-button">交易详情</button>
-			<a href="#" class="found m_co sh_au-ex" style="padding-bottom: 10px; display: none;">商铺辅助羊群说明</a>
+			<a href="#" class="found m_co sh_au-ex" style="padding-bottom: 10px; display: none;">商铺辅助鹅群说明</a>
 			<div id="goodcover"></div>
-			<!-- 商铺辅助羊群群说明-->
+			<!-- 商铺辅助鹅群群说明-->
 			<div id="code" style="display: none;">
-				<h6 class="shop_title">商铺辅助羊群说明</h6>
-				<p class="shop_explain">各位亲爱的牧主大大的羊只出栏后，蒙高丽亚公司代购牧主们的羊只，但从屠宰场到实体店再到消费者，一个整体的产销流程需要35天左右，所以我们增加了蒙高丽亚商铺辅助羊群。常规羊群出栏后，牧主未兑换羊肉的羊只由下一任辅助牧主接收，直到羊只真正流入终端，辅助牧主也会得到相应的回报。</p>
+				<h6 class="shop_title">商铺辅助鹅群说明</h6>
+				<p class="shop_explain">各位亲爱的牧主大大的鹅只出栏后，蒙高丽亚公司代购牧主们的鹅只，但从屠宰场到实体店再到消费者，一个整体的产销流程需要35天左右，所以我们增加了蒙高丽亚商铺辅助鹅群。常规鹅群出栏后，牧主未兑换鹅肉的鹅只由下一任辅助牧主接收，直到鹅只真正流入终端，辅助牧主也会得到相应的回报。</p>
 				<!-- 关闭按钮-->
 				<div class="close">
 					<a href="#" id="closebt"></a>
@@ -227,40 +227,30 @@
 				}, 1500);
 			}
 
+			var qian = parseInt($("#qian").text()); /*鹅单价*/
+			var profit = parseInt($("#profit").text()); /*鹅利润*/
 			function bian() {
+				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
 					$("#numbers").text(0);
 				} else {
-					$("#numbers").text($("#number").val());
+					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				var zong = $("#number").val() * 780;
+				tofix($("#qian"), qian); /*鹅总价*/
+				tofix($("#profit"), profit); /*鹅利润*/
+			}
+			function tofix(st, fs) {
+				var zong = $("#number").val() * fs;
 				var zo = zong.toString();
-				var profit1 = $("#number").val() * 10.75;
-				var profits = profit1.toString();
-				/*alert(zong+1+" "+zo+"."+1)*/
 				var one = zong % 1;
 				var one2 = zong % 0.1;
 				if(one == 0) {
-					$("#qian").text(zo + ".00");
+					st.text(zo + ".00");
 				} else {
 					if(one2 == 0) {
-						$("#qian").text(zo + "0");
+						st.text(zo + "0");
 					} else {
-						$("#qian").text(zong.toFix(2));
-					}
-				}
-				var ones = profit1 % 1;
-				var ones2 = profit1 % 0.5;
-				if(ones == 0) {
-					/*alert('0')*/
-					$("#profit").text(profits + ".00");
-				} else {
-					if(ones2 == 0) {
-						/*alert(".0")*/
-						$("#profit").text(profits + "0");
-					} else {
-						/*alert(".00")*/
-						$("#profit").text(profits);
+						st.text(zong.toFixed(2));
 					}
 				}
 			}
