@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-26 18:54:08
+ * @Last Modified time: 2017-12-28 18:18:35
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -22,8 +22,11 @@ use app\common\model\Identity as I;
 
 class Member extends Yang
 {
+    use \app\admin\traits\controller\Controller;
     public function index()
     {
+        $this->money($this->id);
+
         $id = Session::get('user.id');
         $name = Session::get('user.name');
         $balance = Session::get('user.balance');

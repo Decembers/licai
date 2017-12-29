@@ -15,6 +15,9 @@ use think\Loader;
 use think\exception\HttpException;
 use think\Config;
 use think\Session;
+use app\common\model\Order;
+use app\common\model\Commodity;
+use app\common\model\Record;
 
 trait Controller
 {
@@ -275,15 +278,15 @@ trait Controller
      */
     protected function money($id)
     {
-        $order = new app\common\model\Order;
-        $commodity = new app\common\model\Commodity;
-        $record = new app\common\model\Record;
-        $user_id = Session::get('uesr.id');
+        $order = new Order;
+        $commodity = new Commodity;
+        $record = new Record;
+        $testtime = time();
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         foreach ($orders as $k => $v) {
-            $sp_id = $v['id'];//商品id
+            $sp_id = $v['sp_id'];//商品id
             $commoditys = $commodity -> where(['id'=>$sp_id]) -> find();//商品信息
-            if (time()>$commoditys['begin_time']) {
+            if ($commoditys['begin_time']>$testtime) {
                 continue;
             }
             $return_mode = $commoditys['return_mode'];
@@ -314,99 +317,155 @@ trait Controller
             //     }
             // }
             if ($return_mode==1) {
-                    //按月返还
+                //按月返还
+                $ktime = $commoditys['begin_time'] + $v['which']*2592000;
+                $shen = ($testtime - $ktime);
+                $chi = intval($shen/2592000);//返还的次数
+                if ($chi == 0) {
+                     //未到返利时间
+                     continue;
+                }
 
+                $sheng = $v['nexpect'] - $v['which'];//还可以返还几次
+                if ($chi>=$sheng) {
+                    //包括最后一次返还
+                    //需全部返还 包括本金
+                    for ($i=1; $i <= $sheng; $i++) {
+                        $diji = $v['which'] + $i;
 
-                if ($v['which']==0) {
-                    //第一次返还
+                        //返还利润表数据
+                        $row['order_id'] = $v['id'];
+                        $row['user_id'] = $id;
+                        $row['ruturn_time'] = time();
+                        $return_price =$v['zexpect']/$v['nexpect'];//每期利润
+                        $row['return_price'] = $return_price;
+                        $rate_time = $commoditys['begin_time'] + $diji*2592000;
+                        $row['return_user_time'] = $rate_time;
+                        $row['is_principal'] = 2;
+                        $row['remark'] = $commoditys['name'].'返利完成';
+                        $row['next'] = $diji;
+                        $record->insert($row);
 
+                        $or = [];
+                        if ($i==$sheng) {
+                            $row['return_price'] = $return_price + $v['order_price'];
+                            $or['status'] = 1;
+                        }
+
+                        $or['which'] = $diji;
+                        //修改order表状态 可能修改不成功
+                        $order->where(['id'=>$v['id']])->update($or);
+                    }
+
+                }else{
+                    //不包括最后一次返还
+                    for ($i=1; $i <= $chi; $i++) {
+                        $diji = $v['which'] + $i;
+
+                        //返还利润表数据
+                        $row['order_id'] = $v['id'];
+                        $row['user_id'] = $id;
+                        $row['ruturn_time'] = time();
+                        $return_price =$v['zexpect']/$v['nexpect'];//每期利润
+                        $row['return_price'] = $return_price;
+                        $rate_time = $commoditys['begin_time'] + $diji*2592000;
+                        $row['return_user_time'] = $rate_time;
+                        $row['is_principal'] = 2;
+                        $row['remark'] = $commoditys['name'].'返利完成';
+                        $row['next'] = $diji;
+                        $record->insert($row);
+
+                        $or = ['which'=>$diji];
+                        //修改order表状态 可能修改不成功
+                        $order->where(['id'=>$v['id']])->update($or);
+                    }
                 }
 
 
 
-                    $sulite = $record ->where(['order_id'=>$v['id']]) ->select();
-                    //是否返还过
-                    if (isset($sulite)) {
-                        //返过利
-                        $records = $record->where(['order_id'=>$v['id']])->max('return_user_time');//最后一次返还利润的时间
-                    }else{
-                        //没有返过利
-                        $records = $commoditys['begin_time'];//当前时间减去最后一次返利时间
-                    }
-                    $atime = time() - $records;//当前时间减去最后一次返利时间
-                    $month = intval($atime/2592000);//获得返还几个月的利润
+                    // $sulite = $record ->where(['order_id'=>$v['id']]) ->select();
+                    // //是否返还过
+                    // if (isset($sulite)) {
+                    //     //返过利
+                    //     $records = $record->where(['order_id'=>$v['id']])->max('return_user_time');//最后一次返还利润的时间
+                    // }else{
+                    //     //没有返过利
+                    //     $records = $commoditys['begin_time'];//当前时间减去最后一次返利时间
+                    // }
+                    // $atime = time() - $records;//当前时间减去最后一次返利时间
+                    // $month = intval($atime/2592000);//获得返还几个月的利润
 
-                    $zprice = intval($commoditys['rate']/30);//总共返还几次利润
+                    // $zprice = intval($commoditys['rate']/30);//总共返还几次利润
 
-                    $yprice = count($sulite); //已返还几次利润
+                    // $yprice = count($sulite); //已返还几次利润
 
-                    $sprice = $zprice-$yprice;//还可以返还几次
+                    // $sprice = $zprice-$yprice;//还可以返还几次
 
-                    if ($month>$sprice) {
+                    // if ($month>$sprice) {
 
-                        $month = $sprice;
+                    //     $month = $sprice;
 
-                    }elseif($month<$sprice){
+                    // }elseif($month<$sprice){
 
-                        //没有返还完
-                        for ($i=1; $i < $month; $i++) {
-                            //返还利润表数据
-                            $row['order_id'] = $v['id'];
-                            $row['ruturn_time'] = time();
+                    //     //没有返还完
+                    //     for ($i=1; $i < $month; $i++) {
+                    //         //返还利润表数据
+                    //         $row['order_id'] = $v['id'];
+                    //         $row['ruturn_time'] = time();
 
-                            $return_price = $commoditys['return_price']/100;//计算年回报率
-                            //计算每期返还金额
-                            $return_prices = $v['price'] * $v['number']*$return_price/12;
-                            $return_prices = sprintf("%.2f",substr(sprintf("%.3f", $return_prices), 0, -2));//保留两位小数 不四舍五入
+                    //         $return_price = $commoditys['return_price']/100;//计算年回报率
+                    //         //计算每期返还金额
+                    //         $return_prices = $v['price'] * $v['number']*$return_price/12;
+                    //         $return_prices = sprintf("%.2f",substr(sprintf("%.3f", $return_prices), 0, -2));//保留两位小数 不四舍五入
 
-                            $row['return_price'] = $return_prices;
-                            $row['return_user_time'] = $records+($i*2592000);//用最后一次返利时间 + 现在返利的次数 * 一个月的时间
-                            $row['is_principal'] = 2;
-                            $yprices = $yprice + $i;
-                            $row['remark'] = '第'.$yprices.'次返利';
-                            $row['next'] = (int)$yprices;
-                        }
-                    }
+                    //         $row['return_price'] = $return_prices;
+                    //         $row['return_user_time'] = $records+($i*2592000);//用最后一次返利时间 + 现在返利的次数 * 一个月的时间
+                    //         $row['is_principal'] = 2;
+                    //         $yprices = $yprice + $i;
+                    //         $row['remark'] = '第'.$yprices.'次返利';
+                    //         $row['next'] = (int)$yprices;
+                    //     }
+                    // }
 
-                    //需全部返还 包括本金
-                    for ($i=1; $i < $month; $i++) {
-                        //返还利润表数据
-                        $row['order_id'] = $v['id'];
-                        $row['ruturn_time'] = time();
-                        $yprices = $yprice + $i;//第多少次返利
-                            //计算每期返还金额
-                        $return_price = $commoditys['return_price']/100;//计算年回报率
-                        $return_prices = $v['price'] * $v['number'] * $return_price/12;
-                        $return_prices = sprintf("%.2f",substr(sprintf("%.3f", $return_prices), 0, -2));//保留两位小数 不四舍五入
+                    // //需全部返还 包括本金
+                    // for ($i=1; $i < $month; $i++) {
+                    //     //返还利润表数据
+                    //     $row['order_id'] = $v['id'];
+                    //     $row['ruturn_time'] = time();
+                    //     $yprices = $yprice + $i;//第多少次返利
+                    //         //计算每期返还金额
+                    //     $return_price = $commoditys['return_price']/100;//计算年回报率
+                    //     $return_prices = $v['price'] * $v['number'] * $return_price/12;
+                    //     $return_prices = sprintf("%.2f",substr(sprintf("%.3f", $return_prices), 0, -2));//保留两位小数 不四舍五入
 
 
-                        if ($zprice == $yprices) {
-                            //最后一次
-                            $return_prices = $v['price'] * $v['number'] + $return_prices;
-                            $row['return_price'] = $return_prices;
-                            $row['is_principal'] = 1;
+                    //     if ($zprice == $yprices) {
+                    //         //最后一次
+                    //         $return_prices = $v['price'] * $v['number'] + $return_prices;
+                    //         $row['return_price'] = $return_prices;
+                    //         $row['is_principal'] = 1;
 
-                            $or = ['status'=>1];
-                            //修改order表状态 可能修改不成功
-                            $order->where(['order_id'=>$v['id']])->save($or);
+                    //         $or = ['status'=>1];
+                    //         //修改order表状态 可能修改不成功
+                    //         $order->where(['order_id'=>$v['id']])->save($or);
 
-                        }else{
-                            $row['return_price'] = $return_prices;
-                            $row['is_principal'] = 2;
-                        }
-                        $row['return_user_time'] = $records+($i*2592000);
-                        $row['remark'] = '第'.$yprices.'次返利';
-                        $row['next'] = (int)$yprices;
-                    }
+                    //     }else{
+                    //         $row['return_price'] = $return_prices;
+                    //         $row['is_principal'] = 2;
+                    //     }
+                    //     $row['return_user_time'] = $records+($i*2592000);
+                    //     $row['remark'] = '第'.$yprices.'次返利';
+                    //     $row['next'] = (int)$yprices;
+                    // }
 
             }else{
                 //按期返还
                 $rate_time = $commoditys['rate'] * 86400 + $commoditys['begin_time'];//返还的时间
-                if (time() >= $rate_time) {
+                if ($testtime >= $rate_time) {
                     //返还全部金额
                     //返还利润表数据
                     $row['order_id'] = $v['id'];
-                    $row['user_id'] = $user_id;
+                    $row['user_id'] = $id;
                     $row['ruturn_time'] = time();
                     $row['return_price'] = $v['zexpect'] + $v['order_price'];
                     $row['return_user_time'] = $rate_time;
@@ -417,7 +476,7 @@ trait Controller
 
                     $or = ['status'=>1,'which'=>1];
                     //修改order表状态 可能修改不成功
-                    $order->where(['order_id'=>$v['id']])->save($or);
+                    $order->where(['id'=>$v['id']])->update($or);
                 }
             }
         }
