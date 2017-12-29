@@ -229,40 +229,30 @@
 				}, 1500);
 			}
 
+			var qian = parseInt($("#qian").text()); /*鹅单价*/
+			var profit = parseInt($("#profit").text()); /*鹅利润*/
 			function bian() {
+				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
 					$("#numbers").text(0);
 				} else {
-					$("#numbers").text($("#number").val());
+					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				var zong = $("#number").val() * 780;
+				tofix($("#qian"), qian); /*鹅总价*/
+				tofix($("#profit"), profit); /*鹅利润*/
+			}
+			function tofix(st, fs) {
+				var zong = $("#number").val() * fs;
 				var zo = zong.toString();
-				var profit1 = $("#number").val() * 10.75;
-				var profits = profit1.toString();
-				/*alert(zong+1+" "+zo+"."+1)*/
 				var one = zong % 1;
 				var one2 = zong % 0.1;
 				if(one == 0) {
-					$("#qian").text(zo + ".00");
+					st.text(zo + ".00");
 				} else {
 					if(one2 == 0) {
-						$("#qian").text(zo + "0");
+						st.text(zo + "0");
 					} else {
-						$("#qian").text(zong.toFix(2));
-					}
-				}
-				var ones = profit1 % 1;
-				var ones2 = profit1 % 0.5;
-				if(ones == 0) {
-					/*alert('0')*/
-					$("#profit").text(profits + ".00");
-				} else {
-					if(ones2 == 0) {
-						/*alert(".0")*/
-						$("#profit").text(profits + "0");
-					} else {
-						/*alert(".00")*/
-						$("#profit").text(profits);
+						st.text(zong.toFixed(2));
 					}
 				}
 			}

@@ -293,7 +293,8 @@
 					ss1.remove();
 				}, 1000);
 			}
-
+var qian = parseInt($("#qian").text()); /*鹅单价*/
+			var profit = parseInt($("#profit").text()); /*鹅利润*/
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -301,8 +302,8 @@
 				} else {
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				tofix($("#qian"), 780.00); /*鹅总价*/
-				tofix($("#profit"), 41.60); /*鹅利润*/
+				tofix($("#qian"), qian); /*鹅总价*/
+				tofix($("#profit"), profit); /*鹅利润*/
 
 			}
 			/* 总价 利润 输出*/
