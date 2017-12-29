@@ -2,6 +2,7 @@
 namespace app\wap\controller;
 use app\wap\controller\Yang;
 use app\common\model\Commodity as C;
+use app\common\model\Notice as N;
 
 class Index extends Yang
 {
@@ -51,8 +52,18 @@ class Index extends Yang
      */
     public function gonggao()
     {
+        $notice = N::select();
+        $this->assign('notice',$notice);
         return $this->fetch();
     }
+    public function gonggaoin()
+    {
+        $id = input('id');
+        $notice = N::where(['id'=>$id])->find();
+        $this->assign('notice',$notice);
+        return $this->fetch();
+    }
+
     public function baozhang()
     {
         return $this->fetch();

@@ -513,7 +513,7 @@ max-height:200px;//最大高度*/
 												$(".overtop").text("请选择所在地");
 												overtop();
 											} else {
-												alert(inp);return;
+												inp
 												var name=$("#names").val();
 												var cardnum=$("#bankcard").val();
 												var bank_name=$(".this_bank").text();
@@ -526,6 +526,7 @@ max-height:200px;//最大高度*/
 								                    url : "{:url('member/addwithdraw')}",//路径
 								                    data : {
 								                        "name" : name,
+								                        "image" :inp,
 								                        "cardnum" : cardnum,
 								                        "bank_name" : bank_name,
 								                        "bank_opening" : bank_opening,

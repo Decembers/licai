@@ -95,26 +95,18 @@
 					<!-- 这里是页面内容区 -->
 					<div class="announ_list">
 						<ul>
+{volist name="notice" id="vo"}
 							<li class="fillet">
-								<a href="#">
-									<div class="announ_logo fl"></div>
+								<a href="{:url('index/gonggaoin',['id'=>$vo.id])}">
+									<div class="announ_logo fl"><img src="{$vo.image}" width="80" height="60"></div>
 									<div class="announ_words">
-										<h5>【财富牧场 2.0 版上线公告】</h5>
+										<h5>{$vo.title}</h5>
 
-										<p class="announ_date2">2016-12-28</p>
+										<p class="announ_date2">{$vo.create_time|date="y-m-d",###}</p>
 									</div>
 								</a>
 							</li>
-							<li class="fillet">
-								<a href="#">
-									<div class="announ_logo fl"></div>
-									<div class="announ_words">
-										<h5>【微信支付暂停使用公告】</h5>
-
-										<p class="announ_date2">2016-12-28</p>
-									</div>
-								</a>
-							</li>
+{/volist}
 						</ul>
 					</div>
 				</div>

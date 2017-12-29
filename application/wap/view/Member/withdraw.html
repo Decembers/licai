@@ -256,9 +256,9 @@ max-height:200px;//最大高度*/
 				{volist name="arr" id="vo"}
 				<li class="checkin white fillet">
 					<div class="bank_icon">
-						<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
+						<img src="__WAP__/img/bank/{$vo.image}.jpg">
 					</div>
-					<a href="###">
+					<a href="{:url('member/tiwithdraw',['id'=>$vo.id])}">
 						<div class="detail">
 							<h6>{$vo.bank_name}</h6>
 							<span>尾号{$vo.cardnum}储蓄卡</span>

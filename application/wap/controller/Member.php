@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-28 18:18:35
+ * @Last Modified time: 2017-12-29 18:04:27
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -19,6 +19,8 @@ use app\common\model\Packet as P;
 use app\common\model\Ress as R;
 use app\common\model\Bank as B;
 use app\common\model\Identity as I;
+use app\common\model\Help as H;
+use app\common\model\Withdraw as W;
 
 class Member extends Yang
 {
@@ -117,6 +119,47 @@ class Member extends Yang
                 return json_encode($arr);
              }
         }else{
+            return $this->fetch();
+        }
+    }
+    public function tiwithdraw()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'提现失败'];
+        $kbalance=intval(Session::get('user.balance'))
+        if ($this->request->isAjax()) {
+             $money = input('money');
+             if ($money>$kbalance) {
+                  $arr['msg'] = '提现金额大于可提现金额';
+                  return json_encode($arr);
+             }
+             $data['user_id'] = $this->id;
+             $data['monery'] = $money;
+             $data['create_time'] = time();
+             $data['update_time'] = time();
+            Db::startTrans();
+            try{
+                $arr['msg'] = '提现申请失败!';
+                $add = W::insert($data);
+                $balance = Session::get('user.balance')-$data['monery'];
+                Db::table('tp_user')->where(['id'=>$this->id])->update(['balance' => $balance]);
+                Session::set('user.balance',$balance);
+
+                // 提交事务
+                Db::commit();
+            } catch (\think\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                $arr['code'] = 1;
+                $arr['code'] = '提现申请成功';
+                return json_encode($arr);
+            }
+        }else{
+            $id = input('id');
+            $arr = B::where(['id'=>$id])->find();
+            $arr['cardnum'] = substr($arr['cardnum'],-4);
+            $arr['kbalance'] = $kbalance;
+            $arr['balance'] = Session::get('user.balance');
+            $this->assign('arr',$arr);
             return $this->fetch();
         }
     }
@@ -341,10 +384,15 @@ class Member extends Yang
      */
     public function help()
     {
+        $help = H::select();
+        $this -> assign('help',$help);
         return $this->fetch();
     }
     public function helpinfo()
     {
+        $id = input('id');
+        $help = H::where(['id'=>$id])->find();
+        $this -> assign('help',$help);
         return $this->fetch();
     }
 }

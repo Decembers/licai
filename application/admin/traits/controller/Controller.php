@@ -124,14 +124,14 @@ trait Controller
             //return json($_POST);
             // 更新
             $data = $this->request->post();
-            if (isset($data['content'])) {
-                $content = $_POST['content'];
-                $data['content'] = $content;
-                $data['preselle_time'] = strtotime($data['preselle_time']);
-                $data['down_time'] = strtotime($data['down_time']);
-                $data['deal_time'] = strtotime($data['deal_time']);
-                $data['begin_time'] = $data['deal_time'];
-            }
+            // if (isset($data['content'])) {
+            //     $content = $_POST['content'];
+            //     $data['content'] = $content;
+            //     $data['preselle_time'] = strtotime($data['preselle_time']);
+            //     $data['down_time'] = strtotime($data['down_time']);
+            //     $data['deal_time'] = strtotime($data['deal_time']);
+            //     $data['begin_time'] = $data['deal_time'];
+            // }
             if (!$data['id']) {
                 return ajax_return_adv_error("缺少参数ID");
             }
@@ -283,7 +283,7 @@ trait Controller
         $commodity = new Commodity;
         $record = new Record;
         $user = new User;
-        $testtime = time()+7776000;
+        $testtime = time();//+7776000
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         foreach ($orders as $k => $v) {
             $sp_id = $v['sp_id'];//商品id
@@ -350,8 +350,8 @@ trait Controller
                         $balances = $balance + $return_price;
                         $or = [];
                         if ($i==$sheng) {
-                            $return_prices = $return_price + $v['order_price'];
-                            $row['return_price'] = $return_prices;
+                            $return_prices = $return_price + $v['order_price'] + $balance;
+                            $row['return_price'] = $return_price + $v['order_price'];
                             $balances = $return_prices;
 
                             $row['is_principal'] = 1;

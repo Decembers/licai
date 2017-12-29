@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<!--<title>我的</title>-->
+		<title>趣味农场</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7/dist/__WAP__/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<style type="text/css">
+			@media screen and (max-width: 900px) {
+				body {
+					background-color: rgb(240, 240, 243);
+				}
+			}
+
+			.kahao,
+			.modular {
+				width: 95%;
+				margin: 1rem auto;
+			}
+			/*min-height:100px;//最小高度
+max-height:200px;//最大高度*/
+
+			.kahao li {
+				box-sizing: border-box;
+				height: 6rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.checkin {
+				position: relative;
+				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
+			}
+
+			.white {
+				background: #fff;
+			}
+
+			.fillet {
+				border: 1px solid #ededed;
+				border-radius: 0.4rem;
+				background: #fff;
+			}
+
+			.checkin .bank_icon {
+				position: absolute;
+				top: 1.2rem;
+				left: 0.75rem;
+			}
+
+			.bank_icon img {
+				margin: 0;
+				padding: 0;
+				margin-left: -40px;
+				transition: All 0.4s ease-in-out;
+				-webkit-transition: All 0.4s ease-in-out;
+				-moz-transition: All 0.4s ease-in-out;
+				-o-transition: All 0.4s ease-in-out;
+				transform: rotateY(60deg);
+				-webkit-transform: rotateY(60deg);
+				-moz-transform: rotateY(60deg);
+				-o-transform: rotateY(60deg);
+				-ms-transform: rotateY(60deg);
+			}
+
+			.kahao li a {
+				position: absolute;
+				left: 100px;
+				top: 1rem;
+			}
+
+			.detail h6 {
+				padding: 0;
+				margin: 0;
+				color: black;
+				font-size: 18px;
+				margin-top: 5px;
+			}
+
+			.detail span {
+				font-size: 14px;
+				color: gray;
+				margin-top: 5px;
+			}
+
+			body>li {
+				display: none;
+			}
+
+			.sm_title {
+				font-size: 13px;
+			}
+
+			.modular {
+				padding: 1rem 2rem;
+				box-sizing: border-box;
+			}
+
+			.infos {
+				position: relative;
+				box-sizing: border-box;
+				height: 3rem;
+				border-bottom: 1px solid #ededed;
+				margin-bottom: 0.3rem;
+			}
+
+			.rmb {
+				width: 2rem;
+				height: 3rem;
+				line-height: 3rem;
+				font-size: 2.8rem;
+				text-align: left;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			#Jcarry_amount {
+				width: 100%;
+				font-size: 2rem;
+				box-sizing: border-box;
+				line-height: 3rem;
+				padding-left: 2.5rem;
+			}
+
+			.info_num {
+				font-size: 0.7rem;
+				line-height: 1.3rem;
+				margin: 0.5rem 0;
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			.purchase_tip {
+				width: 95%;
+				margin: 0.5rem auto;
+				font-size: 0.8rem;
+				line-height: 1.6rem;
+				padding-left: 1.2rem;
+				display: flex;
+			}
+
+			.name {
+				display: flex;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>提现申请</h3>
+				<a href="index4-recharge-tixian.html">提现记录</a>
+			</div>
+
+			<ul class="kahao">
+				<li class="checkin white fillet">
+					<div class="bank_icon">
+						<img src="__WAP__/img/bank/{$arr.image}.jpg" alt="中国工商银行">
+					</div>
+					<a href="###">
+						<div class="detail">
+							<h6>{$arr.bank_name}</h6>
+							<span>尾号{$arr.cardnum}储蓄卡</span>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="modular fillet white ">
+				<p class="sm_title">提现金额</p>
+				<div class="infos clearfix">
+					<div class="rmb fl">￥</div>
+					<input class="fl" id="Jcarry_amount" type="number" placeholder="请输入提现金额" style="ime-mode:disabled" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');">
+				</div>
+				<p class="m_co info_num">
+					<span class="name">可&nbsp;&nbsp;提&nbsp;&nbsp;现：￥<i id="ti">{$arr.kbalance}</i></span>
+					<input id="Jcarry_totalAmount" type="hidden" value="">
+					<span></span>
+				</p>
+				<p class="a9 info_num">
+					<span class="name">账户余额：￥<i id="yu">{$arr.balance}</i></span>
+					<input id="Jcarry_accountBalance" type="hidden" value="">
+					<span></span>
+				</p>
+			</div>
+			<p class="purchase_tip a9">
+				<input id="Jcarry_purchase" type="hidden" value=""> 注：您的余额还可购买
+				<span class="m_co" style="margin: 0;">0</span> 只常规羊。</p>
+			<button id="add" class="big-button press">朕要提现</button>
+</div>
+			<p class="overtop">签到成功</p>
+			<div class="background"></div>
+			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				$("#add").click(function() {
+
+					if($("#Jcarry_amount").val() > $("#ti").text()) {
+						$(".overtop").text("提现金额大于可提现金额");
+						overtop();
+					} else {
+
+					$.ajax({
+	                    type : "POST",  //提交方式
+	                    url : "{:url('member/tiwithdraw')}",//路径
+	                    data : {
+	                        "money" : $("#Jcarry_amount").val(),
+	                        "bank_id" : {$arr.id},
+	                    },
+	                    dataType : "json",//数据，这里使用的是Json格式进行传输
+	                    success : function(result) {
+	                    	//alert("请输入用111户名")
+							//var aa = JSON.parse(result);
+							if (result.code==1) {
+								$(".overtop").text(result.msg);
+								overtop();
+							}else{
+								$(".overtop").text(result.msg);
+								overtop();
+								setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+								window.location=result.url;
+								},1000);
+							}
+	                    },
+	                    error : function (){
+	                    	$(".overtop").text('请刷新页面重试');
+							overtop();
+	                }
+					});
+					}
+				})
+				/*function (){
+					if($("#yu").text()<$("#ti").text()){
+						$(".overtop").text("提现金额大于账户余额");
+						overtop();
+					}else{
+						$(".overtop").text("1");
+						overtop();
+					}
+				}*/
+			</script>
+	</body>
+
+</html>

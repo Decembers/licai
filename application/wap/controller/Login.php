@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-28 15:04:15
+ * @Last Modified time: 2017-12-29 14:15:37
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -54,7 +54,12 @@ class Login extends Controller
                 Session::set('user',$res);
                 $user = serialize($res);
                 Cookie::set('user',$user,2592000);
-                return json(['code'=>200, 'msg'=>'登录成功']);
+                $url = url("Login/login");
+                if ($res['authentication'] == 0) {
+                    $url = url("login/identity");
+                }
+
+                return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
             }else{
                 return json(['code'=>1, 'msg'=>'密码错误']);
             }
@@ -272,6 +277,14 @@ class Login extends Controller
         }else{
             return $this->fetch();
         }
+    }
+
+    /*
+     * 身份验证
+     */
+    public function identity()
+    {
+       return $this->fetch();
     }
 
     /*

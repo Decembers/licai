@@ -6,7 +6,7 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<!--<title>我的</title>-->
 		<title>趣味农场</title>
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/__WAP__/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7/dist/__WAP__/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
@@ -66,18 +66,14 @@
 				<!-- 这里是页面内容区 -->
 				<div class="text">
 					<div class="card">
-						<div class="card-header">{$help.title}</div>
+						<div class="card-header">{$notice.title}</div>
 						<div class="card-content">
 							<div class="card-content-inner">
-								<p>
-									{$help.content}
-								</p>
-
+								{$notice.create_time|date="y-m-d",###}
+								{$notice.content}
 							</div>
 						</div>
 					</div>
-
-
 				</div>
 
 			</div>
@@ -89,10 +85,9 @@
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			/*获取值 下标*/
-			/*vat tt= 0;
-			$(".text .card").css("display", "none");
-			$(".text .card:nth-child(" + (tt + 1) + ")").css("display", "block");*/
+
+			/*$(".content .text .card").css("display","none");
+			$(".content .text .card:nth-child("+len+")").css("display","block");*/
 		</script>
 	</body>
 
