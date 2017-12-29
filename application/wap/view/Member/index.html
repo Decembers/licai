@@ -12,9 +12,9 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
 		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
-		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
-			.content{
+			.content {
 				width: 95%;
 				margin: 0 auto;
 			}
@@ -22,7 +22,7 @@
 	</head>
 
 	<body>
-		<div class="wrapper" >
+		<div class="wrapper">
 			<div class="content bgCo native-scroll">
 				<!-- 这里是页面内容区 -->
 				<div class="uc_center">
@@ -55,11 +55,7 @@
 						</a>
 					</p>
 					<p class="account-balance">
-					{if condition="$balance"}
-					￥{$balance}
-					{else /}
-					￥0.00
-					{/if}
+						{if condition="$balance"} ￥{$balance} {else /} ￥0.00 {/if}
 					</p>
 					<p class="acc-bal a9">账户余额</p>
 					<div class="money_operation">
@@ -193,11 +189,8 @@
 			/*footer 当前页选中状态*/
 			$(".footer a:nth-child(4) .icons").css("background", "url(__WAP__/img/iconlist_05.png) no-repeat center 53%");
 			$(".footer a:nth-child(4) .icons").css("background-size", "3rem");
-			$(".authen_tip .fr").css("width","auto");
-			$(".authen_tip .fl").css("width",($(".authen_tip").width()-$(".authen_tip .fr").width()-5)+"px");
-		
-
-
+			$(".authen_tip .fr").css("width", "auto");
+			$(".authen_tip .fl").css("width", ($(".authen_tip").width() - $(".authen_tip .fr").width() - 5) + "px");
 		</script>
 	</body>
 
