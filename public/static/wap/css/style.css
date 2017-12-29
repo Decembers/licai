@@ -859,6 +859,8 @@ header h1 {
 .uc_c_bottom a {
 	display: block;
 	width: 100%;
+	height: 4rem;
+	overflow: hidden;
 }
 
 .uc_c_middle a p,
