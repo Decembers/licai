@@ -1,4 +1,4 @@
-/* 
+/*
  * 日期插件
  * 滑动选取日期（年，月，日）
  * V1.2
@@ -103,7 +103,7 @@
             event: "click", //打开日期插件默认方式为点击后后弹出日期
             show: true
         };
-        //用户选项覆盖插件默认选项   
+        //用户选项覆盖插件默认选项
         var opts = $.extend(true, {}, $.fn.date.defaultOptions, options);
         if (opts.theme === "datetime") {
             datetime = true;
@@ -128,7 +128,7 @@
         //>2000年
         if(opts.beginyear<2000){
             initY=initY+100;
-        }      
+        }
 
         function refreshDate() {
             yearScroll.refresh();
@@ -160,14 +160,14 @@
             indexD = 1;
         }
 
-        function resetInitDete() { 
-            
+        function resetInitDete() {
+
             if (opts.curdate) {
                 return false;
             } else if (that.val() === "") {
                 return false;
             }
-            
+
             initY = parseInt(that.val().substr(2, 2));
             initM = parseInt(that.val().substr(5, 2));
             initD = parseInt(that.val().substr(8, 2));
@@ -285,13 +285,13 @@
         }
 
         function checkdays(year, month) {
-            var new_year = year; //取当前的年份        
-            var new_month = month++; //取下一个月的第一天，方便计算（最后一天不固定）      
+            var new_year = year; //取当前的年份
+            var new_month = month++; //取下一个月的第一天，方便计算（最后一天不固定）
 
             if (month > 12) //如果当前大于12月，则年份转到下一年
             {
                 new_month -= 12; //月份减
-                new_year++; //年份增        
+                new_year++; //年份增
             }
 
             var new_date = new Date(new_year, new_month, 1); //取当年当月中的第一天
@@ -399,6 +399,7 @@
             for (var i = opts.beginhour; i < opts.endhour; i++) {
                 str += '<li>' + i + '时</li>';
             }
+
             return str + "<li>&nbsp;</li>";
         }
 

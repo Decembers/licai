@@ -18,6 +18,7 @@ use think\Session;
 use app\common\model\Order;
 use app\common\model\Commodity;
 use app\common\model\Record;
+use app\common\model\User;
 
 trait Controller
 {
@@ -281,7 +282,8 @@ trait Controller
         $order = new Order;
         $commodity = new Commodity;
         $record = new Record;
-        $testtime = time();
+        $user = new User;
+        $testtime = time()+7776000;
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         foreach ($orders as $k => $v) {
             $sp_id = $v['sp_id'];//商品id
@@ -332,41 +334,50 @@ trait Controller
                     //需全部返还 包括本金
                     for ($i=1; $i <= $sheng; $i++) {
                         $diji = $v['which'] + $i;
-
+                        $balance = Session::get('user.balance');//余额
                         //返还利润表数据
                         $row['order_id'] = $v['id'];
                         $row['user_id'] = $id;
                         $row['ruturn_time'] = time();
-                        $return_price =$v['zexpect']/$v['nexpect'];//每期利润
+                        $return_price = $commoditys['expect'];//每期利润
                         $row['return_price'] = $return_price;
                         $rate_time = $commoditys['begin_time'] + $diji*2592000;
                         $row['return_user_time'] = $rate_time;
                         $row['is_principal'] = 2;
                         $row['remark'] = $commoditys['name'].'返利完成';
                         $row['next'] = $diji;
-                        $record->insert($row);
 
+                        $balances = $balance + $return_price;
                         $or = [];
                         if ($i==$sheng) {
-                            $row['return_price'] = $return_price + $v['order_price'];
+                            $return_prices = $return_price + $v['order_price'];
+                            $row['return_price'] = $return_prices;
+                            $balances = $return_prices;
+
+                            $row['is_principal'] = 1;
                             $or['status'] = 1;
                         }
+
+                        $record->insert($row);
 
                         $or['which'] = $diji;
                         //修改order表状态 可能修改不成功
                         $order->where(['id'=>$v['id']])->update($or);
+                        //给用户增加余额
+                        $user->where(['id'=>$id])->update(['balance'=>$balances]);
+                        Session::set('user.balance',$balances);
                     }
 
                 }else{
                     //不包括最后一次返还
                     for ($i=1; $i <= $chi; $i++) {
                         $diji = $v['which'] + $i;
-
+                        $balance = Session::get('user.balance');//余额
                         //返还利润表数据
                         $row['order_id'] = $v['id'];
                         $row['user_id'] = $id;
                         $row['ruturn_time'] = time();
-                        $return_price =$v['zexpect']/$v['nexpect'];//每期利润
+                        $return_price =$commoditys['expect'];//每期利润
                         $row['return_price'] = $return_price;
                         $rate_time = $commoditys['begin_time'] + $diji*2592000;
                         $row['return_user_time'] = $rate_time;
@@ -378,6 +389,10 @@ trait Controller
                         $or = ['which'=>$diji];
                         //修改order表状态 可能修改不成功
                         $order->where(['id'=>$v['id']])->update($or);
+                        //给用户增加余额
+                        $balances = $balance + $return_price;
+                        $user->where(['id'=>$id])->update(['balance'=>$balances]);
+                        Session::set('user.balance',$balances);
                     }
                 }
 
@@ -463,11 +478,13 @@ trait Controller
                 $rate_time = $commoditys['rate'] * 86400 + $commoditys['begin_time'];//返还的时间
                 if ($testtime >= $rate_time) {
                     //返还全部金额
+                    $balance = Session::get('user.balance');//余额
                     //返还利润表数据
                     $row['order_id'] = $v['id'];
                     $row['user_id'] = $id;
                     $row['ruturn_time'] = time();
-                    $row['return_price'] = $v['zexpect'] + $v['order_price'];
+                    $return_price = $v['zexpect'] + $v['order_price'];//每期利润
+                    $row['return_price'] = $return_price;
                     $row['return_user_time'] = $rate_time;
                     $row['is_principal'] = 1;
                     $row['remark'] = $commoditys['name'].'返利完成';
@@ -477,8 +494,17 @@ trait Controller
                     $or = ['status'=>1,'which'=>1];
                     //修改order表状态 可能修改不成功
                     $order->where(['id'=>$v['id']])->update($or);
+                    //给用户增加余额
+                    $balances = $balance + $return_price;
+                    $user->where(['id'=>$id])->update(['balance'=>$balances]);
+                    Session::set('user.balance',$balances);
                 }
             }
         }
+    }
+
+    public function allocation()
+    {
+        echo 'fds';
     }
 }
