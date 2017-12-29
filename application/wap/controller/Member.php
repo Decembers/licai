@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-29 18:04:27
+ * @Last Modified time: 2017-12-29 18:29:26
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -125,7 +125,7 @@ class Member extends Yang
     public function tiwithdraw()
     {
         $arr = ['code'=>-200,'data'=>'','msg'=>'提现失败'];
-        $kbalance=intval(Session::get('user.balance'))
+        $kbalance=intval(Session::get('user.balance'));
         if ($this->request->isAjax()) {
              $money = input('money');
              if ($money>$kbalance) {
@@ -149,10 +149,12 @@ class Member extends Yang
             } catch (\think\Exception $e) {
                 // 回滚事务
                 Db::rollback();
-                $arr['code'] = 1;
-                $arr['code'] = '提现申请成功';
+
                 return json_encode($arr);
             }
+            $arr['code'] = 1;
+            $arr['code'] = '提现申请成功';
+            return json_encode($arr);
         }else{
             $id = input('id');
             $arr = B::where(['id'=>$id])->find();
@@ -162,6 +164,7 @@ class Member extends Yang
             $this->assign('arr',$arr);
             return $this->fetch();
         }
+
     }
     public function withdrawlog()
     {
