@@ -76,7 +76,7 @@
 								{elseif condition="$authentication eq 1" /}
 									<span class="fr">认证中</span>
 								{else /}
-									<a href="{:url('member/identity')}"><span class="entered fr"></span></a>
+									<span class="entered fr" onclick="window.location='{:url("member/identity")}'"></span>
 								{/if}
 
 							</a>

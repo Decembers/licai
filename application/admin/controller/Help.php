@@ -4,9 +4,6 @@ namespace app\admin\controller;
 \think\Loader::import('controller/Controller', \think\Config::get('traits_path') , EXT);
 
 use app\admin\Controller;
-
-use app\common\model\Order as O;
-use app\common\model\User as U;
 use think\Db;
 use think\Loader;
 use think\exception\HttpException;
