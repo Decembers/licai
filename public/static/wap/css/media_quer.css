@@ -23,6 +23,7 @@
 	top: 0;
 	left: 0;
 }*/
+<<<<<<< HEAD
 
 .wrapper {
 	-webkit-overflow-scrolling: touch;
@@ -53,6 +54,37 @@
 }
 
 
+=======
+.wrapper{
+	    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar
+{
+    width: 1px;
+    height: 1px;
+    background-color: white;
+
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    border-radius: 1px;
+    background-color: white;
+
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    background-color: white;
+
+}
+>>>>>>> 5362540e5168aeda14e4695d8400f114d532863b
 /*媒体查询 页面大于900px*/
 
 @media screen and (min-width: 900px) {
@@ -73,6 +105,10 @@
 		width: 800px;
 		margin: 0 auto;
 		background-color: white;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5362540e5168aeda14e4695d8400f114d532863b
 	}
 	.footer {
 		width: 800px;
