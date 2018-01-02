@@ -66,6 +66,7 @@ class Commodity extends Controller
             $data['down_time'] = strtotime($data['down_time']);
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
+            $data['over_time']=$data['begin_time'] + 86400*$data['rate'];
             $data['numbers'] = $data['number'];
             $data['expect'] = $zong; //每只羊每期应返还利润
             if ($data['return_mode'] == 1) {
@@ -137,6 +138,7 @@ class Commodity extends Controller
                 $data['down_time'] = strtotime($data['down_time']);
                 $data['deal_time'] = strtotime($data['deal_time']);
                 $data['begin_time'] = $data['deal_time'];
+                $data['over_time']= $data['deal_time'] + 86400*$data['rate'];
             }
             if (!$data['id']) {
                 return ajax_return_adv_error("缺少参数ID");

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-28 14:29:03
+ * @Last Modified time: 2018-01-02 11:56:29
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -25,6 +25,12 @@ class Rancher extends Yang
         $dprincipal = 0;//未完成本金
         $row = O::where(['user_id'=>$this->id])->select();
         foreach ($row as $k => $v) {
+            $com = C::where(['id'=>$v['sp_id']])->find();
+            $row[$k]['over_time'] = $com['over_time'];
+            $row[$k]['begin_time'] = $com['begin_time'];
+            $row[$k]['name'] = $com['name'];
+            $row[$k]['classify'] = $com['classify'];
+            $row[$k]['com_number'] = $com['com_number'];
             $count+=1;
             $sp_count+=$v['sp_count'];//羊只的总和
             $money+=$v['order_price'];
@@ -55,6 +61,7 @@ class Rancher extends Yang
         $arr['dshou'] = $dlirun + $dprincipal;//未返还金额
 
         $this->assign('arr',$arr);
+        $this->assign('row',$row);
 
         return $this->fetch();
     }
