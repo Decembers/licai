@@ -207,6 +207,23 @@
 				box-sizing: border-box;
 				border-radius: 0.5rem;
 				margin: 0.5rem 0;
+				position: relative;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+			}
+			.sheep li .lan{
+				width: 100px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+				font-size: 0.5rem;
+				background-color: rgba(255,255,255,0.9);
+				position: absolute;
+				left: -35px;
+				top: 5px;
+				transform: rotate(-45deg);	
+				color:#3db4cc;			
 			}
 
 			.sheeps1,
@@ -215,6 +232,10 @@
 				display: flex;
 				justify-content: space-between;
 				color: white;
+			}
+			.sheep_p{
+				box-sizing: border-box;
+				padding-left: 1rem;
 			}
 
 			.sheeps1 p {
@@ -290,8 +311,9 @@
 					<ul class="sheep">
 					{volist name="row" id="vo"}
 						<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
+							<span class="lan">成长中</span>
 							<div class="sheeps1">
-								<p>商品：{$vo.name}</p>
+								<p class="sheep_p">商品：{$vo.name}</p>
 								<p>编号：{$vo.com_number}</p>
 							</div>
 							<div class="sheeps2">
