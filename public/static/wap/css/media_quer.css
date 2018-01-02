@@ -24,8 +24,6 @@
 	left: 0;
 }*/
 .wrapper{	   
-	    box-sizing: border-box;
-	    overflow: auto;
 	    -webkit-overflow-scrolling: touch;
 }
 
