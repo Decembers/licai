@@ -193,6 +193,34 @@
 				border-radius: 50%;
 			}
 			/*交易弹窗 结束*/
+			.hetong li .img{
+    width: 1.5rem;
+    height: 1.5rem; 
+    background: url(__WAP__/img/iconlist_03.png) no-repeat center 37%;
+    background-size: 1.3rem;
+}
+.hetong,.hetong li{
+	width: 100%;
+}
+.hetong li{
+	padding: 0.5rem;
+	border-radius:0.2rem;
+	box-sizing: border-box;
+	font-size: 14px;
+	background-color: white; 
+	display: flex;
+	justify-content:  space-between;
+	margin: 0.5rem 0;
+}
+.hetong li p{
+	display: flex;
+	line-height: 2rem;
+}
+.reminder2{
+	color: black;
+}.reminder2{
+	color: red;
+}
 		</style>
 	</head>
 
@@ -221,7 +249,14 @@
 					<!-- 如果没有羊，则显示-->
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有羊结束-->
-					<div class="no_sheep"></div>
+					<div class="no_sheep" style="display: none;"></div>
+					<ul class="hetong">
+						<li>
+							<p><span class="img"></span><span>原生态散养大白鹅171228</span></p ><p class="reminder2">已到期</p>
+						</li><li>
+							<p><span class="img"></span><span>原生态散养大白鹅171228</span></p ><p class="reminder1">进行中</p>
+						</li>
+					</ul>
 					<button class="big-button press" style="display: none;" onclick="window.location='index1-navs2.html'">朕去买羊</button>
 				</div>
 				<!-- 交易统计弹出框成功弹出-->
