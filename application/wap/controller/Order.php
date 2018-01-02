@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-28 11:54:56
+ * @Last Modified time: 2017-12-29 19:59:07
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -141,32 +141,10 @@ class Order extends Yang
 
             $id = input('id');
             $arr = C::where(['id'=>$id])->find();
-            // if ($arr['status_time']==4) {
-            //     //已完成 用户以往的商品
-            // }elseif($arr['status_time']==3){
-            //     //准备中 用户以往的商品
-            //     if (time()>$arr['deal_time']) {
-            //         C::where(['id'=>$id])->save(['status_time'=>4]);
-            //     }
-            // }elseif($arr['status_time']==2){
-            //     if (time()>$arr['deal_time']) {
-            //         C::where(['id'=>$id])->save(['status_time'=>4]);
-            //     }elseif(time()>$arr['down_time']){
-            //         C::where(['id'=>$id])->save(['status_time'=>3]);
-            //     }
-            // }elseif($arr['status_time']==1){
-            //     if (time()>$arr['deal_time']) {
-            //         C::where(['id'=>$id])->save(['status_time'=>4]);
-            //     }elseif(time()>$arr['down_time']){
-            //         C::where(['id'=>$id])->save(['status_time'=>3]);
-            //     }elseif(time()>$arr['preselle_time']){
-            //         C::where(['id'=>$id])->save(['status_time'=>2]);
-            //     }
-            // }
-            // $arr = C::where(['id'=>$id])->find();
-            //var_dump($arr);die;
+
             $arr['profit'] = $arr['expect'] * $arr['nexpect'];
             $this->assign('arr',$arr);
+
             if ($arr['classify']==1) {
                 //常规羊群
 
@@ -251,8 +229,10 @@ class Order extends Yang
     {
         $id = input('id');
         $arr = O::where(['sp_id'=>$id])->field('user_id,create_time,sp_count')->select();
+        $comm = C::where(['id'=>$id])->find();
         $row = [];
         $status = [];
+        $ke = 0;
         if (isset($arr)) {
             $status['status'] = 1;
             foreach ($arr as $k => $v) {
@@ -260,10 +240,30 @@ class Order extends Yang
                 $row[$k]['name'] = $user['name'];
                 $row[$k]['create_time'] = $arr[$k]['create_time'];
                 $row[$k]['sp_count'] = $arr[$k]['sp_count'];
+                $ke = $k;
             }
         }else{
             $status['status'] = 2;
         }
+        $ke = $ke+1;
+        if (time()>$comm['down_time']) {
+            $ar = [66,67,68];
+            $a1 = $comm['number']%3;
+            $a2 = $comm['number'] - $a1;
+            $a3 = $a2/3;
+            for ($i=0; $i < 3 ; $i++) {
+                $ke = $ke + $i;
+                $user = U::where(['id'=>$ar[$i]])->find();
+                $row[$ke]['name'] = $user['name'];
+                $row[$ke]['create_time'] = $comm['down_time'] - 100;
+                $row[$ke]['sp_count'] = $a3;
+                if ($i==2) {
+                     $row[$ke]['sp_count'] = $a3+$a1;
+                }
+
+            }
+        }
+
         $this -> assign('row',$row);
         $this -> assign('status',$status);
         return $this -> fetch();

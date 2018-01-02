@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-29 18:29:26
+ * @Last Modified time: 2017-12-29 20:28:38
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -128,32 +128,44 @@ class Member extends Yang
         $kbalance=intval(Session::get('user.balance'));
         if ($this->request->isAjax()) {
              $money = input('money');
+             $bank_id = input('bank_id');
              if ($money>$kbalance) {
-                  $arr['msg'] = '提现金额大于可提现金额';
+                  $arr['msg'] = '提现金额大于可提现金额1';
                   return json_encode($arr);
              }
              $data['user_id'] = $this->id;
              $data['monery'] = $money;
+             $data['bank_id'] = $bank_id;
              $data['create_time'] = time();
              $data['update_time'] = time();
-            Db::startTrans();
-            try{
+
+            $arr['msg'] = '提现申请失败!';
+            $add = W::insert($data);
+
+            $row['user_id'] = $this->id;
+            $row['or'] = 2;
+            $row['money'] =$money;
+            $row['comment'] = '提现';
+            $row['status'] = 0;
+            $row['create_time'] = time();
+            $row['withdraw_id'] = $bank_id;
+            $row['accomplish_time'] = 0;
+             D::insert($row);
+
+
+            $balance = Session::get('user.balance') - $money;
+
+            $id = $this->id;
+            $full = U::where(['id'=> $id])->update(['balance' => $balance]);
+            if ($full === false) {
+                $arr['code'] = -200;
                 $arr['msg'] = '提现申请失败!';
-                $add = W::insert($data);
-                $balance = Session::get('user.balance')-$data['monery'];
-                Db::table('tp_user')->where(['id'=>$this->id])->update(['balance' => $balance]);
-                Session::set('user.balance',$balance);
-
-                // 提交事务
-                Db::commit();
-            } catch (\think\Exception $e) {
-                // 回滚事务
-                Db::rollback();
-
                 return json_encode($arr);
             }
+            Session::set('user.balance',$balance);
+
             $arr['code'] = 1;
-            $arr['code'] = '提现申请成功';
+            $arr['msg'] = '提现申请成功';
             return json_encode($arr);
         }else{
             $id = input('id');

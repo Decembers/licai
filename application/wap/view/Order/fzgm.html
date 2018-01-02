@@ -251,7 +251,7 @@
 			}
 			var qian = $("#qian").text(); /*鹅单价*/
 			var profit = $("#profit").text(); /*鹅利润*/
-			alert(profit)
+			// alert(profit)
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -261,7 +261,7 @@
 				}
 				tofix($("#qian"), qian); /*鹅总价*/
 				tofix($("#profit"), profit); /*鹅利润*/
-				
+
 			}
 			/* 总价 利润 输出*/
 			function tofix(st, fs) {
@@ -357,10 +357,10 @@
 							$(".overtop1").css("display", "block");
 							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 							window.location='{:url("Rancher/index")}';
-										$("#em1").text($("#em1").text() - $("#qian").text());										
+										$("#em1").text($("#em1").text() - $("#qian").text());
 										$("#number").val(1);
 										$("#numbers").text(1);
-										$("#qian").text(qian);$("#profit").text(profit);										
+										$("#qian").text(qian);$("#profit").text(profit);
 										$("#max6").val("");
 							},500);
 						}else{
