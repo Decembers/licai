@@ -341,6 +341,10 @@
 						/*if($("#max6").val().length == 6) {
 							$(".overtop1 .overtop_text").text("余额不足");
 						}*/
+						/*js判断完成，防止连续点击，禁止点击*/
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
 						var sp_id = $("#sp_id").val();
 						var number = $("#number").val();
 						var max6 = $("#max6").val();
@@ -355,10 +359,10 @@
 								"vip6": vip6
 							},
 							dataType: "json", //数据，这里使用的是Json格式进行传输
-							success: function(result) {
+							success: function(result) {								
 								var aa = JSON.parse(result);
 								//console.log(aa);
-								if(aa.code == 0) {
+								if(aa.code == 0) {									
 									$(".overtop").text(aa.msg);
 									overtop();
 									setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
@@ -372,11 +376,16 @@
 										$("#max6").val("");
 									}, 500);
 								} else {
+									/*提示错误，取消 禁止点击*/
+								$("#big-button").removeAttr("disabled");
 									$(".overtop").text(aa.msg);
 									overtop();
+									
 								}
 							},
 							error: function() {
+								/*提示错误，取消 禁止点击*/
+								$("#big-button").removeAttr("disabled");
 								$(".overtop").text("请刷新页面重试");
 								overtop();
 							}

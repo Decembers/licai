@@ -330,6 +330,10 @@
 					$("#goodcover").css("display", "block");
 					$(".overtop1").css("display", "block");
 				} else {
+					/*js判断完成，防止连续点击，禁止点击*/
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
 					var sp_id = $("#sp_id").val();
 					var number = $("#number").val();
 					var max6 = $("#max6").val();
@@ -358,11 +362,15 @@
 									$("#max6").val("");
 								}, 500);
 							} else {
+								/*提示错误，取消 禁止点击*/
+								$("#big-button").removeAttr("disabled");
 								$(".overtop").text(aa.msg);
 								overtop();
 							}
 						},
 						error: function() {
+							/*提示错误，取消 禁止点击*/
+							$("#big-button").removeAttr("disabled");
 							$(".overtop").text("请刷新页面重试");
 							overtop();
 						}
