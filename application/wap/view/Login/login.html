@@ -158,7 +158,7 @@
 				height: 2rem;
 				line-height: 2rem;
 				border-radius: 0.875rem;
-				font-size: 0.8rem;
+				font-size: 1.2rem;
 				color: #fff;
 				padding: 0;
 				border-bottom: 0;
@@ -173,7 +173,6 @@
 
 			.register {
 				color: #ffffff;
-				font-size: 1rem;
 				border: 0;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 			}
@@ -187,6 +186,7 @@
 				border-radius: 2rem;
 				margin-top: 1rem;
 				box-sizing: border-box;
+				font-size: 1.5rem;
 				text-align: center;
 			}
 
@@ -344,7 +344,7 @@
 	                    },
 	                    dataType : "json",//数据，这里使用的是Json格式进行传输
 	                    success : function(result) {
-	                    	//alert("请输入用111户名")
+	                    	//$(".overtop").text("请输入用111户名")
 							//var aa = JSON.parse(result);
 							if (result.code==1) {
 								$(".overtop").text(result.msg);
@@ -410,20 +410,25 @@ $(".container01 input").blur(function(){
 			/*注册*/
 			$("#signup-submit").click(function() {
 				if($("#user_name").val() == "") {
-					alert("请输入用户名")
+					$(".overtop").text("请输入用户名");
+					overtop();
 				} else {
 					if($("#user_pwd").val() == "") {
-						alert("请输入密码")
+						$(".overtop").text("请输入密码");
+						overtop();
 					} else {
 						if($("#user_pwd_confirm").val() == "") {
-							alert("请再次输入密码")
+							$(".overtop").text("请再次输入密码");
+							overtop();
 						} else {
 							if($("#user_pwd_confirm").val() == $("#user_pwd").val()) {
 								if($("#phone").val() == "") {
-									alert("请输入您的手机号")
+									$(".overtop").text("请输入您的手机号");
+									overtop();
 								} else {
 									if($("#mobile_code").val() == "") {
-										alert("请输入验证码")
+										$(".overtop").text("请输入验证码");
+										overtop();
 									} else {
 
 
@@ -463,7 +468,8 @@ $(".container01 input").blur(function(){
 									}
 								}
 							} else {
-								alert("两次密码需一致")
+								$(".overtop").text("两次密码需一致");
+								overtop();
 							}
 						}
 					}
@@ -471,7 +477,8 @@ $(".container01 input").blur(function(){
 			})
 			$('#getcode').click(function() {
 				if($("#phone").val() == "") {
-					alert("请输入手机号")
+					$(".overtop").text("请输入手机号");
+					overtop();
 				} else {
 					if($("#phone").val().length == 11) {
 						$(".count_down").css("display", "block");
@@ -487,7 +494,8 @@ $(".container01 input").blur(function(){
 							}
 						}, 1000)
 					} else {
-						alert("请重新输入新手机号")
+						$(".overtop").text("请重新输入新手机号");
+						overtop();
 					}
 				}
 			})
@@ -497,13 +505,16 @@ $(".container01 input").blur(function(){
 			 */
 			$("#signup-submit1").click(function() {
 				if($("#phone1").val() == "") {
-					alert("请输入您的手机号")
+					$(".overtop").text("请输入您的手机号");
+					overtop();
 				} else {
 					if($("#mobile_code1").val() == "") {
-						alert("请输入验证码")
+						$(".overtop").text("请输入验证码");
+						overtop();
 					} else {
 						if($("#mobile_code1").val() == "") {
-							alert("请输入密码")
+							$(".overtop").text("请输入密码");
+							overtop();
 						} else {
 								if($("#user_pwd_confirm1").val() == $("#user_pwd1").val()) {
 
@@ -538,7 +549,8 @@ $(".container01 input").blur(function(){
 										});
 
 								} else {
-									alert("请再次输入密码错误")
+									$(".overtop").text("请再次输入密码错误");
+									overtop();
 								}
 							}
 					}
@@ -547,7 +559,8 @@ $(".container01 input").blur(function(){
 			})
 			$('#getcode1').click(function() {
 				if($("#phone1").val() == "") {
-					alert("请输入手机号")
+					$(".overtop").text("请输入手机号");
+					overtop();
 				} else {
 					if($("#phone1").val().length == 11) {
 						$(".count_down1").css("display", "block");
@@ -563,7 +576,8 @@ $(".container01 input").blur(function(){
 							}
 						}, 1000)
 					} else {
-						alert("请重新输入新手机号")
+						$(".overtop").text("请重新输入新手机号");
+						overtop();
 					}
 				}
 			})
