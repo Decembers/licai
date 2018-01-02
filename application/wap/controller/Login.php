@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-29 14:15:37
+ * @Last Modified time: 2018-01-02 09:31:34
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -54,7 +54,7 @@ class Login extends Controller
                 Session::set('user',$res);
                 $user = serialize($res);
                 Cookie::set('user',$user,2592000);
-                $url = url("Login/login");
+                $url = url("index/index");
                 if ($res['authentication'] == 0) {
                     $url = url("login/identity");
                 }
