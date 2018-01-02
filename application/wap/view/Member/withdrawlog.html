@@ -50,10 +50,27 @@
 					{/if}
 					</span>
 				</p>
-				<!-- 如果没有记录，充值总额为0，显示以下-->
-				<!--<div class="no_record"></div>-->
-				<!-- 没有记录结束-->
-				<div class="no_record"></div>
+
+				<!-- <div class="no_record"></div> -->
+			</ul>
+			<ul>
+			{volist name="arr" id="vo"}
+				<li>
+					<div class="fw_left fl">
+						<div class="chtx a1">{$vo.money}元</div>
+						<div>操作金额</div>
+					</div>
+					<div class="fw_right fr">
+						<div >审核状态 :
+						{if condition="$vo.status eq 1"}
+						已通过
+						{eles /}
+						未通过
+						{/if}</div>
+						<div>申请时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+					</div>
+				</li>
+			{/volist}
 			</ul>
 
 		</div>

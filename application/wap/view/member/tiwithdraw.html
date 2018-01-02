@@ -160,7 +160,7 @@ max-height:200px;//最大高度*/
 					<span class="icon"></span><span>返回</span>
 				</div>
 				<h3>提现申请</h3>
-				<a href="index4-recharge-tixian.html">提现记录</a>
+				<a href="{:url('member/withdrawlog')}">提现记录</a>
 			</div>
 
 			<ul class="kahao">
@@ -194,9 +194,9 @@ max-height:200px;//最大高度*/
 				</p>
 			</div>
 			<input type="hidden" id="bank_id" val="{$arr.id}">
-			<p class="purchase_tip a9">
+<!-- 			<p class="purchase_tip a9">
 				<input id="Jcarry_purchase" type="hidden" value=""> 注：您的余额还可购买
-				<span class="m_co" style="margin: 0;">0</span> 只常规羊。</p>
+				<span class="m_co" style="margin: 0;">0</span> 只常规羊。</p> -->
 			<button id="add" class="big-button press">朕要提现</button>
 </div>
 			<p class="overtop"></p>
@@ -210,34 +210,38 @@ max-height:200px;//最大高度*/
 						$(".overtop").text("提现金额大于可提现金额");
 						overtop();
 					} else {
-					var bank_id =  $("#bank_id").val();
-					$.ajax({
-	                    type : "POST",  //提交方式
-	                    url : "{:url('member/tiwithdraw')}",//路径
-	                    data : {
-	                        "money" : $("#Jcarry_amount").val(),
-	                        "bank_id" : bank_id,
-	                    },
-	                    dataType : "json",//数据，这里使用的是Json格式进行传输
-	                    success : function(result) {
-	                    	//alert("请输入用111户名")
-							var aa = JSON.parse(result);
-							if (aa.code!=1) {
-								$(".overtop").text(aa.msg);
+						if(ti==0) {
+						$(".overtop").text("提现金额不可为0");
+						overtop();return false;
+						}
+						var bank_id =  $("#bank_id").val();
+						$.ajax({
+		                    type : "POST",  //提交方式
+		                    url : "{:url('member/tiwithdraw')}",//路径
+		                    data : {
+		                        "money" : $("#Jcarry_amount").val(),
+		                        "bank_id" : bank_id,
+		                    },
+		                    dataType : "json",//数据，这里使用的是Json格式进行传输
+		                    success : function(result) {
+		                    	//alert("请输入用111户名")
+								var aa = JSON.parse(result);
+								if (aa.code!=1) {
+									$(".overtop").text(aa.msg);
+									overtop();
+								}else{
+									$(".overtop").text(aa.msg);
+									overtop();
+									setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+									window.location="{:url('member/withdraw')}";
+									},1000);
+								}
+		                    },
+		                    error : function (){
+		                    	$(".overtop").text('请刷新页面重试');
 								overtop();
-							}else{
-								$(".overtop").text(aa.msg);
-								overtop();
-								setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-								window.location="{:url('member/withdraw')}";
-								},1000);
-							}
-	                    },
-	                    error : function (){
-	                    	$(".overtop").text('请刷新页面重试');
-							overtop();
-	                }
-					});
+		                }
+						});
 					}
 				})
 				/*function (){

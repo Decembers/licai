@@ -54,7 +54,7 @@ class Commodity extends Controller
             // 插入
             $data = $this->request->except(['id']);
             $zong = $data['return_price']/100 * $data['price'] / 12;
-            $zong = substr(sprintf("%.3f",$zong),0,-1);;//保留两位小数 不四舍五入
+            $zong = substr(sprintf("%.3f",$zong),0,-1);//保留两位小数 不四舍五入
             $time = date('ymd', time());
             $name = $data['name'].$time;
 
@@ -66,14 +66,16 @@ class Commodity extends Controller
             $data['down_time'] = strtotime($data['down_time']);
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
-            $data['over_time']=$data['begin_time'] + 86400*$data['rate'];
+            $data['over_time']=$data['begin_time'] + 86400 * $data['rate'];
             $data['numbers'] = $data['number'];
             $data['expect'] = $zong; //每只羊每期应返还利润
+
+            $yer = $data['rate']/30;
             if ($data['return_mode'] == 1) {
-                $yer = $data['rate']/30;
                 $data['nexpect'] = $yer;
             }else{
                 $data['nexpect'] = 1;//按期返还
+                $data['expect'] = substr(sprintf("%.3f",$data['return_price']/100 * $data['price'] / 12 * $yer),0,-1); //按期返还利润
             }
 
             // 验证
@@ -128,17 +130,24 @@ class Commodity extends Controller
         $controller = $this->request->controller();
 
         if ($this->request->isAjax()) {
-            //return json($_POST);
             // 更新
             $data = $this->request->post();
-            if (isset($data['content'])) {
-                $content = $_POST['content'];
-                $data['content'] = $content;
-                $data['preselle_time'] = strtotime($data['preselle_time']);
-                $data['down_time'] = strtotime($data['down_time']);
-                $data['deal_time'] = strtotime($data['deal_time']);
-                $data['begin_time'] = $data['deal_time'];
-                $data['over_time']= $data['deal_time'] + 86400*$data['rate'];
+            $zong = $data['return_price']/100 * $data['price'] / 12;
+            $zong = substr(sprintf("%.3f",$zong),0,-1);;//保留两位小数 不四舍五入
+
+            $content = $_POST['content'];
+            $data['content'] = $content;
+            $data['preselle_time'] = strtotime($data['preselle_time']);
+            $data['down_time'] = strtotime($data['down_time']);
+            $data['deal_time'] = strtotime($data['deal_time']);
+            $data['begin_time'] = $data['deal_time'];
+            $data['over_time']= $data['deal_time'] + 86400*$data['rate'];
+            $yer = $data['rate']/30;
+            if ($data['return_mode'] == 1) {
+                $data['nexpect'] = $yer;
+            }else{
+                $data['nexpect'] = 1;//按期返还
+                $data['expect'] = substr(sprintf("%.3f",$data['return_price']/100 * $data['price'] / 12 * $yer),0,-1); //按期返还利润
             }
             if (!$data['id']) {
                 return ajax_return_adv_error("缺少参数ID");

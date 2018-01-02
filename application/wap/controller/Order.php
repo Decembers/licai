@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-29 19:59:07
+ * @Last Modified time: 2018-01-02 17:46:55
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -141,13 +141,11 @@ class Order extends Yang
 
             $id = input('id');
             $arr = C::where(['id'=>$id])->find();
-
             $arr['profit'] = $arr['expect'] * $arr['nexpect'];
             $this->assign('arr',$arr);
 
             if ($arr['classify']==1) {
                 //常规羊群
-
                  if (time() < $arr['preselle_time']) {
                     //预售中 计算还剩多少时间开始购买
                     $time = $arr['preselle_time']-time();

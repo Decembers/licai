@@ -3,10 +3,10 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 14:32:36
+ * @Last Modified time: 2018-01-02 15:25:13
  */
 namespace app\wap\controller;
-use think\Controller;
+use app\wap\controller\Yang;
 use think\Request;
 use think\Db;
 use think\Session;
@@ -15,7 +15,7 @@ use app\common\model\User;
 /**
 * 会员管理
 */
-class Login extends Controller
+class Login extends Yang
 {
 
     public function login()
@@ -208,7 +208,8 @@ class Login extends Controller
                 if (isset($res)) {
 
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
-                    return json(['code'=>200, 'msg'=>'重置支付密码成功,请登录']);
+                    Session::set('user.pay_pass',$arr['pay_pass']);
+                    return json(['code'=>200, 'msg'=>'重置支付密码成功']);
                 }
 
                 return json(['code'=>1, 'msg'=>'重置支付密码失败']);
@@ -222,20 +223,13 @@ class Login extends Controller
  */
     public function nomobile(){
         if ($this->request->isAjax() && $this->request->isPost()){
-                $mobile=input('post.mobile');
                 $mobilex=input('post.mobilex');
                 $arr['mobile']= input('post.mobilex');//新手机号
                 $code      = input('post.code');
                 $id = Session::get('user.id');
 
-                if (!$mobile) {
-                    return json(['code'=>1, 'msg'=>'老手机号不能为空']);
-                }
                 if (!$mobilex) {
                     return json(['code'=>1, 'msg'=>'新手机号不能为空']);
-                }
-                if (!checkMobile($mobile)) {
-                    return json(['code'=>1, 'msg'=>'手机号格式不正确']);
                 }
                 if (!checkMobile($mobilex)) {
                     return json(['code'=>1, 'msg'=>'手机号格式不正确']);
@@ -251,30 +245,14 @@ class Login extends Controller
                 //     }
                 // }
 
-
-
-                $res = User::where(['mobile'=>$mobile])->find();
-
-                if (isset($res)) {
-                    if ($res['id']!=$id) {
-                        return json(['code'=>1, 'msg'=>'非法请求']);
-                    }
-                    $ress = User::where(['mobile'=>$mobile])->update($arr);
-                    if ($ress===false) {
-                        return json(['code'=>1, 'msg'=>'重置手机号码失败']);
-                    }else{
-                        //删除session cookie 写入新session cookie
-                        $user = User::where(['mobile'=>$mobile])->find();
-                        Session::set('user',$user);
-                        $userc = serialize($user);
-                        Cookie::set('user',$userc,2592000);
-                        return json(['code'=>200, 'msg'=>'重置手机号码成功']);
-                    }
-
-                } else {
-                    return json(['code'=>1, 'msg'=>'手机号码不存在']);
+                $ress = User::where(['id'=>$id])->update($arr);
+                if ($ress===false) {
+                    return json(['code'=>1, 'msg'=>'重置手机号码失败']);
+                }else{
+                    //删除session cookie 写入新session cookie
+                    Session::set('user.mobile',$mobilex);
+                    return json(['code'=>200, 'msg'=>'重置手机号码成功']);
                 }
-
                 return json(['code'=>1, 'msg'=>'重置手机号码失败']);
         }else{
             return $this->fetch();
@@ -301,7 +279,7 @@ class Login extends Controller
     public function noadmin()
     {
        Session::delete('user');
-       Cookie::delete('user');
+       Cookie::delete('user_id');
        $this->redirect('Index/index');
     }
 }

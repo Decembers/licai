@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 14:16:00
+ * @Last Modified time: 2018-01-02 14:46:24
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -31,6 +31,7 @@ class Rancher extends Yang
             $row[$k]['name'] = $com['name'];
             $row[$k]['classify'] = $com['classify'];
             $row[$k]['com_number'] = $com['com_number'];
+            $row[$k]['rate'] = $com['rate'];
             $count+=1;
             $sp_count += $v['sp_count'];//羊只的总和
             $money+=$v['order_price'];
