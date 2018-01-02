@@ -248,7 +248,7 @@
 			})
 
 			/*鹅数量超出 剩余 提升*/
-			function overtop() {
+			/*function overtop() {
 				$(".detail").after($("body>p.overtop").clone(true));
 				var ss1 = $(".wrapper .overtop");
 				ss1.css("display", "block");
@@ -257,8 +257,8 @@
 					ss1.css("opacity", "0");
 					ss1.remove();
 				}, 1000);
-			}
-		var qian = parseFloat($("#qian").text()); /*鹅单价*/
+			}*/
+			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = parseFloat($("#profit").text()); /*鹅利润*/
 			function bian() {
 				/*鹅只数量 输出*/
@@ -319,12 +319,10 @@
 					$("#big-button").removeAttr("disabled");
 					$("#big-button").css("background", " url(img/vip.jpg)");
 					$("#big-button").css("background-size", "100% 100%");
-
 				}
 			})
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
-
 				if($("#vip6").val() == "") {
 					$("#goodcover").css("display", "block");
 					$(".overtop1").css("display", "block");
@@ -343,6 +341,10 @@
 						/*if($("#max6").val().length == 6) {
 							$(".overtop1 .overtop_text").text("余额不足");
 						}*/
+						/*js判断完成，防止连续点击，禁止点击*/
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
 						var sp_id = $("#sp_id").val();
 						var number = $("#number").val();
 						var max6 = $("#max6").val();
@@ -361,39 +363,40 @@
 								var aa = JSON.parse(result);
 								//console.log(aa);
 								if(aa.code == 0) {
-									$(".overtop1 .overtop_text").text(aa.msg);
-									$(".overtop1 .overtop_text").css("border", "none");
-									$(".overtop1>p:nth-child(2)").css("display", "none");
-									$("#goodcover").css("display", "block");
-									$(".overtop1").css("display", "block");
-
+									$(".overtop").text(aa.msg);
+									overtop();
 									setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
-
+										/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
+								$("#big-button").removeAttr("disabled");
 										window.location = '{:url("Rancher/index")}';
 										$("#em1").text($("#em1").text() - $("#qian").text());
 										$("#number").val(1);
 										$("#numbers").text(1);
-										$("#qian").text(qian);$("#profit").text(profit);
+										$("#qian").text(qian);
+										$("#profit").text(profit);
 										$("#vip6").val("");
 										$("#max6").val("");
 									}, 500);
-
 								} else {
-									$(".overtop1 .overtop_text").text(aa.msg);
-									$(".overtop1 .overtop_text").css("border", "none");
-									$("#goodcover").css("display", "block");
-									$(".overtop1").css("display", "block");
+									/*提示错误，取消 禁止点击*/
+								$("#big-button").removeAttr("disabled");
+									$(".overtop").text(aa.msg);
+									overtop();
+
 								}
 							},
 							error: function() {
-								$(".overtop1 .overtop_text").text('请刷新页面重试');
+								/*提示错误，取消 禁止点击*/
+								$("#big-button").removeAttr("disabled");
+								$(".overtop").text("请刷新页面重试");
+								overtop();
 							}
 						});
-
 					}
 				} else {
+					$("#goodcover").css("display", "block");
+					$(".overtop1").css("display", "block");
 					$(".overtop1 .overtop_text").text("您输入的VIP邀请码不正确");
-
 				}
 			})
 			/* 弹窗提示的确定*/
