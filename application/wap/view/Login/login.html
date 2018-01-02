@@ -122,7 +122,9 @@
 			.display {
 				background-position: 3px 18.5%;
 			}
-
+	.display1 {
+				background-position: center 78.7% !important;
+			}
 			.delect {
 				background-position: 4px 9.5%;
 			}
@@ -379,7 +381,15 @@ $(".container01 input").blur(function(){
 	$(".grassland").css("display","block");
 })
 
-
+$(".display").click(function() {
+				$(this).toggleClass("display1");
+				var ss = $(this).hasClass("display1");
+				if(ss == true) {
+					$("#pwd").prop('type', 'text'); //密码可见
+				} else {
+					$("#pwd").prop('type', 'password'); //密码不可见
+				}
+			})
 			var ema = document.getElementById("email");
 			var pwd = document.getElementById("pwd");
 
