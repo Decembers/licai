@@ -279,10 +279,46 @@
 					$(".bottom>li:nth-child(2)").css("display", "block");
 				}
 			})
-			$("#money1").bind('input', function() {
-				var st = ($(this).val() / 780).toFixed(0);
-				$("#num-sheep").text(st);
-			});
+			// $("#money1").bind('input', function() {
+			// 	var st = ($(this).val() / 780).toFixed(0);
+			// 	$("#num-sheep").text(st);
+			// });
+			// $("#big-button").click(function() {
+			// 	if($("#phone1").val() == "") {
+			// 		$(".overtop").text("请输入您的手机号");
+			// 		overtop();
+			// 	}
+			// 	var password=$("#user_pwd1").val();
+			// 	var mobile = $("#phone1").val();
+			// 	var code = $("#mobile_code1").val();
+			// 	$.ajax({
+   //                  type : "POST",  //提交方式
+   //                  url : "{:url('Login/nopassword')}",//路径
+   //                  data : {
+   //                      "mobile" : mobile,
+   //                      "password" : password,
+   //                      "code" : code,
+   //                  },
+   //                  dataType : "json",//数据，这里使用的是Json格式进行传输
+   //                  success : function(result) {
+			// 			if (result.code==1) {
+			// 				$(".overtop").text(result.msg);
+			// 				overtop();
+			// 			}else{
+			// 				$(".overtop").text(result.msg);
+			// 				overtop();
+			// 				setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+			// 				window.location='{:url("Login/login");}';
+			// 				},1000);
+			// 			}
+   //                  },
+   //                  error : function (){
+   //                  	$(".overtop").text('请刷新页面重试');
+			// 			overtop();
+   //              }
+			// 	});
+
+			// })
 		</script>
 	</body>
 

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 09:58:36
+ * @Last Modified time: 2018-01-02 16:32:59
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -130,11 +130,11 @@ class Member extends Yang
              $money = input('money');
              $bank_id = input('bank_id');
              if ($money>$kbalance) {
-                  $arr['msg'] = '提现金额大于可提现金额1';
+                  $arr['msg'] = '提现金额大于可提现金额';
                   return json_encode($arr);
              }
              $data['user_id'] = $this->id;
-             $data['monery'] = $money;
+             $data['money'] = $money;
              $data['bank_id'] = $bank_id;
              $data['create_time'] = time();
              $data['update_time'] = time();
@@ -180,8 +180,8 @@ class Member extends Yang
     }
     public function withdrawlog()
     {
-        $arr = D::where(['user_id'=>$this->id,'or'=>2])->select();
-        $money = D::where(['user_id'=>$this->id,'or'=>2])->sum('money');
+        $arr = W::where(['user_id'=>$this->id])->select();
+        $money = W::where(['user_id'=>$this->id])->sum('money');
         $this->assign('arr',$arr);
         $this->assign('money',$money);
         return $this->fetch();
@@ -375,6 +375,11 @@ class Member extends Yang
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $data['update_time'] = time();
+             $iden = I::where(['identity_card'=>$data['identity_card']])->find();
+             if (isset($iden)) {
+                 $arr['msg'] = '身份证号码已提交过认证';
+                 return json_encode($arr);
+             }
              $add = I::insert($data);
              if ($add) {
                 U::where(['id'=>$this->id])->update(['authentication'=>1]);

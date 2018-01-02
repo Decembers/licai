@@ -3,13 +3,13 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-25 09:52:04
+ * @Last Modified time: 2018-01-02 14:50:12
  */
 namespace app\wap\controller;
 use think\Controller;
 use think\Session;
 use think\Cookie;
-
+use app\common\model\User as U;
 
 class yang extends Controller
 {
@@ -26,13 +26,13 @@ class yang extends Controller
         if (!in_array($url,$this->arr)) {
             $suser = Session::get('user');
             if (!isset($suser)) {
-                    $cuser = Cookie::get('user');
+                    $cuser = Cookie::get('user_id');
                 if (!isset($cuser)) {
                     $this->redirect('wap/login/login');
                 }else{
-                    $user = Cookie::get('user');
-                    $arr = unserialize($user);
-                    Session::set('user',$arr);
+                    $user_id = Cookie::get('user_id');
+                    $user = U::where(['id'=>$user_id])->find();
+                    Session::set('user',$user);
                 }
             }else{
                 $this->id =Session::get('user.id');
