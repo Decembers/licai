@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 09:31:34
+ * @Last Modified time: 2018-01-02 14:32:36
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -48,12 +48,8 @@ class Login extends Controller
         if (isset($res)) {
             if ($res['password']==$arr['password']) {
                 //存cookie
-                unset($res['password']);
-                unset($res['pay_pass']);
-                unset($res['isdelete']);
                 Session::set('user',$res);
-                $user = serialize($res);
-                Cookie::set('user',$user,2592000);
+                Cookie::set('user_id',$res['id'],2592000);
                 $url = url("index/index");
                 if ($res['authentication'] == 0) {
                     $url = url("login/identity");
@@ -139,12 +135,18 @@ class Login extends Controller
           if ($this->request->isAjax() && $this->request->isPost())
                 {
                 $mobile=Session::get('user.mobile');
+                if (!isset($mobile)) {
+                    $mobile = input('post.mobile');
+                }
                 $password=input('post.password');
                 $arr['mobile']= $mobile;
                 $arr['password'] = md5($password);
                 $code      = input('post.code');
 
                 if (!$password) {
+                    return json(['code'=>1, 'msg'=>'密码不能为空']);
+                }
+                if (!$mobile) {
                     return json(['code'=>1, 'msg'=>'密码不能为空']);
                 }
                 //$scode = empty($_SESSION['code'][$mobile]['code']) ? '' : $_SESSION['code'][$mobile]['code'];
@@ -158,14 +160,14 @@ class Login extends Controller
                 //     }
                 // }
 
-
-
                 $res = User::where(['mobile'=>$mobile])->find();
 
                 if (isset($res)) {
 
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
                     return json(['code'=>200, 'msg'=>'重置密码成功']);
+                }else{
+                    return json(['code'=>1, 'msg'=>'用户不存在']);
                 }
 
                 return json(['code'=>1, 'msg'=>'重置密码失败']);
