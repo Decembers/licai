@@ -240,6 +240,22 @@
 				/*获取鹅数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if($(this).val() >= zui) {
+					/*$(".overtop").text("超出剩余数量");*/
+					var sp_id = $("#sp_id").val();
+					$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Order/number')}", //路径
+						data: {
+							"id": sp_id
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
+							var aa = JSON.parse(result);
+							$(".detail1_top div:nth-child(2) p:nth-child(2)").text(aa.number);
+							$("#num").text(aa.number);
+							$("#number").val(aa.number);
+						}
+					});
 					overtop();
 					$(this).val(zui);
 				}
