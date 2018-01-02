@@ -14,45 +14,45 @@
 			.big-button {
 				background: linear-gradient(to right, #51d2a7, #51d1a1);
 			}
-
+			
 			a.found {
 				color: #51d2a7;
 				font-size: 0.75rem;
 			}
-
+			
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #51d2a7;
 			}
-
+			
 			.row6>div>div {
 				border: 1px solid #51d2a7;
 				background-color: #51d2a7;
 				box-sizing: border-box;
 			}
-
+			
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-
+			
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-
+			
 			#timer {
 				display: flex;
 			}
-
+			
 			#big-button {
 				display: flex;
 				justify-content: center;
 				text-align: center;
 			}
-
+			
 			#big-button .icon {
 				background: url(__WAP__/img/nao.png) no-repeat center center;
 				background-size: 1.4rem;
@@ -61,7 +61,7 @@
 				line-height: 2.24rem;
 				margin-top: 0.35rem;
 			}
-
+			
 			#big-button span:nth-child(2) {
 				width: auto;
 			}
@@ -148,7 +148,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="{:url('Order/xieyi')}">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist",["id"=>$arr.id])}'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='{:url(" Order/infolist ",["id "=>$arr.id])}'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4">
@@ -203,20 +203,20 @@
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if(num >= zui) {
 					var sp_id = $("#sp_id").val();
-	 				$.ajax({
-	                    type : "POST",  //提交方式
-	                    url : "{:url('Order/number')}",//路径
-	                    data : {
-	                        "id" : sp_id
-	                    },
-	                    dataType : "json",//数据，这里使用的是Json格式进行传输
-	                    success : function(result) {
+					$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Order/number')}", //路径
+						data: {
+							"id": sp_id
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
 							var aa = JSON.parse(result);
 							$(".detail1_top div:nth-child(2) p:nth-child(2)").text(aa.number);
 							$("#num").text(aa.number);
 							$("#number").val(aa.number);
 						}
-				    });
+					});
 					bian();
 					overtop();
 				} else {
@@ -325,57 +325,49 @@
 					$(".overtop1 .overtop_text").text("请输入支付密码");
 					$("#goodcover").css("display", "block");
 					$(".overtop1").css("display", "block");
-
 				} else if($("#max6").val().length !== 6) {
 					$(".overtop1 .overtop_text").text("支付密码错误");
 					$("#goodcover").css("display", "block");
 					$(".overtop1").css("display", "block");
-				} else{
-
-				var sp_id = $("#sp_id").val();
-				var number = $("#number").val();
-				var max6 = $("#max6").val();
-
- 				$.ajax({
-                    type : "POST",  //提交方式
-                    url : "{:url('Order/info')}",//路径
-                    data : {
-                        "sp_id" : sp_id,
-                        "number" : number,
-                        "pay_pass" : max6
-                    },
-                    dataType : "json",//数据，这里使用的是Json格式进行传输
-                    success : function(result) {
-						var aa = JSON.parse(result);
-						console.log(aa);
-						if (aa.code==0) {
-
-							$(".overtop1 .overtop_text").text(aa.msg);
-							$(".overtop1 .overtop_text").css("border","none");
-							$(".overtop1>p:nth-child(2)").css("display","none");
-							$("#goodcover").css("display", "block");
-							$(".overtop1").css("display", "block");
-							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-							window.location='{:url("Rancher/index")}';
-										$("#em1").text($("#em1").text() - $("#qian").text());
-										$("#number").val(1);
-										$("#numbers").text(1);
-										$("#qian").text(qian);$("#profit").text(profit);
-										$("#max6").val("");
-							},500);
-						}else{
-							$(".overtop1 .overtop_text").text(aa.msg);
-							$(".overtop1 .overtop_text").css("border","none");
-							$("#goodcover").css("display", "block");
-							$(".overtop1").css("display", "block");
+				} else {
+					var sp_id = $("#sp_id").val();
+					var number = $("#number").val();
+					var max6 = $("#max6").val();
+					$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Order/info')}", //路径
+						data: {
+							"sp_id": sp_id,
+							"number": number,
+							"pay_pass": max6
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
+							var aa = JSON.parse(result);
+							console.log(aa);
+							if(aa.code == 0) {
+								$(".overtop").text(aa.msg);
+								overtop();
+								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+									window.location = '{:url("Rancher/index")}';
+									$("#em1").text($("#em1").text() - $("#qian").text());
+									$("#number").val(1);
+									$("#numbers").text(1);
+									$("#qian").text(qian);
+									$("#profit").text(profit);
+									$("#max6").val("");
+								}, 500);
+							} else {
+								$(".overtop").text(aa.msg);
+								overtop();
+							}
+						},
+						error: function() {
+							$(".overtop").text("请刷新页面重试");
+							overtop();
 						}
-                    },
-                    error : function (){
-                    	$(".overtop1 .overtop_text").text('请刷新页面重试');
-                	}
-				});
+					});
 				}
-
 			})
 			/* 弹窗提示的确定*/
 			$(".overtop1 p:nth-child(2)").click(function() {

@@ -22,57 +22,57 @@
 				background-color: rgba(0, 0, 0, 0);
 				-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
 			}
-
+			
 			.detail1,
 			.big-button {
 				background-image: url(__WAP__/img/vip.jpg);
 				-moz-background-size: 100% 100%;
 				background-size: 100% 100%;
 			}
-
+			
 			a.found {
 				color: #FDC45D;
 				font-size: 0.75rem;
 			}
-
+			
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #FDC45D;
 			}
-
+			
 			.row6>div>div {
 				border: 1px solid #FDC45D;
 				background-color: #FDC45D;
 				box-sizing: border-box;
 			}
-
+			
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-
+			
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-
+			
 			#timer {
 				display: flex;
 			}
-
+			
 			.detail3 .row:nth-child(3) p {
 				border: none;
 			}
-
+			
 			.detail3 .row:nth-child(3) input {
 				border: none;
 				width: 7rem;
 				-webkit-text-security: disc;
 				text-security: disc;
 			}
-
+			
 			.detail3 .row:nth-child(4) input {
 				width: 7rem;
 			}
@@ -155,7 +155,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="{:url('Order/xieyi')}">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist ",["id"=>$arr.id])}'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='{:url(" Order/infolist ",["id "=>$arr.id])}'">交易详情</p>
 					</div>
 
 				</div>
@@ -248,7 +248,7 @@
 			})
 
 			/*鹅数量超出 剩余 提升*/
-			function overtop() {
+			/*function overtop() {
 				$(".detail").after($("body>p.overtop").clone(true));
 				var ss1 = $(".wrapper .overtop");
 				ss1.css("display", "block");
@@ -257,8 +257,8 @@
 					ss1.css("opacity", "0");
 					ss1.remove();
 				}, 1000);
-			}
-		var qian = parseFloat($("#qian").text()); /*鹅单价*/
+			}*/
+			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = parseFloat($("#profit").text()); /*鹅利润*/
 			function bian() {
 				/*鹅只数量 输出*/
@@ -319,12 +319,10 @@
 					$("#big-button").removeAttr("disabled");
 					$("#big-button").css("background", " url(img/vip.jpg)");
 					$("#big-button").css("background-size", "100% 100%");
-
 				}
 			})
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
-
 				if($("#vip6").val() == "") {
 					$("#goodcover").css("display", "block");
 					$(".overtop1").css("display", "block");
@@ -361,39 +359,33 @@
 								var aa = JSON.parse(result);
 								//console.log(aa);
 								if(aa.code == 0) {
-									$(".overtop1 .overtop_text").text(aa.msg);
-									$(".overtop1 .overtop_text").css("border", "none");
-									$(".overtop1>p:nth-child(2)").css("display", "none");
-									$("#goodcover").css("display", "block");
-									$(".overtop1").css("display", "block");
-
+									$(".overtop").text(aa.msg);
+									overtop();
 									setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
-
 										window.location = '{:url("Rancher/index")}';
 										$("#em1").text($("#em1").text() - $("#qian").text());
 										$("#number").val(1);
 										$("#numbers").text(1);
-										$("#qian").text(qian);$("#profit").text(profit);
+										$("#qian").text(qian);
+										$("#profit").text(profit);
 										$("#vip6").val("");
 										$("#max6").val("");
 									}, 500);
-
 								} else {
-									$(".overtop1 .overtop_text").text(aa.msg);
-									$(".overtop1 .overtop_text").css("border", "none");
-									$("#goodcover").css("display", "block");
-									$(".overtop1").css("display", "block");
+									$(".overtop").text(aa.msg);
+									overtop();
 								}
 							},
 							error: function() {
-								$(".overtop1 .overtop_text").text('请刷新页面重试');
+								$(".overtop").text("请刷新页面重试");
+								overtop();
 							}
 						});
-
 					}
 				} else {
+					$("#goodcover").css("display", "block");
+					$(".overtop1").css("display", "block");
 					$(".overtop1 .overtop_text").text("您输入的VIP邀请码不正确");
-
 				}
 			})
 			/* 弹窗提示的确定*/

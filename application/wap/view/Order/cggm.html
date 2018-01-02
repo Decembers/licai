@@ -11,28 +11,30 @@
 		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			/*开抢按钮 首行背景 颜色*/
+			
 			.detail1,
 			.big-button {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 			}
-
+			
 			.row6>div>div {
 				border: 1px solid #3db4cc;
 				background-color: #3db4cc;
 				box-sizing: border-box;
 			}
-
+			
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #3db4cc;
 			}
 			/*开抢按钮*/
+			
 			#big-button {
 				display: flex;
 				justify-content: center;
 			}
-
+			
 			#big-button .icon {
 				background: url(__WAP__/img/nao.png) no-repeat center center;
 				background-size: 1.4rem;
@@ -41,26 +43,28 @@
 				line-height: 2.24rem;
 				margin-top: 0.35rem;
 			}
-
+			
 			#big-button span:nth-child(2) {
 				width: auto;
 			}
 			/*时间*/
+			
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-
+			
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-
+			
 			#timer {
 				display: flex;
 			}
 			/*红包弹出*/
+			
 			#red_select_list1 {
 				width: 100%;
 				height: 100vh;
@@ -72,10 +76,12 @@
 				transition: top 0.3s;
 			}
 			/*红包关闭*/
+			
 			.closeList span {
 				font-size: 0.9rem;
 			}
 			/*红包 样式*/
+			
 			.default_red span {
 				font-size: 0.9rem;
 			}
@@ -161,7 +167,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="{:url('Order/xieyi')}">《财富牧场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist",["id"=>$arr.id])}'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='{:url(" Order/infolist ",["id "=>$arr.id])}'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4">
@@ -214,19 +220,21 @@
 			$(".row6>div>div").click(function() {
 				/*var st = $("button[id^='big-button']").attr("disabled");
 				if(st == "disabled") {*/
-					/*alert("已禁用");*/
-//				} else {
-					/*alert("没有禁用");*/
-					$(this).toggleClass("dui");
-					r6 = r6 + 1;
-					var r6s = r6 % 2;
-					if(r6s == 1) {
-						$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
-						$("#big-button").attr({"disabled": "disabled"});
-					} else {
-						$("#big-button").removeAttr("disabled");
-						$("#big-button").css("background", "linear-gradient(to right, #3db4cc, #3db4cc)");
-					}
+				/*alert("已禁用");*/
+				//				} else {
+				/*alert("没有禁用");*/
+				$(this).toggleClass("dui");
+				r6 = r6 + 1;
+				var r6s = r6 % 2;
+				if(r6s == 1) {
+					$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
+				} else {
+					$("#big-button").removeAttr("disabled");
+					$("#big-button").css("background", "linear-gradient(to right, #3db4cc, #3db4cc)");
+				}
 				/*}*/
 
 			})
@@ -253,21 +261,21 @@
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if(num >= zui) {
 
-				var sp_id = $("#sp_id").val();
- 				$.ajax({
-                    type : "POST",  //提交方式
-                    url : "{:url('Order/number')}",//路径
-                    data : {
-                        "id" : sp_id
-                    },
-                    dataType : "json",//数据，这里使用的是Json格式进行传输
-                    success : function(result) {
-						var aa = JSON.parse(result);
-						$(".detail1_top div:nth-child(2) p:nth-child(2)").text(aa.number);
-						$("#num").text(aa.number);
-						$("#number").val(aa.number);
-					}
-			    });
+					var sp_id = $("#sp_id").val();
+					$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Order/number')}", //路径
+						data: {
+							"id": sp_id
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
+							var aa = JSON.parse(result);
+							$(".detail1_top div:nth-child(2) p:nth-child(2)").text(aa.number);
+							$("#num").text(aa.number);
+							$("#number").val(aa.number);
+						}
+					});
 					overtop();
 					bian();
 				} else {
@@ -373,50 +381,46 @@
 					$(".overtop1 .overtop_text").text("支付密码错误");
 					$("#goodcover").css("display", "block");
 					$(".overtop1").css("display", "block");
-				} else{
+				} else {
 
 					var sp_id = $("#sp_id").val();
-				var number = $("#number").val();
-				var max6 = $("#max6").val();
+					var number = $("#number").val();
+					var max6 = $("#max6").val();
 
- 				$.ajax({
-                    type : "POST",  //提交方式
-                    url : "{:url('Order/info')}",//路径
-                    data : {
-                        "sp_id" : sp_id,
-                        "number" : number,
-                        "pay_pass" : max6
-                    },
-                    dataType : "json",//数据，这里使用的是Json格式进行传输
-                    success : function(result) {
-						var aa = JSON.parse(result);
-						//console.log(aa);
-						if (aa.code==0) {
-
-							$(".overtop1 .overtop_text").text(aa.msg);
-							$(".overtop1 .overtop_text").css("border","none");
-							$(".overtop1>p:nth-child(2)").css("display","none");
-							$("#goodcover").css("display", "block");
-							$(".overtop1").css("display", "block");
-							setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-							window.location='{:url("Rancher/index")}';
-							$("#em1").text($("#em1").text() - $("#qian").text());
-										$("#number").val(1);
-										$("#numbers").text(1);
-										$("#qian").text(qian);$("#profit").text(profit);
-										$("#max6").val("");
-							},500);
-						}else{
-							$(".overtop1 .overtop_text").text(aa.msg);
-							$(".overtop1 .overtop_text").css("border","none");
-							$("#goodcover").css("display", "block");
-							$(".overtop1").css("display", "block");
+					$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Order/info')}", //路径
+						data: {
+							"sp_id": sp_id,
+							"number": number,
+							"pay_pass": max6
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
+							var aa = JSON.parse(result);
+							//console.log(aa);
+							if(aa.code == 0) {
+								$(".overtop").text(aa.msg);
+								overtop();
+								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+									/*window.location = '{:url("Rancher/index")}';*/
+									$("#em1").text($("#em1").text() - $("#qian").text());
+									$("#number").val(1);
+									$("#numbers").text(1);
+									$("#qian").text(qian);
+									$("#profit").text(profit);
+									$("#max6").val("");
+								}, 500);
+							} else {
+								$(".overtop").text(aa.msg);
+								overtop();
+							}
+						},
+						error: function() {
+							$(".overtop").text("请刷新页面重试");
+							overtop();
 						}
-                    },
-                    error : function (){
-                    	$(".overtop1 .overtop_text").text('请刷新页面重试');
-                	}
-				});
+					});
 				}
 
 			})
