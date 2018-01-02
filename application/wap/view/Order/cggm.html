@@ -406,7 +406,9 @@
 								$(".overtop").text(aa.msg);
 								overtop();
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
-									/*window.location = '{:url("Rancher/index")}';*/
+									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
+								$("#big-button").removeAttr("disabled");
+									window.location = '{:url("Rancher/index")}';
 									$("#em1").text($("#em1").text() - $("#qian").text());
 									$("#number").val(1);
 									$("#numbers").text(1);
