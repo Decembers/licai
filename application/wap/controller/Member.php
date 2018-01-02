@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-29 20:28:38
+ * @Last Modified time: 2018-01-02 09:58:36
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -332,8 +332,6 @@ class Member extends Yang
             if ($au['status'] == 1) {
                 U::where(['id'=>$this->id])->update(['authentication'=>2]);
                 Session::set('user.authentication',2);
-                $user['authentication'] = 2;
-                Cookie::set('user',serialize($user),2592000);
                 $authentication = 2;
             }
         }
@@ -379,11 +377,8 @@ class Member extends Yang
              $data['update_time'] = time();
              $add = I::insert($data);
              if ($add) {
-                $user = Session::get('user');
                 U::where(['id'=>$this->id])->update(['authentication'=>1]);
                 Session::set('user.authentication',1);
-                $user['authentication'] = 1;
-                Cookie::set('user',serialize($user),2592000);
                 $arr['code'] = 1;
                 $arr['msg'] = '身份认证提交成功';
                 return json_encode($arr);
