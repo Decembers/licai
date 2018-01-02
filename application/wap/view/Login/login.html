@@ -372,7 +372,14 @@
 					}
 				}
 			}
-/*$(".container01 input").fu*/
+$(".container01 input").focus(function(){
+	$(".grassland").css("display","none");
+})
+$(".container01 input").blur(function(){
+	$(".grassland").css("display","block");
+})
+
+
 			var ema = document.getElementById("email");
 			var pwd = document.getElementById("pwd");
 
