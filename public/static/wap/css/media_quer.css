@@ -4,9 +4,7 @@
 	.wrapper {
 		width: 100%;
 		background-color: white;
-		position: fixed;
-		left: 0;
-		top: 0;
+		
 	}	.footer {
 		width: 100%;
 	}
