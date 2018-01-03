@@ -217,8 +217,12 @@
 			}
 			
 			.project_name {
+				width: 100%;
+				box-sizing: border-box;
 				padding-left: 3.5rem;
 				color: white;
+				
+				white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 			}
 			
 			.con_height {
@@ -393,6 +397,7 @@
 			$("button").focus(function() {
 				this.blur()
 			});
+			$(".sheep li .project_name").css("padding-right",$(".sheep li .project_name .fr").width()+10+"px");
 			/*点击切换*/
 			$(".header p").click(function() {
 				$("#goodcover").css("display", "block");
