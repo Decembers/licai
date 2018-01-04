@@ -409,7 +409,16 @@
 			})
 			/*.no_sheep */
 			// $(".mysheep h5").text($(".sheep li").length);
-			$(".no_sheep").css("display", "none");
+			butt();
+			function butt(){				
+				if($(".sheep li").length == 0){
+					$(".big-button").css("display","block");
+					$(".no_sheep").css("display","block");
+				}else{
+					$(".big-button").css("display","none");
+					$(".no_sheep").css("display","none");
+				}
+			}
 		</script>
 	</body>
 
