@@ -169,10 +169,15 @@ max-height:200px;//最大高度*/
 				height: 6rem;
 				margin-bottom: 0.5rem;
 			}
+			.kahao li a{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
 
 			.checkin {
 				position: relative;
-				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
+				
 			}
 
 			.white {
@@ -206,7 +211,7 @@ max-height:200px;//最大高度*/
 				-ms-transform: rotateY(60deg);
 			}
 
-			.kahao li a {
+			.kahao li .detail {
 				position: absolute;
 				left: 100px;
 				top: 1rem;
@@ -254,11 +259,13 @@ max-height:200px;//最大高度*/
 			<ul class="kahao">
 			{if condition="$arr"}
 				{volist name="arr" id="vo"}
-				<li class="checkin white fillet">
+				
+				<li class="checkin white fillet" 	>
+					<a href="{:url('member/tiwithdraw',['id'=>$vo.id])}">
 					<div class="bank_icon">
 						<img src="__WAP__/img/bank/{$vo.image}.jpg">
 					</div>
-					<a href="{:url('member/tiwithdraw',['id'=>$vo.id])}">
+					
 						<div class="detail">
 							<h6>{$vo.bank_name}</h6>
 							<span>尾号{$vo.cardnum}储蓄卡</span>
