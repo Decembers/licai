@@ -309,8 +309,8 @@
 					<ul>
 						{volist name="arr" id="vo"}
 						<li class="lis">
-							<p class="lip1"><span>{$vo.name}</span><span>{$vo.mobile}</span></p>
-							<p class="lip2"><span class="dz">{$vo.address}</span><span class="sz"><i class="sz1">{$vo.province_name}</i><i class="sz2">{$vo.city_name}</i><i class="sz3">{$vo.district_name}</i></span></p>
+							<p class="lip1" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span>{$vo.name}</span><span>{$vo.mobile}</span></p>
+							<p class="lip2" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span class="dz">{$vo.address}</span><span class="sz"><i class="sz1">{$vo.province_name}</i><i class="sz2">{$vo.city_name}</i><i class="sz3">{$vo.district_name}</i></span></p>
 							<p class="lip3"><span class="youbian">{$vo.postcode}</span>
 							{if condition="$vo.is_default eq 1"}
 								<span class="labels"></span>

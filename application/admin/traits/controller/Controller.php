@@ -283,7 +283,7 @@ trait Controller
         $commodity = new Commodity;
         $record = new Record;
         $user = new User;
-        $testtime = time()+7776000;//
+        $testtime = time();//+7776000
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         foreach ($orders as $k => $v) {
             $sp_id = $v['sp_id'];//商品id

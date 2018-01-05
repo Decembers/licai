@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--<title>项目详情</title>-->
+		<title>趣味农场</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/shop.css" />
+		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*开抢按钮 首行背景 颜色*/
+			/*时间*/
+			.timer-simple-seconds {
+				font-size: 0.8rem;
+			}
+
+			.day,
+			.hour,
+			.minute,
+			.second {
+				font-size: 0.8rem;
+			}
+
+			#timer {
+				display: flex;
+			}
+			.detail1,
+			.big-button {
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
+			}
+
+			.row6>div>div {
+				border: 1px solid #3db4cc;
+				background-color: #3db4cc;
+				box-sizing: border-box;
+			}
+
+			.detail3 .row6>p,
+			.detail3 .row6>div>a,
+			.overtop1 p:nth-child(2) {
+				color: #3db4cc;
+			}
+			/*开抢按钮*/
+
+			#big-button {
+				display: flex;
+				justify-content: center;
+			}
+
+			#big-button .icon {
+				background: url(__WAP__/img/nao.png) no-repeat center center;
+				background-size: 1.4rem;
+				width: 1.5rem;
+				height: 1.5rem;
+				line-height: 2.24rem;
+				margin-top: 0.35rem;
+			}
+
+			#big-button span:nth-child(2) {
+				width: auto;
+			}
+
+			.detail21 {
+				width: 95%;
+				margin: 10px auto;
+				border-radius: 5px;
+				padding: 0 15px;
+				color: #fff;
+				box-sizing: border-box;
+				background-color: white;
+				padding-top: 30px;
+				position: relative;
+				display: none;
+			}
+
+			.detail21>p {
+				width: 100%;
+				justify-content: space-between;
+				height: 30px;
+				line-height: 30px;
+				border-top: 1px solid #ededed;
+				font-size: 0.8rem;
+				color: #a9a9a9;
+			}
+
+			.record {
+				display: none;
+				overflow: hidden;
+			}
+
+			.record span:nth-child(1) {
+				float: left;
+			}
+
+			.record span:nth-child(2) {
+				float: right;
+			}
+
+			#record {
+				border: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 0 15px;
+				box-sizing: border-box;
+				border-radius: 5px 5px 0 0;
+			}
+
+			#record1 {
+				position: relative;
+				left: -15px;
+				padding: 0 15px;
+			}
+
+			#record1 {
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
+				color: white;
+				border-radius: 5px;
+			}
+
+			.detail21 .record {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>兑换详情</h3>
+				<!--<a href="####" style="opacity: 0;">交易统计</a>-->
+			</div>
+			<!---->
+			<div class="detail">
+				<div class="detail1">
+					<div class="detail1_top">
+						<div>
+							<p>兑换鹅单价(元)</p>
+							<p><span>780.</span><span class="em">00</span></p>
+						</div>
+						<div>
+							<p>可兑换鹅只</p>
+							<p id="zhi">120</p>
+						</div>
+					</div>
+				</div>
+				<div class="detail2">
+					<p>原生态苏尼特羔鹅171208</p>
+					<p ><span>项目编号</span><span class="em">MER20170001176</span></p>
+					<p><span>兑换时间</span>
+						<span id="timer" class="timer-simple-seconds" timer="10">
+							<span class="day">5</span>天<span class="hour">00</span>时<span class="minute">00</span>分<span class="second">00</span>秒
+						</span>
+
+					</p>
+				</div>
+
+				<div class="detail3">
+					<div class="row">
+						<p>本期资金</p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">0.00</span></p>
+					</div>
+					<div class="row">
+						<p><span>兑换数量</span><span>可手动输入</span></p>
+						<p>
+							<span id="subtract">-</span>
+							<input type="tel" name="" id="number" value="1" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/" />
+							<span id="plus">+</span>
+						</p>
+					</div>
+					<div class="row" style="display: none;">
+						<p><span>使用红包</span><span>超出不返还</span></p>
+						<p>
+							<span>请选择红包</span><span class="icon"></span>
+						</p>
+					</div>
+					<div class="row" style="display: none;">
+						<p>支付密码</p>
+						<p>
+							<input type="tel" name="" id="max6" placeholder="请输入支付密码" maxlength="6" />
+						</p>
+					</div>
+					<div class="row">
+
+						<p><span>共</span><span class="em" id="numbers">1</span><span>只鹅:   </span><span class="em">￥</span><span class="em" id="qian">780.00</span>
+							<!--<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span>
+							<span class="em" style="font-size: 0.6rem;color: #a9a9a9;">￥</span>
+							<span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">41.60</span>
+							<span class="em"></span><span style="font-size: 0.6rem;">）</span>-->
+						</p>
+					</div>
+					<div class="row row6">
+						<div>
+							<div class="">
+								<span>√</span>
+							</div>
+							<span>朕已阅读并同意</span>
+							<a href="{:url('order/xieyi')}">《财富牧场服务协议》</a>
+						</div>
+						<!--<p style="font-size: 0.8rem;" onclick="window.location='index1-shop-deal1.html'">交易详情</p>-->
+					</div>
+				</div>
+
+				<div class="detail4">
+
+				</div>
+			</div>
+			<button class="big-button press" id="big-button"><!--<span class="icon"></span><span>10点开抢</span>-->朕要买鹅</button>
+			<div class="detail21">
+				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
+				<p class="record" id="record1"><span>总数量</span><span>总金额</span></p>
+
+			</div>
+
+			<div id="goodcover"></div>
+			<!-- 商铺辅助鹅群群说明-->
+		</div>
+		<div class="background">
+		</div>
+		<!--红包 开始-->
+
+		<!--红包 结束-->
+		<p class="overtop">购买成功</p>
+		<p class="record"><span></span><span></span></p>
+		<div class="overtop1">
+			<p class="overtop_text"></p>
+			<p>确定</p>
+		</div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*阅读并同意的按钮*/
+			var r6 = 0;
+			$(".row6>div>div").click(function() {
+				$(this).toggleClass("dui");
+				r6 = r6 + 1;
+				var r6s = r6 % 2;
+				if(r6s == 1) {
+					$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
+				} else {
+					$("#big-button").removeAttr("disabled");
+					$("#big-button").css("background", "linear-gradient(to right, #3db4cc, #3db4cc)");
+				}
+			})
+			/*鹅数量 - */
+			$("#subtract").click(function() {
+				var num = parseInt($("#number").val());
+				if($("#number").val() == "") {
+					num = 0;
+					$("#number").val("1");
+					bian();
+				}
+				if(num > 1) {
+					$("#number").val(num - 1);
+					bian();
+				}
+			})
+			/*鹅数量 + */
+			$("#plus").click(function() {
+				var num = parseInt($("#number").val());
+				if($("#number").val() == "") {
+					num = 0;
+				}
+				/*获取鹅数量 剩余*/
+				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
+				if(num >= zui) {
+					$("#number").val(zui);
+					$(".overtop").text("超出剩余数量");
+					overtop();
+					bian();
+				} else {
+					$("#number").val(num + 1);
+					bian();
+				}
+
+			})
+			/*鹅数量输入时时变更*/
+			$("#number").bind('input', function() {
+				if($(this).val() < 0) {
+					$(this).val("0");
+				}
+				/*获取鹅数量 剩余*/
+				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
+				if($(this).val() >= zui) {
+					$(".overtop").text("超出剩余数量");
+					overtop();
+					$(this).val(zui);
+				}
+				bian();
+			})
+
+			function bian() {
+				/*鹅只数量 输出*/
+				if($("#number").val() == "") {
+					$("#numbers").text(0);
+				} else {
+					$("#numbers").text(Math.abs($("#number").val()));
+				}
+				tofix($("#qian"), 780.00); /*鹅总价*/
+
+			}
+			/* 总价 利润 输出*/
+			function tofix(st, fs) {
+				var zong = $("#number").val() * fs;
+				var zo = zong.toString();
+				var one = zong % 1;
+				var one2 = zong % 0.1;
+				if(one == 0) {
+					st.text(zo + ".00");
+				} else {
+					if(one2 == 0) {
+						st.text(zo + "0");
+					} else {
+						st.text(zong.toFixed(2));
+					}
+				}
+			}
+			$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * 780.00 + ".00")
+			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * 780.00;
+			var zs = parseInt($("#zhi").text());
+			var zj = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * 780.00;
+			/*买鹅按钮点击*/
+			$("#big-button").click(function() {
+				if(parseInt($("#zhi").text()) < 1) {
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
+				} else {
+					if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
+						$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
+						$("#big-button").attr({
+							"disabled": "disabled"
+						});
+						q = q - $("#qian").text();
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
+
+						if($(".detail21 p").length == 2) {
+							$(".detail21").css("display", "block");
+						}
+						$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
+						$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
+						$(".detail21 ").prepend($("body>p.record").clone(true));
+						$("#record1 span:nth-child(1)").text("总数量：" + (zs - parseInt($("#zhi").text())));
+						$("#record1 span:nth-child(2)").text("总金额：￥" + (zj - q) + ".00");
+
+						$(".overtop").text("兑换成功");
+						overtop();
+						$("#number").val(1);
+
+						bian();
+						setTimeout(function() {
+							$("#big-button").removeAttr("disabled");
+						}, 1500);
+					} else {
+						$(".overtop").text("超出剩余数量");
+						overtop();
+					}
+				}
+			})
+
+			/* 弹窗提示的确定*/
+			$(".overtop1 p:nth-child(2)").click(function() {
+				$("#goodcover").css("display", "none");
+				$(".overtop1").css("display", "none");
+			})
+			/* 弹窗提示的背景*/
+			$("#goodcover").click(function() {
+				$("#goodcover").css("display", "none");
+				$(".overtop1").css("display", "none");
+				$("#code").css("display", "none");
+			})
+
+			var j = setInterval(function(){
+					if($("#timer .day").text()==0 && $("#timer .hour").text()==00 &&$("#timer .minute").text()==00&& $("#timer .second").text()==00){
+						clearInterval(j);
+					}
+			},1000);
+		</script>
+
+	</body>
+
+</html>

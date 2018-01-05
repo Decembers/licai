@@ -4,7 +4,7 @@
     
     <div class="cl pd-5 bg-1 bk-gray">
         <span class="l">
-            {tp:menu menu="add" /}
+            {tp:menu menu="delete" /}
         </span>
         <span class="r pt-5 pr-5">
             共有数据 ：<strong>{$count ?? '0'}</strong> 条
@@ -17,7 +17,7 @@
             <th width="">用户id</th>
             <th width="">银行id</th>
             <th width="">提现金额</th>
-            <th width="">提现是否通过</th>
+            <th width="">提现状态</th>
             <th width="">提现时间</th>
             <th width="70">操作</th>
         </tr>
@@ -28,7 +28,7 @@
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
             <td>{$vo.user_id}</td>
             <td>{$vo.bank_id}</td>
-            <td>{$vo.monery}</td>
+            <td>{$vo.money}</td>
             <td>{$vo.status|get_status}</td>
             <td>{$vo.create_time}</td>
             <td class="f-14">

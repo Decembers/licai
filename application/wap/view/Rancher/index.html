@@ -307,29 +307,10 @@
 					<div class="no_sheep"></div>
 					<ul class="sheep">
 						{volist name="row" id="vo"}
-						<!--<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
-
-							<span class="lan">成长中</span>
-							<div class="sheeps1">
-								<p class="sheep_p">商品：{$vo.name}</p>
-								<p>编号：{$vo.com_number}</p>
-							</div>
-							<div class="sheeps2">
-								<p>单价：{$vo.sp_price}</p>
-								<p>数量：{$vo.sp_count}</p>
-								<p>总价：{$vo.order_price}</p>
-							</div>
-							<div class="sheeps1">
-								<p>购买时间：{$vo.create_time|date="Y-m-d h:i",###}</p>
-								<p>开始时间：{$vo.begin_time|date="Y-m-d h:i",###}</p>
-							</div>
-							<div class="sheeps1">
-								<p>合同时间：{$vo.rate}</p>
-							</div>
-						</li>-->
-						<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
-							<div class="stage sellOut01  fl">成长中</div>
-							<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.sp_price}{$vo.sp_price}{$vo.sp_price}{$vo.sp_price}</span></p>
+						{if condition="$vo.status eq 1"}
+						<li class='type4'>
+							<div class="stage sellOut01  fl">已出栏</div>
+							<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
 							<div class="title_nav">
 								<div class="con_height">
 									<div class="w_b tc">
@@ -342,13 +323,63 @@
 											<p class="small">数量</p>
 										</div>
 										<div class="tl lv">
-											<p class="m_co"><i class="big">{$vo.sky}</i><i class="small">天</i></p>
+											<p class="m_co"><i class="big">0</i><i class="small">天</i></p>
 											<p class="small">剩余天数</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</li>
+						{else /}
+							{if condition="$vo.caigou eq 1"}
+								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
+									<div class="stage sellOut01  fl" style="background-color:#FF8C00;color:#fff">采购中</div>
+									<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
+									<div class="title_nav">
+										<div class="con_height">
+											<div class="w_b tc">
+												<div class="tl je">
+													<p class="m_co"><i class="big">{$vo.sp_price}</i><i class="small">元</i></p>
+													<p class="small">单价</p>
+												</div>
+												<div class="tl sj">
+													<p class="m_co"><i class="big">{$vo.sp_count}</i><i class="small">只</i></p>
+													<p class="small">数量</p>
+												</div>
+												<div class="tl lv">
+													<p class="m_co"><i class="big">{$vo.sky}</i><i class="small">天</i></p>
+													<p class="small">采购剩余天数</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							{else /}
+								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
+									<div class="stage sellOut01  fl">进行中</div>
+									<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
+									<div class="title_nav">
+										<div class="con_height">
+											<div class="w_b tc">
+												<div class="tl je">
+													<p class="m_co"><i class="big">{$vo.sp_price}</i><i class="small">元</i></p>
+													<p class="small">单价</p>
+												</div>
+												<div class="tl sj">
+													<p class="m_co"><i class="big">{$vo.sp_count}</i><i class="small">只</i></p>
+													<p class="small">数量</p>
+												</div>
+												<div class="tl lv">
+													<p class="m_co"><i class="big">{$vo.sky}</i><i class="small">天</i></p>
+													<p class="small">剩余天数</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							{/if}
+
+						{/if}
 						{/volist}
 					</ul>
 					<button class="big-button press" onclick="window.location='{:url(" Index/orlist ")}'">朕去买鹅</button>
