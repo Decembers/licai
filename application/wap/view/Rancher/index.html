@@ -32,7 +32,8 @@
 				color: #fff;
 				font-size: 3.1rem;
 				line-height: 2.9rem;
-				margin: 1rem 0;
+				margin:  0;
+				    padding: 1rem 0;
 			}
 			/*我的鹅只 */
 
@@ -269,6 +270,12 @@
 			.type3 .stage{
 				color: #ffbe4c !important;
 			}
+			.type4 {
+				background: linear-gradient(to right, #ABABAB, #B0B0B0)!important;
+			}
+			.type4 .stage{
+				color: #ABABAB;
+			}
 		</style>
 	</head>
 
@@ -322,7 +329,7 @@
 						</li>-->
 						<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
 							<div class="stage sellOut01  fl">成长中</div>
-							<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.sp_price}</span></p>
+							<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.sp_price}{$vo.sp_price}{$vo.sp_price}{$vo.sp_price}</span></p>
 							<div class="title_nav">
 								<div class="con_height">
 									<div class="w_b tc">

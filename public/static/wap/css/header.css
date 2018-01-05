@@ -154,25 +154,27 @@ span {
 }
 /*主页的底部 css精灵图片*/
 .footer .icons {
-	width: 30px;
-	height: 30px;
+	/*width: 30px;
+	height: 30px;*/
+	width: 25px;
+	height: 25px;
 	background: url(../img/iconlist_05.png) no-repeat center 0%;
-	background-size: 3rem;
+	background-size: 2.5rem;
 }
 
 .footer a:nth-child(2) .icons {
 	background: url(../img/iconlist_02.png) no-repeat center 56.5%;
-	background-size: 3rem;
+	background-size: 2.5rem;
 }
 
 .footer a:nth-child(3) .icons {
 	background: url(../img/iconlist_05.png) no-repeat center 21%;
-	background-size: 3rem;
+	background-size: 2.5rem;
 }
 
 .footer a:nth-child(4) .icons {
 	background: url(../img/iconlist_05.png) no-repeat center 42.5%;
-	background-size: 3rem;
+	background-size: 2.5rem;
 }
 /*主页的底部 样式 结束*/
 
@@ -483,7 +485,7 @@ div.header {
     font-size: 2rem;
     border-radius: 1.125rem;
     background: linear-gradient(to right, #3db4cc, #6fd6ea);
-    margin: 2rem auto;
+    
 }
 .no_record {
     width: 12rem;

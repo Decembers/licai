@@ -49,6 +49,79 @@
 			.uc_c_bottom li {
 				padding: 0 1rem;
 			}
+			
+			/*提示*/
+			
+			.modal1 {
+				width: 80vw;
+				position: fixed;
+				z-index: 1002;
+				left: 50%;
+				margin-left: -40vw;
+				border-radius: 0.5rem;
+				top: 50%;
+				margin-top: -60px;
+				text-align: center;
+				background: #e8e8e8;
+				color: #3d4145;
+				display: none;
+				overflow: hidden;
+			}
+			
+			.modal1 h5 {
+				width: 100%;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				line-height: 40px;
+				height: 30px;
+				font-size: 16px;
+				display: none;
+			}
+			
+			.modal1 p {
+				font-size: 16px;
+			}
+			
+			.modal1 .modal1_p1 {
+				box-sizing: border-box;
+				padding: 15px 0;
+			}
+			
+			.modal1 .modal1_p {
+				line-height: 40px;
+				display: flex;
+				border-top: 1px solid white;
+			}
+			
+			.modal1 .modal1_p span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+			
+			.modal1 .modal1_p span:nth-child(1) {
+				border-right: 1px solid white;
+			}
+			
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
 		</style>
 	</head>
 
@@ -109,16 +182,42 @@
 					</ul>
 
 				</div>
-				<button class="big-button press" onclick="window.location='{:url("Login/noadmin")}'">退出当前账号</button>
+				<button class="big-button press" >退出当前账号</button>
 
 			</div>
 
 		</div>
 		<p class="overtop">签到成功</p>
 		<div class="background"></div>
+		<div class="modal1" >
+			<h5>提示</h5>
+			<p class="modal1_p1">是否退出当前账号？</p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold" onclick="window.location='{:url("Login/noadmin")}'">确定</span></p>
+		</div>
+		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
+			$(".big-button").click(function(){
+				blocks();
+			})
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span:nth-child(1)").click(function() {
+				nones();
+			})
+
+			function blocks() {
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
 		</script>
 	</body>
 
