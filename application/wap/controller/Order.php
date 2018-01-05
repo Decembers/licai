@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 09:10:15
+ * @Last Modified time: 2018-01-05 16:26:29
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -257,7 +257,7 @@ class Order extends Yang
                 $ke = $ke + $i;
                 $user = U::where(['id'=>$ar[$i]])->find();
                 $row[$ke]['name'] = $user['name'];
-                $row[$ke]['create_time'] = $comm['down_time'] - 100;
+                $row[$ke]['create_time'] = $comm['down_time'] - 100*$ke;
                 $row[$ke]['sp_count'] = $a3;
                 if ($i==2) {
                      $row[$ke]['sp_count'] = $a3+$a1;

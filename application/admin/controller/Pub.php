@@ -112,7 +112,7 @@ class Pub
      */
     public function checkLogin()
     {
-        //if ($this->request->isAjax() && $this->request->isPost()) {
+        if ($this->request->isAjax() && $this->request->isPost()) {
             $data = $this->request->post();
             $validate = Loader::validate('Pub');
             if (!$validate->scene('login')->check($data)) {
@@ -162,9 +162,9 @@ class Pub
 
                 return ajax_return_adv('登录成功！', '');
             }
-        // } else {
-        //     throw new Exception("非法请求");
-        // }
+        } else {
+            throw new Exception("非法请求");
+        }
     }
 
     /**

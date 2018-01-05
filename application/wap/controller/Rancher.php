@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 14:33:53
+ * @Last Modified time: 2018-01-05 17:17:12
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -68,6 +68,14 @@ class Rancher extends Yang
 
         $this->assign('arr',$arr);
         $this->assign('row',$row);
+
+        return $this->fetch();
+    }
+    /*
+     *牧场详细信息
+     */
+    public function rainfo()
+    {
 
         return $this->fetch();
     }
