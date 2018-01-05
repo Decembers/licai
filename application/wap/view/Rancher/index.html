@@ -375,10 +375,10 @@
 					</div>
 					<div class="total_bottom a9">
 						<ul>
-							<li><span class="fl">交易总额</span><span class="fr">￥{$arr.money}</span></li>
+							<li><span class="fl">交易总额</span><span class="fr">{$arr.money}</span></li>
 							<li><span class="fl">购买期数</span><span class="fr">{$arr.count}</span></li>
-							<li><span class="fl">已收本金</span><span class="fr">￥{$arr.principal}</span></li>
-							<li><span class="fl">已收回报</span><span class="fr">￥{$arr.return_price}</span></li>
+							<li><span class="fl">已收本金</span><span class="fr">{$arr.principal}</span></li>
+							<li><span class="fl">已收回报</span><span class="fr">{$arr.return_price}</span></li>
 
 						</ul>
 					</div>
@@ -424,6 +424,42 @@
 				}else{
 					$(".big-button").css("display","none");
 					$(".no_sheep").css("display","none");
+				}
+			}
+			tofix($(".collect_total h6"));
+			tofix($(".collect .fl:nth-child(1) .integer"));
+			tofix($(".collect .fl:nth-child(2) .integer"));
+			tofix1($(".total_bottom ul li:nth-child(1) .fr"));
+			tofix1($(".total_bottom ul li:nth-child(3) .fr"));
+			tofix1($(".total_bottom ul li:nth-child(4) .fr"));
+			function tofix(st) {
+				var zong =st.text();
+				var zo = zong.toString();
+				var one = zong % 1;
+				var one2 = zong % 0.1;
+				if(one == 0) {
+					st.text(zo + ".00");
+				} else {
+					if(one2 == 0) {
+						st.text(zo + "0");
+					} else {
+						st.text(zong.toFixed(2));
+					}
+				}
+			}
+			function tofix1(st) {
+				var zong =st.text();
+				var zo = zong.toString();
+				var one = zong % 1;
+				var one2 = zong % 0.1;
+				if(one == 0) {
+					st.text("￥"+zo + ".00");
+				} else {
+					if(one2 == 0) {
+						st.text("￥"+zo + "0");
+					} else {
+						st.text("￥"+zong.toFixed(2));
+					}
 				}
 			}
 		</script>

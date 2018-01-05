@@ -488,8 +488,10 @@ div.header {
     
 }
 .no_record {
-    width: 12rem;
-    height: 13rem;
+   /* width: 12rem;
+    height: 13rem;*/
+   width: 150px;
+   height: 150px;
     margin: 7.5rem auto 0 auto;
     background: url(../img/no_record.png) no-repeat center center;
     background-size: 100% 100%;
