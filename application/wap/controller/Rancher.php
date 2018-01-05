@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 10:30:05
+ * @Last Modified time: 2018-01-05 14:33:53
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -23,7 +23,7 @@ class Rancher extends Yang
         $count = 0;//购买期数 产生多少笔订单
         $money = 0;//交易总金额
         $dprincipal = 0;//未完成本金
-        $row = O::where(['user_id'=>$this->id])->order('create_time desc')->select();
+        $row = O::where(['user_id'=>$this->id])->field('sum(sp_count) as sp_count,sum(order_price) as order_price,sum(zexpect) as zexpect,sp_id,status,nexpect,which,sp_price')->group('sp_id')->order('create_time desc')->select();
         foreach ($row as $k => $v) {
             $com = C::where(['id'=>$v['sp_id']])->find();
             $row[$k]['over_time'] = $com['over_time'];
@@ -32,6 +32,7 @@ class Rancher extends Yang
             $row[$k]['classify'] = $com['classify'];
             $row[$k]['com_number'] = $com['com_number'];
             $row[$k]['rate'] = $com['rate'];
+
             $count+=1;
             $sp_count += $v['sp_count'];//羊只的总和
             $money+=$v['order_price'];
@@ -49,16 +50,20 @@ class Rancher extends Yang
                 $dlirun += $dl;
             }
 
+            if (time()<$com['deal_time']) {
+                $row[$k]['caigou'] = 1;
+                $row[$k]['sky'] = ceil(($com['deal_time']-time())/86400);
+            }
         }
-        $arr['return_price'] = $he==0 ? 0.00 : $he;
-        $arr["dprincipal"] = $dprincipal==0 ? 0.00 : $dprincipal;
-        $arr["principal"] = $principal==0 ? 0.00 : $principal;
+        $arr['return_price'] = $he;
+        $arr["dprincipal"] = $dprincipal;
+        $arr["principal"] = $principal;
         $arr["count"] = $count;
-        $arr["money"] = $money==0 ? 0.00 : $money;
+        $arr["money"] = $money;
         $arr["fulfill"] = $fulfill;
         $arr["nofulfill"] = $nofulfill;
         $arr["sp_count"] = $sp_count;
-        $arr['dlirun'] = $dlirun==0 ? 0.00 : $he;
+        $arr['dlirun'] = $dlirun;
         $arr['dshou'] = $dlirun + $dprincipal;//未返还金额
 
         $this->assign('arr',$arr);

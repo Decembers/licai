@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 09:54:03
+ * @Last Modified time: 2018-01-05 15:43:18
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -189,13 +189,26 @@ class Member extends Yang
     //合同
     public function contract()
     {
+        $zong = 0;
+        $jin = 0;
+        $yidaoqi = 0;
         $arr = O::where(['user_id'=>$this->id])->order('create_time desc')->select();
         foreach ($arr as $k => $v) {
             $com = C::where(['id'=>$v['sp_id']])->find();
             $arr[$k]['name'] = $com['name'];
+            $zong += 1;
+            if ($v['status']==1) {
+                $yidaoqi += 1;
+            }else{
+                $jin += 1;
+            }
         }
+        $shu['zong']=$zong;
+        $shu['jin']=$jin;
+        $shu['yidaoqi']=$yidaoqi;
         $this->assign('arr',$arr);
-        //var_dump($arr);die;
+        $this->assign('shu',$shu);
+
         return $this->fetch();
     }
     //邀请
@@ -320,6 +333,31 @@ class Member extends Yang
                 return json_encode($arr);
              }
         }else{
+            return $this->fetch();
+        }
+
+    }
+    public function editress()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'修改地址失败'];
+        if ($this->request->isAjax()) {
+             $data = input();
+             if ($data['is_default']==1) {
+                 R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
+             }
+
+             $add = R::update($data);
+             if ($add !==false) {
+                $arr['code'] = 1;
+                $arr['msg'] = '修改地址成功';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            $id = input('id');
+            $ress = R::where(['id'=>$id])->find();
+            $this->assign('ress',$ress);
             return $this->fetch();
         }
 

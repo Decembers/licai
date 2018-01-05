@@ -175,11 +175,10 @@
 							                    success : function(result) {
 													if (result.code==200) {
 														$(".overtop").text(result.msg);overtop();
-													}else{
-
 														setTimeout(function() {
 															window.location='{:url("member/setting")}';
 														}, 1000);
+													}else{
 														$(".overtop").text(result.msg);overtop();
 
 													}

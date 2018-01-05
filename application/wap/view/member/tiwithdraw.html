@@ -193,7 +193,7 @@ max-height:200px;//最大高度*/
 					<span></span>
 				</p>
 			</div>
-			<input type="hidden" id="bank_id" val="{$arr.id}">
+			<input type="hidden" id="bank_id" value="{$arr.id}">
 <!-- 			<p class="purchase_tip a9">
 				<input id="Jcarry_purchase" type="hidden" value=""> 注：您的余额还可购买
 				<span class="m_co" style="margin: 0;">0</span> 只常规羊。</p> -->
@@ -215,6 +215,7 @@ max-height:200px;//最大高度*/
 						overtop();return false;
 						}
 						var bank_id =  $("#bank_id").val();
+
 						$.ajax({
 		                    type : "POST",  //提交方式
 		                    url : "{:url('member/tiwithdraw')}",//路径

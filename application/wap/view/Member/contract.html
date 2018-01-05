@@ -237,11 +237,11 @@
 				<!-- 这里是页面内容区 -->
 				<input type="hidden" id="response_code" value="1">
 				<div class="fillet mysheep">
-					<h5>0</h5>
+					<h5>{$shu.zong}</h5>
 					<p class="my_sheep">我的合同（期）</p>
 					<p class="grow">
-						<span class="ing">进行中：0</span>
-						<span>已到期：0</span>
+						<span class="ing">进行中：{$shu.jin}</span>
+						<span>已到期：{$shu.yidaoqi}</span>
 					</p>
 				</div>
 				<!--我的牧场-->
@@ -254,7 +254,7 @@
 						{volist name="arr" id="vo"}
 						<li>
 							<p><span class="img"></span><span>{$vo.name}</span></p >
-							{if condition="$vo.status eq 1"}<p class="reminder2">已完成</p>
+							{if condition="$vo.status eq 1"}<p class="reminder2">已到期</p>
 							{else /}
 								<p class="reminder1">进行中</p>
 							{/if}
