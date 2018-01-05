@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 16:32:59
+ * @Last Modified time: 2018-01-05 09:54:03
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -60,7 +60,7 @@ class Member extends Yang
      */
     public function userinfo()
     {
-        $arr = D::where(['user_id'=>$this->id])->select();
+        $arr = D::where(['user_id'=>$this->id])->order('create_time desc')->select();
         $balance = Session::get('user.balance');
         $this->assign('arr',$arr);
         $this->assign('balance',$balance);
@@ -79,7 +79,7 @@ class Member extends Yang
     }
     public function paylog()
     {
-        $arr = D::where(['user_id'=>$this->id,'or'=>1])->select();
+        $arr = D::where(['user_id'=>$this->id,'or'=>1])->order('create_time desc')->select();
         $money = D::where(['user_id'=>$this->id,'or'=>1])->sum('money');
         $this->assign('arr',$arr);
         $this->assign('money',$money);
@@ -96,7 +96,7 @@ class Member extends Yang
     {
         $authentication = Session::get('user.authentication');
         $this->assign('authentication',$authentication);
-        $arr = B::where(['user_id'=>$this->id])->select();
+        $arr = B::where(['user_id'=>$this->id])->order('create_time desc')->select();
         foreach ($arr as $k => $v) {
             $arr[$k]['cardnum'] = substr($v['cardnum'],-4);
         }
@@ -180,7 +180,7 @@ class Member extends Yang
     }
     public function withdrawlog()
     {
-        $arr = W::where(['user_id'=>$this->id])->select();
+        $arr = W::where(['user_id'=>$this->id])->order('create_time desc')->select();
         $money = W::where(['user_id'=>$this->id])->sum('money');
         $this->assign('arr',$arr);
         $this->assign('money',$money);
@@ -189,7 +189,11 @@ class Member extends Yang
     //合同
     public function contract()
     {
-        $arr = O::where(['user_id'=>$this->id])->select();
+        $arr = O::where(['user_id'=>$this->id])->order('create_time desc')->select();
+        foreach ($arr as $k => $v) {
+            $com = C::where(['id'=>$v['sp_id']])->find();
+            $arr[$k]['name'] = $com['name'];
+        }
         $this->assign('arr',$arr);
         //var_dump($arr);die;
         return $this->fetch();

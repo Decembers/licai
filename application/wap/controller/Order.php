@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 17:46:55
+ * @Last Modified time: 2018-01-05 09:10:15
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -40,6 +40,10 @@ class Order extends Yang
                     $arr['msg']='您输入的vip邀请码不正确';
                     return json_encode($arr);
                 }
+            }
+            if ($comm['down_time']<time()) {
+                $arr['msg']='购买时间已结束!';
+                return json_encode($arr);
             }
 
             $order_price =  $num*$comm['price'];

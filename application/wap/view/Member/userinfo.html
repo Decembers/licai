@@ -89,7 +89,10 @@
 			{volist name="arr" id="vo"}
 				<li>
 					<div class="fw_left fl">
-						<div class="chtx a1">{$vo.money}元</div>
+						<div class="chtx a1">
+						{if condition="$vo.or eq 1"} + {else /} - {/if}
+						{$vo.money}元
+						</div>
 						<div>操作金额</div>
 					</div>
 					<div class="fw_right fr">

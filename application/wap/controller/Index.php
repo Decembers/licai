@@ -52,7 +52,7 @@ class Index extends Yang
      */
     public function gonggao()
     {
-        $notice = N::select();
+        $notice = N::order('create_time desc')->select();
         $this->assign('notice',$notice);
         return $this->fetch();
     }
