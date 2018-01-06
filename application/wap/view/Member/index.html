@@ -18,6 +18,68 @@
 				width: 95%;
 				margin: 0 auto;
 			}
+			.dingdan{
+				width: 100%;
+				background-color: white;
+				border-radius:10px ;
+				margin-bottom: 0.5rem;
+			}
+			.dingdan_top,.dingdan_top a,.dingdan_bottom{
+				display: flex;
+			}
+			.dingdan_top a span,.dingdan_bottom a span{
+				color: black;
+				
+			}
+			.dingdan_top a .glyphicon{
+				
+				margin-left: 0.5rem;
+				opacity: 0.5;
+				font-weight: 200;
+				line-height: 28px;
+			}
+			.dingdan_top{
+				justify-content: space-between;
+				padding:  0.5rem 1rem;
+				line-height: 30px;
+				    border-bottom: 1px solid #ededed;
+				   margin-bottom: 20px;
+			}
+			.dingdan_top>span{
+				color: black;
+				font-size: 17px;
+				font-weight: 500;
+			}
+			.dingdan_bottom{
+				justify-content: space-around;
+			}
+			.dingdan_bottom a{
+				position: relative;
+				width: 60px;
+			}
+			
+			.dingdan_bottom a span{
+				text-align: center;
+				margin: 0  auto;
+				line-height: 25px;
+			}
+			.dingdan_bottom a img{
+				width: 25px;
+				height: 25px;
+				margin-left: 17.5px;
+			}
+			.dingdan_bottom a i{
+				position: absolute;
+				right: 5px;
+				top: -5px;
+				width: 20px;
+				height: 20px;
+				color: white;
+				background-color: #6fd6ea;
+				border-radius:50% ;
+				text-align: center;
+				line-height: 20px;
+			}
 		</style>
 	</head>
 
@@ -73,6 +135,22 @@
 								</a>
 							</li>
 						</ul>
+					</div>
+				</div>
+				<div class="dingdan">
+					<div class="dingdan_top">
+						<span>我的订单</span>
+						<a href="index2-dingdan.html"><span>查看全部订单</span><span class="glyphicon glyphicon-chevron-right"></span></a>
+					</div>
+					<div class="dingdan_bottom">
+						<a class="" href="index2-dingdan.html">
+							<img src="__WAP__/img/icon/d1.png"/><span>待付款</span><i>4</i>
+						</a><a class="" href="index2-dingdan.html">
+							<img src="__WAP__/img/icon/d2.png"/><span>待发货</span><i>4</i>
+						</a>
+						<a class="" href="index2-dingdan.html">
+							<img src="__WAP__/img/icon/d3.png"/><span >待收货</span><i>4</i>
+						</a>
 					</div>
 				</div>
 				<div class="uc_c_middle fillet">
