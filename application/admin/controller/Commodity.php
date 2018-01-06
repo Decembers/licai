@@ -67,6 +67,7 @@ class Commodity extends Controller
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
             $data['over_time']=$data['begin_time'] + 86400 * $data['rate'];
+            $data['convert_time']=$data['over_time'] + 86400 * $data['convert_time'];
             $data['numbers'] = $data['number'];
             $data['expect'] = $zong; //每只羊每期应返还利润
 
