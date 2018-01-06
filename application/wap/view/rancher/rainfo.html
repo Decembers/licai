@@ -114,6 +114,9 @@
 				left: -15px;
 				padding: 0 15px;
 			}
+			#record1 span{
+				display: flex;
+			}
 
 			#record1 {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
@@ -344,6 +347,8 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 
 			var zs = parseInt($("#record1 span:nth-child(1) i").text());
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
+			/*$("#record1 span:nth-child(2) i").text(zj+".00");*/
+			alert(zs+" "+zj)
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 				if(parseInt($("#zhi").text()) < 1) {
@@ -386,7 +391,8 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 									$(".detail21 ").prepend($("body>p.record").clone(true));*/
 
 									$("#record1 span:nth-child(1) i").text(zs +parseInt($("#numbers").text()));
-									$("#record1 span:nth-child(2) i").text(zj+parseInt($("#qian").text()));
+									$("#record1 span:nth-child(2) i").text(zj+parseInt($("#qian").text())+".00");
+									
 
 									$("#number").val(1);
 									bian();
