@@ -12,54 +12,8 @@
 		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
-			/*我的鹅只 */
 			
-			.mysheep {
-				width: 100%;
-				/*height: 7.45rem;*/
-				background: url(__WAP__/img/my_sheep.jpg);
-				-moz-background-size: 100% 100%;
-				background-size: 100% 100%;
-				background-size: cover;
-				text-align: center;
-				color: #fff;
-				font-size: 0.7rem;
-				margin-bottom: 0.5rem;
-			}
-			/*我的鹅只 数量 */
 			
-			.mysheep h5 {
-				color: #fff;
-				font-size: 3.1rem;
-				line-height: 2.9rem;
-				margin: 0;
-				padding: 1rem 0;
-			}
-			/*我的鹅只 */
-			
-			.my_sheep {
-				font-size: 0.9rem;
-			}
-			/*成长*/
-			
-			.grow {
-				line-height: 2.3rem;
-				font-size: 0.9rem;
-				display: flex;
-				justify-content: center;
-			}
-			
-			.ing {
-				margin-right: 0.7rem;
-			}
-			
-			.no_sheep {
-				width: 11rem;
-				height: 11.5rem;
-				margin: 3.5rem auto 0 auto;
-				background: url(__WAP__/img/no_sheep.jpg) no-repeat center center;
-				background-size: 100%;
-			}
 			/*交易弹窗 黑色背景*/
 			
 			#goodcover {
@@ -312,7 +266,7 @@
 					<!-- 如果没有鹅，则显示-->
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有鹅结束-->
-					<div class="no_sheep"></div>
+					<div class="no_record"></div>
 					<ul class="sheep">
 						{volist name="row" id="vo"} {if condition="$vo.status eq 1"}
 						<li class='type4'>

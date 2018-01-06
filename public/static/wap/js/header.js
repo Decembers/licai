@@ -1,15 +1,9 @@
 /*有.footer 时 .wrapper 下面的外边距 */
 $(".wrapper").css("padding-bottom", $(".footer").height() + "px");
 
-/*有.footer 时他与 .wrapper 的宽等宽 */
-$(".header").css("width", $(".wrapper").width() + "px");
 /*有.header 时 .wrapper 上面的外边距 */
 $(".wrapper").css("padding-top", ($(".header").height()) + "px");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
-
-/*$(".overtop").css("border-radius","1.5rem");
-$(".overtop").css("overflow","hidden");*/
-
 
 $("div.header>div").click(function() {
 	history.go(-1)

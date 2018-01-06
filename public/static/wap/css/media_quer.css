@@ -65,6 +65,9 @@
 		background-color: white;
 
 	}
+	.header{
+		width: 800px;
+	}
 	.footer {
 		width: 800px;
 	}
