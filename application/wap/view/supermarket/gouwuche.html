@@ -23,44 +23,44 @@
 				background-color: white;
 				display: flex;
 				justify-content: flex-end;
-				    border-top: 1px solid #d9d9d9;
+				border-top: 1px solid #d9d9d9;
 			}
-
+			
 			.detail04 div {
-				line-height:  40px;
-				height:  40px;
+				line-height: 40px;
+				height: 40px;
 				display: flex;
 				margin-left: 1rem;
 			}
-
+			
 			.detail04 div:nth-child(1) span {
 				color: #a9a9a9;
 				font-size: 14px;
 				/*margin: 0 0.1rem;*/
 			}
-
+			
 			.detail04 div:nth-child(1) span.em {
 				color: black;
 			}
-
+			
 			.detail04 div:nth-child(2) p {
-				line-height:  40px;
+				line-height: 40px;
 				height: 40px;
 				padding: 0 1rem;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				color: white;
 			}
-
+			
 			.wrapper {
 				box-sizing: border-box;
 				border: 1px solid rgba(240, 240, 243, 0);
 			}
-
+			
 			.sheep {
 				width: 100%;
 				padding: 0.5rem 0;
 			}
-
+			
 			.sheep li {
 				margin-bottom: 0.5rem;
 				background-color: white;
@@ -69,81 +69,88 @@
 				padding: 0.5rem;
 				box-sizing: border-box;
 				overflow: hidden;
+				position: relative;
 			}
-
+			
 			.sheep li>div {
 				float: left;
 			}
-
-			.sheep li>div:nth-child(1),.quan>div {
-				margin-top: 20px;
+			
+			.sheep li>div:nth-child(1),
+			.quan>div {
+				margin-top: 25px;
 				border: 1px solid #3db4cc;
 				background-color: white box-sizing: border-box;
-				width: 20px;
-				height: 20px;
+				width: 15px;
+				height: 15px;
 				border-radius: 50%;
 				box-sizing: border-box;
 			}
-
-			.sheep li>div:nth-child(1)>span,.quan>div span {
+			
+			.sheep li>div:nth-child(1)>span,
+			.quan>div span {
 				text-align: center;
-				line-height: 20px;
-				width: 20px;
-				height: 20px;
-				padding-right: 5px;
+				line-height: 13px;
+				width: 13px;
+				height: 13px;
+				padding-right: 3px;
 				color: white;
 				font-size: 0.5rem;
 				font-weight: bold;
 				box-sizing: border-box;
 			}
-
-			.sheep li>div.dui,.quan>div.dui {
+			
+			.sheep li>div.dui,
+			.quan>div.dui {
 				background-color: #3db4cc !important;
 			}
-
+			
 			.sheep li .imgs img {
 				width: 100px;
 				height: auto;
 			}
-
+			
 			.name {
 				margin-top: 15px;
 			}
-
+			
 			.name p {
 				line-height: 20px;
 			}
-
+			
 			.name p:nth-child(1) {
 				width: 100%;
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
-
+			
 			.name p:nth-child(2) {
 				display: flex;
-				color: violet;
+				color: #3db4cc;
+				line-height: 30px;
 			}
-
+			
 			.shu {
 				float: right !important;
 				margin-top: 23px;
 				width: 80px;
-				position: relative;
+				position: absolute;
+				bottom: 15px;
+				right: 1rem;
 				height: 25px;
 				border-radius: 15px;
 				overflow: hidden;
-
 			}
-
+			
 			.shu input {
 				width: 100%;
 				height: 100%;
 				text-align: center;
 				background-color: gainsboro;
+				color: #3db4cc;
 			}
-
+			
 			.shu span {
 				width: 25px;
 				height: 25px;
@@ -153,16 +160,16 @@
 				line-height: 25px;
 				box-shadow: 1px 1px 2px #888888;
 			}
-
+			
 			.shu .jian {
 				position: absolute;
 				top: 0;
 				left: 0;
 				background-color: white;
-				color:#3db4cc;
+				color: #3db4cc;
 				line-height: 20px;
 			}
-
+			
 			.shu .jia {
 				position: absolute;
 				top: 0;
@@ -171,7 +178,7 @@
 				color: white;
 			}
 			/*提示*/
-
+			
 			.modal1 {
 				width: 20rem;
 				height: 8rem;
@@ -187,17 +194,17 @@
 				color: #3d4145;
 				display: none;
 			}
-
+			
 			.modal1 p {
 				line-height: 4rem;
 				font-size: 1.5rem;
 			}
-
+			
 			.modal1 p:nth-child(2) {
 				display: flex;
 				border-top: 1px solid white;
 			}
-
+			
 			.modal1 p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
@@ -210,11 +217,11 @@
 				box-sizing: border-box;
 				margin-top: 1rem;
 			}
-
+			
 			.modal1 p:nth-child(2) span:nth-child(1) {
 				border-right: 1px solid white;
 			}
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -227,30 +234,67 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
-			.quan{
+			
+			.quan {
 				overflow: hidden;
 				position: fixed;
 				bottom: 5px;
 				left: 2.5%;
 				margin-left: 0.5rem;
 			}
-			.quan div,.quan p{
+			
+			.quan div,
+			.quan p {
 				float: left;
 				margin: 0 5px 0 0;
 			}
-			.quan p{
-				line-height: 25px;
+			
+			.quan p {
+				line-height: 15px;
+			}
+			/*top*/
+			
+			 .top {
+				width: ;
+				display: flex;
+			}
+			
+			 .top div {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			
+			.top div img {
+				width: 50px;
+				height: 50px;
+				margin: -10px 0 0 -10px;
+			}
+			.top span{
+				line-height: 30px;
+				margin-left: 1rem;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div class="wrapper" id="shopping_mall">
+		<div class="wrapper" id="shopping_mall" style=" box-sizing: border-box; padding-bottom: 40px;">
 			<!--header -->
 
 			<div class="content infinite-scroll native-scroll">
+				<div class="top">
+						<div class="">
+							<img src="__WAP__/img/safe04.jpg" />
+						</div>
+
+						<span id="">
+							趣味农场（漯河店）
+						</span>
+					</div>
 				<!--超市物品展示-->
 				<ul class="sheep">
+					
 					<li>
 						<div class="dui">
 							<span>√</span>
@@ -301,6 +345,38 @@
 							<input type="tel" name="" id="" value="1" maxlength="4" />
 							<span class="jia">+</span>
 						</div>
+					</li><li>
+						<div class="dui">
+							<span>√</span>
+						</div>
+						<div class="imgs">
+							<img src="__WAP__/img/595617b6e853f.jpg" />
+						</div>
+						<div class="name">
+							<p>123313131</p>
+							<p><span>￥</span><span class="qian">951</span></p>
+						</div>
+						<div class="shu">
+							<span class="jian">-</span>
+							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<span class="jia">+</span>
+						</div>
+					</li><li>
+						<div class="dui">
+							<span>√</span>
+						</div>
+						<div class="imgs">
+							<img src="__WAP__/img/595617b6e853f.jpg" />
+						</div>
+						<div class="name">
+							<p>123313131</p>
+							<p><span>￥</span><span class="qian">951</span></p>
+						</div>
+						<div class="shu">
+							<span class="jian">-</span>
+							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<span class="jia">+</span>
+						</div>
 					</li>
 
 				</ul>
@@ -309,24 +385,28 @@
 			<div class="detail04">
 
 				<div class="">
-					<span>共</span>
-					<span class="em" id="numbers">0</span>
-					<span>件</span>
-					<span>小计</span>
-					<span>￥</span>
-					<span class="em" id="qian">0</span>
+					<div id="">
+						<span>共</span>
+						<span class="em" id="numbers">0</span>
+						<span>件</span>
+					</div>
+					<div id="">
+						<span>总计</span>
+						<span>￥</span>
+						<span class="em" id="qian">0</span>
+					</div>
 
 				</div>
-				<div class="" >
-					<p 	onclick="window.location='{:url("Supermarket/pay")}'">立即购买</p>
+				<div class="">
+					<p onclick="window.location='{:url(" Supermarket/pay ")}'">立即购买</p>
 				</div>
 			</div>
 			<div class="quan">
-					<div class="dui">
-							<span>√</span>
-						</div>
-						<p>全选</p>
+				<div class="dui">
+					<span>√ /////``</span>
 				</div>
+				<p>全选</p>
+			</div>
 		</div>
 		<div class="background"></div>
 		<div class="modal1">
@@ -336,8 +416,10 @@
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(".name").width(($(".sheep li").width() - 210) + "px");
-	$("input").focus(function(){this.blur()})
+			$(".name").width(($(".sheep li").width() - 120) + "px");
+			$("input").focus(function() {
+				this.blur()
+			})
 			/*footer 当前页选中状态*/
 			sw();
 			/*选中切换*/
@@ -348,9 +430,9 @@
 			$(".quan div").click(function() {
 				$(this).toggleClass("dui");
 				var th = $(this).hasClass('dui');
-				if(th == true){
+				if(th == true) {
 					$(".sheep li>div:nth-child(1)").addClass("dui");
-				}else{
+				} else {
 					$(".sheep li>div:nth-child(1)").removeClass("dui");
 				}
 				sw();
@@ -358,8 +440,8 @@
 			/*数量加*/
 			$(".jia").click(function() {
 				$(this).prev().val(parseInt($(this).prev().val()) + 1);
-				var danjia = parseInt($(this).parent().prev().children("p:last-child").children("span:last-child").text()); //单价
-				var shus = $(this).prev().val();
+				/*var danjia = parseInt($(this).parent().prev().children("p:last-child").children("span:last-child").text()); //单价
+				var shus = $(this).prev().val();*/
 				sw();
 			})
 			/*数量减*/
@@ -377,21 +459,13 @@
 
 				}
 			})
-			$(".shu input").bind('input', function() {
-				if($(this).val() < 1) {
-					$(this).val("1");
-				} else if($(this).val() > 1) {
-					$(this).val(Math.abs($(this).val()));
-				} else if($(this).val() == "") {
-					$(this).val("1");
-				}
-				sw();
-			})
+
 			/*总价数量变化*/
 			function sw() {
 				var quantitys = 0; //数量
 				var pricess = 0; //总价
 				for(var i = 0; i < $(".sheep li").length; i++) {
+					
 					var du = $(".sheep li:nth-child(" + (i + 1) + ")>div:nth-child(1)").hasClass('dui');
 					if(du == true) {
 						var prices = parseInt($(".sheep li:nth-child(" + (i + 1) + ") .qian").text()); //单个物品单价
@@ -405,7 +479,7 @@
 
 			}
 			/*弹窗确定的删除*/
-			$(".modal-button-bold").click(function(){
+			$(".modal-button-bold").click(function() {
 				nones();
 				nas.remove();
 				sw();
