@@ -223,7 +223,7 @@
 				{/volist}
 
 					<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
-					<p class="record" id="record1"><span>总数量：{$yimai}</span><span>总金额：￥{$yihua}</span></p>
+					<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
 				</div>
 			{else /}
 				<div class="detail21" style="display: none;">
@@ -342,8 +342,8 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 			/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts + ".00")*/
 			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
 
-			var zs = parseInt($("#zhi").text());
-			var zj = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
+			var zs = parseInt($("#record1 span:nth-child(1) i").text());
+			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 				if(parseInt($("#zhi").text()) < 1) {
@@ -385,8 +385,8 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 									$(".detail21 ").prepend($("body>p.record").clone(true));*/
 
-									$("#record1 span:nth-child(1)").text("总数量：" + (zs - parseInt($("#zhi").text())));
-									$("#record1 span:nth-child(2)").text("总金额：￥" + (zj - q) + ".00");
+									$("#record1 span:nth-child(1) i").text(zs +parseInt($("#numbers").text()));
+									$("#record1 span:nth-child(2) i").text(zj+parseInt($("#qian").text()));
 
 									$("#number").val(1);
 									bian();
