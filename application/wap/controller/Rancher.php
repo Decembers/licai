@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-06 11:34:15
+ * @Last Modified time: 2018-01-06 14:04:56
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -16,8 +16,10 @@ use app\common\model\Record as R;
 use app\common\model\Conversion as CO;//兑换表
 class Rancher extends Yang
 {
+    use \app\admin\traits\controller\Controller;
     public function index()
     {
+        $this->money($this->id);
         $he = 0;//已返还的总利润
         $dlirun = 0;//未返还的利润
         $sp_count = 0;//羊只的总和
@@ -93,10 +95,10 @@ class Rancher extends Yang
                 $arr['msg'] = '请输入支付密码';
                 return json($arr);
             }
-            // if (time()>$com['convert_time']) {
-            //     $arr['msg']='兑换时间已结束!';
-            //     return json($arr);
-            // }
+            if (time()>$com['convert_time']) {
+                $arr['msg']='兑换时间已结束!';
+                return json($arr);
+            }
             if ($data['number']>$order['sp_count']) {
                 $arr['msg'] = '兑换数量超出';
                 return json($arr);
@@ -168,6 +170,13 @@ class Rancher extends Yang
             foreach ($conversion as $k => $v) {
                 $yimai += $v['number'];
                 $yihua += $v['order_price'];
+            }
+            if ($order['status']==1) {
+                if (time()>$com['convert_time']) {
+                    $order['status'] = 2;
+                }else{
+                    $com['convert_time'] = $com['convert_time'] - time();
+                }
             }
             $sheng = $order['sp_count'] - $yimai;
             $this->assign('conversion',$conversion);

@@ -67,6 +67,7 @@ class Commodity extends Controller
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
             $data['over_time']=$data['begin_time'] + 86400 * $data['rate'];
+            $data['convert_time']=$data['over_time'] + 86400 * $data['convert_time'];
             $data['numbers'] = $data['number'];
             $data['expect'] = $zong; //每只羊每期应返还利润
 
@@ -142,6 +143,8 @@ class Commodity extends Controller
             $data['deal_time'] = strtotime($data['deal_time']);
             $data['begin_time'] = $data['deal_time'];
             $data['over_time']= $data['deal_time'] + 86400*$data['rate'];
+            $data['convert_time']=$data['over_time'] + 86400 * $data['convert_time'];
+
             $yer = $data['rate']/30;
             if ($data['return_mode'] == 1) {
                 $data['nexpect'] = $yer;
@@ -196,7 +199,7 @@ class Commodity extends Controller
             if (!$vo) {
                 throw new HttpException(404, '该记录不存在');
             }
-
+            $vo['convert_time'] = ($vo['convert_time'] - $vo['over_time'])/86400;
                 $this->view->assign("vo", $vo);
 
 

@@ -56,6 +56,20 @@
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>换购价格：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="换购价格" name="convert" value="{$vo.convert ?? ''}"  datatype="*" nullmsg="请填写换购价格">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>可换购天数/天：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="可换购天数" name="convert_time"  value="{$vo.convert_time ?? ''}" datatype="*" nullmsg="请填写可换购天数">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>vip邀请码：</label>
             <div class="formControls col-xs-6 col-sm-6">
                 <input type="text" class="input-text" placeholder="vip邀请码" name="vip6" value="{$vo.vip6 ?? ''}">
