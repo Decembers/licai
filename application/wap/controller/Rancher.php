@@ -3,13 +3,14 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 17:17:12
+ * @Last Modified time: 2018-01-05 19:16:10
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
 use app\common\model\Order as O;
 use app\common\model\Commodity as C;
 use app\common\model\Record as R;
+use app\common\model\Conversion as CO;//兑换表
 class Rancher extends Yang
 {
     public function index()
@@ -76,7 +77,90 @@ class Rancher extends Yang
      */
     public function rainfo()
     {
+        $sp_id = input('sp_id');//商品id
+        $order = O::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->field('sum(sp_count) as sp_count,sum(order_price) as order_price,sum(zexpect) as zexpect,sp_id,status,nexpect,which,sp_price')->group('sp_id')->find();
+        $com = C::where(['id'=>$sp_id])->find();
+        $zongjin = $order['order_price'] + $order['zexpect'];//资金总额
+        $arr = ['code'=>-200,'data'=>'','msg'=>''];
 
-        return $this->fetch();
+        if ($this->request->isAjax()) {
+
+            $data = $this->request->post();
+            $order_price = $com['convert'] * $data['number'];//订单总额
+            if (time()>$com['convert_time']) {
+                $arr['msg']='兑换时间已结束!';
+                return json_encode($arr);
+            }
+            if ($data['number']>$order['sp_count']) {
+                $arr['msg'] = '兑换数量超出';
+                return json_encode($arr);
+            }
+            $number = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->sum('number');
+            $shengyu = $order['sp_count'] - $number - $data['number'];
+            if ($shengyu < 0) {
+                $arr['msg'] = '可兑换数量不足';
+                return json_encode($arr);
+            }
+            if ($data['number']<1) {
+                $arr['msg'] = '兑换数量不可小于1';
+                return json_encode($arr);
+            }
+                $conversion['user_id']=$this->id;
+                $conversion['sp_id']=$sp_id;
+                $conversion['number']=$data['number'];
+                $conversion['status']=0;
+                $conversion['create_time']=time();
+                $conversion['deliver_status']=0;
+                $conversion['order_price']=$order_price;
+                $conversion['price']=$com['convert'];
+
+            Db::startTrans();
+            try{
+                //扣除用户余额
+                $user = Db::table('tp_user')->where(['id'=>$this->id])->find();
+                $pay_pass = md5($data['pay_pass']);
+                if ($user['pay_pass']!=$pay_pass) {
+                    $arr['msg']='您输入的支付密码不正确';
+                    //return json_encode($arr);
+                    throw new \think\Exception();
+                }
+                $balance = $user['balance'] - $order_price;
+                if ($balance < 0) {
+                    $arr['msg'] = '您的余额不足!请充值!';
+                    throw new \think\Exception();
+                }
+                $arr['msg'] = '订单创建失败';
+                Db::table('tp_user')->where(['id'=>$this->id])->update(['balance' => $balance]);
+
+                CO::insert($conversion);
+
+                $detail['user_id']=$this->id;
+                $detail['or']=3;
+                $detail['money']=$order_price;
+                $detail['comment']='兑换羊只';
+                $detail['status']=0;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
+                $arr['msg'] = '添加详细信息失败';
+                Db::table('tp_detail')->insert($detail);
+                Session::set('user.balance',$balance);
+                // 提交事务
+                Db::commit();
+            } catch (\think\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                return json_encode($arr);
+            }
+            $arr['msg'] = '订单创建成功';
+            $arr['code'] = 1;
+            return json_encode($arr);
+
+        }else{
+            $this->assign('com',$com);
+            $this->assign('order',$order);
+            $this->assign('zongjin',$zongjin);
+            return $this->fetch();
+        }
+
     }
 }

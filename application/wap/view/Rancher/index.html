@@ -308,7 +308,7 @@
 					<ul class="sheep">
 						{volist name="row" id="vo"}
 						{if condition="$vo.status eq 1"}
-						<li class='type4'>
+						<li class='type4' onclick="window.location='{:url("rancher/rainfo",['sp_id'=>$vo.sp_id])}'">
 							<div class="stage sellOut01  fl">已出栏</div>
 							<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
 							<div class="title_nav">
@@ -332,7 +332,7 @@
 						</li>
 						{else /}
 							{if condition="$vo.caigou eq 1"}
-								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
+								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'  onclick="window.location='{:url("rancher/rainfo",['sp_id'=>$vo.sp_id])}'">
 									<div class="stage sellOut01  fl" style="background-color:#FF8C00;color:#fff">采购中</div>
 									<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
 									<div class="title_nav">
@@ -355,7 +355,7 @@
 									</div>
 								</li>
 							{else /}
-								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'>
+								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'  onclick="window.location='{:url("rancher/rainfo",['sp_id'=>$vo.sp_id])}'">
 									<div class="stage sellOut01  fl">进行中</div>
 									<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
 									<div class="title_nav">
@@ -378,7 +378,6 @@
 									</div>
 								</li>
 							{/if}
-
 						{/if}
 						{/volist}
 					</ul>

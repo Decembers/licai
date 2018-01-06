@@ -142,19 +142,19 @@
 					<div class="detail1_top">
 						<div>
 							<p>兑换鹅单价(元)</p>
-							<p><span>780.</span><span class="em">00</span></p>
+							<p><span>{$com.convert}</span><span class="em"></span></p>
 						</div>
 						<div>
-							<p>可兑换鹅只</p>
-							<p id="zhi">120</p>
+							<p>兑换鹅只总数</p>
+							<p id="zhi">{$order.sp_count}</p>
 						</div>
 					</div>
 				</div>
 				<div class="detail2">
-					<p>原生态苏尼特羔鹅171208</p>
-					<p ><span>项目编号</span><span class="em">MER20170001176</span></p>
+					<p>{$com.name}</p>
+					<p ><span>项目编号</span><span class="em">{$com.com_number}</span></p>
 					<p><span>兑换时间</span>
-						<span id="timer" class="timer-simple-seconds" timer="10">
+						<span id="timer" class="timer-simple-seconds" timer="1000">
 							<span class="day">5</span>天<span class="hour">00</span>时<span class="minute">00</span>分<span class="second">00</span>秒
 						</span>
 
@@ -164,7 +164,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>本期资金</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">0.00</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{$zongjin}</span></p>
 					</div>
 					<div class="row">
 						<p><span>兑换数量</span><span>可手动输入</span></p>
@@ -174,21 +174,15 @@
 							<span id="plus">+</span>
 						</p>
 					</div>
-					<div class="row" style="display: none;">
-						<p><span>使用红包</span><span>超出不返还</span></p>
-						<p>
-							<span>请选择红包</span><span class="icon"></span>
-						</p>
-					</div>
-					<div class="row" style="display: none;">
+					<div class="row">
 						<p>支付密码</p>
 						<p>
-							<input type="tel" name="" id="max6" placeholder="请输入支付密码" maxlength="6" />
+							<input type="tel" name="" id="max6" placeholder="请输入支付密码" maxlength="6" style="border:none;"/>
 						</p>
 					</div>
 					<div class="row">
 
-						<p><span>共</span><span class="em" id="numbers">1</span><span>只鹅:   </span><span class="em">￥</span><span class="em" id="qian">780.00</span>
+						<p><span>共</span><span class="em" id="numbers">1</span><span>只鹅:   </span><span class="em">￥</span><span class="em" id="qian">{$com.convert}</span>
 							<!--<span style="font-size: 0.6rem;margin-left: 2px;">（</span><span style=" font-size: 0.6rem;">养殖利润:</span>
 							<span class="em" style="font-size: 0.6rem;color: #a9a9a9;">￥</span>
 							<span class="em" id="profit" style="font-size: 0.7rem;    color: #a9a9a9;">41.60</span>
@@ -211,13 +205,13 @@
 
 				</div>
 			</div>
-			<button class="big-button press" id="big-button"><!--<span class="icon"></span><span>10点开抢</span>-->朕要买鹅</button>
-			<div class="detail21">
+			<button class="big-button press" id="big-button"><!--<span class="icon"></span><span>10点开抢</span>-->朕要兑换</button>
+
+			<div class="detail21" style="display: block;"><p class="record"><span>1</span><span>￥780.00</span></p>
+
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
-				<p class="record" id="record1"><span>总数量</span><span>总金额</span></p>
-
+				<p class="record" id="record1"><span>总数量：1</span><span>总金额：￥780.00</span></p>
 			</div>
-
 			<div id="goodcover"></div>
 			<!-- 商铺辅助鹅群群说明-->
 		</div>
@@ -336,30 +330,61 @@
 					});
 				} else {
 					if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
-						$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
-						$("#big-button").attr({
-							"disabled": "disabled"
+
+						var sp_id="{$com.id}";
+						var number = $("#number").val();//兑换的数量
+						var pay_pass = $("#max6").val();//兑换的数量
+						$.ajax({
+		                    type : "POST",  //提交方式
+		                    url : "{:url('rancher/rainfo')}",//路径
+		                    data : {
+		                        "sp_id" : sp_id,
+		                        "number" : number,
+		                        "pay_pass" : pay_pass
+		                    },
+		                    dataType : "json",//数据，这里使用的是Json格式进行传输
+		                    success : function(result) {
+								if (result.code==1) {
+									$(".overtop").text(result.msg);
+									overtop();
+									$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
+									$("#big-button").attr({
+										"disabled": "disabled"
+									});
+									q = q - $("#qian").text();
+									$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
+
+									if($(".detail21 p").length == 2) {
+										$(".detail21").css("display", "block");
+									}
+
+
+									$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
+									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
+									$(".detail21 ").prepend($("body>p.record").clone(true));
+
+									$("#record1 span:nth-child(1)").text("总数量：" + (zs - parseInt($("#zhi").text())));
+									$("#record1 span:nth-child(2)").text("总金额：￥" + (zj - q) + ".00");
+
+									$(".overtop").text("兑换成功");
+									overtop();
+									$("#number").val(1);
+									bian();
+									setTimeout(function() {
+										$("#big-button").removeAttr("disabled");
+									}, 1500);
+
+								}else{
+									$(".overtop").text(result.msg);
+									overtop();
+								}
+		                    },
+		                    error : function (){
+		                    	$(".overtop").text('请刷新页面重试');
+								overtop();
+		                }
 						});
-						q = q - $("#qian").text();
-						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
 
-						if($(".detail21 p").length == 2) {
-							$(".detail21").css("display", "block");
-						}
-						$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
-						$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
-						$(".detail21 ").prepend($("body>p.record").clone(true));
-						$("#record1 span:nth-child(1)").text("总数量：" + (zs - parseInt($("#zhi").text())));
-						$("#record1 span:nth-child(2)").text("总金额：￥" + (zj - q) + ".00");
-
-						$(".overtop").text("兑换成功");
-						overtop();
-						$("#number").val(1);
-
-						bian();
-						setTimeout(function() {
-							$("#big-button").removeAttr("disabled");
-						}, 1500);
 					} else {
 						$(".overtop").text("超出剩余数量");
 						overtop();
