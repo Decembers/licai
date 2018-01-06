@@ -344,10 +344,9 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 
 			/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts + ".00")*/
 			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
-
 			var zs = parseInt($("#record1 span:nth-child(1) i").text());
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
-			/*$("#record1 span:nth-child(2) i").text(zj+".00");*/
+			$("#record1 span:nth-child(2) i").text(zj+".00");
 			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
