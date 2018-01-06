@@ -363,13 +363,11 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 									q = q - $("#qian").text();
 									$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
 
-									if($(".detail21 p").length == 2) {
-										$(".detail21").css("display", "block");
-									}
+									
 
-									$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
+									/*$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
-									$(".detail21 ").prepend($("body>p.record").clone(true));
+									$(".detail21 ").prepend($("body>p.record").clone(true));*/
 
 									$("#record1 span:nth-child(1)").text("总数量：" + (zs - parseInt($("#zhi").text())));
 									$("#record1 span:nth-child(2)").text("总金额：￥" + (zj - q) + ".00");
