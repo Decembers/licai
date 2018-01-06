@@ -154,10 +154,19 @@
 					<p>{$com.name}</p>
 					<p ><span>项目编号</span><span class="em">{$com.com_number}</span></p>
 					<p><span>兑换时间</span>
-						<span id="timer" class="timer-simple-seconds" timer="1000">
+					{if condition="$order.status eq 1"}
+						<span id="timer" class="timer-simple-seconds" timer="{$com.convert_time}">
 							<span class="day">5</span>天<span class="hour">00</span>时<span class="minute">00</span>分<span class="second">00</span>秒
 						</span>
-
+					{elseif condition="$order.status eq 2" /}
+						<span id="timer" class="timer-simple-seconds" timer="1">
+							兑换时间已结束
+						</span>
+					{else /}
+						<span id="timer" class="timer-simple-seconds" timer="1">
+							订单完成后开始
+						</span>
+					{/if}
 					</p>
 				</div>
 
@@ -205,7 +214,7 @@
 
 				</div>
 			</div>
-			<button class="big-button press" id="big-button"><!--<span class="icon"></span><span>10点开抢</span>-->朕要兑换</button>
+			<button class="big-button press" id="big-button">朕要兑换</button>
 
 			{if condition="$conversion"}
 				<div class="detail21" style="display: block;">
