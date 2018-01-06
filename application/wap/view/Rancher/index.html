@@ -32,8 +32,8 @@
 				color: #fff;
 				font-size: 3.1rem;
 				line-height: 2.9rem;
-				margin:  0;
-				    padding: 1rem 0;
+				margin: 0;
+				padding: 1rem 0;
 			}
 			/*我的鹅只 */
 
@@ -222,8 +222,9 @@
 				box-sizing: border-box;
 				padding-left: 3.5rem;
 				color: white;
-
-				white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
 			}
 
 			.con_height {
@@ -252,28 +253,35 @@
 			.type1 {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea)!important;
 			}
-			.type1 .stage{
+
+			.type1 .stage {
 				color: #3db4cc;
 			}
+
 			.type2 {
 				background: linear-gradient(to right, #41d1a1, #6de3a4)!important;
 			}
-			.type2 .stage{
+
+			.type2 .stage {
 				color: #41d1a1;
 			}
+
 			.type3 {
 				background-image: url(__WAP__/img/vip.jpg);
 				filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
 				-moz-background-size: 100% 100%;
 				background-size: 100% 100%
 			}
-			.type3 .stage{
+
+			.type3 .stage {
 				color: #ffbe4c !important;
 			}
+
 			.type4 {
 				background: linear-gradient(to right, #ABABAB, #B0B0B0)!important;
 			}
-			.type4 .stage{
+
+			.type4 .stage {
 				color: #ABABAB;
 			}
 		</style>
@@ -405,10 +413,10 @@
 					</div>
 					<div class="total_bottom a9">
 						<ul>
-							<li><span class="fl">交易总额</span><span class="fr">￥{$arr.money}</span></li>
+							<li><span class="fl">交易总额</span><span class="fr">{$arr.money}</span></li>
 							<li><span class="fl">购买期数</span><span class="fr">{$arr.count}</span></li>
-							<li><span class="fl">已收本金</span><span class="fr">￥{$arr.principal}</span></li>
-							<li><span class="fl">已收回报</span><span class="fr">￥{$arr.return_price}</span></li>
+							<li><span class="fl">已收本金</span><span class="fr">{$arr.principal}</span></li>
+							<li><span class="fl">已收回报</span><span class="fr">{$arr.return_price}</span></li>
 
 						</ul>
 					</div>
@@ -423,7 +431,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 		<div class="background">
 
@@ -434,7 +441,7 @@
 			$("button").focus(function() {
 				this.blur()
 			});
-			$(".sheep li .project_name").css("padding-right",$(".sheep li .project_name .fr").width()+10+"px");
+			$(".sheep li .project_name").css("padding-right", $(".sheep li .project_name .fr").width() + 10 + "px");
 			/*点击切换*/
 			$(".header p").click(function() {
 				$("#goodcover").css("display", "block");
@@ -447,15 +454,71 @@
 			/*.no_sheep */
 			// $(".mysheep h5").text($(".sheep li").length);
 			butt();
-			function butt(){
-				if($(".sheep li").length == 0){
-					$(".big-button").css("display","block");
-					$(".no_sheep").css("display","block");
-				}else{
-					$(".big-button").css("display","none");
-					$(".no_sheep").css("display","none");
+
+			function butt() {
+				if($(".sheep li").length == 0) {
+					$(".big-button").css("display", "block");
+					$(".no_sheep").css("display", "block");
+				} else {
+					$(".big-button").css("display", "none");
+					$(".no_sheep").css("display", "none");
 				}
 			}
+
+			function tofix(st) {
+				var zong = parseFloat(st.text());
+				/*var zo = zong.toString();*/
+				var one = zong % 1;
+				var one2 = zong % 0.1;
+				if(one == 0) {
+					st.text(zong + ".00");
+				} else {
+					/*判断小数点后的长度*/
+					var ss = zong.toString().split(".")[1].length;
+					if(ss==1){
+						st.text(zong + "0");
+					}else if(ss==2){
+						st.text(zong );
+					}
+					/*if(one2 == 0) {
+
+						alert(one2)
+					} else {
+						st.html(Math.floor(zong * 100) / 100);
+					}*/
+				}
+			}
+
+			function tofix1(st) {
+				var zong = parseFloat(st.text());
+				var zo = zong.toString();
+				var one = zong % 1;
+				var one2 = zong % 0.1;
+				/*判断整除*/
+				if(one == 0) {
+					st.text("￥" + zo + ".00");
+				} else {
+					if(one2 == 0) {
+						st.text("￥" + zo + "0");
+					} else {
+						st.html("￥" + Math.floor(zong * 100) / 100  );
+					}
+				}
+			}
+			/*写入 小数点后两位*/
+			var h6 = $(".collect_total h6");
+			var in1 = $(".collect .fl:nth-child(1) .integer");
+			var in2 = $(".collect .fl:nth-child(2) .integer");
+			var fr1 = $(".total_bottom ul li:nth-child(1) .fr");
+			var fr2 = $(".total_bottom ul li:nth-child(3) .fr");
+			var fr3 = $(".total_bottom ul li:nth-child(4) .fr");
+			tofix(h6);
+			tofix(in1);
+			tofix(in2);
+			tofix1(fr1);
+			tofix1(fr2);
+			tofix1(fr3);
+
 		</script>
 	</body>
 
