@@ -4,94 +4,31 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-		<!--<title>牧场超市</title>-->
+		<!--<title>农场超市</title>-->
 		<title>趣味农场</title>
 		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
-		<script src="__WAP__/js/jquery.js"></script>
-		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
-		<style type="text/css">
-			#shopping_mall .text_con {
-				position: relative;
-			}
-
-			#shopping_mall .text_con .f_r {
-				width: 20px;
-				height: 20px;
-				background: url(__WAP__/img/bank/gou.png);
-				-moz-background-size: 100% 100%;
-				background-size: 100% 100%;
-				position: absolute;
-				bottom: 0;
-				right: 0;
-			}
-
-			.price {
-				display: flex;
-			}
-
-			.detail04 {
-				width: 100%;
-				position: fixed;
-				bottom: 0;
-				left: 0;
-				height:  40px;
-				background-color: white;
-				display: flex;
-				justify-content: flex-end;
-				    border-top: 1px solid #d9d9d9;
-			}
-
-			.detail04 div {
-				line-height:  40px;
-				height:  40px;
-				display: flex;
-				margin-left: 1rem;
-			}
-
-			.detail04 div:nth-child(1) span {
-				color: #a9a9a9;
-
-				font-size: 16px;
-				margin: 0 0.1rem;
-			}
-
-			.detail04 div:nth-child(1) span.em {
-				color: black;
-			}
-
-			.detail04 div:nth-child(2) p {
-				line-height:  40px;
-				height:  40px;
-				padding: 0 1rem;
-				background: linear-gradient(to right, #3db4cc, #6fd6ea);
-				color: white;
-			}
-
-			.u-flyer {
-				width: 50px;
-				height: 50px;
-			}
-		</style>
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
 	</head>
 
-	<body>
-		<div class="wrapper" id="shopping_mall">
+	<body >
+		<div class="wrapper"  id="shopping_mall">
 			<!--header -->
 			<div class="header">
-				<p onclick="window.location='{:url("Supermarket/dingdan")}'">订单</p>
-				<h3>牧场超市</h3>
-				<a href="{:url('Supermarket/gouwuche')}">购物车</a>
+				
+				<h3>农场超市</h3>
+				<a href="{:url('Supermarket/lists')}" >购物清单</a>
 			</div>
 			<div class="content infinite-scroll native-scroll">
 				<!--超市物品展示-->
 				<div>
 					<ul class="integral_goods clearfix">
 						<li>
-							<a href="{:url('Supermarket/info')}">
+							<a href="{:url('Supermarket/info')}" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/5959ee9350d4c.jpg">
 								</div>
@@ -100,13 +37,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i >99</i></span>
+								<span class="price">￥199</span>
 								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number13">19</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/5959edd60688c.jpg">
 								</div>
@@ -115,14 +54,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>199</i></span>
+								<span class="price">￥299</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number12">18</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/5959edd60688c.jpg">
 								</div>
@@ -131,13 +71,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>299</i></span>
+								<span class="price">￥499</span>
 								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number11">18</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/595616fe7b16f.jpg">
 								</div>
@@ -146,14 +88,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>399</i></span>
+								<span class="price">￥1080</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number1">18</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/595617b6e853f.jpg">
 								</div>
@@ -162,14 +105,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>499</i></span>
+								<span class="price">￥92</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number2">10</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/59561844b1f79.jpg">
 								</div>
@@ -178,14 +122,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>919</i></span>
+								<span class="price">￥89</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number3">13</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/595618e48412b.jpg">
 								</div>
@@ -194,14 +139,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>990</i></span>
+								<span class="price">￥95</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number4">9</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/595619515cddc.jpg">
 								</div>
@@ -210,14 +156,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>230</i></span>
+								<span class="price">￥229</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number5">9</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/595619ce1b33b.jpg">
 								</div>
@@ -226,14 +173,15 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>327</i></span>
+								<span class="price">￥139</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number6">9</span>
 								</div>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" >
 								<div class="pro_pic">
 									<img src="__WAP__/img/59561a4011f9e.jpg">
 								</div>
@@ -242,68 +190,113 @@
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i>824</i></span>
+								<span class="price">￥229</span>
 								<div class="f_r">
-
+									<span ></span>
+									<span class="fabulous f_l" id="json_number7">9</span>
 								</div>
 							</div>
 						</li>
-
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595726f32e641.jpg">
+								</div>
+								<div class="text_int">
+									<h5>羊脊骨切块</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥79</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number8">8</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595727034793d.jpg">
+								</div>
+								<div class="text_int">
+									<h5>手工肉馅</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥85</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number9">10</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" >
+								<div class="pro_pic">
+									<img src="__WAP__/img/595726ca6ee88.jpg">
+								</div>
+								<div class="text_int">
+									<h5>蒙古包子</h5>
+								</div>
+							</a>
+							<div class="text_con">
+								<span class="price">￥60</span>
+								<div class="f_r">
+									<span ></span>
+									<span class="fabulous f_l" id="json_number10">11</span>
+								</div>
+							</div>
+						</li>
 					</ul>
 					<!--<div class="no_more">没有更多数据了哦</div>-->
 				</div>
 			</div>
 			<!--footer-->
-			<div class="detail04">
-				<div class="">
-					<span>共</span>
-					<span class="em" id="numbers">0</span>
-					<span>件</span>
-					<span>小计</span>
-					<span>￥</span>
-					<span class="em" id="qian">0</span>
+			<div class="footer">
 
-				</div>
-				<div class="">
-					<p>朕要购买</p>
-				</div>
+				<a href="{:url('index/index')}">
+
+					<span class="icons "></span>
+
+					<p>农场</p>
+
+				</a>
+
+				<a href="{:url('Supermarket/index')}">
+
+					<span class="icons"></span>
+
+					<p>超市</p>
+
+				</a>
+
+				<a href="{:url('Discover/index')}">
+
+					<span class="icons"></span>
+
+					<p>发现</p>
+
+				</a>
+
+				<a href="{:url('member/index')}">
+
+					<span class="icons"></span>
+
+					<p>我的</p>
+
+				</a>
+
 			</div>
+
 		</div>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
-
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
-			$(".wrapper").css("padding-bottom","40px");
+			$(".footer a:nth-child(2) .icons").css("background", "url(__WAP__/img/iconlist_02.png) no-repeat center 69.5%");
+			$(".footer a:nth-child(2) .icons").css("background-size", "2.5rem");
 
-			$(".f_r").click(function() {
-				var men = parseInt($(this).prev().children("i:last-child").text());
-				$("#numbers").text(parseInt($("#numbers").text()) + 1);
-				$("#qian").text(parseInt($("#qian").text()) + men);
-				var img = $(this).parent().prev().children("div:first-child").children("img:first-child").attr("src"); //获取当前点击图片链接
-				var imgs = $(this).parent().prev().children("div:first-child").children("img:first-child");
-				var offset = $("#numbers").offset(),
-			flyer = $("<img class='u-flyer' src='"+img+"'/>");
-				flyer.fly({
-					start: {
-						left: event.clientX,
-						top: event.clientY
-					},
-					end: {
-						left: offset.left,
-						top: offset.top,
-						width: 20,
-						height: 20
-					},
-					onEnd: function() {
-						/*$("#tip").show().animate({
-							width: '200px'
-						}, 300).fadeOut(500);*/ ////成功加入购物车动画效果
-						this.destory(); //销毁抛物体
-					}
-				});
-			});
 		</script>
 	</body>
 

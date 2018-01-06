@@ -4,18 +4,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-		<!--<title>牧场超市</title>-->
+		<!--<title>农场超市</title>-->
 		<title>趣味农场</title>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
-		<script src="__WAP__/js/jquery.js"></script>
-		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
 		<style type="text/css">
+
+
 			.details {
 				width: 95%;
 				margin: 0 auto;
-				padding-bottom: 10px;
 			}
 
 			.detail01,
@@ -90,9 +91,8 @@
 			.detail02 li p:nth-child(1) {
 				font-size: 0.9rem;
 			}
-
 			.detail02 li p:nth-child(2) {
-				font-size: 1rem;
+				font-size:1rem;
 			}
 
 			.detail02 li p:nth-child(1) span:nth-child(2) {
@@ -126,49 +126,43 @@
 			.detail03 img {
 				width: 100%;
 			}
-
-			.detail04 {
+			.detail04{
 				width: 100%;
 				position: fixed;
-				bottom: 0;
-				left: 0;
-				height: 3rem;
-				background-color: white;
-				display: flex;
-				justify-content: flex-end;
-				    border-top: 1px solid #d9d9d9;
+			bottom: 0;
+			left: 0;
+			height: 3rem;
+			background-color: white;
+			display: flex;
+			justify-content: flex-end;
 			}
-
-			.detail04 div {
+			.detail04 div{
 				line-height: 3rem;
 				height: 3rem;
 				display: flex;
 				margin-left: 1rem;
 			}
-
-			.detail04 div:nth-child(1) span {
-				color: #a9a9a9;
-				;
+			.detail04 div:nth-child(1) span{
+				color: #a9a9a9;;
 				font-size: 0.9rem;
 				/*margin: 0 0.1rem;*/
 			}
-
-			.detail04 div:nth-child(1) span.em {
+			.detail04 div:nth-child(1) span.em{
 				color: black;
 			}
-
-			.detail04 div:nth-child(2) p {
+			.detail04 div:nth-child(2) p{
 				line-height: 3rem;
 				height: 3rem;
 				padding: 0 1rem;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				color: white;
 			}
-
-			.u-flyer {
-				width: 50px;
-				height: 50px;
-			}
+			.quality_ensure {
+    font-size: 0.7rem;
+    padding-left: 21px;
+    background: url(__WAP__/img/ensure.jpg) no-repeat left center;
+    background-size: 17px;
+}
 		</style>
 	</head>
 
@@ -178,8 +172,8 @@
 				<div class="">
 					<span class="icon"></span><span>返回</span>
 				</div>
-				<h3>牧场超市</h3>
-				<a href="index2-liss.html">购物车</a>
+				<h3>农场超市</h3>
+				<a href="{:url('Supermarket/lists')}" >购物清单</a>
 			</div>
 			<div class="details">
 				<div class="detail01">
@@ -190,7 +184,7 @@
 						羊肉馅600g/袋*1、蒙古包子450g/袋*1、羊肉片320g/袋*1
 					</div>
 					<div class="row">
-						<img src="__WAP__/img/5959ee9350d4c.jpg" id="img">
+						<img src="__WAP__/img/5959ee9350d4c.jpg">
 					</div>
 					<div class="row">
 						（包邮）平装礼盒1.37kg
@@ -205,9 +199,12 @@
 						<p><span>购养数量</span><span>可手动输入</span></p>
 						<p class="shu">
 							<span id="subtract">-</span>
-							<input type="tel" name="" id="number" value="0" maxlength="5" />
+							<input type="tel" name="" id="number" value="1" maxlength="5" />
 							<span id="plus">+</span>
 						</p>
+					</li>
+					<li>
+						<p class="quality_ensure a9">趣味农场正品保障，农场原生态养殖</p>
 					</li>
 				</ul>
 				<div class="detail03">
@@ -217,28 +214,25 @@
 			<div class="detail04">
 				<div class="">
 					<span>共</span>
-					<span class="em" id="numbers">0</span>
+					<span class="em" id="numbers">1</span>
 					<span>件</span>
 					<span>小计</span>
 					<span>￥</span>
-					<span class="em" id="qian">0.00</span>
+					<span class="em" id="qian">199</span>
+
 				</div>
 				<div class="">
-					<p onclick="window.location='index2-liss.html'">朕要购买</p>
+					<p>朕要购买</p>
 				</div>
 			</div>
 
 		</div>
-		<div class="background"></div>
-		<p class="overtop"></p>
-		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$("a,input,button").focus(function() {
-				this.blur()
-			});
-
-			/*羊数量 - */
+				<div class="background"></div>
+				<p class="overtop"></p>
+				<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+				<script type="text/javascript">
+					$("a,input,button").focus(function(){this.blur()});
+					/*羊数量 - */
 			$("#subtract").click(function() {
 				var num = parseInt($("#number").val());
 				if($("#number").val() == "") {
@@ -249,25 +243,7 @@
 				if(num > 1) {
 					$("#number").val(num - 1);
 					bian();
-					var img = $("#img").attr("src");
-
-					var offset = $("#numbers").offset(),
-						flyer = $("<img class='u-flyer' src='"+img+"'/>");
-
-					flyer.fly({
-						start: {
-							left: offset.left,
-							top: offset.top,
-						},
-						end: {
-							left: event.clientX,
-							top: event.clientY
-						},
-						onEnd: function() {
-							this.destory(); //销毁抛物体
-						}
-					});
-				} else {
+				}else{
 					$("#number").val("1");
 					$(".overtop").text("购买数量不能小于1")
 					overtop();
@@ -289,29 +265,22 @@
 				} else {
 					$("#number").val(num + 1);
 					bian();
-					var img = $("#img").attr("src");
-					var offset = $("#numbers").offset(),
-						flyer = $("<img class='u-flyer' src='"+img+"'/>");
-
-					flyer.fly({
-						start: {
-							left: event.clientX,
-							top: event.clientY
-						},
-						end: {
-							left: offset.left,
-							top: offset.top,
-							width: 20,
-							height: 20
-						},
-						onEnd: function() {
-							this.destory(); //销毁抛物体
-						}
-					});
 				}
 
 			})
 			/*羊数量输入时时变更*/
+
+			function overtop() {
+				$(".details").after($("body>p.overtop").clone(true));
+				var ss1 = $(".wrapper .overtop");
+				ss1.css("display", "block");
+				ss1.css("opacity", "1");
+				setTimeout(function() {
+					ss1.css("opacity", "0");
+					ss1.remove();
+				}, 1000);
+			}
+
 			function bian() {
 				/*羊只数量 输出*/
 				if($("#number").val() == "") {
@@ -321,7 +290,6 @@
 				}
 				tofix($("#qian"), 199); /*羊总价*/
 			}
-
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				var zo = zong.toString();
@@ -337,7 +305,7 @@
 					}
 				}
 			}
-		</script>
+				</script>
 	</body>
 
 </html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<META http-equiv="Page-Enter" CONTENT="RevealTrans(Duration=4,Transition=Blend in)">
+		<title>趣味农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
+		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			@fa-font-path: "font-awesome-4.7.0/less/variables.less";
+			.order {
+				width: 100%;
+				overflow: hidden;
+				background-color: white;
+			}
+
+			.order p {
+				float: left;
+				width: 20%;
+				padding-bottom: 5px;
+				box-sizing: border-box;
+			}
+
+			.order p.red {
+				color: gray;
+				border-bottom: 2px solid red;
+			}
+
+			.order p span {
+				display: block;
+				text-align: center;
+			}
+
+			.order p span:nth-child(1) {
+				margin: 5px 0;
+				font-size: 22px;
+			}
+
+			.order p span:nth-child(2) {
+				font-size: 14px;
+			}
+			/*main*/
+
+			.main {
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.case {
+				width: 500%;
+				overflow: auto;
+				margin-left: 0;
+			}
+
+			.case ul {
+				width: 20%;
+				float: left;
+				box-sizing: border-box;
+			}
+
+			.case ul li,
+			.case ul li>div {
+				width: 100%;
+			}
+
+			.case ul li>div {
+				overflow: hidden;
+				background-color: white;
+				margin-top: 2px;
+			}
+
+			.case ul li .top {
+				padding: 0.5rem;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				line-height: 25px;
+			}
+
+			.case ul li .top span {
+				margin-left: 0.5rem;
+			}
+			.case ul li .top .icon_img{
+				width:auto ;
+				height: 25px;
+			}
+			/*.center ul li conter*/
+
+			.case ul li .top p,
+			.case ul li .center,
+			.case ul li .center .fl,
+			.case ul li .center .fr,
+			.case ul li .center .fr span {
+				display: flex;
+			}
+
+			.case ul li .center .fl {
+				width: 100%;
+				padding: 5px;
+				box-sizing: border-box;
+			}
+
+			.case ul li .center {
+				position: relative;
+			}
+
+			.case ul li .center .fr {
+				width: 25%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				justify-content: flex-end;
+				color: darkgrey;
+			}
+
+			.case ul li .center .fl div {
+				box-shadow: 1px 1px 1px gray;
+				margin-right: 10px;
+			}
+
+			.case ul li .center .fl div,
+			.case ul li .center .fl div img {
+				width: 70px;
+				height: 70px;
+				display: block;
+			}
+
+			.case ul li .center .fr span {
+				line-height: 70px;
+				font-size: 15px;
+				margin-right: 0.5rem;
+			}
+
+			.case ul li .center .fr span:nth-child(2) {
+				font-size: 1.5rem;
+			}
+			/*bottom*/
+
+			.bottom {
+				position: relative;
+				padding: 0.5rem;
+				display: flex;
+				justify-content: flex-end;
+				box-sizing: border-box;
+				font-size: 14px;
+			}
+
+			.bottom .fu {
+				position: absolute;
+				left: 0.5rem;
+				top: 0.5rem;
+				line-height: 30px;
+			}
+
+			.bottom .button {
+				width: 80px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				margin-left: 0.5rem;
+				border: 1px solid black;
+				box-sizing: border-box;
+				border-radius: 5px;
+				font-size: 14px;
+			}
+
+			.bottom p:nth-child(3) {
+				color: #D37B57;
+				border-color: #D37B57;
+			}
+
+			.he {
+				background-color: #FF702A;
+				color: white !important;
+			}
+			/*提示*/
+
+			.modal1 {
+				width: 80vw;
+				position: fixed;
+				z-index: 1002;
+				left: 50%;
+				margin-left: -40vw;
+				border-radius: 0.5rem;
+				top: 50%;
+				margin-top: -60px;
+				text-align: center;
+				background: #e8e8e8;
+				color: #3d4145;
+				display: none;
+				overflow: hidden;
+			}
+
+			.modal1 h5 {
+				width: 100%;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				line-height: 40px;
+				height: 30px;
+				font-size: 16px;
+				display: none;
+			}
+
+			.modal1 p {
+				font-size: 16px;
+			}
+
+			.modal1 .modal1_p1 {
+				box-sizing: border-box;
+				padding: 15px 0;
+			}
+
+			.modal1 .modal1_p {
+				line-height: 40px;
+				display: flex;
+				border-top: 1px solid white;
+			}
+
+			.modal1 .modal1_p span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+
+			.modal1 .modal1_p span:nth-child(1) {
+				border-right: 1px solid white;
+			}
+
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
+			.without,.without p{
+				width: 100%;
+				text-align: center;
+			}
+			.without p:nth-child(2){
+				line-height: 40px;
+			}
+			.without{
+				padding-top: 100px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper" id="shopping_mall">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>我的订单</h3>
+				<!--<a href="">回收站</a>-->
+			</div>
+			<div class="order">
+				<!--fa-book-->
+				<p class="red"><span class="fa fa-book"></span><span>全部</span></p>
+				<p><span class="fa fa-credit-card"></span><span>待付款</span></p>
+				<p><span class="fa fa-truck"></span><span>待发货</span></p>
+				<p><span class="fa fa-cloud-download"></span><span>待收货</span></p>
+				<p><span class="fa fa-life-ring"></span><span>已完成</span></p>
+			</div>
+			<div class="main">
+				<div class="case">
+					<ul class="entire">
+						<li>
+							<div class="top">
+								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p>已取消</p>
+							</div>
+							<div class="center">
+								<div class="fl" >
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu">实付款：￥123132</p>
+								<p class="button">删除订单</p>
+								<p class="button">再次购买</p>
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p>已完成</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu">实付款：￥123132</p>
+								<p class="button">查看物流</p>
+								<p class="button">追加评价</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="unpaid">
+						<li>
+							<div class="top">
+								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p>去支付</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu">实付款：￥123132</p>
+								<p class="button">联系客服</p>
+								<p class="button he">去支付</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="send">
+
+						<li>
+							<div class="top">
+								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p>已发货</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu">实付款：￥123132</p>
+								<p class="button">联系客服</p>
+								<p class="button">查看详情</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="receiving">
+
+						<li>
+							<div class="top">
+								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p>待收货</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu">实付款：￥123132</p>
+								<p class="button">联系客服</p>
+								<p class="button">查看详情</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="accomplish">
+
+						<!--<li>
+							<div class="top">
+								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p>交易成功</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__/img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu">实付款：￥123132</p>
+								<p class="button">查看物流</p>
+								<p class="button">追加评价</p>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="background"></div>
+		<p class="overtop"></p>
+		<div class="modal1">
+			<h5>提示</h5>
+			<p class="modal1_p1"></p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
+		</div>
+		<div id="goodcover"></div>
+		<div class="without">
+	<p class="fa fa-envelope-open-o fa-3x"></p><p>您暂时没有订单</p>
+</div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".top p").css("line-height", $(".top p .fa").height() + "px");
+			len();
+
+			function len() {
+				for(var i = 0; i < $(".case ul").length; i++) {
+					for(var n = 0; n < $(".case ul:nth-child(" + (i + 1) + ") li").length; n++) {
+							if($(".case ul:nth-child(" + (i + 1) + ") li").length==0){
+								/*$(".case ul:nth-child(" + (i + 1) + ") ").prepend($("body>div.without").clone(true));*/
+								/*$(".case ul:nth-child(" + (i + 1) + ") .without").css("display","block");*/
+							}
+						for(var s = 0; s < $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ")").length; s++) {
+							var lens = $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").length;
+							$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr span i").text(lens);
+							if(lens > 3) {
+								$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").css("display", "none");
+								for(var is = 1; is < 4; is++) {
+									$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div:nth-child(" + is + ")").css("display", "block");
+								}
+							}else{
+								$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity","0");
+							}
+						}
+					}
+				}
+			}
+			/*alert($(".accomplish li").length)*/
+			$(".order p").click(function() {
+				$(".order p").removeClass("red");
+				$(this).addClass("red");
+				var tt = $(".order p").index($(this));
+				$(".main .case").css("margin-left", -tt * 100 + "%");
+				if($(".case ul:nth-child(" + (tt + 1) + ") li").length == 0){
+					if($(".case ul:nth-child(" + (tt + 1) + ") .without").length==0){
+						$(".case ul:nth-child(" + (tt + 1) + ") ").prepend($("body>div.without").clone(true));
+					}
+					$(".case ul:nth-child(" + (tt + 1) + ") .without").css("display","block");
+				}
+
+			})
+			var nas;
+			$(".bottom .button").click(function() {
+				if($(this).text() == "删除订单") {
+					nas = $(this).parent().parent();
+					$(".modal1 h5 ").css("display", "block");
+					$(".modal1 .modal1_p1").text("是否删除本条记录？")
+					blocks();
+				} else if($(this).text() == "联系客服") {
+					nas = 0;
+					$(".modal1 h5 ").css("display", "none");
+					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
+					blocks();
+				}else if($(this).text() == ""){
+					window.location.href='{:url("Supermarket/pay")}';
+				}
+			})
+
+			$(".center .fl").click(function(){
+					window.location.href="{:url('Supermarket/dingdaninfo')}";
+			})
+			/*弹窗确定的删除*/
+			$(".modal-button-bold").click(function() {
+				if($(".modal1_p1").text()=="是否删除本条记录？"){
+					nones();
+				nas.remove();
+				}else{
+					nones();
+				}
+			});
+
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span:nth-child(1)").click(function() {
+				nones();
+			})
+
+			function blocks() {
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
+		</script>
+	</body>
+
+</html>

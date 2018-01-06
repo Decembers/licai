@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-27 10:37:47
+ * @Last Modified time: 2018-01-06 09:19:16
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -20,6 +20,22 @@ class Supermarket extends Yang
         return $this->fetch();
     }
     public function info()
+    {
+        return $this->fetch();
+    }
+    public function dingdan()
+    {
+        return $this->fetch();
+    }
+    public function dingdaninfo()
+    {
+        return $this->fetch();
+    }
+    public function gouwuche()
+    {
+        return $this->fetch();
+    }
+    public function pay()
     {
         return $this->fetch();
     }
