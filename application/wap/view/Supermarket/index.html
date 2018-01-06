@@ -42,7 +42,7 @@
 				height:  40px;
 				background-color: white;
 				display: flex;
-				justify-content: flex-end;
+				    justify-content: space-between;
 				    border-top: 1px solid #d9d9d9;
 			}
 
@@ -83,7 +83,7 @@
 		<div class="wrapper" id="shopping_mall">
 			<!--header -->
 			<div class="header">
-				<p style="position: absolute; top: 10px;left: 0.5rem ;line-height: 20px;color: grey;" onclick="window.location='{:url("Supermarket/dingdan")}'">我的订单</p>
+				<p style="position: absolute; top: 10px;left: 0.5rem ;line-height: 20px;color: grey;" onclick="window.location='{:url("index/index")}'">首页</p>
 				<h3>牧场超市</h3>
 				<a href="{:url('Supermarket/gouwuche')}">购物车</a>
 			</div>
@@ -277,14 +277,14 @@
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
 			$(".wrapper").css("padding-bottom","40px");
-
+var offset = $("#numbers").offset();
 			$(".f_r").click(function() {
 				var men = parseInt($(this).prev().children("i:last-child").text());
 				$("#numbers").text(parseInt($("#numbers").text()) + 1);
 				$("#qian").text(parseInt($("#qian").text()) + men);
 				var img = $(this).parent().prev().children("div:first-child").children("img:first-child").attr("src"); //获取当前点击图片链接
 				var imgs = $(this).parent().prev().children("div:first-child").children("img:first-child");
-				var offset = $("#numbers").offset(),
+				offset,
 			flyer = $("<img class='u-flyer' src='"+img+"'/>");
 				flyer.fly({
 					start: {
