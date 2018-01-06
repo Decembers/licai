@@ -348,7 +348,7 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 			var zs = parseInt($("#record1 span:nth-child(1) i").text());
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			/*$("#record1 span:nth-child(2) i").text(zj+".00");*/
-			alert(zs+" "+zj)
+			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 				if(parseInt($("#zhi").text()) < 1) {
@@ -357,7 +357,6 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 					});
 				} else {
 					if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
-
 						var sp_id="{$com.id}";
 						var number = $("#number").val();//兑换的数量
 						var pay_pass = $("#max6").val();//兑换的数量
@@ -389,12 +388,16 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 									/*$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 									$(".detail21 ").prepend($("body>p.record").clone(true));*/
+									zs = zs +parseInt($("#numbers").text());
+									zj = zj+parseInt($("#qian").text())+".00";
 
-									$("#record1 span:nth-child(1) i").text(zs +parseInt($("#numbers").text()));
-									$("#record1 span:nth-child(2) i").text(zj+parseInt($("#qian").text())+".00");
+									$("#record1 span:nth-child(1) i").text(zs);
+									$("#record1 span:nth-child(2) i").text(zj);
 									
 
 									$("#number").val(1);
+									
+									$("#max6").val("");
 									bian();
 									setTimeout(function() {
 										$("#big-button").removeAttr("disabled");
