@@ -407,14 +407,14 @@
 					$(".modal1 .modal1_p1").text("是否删除本条记录？")
 					blocks();
 				} else if($(this).text() == "支付订单") {
-					window.location.href="index2-dingdan-zhif.html";
+					window.location.href="{:url('Supermarket/pay')}";
 				}
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				nones();
 				nas.remove();
-				window.location.href="index2-dingdan.html";
+				window.location.href="{:url('Supermarket/dingdan')}";
 			});
 
 			/*弹窗*/

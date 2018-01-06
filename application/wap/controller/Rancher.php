@@ -3,10 +3,13 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 19:16:10
+ * @Last Modified time: 2018-01-06 11:34:15
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
+use think\Db;
+use think\Exception;
+use think\Session;
 use app\common\model\Order as O;
 use app\common\model\Commodity as C;
 use app\common\model\Record as R;
@@ -84,26 +87,29 @@ class Rancher extends Yang
         $arr = ['code'=>-200,'data'=>'','msg'=>''];
 
         if ($this->request->isAjax()) {
-
             $data = $this->request->post();
             $order_price = $com['convert'] * $data['number'];//订单总额
-            if (time()>$com['convert_time']) {
-                $arr['msg']='兑换时间已结束!';
-                return json_encode($arr);
+            if ($data['pay_pass']=='') {
+                $arr['msg'] = '请输入支付密码';
+                return json($arr);
             }
+            // if (time()>$com['convert_time']) {
+            //     $arr['msg']='兑换时间已结束!';
+            //     return json($arr);
+            // }
             if ($data['number']>$order['sp_count']) {
                 $arr['msg'] = '兑换数量超出';
-                return json_encode($arr);
+                return json($arr);
             }
             $number = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->sum('number');
             $shengyu = $order['sp_count'] - $number - $data['number'];
             if ($shengyu < 0) {
                 $arr['msg'] = '可兑换数量不足';
-                return json_encode($arr);
+                return json($arr);
             }
             if ($data['number']<1) {
                 $arr['msg'] = '兑换数量不可小于1';
-                return json_encode($arr);
+                return json($arr);
             }
                 $conversion['user_id']=$this->id;
                 $conversion['sp_id']=$sp_id;
@@ -113,7 +119,7 @@ class Rancher extends Yang
                 $conversion['deliver_status']=0;
                 $conversion['order_price']=$order_price;
                 $conversion['price']=$com['convert'];
-
+                //CO::insert($conversion);
             Db::startTrans();
             try{
                 //扣除用户余额
@@ -121,7 +127,7 @@ class Rancher extends Yang
                 $pay_pass = md5($data['pay_pass']);
                 if ($user['pay_pass']!=$pay_pass) {
                     $arr['msg']='您输入的支付密码不正确';
-                    //return json_encode($arr);
+                    //return json($arr);
                     throw new \think\Exception();
                 }
                 $balance = $user['balance'] - $order_price;
@@ -129,9 +135,9 @@ class Rancher extends Yang
                     $arr['msg'] = '您的余额不足!请充值!';
                     throw new \think\Exception();
                 }
-                $arr['msg'] = '订单创建失败';
+                $arr['msg'] = '订单创建失败balance';
                 Db::table('tp_user')->where(['id'=>$this->id])->update(['balance' => $balance]);
-
+                $arr['msg'] = '订单创建失败conversion';
                 CO::insert($conversion);
 
                 $detail['user_id']=$this->id;
@@ -149,13 +155,25 @@ class Rancher extends Yang
             } catch (\think\Exception $e) {
                 // 回滚事务
                 Db::rollback();
-                return json_encode($arr);
+                return json($arr);
             }
             $arr['msg'] = '订单创建成功';
             $arr['code'] = 1;
-            return json_encode($arr);
+            return json($arr);
 
         }else{
+            $conversion = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->field('number,order_price')->select();
+            $yimai = 0;
+            $yihua = 0;
+            foreach ($conversion as $k => $v) {
+                $yimai += $v['number'];
+                $yihua += $v['order_price'];
+            }
+            $sheng = $order['sp_count'] - $yimai;
+            $this->assign('conversion',$conversion);
+            $this->assign('sheng',$sheng);
+            $this->assign('yimai',$yimai);
+            $this->assign('yihua',$yihua);
             $this->assign('com',$com);
             $this->assign('order',$order);
             $this->assign('zongjin',$zongjin);

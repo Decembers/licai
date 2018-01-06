@@ -265,7 +265,8 @@
 					<!-- 如果没有鹅，则显示-->
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有鹅结束-->
-					<div class="no_record"></div>
+
+					{if condition="$row"}{else}<div class="no_record"></div>{/if}
 					<ul class="sheep">
 						{volist name="row" id="vo"}
 						{if condition="$vo.status eq 1"}
