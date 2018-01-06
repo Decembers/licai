@@ -14,6 +14,10 @@
 		<script src="__WAP__/js/jquery.js"></script>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
+				.content {
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+}
 			.detail04 {
 				width: 100%;
 				position: fixed;
@@ -143,12 +147,13 @@
 				overflow: hidden;
 			}
 			
-			.shu input {
+			.shu .input {
 				width: 100%;
 				height: 100%;
 				text-align: center;
-				background-color: gainsboro;
+				background-color: #EAEAEA;
 				color: #3db4cc;
+				line-height: 25px;
 			}
 			
 			.shu span {
@@ -180,46 +185,48 @@
 			/*提示*/
 			
 			.modal1 {
-				width: 20rem;
-				height: 8rem;
+				width: 80%;
+				height: 100px;
 				position: fixed;
 				z-index: 1002;
 				left: 50%;
-				margin-left: -10rem;
-				border-radius: 0.5rem;
+				margin-left: -40%;
+				border-radius: 10px;
 				top: 50%;
-				margin-top: -8rem;
+				margin-top: -50px;
 				text-align: center;
 				background: #e8e8e8;
 				color: #3d4145;
 				display: none;
+				overflow: hidden;
 			}
 			
 			.modal1 p {
-				line-height: 4rem;
-				font-size: 1.5rem;
+				line-height: 50px;
+				font-size: 16px;
 			}
 			
 			.modal1 p:nth-child(2) {
 				display: flex;
-				border-top: 1px solid white;
+				border-top: 1px solid #d9d9d9;
 			}
 			
 			.modal1 p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
 				padding: 0 .25rem;
-				height: 2rem;
-				line-height: 2rem;
+				height: 50px;
+				line-height: 50px;
 				text-align: center;
 				color: #0894ec;
 				background: #e8e8e8;
 				box-sizing: border-box;
-				margin-top: 1rem;
+				
 			}
 			
 			.modal1 p:nth-child(2) span:nth-child(1) {
-				border-right: 1px solid white;
+				border-right: 1px solid #d9d9d9;
+				   
 			}
 			
 			#goodcover {
@@ -238,24 +245,30 @@
 			.quan {
 				overflow: hidden;
 				position: fixed;
-				bottom: 5px;
+				bottom: 0;
 				left: 2.5%;
 				margin-left: 0.5rem;
+				
 			}
 			
 			.quan div,
 			.quan p {
 				float: left;
 				margin: 0 5px 0 0;
+				
 			}
-			
+			.quan div{
+				margin-top: 13px !important;
+			}
 			.quan p {
 				line-height: 15px;
+				line-height: 40px;
 			}
 			/*top*/
 			
 			 .top {
-				width: ;
+				background-color: #F3F3F3;
+				
 				display: flex;
 			}
 			
@@ -308,7 +321,7 @@
 						</div>
 						<div class="shu">
 							<span class="jian">-</span>
-							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<p class="input">1</p>
 							<span class="jia">+</span>
 						</div>
 					</li>
@@ -325,7 +338,7 @@
 						</div>
 						<div class="shu">
 							<span class="jian">-</span>
-							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<p class="input">1</p>
 							<span class="jia">+</span>
 						</div>
 					</li>
@@ -342,7 +355,7 @@
 						</div>
 						<div class="shu">
 							<span class="jian">-</span>
-							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<p class="input">1</p>
 							<span class="jia">+</span>
 						</div>
 					</li><li>
@@ -358,7 +371,7 @@
 						</div>
 						<div class="shu">
 							<span class="jian">-</span>
-							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<p class="input">1</p>
 							<span class="jia">+</span>
 						</div>
 					</li><li>
@@ -374,7 +387,7 @@
 						</div>
 						<div class="shu">
 							<span class="jian">-</span>
-							<input type="tel" name="" id="" value="1" maxlength="4" />
+							<p class="input">1</p>
 							<span class="jia">+</span>
 						</div>
 					</li>
@@ -384,8 +397,8 @@
 			<!--footer-->
 			<div class="detail04">
 
-				<div class="">
-					<div id="">
+				<div class="" style="justify-content: space-between; width: 53%;">
+					<div id="" >
 						<span>共</span>
 						<span class="em" id="numbers">0</span>
 						<span>件</span>
@@ -403,7 +416,7 @@
 			</div>
 			<div class="quan">
 				<div class="dui">
-					<span>√ /////``</span>
+					<span>√ </span>
 				</div>
 				<p>全选</p>
 			</div>

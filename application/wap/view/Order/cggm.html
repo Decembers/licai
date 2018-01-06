@@ -260,7 +260,6 @@
 				/*获取鹅数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if(num >= zui) {
-
 					var sp_id = $("#sp_id").val();
 					$.ajax({
 						type: "POST", //提交方式
@@ -276,6 +275,8 @@
 							$("#number").val(aa.number);
 						}
 					});
+					/**/
+					$(".overtop").text("超出剩余数量");
 					overtop();
 					bian();
 				} else {
