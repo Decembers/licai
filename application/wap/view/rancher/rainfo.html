@@ -291,7 +291,7 @@
 				}
 				bian();
 			})
-
+var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").text();
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -299,7 +299,7 @@
 				} else {
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				tofix($("#qian"), 780.00); /*鹅总价*/
+				tofix($("#qian"), texts); /*鹅总价*/
 
 			}
 			/* 总价 利润 输出*/
@@ -318,10 +318,10 @@
 					}
 				}
 			}
-			$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * 780.00 + ".00")
-			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * 780.00;
+			$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts + ".00")
+			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
 			var zs = parseInt($("#zhi").text());
-			var zj = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * 780.00;
+			var zj = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 				if(parseInt($("#zhi").text()) < 1) {
