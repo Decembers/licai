@@ -18,80 +18,108 @@
 				width: 100%;
 				overflow: hidden;
 				background-color: white;
+				position: fixed;
+				top: 40px;
+				left: 0;
+				z-index: 100;
 			}
-
+			
 			.order p {
 				float: left;
 				width: 20%;
-				padding-bottom: 5px;
+				padding: 5px 0;
+				
 				box-sizing: border-box;
 			}
-
+			
 			.order p.red {
 				color: gray;
 				border-bottom: 2px solid red;
+				box-sizing: border-box;
 			}
-
+			
 			.order p span {
 				display: block;
 				text-align: center;
 			}
-
+			
 			.order p span:nth-child(1) {
 				margin: 5px 0;
 				font-size: 22px;
 			}
-
+			
 			.order p span:nth-child(2) {
 				font-size: 14px;
 			}
+			.order p span img{
+				width: 25px;
+				height: 25px;
+			}
 			/*main*/
-
+			
 			.main {
 				width: 100%;
 				overflow: hidden;
 			}
-
+			
 			.case {
 				width: 500%;
 				overflow: auto;
 				margin-left: 0;
+				margin-top: 5px;
 			}
-
+			
 			.case ul {
 				width: 20%;
 				float: left;
 				box-sizing: border-box;
-			}
-
+				
+			}			
 			.case ul li,
 			.case ul li>div {
 				width: 100%;
 			}
-
+			
 			.case ul li>div {
 				overflow: hidden;
 				background-color: white;
-				margin-top: 2px;
+				/*margin-top: 1px;
+				*/
 			}
-
+			 .bottom{
+				/*margin-bottom: 10px;*/
+				height: 46px;
+				box-sizing: border-box;
+			}
 			.case ul li .top {
 				padding: 0.5rem;
 				box-sizing: border-box;
 				display: flex;
 				justify-content: space-between;
 				line-height: 25px;
+				margin-top: 10px;
 			}
-
+			.case ul li .top p:nth-child(1){
+				flex-grow: 3;
+				font-size: 14px;
+			}.case ul li .top p:nth-child(2){
+				
+				
+				font-size: 14px;
+			}
 			.case ul li .top span {
-				margin-left: 0.5rem;
+				margin-left: 10px;
+				line-height: 27px;
 			}
 			.case ul li .top .icon_img{
 				width:auto ;
 				height: 25px;
+				border: 1px solid #F3F3F3;;
+				border-radius: 50%;
+				overflow: hidden;
 			}
 			/*.center ul li conter*/
-
+			
 			.case ul li .top p,
 			.case ul li .center,
 			.case ul li .center .fl,
@@ -99,49 +127,52 @@
 			.case ul li .center .fr span {
 				display: flex;
 			}
-
+			
 			.case ul li .center .fl {
 				width: 100%;
-				padding: 5px;
+				padding: 15px 0;
 				box-sizing: border-box;
 			}
-
+			
 			.case ul li .center {
 				position: relative;
+				border-bottom: 1px solid #F3F3F3;
+				   border-top: 1px solid #F3F3F3;
 			}
-
+			
 			.case ul li .center .fr {
 				width: 25%;
 				position: absolute;
-				top: 0;
+				top: 10px;
 				right: 0;
 				justify-content: flex-end;
-				color: darkgrey;
+				
 			}
-
+			
 			.case ul li .center .fl div {
-				box-shadow: 1px 1px 1px gray;
-				margin-right: 10px;
+				margin-left: 10px;
+				border: 1px solid #F3F3F3;
 			}
-
+			
 			.case ul li .center .fl div,
 			.case ul li .center .fl div img {
-				width: 70px;
-				height: 70px;
+				width: 60px;
+				height: 60px;
 				display: block;
 			}
-
+			
 			.case ul li .center .fr span {
 				line-height: 70px;
 				font-size: 15px;
 				margin-right: 0.5rem;
+				opacity: 0.5;
 			}
-
+			
 			.case ul li .center .fr span:nth-child(2) {
 				font-size: 1.5rem;
 			}
 			/*bottom*/
-
+			
 			.bottom {
 				position: relative;
 				padding: 0.5rem;
@@ -150,37 +181,38 @@
 				box-sizing: border-box;
 				font-size: 14px;
 			}
-
+			
 			.bottom .fu {
 				position: absolute;
-				left: 0.5rem;
-				top: 0.5rem;
+				left: 10px;
+				top: 10px;
 				line-height: 30px;
+				display: flex;
 			}
-
+			
 			.bottom .button {
 				width: 80px;
 				height: 30px;
 				text-align: center;
 				line-height: 30px;
 				margin-left: 0.5rem;
-				border: 1px solid black;
+				border: 1px solid gray;
 				box-sizing: border-box;
 				border-radius: 5px;
 				font-size: 14px;
 			}
-
+			
 			.bottom p:nth-child(3) {
 				color: #D37B57;
 				border-color: #D37B57;
 			}
-
+			
 			.he {
 				background-color: #FF702A;
 				color: white !important;
 			}
 			/*提示*/
-
+			
 			.modal1 {
 				width: 80vw;
 				position: fixed;
@@ -196,7 +228,7 @@
 				display: none;
 				overflow: hidden;
 			}
-
+			
 			.modal1 h5 {
 				width: 100%;
 				text-align: center;
@@ -207,22 +239,22 @@
 				font-size: 16px;
 				display: none;
 			}
-
+			
 			.modal1 p {
 				font-size: 16px;
 			}
-
+			
 			.modal1 .modal1_p1 {
 				box-sizing: border-box;
 				padding: 15px 0;
 			}
-
+			
 			.modal1 .modal1_p {
 				line-height: 40px;
 				display: flex;
 				border-top: 1px solid white;
 			}
-
+			
 			.modal1 .modal1_p span {
 				width: 50%;
 				text-align: center;
@@ -234,11 +266,11 @@
 				background: #e8e8e8;
 				box-sizing: border-box;
 			}
-
+			
 			.modal1 .modal1_p span:nth-child(1) {
 				border-right: 1px solid white;
 			}
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -256,11 +288,23 @@
 				text-align: center;
 			}
 			.without p:nth-child(2){
-				line-height: 40px;
+				line-height: 60px;
 			}
 			.without{
 				padding-top: 100px;
 				display: none;
+			}
+			.without a{
+				width: 100px;
+				height: 40px;
+				line-height: 40px;
+				color: white;
+				background-color: #FF702A;
+				border-radius:10px ;
+				text-align: center;margin: 0px auto;
+			}
+			.reds{
+				color: #FF702A;;
 			}
 		</style>
 	</head>
@@ -276,75 +320,106 @@
 			</div>
 			<div class="order">
 				<!--fa-book-->
-				<p class="red"><span class="fa fa-book"></span><span>全部</span></p>
-				<p><span class="fa fa-credit-card"></span><span>待付款</span></p>
-				<p><span class="fa fa-truck"></span><span>待发货</span></p>
-				<p><span class="fa fa-cloud-download"></span><span>待收货</span></p>
-				<p><span class="fa fa-life-ring"></span><span>已完成</span></p>
+				<p class="red"><span id=""><img src="__WAP__img/icon/d0.png"/></span><span>全部</span></p>
+				<p><span id="">
+					
+				<img src="__WAP__img/icon/d1.png"/></span><span>待付款</span></p>
+				<p><span id=""><img src="__WAP__img/icon/d2.png"/></span><span>待发货</span></p>
+				<p><span id=""><img src="__WAP__img/icon/d3.png"/></span><span>已发货</span></p>
+				<p><span id=""><img src="__WAP__img/icon/d4.png"/></span><span>已完成</span></p>
 			</div>
 			<div class="main">
 				<div class="case">
 					<ul class="entire">
 						<li>
 							<div class="top">
-								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
-								<p>已取消</p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl" >
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
-
+									
 								</div>
 								<div class="fr">
 									<span>
 										...共<i></i>件
 									</span>
 									<span class="fa fa-angle-right">
-
+										
 									</span>
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu">实付款：￥123132</p>
-								<p class="button">删除订单</p>
-								<p class="button">再次购买</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								
+								<p class="button">联系客服</p>
+								<p class="button he">去支付</p>
 							</div>
 						</li>
 						<li>
 							<div class="top">
-								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>待付款</p>
+							</div>
+							<div class="center">
+								<div class="fl" >
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+										
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								
+								<p class="button">联系客服</p>
+								<p class="button he">去支付</p>
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
 								<p>已完成</p>
 							</div>
 							<div class="center">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 								</div>
 								<div class="fr">
@@ -352,39 +427,84 @@
 										...共<i></i>件
 									</span>
 									<span class="fa fa-angle-right">
-
+										
 									</span>
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu">实付款：￥123132</p>
-								<p class="button">查看物流</p>
-								<p class="button">追加评价</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p><p class="button">联系客服</p>
+								<p class="button">查看详情</p>
+								<!--<p class="button">追加评价</p>-->
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>待付款</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+										
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<!--<p class="button">查看物流</p>
+								<p class="button">追加评价</p>--><p class="button">联系客服</p>
+								<p class="button he">去支付</p>
 							</div>
 						</li>
 					</ul>
 					<ul class="unpaid">
 						<li>
 							<div class="top">
-								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
-								<p>去支付</p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p class="reds" >待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 								</div>
 								<div class="fr">
@@ -392,40 +512,114 @@
 										...共<i></i>件
 									</span>
 									<span class="fa fa-angle-right">
-
+										
 									</span>
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu">实付款：￥123132</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="button">联系客服</p>
+								<p class="button he">去支付</p>
+							</div>
+						</li><li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p class="reds" >待付款</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+										
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="button">联系客服</p>
+								<p class="button he">去支付</p>
+							</div>
+						</li><li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p class="reds" >待付款</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+										
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 								<p class="button">联系客服</p>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
 					</ul>
 					<ul class="send">
-
+						
 						<li>
 							<div class="top">
-								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
-								<p>已发货</p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>待发货</p>
 							</div>
 							<div class="center">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 								</div>
 								<div class="fr">
@@ -433,40 +627,39 @@
 										...共<i></i>件
 									</span>
 									<span class="fa fa-angle-right">
-
+										
 									</span>
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu">实付款：￥123132</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 								<p class="button">联系客服</p>
 								<p class="button">查看详情</p>
 							</div>
 						</li>
 					</ul>
 					<ul class="receiving">
-
 						<li>
 							<div class="top">
-								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
-								<p>待收货</p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>已发货</p>
 							</div>
 							<div class="center">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 								</div>
 								<div class="fr">
@@ -474,40 +667,116 @@
 										...共<i></i>件
 									</span>
 									<span class="fa fa-angle-right">
-
+										
 									</span>
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu">实付款：￥123132</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 								<p class="button">联系客服</p>
-								<p class="button">查看详情</p>
+								<p class="button">查看物流</p>
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>已发货</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+										
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="button">联系客服</p>
+								<p class="button">查看物流</p>
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>已发货</p>
+							</div>
+							<div class="center">
+								<div class="fl">
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+									<div class="">
+										<img src="__WAP__img/595617b6e853f.jpg" />
+									</div>
+								</div>
+								<div class="fr">
+									<span>
+										...共<i></i>件
+									</span>
+									<span class="fa fa-angle-right">
+										
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="button">联系客服</p>
+								<p class="button">查看物流</p>
 							</div>
 						</li>
 					</ul>
 					<ul class="accomplish">
-
+						
 						<!--<li>
 							<div class="top">
-								<p><img class="icon_img" src="__WAP__/img/597ed1439aede.jpg"/><span>店名</span></p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
 								<p>交易成功</p>
 							</div>
 							<div class="center">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="__WAP__img/595617b6e853f.jpg" />
 									</div>
 								</div>
 								<div class="fr">
@@ -515,12 +784,12 @@
 										...共<i></i>件
 									</span>
 									<span class="fa fa-angle-right">
-
+										
 									</span>
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu">实付款：￥123132</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 								<p class="button">查看物流</p>
 								<p class="button">追加评价</p>
 							</div>
@@ -543,6 +812,8 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(".top p").css("line-height", $(".top p .fa").height() + "px");
+			$(".wrapper").css("padding-top","107px")
+		
 			len();
 
 			function len() {
@@ -593,13 +864,26 @@
 					$(".modal1 h5 ").css("display", "none");
 					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
 					blocks();
-				}else if($(this).text() == ""){
-					window.location.href='{:url("Supermarket/pay")}';
+				}else if($(this).text() == "去支付"){
+					window.location.href="index2-dingdan-zhif.html";
+				}else if($(this).text() == "再次购买"){
+					window.location.href="index2.html";
+				}else if($(this).text() == "查看详情"){
+					window.location.href="index2-dingdan-1.html";
+				}else if($(this).text() == "去支付"){
+					window.location.href="index2-dingdan-zhif.html";
+				}else if($(this).text() == "去支付"){
+					window.location.href="index2-dingdan-zhif.html";
+				}else if($(this).text() == "去支付"){
+					window.location.href="index2-dingdan-zhif.html";
 				}
 			})
 
 			$(".center .fl").click(function(){
-					window.location.href="{:url('Supermarket/dingdaninfo')}";
+					window.location.href="index2-dingdan-1.html";
+			});
+			$(".center .fr").click(function(){
+					window.location.href="index2-dingdan-1.html";
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
