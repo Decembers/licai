@@ -339,13 +339,13 @@
 			function yan1(tag, reg) {
 				if(reg.test(tag.value)) {
 					var mobile = $("#email").val();
-					var password = $("#pwd").val();
+					var code = $("#mobile_code2").val();
 					$.ajax({
 						type: "POST", //提交方式
 						url: "{:url('Login/checkindex')}", //路径
 						data: {
 							"mobile": mobile,
-							"password": password,
+							"code": code,
 						},
 						dataType: "json", //数据，这里使用的是Json格式进行传输
 						success: function(result) {

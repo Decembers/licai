@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 10:48:53
+ * @Last Modified time: 2018-01-08 11:47:21
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -82,13 +82,15 @@ class Login extends Yang
         }
         $times=Session::get($code);
         if (time() > ($times+5*60)) {
+            Session::delete($times);
             return json(['code'=>1, 'msg'=>'短信验证码已失效']);
         }
-        Session::delete($mobile);
-        Session::delete($times);
+
         $res = User::where(['mobile'=>$mobile])->find();
         if (isset($res)) {
                 //存cookie
+                Session::delete($mobile);
+                Session::delete($times);
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
                 $url = url("index/index");
@@ -141,10 +143,9 @@ class Login extends Yang
             }
             $times=Session::get($code);
             if (time() > ($times+5*60)) {
+                Session::delete($times);
                 return json(['code'=>1, 'msg'=>'短信验证码已失效']);
             }
-            Session::delete($mobile);
-            Session::delete($times);
             // if (!$password) {
             //     return json(['code'=>1, 'msg'=>'密码不能为空']);
             // }
@@ -159,6 +160,8 @@ class Login extends Yang
             $row['integral']=1000;
             $res = User::insert($row);
             if ($res!==false) {
+                Session::delete($mobile);
+                Session::delete($times);
                 return json(['code'=>200, 'msg'=>'注册成功,即将跳转到登录页']);
             }
             return json(['code'=>1, 'msg'=>'注册失败']);
@@ -256,12 +259,14 @@ class Login extends Yang
                 }
                 $times=Session::get($code);
                 if (time() > ($times+5*60)) {
+                    Session::delete($times);
                     return json(['code'=>1, 'msg'=>'短信验证码已失效']);
                 }
-                Session::delete($mobile);
-                Session::delete($times);
+
                 $res = User::where(['mobile'=>$mobile])->find();
                 if (isset($res)) {
+                    Session::delete($mobile);
+                    Session::delete($times);
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
                     Session::set('user.pay_pass',$arr['pay_pass']);
                     return json(['code'=>200, 'msg'=>'重置支付密码成功']);
@@ -295,15 +300,16 @@ class Login extends Yang
                 }
                 $times=Session::get($code);
                 if (time() > ($times+5*60)) {
+                    Session::delete($times);
                     return json(['code'=>1, 'msg'=>'短信验证码已失效']);
                 }
-                Session::delete($mobile);
-                Session::delete($times);
 
                 $ress = User::where(['id'=>$this->id])->update($arr);
                 if ($ress===false) {
                     return json(['code'=>1, 'msg'=>'重置手机号码失败']);
                 }else{
+                    Session::delete($mobile);
+                    Session::delete($times);
                     Session::set('user.mobile',$mobilex);
                     return json(['code'=>200, 'msg'=>'重置手机号码成功']);
                 }
