@@ -6,6 +6,7 @@
 		<title>趣味农场</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/font-awesome-4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
@@ -25,7 +26,7 @@
 				width: 10rem;
 				height: 3rem;
 				margin: 1rem auto 0.425rem auto;
-				background: url(http://www.caifumuchang.com/wap/tpl/fanwe/images/logo.jpg) no-repeat center center;
+				background: url(__WAP__/img/logo.jpg) no-repeat center center;
 				background-size: cover;
 			}
 
@@ -38,7 +39,7 @@
 			.grassland {
 				width: 100%;
 				height: 10rem;
-				background: url(http://www.caifumuchang.com/wap/tpl/fanwe/images/grassland.jpg) no-repeat;
+				background: url(__WAP__/img/grassland.jpg) no-repeat;
 				background-size: cover;
 				position: fixed;
 				bottom: 0;
@@ -122,9 +123,11 @@
 			.display {
 				background-position: 3px 18.5%;
 			}
-	.display1 {
+
+			.display1 {
 				background-position: center 78.7% !important;
 			}
+
 			.delect {
 				background-position: 4px 9.5%;
 			}
@@ -151,6 +154,8 @@
 
 			#getcode,
 			.count_down,
+			#getcode2,
+			.count_down2,
 			#getcode1,
 			.count_down1 {
 				position: absolute;
@@ -169,7 +174,8 @@
 				text-align: center;
 			}
 
-			.count_down,.count_down1 {
+			.count_down,
+			.count_down1,.count_down2 {
 				display: none;
 			}
 
@@ -197,7 +203,8 @@
 				display: none;
 			}
 
-			#signup-submit,#signup-submit1{
+			#signup-submit,
+			#signup-submit1 {
 				display: block;
 				width: 90%;
 				height: 3rem;
@@ -218,6 +225,12 @@
 				color: #5ac3d8 !important;
 				margin-top: 1rem;
 			}
+
+			/*wan*/
+			#wang .fa{
+				line-height: 20px;
+				margin-right: 5px;
+			}
 		</style>
 	</head>
 
@@ -231,15 +244,21 @@
 					<div class="form_group ">
 						<span class="user"></span>
 						<span class="delect"></span>
-						<input type="tel" name="mobile" id="email" placeholder="请输入用户名/手机号" maxlength="11">
+						<input type="tel" name="mobile" id="email" placeholder="请输入手机号" maxlength="11">
 					</div>
-					<div class="form_group ">
+					<div class="form_modify">
+						<span class="code"></span>
+						<input type="button" class="ver_code" id="getcode2" value="验证码">
+						<div class="count_down2">60s</div>
+						<input type="text" id="mobile_code2" name="mobile_code" placeholder="请输入验证码" maxlength="6">
+					</div>
+					<div class="form_group " style="display: none;">
 						<span class="upwd"></span>
 						<span class="display"></span>
 						<input type="password" name="password" id="pwd" placeholder="请输入密码" maxlength="15">
 					</div>
 					<div class="forgeted clearfix">
-						<a href="#" class="fl m_co" id="wang">忘记密码?</a>
+						<a href="#" class="fl m_co" id="wang" ><span id="" class="fa fa-weixin"></span><span id="">微信登录</span></a>
 						<a href="{:url('index/index')}" class="fr m_co">随便逛逛</a>
 					</div>
 					<div class="clearfix">
@@ -253,12 +272,12 @@
 						<span class="delect"></span>
 						<input type="text" id="user_name" name="user_name" placeholder="请输入用户名" maxlength="10">
 					</div>
-					<div class="form_modify">
+					<div class="form_modify" style="display: none;">
 						<span class="upwd"></span>
 						<span class="delect"></span>
 						<input type="password" id="user_pwd" name="user_pwd" placeholder="请输入密码(6-15位)" maxlength="15">
 					</div>
-					<div class="form_modify">
+					<div class="form_modify" style="display: none;">
 						<span class="more"></span>
 						<span class="delect"></span>
 						<input type="password" id="user_pwd_confirm" name="user_pwd_confirm" placeholder="请再次输入密码" maxlength="15">
@@ -266,11 +285,11 @@
 					<div class="form_modify">
 						<span class="number"></span>
 						<span class="delect"></span>
-						<input type="tel" id="phone" name="phone" placeholder="请输入您的手机号" maxlength="11" >
+						<input type="tel" id="phone" name="phone" placeholder="请输入您的手机号" maxlength="11">
 					</div>
 					<div class="form_modify">
 						<span class="code"></span>
-						<input type="button" class="ver_code" id="getcode" value="验证码" >
+						<input type="button" class="ver_code" id="getcode" value="验证码">
 						<div class="count_down">60s</div>
 						<input type="text" id="mobile_code" name="mobile_code" placeholder="请输入验证码" maxlength="6">
 					</div>
@@ -315,73 +334,58 @@
 
 		<div class="background"></div>
 		<p class="overtop">超出剩余数量</p>
-<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-
-
 			function yan1(tag, reg) {
 				if(reg.test(tag.value)) {
-					yan(pwd, /^[a-zA-Z0-9]{6,10}$/);
-				} else {
-					if(tag.value == "") {
-						$(".overtop").text("请输入用户名/手机号")
-						overtop();
-					} else {
-						$(".overtop").text("用户名/手机号错误，请重新输入")
-						overtop();
-					}
-				}
-			}
-
-			function yan(tag, reg) {
-				if(reg.test(tag.value)) {
-					var mobile=$("#email").val();
-					var password=$("#pwd").val();
+					var mobile = $("#email").val();
+					var password = $("#pwd").val();
 					$.ajax({
-	                    type : "POST",  //提交方式
-	                    url : "{:url('Login/checkindex')}",//路径
-	                    data : {
-	                        "mobile" : mobile,
-	                        "password" : password,
-	                    },
-	                    dataType : "json",//数据，这里使用的是Json格式进行传输
-	                    success : function(result) {
-	                    	//$(".overtop").text("请输入用111户名")
+						type: "POST", //提交方式
+						url: "{:url('Login/checkindex')}", //路径
+						data: {
+							"mobile": mobile,
+							"password": password,
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
+							//$(".overtop").text("请输入用111户名")
 							//var aa = JSON.parse(result);
-							if (result.code==1) {
+							if(result.code == 1) {
 								$(".overtop").text(result.msg);
 								overtop();
-							}else{
+							} else {
 								$(".overtop").text(result.msg);
 								overtop();
-								setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-								window.location=result.url;
-								},1000);
+								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+									window.location = result.url;
+								}, 1000);
 							}
-	                    },
-	                    error : function (){
-	                    	$(".overtop").text('请刷新页面重试');
+						},
+						error: function() {
+							$(".overtop").text('请刷新页面重试');
 							overtop();
-	                }
+						}
 					});
 				} else {
 					if(tag.value == "") {
-						$(".overtop").text("请输入密码")
+						$(".overtop").text("请输入手机号")
 						overtop();
 					} else {
-						$(".overtop").text("密码错误，请重新输入")
+						$(".overtop").text("手机号错误，请重新输入")
 						overtop();
 					}
 				}
 			}
-$(".container01 input").focus(function(){
-	$(".grassland").css("display","none");
-})
-$(".container01 input").blur(function(){
-	$(".grassland").css("display","block");
-})
 
-$(".display").click(function() {
+			$(".container01 input").focus(function() {
+				$(".grassland").css("display", "none");
+			})
+			$(".container01 input").blur(function() {
+				$(".grassland").css("display", "block");
+			})
+
+			/*$(".display").click(function() {
 				$(this).toggleClass("display1");
 				var ss = $(this).hasClass("display1");
 				if(ss == true) {
@@ -389,7 +393,7 @@ $(".display").click(function() {
 				} else {
 					$("#pwd").prop('type', 'password'); //密码不可见
 				}
-			})
+			})*/
 			var ema = document.getElementById("email");
 			var pwd = document.getElementById("pwd");
 
@@ -403,22 +407,22 @@ $(".display").click(function() {
 					$(".container02").css("display", "block");
 				}
 			})
-			$("#wang").click(function() {
+			/*忘记密码点击*/
+
+			/*$("#wang").click(function() {
 				$(".titleBig").text("忘记密码");
 				$(".container03").css("display", "block");
 				$(".container01").css("display", "none");
 				$(".container02").css("display", "none");
-			})
+			})*/
 			/*input 清空*/
 			$(".delect").click(function() {
 				$(this).css("display", "none");
 				$(this).next().val("");
 			})
 
-
-
-			/*注册*/
-			$("#signup-submit").click(function() {
+			/*注册 有密码*/
+			/*$("#signup-submit").click(function() {
 				if($("#user_name").val() == "") {
 					$(".overtop").text("请输入用户名");
 					overtop();
@@ -440,38 +444,38 @@ $(".display").click(function() {
 										$(".overtop").text("请输入验证码");
 										overtop();
 									} else {
-										var name=$("#user_name").val();
-										var password=$("#user_pwd").val();
+										var name = $("#user_name").val();
+										var password = $("#user_pwd").val();
 										var mobile = $("#phone").val();
 										var code = $("#mobile_code").val();
-										var referer= $("#referer").val();
+										var referer = $("#referer").val();
 										$.ajax({
-						                    type : "POST",  //提交方式
-						                    url : "{:url('Login/checkreg')}",//路径
-						                    data : {
-						                        "mobile" : mobile,
-						                        "password" : password,
-						                        "name" : name,
-						                        "code" : code,
-						                        "referrer" : referer
-						                    },
-						                    dataType : "json",//数据，这里使用的是Json格式进行传输
-						                    success : function(result) {
-												if (result.code==1) {
+											type: "POST", //提交方式
+											url: "{:url('Login/checkreg')}", //路径
+											data: {
+												"mobile": mobile,
+												"password": password,
+												"name": name,
+												"code": code,
+												"referrer": referer
+											},
+											dataType: "json", //数据，这里使用的是Json格式进行传输
+											success: function(result) {
+												if(result.code == 1) {
 													$(".overtop").text(result.msg);
 													overtop();
-												}else{
+												} else {
 													$(".overtop").text(result.msg);
 													overtop();
-													setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-													window.location='{:url("Login/login");}';
-													},1000);
+													setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+														window.location = '{:url("Login/login");}';
+													}, 1000);
 												}
-						                    },
-						                    error : function (){
-						                    	$(".overtop").text('请刷新页面重试');
+											},
+											error: function() {
+												$(".overtop").text('请刷新页面重试');
 												overtop();
-						                }
+											}
 										});
 									}
 								}
@@ -482,7 +486,61 @@ $(".display").click(function() {
 						}
 					}
 				}
+			})*/
+			/*注册 无密码*/
+			$("#signup-submit").click(function() {
+				if($("#user_name").val() == "") {
+					$(".overtop").text("请输入用户名");
+					overtop();
+				} else {
+
+					if($("#phone").val() == "") {
+						$(".overtop").text("请输入您的手机号");
+						overtop();
+					} else {
+						if($("#mobile_code").val() == "") {
+							$(".overtop").text("请输入验证码");
+							overtop();
+						} else {
+							var name = $("#user_name").val();
+							var password = $("#user_pwd").val();
+							var mobile = $("#phone").val();
+							var code = $("#mobile_code").val();
+							var referer = $("#referer").val();
+							$.ajax({
+								type: "POST", //提交方式
+								url: "{:url('Login/checkreg')}", //路径
+								data: {
+									"mobile": mobile,
+									"password": password,
+									"name": name,
+									"code": code,
+									"referrer": referer
+								},
+								dataType: "json", //数据，这里使用的是Json格式进行传输
+								success: function(result) {
+									if(result.code == 1) {
+										$(".overtop").text(result.msg);
+										overtop();
+									} else {
+										$(".overtop").text(result.msg);
+										overtop();
+										setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+											window.location = '{:url("Login/login");}';
+										}, 1000);
+									}
+								},
+								error: function() {
+									$(".overtop").text('请刷新页面重试');
+									overtop();
+								}
+							});
+						}
+					}
+
+				}
 			})
+			/*注册 短信*/
 			$('#getcode').click(function() {
 				if($("#phone").val() == "") {
 					$(".overtop").text("请输入手机号");
@@ -490,26 +548,26 @@ $(".display").click(function() {
 				} else {
 					if($("#phone").val().length == 11) {
 
-										var mobile = $("#phone").val();
-										$.ajax({
-						                    type : "POST",  //提交方式
-						                    url : "{:url('Login/codemsg')}",//路径
-						                    data : {
-						                        "mobile" : mobile,
-						                        "model" : 2
-						                    },
-						                    dataType : "json",//数据，这里使用的是Json格式进行传输
-						                    success : function(result) {
+						var mobile = $("#phone").val();
+						$.ajax({
+							type: "POST", //提交方式
+							url: "{:url('Login/codemsg')}", //路径
+							data: {
+								"mobile": mobile,
+								"model": 2
+							},
+							dataType: "json", //数据，这里使用的是Json格式进行传输
+							success: function(result) {
 
-						                    		console.log(result);
-													$(".overtop").text(result.msg);
-													overtop();
-						                    },
-						                    error : function (){
-						                    	$(".overtop").text('请刷新页面重试');
-												overtop();
-						                }
-										});
+								console.log(result);
+								$(".overtop").text(result.msg);
+								overtop();
+							},
+							error: function() {
+								$(".overtop").text('请刷新页面重试');
+								overtop();
+							}
+						});
 
 						$(".count_down").css("display", "block");
 						$(".count_down").css("z-index", "10");
@@ -529,7 +587,53 @@ $(".display").click(function() {
 					}
 				}
 			})
+/*登录 短信*/
+			$('#getcode2').click(function() {
+				if($("#email").val() == "") {
+					$(".overtop").text("请输入手机号");
+					overtop();
+				} else {
+					if($("#email").val().length == 11) {
 
+						var mobile = $("#email").val();
+						$.ajax({
+							type: "POST", //提交方式
+							url: "{:url('Login/codemsg')}", //路径
+							data: {
+								"mobile": mobile,
+								"model": 1
+							},
+							dataType: "json", //数据，这里使用的是Json格式进行传输
+							success: function(result) {
+
+								console.log(result);
+								$(".overtop").text(result.msg);
+								overtop();
+							},
+							error: function() {
+								$(".overtop").text('请刷新页面重试');
+								overtop();
+							}
+						});
+
+						$(".count_down2").css("display", "block");
+						$(".count_down2").css("z-index", "10");
+						$(".count_down2").css("text-align", "center");
+						var s = 60;
+						var j = setInterval(function() {
+							s = s - 1;
+							$(".count_down2").html(s + "秒");
+							if(s == 0) {
+								$(".count_down2").css("display", "none");
+								clearInterval(j);
+							}
+						}, 1000)
+					} else {
+						$(".overtop").text("请重新输入新手机号");
+						overtop();
+					}
+				}
+			})
 			/*
 			 *修改密码
 			 */
@@ -546,98 +650,100 @@ $(".display").click(function() {
 							$(".overtop").text("请输入密码");
 							overtop();
 						} else {
-								if($("#user_pwd_confirm1").val() == $("#user_pwd1").val()) {
-										var password=$("#user_pwd1").val();
-										var mobile = $("#phone1").val();
-										var code = $("#mobile_code1").val();
-										$.ajax({
-						                    type : "POST",  //提交方式
-						                    url : "{:url('Login/nopassword')}",//路径
-						                    data : {
-						                        "mobile" : mobile,
-						                        "password" : password,
-						                        "code" : code,
-						                    },
-						                    dataType : "json",//数据，这里使用的是Json格式进行传输
-						                    success : function(result) {
-												if (result.code==1) {
-													$(".overtop").text(result.msg);
-													overtop();
-												}else{
-													$(".overtop").text(result.msg);
-													overtop();
-													setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-													window.location='{:url("Login/login");}';
-													},1000);
-												}
-						                    },
-						                    error : function (){
-						                    	$(".overtop").text('请刷新页面重试');
-												overtop();
-						                }
-										});
+							if($("#user_pwd_confirm1").val() == $("#user_pwd1").val()) {
+								var password = $("#user_pwd1").val();
+								var mobile = $("#phone1").val();
+								var code = $("#mobile_code1").val();
+								$.ajax({
+									type: "POST", //提交方式
+									url: "{:url('Login/nopassword')}", //路径
+									data: {
+										"mobile": mobile,
+										"password": password,
+										"code": code,
+									},
+									dataType: "json", //数据，这里使用的是Json格式进行传输
+									success: function(result) {
+										if(result.code == 1) {
+											$(".overtop").text(result.msg);
+											overtop();
+										} else {
+											$(".overtop").text(result.msg);
+											overtop();
+											setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+												window.location = '{:url("Login/login");}';
+											}, 1000);
+										}
+									},
+									error: function() {
+										$(".overtop").text('请刷新页面重试');
+										overtop();
+									}
+								});
 
-								} else {
-									$(".overtop").text("请再次输入密码错误");
-									overtop();
-								}
+							} else {
+								$(".overtop").text("请再次输入密码错误");
+								overtop();
 							}
+						}
 					}
 
 				}
 			})
-			$('#getcode1').click(function() {
-				if($("#phone1").val() == "") {
-					$(".overtop").text("请输入手机号");
-					overtop();
-				} else {
-					if($("#phone1").val().length == 11) {
-										var mobile = $("#phone1").val();
-										$.ajax({
-						                    type : "POST",  //提交方式
-						                    url : "{:url('Login/codemsg')}",//路径
-						                    data : {
-						                        "mobile" : mobile,
-						                        "model" : 2
-						                    },
-						                    dataType : "json",//数据，这里使用的是Json格式进行传输
-						                    success : function(result) {
+			/*忘记密码 获取短息验证*/
+			// $('#getcode1').click(function() {
+			// 	if($("#phone1").val() == "") {
+			// 		$(".overtop").text("请输入手机号");
+			// 		overtop();
+			// 	} else {
+			// 		if($("#phone1").val().length == 11) {
 
-						                    		console.log(result);
-													$(".overtop").text(result.msg);
-													overtop();
-						                    },
-						                    error : function (){
-						                    	$(".overtop").text('请刷新页面重试');
-												overtop();
-						                }
-										});
-						$(".count_down1").css("display", "block");
-						$(".count_down1").css("z-index", "10");
-						$(".count_down1").css("text-align", "center");
-						var s = 60;
-						var j = setInterval(function() {
-							s = s - 1;
-							$(".count_down1").html(s + "秒");
-							if(s == 0) {
-								$(".count_down1").css("display", "none");
-								clearInterval(j);
-							}
-						}, 1000)
-					} else {
-						$(".overtop").text("请重新输入新手机号");
-						overtop();
-					}
-				}
-			})
+			// 				var mobile = $("#phone1").val();
+			// 				$.ajax({
+			//                     type : "POST",  //提交方式
+			//                     url : "{:url('Login/codemsg')}",//路径
+			//                     data : {
+			//                         "mobile" : mobile,
+			//                         "model" : 2
+			//                     },
+			//                     dataType : "json",//数据，这里使用的是Json格式进行传输
+			//                     success : function(result) {
 
+			//                     		console.log(result);
+			// 							$(".overtop").text(result.msg);
+			// 							overtop();
+			//                     },
+			//                     error : function (){
+			//                     	$(".overtop").text('请刷新页面重试');
+			// 						overtop();
+			//                 }
+			// 				});
 
-			$(".den").click(function(){
+			// 			$(".count_down1").css("display", "block");
+			// 			$(".count_down1").css("z-index", "10");
+			// 			$(".count_down1").css("text-align", "center");
+			// 			var s = 60;
+			// 			var j = setInterval(function() {
+			// 				s = s - 1;
+			// 				$(".count_down1").html(s + "秒");
+			// 				if(s == 0) {
+			// 					$(".count_down1").css("display", "none");
+			// 					clearInterval(j);
+			// 				}
+			// 			}, 1000)
+			// 		} else {
+			// 			$(".overtop").text("请重新输入新手机号");
+			// 			overtop();
+			// 		}
+			// 	}
+			// })
+
+			$(".den").click(function() {
 				$(".titleBig").text("请您登录");
 				$(".container03").css("display", "none");
 				$(".container01").css("display", "block");
 				$(".container02").css("display", "none");
-				$(".grassland").css("display","block");
+				$(".grassland").css("display", "block");
 			})
 		</script>
 	</body>
