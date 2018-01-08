@@ -188,7 +188,7 @@
 				color: darkgrey;
 				overflow: hidden;
 				height: 0px;
-				margin-top: 0.5rem;
+				padding: 0.5rem 0;
 			}
 			
 			.center .fr span {
@@ -535,7 +535,7 @@
 					$("#goodcover").css("display", "block");
 					$(".modal2").css("display", "block");
 				} else if($(this).text() == "支付订单") {
-					window.location.href = "index2-dingdan-zhif.html";
+					window.location.href = "{:url('Supermarket/pay')}";
 				}
 			})
 			$(".modal2 p").click(function(){
@@ -561,7 +561,7 @@
 			$(".modal-button-bold").click(function() {
 				nones();
 				nas.remove();
-				window.location.href = "index2-dingdan.html";
+				window.location.href = "{:url('Supermarket/dingdan')}";
 			});
 
 			/*弹窗*/

@@ -37,6 +37,7 @@
 			.detail04 {
 				width: 100%;
 				position: fixed;
+				/*bottom: 45px;*/
 				bottom: 0;
 				left: 0;
 				height:  40px;
@@ -44,6 +45,7 @@
 				display: flex;
 				    justify-content: space-between;
 				    border-top: 1px solid #d9d9d9;
+				    font-size: 15px;
 			}
 
 			.detail04 div {
@@ -83,9 +85,9 @@
 		<div class="wrapper" id="shopping_mall">
 			<!--header -->
 			<div class="header">
-				<p style="position: absolute; top: 10px;left: 0.5rem ;line-height: 20px;color: grey;" onclick="window.location='{:url("index/index")}'">首页</p>
+				<p style="position: absolute; top: 10px;left: 10px ;line-height: 20px;color: grey;" onclick="window.location='{:url("index/index")}'">首页</p>
 				<h3>牧场超市</h3>
-				<a href="{:url('Supermarket/gouwuche')}">购物车</a>
+				<a href="{:url('Supermarket/gouwuche')}" style="right: 10px;">购物车</a>
 			</div>
 			<div class="content infinite-scroll native-scroll">
 				<!--超市物品展示-->
@@ -269,6 +271,29 @@
 					<p>朕要购买</p>
 				</div>
 			</div>
+			<!--<div class="footer">
+
+				<a href="{:url('index/index')}">
+
+					<span class="icons "></span>
+
+					<p>农场</p>
+
+				</a>
+
+				<a href="{:url('Supermarket/index')}">
+					<span class="icons"></span>
+					<p>超市</p>
+				</a>
+				<a href="{:url('Discover/index')}">
+					<span class="icons"></span>
+					<p>发现</p>
+				</a>
+				<a href="{:url('member/index')}">
+					<span class="icons"></span>
+					<p>我的</p>
+				</a>
+			</div>-->
 		</div>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>

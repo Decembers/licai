@@ -828,6 +828,7 @@
 		<div class="without">
 			<p class="fa fa-envelope-open-o fa-3x"></p>
 			<p>您暂时没有订单</p>
+			<a href="{:url('Supermarket/index')}">去逛逛</a>
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -867,8 +868,12 @@
 				var win = $(window).height()-71;
 				if(ulheight>win){
 					$(".main").css("height",ulheight+"px");
+					
 				}else{
 					$(".main").css("height",win+"px");
+					$(".main").css("overflow","hidden");
+					$(".main").css("border","1px soled blo")
+					
 				}
 				$(".main .case").css("margin-left", -tt * 100 + "%");
 				if($(".case ul:nth-child(" + (tt + 1) + ") li").length == 0) {
