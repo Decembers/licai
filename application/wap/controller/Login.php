@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 14:04:30
+ * @Last Modified time: 2018-01-08 17:31:09
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -50,7 +50,7 @@ class Login extends Yang
                     return $this->fetch('identity');
                 }
             }else{
-                echo "微信获取失败,请从新登录!";
+                echo "微信获取失败,请从新登录222!";
             }
         }else{
             echo "微信获取失败,请从新登录!";

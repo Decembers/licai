@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-		<!--<title>我的</title>-->
 		<title>趣味农场</title>
 		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
@@ -220,7 +218,7 @@
 					<div class="figure_text">
 						温馨提示：当您的充值用途不是购买财富牧场的羊只时，7个自然日内我们不支持提现，7个自然日之后您申请提现时我们将收取0.6%的手续费哦∩_∩。
 					</div>
-					<button class="big-button press" id="big-button">朕要充值</button>
+					<button class="big-button press" id="big-button" onclick="reward()">朕要充值</button>
 					<a href="{:url('member/paygz')}" class="big-a">充值、提现规则</a>
 
 				</li>
@@ -279,47 +277,86 @@
 					$(".bottom>li:nth-child(2)").css("display", "block");
 				}
 			})
-			// $("#money1").bind('input', function() {
-			// 	var st = ($(this).val() / 780).toFixed(0);
-			// 	$("#num-sheep").text(st);
-			// });
-			// $("#big-button").click(function() {
-			// 	if($("#phone1").val() == "") {
-			// 		$(".overtop").text("请输入您的手机号");
-			// 		overtop();
-			// 	}
-			// 	var password=$("#user_pwd1").val();
-			// 	var mobile = $("#phone1").val();
-			// 	var code = $("#mobile_code1").val();
-			// 	$.ajax({
-   //                  type : "POST",  //提交方式
-   //                  url : "{:url('Login/nopassword')}",//路径
-   //                  data : {
-   //                      "mobile" : mobile,
-   //                      "password" : password,
-   //                      "code" : code,
-   //                  },
-   //                  dataType : "json",//数据，这里使用的是Json格式进行传输
-   //                  success : function(result) {
-			// 			if (result.code==1) {
-			// 				$(".overtop").text(result.msg);
-			// 				overtop();
-			// 			}else{
-			// 				$(".overtop").text(result.msg);
-			// 				overtop();
-			// 				setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-			// 				window.location='{:url("Login/login");}';
-			// 				},1000);
-			// 			}
-   //                  },
-   //                  error : function (){
-   //                  	$(".overtop").text('请刷新页面重试');
-			// 			overtop();
-   //              }
-			// 	});
-
-			// })
 		</script>
+    <script type="text/javascript">
+         function reward(money){
+
+            $.ajax({
+                //一个Ajax过程
+                type: "post", //以post方式与后台沟通
+                url : "{:url('wxpay/getinfo')}", //与此php页面沟通
+                dataType:'json',//从php返回的值以 JSON方式 解释
+                //data: {'name':name,'money':money,'num':num,'overall_money':money,'room_id':room_id}, //发给php的数据有两项，分别是上面传来的u和p
+                success: function(json){
+                    //var data=JSON.stringify(json);
+                    //console.log(json.appId);
+                    eval('var data = '+json);
+                    console.log(data);
+                    callpay(data);
+                }
+            })
+        }
+        // function callpay(data)
+        // {
+        //     if (typeof WeixinJSBridge == "undefined"){
+        //         if( document.addEventListener ){
+        //             document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+        //         }else if (document.attachEvent){
+        //             document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+        //             document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+        //         }
+        //     }else{
+        //         jsApiCall(data);
+        //     }
+        // }
+        // //调用微信JS api 支付
+        // function jsApiCall(data)
+        // {
+        //     WeixinJSBridge.invoke(
+        //         'getBrandWCPayRequest',
+        //         data,
+        //         function(res){
+        //             WeixinJSBridge.log(res.err_msg);
+        //             console.log(res.err_msg);
+        //                 if(res.err_msg == "get_brand_wcpay_request:ok"){
+        //                     //成功
+        //                     alert('支付成功');
+        //                }else{
+        //                    alert(res.err_msg);
+        //                }
+        //         }
+        //     );
+        // }
+
+	//调用微信JS api 支付
+	function jsApiCall(data)
+	{
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			data,
+			function(res){
+				WeixinJSBridge.log(res.err_msg);
+				alert(res.err_code+'$'+res.err_desc+'$'+res.err_msg);
+			}
+		);
+	}
+
+	function callpay(data)
+	{
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		    }
+		}else{
+		    jsApiCall(data);
+		}
+	}
+
+    </script>
+
 	</body>
 
 </html>
