@@ -300,6 +300,38 @@
 				line-height: 30px;
 				margin-left: 1rem;color: #606060;
 			}
+			/*none*/
+			.none{
+				width: 90%;
+				height: 50;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-left: -45%;				
+				margin-top: -100px;
+				display: none;
+			}
+			.none p:nth-child(1){
+				position: relative;top: 0;
+				left: 50%;
+				margin-left: -26px;color: #3db4cc;
+			}
+			.none p:nth-child(2){			
+				text-align: center;				
+				color: #3db4cc;
+				font-size: 18px;
+				line-height: 30px;
+			}
+			.none a{
+				width: 100px;
+				height: 30px;
+				border-radius:15px ;
+				background-color:#3db4cc ;
+				color: white;font-size: 16px;
+				text-align: center;
+				line-height: 30px;
+				margin: 10px  auto;
+			}
 		</style>
 	</head>
 
@@ -430,20 +462,20 @@
 
 				</div>
 				<div class="">
-					<p onclick="window.location='{:url(" Supermarket/pay ")}'">立即购买</p>
+					<p onclick="window.location='{:url("Supermarket/pay")}'">结算</p>
 				</div>
 			</div>
-			<div class="quan">
-				<div class="dui">
-					<span>√ </span>
-				</div>
-				<p>全选</p>
-			</div>
+			
 		</div>
 		<div class="background"></div>
 		<div class="modal1">
 			<p>是否删除本商品？</p>
-			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
+			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
+		</div>
+		<div class="none">
+			<p class="fa fa-shopping-cart fa-4x"></p>
+			<p>购物车还是空的，去挑选商品吧！</p>
+			<a href="">去逛逛</a>
 		</div>
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
@@ -533,7 +565,7 @@
 			$(".modal-button-bold").click(function() {
 				nones();
 				nas.remove();
-				sw();
+				sw();nos();
 			});
 
 			/*弹窗*/
@@ -547,6 +579,11 @@
 			function nones() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
+			}
+			function nos(){
+				if($(".sheep li").length ==0){
+					$(".none").css("display","block");
+				}
 			}
 		</script>
 	</body>
