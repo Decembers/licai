@@ -17,6 +17,10 @@
 		<style type="text/css">
 			/*@fa-font-path: "font-awesome-4.7.0/less/variables.less";*/
 			/*main*/
+		
+			body {
+				color: #606060;
+			}
 			
 			.main,
 			.main>div {
@@ -71,7 +75,9 @@
 			.top p:nth-child(1) {
 				font-size: 17px;
 			}
-			
+			.top p:nth-child(1) span{
+				color: #606060 !important;
+			}
 			.top p:nth-child(2) {
 				line-height: 20px;
 				font-size: 13px;
@@ -103,6 +109,7 @@
 				line-height: 25px;
 				display: flex;
 				padding: 10px 0;
+				color: #606060 !important;
 			}
 			
 			.center h3 .fa {
@@ -134,12 +141,14 @@
 				width: 60px;
 				height: 60px;
 				border: 1px solid #F3F3F3;
+				
 			}
 			
 			.center .fl>div .div {
 				margin-top: 5px;
 				box-sizing: border-box;
 				padding-left: 10px;
+				color: #606060 !important;
 			}
 			
 			.center .fl>div .div p {
@@ -151,7 +160,6 @@
 				width: 70%;
 				font-size: 0.9rem !important;
 				flex-wrap: 400 !important;
-				opacity: 0.8;
 				word-break: break-all;
 				display: -webkit-box;
 				-webkit-line-clamp: 2;
@@ -213,11 +221,10 @@
 				text-align: center;
 				line-height: 30px;
 				margin-left: 0.5rem;
-				border: 1px solid gray;
+				border: 1px solid rgba(196, 196, 196, 0.8);
 				box-sizing: border-box;
 				border-radius: 15px;
 				font-size: 15px;
-				color: gray;
 			}
 			
 			.bottom p:nth-child(3) {
@@ -338,6 +345,37 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
+			.modal2{
+				width: 80%;
+				background-color: white;
+				border-radius:10px;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-left: -40%;
+				margin-top: -130px;
+				padding: 20px;
+				box-sizing: border-box;
+				display: none;
+				z-index: 1002;
+			}
+			.modal2 p{
+				display: flex;
+				line-height: 40px;
+			}
+			.modal2 p span:nth-child(1){
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				border: 1px solid #606060;
+				margin-right: 10px;box-sizing: border-box;
+				margin-top: 11px;
+			}
+			.modal2 .click span:nth-child(1){
+				border: 5px solid #3db4cc;
+				
+				
+			}
 
 		</style>
 	</head>
@@ -445,53 +483,92 @@
 			<p class="modal1_p1"></p>
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
+		<div class="modal2">
+			<p class="click"><span ></span><span>不取消了</span></p>
+			<p><span ></span><span>我不买了</span></p>
+			<p><span ></span><span>信息填写错误，重新拍</span></p>
+			<p><span ></span><span>同城见面交易</span></p><p><span ></span><span>其他原因</span></p>
+		</div>
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
+			sa();
+
+			function sa() {
+				/*判断是否为苹果手机*/
+				var u = navigator.userAgent;
+
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+				if(isiOS) {
+					
+				}
+			}
 			function len() {
-				var lens = $(".center .fl div").length-2;
+				var lens = $(".center .fl>div").length - 2;
 				$(".center .fr span i").text(lens);
 				if(lens > 0) {
-					$(".center .fr").css("height","auto");
-					$(".center .fl div").css("display", "none");
+					$(".center .fr").css("height", "auto");
+					$(".center .fl>div").css("display", "none");
 					for(var is = 1; is < 3; is++) {
-						$(".center .fl div:nth-child(" + is + ")").css("display", "block");
+						$(".center .fl>div:nth-child(" + is + ")").css("display", "block");
+
 					}
 				}
 			}
 
-			$(".text_p").width(($(".center .fl div").width()-180)+"px");
+			$(".fl>div .div").width(($(".center .fl>div").width() - 75) + "px");
 			len();
-			$(".center .fr").click(function(){
-				if($(this).height()>10){
+			$(".center .fr").click(function() {
+				if($(this).height() > 10) {
 					$(".center .fl div").css("display", "block");
-					$(this).css("display","none");
+					$(this).css("display", "none");
 				}
 			})
 			var nas;
 			$(".bottom .button").click(function() {
 				if($(this).text() == "取消订单") {
 					nas = $(this).parent().parent();
-					$(".modal1 h5 ").css("display","block");
+					/*$(".modal1 h5 ").css("display", "block");
+					$(".modal1 .modal1_p1").text("是否删除本条记录？")
+					blocks();*/
+					$("#goodcover").css("display", "block");
+					$(".modal2").css("display", "block");
+				} else if($(this).text() == "支付订单") {
+					window.location.href = "index2-dingdan-zhif.html";
+				}
+			})
+			$(".modal2 p").click(function(){
+				$(".modal2 p").removeClass("click");
+					$(this).addClass("click");
+					 var tt = $(".modal2 p").index($(this));
+					 setTimeout(function(){
+					 	if(tt ==0){
+						nones();
+					}else{
+						nones();
+						 setTimeout(function(){
+						 	$(".modal1 h5 ").css("display", "block");
 					$(".modal1 .modal1_p1").text("是否删除本条记录？")
 					blocks();
-				} else if($(this).text() == "支付订单") {
-					window.location.href="{:url('Supermarket/pay')}";
-				}
+						 },500)
+						
+					}
+					 },50);
+					
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				nones();
 				nas.remove();
-				window.location.href="{:url('Supermarket/dingdan')}";
+				window.location.href = "index2-dingdan.html";
 			});
 
 			/*弹窗*/
 			$("#goodcover").click(function() {
 				nones();
 			})
-			$(".modal1_p span:nth-child(1)").click(function() {
+			$(".modal1_p span:nth-child(2)").click(function() {
 				nones();
 			})
 
@@ -503,6 +580,7 @@
 			function nones() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
+				$(".modal2").css("display", "none");
 			}
 		</script>
 	</body>

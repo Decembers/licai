@@ -452,6 +452,17 @@
 			$("input").focus(function() {
 				this.blur()
 			})
+			sa();
+
+			function sa() {
+				/*判断是否为苹果手机*/
+				var u = navigator.userAgent;
+
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+				if(isiOS) {
+					$(".shu span").css("line-height", "25px");
+				}
+			}
 			/*footer 当前页选中状态*/
 			sw();
 			/*选中切换*/
