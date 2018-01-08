@@ -1,0 +1,24 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            {include file="th" /}
+            <th width="300">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+            {include file="td" /}
+            <td class="f-14">
+                <a title="编辑" href="javascript:;" onclick="layer_open('编辑','/admin/commodity/auedit/id/{$vo.id}.html')" style="text-decoration:none" class="ml-5"><i class="Hui-iconfont"></i></a>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}

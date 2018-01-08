@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-02 15:25:13
+ * @Last Modified time: 2018-01-08 10:07:19
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -12,15 +12,49 @@ use think\Db;
 use think\Session;
 use think\Cookie;
 use app\common\model\User;
+use app\common\getuser\Getuser;
+
 /**
 * 会员管理
 */
 class Login extends Yang
 {
-
+    use \app\admin\traits\controller\Controller;
     public function login()
     {
-        return  $this->fetch();
+        if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
+            //在微信内打开
+            $getuser = new Getuser;
+            $url = $getuser->geturl();
+            $this->redirect($url);
+            echo $url;die;
+        }else{
+            //不在微信内
+            return  $this->fetch();
+        }
+    }
+
+    public function getaccess_token()
+    {
+        $code = input('code');
+        if (isset($code)) {
+            $getuser = new Getuser;
+            $result = $getuser->getaccess_token($code);
+            //echo $result;die;
+            //是否成功 成功跳转
+            if ($result) {
+                if (Session::get('user.mobile') == '') {
+                    return $this->fetch('identity');
+                }
+                if (Session::get('user.authentication') == 0) {
+                    return $this->fetch('identity');
+                }
+            }else{
+                echo "微信获取失败,请从新登录!";
+            }
+        }else{
+            echo "微信获取失败,请从新登录!";
+        }
     }
 
     //登录验证
@@ -98,16 +132,18 @@ class Login extends Yang
             if ($user) {
                 return json(['code'=>1, 'msg'=>'手机号已存在']);
             }
-            //$scode = empty($_SESSION['code'][$mobile]['code']) ? '' : $_SESSION['code'][$mobile]['code'];
-            //$stime = empty($_SESSION['code'][$mobile]['time']) ? 0 : $_SESSION['code'][$mobile]['time'];
-            //if (!$scode || $scode != $messcode) {
-            //   echo json_encode(array('code'=>-200,'msg'=>'短信验证码错误'));exit;
-            //}
-            // if ($scode && $scode == $messcode) {
-            //     if (time() > ($stime + 5*60)) {
-            //         echo json_encode(array('code'=>-200,'msg'=>'短信验证码已失效'));exit;
-            //     }
+            if ($code != Session::get($mobile)) {
+                return json(['code'=>1, 'msg'=>'短信验证码错误']);
+            }
+            $times=Session::get($code);
+            // if (!Session::get($times)) {
+            //     return json(['code'=>1, 'msg'=>'短信验证码非法']);
             // }
+            if (time() > ($times+5*60)) {
+                return json(['code'=>1, 'msg'=>'短信验证码已失效']);
+            }
+            Session::delete($mobile);
+            Session::delete($times);
             if (!$password) {
                 return json(['code'=>1, 'msg'=>'密码不能为空']);
             }
@@ -119,6 +155,7 @@ class Login extends Yang
             $row['status']=1;
             $row['login_time']=time();
             $row['password']=md5($password);
+            $row['integral']=1000;
             $res = User::insert($row);
             if ($res!==false) {
                 return json(['code'=>200, 'msg'=>'注册成功,即将跳转到登录页']);
@@ -129,6 +166,26 @@ class Login extends Yang
             return json(['code'=>1, 'msg'=>'非法请求']);
         }
     }
+    /*
+     * 发送验证码
+     */
+    public function codemsg()
+    {
+        if ($this->request->isAjax() && $this->request->isPost()){
+            $mobile = input('mobile');
+            $model = input('model');
+            if ($mobile==''||$model=='') {
+                return json(['code'=>1, 'msg'=>'数据丢失']);
+            }
+            $result = $this->message($mobile,$model);
+            if ($result) {
+                return json(['code'=>200, 'msg'=>'发送成功']);
+            }
+            return json(['code'=>1, 'msg'=>'发送失败']);
+        }
+        return json(['code'=>1, 'msg'=>'非法请求']);
+    }
+
 
     public function nopassword()
     {

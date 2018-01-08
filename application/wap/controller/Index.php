@@ -6,10 +6,12 @@ use app\common\model\Notice as N;
 
 class Index extends Yang
 {
+    use \app\admin\traits\controller\Controller;
     public function index()
     {
         $where['status'] = 1;
         $where['isdelete'] = 0;
+        $where['automation'] = 0;
         $cc = new C;
         $row = $cc->index($where);
         $this->assign('row',$row);
@@ -22,6 +24,7 @@ class Index extends Yang
     public function orlist()
     {
         $where['status'] = 1;
+        $where['automation'] = 0;
         $where['classify'] = 1;
         $cc = new C;
         //常规羊群

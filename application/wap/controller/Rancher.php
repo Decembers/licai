@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-06 14:04:56
+ * @Last Modified time: 2018-01-06 18:17:17
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -55,7 +55,7 @@ class Rancher extends Yang
                 $dl = $v['zexpect'] - $yifanh;
                 $dlirun += $dl;
             }
-
+            $row[$k]['caigou'] = 0;
             if (time()<$com['deal_time']) {
                 $row[$k]['caigou'] = 1;
                 $row[$k]['sky'] = ceil(($com['deal_time']-time())/86400);

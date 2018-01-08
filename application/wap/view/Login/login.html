@@ -489,6 +489,28 @@ $(".display").click(function() {
 					overtop();
 				} else {
 					if($("#phone").val().length == 11) {
+
+										var mobile = $("#phone").val();
+										$.ajax({
+						                    type : "POST",  //提交方式
+						                    url : "{:url('Login/codemsg')}",//路径
+						                    data : {
+						                        "mobile" : mobile,
+						                        "model" : 2
+						                    },
+						                    dataType : "json",//数据，这里使用的是Json格式进行传输
+						                    success : function(result) {
+
+						                    		console.log(result);
+													$(".overtop").text(result.msg);
+													overtop();
+						                    },
+						                    error : function (){
+						                    	$(".overtop").text('请刷新页面重试');
+												overtop();
+						                }
+										});
+
 						$(".count_down").css("display", "block");
 						$(".count_down").css("z-index", "10");
 						$(".count_down").css("text-align", "center");
@@ -570,6 +592,23 @@ $(".display").click(function() {
 					overtop();
 				} else {
 					if($("#phone1").val().length == 11) {
+										var mobile = $("#phone1").val();
+										$.ajax({
+						                    type : "POST",  //提交方式
+						                    url : "{:url('Login/codemsg')}",//路径
+						                    data : {
+						                        "mobile" : mobile,
+						                    },
+						                    dataType : "json",//数据，这里使用的是Json格式进行传输
+						                    success : function(result) {
+													$(".overtop").text(result.msg);
+													overtop();
+						                    },
+						                    error : function (){
+						                    	$(".overtop").text('请刷新页面重试');
+												overtop();
+						                }
+										});
 						$(".count_down1").css("display", "block");
 						$(".count_down1").css("z-index", "10");
 						$(".count_down1").css("text-align", "center");

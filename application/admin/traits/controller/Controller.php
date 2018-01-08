@@ -271,11 +271,6 @@ trait Controller
 
     /**
      *更新用户购买的商品利润
-     *根据用户id,查询用户订单,根据订单里商品id查询查询商品信息,查询到年化率,本金,利润返还方式,根据订单付款时间,算出是否应该返还利润 返还多少 返还几个月利润
-     *更新用户余额和已返还利润
-     *生成一条用户金额记录信息
-     *用户进入 个人中心,查看余额,付款页面 调用
-     *$id 用户id
      */
     protected function money($id)
     {
@@ -398,9 +393,120 @@ trait Controller
             }
         }
     }
-
-    public function allocation()
+    /*
+     *自动发标 生成一个新标
+     *$classify参数 1.常规分类 2.辅助分类 3.vip分类
+     *根据参数查询不同分类的模版 生成对应标
+     */
+    public function allocation($classify)
     {
-        echo 'fds';
+        date_default_timezone_set('PRC');
+        $arr = [];
+        $com = Commodity::where(['automation'=>1,'classify'=>$classify])->find();
+        if (isset($com)) {
+            $time = date('ymd', time());
+            $today = strtotime(date("Y-m-d"),time()); //获得当日凌晨的时间戳
+            $preselle_time = $today + $com['preselle_time']*3600;
+            if ($classify==3) {
+                $arr['vip6'] = rand(100000,999999);//vip邀请码
+            }
+            $zong = 0;
+            $qishu = 0;
+            $yer = $com['rate']/30;
+            if ($com['return_mode'] == 1) {
+                $zong = $com['return_price']/100 * $com['price'] / 12;
+                $qishu = $yer;
+            }else{
+                $zong = $com['return_price']/100 * $com['price'] / 12 * $yer;
+                $qishu = 1;
+            }
+            $zong = substr(sprintf("%.3f",$zong),0,-1);//保留两位小数 不四舍五入
+
+            $arr['com_number'] = 'YAN'.date("Ymd").rand(1000,9999);//订单编号
+
+            $arr['name'] = $com['name'].$time;
+            $arr['image'] = $com['image'];
+            $arr['price'] = $com['price'];
+            $arr['rate'] = $com['rate'];
+            $arr['content'] = $com['content'];
+            $arr['return_price'] = $com['return_price'];
+            $arr['return_mode'] = $com['return_mode'];
+            $arr['convert'] = $com['convert'];
+            $arr['number'] = $com['number'];
+            $arr['numbers'] = $com['numbers'];
+            $arr['classify'] = $com['classify'];
+            $arr['restrict'] = $com['restrict'];
+
+            $arr['update_time'] = time();
+            $arr['create_time'] = time();
+            $arr['status'] = 1;
+            $arr['isdelete'] = 0;
+            $arr['preselle_time'] = $preselle_time;//开始购买时间
+            $arr['down_time'] = $preselle_time + $com['down_time'];//购买结束时间
+            $arr['deal_time'] = $preselle_time + $com['down_time']+$com['deal_time'];//准备结束时间
+            $arr['begin_time'] = $arr['deal_time'];//正式开始时间
+            $arr['over_time'] = $arr['deal_time']+$com['rate']*86400;//预计结束时间
+            $arr['convert_time'] = $arr['over_time'] + $com['convert_time'];//兑换结束时间
+            $arr['expect'] = $zong;
+            $arr['nexpect'] = $qishu;
+            unset($com['id']);
+            Commodity::insert($arr);
+            $sp_id = Commodity::getLastInsID();
+            return $sp_id;
+        }
+        return 0;
+    }
+
+    /*
+     * 短信公共方法 根据不同model使用不同的模版
+     * mobile 手机号码
+     * model 1登录 2注册 3忘记密码修改密码 4修改支付密码 5修改手机号码
+     */
+    public function message($mobile,$model)
+    {
+        $cons = '';
+        $randStr = str_shuffle('1234567890');
+        $rand = substr($randStr,0,6);
+
+        if ($model==1) {
+            $cons = "【趣味农场】您正在登录,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==2){
+            $cons = "【趣味农场】您正在注册,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==3){
+            $cons = "【趣味农场】您正在修改密码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==4){
+            $cons = "【趣味农场】您正在修改支付密码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==5){
+            $cons = "【趣味农场】您正在修改手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }
+
+        Session::set($mobile,$rand);
+        Session::set($rand,time());
+        $url='http://117.78.52.216:9003';//系统接口地址
+        $conss = iconv('UTF-8', 'gbk', $cons);
+        $content=urlencode($conss);
+        $username="13613820359";//用户名
+        $password="ODIwMzU5";//密码百度BASE64加密后密文
+        $url=$url."/servlet/UserServiceAPI?method=sendSMS&extenno=&isLongSms=0&username=".$username."&password=".$password."&smstype=0&mobile=".$mobile."&content=".$content;
+        $data = $this->concurl($url);
+        return $data;
+    }
+    /*
+     * 发送get请求
+     */
+    public function concurl($url)
+    {
+            //初始化curl
+            $ch = curl_init($url);
+            //设置超时
+            curl_setopt($ch, CURLOPT_TIMEOUT,30);
+            curl_setopt($ch, CURLOPT_HEADER,FALSE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,TRUE);
+            //运行curl，结果以jason形式返回
+            $res = curl_exec($ch);
+            curl_close($ch);
+         //　　//打印获得的数据
+             //$data=json_decode($res,true);
+             return $res;
     }
 }
