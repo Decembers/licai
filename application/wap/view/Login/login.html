@@ -6,6 +6,7 @@
 		<title>趣味农场</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/font-awesome-4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
@@ -224,6 +225,12 @@
 				color: #5ac3d8 !important;
 				margin-top: 1rem;
 			}
+			
+			/*wan*/
+			#wang .fa{
+				line-height: 20px;
+				margin-right: 5px;
+			}
 		</style>
 	</head>
 
@@ -251,7 +258,7 @@
 						<input type="password" name="password" id="pwd" placeholder="请输入密码" maxlength="15">
 					</div>
 					<div class="forgeted clearfix">
-						<a href="#" class="fl m_co" id="wang" >忘记密码?</a>
+						<a href="#" class="fl m_co" id="wang" ><span id="" class="fa fa-weixin"></span><span id="">微信登录</span></a>
 						<a href="{:url('index/index')}" class="fr m_co">随便逛逛</a>
 					</div>
 					<div class="clearfix">
@@ -401,7 +408,7 @@
 				}
 			})
 			/*忘记密码点击*/
-			$("#wang").css("opacity","0");
+			
 			/*$("#wang").click(function() {
 				$(".titleBig").text("忘记密码");
 				$(".container03").css("display", "block");
