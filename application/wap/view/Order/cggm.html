@@ -293,6 +293,7 @@
 				/*获取鹅数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if($(this).val() >= zui) {
+					$(".overtop").text("超出剩余数量");
 					overtop();
 					$(this).val(zui);
 				}
@@ -408,14 +409,15 @@
 								overtop();
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
-								$("#big-button").removeAttr("disabled");
+									/*$("#big-button").removeAttr("disabled");*/
 									window.location = '{:url("Rancher/index")}';
-									$("#em1").text($("#em1").text() - $("#qian").text());
+									/*$("#em1").text($("#em1").text() - $("#qian").text());
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
 									$("#profit").text(profit);
-									$("#max6").val("");
+									$("#max6").val("");*/
+									window.location.reload();
 								}, 500);
 							} else {
 								/*提示错误，取消 禁止点击*/
