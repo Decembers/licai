@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 15:43:18
+ * @Last Modified time: 2018-01-08 14:06:16
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -368,6 +368,7 @@ class Member extends Yang
     public function setting()
     {
         $authentication = Session::get('user.authentication');
+        $mobile = Session::get('user.mobile');
         $user = Session::get('user');
         if ($authentication == 1) {
             $au = I::where(['user_id'=>$this->id])->find();
@@ -377,7 +378,9 @@ class Member extends Yang
                 $authentication = 2;
             }
         }
+
         $this->assign('authentication',$authentication);
+        $this->assign('mobile',$mobile);
         return $this->fetch();
     }
     /*

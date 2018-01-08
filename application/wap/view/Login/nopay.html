@@ -179,10 +179,10 @@
 										if(result.code == 200) {
 											$(".overtop").text(result.msg);
 											overtop();
-										} else {
 											setTimeout(function() {
 												window.location = '{:url("member/setting")}';
 											}, 1000);
+										} else {
 											$(".overtop").text(result.msg);
 											overtop();
 										}
@@ -203,7 +203,7 @@
 
 			$('#dl_getcode').click(function() {
 
-					var mobile = "{:session('user.mobile');}";
+					var mobile = "{:session('user.mobile')}";
 					$.ajax({
 	                    type : "POST",  //提交方式
 	                    url : "{:url('Login/codemsg')}",//路径
@@ -213,10 +213,9 @@
 	                    },
 	                    dataType : "json",//数据，这里使用的是Json格式进行传输
 	                    success : function(result) {
-
-	                    		console.log(result);
 								$(".overtop").text(result.msg);
 								overtop();
+
 	                    },
 	                    error : function (){
 	                    	$(".overtop").text('请刷新页面重试');

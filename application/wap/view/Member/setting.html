@@ -141,7 +141,7 @@
 					<ul>
 						<!-- 我的合同-->
 						<li class="contract">
-							<a href="##">
+							<a href="#">
 								<div class="icon fl"></div>
 								<p class="fl">身份认证</p>
 								{if condition="$authentication eq 2"}
@@ -162,7 +162,17 @@
 								<span class="entered fr"></span>
 							</a>
 						</li>-->
-
+						<li class="dingdan">
+							<a href="#">
+								<div class="icon fl"></div>
+								<p class="fl">绑定手机号码</p>
+								{if condition="$mobile"}
+									<span class="fr">已绑定</span>
+								{else /}
+									<span class="entered fr" onclick="window.location='{:url("member/mobile")}'"></span>
+								{/if}
+							</a>
+						</li>
 						<li class="dingdan">
 							<a href="{:url('login/nopay')}">
 								<div class="icon fl"></div>

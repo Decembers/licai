@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 11:47:21
+ * @Last Modified time: 2018-01-08 14:04:30
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -181,6 +181,9 @@ class Login extends Yang
             if ($mobile==''||$model=='') {
                 return json(['code'=>1, 'msg'=>'数据丢失']);
             }
+            if (!checkMobile($mobile)) {
+                return json(['code'=>1, 'msg'=>'手机号格式不正确']);
+            }
             $result = $this->message($mobile,$model);
             if ($result) {
                 return json(['code'=>200, 'msg'=>'发送成功']);
@@ -274,6 +277,7 @@ class Login extends Yang
 
                 return json(['code'=>1, 'msg'=>'重置支付密码失败']);
         }else{
+
             return $this->fetch();
         }
     }
@@ -314,6 +318,42 @@ class Login extends Yang
                     return json(['code'=>200, 'msg'=>'重置手机号码成功']);
                 }
                 return json(['code'=>1, 'msg'=>'重置手机号码失败']);
+        }else{
+            return $this->fetch();
+        }
+    }
+
+    /*
+     * 绑定手机号码
+     */
+    public function mobile()
+    {
+        if ($this->request->isAjax() && $this->request->isPost()){
+                $mobile=input('post.mobile');
+                $code      = input('post.code');
+                $arr['mobile']= $mobile;
+
+                if (!$mobile) {
+                    return json(['code'=>1, 'msg'=>'支付密码不能为空']);
+                }
+                if ($code != Session::get($mobile)) {
+                    return json(['code'=>1, 'msg'=>'短信验证码错误']);
+                }
+                $times=Session::get($code);
+                if (time() > ($times+5*60)) {
+                    Session::delete($times);
+                    return json(['code'=>1, 'msg'=>'短信验证码已失效']);
+                }
+
+                Session::delete($mobile);
+                Session::delete($times);
+                $ress = User::where(['id'=>$this->id])->update($arr);
+                if ($ress!==false) {
+                    Session::set('user.mobile',$mobile);
+                    return json(['code'=>200, 'msg'=>'绑定手机号码成功']);
+                }
+
+                return json(['code'=>1, 'msg'=>'绑定手机号码失败']);
         }else{
             return $this->fetch();
         }
