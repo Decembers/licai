@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 10:07:19
+ * @Last Modified time: 2018-01-08 10:48:53
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -63,24 +63,31 @@ class Login extends Yang
         if ($this->request->isAjax() && $this->request->isPost())
         {
             $mobile=input('post.mobile');
-            $password=input('post.password');
+            $code=input('post.code');
             $arr = input('post.');
-            $arr['password'] = md5($password);
-            //return json($arr);
+            // $password=input('post.password');
+            // $arr['password'] = md5($password);
+            // if (!$password) {
+            //     return json(['code'=>1, 'msg'=>'密码不能为空']);
+            // }
 
         if (!$mobile) {
             return json(['code'=>1, 'msg'=>'手机号不能为空']);
         }
-        if (!$password) {
-            return json(['code'=>1, 'msg'=>'密码不能为空']);
-        }
         if (!checkMobile($mobile)) {
             return json(['code'=>1, 'msg'=>'手机号格式不正确']);
         }
-        $res = User::where(['mobile'=>$arr['mobile']])->find();
-
+        if ($code != Session::get($mobile)) {
+            return json(['code'=>1, 'msg'=>'短信验证码错误']);
+        }
+        $times=Session::get($code);
+        if (time() > ($times+5*60)) {
+            return json(['code'=>1, 'msg'=>'短信验证码已失效']);
+        }
+        Session::delete($mobile);
+        Session::delete($times);
+        $res = User::where(['mobile'=>$mobile])->find();
         if (isset($res)) {
-            if ($res['password']==$arr['password']) {
                 //存cookie
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
@@ -88,13 +95,10 @@ class Login extends Yang
                 if ($res['authentication'] == 0) {
                     $url = url("login/identity");
                 }
-
                 return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
-            }else{
-                return json(['code'=>1, 'msg'=>'密码错误']);
-            }
+
         } else {
-            return json(['code'=>1, 'msg'=>'用户名不存在']);
+            return json(['code'=>1, 'msg'=>'用户不存在']);
         }
             return json(['code'=>1, 'msg'=>'登录失败']);
 
@@ -110,13 +114,13 @@ class Login extends Yang
         if ($this->request->isAjax() && $this->request->isPost())
         {
             $mobile    = input('post.mobile');
-            $password  = input('post.password');
+            //$password  = input('post.password');
             $name    = input('post.name');
             $code      = input('post.code');//验证码
             $referer  =input('post.referer');
 
             $row['mobile']=input('post.mobile');
-            $row['password']=input('post.password');
+            //$row['password']=input('post.password');
             $row['name']=input('post.name');
             $row['referrer']=input('post.referrer');
 
@@ -136,25 +140,22 @@ class Login extends Yang
                 return json(['code'=>1, 'msg'=>'短信验证码错误']);
             }
             $times=Session::get($code);
-            // if (!Session::get($times)) {
-            //     return json(['code'=>1, 'msg'=>'短信验证码非法']);
-            // }
             if (time() > ($times+5*60)) {
                 return json(['code'=>1, 'msg'=>'短信验证码已失效']);
             }
             Session::delete($mobile);
             Session::delete($times);
-            if (!$password) {
-                return json(['code'=>1, 'msg'=>'密码不能为空']);
-            }
-            if (strlen($password) > 20 || strlen($password) < 6) {
-                return json(['code'=>1, 'msg'=>'密码长度需在6~20位之间']);
-            }
+            // if (!$password) {
+            //     return json(['code'=>1, 'msg'=>'密码不能为空']);
+            // }
+            // if (strlen($password) > 20 || strlen($password) < 6) {
+            //     return json(['code'=>1, 'msg'=>'密码长度需在6~20位之间']);
+            // }
 
             $row['create_time']=time();
             $row['status']=1;
             $row['login_time']=time();
-            $row['password']=md5($password);
+            //$row['password']=md5($password);
             $row['integral']=1000;
             $res = User::insert($row);
             if ($res!==false) {
@@ -186,7 +187,9 @@ class Login extends Yang
         return json(['code'=>1, 'msg'=>'非法请求']);
     }
 
-
+    /*
+     * 修改密码
+     */
     public function nopassword()
     {
           if ($this->request->isAjax() && $this->request->isPost())
@@ -241,29 +244,24 @@ class Login extends Yang
         if ($this->request->isAjax() && $this->request->isPost()){
                 $mobile=Session::get('user.mobile');
                 $pay_pass=input('post.pay_pass');
+                $code      = input('post.code');
                 $arr['mobile']= $mobile;
                 $arr['pay_pass'] = md5($pay_pass);
-                $code      = input('post.code');
+
                 if (!$pay_pass) {
                     return json(['code'=>1, 'msg'=>'支付密码不能为空']);
                 }
-                //$scode = empty($_SESSION['code'][$mobile]['code']) ? '' : $_SESSION['code'][$mobile]['code'];
-                //$stime = empty($_SESSION['code'][$mobile]['time']) ? 0 : $_SESSION['code'][$mobile]['time'];
-                //if (!$scode || $scode != $messcode) {
-                //   echo json_encode(array('code'=>-200,'msg'=>'短信验证码错误'));exit;
-                //}
-                // if ($scode && $scode == $messcode) {
-                //     if (time() > ($stime + 5*60)) {
-                //         echo json_encode(array('code'=>-200,'msg'=>'短信验证码已失效'));exit;
-                //     }
-                // }
-
-
-
+                if ($code != Session::get($mobile)) {
+                    return json(['code'=>1, 'msg'=>'短信验证码错误']);
+                }
+                $times=Session::get($code);
+                if (time() > ($times+5*60)) {
+                    return json(['code'=>1, 'msg'=>'短信验证码已失效']);
+                }
+                Session::delete($mobile);
+                Session::delete($times);
                 $res = User::where(['mobile'=>$mobile])->find();
-
                 if (isset($res)) {
-
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
                     Session::set('user.pay_pass',$arr['pay_pass']);
                     return json(['code'=>200, 'msg'=>'重置支付密码成功']);
@@ -280,10 +278,10 @@ class Login extends Yang
  */
     public function nomobile(){
         if ($this->request->isAjax() && $this->request->isPost()){
+                $mobile=Session::get('user.mobile');
                 $mobilex=input('post.mobilex');
-                $arr['mobile']= input('post.mobilex');//新手机号
+                $arr['mobile']= $mobilex;//新手机号
                 $code      = input('post.code');
-                $id = Session::get('user.id');
 
                 if (!$mobilex) {
                     return json(['code'=>1, 'msg'=>'新手机号不能为空']);
@@ -291,22 +289,21 @@ class Login extends Yang
                 if (!checkMobile($mobilex)) {
                     return json(['code'=>1, 'msg'=>'手机号格式不正确']);
                 }
-                //$scode = empty($_SESSION['code'][$mobile]['code']) ? '' : $_SESSION['code'][$mobile]['code'];
-                //$stime = empty($_SESSION['code'][$mobile]['time']) ? 0 : $_SESSION['code'][$mobile]['time'];
-                //if (!$scode || $scode != $messcode) {
-                //   echo json_encode(array('code'=>-200,'msg'=>'短信验证码错误'));exit;
-                //}
-                // if ($scode && $scode == $messcode) {
-                //     if (time() > ($stime + 5*60)) {
-                //         echo json_encode(array('code'=>-200,'msg'=>'短信验证码已失效'));exit;
-                //     }
-                // }
 
-                $ress = User::where(['id'=>$id])->update($arr);
+                if ($code != Session::get($mobile)) {
+                    return json(['code'=>1, 'msg'=>'短信验证码错误']);
+                }
+                $times=Session::get($code);
+                if (time() > ($times+5*60)) {
+                    return json(['code'=>1, 'msg'=>'短信验证码已失效']);
+                }
+                Session::delete($mobile);
+                Session::delete($times);
+
+                $ress = User::where(['id'=>$this->id])->update($arr);
                 if ($ress===false) {
                     return json(['code'=>1, 'msg'=>'重置手机号码失败']);
                 }else{
-                    //删除session cookie 写入新session cookie
                     Session::set('user.mobile',$mobilex);
                     return json(['code'=>200, 'msg'=>'重置手机号码成功']);
                 }
@@ -315,9 +312,17 @@ class Login extends Yang
             return $this->fetch();
         }
     }
-
     /*
-     * 身份验证
+     * 退出
+     */
+    public function noadmin()
+    {
+       Session::delete('user');
+       Cookie::delete('user_id');
+       $this->redirect('Index/index');
+    }
+    /*
+     * 身份验证 验证程序在Member/identity
      */
     public function identity()
     {
@@ -329,14 +334,9 @@ class Login extends Yang
      */
     public function admin()
     {
-       $arr = User::where(['id'=>33])->find();
+       $arr = User::where(['id'=>62])->find();
        Session::set('user',$arr);
        echo 'ok';
     }
-    public function noadmin()
-    {
-       Session::delete('user');
-       Cookie::delete('user_id');
-       $this->redirect('Index/index');
-    }
+
 }

@@ -202,6 +202,28 @@
 			})
 
 			$('#dl_getcode').click(function() {
+
+					var mobile = "{:session('user.mobile');}";
+					$.ajax({
+	                    type : "POST",  //提交方式
+	                    url : "{:url('Login/codemsg')}",//路径
+	                    data : {
+	                        "mobile" : mobile,
+	                        "model" : 2
+	                    },
+	                    dataType : "json",//数据，这里使用的是Json格式进行传输
+	                    success : function(result) {
+
+	                    		console.log(result);
+								$(".overtop").text(result.msg);
+								overtop();
+	                    },
+	                    error : function (){
+	                    	$(".overtop").text('请刷新页面重试');
+							overtop();
+	                }
+					});
+
 				$(".count_down").css("display", "block");
 				$(".count_down").css("z-index", "10");
 				$(".count_down").css("text-align", "center");
