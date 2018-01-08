@@ -14,6 +14,10 @@
 		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			@fa-font-path: "font-awesome-4.7.0/less/variables.less";
+			body {
+				color: #606060;
+			}
+			
 			.order {
 				width: 100%;
 				overflow: hidden;
@@ -23,74 +27,75 @@
 				left: 0;
 				z-index: 100;
 			}
-
+			
 			.order p {
 				float: left;
 				width: 20%;
 				padding: 5px 0;
-
 				box-sizing: border-box;
 			}
-
+			
 			.order p.red {
-				color: gray;
-				border-bottom: 2px solid red;
+				border-bottom: 2px solid #FF702A;
 				box-sizing: border-box;
 			}
-
+			
 			.order p span {
 				display: block;
 				text-align: center;
 			}
-
+			
 			.order p span:nth-child(1) {
 				margin: 5px 0;
 				font-size: 22px;
+				display: none;
 			}
-
+			
 			.order p span:nth-child(2) {
 				font-size: 14px;
 			}
-			.order p span img{
+			
+			.order p span img {
 				width: 25px;
 				height: 25px;
 			}
 			/*main*/
-
+			
 			.main {
 				width: 100%;
 				overflow: hidden;
 			}
-
+			
 			.case {
 				width: 500%;
 				overflow: auto;
 				margin-left: 0;
-				margin-top: 5px;
 			}
-
+			
 			.case ul {
 				width: 20%;
 				float: left;
 				box-sizing: border-box;
-
 			}
+			
 			.case ul li,
 			.case ul li>div {
 				width: 100%;
 			}
-
+			
 			.case ul li>div {
 				overflow: hidden;
 				background-color: white;
 				/*margin-top: 1px;
 				*/
 			}
-			 .bottom{
+			
+			.bottom {
 				/*margin-bottom: 10px;*/
 				height: 46px;
 				box-sizing: border-box;
 			}
+			
 			.case ul li .top {
 				padding: 0.5rem;
 				box-sizing: border-box;
@@ -99,27 +104,31 @@
 				line-height: 25px;
 				margin-top: 10px;
 			}
-			.case ul li .top p:nth-child(1){
+			
+			.case ul li .top p:nth-child(1) {
 				flex-grow: 3;
 				font-size: 14px;
-			}.case ul li .top p:nth-child(2){
-
-
+			}
+			
+			.case ul li .top p:nth-child(2) {
 				font-size: 14px;
 			}
+			
 			.case ul li .top span {
 				margin-left: 10px;
 				line-height: 27px;
 			}
-			.case ul li .top .icon_img{
-				width:auto ;
+			
+			.case ul li .top .icon_img {
+				width: auto;
 				height: 25px;
-				border: 1px solid #F3F3F3;;
+				border: 1px solid #F3F3F3;
+				;
 				border-radius: 50%;
 				overflow: hidden;
 			}
 			/*.center ul li conter*/
-
+			
 			.case ul li .top p,
 			.case ul li .center,
 			.case ul li .center .fl,
@@ -127,52 +136,51 @@
 			.case ul li .center .fr span {
 				display: flex;
 			}
-
+			
 			.case ul li .center .fl {
 				width: 100%;
 				padding: 15px 0;
 				box-sizing: border-box;
 			}
-
+			
 			.case ul li .center {
 				position: relative;
 				border-bottom: 1px solid #F3F3F3;
-				   border-top: 1px solid #F3F3F3;
+				border-top: 1px solid #F3F3F3;
 			}
-
+			
 			.case ul li .center .fr {
 				width: 25%;
 				position: absolute;
 				top: 10px;
 				right: 0;
 				justify-content: flex-end;
-
 			}
-
+			
 			.case ul li .center .fl div {
 				margin-left: 10px;
 				border: 1px solid #F3F3F3;
 			}
-
+			
 			.case ul li .center .fl div,
 			.case ul li .center .fl div img {
 				width: 60px;
 				height: 60px;
 				display: block;
 			}
-
+			
 			.case ul li .center .fr span {
 				line-height: 70px;
 				font-size: 15px;
 				margin-right: 0.5rem;
 				opacity: 0.5;
 			}
-
+			
 			.case ul li .center .fr span:nth-child(2) {
 				font-size: 1.5rem;
 			}
 			/*bottom*/
-
+			
 			.bottom {
 				position: relative;
 				padding: 0.5rem;
@@ -181,7 +189,7 @@
 				box-sizing: border-box;
 				font-size: 14px;
 			}
-
+			
 			.bottom .fu {
 				position: absolute;
 				left: 10px;
@@ -189,30 +197,30 @@
 				line-height: 30px;
 				display: flex;
 			}
-
+			
 			.bottom .button {
 				width: 80px;
 				height: 30px;
 				text-align: center;
 				line-height: 30px;
 				margin-left: 0.5rem;
-				border: 1px solid gray;
+				border: 1px solid rgba(196, 196, 196, 0.8);
 				box-sizing: border-box;
 				border-radius: 5px;
 				font-size: 14px;
 			}
-
+			
 			.bottom p:nth-child(3) {
 				color: #D37B57;
 				border-color: #D37B57;
 			}
-
+			
 			.he {
 				background-color: #FF702A;
 				color: white !important;
 			}
 			/*提示*/
-
+			
 			.modal1 {
 				width: 80vw;
 				position: fixed;
@@ -228,7 +236,7 @@
 				display: none;
 				overflow: hidden;
 			}
-
+			
 			.modal1 h5 {
 				width: 100%;
 				text-align: center;
@@ -239,22 +247,22 @@
 				font-size: 16px;
 				display: none;
 			}
-
+			
 			.modal1 p {
 				font-size: 16px;
 			}
-
+			
 			.modal1 .modal1_p1 {
 				box-sizing: border-box;
 				padding: 15px 0;
 			}
-
+			
 			.modal1 .modal1_p {
 				line-height: 40px;
 				display: flex;
 				border-top: 1px solid white;
 			}
-
+			
 			.modal1 .modal1_p span {
 				width: 50%;
 				text-align: center;
@@ -266,11 +274,11 @@
 				background: #e8e8e8;
 				box-sizing: border-box;
 			}
-
+			
 			.modal1 .modal1_p span:nth-child(1) {
 				border-right: 1px solid white;
 			}
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -283,28 +291,35 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
-			.without,.without p{
+			
+			.without,
+			.without p {
 				width: 100%;
 				text-align: center;
 			}
-			.without p:nth-child(2){
+			
+			.without p:nth-child(2) {
 				line-height: 60px;
 			}
-			.without{
+			
+			.without {
 				padding-top: 100px;
 				display: none;
 			}
-			.without a{
+			
+			.without a {
 				width: 100px;
 				height: 40px;
 				line-height: 40px;
 				color: white;
 				background-color: #FF702A;
-				border-radius:10px ;
-				text-align: center;margin: 0px auto;
+				border-radius: 10px;
+				text-align: center;
+				margin: 0px auto;
 			}
-			.reds{
-				color: #FF702A;;
+			
+			.reds {
+				color: #FF702A;
 			}
 		</style>
 	</head>
@@ -324,9 +339,9 @@
 				<p><span id="">
 
 				<img src="__WAP__/img/icon/d1.png"/></span><span>待付款</span></p>
-				<p><span id=""><img src="__WAP__/img/icon/d2.png"/></span><span>待发货</span></p>
-				<p><span id=""><img src="__WAP__/img/icon/d3.png"/></span><span>已发货</span></p>
-				<p><span id=""><img src="__WAP__/img/icon/d4.png"/></span><span>已完成</span></p>
+				<p><span id=""><!--<img src="__WAP__/img/icon/d2.png"/>--></span><span>待发货</span></p>
+				<p><span id=""><!--<img src="__WAP__/img/icon/d3.png"/>--></span><span>已发货</span></p>
+				<p><span id=""><!--<img src="__WAP__/img/icon/d4.png"/>--></span><span>已完成</span></p>
 			</div>
 			<div class="main">
 				<div class="case">
@@ -337,7 +352,7 @@
 								<p>待付款</p>
 							</div>
 							<div class="center">
-								<div class="fl" >
+								<div class="fl">
 									<div class="">
 										<img src="__WAP__/img/595617b6e853f.jpg" />
 									</div>
@@ -371,7 +386,7 @@
 								<p>待付款</p>
 							</div>
 							<div class="center">
-								<div class="fl" >
+								<div class="fl">
 									<div class="">
 										<img src="__WAP__/img/595617b6e853f.jpg" />
 									</div>
@@ -432,7 +447,8 @@
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p><p class="button">联系客服</p>
+								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="button">联系客服</p>
 								<p class="button">查看详情</p>
 								<!--<p class="button">追加评价</p>-->
 							</div>
@@ -478,7 +494,8 @@
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 								<!--<p class="button">查看物流</p>
-								<p class="button">追加评价</p>--><p class="button">联系客服</p>
+								<p class="button">追加评价</p>-->
+								<p class="button">联系客服</p>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -487,7 +504,7 @@
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds" >待付款</p>
+								<p class="reds">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -521,10 +538,11 @@
 								<p class="button">联系客服</p>
 								<p class="button he">去支付</p>
 							</div>
-						</li><li>
+						</li>
+						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds" >待付款</p>
+								<p class="reds">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -558,10 +576,11 @@
 								<p class="button">联系客服</p>
 								<p class="button he">去支付</p>
 							</div>
-						</li><li>
+						</li>
+						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds" >待付款</p>
+								<p class="reds">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -807,22 +826,23 @@
 		</div>
 		<div id="goodcover"></div>
 		<div class="without">
-	<p class="fa fa-envelope-open-o fa-3x"></p><p>您暂时没有订单</p>
-</div>
+			<p class="fa fa-envelope-open-o fa-3x"></p>
+			<p>您暂时没有订单</p>
+		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(".top p").css("line-height", $(".top p .fa").height() + "px");
-			$(".wrapper").css("padding-top","107px")
+		$(".wrapper").css("padding-top", "71px");
 
 			len();
 
 			function len() {
 				for(var i = 0; i < $(".case ul").length; i++) {
 					for(var n = 0; n < $(".case ul:nth-child(" + (i + 1) + ") li").length; n++) {
-							if($(".case ul:nth-child(" + (i + 1) + ") li").length==0){
-								/*$(".case ul:nth-child(" + (i + 1) + ") ").prepend($("body>div.without").clone(true));*/
-								/*$(".case ul:nth-child(" + (i + 1) + ") .without").css("display","block");*/
-							}
+						if($(".case ul:nth-child(" + (i + 1) + ") li").length == 0) {
+							/*$(".case ul:nth-child(" + (i + 1) + ") ").prepend($("body>div.without").clone(true));*/
+							/*$(".case ul:nth-child(" + (i + 1) + ") .without").css("display","block");*/
+						}
 						for(var s = 0; s < $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ")").length; s++) {
 							var lens = $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").length;
 							$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr span i").text(lens);
@@ -831,8 +851,8 @@
 								for(var is = 1; is < 4; is++) {
 									$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div:nth-child(" + is + ")").css("display", "block");
 								}
-							}else{
-								$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity","0");
+							} else {
+								$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity", "0");
 							}
 						}
 					}
@@ -843,12 +863,19 @@
 				$(".order p").removeClass("red");
 				$(this).addClass("red");
 				var tt = $(".order p").index($(this));
+				var ulheight = $(".case ul:nth-child(" + (tt + 1) + ")").height();
+				var win = $(window).height()-71;
+				if(ulheight>win){
+					$(".main").css("height",ulheight+"px");
+				}else{
+					$(".main").css("height",win+"px");
+				}
 				$(".main .case").css("margin-left", -tt * 100 + "%");
-				if($(".case ul:nth-child(" + (tt + 1) + ") li").length == 0){
-					if($(".case ul:nth-child(" + (tt + 1) + ") .without").length==0){
+				if($(".case ul:nth-child(" + (tt + 1) + ") li").length == 0) {
+					if($(".case ul:nth-child(" + (tt + 1) + ") .without").length == 0) {
 						$(".case ul:nth-child(" + (tt + 1) + ") ").prepend($("body>div.without").clone(true));
 					}
-					$(".case ul:nth-child(" + (tt + 1) + ") .without").css("display","block");
+					$(".case ul:nth-child(" + (tt + 1) + ") .without").css("display", "block");
 				}
 
 			})
@@ -864,33 +891,33 @@
 					$(".modal1 h5 ").css("display", "none");
 					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
 					blocks();
-				}else if($(this).text() == "去支付"){
-					window.location.href="{:url('supermarket/pay')}";
-				}else if($(this).text() == "再次购买"){
-					window.location.href="index2.html";
-				}else if($(this).text() == "查看详情"){
-					window.location.href="{:url('supermarket/dingdaninfo')}";
-				}else if($(this).text() == "去支付"){
-					window.location.href="{:url('supermarket/pay')}";
-				}else if($(this).text() == "去支付"){
-					window.location.href="{:url('supermarket/pay')}";
-				}else if($(this).text() == "去支付"){
-					window.location.href="{:url('supermarket/pay')}";
+				} else if($(this).text() == "去支付") {
+					window.location.href = "{:url('supermarket/pay')}";
+				} else if($(this).text() == "再次购买") {
+					window.location.href = "index2.html";
+				} else if($(this).text() == "查看详情") {
+					window.location.href = "{:url('supermarket/dingdaninfo')}";
+				} else if($(this).text() == "去支付") {
+					window.location.href = "{:url('supermarket/pay')}";
+				} else if($(this).text() == "去支付") {
+					window.location.href = "{:url('supermarket/pay')}";
+				} else if($(this).text() == "去支付") {
+					window.location.href = "{:url('supermarket/pay')}";
 				}
 			})
 
-			$(".center .fl").click(function(){
-					window.location.href="{:url('supermarket/dingdaninfo')}";
+			$(".center .fl").click(function() {
+				window.location.href = "{:url('supermarket/dingdaninfo')}";
 			});
-			$(".center .fr").click(function(){
-					window.location.href="{:url('supermarket/dingdaninfo')}";
+			$(".center .fr").click(function() {
+				window.location.href = "{:url('supermarket/dingdaninfo')}";
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
-				if($(".modal1_p1").text()=="是否删除本条记录？"){
+				if($(".modal1_p1").text() == "是否删除本条记录？") {
 					nones();
-				nas.remove();
-				}else{
+					nas.remove();
+				} else {
 					nones();
 				}
 			});

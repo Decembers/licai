@@ -16,6 +16,7 @@
 
 .wrapper {
 	-webkit-overflow-scrolling: touch;
+	color: #606060;
 }
 
 ::-webkit-scrollbar {
