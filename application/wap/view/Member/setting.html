@@ -140,20 +140,32 @@
 				<div class="uc_c_middle fillet" style="margin-top: 1rem;">
 					<ul>
 						<!-- 我的合同-->
-						<li class="contract">
-							<a href="#">
-								<div class="icon fl"></div>
-								<p class="fl">身份认证</p>
-								{if condition="$authentication eq 2"}
-									<span class="fr">已认证</span>
-								{elseif condition="$authentication eq 1" /}
-									<span class="fr">认证中</span>
-								{else /}
-									<span class="entered fr" onclick="window.location='{:url("member/identity")}'"></span>
-								{/if}
 
-							</a>
-						</li>
+						{if condition="$authentication eq 2"}
+							<li class="contract">
+								<a href="#">
+									<div class="icon fl"></div>
+									<p class="fl">身份认证</p>
+									<span class="fr">已认证</span>
+								</a>
+							</li>
+						{elseif condition="$authentication eq 1" /}
+							<li class="contract">
+								<a href="#">
+									<div class="icon fl"></div>
+									<p class="fl">身份认证</p>
+									<span class="fr">认证中</span>
+								</a>
+							</li>
+						{else /}
+							<li class="contract">
+								<a href='{:url("member/identity")}'>
+									<div class="icon fl"></div>
+									<p class="fl">身份认证</p>
+									<span class="entered fr"></span>
+								</a>
+							</li>
+						{/if}
 						<!-- 我的邀请-->
 						<!-- <li class="invitation">
 							<a href="{:url('login/nopassword')}">
@@ -162,17 +174,24 @@
 								<span class="entered fr"></span>
 							</a>
 						</li>-->
+{if condition="$mobile"}
 						<li class="dingdan">
 							<a href="#">
 								<div class="icon fl"></div>
 								<p class="fl">绑定手机号码</p>
-								{if condition="$mobile"}
 									<span class="fr">已绑定</span>
-								{else /}
-									<span class="entered fr" onclick="window.location='{:url("login/mobile")}'"></span>
-								{/if}
 							</a>
 						</li>
+{else /}
+						<li class="dingdan">
+							<a href='{:url("login/mobile")}'>
+								<div class="icon fl"></div>
+								<p class="fl">绑定手机号码</p>
+									<span class="entered fr"></span>
+							</a>
+						</li>
+{/if}
+
 						<li class="dingdan">
 							<a href="{:url('login/nopay')}">
 								<div class="icon fl"></div>
