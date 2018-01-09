@@ -80,18 +80,10 @@
 					{/if}
 					</span>
 				</p>
-				<!--<li>
-					<div class="fw_left fl">
-						<div class="chtx a1">0.00元</div>
-						<div>操作金额</div>
-					</div>
-					<div class="fw_right fr">
-						<div >开户奖励</div>
-						<div>2017-12-06 16:58:20</div>
-					</div>
-				</li>-->
-
-				 <div class="no_record"></div> 
+				{if condition="$arr"}
+				{else /}
+				<div class="no_record"></div>
+				{/if}
 			</ul>
 			<ul>
 			{volist name="arr" id="vo"}
