@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 18:57:25
+ * @Last Modified time: 2018-01-09 10:29:51
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -72,7 +72,7 @@ class Wxpay extends Yang
                 //noncestr已填,商户无需重复填写
                 //spbill_create_ip已填,商户无需重复填写
                 //sign已填,商户无需重复填写
-                $NOTIFY_URL=URLL.url('wxpay/weixinjsapnotify');
+                $NOTIFY_URL="http://nongchang.yingjisong.com/wap/wxpay/weixinjsapnotify.html";
                 $unifiedOrder->setParameter("openid",$openid);//openid
                 $unifiedOrder->setParameter("body",$name);//商品描述
                 $unifiedOrder->setParameter("out_trade_no",$order_id);//商户订单号
@@ -96,6 +96,7 @@ class Wxpay extends Yang
      * @return [type] [description]
      */
     public function weixinjsapnotify() {
+        $name = 'wxlog/log.txt';
         //使用通用通知接口
         Loader::import('Weixinpay.WxPayPubHelper', EXTEND_PATH);
         $notify = new \Notify_pub();
@@ -111,8 +112,6 @@ class Wxpay extends Yang
             $notify->setReturnParameter("return_code","FAIL");//返回状态码
             $notify->setReturnParameter("return_msg","签名失败了啊");//返回信息
         }else{
-
-
             $notify->setReturnParameter("return_code","SUCCESS");//设置返回码
         }
         //数组转换成xml
@@ -120,21 +119,20 @@ class Wxpay extends Yang
         echo $returnXml;
         //=====商户根据实际情况设置相应的处理流程，此处仅作举例=======
         if($notify->checkSign() == TRUE){
-            $name = 'log.txt';
             if ($notify->data["return_code"] == "FAIL") {
                 //此处应该更新一下订单状态，商户自行增删操作
-                file_put_contents($filename,'ERROR == 【通信出错】'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
+                file_put_contents($name,'ERROR == 【通信出错】'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
                 return "fail";
             }elseif($notify->data["result_code"] == "FAIL"){
                 //此处应该更新一下订单状态，商户自行增删操作
-                file_put_contents($filename,'ERROR == 【业务出错】'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
+                file_put_contents($name,'ERROR == 【业务出错】'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
                 return "fail";
             }else{
                 /*支付成功*/
                 $out_trade_no=$notify->data["out_trade_no"];//订单号
                 $total_fee=$notify->data['total_fee'];//订单总金额，单位为分，详见支付金额
                 /*更新订单状态这里写数据库的操作*/
-                $info = Detail::where(array('order_id'=>$out_trade_no))->find();
+                $info = Detail::where(['order_id'=>$out_trade_no])->find();
                 if($info['status'] == 1){
                     //已经修改订单状态
                     return true;
@@ -142,7 +140,7 @@ class Wxpay extends Yang
                     Db::startTrans();
                     try{
                         //修改数据库 增加余额 修改状态
-                        Detail::where(array('order_id'=>$out_trade_no))->update(['status'=>1]);
+                        Detail::where(['order_id'=>$out_trade_no])->update(['status'=>1]);
                         $balance = Session::get('user.balance') + $total_fee;
                         User::where(['id'=>$this->id])->update(['balance'=>$balance]);
                         Session::set('user.balance',$balance);
@@ -151,7 +149,7 @@ class Wxpay extends Yang
                     } catch (\think\Exception $e) {
                         // 回滚事务
                         Db::rollback();
-                            file_put_contents($filename,'ERROR ===修改状态失败和修改余额失败'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
+                            //file_put_contents($name,'ERROR ===修改状态失败和修改余额失败'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
                         return "fail";
                     }
                     return "fail";

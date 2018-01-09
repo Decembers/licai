@@ -296,64 +296,64 @@
                 }
             })
         }
-        // function callpay(data)
-        // {
-        //     if (typeof WeixinJSBridge == "undefined"){
-        //         if( document.addEventListener ){
-        //             document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-        //         }else if (document.attachEvent){
-        //             document.attachEvent('WeixinJSBridgeReady', jsApiCall);
-        //             document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-        //         }
-        //     }else{
-        //         jsApiCall(data);
-        //     }
-        // }
-        // //调用微信JS api 支付
-        // function jsApiCall(data)
-        // {
-        //     WeixinJSBridge.invoke(
-        //         'getBrandWCPayRequest',
-        //         data,
-        //         function(res){
-        //             WeixinJSBridge.log(res.err_msg);
-        //             console.log(res.err_msg);
-        //                 if(res.err_msg == "get_brand_wcpay_request:ok"){
-        //                     //成功
-        //                     alert('支付成功');
-        //                }else{
-        //                    alert(res.err_msg);
-        //                }
-        //         }
-        //     );
-        // }
+        function callpay(data)
+        {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }else{
+                jsApiCall(data);
+            }
+        }
+        //调用微信JS api 支付
+        function jsApiCall(data)
+        {
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                data,
+                function(res){
+                    WeixinJSBridge.log(res.err_msg);
+                    console.log(res.err_msg);
+                        if(res.err_msg == "get_brand_wcpay_request:ok"){
+                            //成功
+                            alert('支付成功');
+                       }else{
+                           alert(res.err_msg);
+                       }
+                }
+            );
+        }
 
 	//调用微信JS api 支付
-	function jsApiCall(data)
-	{
-		WeixinJSBridge.invoke(
-			'getBrandWCPayRequest',
-			data,
-			function(res){
-				WeixinJSBridge.log(res.err_msg);
-				alert(res.err_code+'$'+res.err_desc+'$'+res.err_msg);
-			}
-		);
-	}
+	// function jsApiCall(data)
+	// {
+	// 	WeixinJSBridge.invoke(
+	// 		'getBrandWCPayRequest',
+	// 		data,
+	// 		function(res){
+	// 			WeixinJSBridge.log(res.err_msg);
+	// 			alert(res.err_code+'$'+res.err_desc+'$'+res.err_msg);
+	// 		}
+	// 	);
+	// }
 
-	function callpay(data)
-	{
-		if (typeof WeixinJSBridge == "undefined"){
-		    if( document.addEventListener ){
-		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-		    }else if (document.attachEvent){
-		        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
-		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-		    }
-		}else{
-		    jsApiCall(data);
-		}
-	}
+	// function callpay(data)
+	// {
+	// 	if (typeof WeixinJSBridge == "undefined"){
+	// 	    if( document.addEventListener ){
+	// 	        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+	// 	    }else if (document.attachEvent){
+	// 	        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+	// 	        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+	// 	    }
+	// 	}else{
+	// 	    jsApiCall(data);
+	// 	}
+	// }
 
     </script>
 

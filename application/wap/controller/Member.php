@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 14:06:16
+ * @Last Modified time: 2018-01-09 11:16:15
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -422,7 +422,7 @@ class Member extends Yang
              $data['update_time'] = time();
              $iden = I::where(['identity_card'=>$data['identity_card']])->find();
              if (isset($iden)) {
-                 $arr['msg'] = '身份证号码已提交过认证';
+                 $arr['msg'] = '身份证号码已被绑定!';
                  return json_encode($arr);
              }
              $add = I::insert($data);

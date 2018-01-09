@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 17:31:09
+ * @Last Modified time: 2018-01-09 11:15:12
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -49,8 +49,9 @@ class Login extends Yang
                 if (Session::get('user.authentication') == 0) {
                     return $this->fetch('identity');
                 }
+                $this->redirect(url('index/index'));
             }else{
-                echo "微信获取失败,请从新登录222!";
+                echo "微信获取失败,请从新登录!";
             }
         }else{
             echo "微信获取失败,请从新登录!";
@@ -344,16 +345,20 @@ class Login extends Yang
                     Session::delete($times);
                     return json(['code'=>1, 'msg'=>'短信验证码已失效']);
                 }
-
                 Session::delete($mobile);
                 Session::delete($times);
-                $ress = User::where(['id'=>$this->id])->update($arr);
-                if ($ress!==false) {
-                    Session::set('user.mobile',$mobile);
-                    return json(['code'=>200, 'msg'=>'绑定手机号码成功']);
+                $user = User::where(['mobile'=>$mobile])->find();
+                if (!isset($user)) {
+                    $ress = User::where(['id'=>$this->id])->update($arr);
+                    if ($ress!==false) {
+                        Session::set('user.mobile',$mobile);
+                        return json(['code'=>200, 'msg'=>'绑定手机号码成功']);
+                    }
+                    return json(['code'=>1, 'msg'=>'绑定手机号码失败']);
+                }else{
+                    return json(['code'=>1, 'msg'=>'手机号码已被绑定']);
                 }
 
-                return json(['code'=>1, 'msg'=>'绑定手机号码失败']);
         }else{
             return $this->fetch();
         }
