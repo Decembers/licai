@@ -564,13 +564,13 @@ div.header {
 .big-button {
 	display: block;
 	width: 85%;
-	height: 3rem;
-	line-height: 3rem;
+	height: 40px;
+	line-height: 40px;
 	margin: 0.5rem auto 0 auto;
 	text-align: center;
 	color: #fff;
-	font-size: 2rem;
-	border-radius: 1.45rem;
+	font-size: 20px;
+	border-radius: 15px;
 	background: linear-gradient(to right, #3db4cc, #6fd6ea);
 }
 
@@ -658,4 +658,51 @@ div.header {
 	height: 40px;
 	border-radius: 15px;
 	overflow: hidden;
+}
+
+
+/*记录*/
+
+.record,
+.record li {
+	width: 100%;
+	overflow: auto;
+}
+
+.record li {
+	background-color: white;
+	color: #a9a9a9;
+	font-size: 1rem;
+	box-sizing: border-box;
+	padding: 1rem 1.5rem;
+	margin-top: 2px;
+}
+
+.record li>div>div:nth-child(1) {
+	line-height: 3rem;
+}
+
+.record li>div>div:nth-child(2) {
+	line-height: 2rem;
+}
+
+.record li .chtx {
+	font-size: 2rem;
+}
+
+.record li .fw_right div {
+	text-align: right;
+	font-size: 1.4rem;
+}
+
+.record li .fw_left div:nth-child(2) {
+	font-size: 1.4rem;
+}
+.record li.blue{
+	    background: linear-gradient(to right,#3db4cc,#6fd6ea)!important;
+	    color: white !important;
+}
+.record li.blue .chtx{
+	 color: white !important;
+	
 }
