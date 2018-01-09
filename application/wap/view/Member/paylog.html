@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
-		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<script src="__WAP__/js/jquery.js"></script>
 
 		<style type="text/css">
 
@@ -28,6 +28,36 @@
 				display: flex;
 				background-color: white;
 				margin-top: 2px;
+			}
+			.wrapper ul,
+			.wrapper ul li {
+				width: 100%;
+				overflow: auto;
+			}
+
+			.wrapper ul li {
+				background-color: white;
+				color: #a9a9a9;
+				font-size: 1rem;
+				box-sizing: border-box;
+				padding: 1rem 1.5rem;
+				margin-bottom: 5px;
+			}
+			.wrapper ul li>div>div:nth-child(1){
+				line-height: 3rem;
+			}
+			.wrapper ul li>div>div:nth-child(2){
+				line-height: 2rem;
+			}
+			.chtx {
+				font-size: 2rem;
+			}
+			.fw_right div{
+				text-align: right;
+				font-size: 1.4rem;
+			}
+			.fw_left div:nth-child(2){
+				font-size: 1.4rem;
 			}
 
 		</style>
@@ -52,6 +82,22 @@
 				</p>
 				<!-- 如果没有记录，充值总额为0，显示以下-->
 				<!--<div class="no_record"></div>-->
+				<ul>
+			{volist name="arr" id="vo"}
+				<li>
+					<div class="fw_left fl">
+						<div class="chtx a1">
+						{if condition="$vo.or eq 1"}<b>+</b>{else /}<b>-</b>{/if}{$vo.money}元
+						</div>
+						<div>操作金额</div>
+					</div>
+					<div class="fw_right fr">
+						<div >{$vo.comment}</div>
+						<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+					</div>
+				</li>
+			{/volist}
+			</ul>
 				<!-- 没有记录结束-->
 				<div class="no_record"></div>
 			</ul>
@@ -60,7 +106,14 @@
 		<p class="overtop">签到成功</p>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-
+<script type="text/javascript">
+	/*判断无记录图标提升是否显示*/
+	if($(".Money_Log ul li").length==0){
+		$(".no_record").css("display","block");
+	}else{
+		$(".no_record").css("display","none");
+	}
+</script>
 	</body>
 
 </html>

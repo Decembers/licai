@@ -12,15 +12,16 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
+		<link rel="stylesheet" href="__WAP__/css/LArea.css">
 		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
 		<style type="text/css">
 			.bank_queue {
 				width: 95%;
 				margin: 0 auto;
 			}
-
+			
 			.big-button {}
-
+			
 			.bank_bg {
 				width: 95%;
 				margin: 1rem auto;
@@ -29,12 +30,12 @@
 				padding-right: 1rem;
 				background-color: white;
 			}
-
+			
 			.bank_bg ul,
 			.bank_bg ul li {
 				width: 100%;
 			}
-
+			
 			.bank_bg ul li {
 				display: flex;
 				height: 4.5rem;
@@ -42,11 +43,11 @@
 				border-top: 1px solid #ededed;
 				position: relative;
 			}
-
+			
 			.bank_bg ul li:nth-child(1) {
 				/* border: none; */
 			}
-
+			
 			.bank_bg ul li>span {
 				/*width: 6rem;*/
 				line-height: 4.5rem;
@@ -54,13 +55,13 @@
 				top: 0;
 				left: 0;
 			}
-
+			
 			.bank_bg ul li>div {
 				width: 100%;
 				box-sizing: border-box;
 				padding-left: 6rem;
 			}
-
+			
 			.bank_bg ul li>div input {
 				width: 100%;
 				height: 3rem;
@@ -68,11 +69,11 @@
 				margin-top: 0.8rem;
 				font-size: 15px;
 			}
-
+			
 			.region_select div {
 				display: flex;
 			}
-
+			
 			.region_select div select {
 				width: 33%;
 				height: 2.5rem;
@@ -80,22 +81,22 @@
 				color: gray;
 				font-size: 15px;
 			}
-
+			
 			.this_bank {
 				color: gray;
 			}
-
+			
 			.bank_list {
 				position: relative;
 			}
-
+			
 			.entered {
 				transform: rotate(90deg);
 				position: absolute;
 				top: 0;
 				right: 1rem;
 			}
-
+			
 			#red_select_list1 {
 				width: 100%;
 				height: 100vh;
@@ -107,33 +108,33 @@
 				transition: top 0.3s;
 				overflow: auto;
 			}
-
+			
 			#red_select_list1 .red_seclet {
 				width: 100%;
 				height: 100%;
 				overflow: scroll;
 			}
-
+			
 			#red_select_list1 li {
 				height: 3rem;
 				line-height: 3rem;
 				padding: 0 15px;
 				width: 100%;
 			}
-
+			
 			#closeList {
 				background: #3db4cc;
 				color: #fff;
 			}
-
+			
 			#red_select_list1 li span {
 				font-size: 16px;
 			}
-
+			
 			#red_select_list1 li input {
 				opacity: 0;
 			}
-
+			
 			.close-popup {
 				border-bottom: 1px solid #ededed;
 				border-radius: 0;
@@ -142,19 +143,19 @@
 			}
 			/*红包关闭*/
 			/*红包 样式*/
-
+			
 			.default_red span {
 				font-size: 0.9rem;
 			}
-
+			
 			.clearfix {
 				display: flex;
 			}
-
+			
 			.bank_queue {
 				display: none;
 			}
-
+			
 			.kahao {
 				width: 95%;
 				margin: 1rem auto;
@@ -162,34 +163,34 @@
 			}
 			/*min-height:100px;//最小高度
 max-height:200px;//最大高度*/
-
+			
 			.kahao li {
 				box-sizing: border-box;
 				height: 6rem;
 				margin-bottom: 0.5rem;
 			}
-
+			
 			.checkin {
 				position: relative;
 				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
 			}
-
+			
 			.white {
 				background: #fff;
 			}
-
+			
 			.fillet {
 				border: 1px solid #ededed;
 				border-radius: 0.4rem;
 				background: #fff;
 			}
-
+			
 			.checkin .bank_icon {
 				position: absolute;
 				top: 1.2rem;
 				left: 0.75rem;
 			}
-
+			
 			.bank_icon img {
 				margin: 0;
 				padding: 0;
@@ -204,13 +205,13 @@ max-height:200px;//最大高度*/
 				-o-transform: rotateY(60deg);
 				-ms-transform: rotateY(60deg);
 			}
-
+			
 			.kahao li a {
 				position: absolute;
 				left: 100px;
 				top: 1rem;
 			}
-
+			
 			.detail h6 {
 				padding: 0;
 				margin: 0;
@@ -218,13 +219,13 @@ max-height:200px;//最大高度*/
 				font-size: 18px;
 				margin-top: 5px;
 			}
-
+			
 			.detail span {
 				font-size: 14px;
 				color: gray;
 				margin-top: 5px;
 			}
-
+			
 			body>li {
 				display: none;
 			}
@@ -237,7 +238,7 @@ max-height:200px;//最大高度*/
 				<div class="">
 					<span class="icon"></span><span>返回</span>
 				</div>
-				<h3>提现</h3>
+				<h3>添加银行卡</h3>
 				<a href="{:url('member/withdrawlog');}">提现记录</a>
 			</div>
 			<div class="bank_queue">
@@ -247,10 +248,10 @@ max-height:200px;//最大高度*/
 			<div class="no_record"></div>
 			-->
 				<!-- 结束-->
-				<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
-				<div class="no_record"></div>
+				<!--<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
+				<div class="no_record"></div>-->
 			</div>
-			<ul class="kahao">
+			<!--<ul class="kahao">
 				<li class="checkin white fillet">
 					<div class="bank_icon">
 						<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
@@ -262,7 +263,7 @@ max-height:200px;//最大高度*/
 						</div>
 					</a>
 				</li>
-			</ul>
+			</ul>-->
 			<div class="bank_bg white fillet">
 				<ul>
 					<li class="dl">
@@ -279,22 +280,9 @@ max-height:200px;//最大高度*/
 					</li>
 					<li class="dl region_select">
 						<span class="name">所在地</span>
-						<div>
-							<select id="s_province" name="s_province">
-								<option value="省份">省份</option>
-
-							</select>
-							<select id="s_city" name="s_city">
-								<option value="地级市">地级市</option>
-							</select>
-							<select id="s_county" name="s_county">
-								<option value="市、县级市">市、县级市</option>
-							</select>
-							<script class="resources library" src="__WAP__/js/area.js" type="text/javascript"></script>
-
-							<script type="text/javascript">
-								_init_area();
-							</script>
+						<div class="content-block">
+							<input id="demo1" type="text" readonly="" placeholder="城市选择" value="">
+							<input id="value1" type="hidden" value="20,234,504">
 						</div>
 
 					</li>
@@ -436,9 +424,29 @@ max-height:200px;//最大高度*/
 		</li>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/LAreaData1.js"></script>
+		<script src="__WAP__/js/LAreaData2.js"></script>
+		<script src="__WAP__/js/LArea.js"></script>
+		<script>
+			var area1 = new LArea();
+			area1.init({
+				'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+				'valueTo': '#value1', //选择完毕后id属性输出到该位置
+				'keys': {
+					id: 'id',
+					name: 'name'
+				}, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+				'type': 1, //数据源类型
+				'data': LAreaData //数据源
+			});
+			//area1.value=[17,189,788];//控制初始位置，注意：该方法并不会影响到input的value
+
+			$("#demo1").bind('input', function() {});
+		</script>
 		<script type="text/javascript">
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 			$(".kahao").css("display", "none");
+			$(".content-block").css("color", "")
 			$(".dl div select").focus(function() {
 				$(this).css("color", "black");
 			})
@@ -497,44 +505,32 @@ max-height:200px;//最大高度*/
 									$(".overtop").text("请输入开户行");
 									overtop();
 								} else {
-									if($("#s_province  option:selected").text() == "省份") {
-
-										$(".overtop").text("请选择所在地");
+									if($("#demo1").val() == "") {
+										$(".overtop").text("请选择地址");
 										overtop();
 									} else {
-										if($("#s_city  option:selected").text() == "城市") {
-
-											$(".overtop").text("请选择所在地");
-											overtop();
-										} else {
-											if($("#s_county option:selected").text() == "城区") {
-
-												$(".overtop").text("请选择所在地");
-												overtop();
-											} else {
-
-												var name=$("#names").val();
-												var cardnum=$("#bankcard").val();
-												var bank_name=$(".this_bank").text();
-												var bank_opening=$("#bankzone").val();
-												var province_name=$("#s_province  option:selected").text();
-												var city_name=$("#s_city  option:selected").text();
-												var district_name=$("#s_county option:selected").text();
+var name = $("#names").val();
+												var cardnum = $("#bankcard").val();
+												var bank_name = $(".this_bank").text();
+												var bank_opening = $("#bankzone").val();
+												var province_name = $("#s_province  option:selected").text();
+												var city_name = $("#s_city  option:selected").text();
+												var district_name = $("#s_county option:selected").text();
 												$.ajax({
-								                    type : "POST",  //提交方式
-								                    url : "{:url('member/addwithdraw')}",//路径
-								                    data : {
-								                        "name" : name,
-								                        "image" :inp,
-								                        "cardnum" : cardnum,
-								                        "bank_name" : bank_name,
-								                        "bank_opening" : bank_opening,
-								                        "province_name" : province_name,
-								                        "city_name" : city_name,
-								                        "district_name" : district_name,
-								                    },
-								                    dataType : "json",//数据，这里使用的是Json格式进行传输
-								                    success : function(result) {
+													type: "POST", //提交方式
+													url: "{:url('member/addwithdraw')}", //路径
+													data: {
+														"name": name,
+														"image": inp,
+														"cardnum": cardnum,
+														"bank_name": bank_name,
+														"bank_opening": bank_opening,
+														"province_name": province_name,
+														"city_name": city_name,
+														"district_name": district_name,
+													},
+													dataType: "json", //数据，这里使用的是Json格式进行传输
+													success: function(result) {
 
 														var aa = JSON.parse(result);
 														if(aa.code == 1) {
@@ -552,19 +548,18 @@ max-height:200px;//最大高度*/
 														$(".overtop").text('请刷新页面重试');
 														overtop();
 													}
-												});
-											}
-										}
 									}
+
 								}
 							}
-						} else {
-							$(".overtop").text("卡号错误，请重新输入");
-							overtop();
 						}
-
+					} else {
+						$(".overtop").text("卡号错误，请重新输入");
+						overtop();
 					}
+
 				}
+			}
 			}
 
 			/* 填写完成 后  判断      lis 是否复制*/

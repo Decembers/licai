@@ -520,9 +520,11 @@ div.header {
     text-align: center;
     color: #fff;
     font-size: 2rem;
-    border-radius: 1.125rem;
+    border-radius: 1.45rem;
     background: linear-gradient(to right, #3db4cc, #6fd6ea);
-    
+}
+.big-button a{
+	color: white !important;
 }
 .no_record {
     width: 150px;

@@ -643,7 +643,9 @@ header h1 {
 
 
 /*one 信息*/
-
+.uc_center{
+	padding-top: 1rem;
+}
 .uc_c_top {
 	box-sizing: border-box;
 	width: 100%;
@@ -651,7 +653,7 @@ header h1 {
 	background: linear-gradient(to right, #33b3cc, #6fd6ea);
 	border-radius: 0.4rem;
 	padding: 0.8rem 0.6rem 0.8rem 0.7rem;
-	margin-top: 1rem;
+	
 	color: #fff;
 }
 
