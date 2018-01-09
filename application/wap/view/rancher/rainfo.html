@@ -355,10 +355,11 @@
 			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
-				if(parseInt($("#zhi").text()) < 1) {
-					$("#big-button").attr({
+				$("#big-button").attr({
 						"disabled": "disabled"
 					});
+				if(parseInt($("#zhi").text()) < 1) {
+					
 					$(".overtop").text("没有剩余数量，无法兑换");
 						overtop();
 				} else {
