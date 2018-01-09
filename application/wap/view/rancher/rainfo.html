@@ -359,6 +359,8 @@
 					$("#big-button").attr({
 						"disabled": "disabled"
 					});
+					$(".overtop").text("没有剩余数量，无法兑换");
+						overtop();
 				} else {
 					if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
 						var sp_id = "{$com.id}";
@@ -377,9 +379,7 @@
 
 								console.log(result);
 								if(result.code == 1) {
-									$(".overtop").text(result.msg);
-									overtop();
-									$(".detail21").css('display', 'block');
+								$(".detail21").css('display', 'block');
 									$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
 									$("#big-button").attr({
 										"disabled": "disabled"
@@ -387,11 +387,11 @@
 									q = q - $("#qian").text();
 									$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
 
-									/*$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
+									$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
-									$(".detail21 ").prepend($("body>p.record").clone(true));*/
+									$(".detail21 ").prepend($("body>p.record").clone(true));
 									zs = zs + parseInt($("#numbers").text());
-									zj = zj + parseInt($("#qian").text()) + ".00";
+									zj = zj + parseInt($("#qian").text());
 
 									$("#record1 span:nth-child(1) i").text(zs);
 									$("#record1 span:nth-child(2) i").text(zj);
@@ -402,7 +402,10 @@
 									bian();
 									setTimeout(function() {
 										$("#big-button").removeAttr("disabled");
-									}, 1500);
+									}, 1500);	
+									$(".overtop").text(result.msg);
+									overtop();
+									
 									/*window.location.reload();*/
 
 								} else {
@@ -417,7 +420,7 @@
 						});
 
 					} else {
-						$(".overtop").text("超出剩余数量");
+						$(".overtop").text("超出剩余数量，无法兑换");
 						overtop();
 					}
 				}

@@ -1,5 +1,5 @@
 @media screen and (max-width: 900px) {
-	body,.wrapper {
+	.wrapper {
 		background-color: rgb(240, 240, 243);
 	}
 }

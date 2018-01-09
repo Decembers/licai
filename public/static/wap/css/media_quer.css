@@ -4,7 +4,7 @@
 	.wrapper {
 		width: 100%;
 		background-color: white;
-		/*min-height: 100vh;*/
+		min-height: 100vh;
 		-webkit-overflow-scrolling: touch;
 	color: #606060;
 	}
