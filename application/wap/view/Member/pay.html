@@ -280,18 +280,22 @@
 		</script>
     <script type="text/javascript">
          function reward(money){
-
+         	var money = $("#money1").val();//充值金额
+         	if (money=='') {
+         		$(".overtop").text("请输入充值金额");
+				overtop();
+				return false;
+         	}
             $.ajax({
                 //一个Ajax过程
                 type: "post", //以post方式与后台沟通
                 url : "{:url('wxpay/getinfo')}", //与此php页面沟通
                 dataType:'json',//从php返回的值以 JSON方式 解释
-                //data: {'name':name,'money':money,'num':num,'overall_money':money,'room_id':room_id}, //发给php的数据有两项，分别是上面传来的u和p
+                data: {'money':money}, //发给php的数据有两项，分别是上面传来的u和p
                 success: function(json){
                     //var data=JSON.stringify(json);
                     //console.log(json.appId);
                     eval('var data = '+json);
-                    console.log(data);
                     callpay(data);
                 }
             })

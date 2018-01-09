@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 10:15:09
+ * @Last Modified time: 2018-01-09 14:08:20
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -30,9 +30,9 @@ class yang extends Controller
                 if (!isset($cuser)) {
                     $this->redirect('wap/login/login');
                 }else{
-                    $user_id = Cookie::get('user_id');
-                    $user = U::where(['id'=>$user_id])->find();
+                    $user = U::where(['id'=>$cuser])->find();
                     Session::set('user',$user);
+                    $this->id =Session::get('user.id');
                 }
             }else{
                 $this->id =Session::get('user.id');

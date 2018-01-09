@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 10:29:51
+ * @Last Modified time: 2018-01-09 17:07:08
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -24,26 +24,14 @@ class Wxpay extends Yang
      */
     public function getinfo(){
         if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
-
-
-            // if ($_POST['name']==''||$_POST['money']==''||$_POST['num']==''||$_POST['overall_money']==''||$_POST['room_id']=='') {
-            //     echo '请求数据都不能为空';
-            //     return;
-            // }
-
-
-            // $name = $_POST['name'];
-            // $overall_money = $_POST['overall_money'];
-            // $money = $_POST['money'];
-            // $num = $_POST['num'];
-            // $room_id = $_POST['room_id'];
-
-            /*$overall_money_test=$overall_money*100;
-            $money_test=$money*100;*/
+            if ($_POST['money']=='') {
+                echo '请求数据都不能为空';
+                return;
+            }
             //生成订单
             $str = $this->generate_password();//随机字符串
             $order_id = time().$str;
-            $money = 1;
+            $money = $_POST['money'];
             $name = '微信充值';
 
             $row['order_id']= $order_id;
@@ -72,11 +60,11 @@ class Wxpay extends Yang
                 //noncestr已填,商户无需重复填写
                 //spbill_create_ip已填,商户无需重复填写
                 //sign已填,商户无需重复填写
-                $NOTIFY_URL="http://nongchang.yingjisong.com/wap/wxpay/weixinjsapnotify.html";
+                $NOTIFY_URL=URLL.url('wxpay/weixinjsapnotify');
                 $unifiedOrder->setParameter("openid",$openid);//openid
-                $unifiedOrder->setParameter("body",$name);//商品描述
+                $unifiedOrder->setParameter("body",'充值');//商品描述
                 $unifiedOrder->setParameter("out_trade_no",$order_id);//商户订单号
-                $unifiedOrder->setParameter("total_fee",$money);//总金额 微信的钱1*100等于1
+                $unifiedOrder->setParameter("total_fee",$money);//总金额
                 $unifiedOrder->setParameter("notify_url",$NOTIFY_URL);//通知地址
                 $unifiedOrder->setParameter("trade_type","JSAPI");//交易类型
                 //非必填参数，商户可根据实际情况选填
@@ -131,6 +119,7 @@ class Wxpay extends Yang
                 /*支付成功*/
                 $out_trade_no=$notify->data["out_trade_no"];//订单号
                 $total_fee=$notify->data['total_fee'];//订单总金额，单位为分，详见支付金额
+                $openid=$notify->data['openid'];//订单总金额，单位为分，详见支付金额
                 /*更新订单状态这里写数据库的操作*/
                 $info = Detail::where(['order_id'=>$out_trade_no])->find();
                 if($info['status'] == 1){
@@ -141,15 +130,14 @@ class Wxpay extends Yang
                     try{
                         //修改数据库 增加余额 修改状态
                         Detail::where(['order_id'=>$out_trade_no])->update(['status'=>1]);
-                        $balance = Session::get('user.balance') + $total_fee;
-                        User::where(['id'=>$this->id])->update(['balance'=>$balance]);
-                        Session::set('user.balance',$balance);
+                        $user = User::where(['openid'=>$openid])->find();
+                        $balance = $user['balance'] + $total_fee;
+                        User::where(['openid'=>$openid])->update(['balance'=>$balance]);
                         // 提交事务
                         Db::commit();
                     } catch (\think\Exception $e) {
                         // 回滚事务
                         Db::rollback();
-                            //file_put_contents($name,'ERROR ===修改状态失败和修改余额失败'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
                         return "fail";
                     }
                     return "fail";
