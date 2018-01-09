@@ -391,7 +391,7 @@
 									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 									$(".detail21 ").prepend($("body>p.record").clone(true));
 									zs = zs + parseInt($("#numbers").text());
-									zj = zj + parseInt($("#qian").text());
+									zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
 
 									$("#record1 span:nth-child(1) i").text(zs);
 									$("#record1 span:nth-child(2) i").text(zj);
