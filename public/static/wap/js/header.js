@@ -3,6 +3,7 @@ $(".wrapper").css("padding-bottom", $(".footer").height() + "px");
 
 /*有.header 时 .wrapper 上面的外边距 */
 $(".wrapper").css("padding-top", ($(".header").height()) + "px");
+$(".wrapper").css("box-sizing", "border-box");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
 
 $("div.header>div").click(function() {
