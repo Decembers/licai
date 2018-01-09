@@ -22,12 +22,14 @@
 				background-color: rgba(0, 0, 0, 0);
 				-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
 			}
-
+.big-button{
+	background:linear-gradient(to right,#b7b5b4,#b7b5b4);
+}
 			.detail1,
-			.big-button {
-				background-image: url(__WAP__/img/vip.jpg);
-				-moz-background-size: 100% 100%;
-				background-size: 100% 100%;
+			.big-button1 {
+				background-image: url(__WAP__/img/vip.jpg) !important;
+				-moz-background-size: 100% 100% !important;
+				background-size: 100% 100% !important;
 			}
 
 			a.found {
@@ -162,7 +164,7 @@
 
 				</div>
 			</div>
-			<button class="big-button press" id="big-button">朕要买鹅</button>
+			<button class="big-button press big-button1" id="big-button">朕要买鹅</button>
 			<a href="#" class="found m_co sh_au-ex" style="display: none;">商铺辅助鹅群说明</a>
 			<div id="goodcover"></div>
 			<!-- 商铺辅助鹅群群说明-->
@@ -319,22 +321,21 @@
 			})*/
 
 			/*阅读并同意的按钮*/
-			var r6 = 0;
+			
 			$(".row6>div>div").click(function() {
 				$(this).toggleClass("dui");
-				r6 = r6 + 1;
-				var r6s = r6 % 2;
-				if(r6s == 1) {
-					/*取消选择 禁用*/
-					$("#big-button").css("background", "linear-gradient(to right,#b7b5b4,#b7b5b4)");
+				var duis = $(this).hasClass("dui");
+			
+				if(duis==true) {
+					/*取消选择 禁用*/					
 					$("#big-button").attr({
 						"disabled": "disabled"
 					});
+						$("#big-button").removeClass("big-button1");
 				} else {
 					/*选择  取消禁用*/
-					$("#big-button").removeAttr("disabled");
-					$("#big-button").css("background", " url(img/vip.jpg)");
-					$("#big-button").css("background-size", "100% 100%");
+					$("#big-button").removeAttr("disabled");	
+						$("#big-button").addClass("big-button1");
 				}
 			})
 			/*买鹅按钮点击*/

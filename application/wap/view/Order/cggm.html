@@ -211,12 +211,14 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			
+			
 			/*买养 按钮禁用*/
 			/*$("#big-button").attr({
 				"disabled": "disabled"
 			});*/
 			/*阅读并同意的按钮*/
-			var r6 = 0;
+			
 			$(".row6>div>div").click(function() {
 				/*var st = $("button[id^='big-button']").attr("disabled");
 				if(st == "disabled") {*/
@@ -224,9 +226,8 @@
 				//				} else {
 				/*alert("没有禁用");*/
 				$(this).toggleClass("dui");
-				r6 = r6 + 1;
-				var r6s = r6 % 2;
-				if(r6s == 1) {
+				var duis = $(this).hasClass("dui");
+				if(duis == true) {
 					$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
 					$("#big-button").attr({
 						"disabled": "disabled"
@@ -409,15 +410,15 @@
 								overtop();
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
-									/*$("#big-button").removeAttr("disabled");*/
+									$("#big-button").removeAttr("disabled");
+									
 									window.location = '{:url("Rancher/index")}';
-									/*$("#em1").text($("#em1").text() - $("#qian").text());
+									$("#em1").text($("#em1").text() - $("#qian").text());
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
 									$("#profit").text(profit);
-									$("#max6").val("");*/
-									window.location.reload();
+									$("#max6").val("");
 								}, 500);
 							} else {
 								/*提示错误，取消 禁止点击*/

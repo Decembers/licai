@@ -19,52 +19,7 @@
 				margin: 0 auto;
 				margin-top: 0.5rem;
 			}
-			/*我的羊只 */
-
-			.mysheep {
-				width: 100%;
-				background: url(__WAP__/img/my_sheep.jpg);
-				-moz-background-size: 100% 100%;
-				background-size: 100% 100%;
-				background-size: cover;
-				text-align: center;
-				color: #fff;
-				font-size: 0.7rem;
-				margin-bottom: 0.5rem;
-			}
-			/*我的羊只 数量 */
-
-			.mysheep h5 {
-				color: #fff;
-				font-size: 3.3rem;
-				line-height: 2.9rem;
-				margin: 1rem 0;
-			}
-			/*我的羊只 */
-
-			.my_sheep {
-				font-size: 0.9rem;
-			}
-			/*成长*/
-
-			.grow {
-				line-height: 2.3rem;
-				font-size: 0.9rem;
-				display: flex;
-				justify-content: center;
-			}
-
-			.ing {
-				margin-right: 0.7rem;
-			}
-
-			.no_sheep {
-				width: 10rem;
-				height: 11rem;
-				margin: 3.5rem auto 0 auto;
-				background: url(__WAP__/img/no_record.png) no-repeat center center;
-				background-size: 100% 100%;
-			}
+			
 			/*交易弹窗 黑色背景*/
 
 			#goodcover {
@@ -249,7 +204,7 @@
 					<!-- 如果没有羊，则显示-->
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有羊结束-->
-					<div class="no_sheep" style="display: none;"></div>
+					<div class="no_record" ></div>
 					<ul class="hetong">
 						{volist name="arr" id="vo"}
 						<li>
@@ -261,7 +216,7 @@
 						</li>
 						{/volist}
 					</ul>
-					<button class="big-button press" style="display: none;" onclick="window.location='index1-navs2.html'">朕去买羊</button>
+					
 				</div>
 				<!-- 交易统计弹出框成功弹出-->
 				<div id="goodcover"></div>

@@ -274,10 +274,11 @@ max-height:200px;//最大高度*/
 				</li>
 				{/volist}
 			{else /}
+			
 				<div class="no_record"></div>
 			{/if}
 			</ul>
-			<div class="bank_bg white fillet">
+			<!--<div class="bank_bg white fillet">
 				<ul>
 					<li class="dl">
 						<span class="name">持 卡 人</span>
@@ -334,9 +335,9 @@ max-height:200px;//最大高度*/
 						</div>
 					</li>
 				</ul>
-			</div>
+			</div>-->
 			<button id="add" class="big-button press"><a href="{:url('member/addwithdraw')}">添加银行卡</a></button>
-			<div id="red_select_list1">
+			<!--<div id="red_select_list1" style="display: none;">
 
 				<ul class="red_seclet white">
 					<li class="closeList" id="closeList"><span class="">关闭</span></li>
@@ -487,9 +488,9 @@ max-height:200px;//最大高度*/
 					</li>
 				</ul>
 			</div>
-		</div>
+		</div>-->
 		<p class="overtop">签到成功</p>
-		<li class="checkin white fillet">
+		<!--<li class="checkin white fillet" style="display: none;">
 			<div class="bank_icon">
 				<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
 			</div>
@@ -499,15 +500,16 @@ max-height:200px;//最大高度*/
 					<span></span>
 				</div>
 			</a>
-		</li>
+		</li>-->
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
-			$(".bank_bg").css("display", "none");
+			/*$(".bank_bg").css("display", "none");
 			$(".dl div select").focus(function() {
 				$(this).css("color", "black");
-			})
+			})*/
 			/*$("#add").click(function() {
 				if($(this).text() == "添加银行卡") {
 					$(".bank_queue").css("display", "none");
@@ -522,76 +524,14 @@ max-height:200px;//最大高度*/
 				}
 			})*/
 			/*红包选择 弹出*/
-			$(".bank_list").click(function() {
+			/*$(".bank_list").click(function() {
 				$("#red_select_list1").css("top", "0");
 				$(this).css("color", "black");
-			})
-			/*选择红包 或关闭*/
-			$("#red_select_list1 ul li").click(function() {
-				var tt = $("#red_select_list1 ul li").index($(this));
-				if(tt == 0) {
-					$("#red_select_list1").css("top", "100vh");
-				} else {
-					$("#red_select_list1").css("top", "100vh");
-					var s1 = $(this).children().text();
-					$(".bank_list p").text(s1);
-					$(".bank_list p").css("color", "black");
-				}
-			})
-
-			function queren() {
-				if($("#names").val() == "") {
-					$(".overtop").text("请输入持卡人姓名");
-					overtop();
-				} else {
-					if($("#bankcard").val() == "") {
-						$(".overtop").text("请输入卡号");
-						overtop();
-					} else {
-						if($("#bankcard").val().length > 15 && $("#bankcard").val().length < 20) {
-
-							if($(".this_bank").text() == "请查看银行列表") {
-								$(".overtop").text("请查看银行列表");
-								overtop();
-							} else {
-								if($("#bankzone").val() == "") {
-									$(".overtop").text("请输入开户行");
-									overtop();
-								} else {
-									if($("#s_province  option:selected").text() == "省份") {
-
-										$(".overtop").text("请选择所在地");
-										overtop();
-									} else {
-										if($("#s_city  option:selected").text() == "城市") {
-
-											$(".overtop").text("请选择所在地");
-											overtop();
-										} else {
-											if($("#s_county option:selected").text() == "城区") {
-
-												$(".overtop").text("请选择所在地");
-												overtop();
-											} else {
-
-												huoqu();
-												hui();
-											}
-										}
-									}
-								}
-							}
-						}else{
-							$(".overtop").text("卡号错误，请重新输入");
-												overtop();
-						}
-
-					}
-				}
-			}
-
+			})*/
+			
+			
 			/* 填写完成 后  判断      lis 是否复制*/
-			function huoqu() {
+			/*function huoqu() {
 				var liss = $(".kahao li").length;
 				if($(".kahao li:nth-child(" + liss + ") a .detail h6").text() == "") {
 					xieru(liss);
@@ -599,7 +539,7 @@ max-height:200px;//最大高度*/
 					$(".kahao li:nth-child(" + liss + ")").after($("body>li").clone(true));
 					xieru($(".kahao li").length);
 				}
-			}
+			}*/
 			/* 把填写的内容 写入 复制 区域*/
 			function xieru(len) {
 				/*$("#bankcard").val().substr(-4, 4);*/

@@ -130,7 +130,7 @@
 							<li class="form_modify">
 								<span class="more"></span>
 								<span class="delect"></span>
-								<input type="tel" id="dl_user_pwd" name="dl_user_pwd" placeholder="请输入身份证号" maxlength="">
+								<input type="tel" id="dl_user_pwd" name="dl_user_pwd" placeholder="请输入身份证号" maxlength="18">
 							</li>
 
 						</ul>
@@ -157,29 +157,12 @@ $(".changed").click(function() {
 						overtop();
 					} else {
 						var pwd = $("#dl_user_pwd").val();
-						if($("#dl_user_pwd").val().length == 15) {
-							isCardNo(pwd);
+						if($("#dl_user_pwd").val().length == 15 ||$("#dl_user_pwd").val().length == 18) {
+							/*isCardNo(pwd);*/
+							
 							/*yanz1(pwd,/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/)*/
-						} else if($("#dl_user_pwd").val().length == 18) {
-							isCardNo(pwd);
 							/*yanz1(pwd,/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/)*/
-						} else {
-							$(".overtop").text($("#dl_user_pwd").val().length)
-							overtop();
-						}
-					}
-				}
-			})
-			/*验证*/
-			function isCardNo(card) {
-				// 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X
-				var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-				if(reg.test(card) === false) {
-					alert("身份证输入不合法");
-					return false;
-				}else{
-
-												var name=$("#dl_mobile").val();
+							var name=$("#dl_mobile").val();
 												var identity_card=$("#dl_user_pwd").val();
 												$.ajax({
 								                    type : "POST",  //提交方式
@@ -208,8 +191,24 @@ $(".changed").click(function() {
 														overtop();
 								                }
 												});
+						}else {
+							$(".overtop").text("身份证号错误");
+							overtop();
+						}
+					}
 				}
-			}
+			})
+			/*验证*/
+			/*function isCardNo(card) {
+				// 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X
+				var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+				if(reg.test(card) === false) {
+					alert("身份证输入不合法");
+					return false;
+				}else{
+
+				}
+			}*/
 
 			/*15位数身份证验证正则表达式：
 			isIDCard1=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;

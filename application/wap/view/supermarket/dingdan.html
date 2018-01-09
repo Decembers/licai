@@ -36,7 +36,7 @@
 			}
 			
 			.order p.red {
-				border-bottom: 2px solid #FF702A;
+				border-bottom: 2px solid #6fd6ea;
 				box-sizing: border-box;
 			}
 			
@@ -150,7 +150,7 @@
 			}
 			
 			.case ul li .center .fr {
-				width: 25%;
+				width: 28%;
 				position: absolute;
 				top: 10px;
 				right: 0;
@@ -211,13 +211,15 @@
 			}
 			
 			.bottom p:nth-child(3) {
-				color: #D37B57;
-				border-color: #D37B57;
+				color: #6fd6ea;
+				border-color: #6fd6ea;
 			}
 			
 			.he {
-				background-color: #FF702A;
+				    background: linear-gradient(to right, #3db4cc, #6fd6ea);
+				    border: none !important;
 				color: white !important;
+				flex-wrap: 600;
 			}
 			/*提示*/
 			
@@ -291,7 +293,14 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
-			
+			.without{
+				position: fixed;
+				top: 50% ;
+				left: 0;
+				margin-top: -80px;
+				display: none;
+				z-index: 150;
+			}
 			.without,
 			.without p {
 				width: 100%;
@@ -301,25 +310,23 @@
 			.without p:nth-child(2) {
 				line-height: 60px;
 			}
-			
-			.without {
-				padding-top: 100px;
-				display: none;
-			}
-			
+
 			.without a {
 				width: 100px;
 				height: 40px;
 				line-height: 40px;
 				color: white;
-				background-color: #FF702A;
+				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				border-radius: 10px;
 				text-align: center;
 				margin: 0px auto;
 			}
 			
-			.reds {
+			/*.blue {
 				color: #FF702A;
+			}*/
+			.blue {
+				color: #6fd6ea !important;
 			}
 		</style>
 	</head>
@@ -349,7 +356,7 @@
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds">待付款</p>
+								<p class="blue">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -383,7 +390,7 @@
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds">待付款</p>
+								<p class="blue">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -504,7 +511,7 @@
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds">待付款</p>
+								<p class="blue">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -542,7 +549,7 @@
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds">待付款</p>
+								<p class="blue">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -580,7 +587,7 @@
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="reds">待付款</p>
+								<p class="blue">待付款</p>
 							</div>
 							<div class="center">
 								<div class="fl">
@@ -853,7 +860,7 @@
 									$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div:nth-child(" + is + ")").css("display", "block");
 								}
 							} else {
-								$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity", "0");
+								/*$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity", "0");*/
 							}
 						}
 					}
@@ -877,10 +884,13 @@
 				}
 				$(".main .case").css("margin-left", -tt * 100 + "%");
 				if($(".case ul:nth-child(" + (tt + 1) + ") li").length == 0) {
-					if($(".case ul:nth-child(" + (tt + 1) + ") .without").length == 0) {
+					/*if($(".case ul:nth-child(" + (tt + 1) + ") .without").length == 0) {
 						$(".case ul:nth-child(" + (tt + 1) + ") ").prepend($("body>div.without").clone(true));
 					}
-					$(".case ul:nth-child(" + (tt + 1) + ") .without").css("display", "block");
+					$(".case ul:nth-child(" + (tt + 1) + ") .without").css("display", "block");*/
+					$(".without").css("display", "block");
+				}else{
+					$(".without").css("display", "none");
 				}
 
 			})

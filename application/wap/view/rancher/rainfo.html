@@ -13,43 +13,45 @@
 		<style type="text/css">
 			/*开抢按钮 首行背景 颜色*/
 			/*时间*/
+			
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-
+			
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-
+			
 			#timer {
 				display: flex;
 			}
+			
 			.detail1,
 			.big-button {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 			}
-
+			
 			.row6>div>div {
 				border: 1px solid #3db4cc;
 				background-color: #3db4cc;
 				box-sizing: border-box;
 			}
-
+			
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #3db4cc;
 			}
 			/*开抢按钮*/
-
+			
 			#big-button {
 				display: flex;
 				justify-content: center;
 			}
-
+			
 			#big-button .icon {
 				background: url(__WAP__/img/nao.png) no-repeat center center;
 				background-size: 1.4rem;
@@ -58,11 +60,11 @@
 				line-height: 2.24rem;
 				margin-top: 0.35rem;
 			}
-
+			
 			#big-button span:nth-child(2) {
 				width: auto;
 			}
-
+			
 			.detail21 {
 				width: 95%;
 				margin: 10px auto;
@@ -75,7 +77,7 @@
 				position: relative;
 				display: none;
 			}
-
+			
 			.detail21>p {
 				width: 100%;
 				justify-content: space-between;
@@ -85,20 +87,20 @@
 				font-size: 0.8rem;
 				color: #a9a9a9;
 			}
-
+			
 			.record {
 				display: none;
 				overflow: hidden;
 			}
-
+			
 			.record span:nth-child(1) {
 				float: left;
 			}
-
+			
 			.record span:nth-child(2) {
 				float: right;
 			}
-
+			
 			#record {
 				border: none;
 				position: absolute;
@@ -108,22 +110,23 @@
 				box-sizing: border-box;
 				border-radius: 5px 5px 0 0;
 			}
-
+			
 			#record1 {
 				position: relative;
 				left: -15px;
 				padding: 0 15px;
 			}
-			#record1 span{
+			
+			#record1 span {
 				display: flex;
 			}
-
+			
 			#record1 {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				color: white;
 				border-radius: 5px;
 			}
-
+			
 			.detail21 .record {
 				display: block;
 			}
@@ -155,21 +158,18 @@
 				</div>
 				<div class="detail2">
 					<p>{$com.name}</p>
-					<p ><span>项目编号</span><span class="em">{$com.com_number}</span></p>
-					<p><span>兑换时间</span>
-					{if condition="$order.status eq 1"}
+					<p><span>项目编号</span><span class="em">{$com.com_number}</span></p>
+					<p><span>兑换时间</span> {if condition="$order.status eq 1"}
 						<span id="timer" class="timer-simple-seconds" timer="{$com.convert_time}">
 							<span class="day">5</span>天<span class="hour">00</span>时<span class="minute">00</span>分<span class="second">00</span>秒
 						</span>
-					{elseif condition="$order.status eq 2" /}
+						{elseif condition="$order.status eq 2" /}
 						<span id="timer" class="timer-simple-seconds" timer="1">
 							兑换时间已结束
-						</span>
-					{else /}
+						</span> {else /}
 						<span id="timer" class="timer-simple-seconds" timer="1">
 							订单完成后开始
-						</span>
-					{/if}
+						</span> {/if}
 					</p>
 				</div>
 
@@ -186,10 +186,16 @@
 							<span id="plus">+</span>
 						</p>
 					</div>
+					<div class="row" style="display: none;">
+						<p><span>使用红包</span><span>超出不返还</span></p>
+						<p>
+							<span>请选择红包</span><span class="icon"></span>
+						</p>
+					</div>
 					<div class="row">
 						<p>支付密码</p>
 						<p>
-							<input type="tel" name="" id="max6" placeholder="请输入支付密码" maxlength="6" style="border:none;"/>
+							<input type="tel" name="" id="max6" placeholder="请输入支付密码" maxlength="6" style="border:none;" />
 						</p>
 					</div>
 					<div class="row">
@@ -217,23 +223,21 @@
 
 				</div>
 			</div>
-			<button class="big-button press" id="big-button">朕要兑换</button>
-
-			{if condition="$conversion"}
-				<div class="detail21" style="display: block;">
+			<button class="big-button press" id="big-button">朕要兑换</button> {if condition="$conversion"}
+			<div class="detail21" style="display: block;">
 				{volist name="conversion" id="vo"}
-					<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span></p>
+				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span></p>
 				{/volist}
 
-					<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
-					<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
-				</div>
+				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
+				<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
+			</div>
 			{else /}
-				<div class="detail21" style="display: none;">
-					<!-- <p class="record"><span></span><span>￥</span></p> -->
-					<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
-					<p class="record" id="record1"><span>总数量：0</span><span>总金额：￥0</span></p>
-				</div>
+			<div class="detail21" style="display: none;">
+				<!-- <p class="record"><span></span><span>￥</span></p> -->
+				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
+				<p class="record" id="record1"><span>总数量：0</span><span>总金额：￥0</span></p>
+			</div>
 			{/if}
 			<div id="goodcover"></div>
 			<!-- 商铺辅助鹅群群说明-->
@@ -250,7 +254,7 @@
 			<p>确定</p>
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*阅读并同意的按钮*/
 			var r6 = 0;
@@ -314,7 +318,8 @@
 				}
 				bian();
 			})
-var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").text();
+			var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").text();
+
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -346,7 +351,7 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
 			var zs = parseInt($("#record1 span:nth-child(1) i").text());
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
-			$("#record1 span:nth-child(2) i").text(zj+".00");
+			$("#record1 span:nth-child(2) i").text(zj + ".00");
 			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
@@ -356,25 +361,25 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 					});
 				} else {
 					if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
-						var sp_id="{$com.id}";
-						var number = $("#number").val();//兑换的数量
-						var pay_pass = $("#max6").val();//兑换的数量
+						var sp_id = "{$com.id}";
+						var number = $("#number").val(); //兑换的数量
+						var pay_pass = $("#max6").val(); //兑换的数量
 						$.ajax({
-		                    type : "POST",  //提交方式
-		                    url : "{:url('rancher/rainfo')}",//路径
-		                    data : {
-		                        "sp_id" : sp_id,
-		                        "number" : number,
-		                        "pay_pass" : pay_pass
-		                    },
-		                    dataType : "json",//数据，这里使用的是Json格式进行传输
-		                    success : function(result) {
+							type: "POST", //提交方式
+							url: "{:url('rancher/rainfo')}", //路径
+							data: {
+								"sp_id": sp_id,
+								"number": number,
+								"pay_pass": pay_pass
+							},
+							dataType: "json", //数据，这里使用的是Json格式进行传输
+							success: function(result) {
 
-		                    	console.log(result);
-								if (result.code==1) {
+								console.log(result);
+								if(result.code == 1) {
 									$(".overtop").text(result.msg);
 									overtop();
-									$(".detail21").css('display','block');
+									$(".detail21").css('display', 'block');
 									$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
 									$("#big-button").attr({
 										"disabled": "disabled"
@@ -382,35 +387,33 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 									q = q - $("#qian").text();
 									$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
 
-									
-
 									/*$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 									$(".detail21 ").prepend($("body>p.record").clone(true));*/
-									zs = zs +parseInt($("#numbers").text());
-									zj = zj+parseInt($("#qian").text())+".00";
+									zs = zs + parseInt($("#numbers").text());
+									zj = zj + parseInt($("#qian").text()) + ".00";
 
 									$("#record1 span:nth-child(1) i").text(zs);
 									$("#record1 span:nth-child(2) i").text(zj);
-									
 
 									$("#number").val(1);
-									
+
 									$("#max6").val("");
 									bian();
 									setTimeout(function() {
 										$("#big-button").removeAttr("disabled");
 									}, 1500);
+									/*window.location.reload();*/
 
-								}else{
+								} else {
 									$(".overtop").text(result.msg);
 									overtop();
 								}
-		                    },
-		                    error : function (){
-		                    	$(".overtop").text('请刷新页面重试');
+							},
+							error: function() {
+								$(".overtop").text('请刷新页面重试');
 								overtop();
-		                }
+							}
 						});
 
 					} else {
@@ -432,11 +435,11 @@ var texts = $(".detail1_top div:nth-child(1) p:nth-child(2) span:nth-child(1)").
 				$("#code").css("display", "none");
 			})
 
-			var j = setInterval(function(){
-					if($("#timer .day").text()==0 && $("#timer .hour").text()==00 &&$("#timer .minute").text()==00&& $("#timer .second").text()==00){
-						clearInterval(j);
-					}
-			},1000);
+			var j = setInterval(function() {
+				if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
+					clearInterval(j);
+				}
+			}, 1000);
 		</script>
 
 	</body>
