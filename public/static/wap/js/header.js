@@ -6,7 +6,8 @@ $(".wrapper").css("padding-top", ($(".header").height()) + "px");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
 
 $("div.header>div").click(function() {
-	history.go(-1)
+	/*history.go(-1)*/
+	location.replace(document.referrer);
 /*history.back(-1)*/
 })
 /*提示*/

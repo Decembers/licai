@@ -303,12 +303,11 @@
 				$(".detail3").css("display", "block");
 			})*/
 			/*阅读并同意的按钮*/
-			var r6 = 0;
+		
 			$(".row6>div>div").click(function() {
 				$(this).toggleClass("dui");
-				r6 = r6 + 1;
-				var r6s = r6 % 2;
-				if(r6s == 1) {
+				var duis = $(this).hasClass("dui");
+				if(duis == true) {
 					/*取消选择 禁用*/
 					$("#big-button").css("background", "linear-gradient(to right,#b7b5b4,#b7b5b4)");
 					$("#big-button").attr({
