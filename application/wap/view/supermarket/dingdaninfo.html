@@ -17,7 +17,7 @@
 		<style type="text/css">
 			/*@fa-font-path: "font-awesome-4.7.0/less/variables.less";*/
 			/*main*/
-		
+			
 			body {
 				color: #606060;
 			}
@@ -37,10 +37,11 @@
 			.main>.order {
 				width: 100%;
 				overflow: hidden;
-				background: linear-gradient(to right, #f5a676, #F87F35)!important;
+				background: linear-gradient(to right, #3db4cc, #6fd6ea)!important;
 				padding: 1.5rem 0;
 				color: #f8e6db;
-				opacity: 0.7;
+				color: white;
+				font-weight: 600;
 			}
 			
 			.order p {
@@ -68,16 +69,18 @@
 				left: 12px;
 				top: 13px;
 				font-size: 25px;
-				color: grey;
 				margin: 0;
+				color: #6fd6ea !important;
 			}
 			
 			.top p:nth-child(1) {
 				font-size: 17px;
 			}
-			.top p:nth-child(1) span{
-				color: #606060 !important;
+			
+			.top p:nth-child(1) span {
+				color: #606060;
 			}
+			
 			.top p:nth-child(2) {
 				line-height: 20px;
 				font-size: 13px;
@@ -113,7 +116,7 @@
 			}
 			
 			.center h3 .fa {
-				color: #808080;
+				color: #6fd6ea !important;
 				line-height: 25px;
 				margin: 0 12px;
 				width: 16px;
@@ -141,7 +144,6 @@
 				width: 60px;
 				height: 60px;
 				border: 1px solid #F3F3F3;
-				
 			}
 			
 			.center .fl>div .div {
@@ -221,7 +223,8 @@
 				text-align: center;
 				line-height: 30px;
 				margin-left: 0.5rem;
-				border: 1px solid rgba(196, 196, 196, 0.8);
+				background: linear-gradient(to right, #3db4cc, #6fd6ea)!important;
+				color: white;
 				box-sizing: border-box;
 				border-radius: 15px;
 				font-size: 15px;
@@ -270,8 +273,10 @@
 				line-height: 20px;
 			}
 			
-			.red {
-				color: red;
+			.blue {
+				color: #6fd6ea !important;
+				/*font-weight: 600;*/
+				/*font-size: 16px;*/
 			}
 			/*提示*/
 			
@@ -324,7 +329,8 @@
 				height: 40px;
 				line-height: 40px;
 				text-align: center;
-				color: #0894ec;
+				color: #6fd6ea;
+				font-weight: 600;
 				background: #e8e8e8;
 				box-sizing: border-box;
 			}
@@ -345,10 +351,11 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
-			.modal2{
+			
+			.modal2 {
 				width: 80%;
 				background-color: white;
-				border-radius:10px;
+				border-radius: 10px;
 				position: fixed;
 				top: 50%;
 				left: 50%;
@@ -359,24 +366,27 @@
 				display: none;
 				z-index: 1002;
 			}
-			.modal2 p{
+			
+			.modal2 p {
 				display: flex;
 				line-height: 40px;
 			}
-			.modal2 p span:nth-child(1){
+			
+			.modal2 p span:nth-child(1) {
 				width: 18px;
 				height: 18px;
 				border-radius: 50%;
 				border: 1px solid #606060;
-				margin-right: 10px;box-sizing: border-box;
+				margin-right: 10px;
+				box-sizing: border-box;
 				margin-top: 11px;
 			}
-			.modal2 .click span:nth-child(1){
+			
+			.modal2 .click span:nth-child(1) {
 				border: 5px solid #3db4cc;
-				
-				
 			}
-
+			
+			
 		</style>
 	</head>
 
@@ -392,9 +402,9 @@
 
 			<div class="main">
 				<div class="order">
-				<p>交易关闭</p>
-				<p>订单金额：￥450.00</p>
-			</div>
+					<p>交易关闭</p>
+					<p>订单金额：￥450.00</p>
+				</div>
 				<div class="top">
 					<p><span class="fa fa-thumb-tack fa-2x"></span><span>李先生</span><span>13613820359</span></p>
 					<p>深圳市南山区科技园南区R2-B三楼</p>
@@ -460,11 +470,12 @@
 				<div class="center_1">
 					<div class="">
 						<span>商品小计</span><span>￥405.00</span>
-					</div><div class="">
+					</div>
+					<div class="">
 						<span>运费</span><span>￥0.00</span>
 					</div>
 					<div class="">
-						<span>实付费（含运费）</span><span class="red">￥405.00</span>
+						<span>实付费（含运费）</span><span class="blue">￥405.00</span>
 					</div>
 				</div>
 				<div class="center_1">
@@ -472,7 +483,8 @@
 					<p><span>创建时间</span><span>2017-11-20</span></p>
 				</div>
 				<div class="bottom">
-					<p class="button">取消订单</p>		<p class="button">支付订单</p>
+					<p class="button">取消订单</p>
+					<p class="button">支付订单</p>
 				</div>
 			</div>
 		</div>
@@ -484,15 +496,15 @@
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div class="modal2">
-			<p class="click"><span ></span><span>不取消了</span></p>
-			<p><span ></span><span>我不买了</span></p>
-			<p><span ></span><span>信息填写错误，重新拍</span></p>
-			<p><span ></span><span>同城见面交易</span></p><p><span ></span><span>其他原因</span></p>
+			<p class="click"><span></span><span>不取消了</span></p>
+			<p><span></span><span>我不买了</span></p>
+			<p><span></span><span>信息填写错误，重新拍</span></p>
+			<p><span></span><span>同城见面交易</span></p>
+			<p><span></span><span>其他原因</span></p>
 		</div>
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-
 			sa();
 
 			function sa() {
@@ -501,9 +513,10 @@
 
 				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 				if(isiOS) {
-					
+
 				}
 			}
+
 			function len() {
 				var lens = $(".center .fl>div").length - 2;
 				$(".center .fr span i").text(lens);
@@ -538,24 +551,24 @@
 					window.location.href = "{:url('Supermarket/pay')}";
 				}
 			})
-			$(".modal2 p").click(function(){
+			$(".modal2 p").click(function() {
 				$(".modal2 p").removeClass("click");
-					$(this).addClass("click");
-					 var tt = $(".modal2 p").index($(this));
-					 setTimeout(function(){
-					 	if(tt ==0){
+				$(this).addClass("click");
+				var tt = $(".modal2 p").index($(this));
+				setTimeout(function() {
+					if(tt == 0) {
 						nones();
-					}else{
+					} else {
 						nones();
-						 setTimeout(function(){
-						 	$(".modal1 h5 ").css("display", "block");
-					$(".modal1 .modal1_p1").text("是否删除本条记录？")
-					blocks();
-						 },500)
-						
+						setTimeout(function() {
+							$(".modal1 h5 ").css("display", "block");
+							$(".modal1 .modal1_p1").text("是否删除本条记录？")
+							blocks();
+						}, 500)
+
 					}
-					 },50);
-					
+				}, 50);
+
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
@@ -568,7 +581,7 @@
 			$("#goodcover").click(function() {
 				nones();
 			})
-			$(".modal1_p span:nth-child(2)").click(function() {
+			$(".modal1_p span:nth-child(1)").click(function() {
 				nones();
 			})
 

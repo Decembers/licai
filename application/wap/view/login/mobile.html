@@ -125,13 +125,17 @@
 
     <body>
         <div class="wrapper">
-            <div class="header" style="background-color: rgb(240, 240, 243);border: none; padding: 2rem 0;">
-                <h3>绑定手机号码</h3>
-            </div>
+           <div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>绑定手机号码</h3>
+				<!--<a href="###">交易统计</a>-->
+			</div>
             <div class="content bgCo native-scroll">
                 <!-- 这里是页面内容区 -->
 
-                <div class="register_login bgCo" id="mb_re_pwd" style="padding-top: 8rem;">
+                <div class="register_login bgCo" id="mb_re_pwd" >
                     <div class="modify_login fillet">
                         <ul>
                             <li class="form_modify">
@@ -201,9 +205,15 @@
             })
 
 
+           
             $('#dl_getcode').click(function() {
+				if($("#dl_mobile1").val() == "") {
+					$(".overtop").text("请输入新手机号");
+					overtop();
+				} else {
+					if($("#dl_mobile1").val().length == 11) {
 
-                    var mobile = $("#dl_mobile").val();
+						 var mobile = $("#dl_mobile").val();
                     $.ajax({
                         type : "POST",  //提交方式
                         url : "{:url('Login/codemsg')}",//路径
@@ -222,19 +232,28 @@
                     }
                     });
 
-                $(".count_down").css("display", "block");
-                $(".count_down").css("z-index", "10");
-                $(".count_down").css("text-align", "center");
-                var s = 60;
-                var j = setInterval(function() {
-                    s = s - 1;
-                    $(".count_down").html(s + "秒");
-                    if(s == 0) {
-                        $(".count_down").css("display", "none");
-                        clearInterval(j);
-                    }
-                }, 1000)
-            })
+
+						$(".count_down").css("display", "block");
+						$(".count_down").css("z-index", "10");
+						$(".count_down").css("text-align", "center");
+						/*$("p.overtop").text("验证码已发送，请注意查收");
+						overtop();*/
+						var s = 60;
+						var j = setInterval(function() {
+							s = s - 1;
+							$(".count_down").html(s + "秒");
+							if(s == 0) {
+								$(".count_down").css("display", "none");
+								$('#dl_getcode').val("请重新获取");
+								clearInterval(j);
+								$(".count_down").text("60秒");
+							}
+						}, 1000)
+					} else {
+						$(".overtop").text("请重新输入新手机号");
+					}
+				}
+			})
         </script>
     </body>
 
