@@ -236,7 +236,7 @@
 			<div class="detail21" style="display: none;">
 				<!-- <p class="record"><span></span><span>￥</span></p> -->
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
-				<p class="record" id="record1"><span>总数量：0</span><span>总金额：￥0</span></p>
+				<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
 			</div>
 			{/if}
 			<div id="goodcover"></div>
@@ -354,6 +354,9 @@
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			$("#record1 span:nth-child(2) i").text(zj + ".00");
 			checkNum(zs);
+			/*$("#record1 span:nth-child(1) i").text(zs);
+				$("#record1 span:nth-child(2) i").text(zj);*/
+				/*alert($("#record1 span:nth-child(1) i").text()+"!!"+$("#record1 span:nth-child(1) i").text())*/
 			/*判断js验证是否为数字*/
 			function checkNum(obj) {
 				if(!isNaN(obj.value)) {
@@ -443,14 +446,8 @@ function shu(){
 										$(".overtop").text(result.msg);
 										overtop();
 										$(".detail21").css('display', 'block');
-										/*shu();
-										$("#record1 span:nth-child(1) i").text(zs1);
-										var zj = zs1*texts;
-											$("#record1 span:nth-child(2) i").text(zj1);*/
-											
-										pars();len();
-										/*window.location.reload();*/
-
+																				
+										pars();										
 									} else {
 										$(".overtop").text(result.msg);
 										overtop();
