@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 14:12:52
+ * @Last Modified time: 2018-01-10 16:19:17
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -332,6 +332,7 @@ class Member extends Yang
                 }else{
                     //echo $access_token;die;
                     $editAddress = $wxpay->getaddress($access_token);
+                    //$editAddress = json_decode($editAddress);
                     $this->assign('editAddress',$editAddress);
                     $arr = R::where(['user_id'=>$this->id])->select();
                     $this->assign('arr',$arr);
@@ -339,7 +340,7 @@ class Member extends Yang
                 }
             }else{
                 $url = $getuser->geturl(1);//传入参数 改变返回code地址
-                $this->redirect($url);
+                $this->redirect($url);echo $url;die;
             }
 
             // $arr = R::where(['user_id'=>$this->id])->select();

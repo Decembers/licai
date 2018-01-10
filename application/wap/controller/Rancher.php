@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-06 18:17:17
+ * @Last Modified time: 2018-01-10 16:54:58
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -95,6 +95,10 @@ class Rancher extends Yang
                 $arr['msg'] = '请输入支付密码';
                 return json($arr);
             }
+            // if (time()<$com['over_time']) {
+            //     $arr['msg']='兑换时间还未开始!';
+            //     return json($arr);
+            // }
             if (time()>$com['convert_time']) {
                 $arr['msg']='兑换时间已结束!';
                 return json($arr);
@@ -185,7 +189,7 @@ class Rancher extends Yang
             $this->assign('yihua',$yihua);
             $this->assign('com',$com);
             $this->assign('order',$order);
-            $this->assign('zongjin',$zongjin);
+            $this->assign('zongjin',$zongjin-$yihua);
             return $this->fetch();
         }
 

@@ -323,9 +323,10 @@
 		//获取共享地址
 		function editAddress()
 		{
+			alert('hah');
+			//eval('var data = '+{$editAddress});
 			WeixinJSBridge.invoke(
-				'editAddress',
-				{$editAddress},
+				'editAddress',{$editAddress},
 				function(res){
 					var value1 = res.proviceFirstStageName;
 					var value2 = res.addressCitySecondStageName;
@@ -334,13 +335,15 @@
 					var tel = res.telNumber;
 
 					alert(value1 + value2 + value3 + value4 + ":" + tel);
-					alert({$editAddress.appid});
+					//alert(data);
 				}
 			);
 		}
 
 		function callpay(){
-			if (typeof WeixinJSBridge == "undefined"){
+			alert('fdsafsd');
+			if (typeof window.WeixinJSBridge == "undefined"){
+				alert('fdsafsd');
 			    if( document.addEventListener ){
 			        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
 			    }else if (document.attachEvent){
