@@ -213,7 +213,7 @@
 						<input id="money1" type="number" placeholder="请输入充值金额">
 					</div>
 					<div class="figure_text">
-						<div id="purchase" class="fl1">充值金额可购常规羊：<i id="num-sheep">0</i>只</div>
+						<div id="purchase" class="fl1">充值金额可购常规鹅：<i id="num-sheep">0</i>只</div>
 					</div>
 
 					<div class="pay_detail clearfix">
@@ -226,7 +226,7 @@
 							微信手机WAP支付 </div><img class="img_ri" src="__WAP__/img/dui.png" />
 					</div>
 					<div class="figure_text">
-						温馨提示：当您的充值用途不是购买财富牧场的羊只时，7个自然日内我们不支持提现，7个自然日之后您申请提现时我们将收取0.6%的手续费哦∩_∩。
+						温馨提示：当您的充值用途不是购买财富牧场的鹅只时，7个自然日内我们不支持提现，7个自然日之后您申请提现时我们将收取0.6%的手续费哦∩_∩。
 					</div>
 					<button class="big-button press" id="big-button" onclick="reward()">朕要充值</button>
 					<a href="{:url('member/paygz')}" class="big-a">充值、提现规则</a>
@@ -286,6 +286,11 @@
 				} else if(tt == 1) {
 					$(".bottom>li:nth-child(2)").css("display", "block");
 				}
+			})
+			$("#money1").bind('input', function() {
+				var va = parseInt($("#money1").val())/80;
+				/*充值除以单价*/
+				$("#num-sheep").text(parseInt(va));
 			})
 		</script>
     <script type="text/javascript">
