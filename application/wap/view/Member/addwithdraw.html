@@ -441,7 +441,7 @@ max-height:200px;//最大高度*/
 			});
 			//area1.value=[17,189,788];//控制初始位置，注意：该方法并不会影响到input的value
 
-			$("#demo1").bind('input', function() {});
+			
 		</script>
 		<script type="text/javascript">
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
@@ -464,12 +464,12 @@ max-height:200px;//最大高度*/
 				}
 			})*/
 			/*红包选择 弹出*/
+			/*红包选择 弹出*/
 			$(".bank_list").click(function() {
 				$("#red_select_list1").css("top", "0");
 				$(this).css("color", "black");
 			})
 			/*选择红包 或关闭*/
-			var inp;
 			$("#red_select_list1 ul li").click(function() {
 				var tt = $("#red_select_list1 ul li").index($(this));
 				if(tt == 0) {
@@ -477,9 +477,10 @@ max-height:200px;//最大高度*/
 				} else {
 					$("#red_select_list1").css("top", "100vh");
 					var s1 = $(this).children().text();
+					var inp = $(this).children().next().val();
 					$(".bank_list p").text(s1);
 					$(".bank_list p").css("color", "black");
-					inp = $(this).children().next().val();
+					
 				}
 			})
 			$("#add").click(function() {
@@ -509,58 +510,59 @@ max-height:200px;//最大高度*/
 										$(".overtop").text("请选择地址");
 										overtop();
 									} else {
-var name = $("#names").val();
-												var cardnum = $("#bankcard").val();
-												var bank_name = $(".this_bank").text();
-												var bank_opening = $("#bankzone").val();
-												var province_name = $("#s_province  option:selected").text();
-												var city_name = $("#s_city  option:selected").text();
-												var district_name = $("#s_county option:selected").text();
-												$.ajax({
-													type: "POST", //提交方式
-													url: "{:url('member/addwithdraw')}", //路径
-													data: {
-														"name": name,
-														"image": inp,
-														"cardnum": cardnum,
-														"bank_name": bank_name,
-														"bank_opening": bank_opening,
-														"province_name": province_name,
-														"city_name": city_name,
-														"district_name": district_name,
-													},
-													dataType: "json", //数据，这里使用的是Json格式进行传输
-													success: function(result) {
+										var name = $("#names").val();
+										var cardnum = $("#bankcard").val();
+										var bank_name = $(".this_bank").text();
+										var bank_opening = $("#bankzone").val();
+										var province_name = $("#s_province  option:selected").text();
+										var city_name = $("#s_city  option:selected").text();
+										var district_name = $("#s_county option:selected").text();
+										$.ajax({
+											type: "POST", //提交方式
+											url: "{:url('member/addwithdraw')}", //路径
+											data: {
+												"name": name,
+												"image": inp,
+												"cardnum": cardnum,
+												"bank_name": bank_name,
+												"bank_opening": bank_opening,
+												"province_name": province_name,
+												"city_name": city_name,
+												"district_name": district_name,
+											},
+											dataType: "json", //数据，这里使用的是Json格式进行传输
+											success: function(result) {
 
-														var aa = JSON.parse(result);
-														if(aa.code == 1) {
-															$(".overtop").text(aa.msg);
-															overtop();
-															setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
-																window.location = '{:url("member/withdraw");}';
-															}, 1000);
-														} else {
-															$(".overtop").text(aa.msg);
-															overtop();
-														}
-													},
-													error: function() {
-														$(".overtop").text('请刷新页面重试');
-														overtop();
-													}
+												var aa = JSON.parse(result);
+												if(aa.code == 1) {
+													$(".overtop").text(aa.msg);
+													overtop();
+													setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+														window.location = '{:url("member/withdraw");}';
+													}, 1000);
+												} else {
+													$(".overtop").text(aa.msg);
+													overtop();
+												}
+											},
+											error: function() {
+												$(".overtop").text('请刷新页面重试');
+												overtop();
+											}
+										});
 									}
 
 								}
 							}
-						}
-					} else {
+						}else {
 						$(".overtop").text("卡号错误，请重新输入");
 						overtop();
 					}
+					} 
 
 				}
 			}
-			}
+			
 
 			/* 填写完成 后  判断      lis 是否复制*/
 			function huoqu() {
