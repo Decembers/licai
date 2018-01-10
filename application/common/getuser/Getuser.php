@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-08 09:57:40
+ * @Last Modified time: 2018-01-10 13:46:53
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -32,8 +32,12 @@ class Getuser
     /*
      * 请求授权地址
      */
-    public function geturl()
+    public function geturl($url=0)
     {
+            if ($url!=0) {
+                $this->redirect_uri = urlencode(URLL.url('member/listress'));
+                $this->scope = 'snsapi_base';
+            }
             $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$this->appid.'&redirect_uri='.$this->redirect_uri.'&response_type=code&scope='.$this->scope.'&state='.$this->state.'#wechat_redirect';
             return $url;
     }
@@ -43,12 +47,25 @@ class Getuser
     public function getaccess_token($code)
     {
           $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->secret."&code=".$code."&grant_type=authorization_code";
-          //return $url;die;
           $date = $this->curlget($url);
             if ($date) {
                 if (isset($date['access_token'])) {
                     $userinfo = $this->getuserinfo($date['access_token'],$date['openid']);
                     return $userinfo;
+                }
+            }
+           return false;
+    }
+    /*
+     * 网页授权获取access_token
+     */
+    public function gettoken($code)
+    {
+          $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->secret."&code=".$code."&grant_type=authorization_code";
+          $date = $this->curlget($url);
+            if ($date) {
+                if (isset($date['access_token'])) {
+                    return $date['access_token'];
                 }
             }
            return false;

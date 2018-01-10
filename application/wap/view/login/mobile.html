@@ -205,14 +205,12 @@
             })
 
 
-           
-            $('#dl_getcode').click(function() {
-				if($("#dl_mobile1").val() == "") {
-					$(".overtop").text("请输入新手机号");
-					overtop();
-				} else {
-					if($("#dl_mobile1").val().length == 11) {
 
+            $('#dl_getcode').click(function() {
+                if($("#dl_mobile").val() == "") {
+                    $(".overtop").text("请输入手机号码")
+                    overtop();
+                }  else {
 						 var mobile = $("#dl_mobile").val();
                     $.ajax({
                         type : "POST",  //提交方式
@@ -249,9 +247,6 @@
 								$(".count_down").text("60秒");
 							}
 						}, 1000)
-					} else {
-						$(".overtop").text("请重新输入新手机号");
-					}
 				}
 			})
         </script>

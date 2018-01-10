@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 17:07:08
+ * @Last Modified time: 2018-01-10 14:29:15
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -14,10 +14,13 @@ use think\Session;
 use think\Cookie;
 use app\common\model\User;
 use app\common\model\Detail;
-
+use \app\common\getuser\Getuser;
 
 class Wxpay extends Yang
 {
+    public $access_token;
+
+    use \app\admin\traits\controller\Controller;
     /**
      * 支付
      * @return [type] [description]
@@ -146,6 +149,76 @@ class Wxpay extends Yang
         }
     }
 
+    /*
+     * 发起获取code请求
+     */
+    // public function getcode()
+    // {
+    //     $getuser = new Getuser;
+    //     if ($_POST['code']) {
+    //         $code = $_POST['code'];
+    //         $access_token = $getuser->gettoken($code);//取得token
+    //         if ($access_token===false) {
+    //             $this->access_token = $access_token;
+    //             $this->getaddress();
+    //         }
+    //     }else{
+    //         $url = $getuser->geturl(1);//传入参数 改变返回code地址
+    //         $this->redirect($url);
+    //     }
+    // }
+
+    /**
+     * 获取收获地址
+     * @return [type] [description]
+     */
+    public function getaddress($access_token){
+        if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+                $getuser = new Getuser;
+                $str = $this->generate_password();//随机字符串
+                $data = [];
+                $data["appid"] = $getuser->appid;
+                $data["url"] = URLL.url('member/listress');
+                $time = time();
+                $data["timestamp"] = "$time";
+                $data["noncestr"] = $str;
+                $data["accesstoken"] = $access_token;
+                ksort($data);
+                $params = $this->ToUrlParams($data);
+                $addrSign = sha1($params);
+
+                $afterData = array(
+                    "addrSign" => $addrSign,
+                    "signType" => "sha1",
+                    "scope" => "jsapi_address",
+                    "appId" => $getuser->appid,
+                    "timeStamp" => $data["timestamp"],
+                    "nonceStr" => $data["noncestr"]
+                );
+                $parameters = json_encode($afterData);
+                return $parameters;
+            }
+    }
+    /**
+     *
+     * 拼接签名字符串
+     * @param array $urlObj
+     *
+     * @return 返回已经拼接好的字符串
+     */
+    private function ToUrlParams($urlObj)
+    {
+        $buff = "";
+        foreach ($urlObj as $k => $v)
+        {
+            if($k != "sign"){
+                $buff .= $k . "=" . $v . "&";
+            }
+        }
+
+        $buff = trim($buff, "&");
+        return $buff;
+    }
     /**
      * 随机字符串
      * @return [type] [description]

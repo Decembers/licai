@@ -280,6 +280,7 @@ trait Controller
         $user = new User;
         $testtime = time();//+7776000
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
+        $users = User::where(['id'=>$id])->find();
         foreach ($orders as $k => $v) {
             $sp_id = $v['sp_id'];//商品id
             $commoditys = $commodity -> where(['id'=>$sp_id]) -> find();//商品信息
@@ -303,7 +304,7 @@ trait Controller
                     //需全部返还 包括本金
                     for ($i=1; $i <= $sheng; $i++) {
                         $diji = $v['which'] + $i;
-                        $balance = Session::get('user.balance');//余额
+                        $balance = $users['balance'];//余额
                         //返还利润表数据
                         $row['order_id'] = $v['id'];
                         $row['user_id'] = $id;
@@ -341,7 +342,7 @@ trait Controller
                     //不包括最后一次返还
                     for ($i=1; $i <= $chi; $i++) {
                         $diji = $v['which'] + $i;
-                        $balance = Session::get('user.balance');//余额
+                        $balance = $users['balance'];//余额
                         //返还利润表数据
                         $row['order_id'] = $v['id'];
                         $row['user_id'] = $id;
@@ -369,7 +370,7 @@ trait Controller
                 $rate_time = $commoditys['rate'] * 86400 + $commoditys['begin_time'];//返还的时间
                 if ($testtime >= $rate_time) {
                     //返还全部金额
-                    $balance = Session::get('user.balance');//余额
+                    $balance = $users['balance'];//余额
                     //返还利润表数据
                     $row['order_id'] = $v['id'];
                     $row['user_id'] = $id;

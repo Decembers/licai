@@ -120,7 +120,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" id="em1" style="font-size: 0.8rem;">{:session('user.balance')}</span></p>
+						<p><span class="em">￥</span><span class="em" id="em1" style="font-size: 0.8rem;">{$balance}</span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -321,20 +321,20 @@
 			})*/
 
 			/*阅读并同意的按钮*/
-			
+
 			$(".row6>div>div").click(function() {
 				$(this).toggleClass("dui");
 				var duis = $(this).hasClass("dui");
-			
+
 				if(duis==true) {
-					/*取消选择 禁用*/					
+					/*取消选择 禁用*/
 					$("#big-button").attr({
 						"disabled": "disabled"
 					});
 						$("#big-button").removeClass("big-button1");
 				} else {
 					/*选择  取消禁用*/
-					$("#big-button").removeAttr("disabled");	
+					$("#big-button").removeAttr("disabled");
 						$("#big-button").addClass("big-button1");
 				}
 			})

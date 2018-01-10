@@ -19,7 +19,7 @@
 				margin: 0 auto;
 				margin-top: 0.5rem;
 			}
-			
+
 			/*交易弹窗 黑色背景*/
 
 			#goodcover {
@@ -204,7 +204,11 @@
 					<!-- 如果没有羊，则显示-->
 					<!--<div class="no_sheep"></div>-->
 					<!-- 没有羊结束-->
-					<div class="no_record" ></div>
+					{if condition="$arr"}
+					{else /}
+						<div class="no_record" ></div>
+					{/if}
+
 					<ul class="hetong">
 						{volist name="arr" id="vo"}
 						<li>
@@ -216,7 +220,7 @@
 						</li>
 						{/volist}
 					</ul>
-					
+
 				</div>
 				<!-- 交易统计弹出框成功弹出-->
 				<div id="goodcover"></div>

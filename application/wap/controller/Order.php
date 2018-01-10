@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-05 16:26:29
+ * @Last Modified time: 2018-01-09 19:05:25
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -30,7 +30,10 @@ class Order extends Yang
             $restriction = $comm['restrict'];
             $num = $data['number'];//用户购买数量
             $user_id = Session::get('user.id');
-            $authentication = Session::get('user.authentication');
+            if ($data['pay_pass']=='') {
+                $arr['msg']='请输入密码!';
+                return json_encode($arr);
+            }
             if (!isset($user_id)) {
                 $arr['msg']='请登陆后购买!';
                 return json_encode($arr);
@@ -83,17 +86,20 @@ class Order extends Yang
             try{
                 //扣除用户余额
                 $user = Db::table('tp_user')->where(['id'=>$user_id])->find();
+                if ($user['authentication']==1) {
+                if ($user['mobile']=='') {
+                    $arr['msg']='请先在设置中绑定手机号码';
+                    throw new \think\Exception();
+                }
+                    $arr['msg']='请等待实名认证成功后购买';
+                    throw new \think\Exception();
+                }elseif($user['authentication']==0){
+                    $arr['msg']='请实名认证后购买';
+                    throw new \think\Exception();
+                }
                 $pay_pass = md5($data['pay_pass']);
                 if ($user['pay_pass']!=$pay_pass) {
                     $arr['msg']='您输入的支付密码不正确';
-                    //return json_encode($arr);
-                    throw new \think\Exception();
-                }
-                if ($authentication==1) {
-                    $arr['msg']='请等待实名认证成功后购买';
-                    throw new \think\Exception();
-                }elseif($authentication==0){
-                    $arr['msg']='请实名认证后购买';
                     throw new \think\Exception();
                 }
                 $balance = $user['balance'] - $row['order_price'];
@@ -102,9 +108,9 @@ class Order extends Yang
                     throw new \think\Exception();
                 }
                 Db::table('tp_user')->where(['id'=>$user_id])->update(['balance' => $balance]);
-
                 $arr['msg'] = '订单创建失败';
-                $row['zexpect'] = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润 羊只数量 *
+                $zexpect = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润
+                $row['zexpect'] = substr(sprintf("%.3f",$zexpect),0,-1); //到期返还不会出问题 按月返还可能会出现问题
                 $row['nexpect'] = $comm['nexpect'];//返还几期
                 $ara = Db::table('tp_order')->insert($row);
                 if ($ara !== 1) {
@@ -129,7 +135,6 @@ class Order extends Yang
                 $detail['accomplish_time']=time();
                 $arr['msg'] = '添加详细信息失败';
                 Db::table('tp_detail')->insert($detail);
-                Session::set('user.balance',$balance);
                 // 提交事务
                 Db::commit();
             } catch (\think\Exception $e) {
@@ -145,9 +150,10 @@ class Order extends Yang
 
             $id = input('id');
             $arr = C::where(['id'=>$id])->find();
-            $arr['profit'] = $arr['expect'] * $arr['nexpect'];
+            $arr['profit'] = $arr['expect'] * $arr['nexpect'];//养殖利润
             $this->assign('arr',$arr);
-
+            $user = U::where(['id'=>$this->id])->find();
+            $this->assign('balance',$user['balance']);
             if ($arr['classify']==1) {
                 //常规羊群
                  if (time() < $arr['preselle_time']) {

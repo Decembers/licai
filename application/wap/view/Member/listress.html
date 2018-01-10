@@ -16,7 +16,7 @@
 		<style type="text/css">
 			/*我的羊只 */
 
-		
+
 			.no_sheep {
 				width: 150px;
 				height: 150px;
@@ -289,6 +289,9 @@
 					{/if}
 				</div>
 				<button class="big-button press">添加收货地址</button>
+
+
+				<button onclick="callpay()">获取微信收获地址</button>
 				<!-- 交易统计弹出框成功弹出-->
 
 				<!-- 加载提示符 -->
@@ -314,6 +317,42 @@
 		</div>
 		<p class="overtop">签到成功</p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+				console.log({$editAddress});
+		//获取共享地址
+		function editAddress()
+		{
+			WeixinJSBridge.invoke(
+				'editAddress',
+				{$editAddress},
+				function(res){
+					var value1 = res.proviceFirstStageName;
+					var value2 = res.addressCitySecondStageName;
+					var value3 = res.addressCountiesThirdStageName;
+					var value4 = res.addressDetailInfo;
+					var tel = res.telNumber;
+
+					alert(value1 + value2 + value3 + value4 + ":" + tel);
+					alert({$editAddress.appid});
+				}
+			);
+		}
+
+		function callpay(){
+			if (typeof WeixinJSBridge == "undefined"){
+			    if( document.addEventListener ){
+			        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
+			    }else if (document.attachEvent){
+			        document.attachEvent('WeixinJSBridgeReady', editAddress);
+			        document.attachEvent('onWeixinJSBridgeReady', editAddress);
+			    }
+			}else{
+				editAddress();
+			}
+		};
+
+		</script>
 		<script type="text/javascript">
 			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
 			$("button").focus(function() {

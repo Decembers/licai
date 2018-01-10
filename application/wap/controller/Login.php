@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 11:15:12
+ * @Last Modified time: 2018-01-09 18:43:54
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -249,6 +249,11 @@ class Login extends Yang
      */
     public function nopay(){
         if ($this->request->isAjax() && $this->request->isPost()){
+             $user = U::where(['id'=>$this->id])->find();
+                 if ($user['mobile']=='') {
+                     $arr['msg'] = '请先在设置中绑定手机号码!';
+                     return json_encode($arr);
+                 }
                 $mobile=Session::get('user.mobile');
                 $pay_pass=input('post.pay_pass');
                 $code      = input('post.code');
@@ -288,6 +293,13 @@ class Login extends Yang
  */
     public function nomobile(){
         if ($this->request->isAjax() && $this->request->isPost()){
+
+                $user = U::where(['id'=>$this->id])->find();
+                if ($user['mobile']=='') {
+                     $arr['msg'] = '请先在设置中绑定手机号码!';
+                     return json_encode($arr);
+                }
+
                 $mobile=Session::get('user.mobile');
                 $mobilex=input('post.mobilex');
                 $arr['mobile']= $mobilex;//新手机号

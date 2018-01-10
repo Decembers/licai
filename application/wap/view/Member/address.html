@@ -16,7 +16,7 @@
 		<style type="text/css">
 			/*我的羊只 */
 
-			
+
 
 			#goodcover {
 				display: none;
@@ -434,21 +434,24 @@
 							if($("#bankzone").val() == "") {
 								$(".overtop").text("请输入邮政编码")
 
-					overtop();
+								overtop();
 							} else {
-								
+
 										if($("#demo1").val() == "") {
 											$(".overtop").text("请选择所在地")
-
-					overtop();
+											overtop();
 										} else {
+											//alert($("#demo1").val());
+											var str =$("#demo1").val();
+											var strs=str.split(",");
+											//alert(strs[0]);
 											var name=$("#names").val();
 											var mobile=$("#bankcard").val();
 											var address=$("#address").val();
 											var postcode=$("#bankzone").val();
-											var province_name=$("#s_province  option:selected").text();
-											var city_name=$("#s_city  option:selected").text();
-											var district_name=$("#s_county option:selected").text();
+											var province_name=strs[0];
+											var city_name=strs[1];
+											var district_name=strs[2];
 												$.ajax({
 								                    type : "POST",  //提交方式
 								                    url : "{:url('member/address')}",//路径
@@ -483,7 +486,7 @@
 								                }
 												});
 
-									
+
 								}
 							}
 						}

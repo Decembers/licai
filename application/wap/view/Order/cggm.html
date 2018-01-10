@@ -129,7 +129,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{:session('user.balance')}</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{$balance}</span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -211,14 +211,14 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			
-			
+
+
 			/*买养 按钮禁用*/
 			/*$("#big-button").attr({
 				"disabled": "disabled"
 			});*/
 			/*阅读并同意的按钮*/
-			
+
 			$(".row6>div>div").click(function() {
 				/*var st = $("button[id^='big-button']").attr("disabled");
 				if(st == "disabled") {*/
@@ -411,7 +411,7 @@
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 									$("#big-button").removeAttr("disabled");
-									
+
 									window.location = '{:url("Rancher/index")}';
 									$("#em1").text($("#em1").text() - $("#qian").text());
 									$("#number").val(1);

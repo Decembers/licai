@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 14:29:41
+ * @Last Modified time: 2018-01-10 14:12:52
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -21,18 +21,20 @@ use app\common\model\Bank as B;
 use app\common\model\Identity as I;
 use app\common\model\Help as H;
 use app\common\model\Withdraw as W;
-
+use \app\common\getuser\Getuser;
 class Member extends Yang
 {
     use \app\admin\traits\controller\Controller;
+
     public function index()
     {
         $this->money($this->id);
 
         $id = Session::get('user.id');
         $name = Session::get('user.name');
-        $balance = Session::get('user.balance');
-        $authentication = Session::get('user.authentication');
+        $user = U::where(['id'=>$this->id])->find();
+        $balance = $user['balance'];
+        $authentication = $user['authentication'];
         if ($authentication==1) {
             $authti = '已认证';
         }else{
@@ -61,9 +63,9 @@ class Member extends Yang
     public function userinfo()
     {
         $arr = D::where(['user_id'=>$this->id])->order('create_time desc')->select();
-        $balance = Session::get('user.balance');
+        $user = U::where(['id'=>$this->id])->find();
         $this->assign('arr',$arr);
-        $this->assign('balance',$balance);
+        $this->assign('balance',$user['balance']);
         return $this->fetch();
     }
     /*
@@ -125,13 +127,26 @@ class Member extends Yang
     public function tiwithdraw()
     {
         $arr = ['code'=>-200,'data'=>'','msg'=>'提现失败'];
-        $kbalance=intval(Session::get('user.balance'));
+        $user = U::where(['id'=>$this->id])->find();
+        $kbalance=intval($user['balance']);
         if ($this->request->isAjax()) {
              $money = input('money');
              $bank_id = input('bank_id');
              if ($money>$kbalance) {
                   $arr['msg'] = '提现金额大于可提现金额';
                   return json_encode($arr);
+             }
+             if ($user['mobile']=='') {
+                 $arr['msg']='请先在设置中绑定手机号码';
+                 return json_encode($arr);
+             }
+             if($user['authentication']==0){
+                 $arr['msg']='请实名认证后提现';
+                 return json_encode($arr);
+             }
+             if($user['authentication']==1){
+                $arr['msg']='请等待实名认证成功后提现';
+                 return json_encode($arr);
              }
              $data['user_id'] = $this->id;
              $data['money'] = $money;
@@ -152,9 +167,7 @@ class Member extends Yang
             $row['accomplish_time'] = 0;
              D::insert($row);
 
-
-            $balance = Session::get('user.balance') - $money;
-
+            $balance = $user['balance'] - $money;
             $id = $this->id;
             $full = U::where(['id'=> $id])->update(['balance' => $balance]);
             if ($full === false) {
@@ -163,7 +176,6 @@ class Member extends Yang
                 return json_encode($arr);
             }
             Session::set('user.balance',$balance);
-
             $arr['code'] = 1;
             $arr['msg'] = '提现申请成功';
             return json_encode($arr);
@@ -172,11 +184,10 @@ class Member extends Yang
             $arr = B::where(['id'=>$id])->find();
             $arr['cardnum'] = substr($arr['cardnum'],-4);
             $arr['kbalance'] = $kbalance;
-            $arr['balance'] = Session::get('user.balance');
+            $arr['balance'] = $user['balance'];
             $this->assign('arr',$arr);
             return $this->fetch();
         }
-
     }
     public function withdrawlog()
     {
@@ -291,6 +302,7 @@ class Member extends Yang
      */
     public function listress()
     {
+        $code = input('code');
          if ($this->request->isAjax()) {
             $id = input('id');
             $arr = ['code'=>-200,'data'=>'','msg'=>'设置默认地址失败'];
@@ -309,9 +321,30 @@ class Member extends Yang
             $arr['msg'] = '设置成功';
             return json_encode($arr);
          }else{
-            $arr = R::where(['user_id'=>$this->id])->select();
-            $this->assign('arr',$arr);
-            return $this->fetch();
+
+            $getuser = new Getuser;
+            $wxpay = new Wxpay;
+            if ($code) {
+
+                $access_token = $getuser->gettoken($code);//取得token
+                if ($access_token===false) {
+                    echo 'token参数错误';
+                }else{
+                    //echo $access_token;die;
+                    $editAddress = $wxpay->getaddress($access_token);
+                    $this->assign('editAddress',$editAddress);
+                    $arr = R::where(['user_id'=>$this->id])->select();
+                    $this->assign('arr',$arr);
+                    return $this->fetch();
+                }
+            }else{
+                $url = $getuser->geturl(1);//传入参数 改变返回code地址
+                $this->redirect($url);
+            }
+
+            // $arr = R::where(['user_id'=>$this->id])->select();
+            // $this->assign('arr',$arr);
+            // return $this->fetch();
         }
     }
     public function address()
@@ -367,8 +400,9 @@ class Member extends Yang
      */
     public function setting()
     {
-        $authentication = Session::get('user.authentication');
-        $mobile = Session::get('user.mobile');
+        $user = U::where(['id'=>$this->id])->find();
+        $authentication = $user['authentication'];
+        $mobile = $user['mobile'];
         $user = Session::get('user');
         if ($authentication == 1) {
             $au = I::where(['user_id'=>$this->id])->find();
@@ -421,6 +455,11 @@ class Member extends Yang
              $data['create_time'] = time();
              $data['update_time'] = time();
              $iden = I::where(['identity_card'=>$data['identity_card']])->find();
+             $user = U::where(['id'=>$this->id])->find();
+             if ($user['mobile']=='') {
+                 $arr['msg'] = '请先在设置中绑定手机号码!';
+                 return json_encode($arr);
+             }
              if (isset($iden)) {
                  $arr['msg'] = '身份证号码已被绑定!';
                  return json_encode($arr);
