@@ -55,7 +55,7 @@ class Commodity extends Controller
             // 插入
             $data = $this->request->except(['id']);
             $zong = $data['return_price']/100 * $data['price'] / 12;
-            $zong = substr(sprintf("%.3f",$zong),0,-1);//保留两位小数 不四舍五入
+            $zong = substr(sprintf("%.5f",$zong),0,-1);//保留两位小数 不四舍五入
             $time = date('ymd', time());
             $name = $data['name'].$time;
 

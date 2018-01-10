@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 18:43:54
+ * @Last Modified time: 2018-01-10 19:22:26
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -249,7 +249,7 @@ class Login extends Yang
      */
     public function nopay(){
         if ($this->request->isAjax() && $this->request->isPost()){
-             $user = U::where(['id'=>$this->id])->find();
+             $user = User::where(['id'=>$this->id])->find();
                  if ($user['mobile']=='') {
                      $arr['msg'] = '请先在设置中绑定手机号码!';
                      return json_encode($arr);
@@ -294,7 +294,7 @@ class Login extends Yang
     public function nomobile(){
         if ($this->request->isAjax() && $this->request->isPost()){
 
-                $user = U::where(['id'=>$this->id])->find();
+                $user = User::where(['id'=>$this->id])->find();
                 if ($user['mobile']=='') {
                      $arr['msg'] = '请先在设置中绑定手机号码!';
                      return json_encode($arr);
@@ -304,7 +304,10 @@ class Login extends Yang
                 $mobilex=input('post.mobilex');
                 $arr['mobile']= $mobilex;//新手机号
                 $code      = input('post.code');
-
+                $user = User::where(['mobile'=>$mobilex])->find();
+                if (isset($user)) {
+                    return json(['code'=>1, 'msg'=>'新手机号已被绑定']);
+                }
                 if (!$mobilex) {
                     return json(['code'=>1, 'msg'=>'新手机号不能为空']);
                 }
@@ -322,6 +325,7 @@ class Login extends Yang
                 }
 
                 $ress = User::where(['id'=>$this->id])->update($arr);
+
                 if ($ress===false) {
                     return json(['code'=>1, 'msg'=>'重置手机号码失败']);
                 }else{
