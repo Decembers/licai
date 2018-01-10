@@ -373,13 +373,18 @@ function shu(){
 				$("#big-button").attr({
 					"disabled": "disabled"
 				});
-				/*q = q - parseInt($("#qian").text());*/
-				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text((q - zj) + ".00");
+				q = q - parseInt($("#qian").text());
+				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
 
 				$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 				$(".detail21 ").prepend($("body>p.record").clone(true));
-				
+				if($(".detail21 p").length==3){
+					
+				}
+				zs = zs + parseInt($("#numbers").text());
+				zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
+
 				$("#record1 span:nth-child(1) i").text(zs);
 				$("#record1 span:nth-child(2) i").text(zj);
 
@@ -393,20 +398,15 @@ function shu(){
 				}, 1000);
 
 			}
-			function len(){
-				if($(".detail21 p").length==2){
-					
-					zs = parseInt($("#numbers").text());
-					zj = parseInt($("#qian").text()) + ".00";
-					$("#record1 span:nth-child(1) i").text(zs);
-				$("#record1 span:nth-child(2) i").text(zj);
-				}else{
+			/*function len(){
+				if($(".detail21 p").length<=3){
+					alert($(".detail21 p").length)
 					zs = zs + parseInt($("#numbers").text());
-				zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
-
-				
+					zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
+					$("#record1 span:nth-child(1) i").text(parseInt($("#numbers").text()));
+					$("#record1 span:nth-child(2) i").text(parseInt($("#qian").text()));
 				}
-			}
+			}*/
 			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
@@ -447,8 +447,8 @@ function shu(){
 										$("#record1 span:nth-child(1) i").text(zs1);
 										var zj = zs1*texts;
 											$("#record1 span:nth-child(2) i").text(zj1);*/
-											len();
-										pars();
+											
+										pars();len();
 										/*window.location.reload();*/
 
 									} else {
