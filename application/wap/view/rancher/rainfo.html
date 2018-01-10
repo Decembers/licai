@@ -348,7 +348,8 @@
 			}
 
 			/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts + ".00")*/
-			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
+			/*var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;*/
+			var ns = $(".detail3 .row:nth-child(1) span:nth-child(2)").text();
 			var zs = parseInt($("#record1 span:nth-child(1) i").text());
 
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
@@ -376,8 +377,8 @@ function shu(){
 				$("#big-button").attr({
 					"disabled": "disabled"
 				});
-				q = q - parseInt($("#qian").text());
-				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
+				ns = ns - parseInt($("#qian").text());
+				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns);
 
 				$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
