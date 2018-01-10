@@ -55,7 +55,7 @@ class Commodity extends Controller
             // 插入
             $data = $this->request->except(['id']);
             $zong = $data['return_price']/100 * $data['price'] / 12;
-            $zong = substr(sprintf("%.3f",$zong),0,-1);//保留两位小数 不四舍五入
+            $zong = substr(sprintf("%.5f",$zong),0,-1);//保留两位小数 不四舍五入
             $time = date('ymd', time());
             $name = $data['name'].$time;
 
@@ -77,7 +77,7 @@ class Commodity extends Controller
                 $data['nexpect'] = $yer;
             }else{
                 $data['nexpect'] = 1;//按期返还
-                $data['expect'] = substr(sprintf("%.3f",$data['return_price']/100 * $data['price'] / 12 * $yer),0,-1); //按期返还利润
+                $data['expect'] = substr(sprintf("%.5f",$data['return_price']/100 * $data['price'] / 12 * $yer),0,-1); //按期返还利润
             }
 
             // 验证
@@ -135,7 +135,7 @@ class Commodity extends Controller
             // 更新
             $data = $this->request->post();
             $zong = $data['return_price']/100 * $data['price'] / 12;
-            $zong = substr(sprintf("%.3f",$zong),0,-3);//保留四位小数 不四舍五入
+            $zong = substr(sprintf("%.5f",$zong),0,-1);//保留四位小数 不四舍五入
 
             $content = $_POST['content'];
             $data['content'] = $content;
@@ -151,7 +151,7 @@ class Commodity extends Controller
                 $data['nexpect'] = $yer;
             }else{
                 $data['nexpect'] = 1;//按期返还
-                $data['expect'] = substr(sprintf("%.3f",$data['return_price']/100 * $data['price'] / 12 * $yer),0,-3); //按期返还利润
+                $data['expect'] = substr(sprintf("%.5f",$data['return_price']/100 * $data['price'] / 12 * $yer),0,-1); //按期返还利润
             }
             if (!$data['id']) {
                 return ajax_return_adv_error("缺少参数ID");

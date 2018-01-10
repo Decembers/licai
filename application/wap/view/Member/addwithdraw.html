@@ -19,9 +19,9 @@
 				width: 95%;
 				margin: 0 auto;
 			}
-			
+
 			.big-button {}
-			
+
 			.bank_bg {
 				width: 95%;
 				margin: 1rem auto;
@@ -30,12 +30,12 @@
 				padding-right: 1rem;
 				background-color: white;
 			}
-			
+
 			.bank_bg ul,
 			.bank_bg ul li {
 				width: 100%;
 			}
-			
+
 			.bank_bg ul li {
 				display: flex;
 				height: 4.5rem;
@@ -43,11 +43,11 @@
 				border-top: 1px solid #ededed;
 				position: relative;
 			}
-			
+
 			.bank_bg ul li:nth-child(1) {
 				/* border: none; */
 			}
-			
+
 			.bank_bg ul li>span {
 				/*width: 6rem;*/
 				line-height: 4.5rem;
@@ -55,13 +55,13 @@
 				top: 0;
 				left: 0;
 			}
-			
+
 			.bank_bg ul li>div {
 				width: 100%;
 				box-sizing: border-box;
 				padding-left: 6rem;
 			}
-			
+
 			.bank_bg ul li>div input {
 				width: 100%;
 				height: 3rem;
@@ -69,11 +69,11 @@
 				margin-top: 0.8rem;
 				font-size: 15px;
 			}
-			
+
 			.region_select div {
 				display: flex;
 			}
-			
+
 			.region_select div select {
 				width: 33%;
 				height: 2.5rem;
@@ -81,22 +81,22 @@
 				color: gray;
 				font-size: 15px;
 			}
-			
+
 			.this_bank {
 				color: gray;
 			}
-			
+
 			.bank_list {
 				position: relative;
 			}
-			
+
 			.entered {
 				transform: rotate(90deg);
 				position: absolute;
 				top: 0;
 				right: 1rem;
 			}
-			
+
 			#red_select_list1 {
 				width: 100%;
 				height: 100vh;
@@ -109,33 +109,33 @@
 				overflow: auto;
 				
 			}
-			
+
 			#red_select_list1 .red_seclet {
 				width: 100%;
 				height: 100%;
 				overflow: scroll;
 			}
-			
+
 			#red_select_list1 li {
 				height: 3rem;
 				line-height: 3rem;
 				padding: 0 15px;
 				width: 100%;
 			}
-			
+
 			#closeList {
 				background: #3db4cc;
 				color: #fff;
 			}
-			
+
 			#red_select_list1 li span {
 				font-size: 16px;
 			}
-			
+
 			#red_select_list1 li input {
 				opacity: 0;
 			}
-			
+
 			.close-popup {
 				border-bottom: 1px solid #ededed;
 				border-radius: 0;
@@ -144,19 +144,19 @@
 			}
 			/*红包关闭*/
 			/*红包 样式*/
-			
+
 			.default_red span {
 				font-size: 0.9rem;
 			}
-			
+
 			.clearfix {
 				display: flex;
 			}
-			
+
 			.bank_queue {
 				display: none;
 			}
-			
+
 			.kahao {
 				width: 95%;
 				margin: 1rem auto;
@@ -164,34 +164,34 @@
 			}
 			/*min-height:100px;//最小高度
 max-height:200px;//最大高度*/
-			
+
 			.kahao li {
 				box-sizing: border-box;
 				height: 6rem;
 				margin-bottom: 0.5rem;
 			}
-			
+
 			.checkin {
 				position: relative;
 				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
 			}
-			
+
 			.white {
 				background: #fff;
 			}
-			
+
 			.fillet {
 				border: 1px solid #ededed;
 				border-radius: 0.4rem;
 				background: #fff;
 			}
-			
+
 			.checkin .bank_icon {
 				position: absolute;
 				top: 1.2rem;
 				left: 0.75rem;
 			}
-			
+
 			.bank_icon img {
 				margin: 0;
 				padding: 0;
@@ -206,13 +206,13 @@ max-height:200px;//最大高度*/
 				-o-transform: rotateY(60deg);
 				-ms-transform: rotateY(60deg);
 			}
-			
+
 			.kahao li a {
 				position: absolute;
 				left: 100px;
 				top: 1rem;
 			}
-			
+
 			.detail h6 {
 				padding: 0;
 				margin: 0;
@@ -220,13 +220,13 @@ max-height:200px;//最大高度*/
 				font-size: 18px;
 				margin-top: 5px;
 			}
-			
+
 			.detail span {
 				font-size: 14px;
 				color: gray;
 				margin-top: 5px;
 			}
-			
+
 			body>li {
 				display: none;
 			}
@@ -442,16 +442,17 @@ max-height:200px;//最大高度*/
 			});
 			//area1.value=[17,189,788];//控制初始位置，注意：该方法并不会影响到input的value
 
-			
+
 		</script>
 		<script type="text/javascript">
+		var inp;
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 			$(".kahao").css("display", "none");
 			$(".content-block").css("color", "")
 			$(".dl div select").focus(function() {
 				$(this).css("color", "black");
 			})
-			
+
 			/*红包选择 弹出*/
 			$(".bank_list").click(function() {
 				$("#red_select_list1").css("top", "0");
@@ -465,12 +466,12 @@ max-height:200px;//最大高度*/
 				} else {
 					$("#red_select_list1").css("top", "100vh");
 					var s1 = $(this).children().text();
-					var inp = $(this).children().next().val();
+					inp = $(this).children().next().val();
 					$(".bank_list p").text(s1);
 					$(".bank_list p").css("color", "black");
-					/*$(".bank_list span").text(tt)	*/			
-					alert(inp);
+					/*alert(inp);*/
 				}
+
 			})
 			$("#add").click(function() {
 				queren();
@@ -547,11 +548,11 @@ max-height:200px;//最大高度*/
 						$(".overtop").text("卡号错误，请重新输入");
 						overtop();
 					}
-					} 
+					}
 
 				}
 			}
-			
+
 
 			/* 填写完成 后  判断      lis 是否复制*/
 			function huoqu() {

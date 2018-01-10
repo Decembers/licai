@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 17:26:34
+ * @Last Modified time: 2018-01-10 19:35:45
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -219,9 +219,36 @@ class Member extends Yang
         $shu['yidaoqi']=$yidaoqi;
         $this->assign('arr',$arr);
         $this->assign('shu',$shu);
-
         return $this->fetch();
     }
+    //合同详情
+    public function contractinfo()
+    {
+        $order_id = input('order_id');
+        $hetong['zongshu'] = 0;
+        $hetong['zongjia'] = 0;
+        $hetong['create_time'] = 0;
+        $sp_id = 0;
+        $order = O::where(['id'=>$order_id])->order('create_time desc')->select();
+        foreach ($order as $k => $v) {
+            $hetong['zongshu'] = $v['sp_count'];
+            $hetong['zongjia'] = $v['order_price'];
+            $hetong['create_time'] = $v['create_time'];
+            $sp_id = $v['sp_id'];
+        }
+        $com = C::where(['id'=>$sp_id])->find();
+
+        $identity = I::where(['user_id'=>$this->id])->find();
+        $hetong['username'] = $identity['name'];
+        $hetong['name'] = $com['name'];
+        $hetong['price'] = $com['price'];
+        $hetong['kashitime'] = $com['begin_time'];
+        $hetong['jieshutime'] = $com['over_time'];
+        $hetong['qianyuetime'] = $com['over_time'];
+        $this->assign('hetong',$hetong);
+        return $this->fetch();
+    }
+
     //邀请
     public function invite()
     {

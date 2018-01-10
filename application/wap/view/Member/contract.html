@@ -213,7 +213,7 @@ margin-right: 0.5rem;
 
 					<ul class="hetong">
 						{volist name="arr" id="vo"}
-						<li>
+						<li onclick="location.href='{:url("member/contractinfo",["order_id"=>$vo.id])}'">
 							<p><span class="img"></span><span>{$vo.name}</span></p >
 							{if condition="$vo.status eq 1"}<p class="reminder2">已到期</p>
 							{else /}
