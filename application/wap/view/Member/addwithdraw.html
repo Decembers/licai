@@ -495,7 +495,7 @@ max-height:200px;//最大高度*/
 						$(".overtop").text("请输入卡号");
 						overtop();
 					} else {
-						/*if($("#bankcard").val().length > 15 && $("#bankcard").val().length < 20) {*/
+						if($("#bankcard").val().length > 15 && $("#bankcard").val().length < 20) {
 
 							if($(".this_bank").text() == "请查看银行列表") {
 								$(".overtop").text("请查看银行列表");
@@ -553,11 +553,11 @@ max-height:200px;//最大高度*/
 
 								}
 							}
-						/*}*/
-					} /*else {
+						}else {
 						$(".overtop").text("卡号错误，请重新输入");
 						overtop();
-					}*/
+					}
+					} 
 
 				}
 			}
