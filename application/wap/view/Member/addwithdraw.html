@@ -441,7 +441,7 @@ max-height:200px;//最大高度*/
 			});
 			//area1.value=[17,189,788];//控制初始位置，注意：该方法并不会影响到input的value
 
-			$("#demo1").bind('input', function() {});
+			
 		</script>
 		<script type="text/javascript">
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
@@ -464,22 +464,23 @@ max-height:200px;//最大高度*/
 				}
 			})*/
 			/*红包选择 弹出*/
+			/*红包选择 弹出*/
 			$(".bank_list").click(function() {
 				$("#red_select_list1").css("top", "0");
 				$(this).css("color", "black");
 			})
 			/*选择红包 或关闭*/
-			var inp;
 			$("#red_select_list1 ul li").click(function() {
 				var tt = $("#red_select_list1 ul li").index($(this));
 				if(tt == 0) {
-					$("#red_select_list1").css("top", "120vh");
+					$("#red_select_list1").css("top", "100vh");
 				} else {
-					$("#red_select_list1").css("top", "120vh");
+					$("#red_select_list1").css("top", "100vh");
 					var s1 = $(this).children().text();
+					var inp = $(this).children().next().val();
 					$(".bank_list p").text(s1);
 					$(".bank_list p").css("color", "black");
-					inp = $(this).children().next().val();
+					
 				}
 			})
 			$("#add").click(function() {
