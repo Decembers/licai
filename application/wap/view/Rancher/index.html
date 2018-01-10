@@ -395,6 +395,10 @@
 			$("button").focus(function() {
 				this.blur()
 			});
+			//返回上一页且刷新
+			$("div.header>div").click(function() {
+	location.replace(document.referrer);
+})
 			$(".sheep li .project_name").css("padding-right", $(".sheep li .project_name .fr").width() + 10 + "px");
 			/*点击切换*/
 			$(".header p").click(function() {
@@ -434,12 +438,7 @@
 					}else if(ss==2){
 						st.text(zong );
 					}
-					/*if(one2 == 0) {
-
-						alert(one2)
-					} else {
-						st.html(Math.floor(zong * 100) / 100);
-					}*/
+					
 				}
 			}
 

@@ -350,79 +350,125 @@
 			/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts + ".00")*/
 			var q = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text()) * texts;
 			var zs = parseInt($("#record1 span:nth-child(1) i").text());
+
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			$("#record1 span:nth-child(2) i").text(zj + ".00");
+			checkNum(zs);
+			/*判断js验证是否为数字*/
+			function checkNum(obj) {
+				if(!isNaN(obj.value)) {
+					/*alert("是数字类型!");*/
+				} else {
+					zs = 0; /*alert("不是数字类型!");*/
+				}
+			}
+			/*var zs1 = 0;
+function shu(){
+	for(var i=1;i<($(".detail21 p").length-2); i++){
+	     zs1 = zs1 + parseInt($(".detail21 p:nth-child("+i+") span:nth-child(1)").text());
+	}
+}*/
+			function pars() {
+				$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
+				$("#big-button").attr({
+					"disabled": "disabled"
+				});
+				/*q = q - parseInt($("#qian").text());*/
+				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text((q - zj) + ".00");
+
+				$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
+				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
+				$(".detail21 ").prepend($("body>p.record").clone(true));
+				
+				$("#record1 span:nth-child(1) i").text(zs);
+				$("#record1 span:nth-child(2) i").text(zj);
+
+				$("#number").val(1);
+
+				$("#max6").val("");
+				bian();
+				setTimeout(function() {
+					$("#big-button").removeAttr("disabled");
+
+				}, 1000);
+
+			}
+			function len(){
+				if($(".detail21 p").length==2){
+					
+					zs = parseInt($("#numbers").text());
+					zj = parseInt($("#qian").text()) + ".00";
+					$("#record1 span:nth-child(1) i").text(zs);
+				$("#record1 span:nth-child(2) i").text(zj);
+				}else{
+					zs = zs + parseInt($("#numbers").text());
+				zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
+
+				
+				}
+			}
 			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
-				$("#big-button").attr({
-						"disabled": "disabled"
-					});
-				if(parseInt($("#zhi").text()) < 1) {
-					
-					$(".overtop").text("没有剩余数量，无法兑换");
-						overtop();
+				if($("#max6").val() == "") {
+					$(".overtop").text("密码为空，请输入");
+					overtop();
 				} else {
-					if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
-						var sp_id = "{$com.id}";
-						var number = $("#number").val(); //兑换的数量
-						var pay_pass = $("#max6").val(); //兑换的数量
-						$.ajax({
-							type: "POST", //提交方式
-							url: "{:url('rancher/rainfo')}", //路径
-							data: {
-								"sp_id": sp_id,
-								"number": number,
-								"pay_pass": pay_pass
-							},
-							dataType: "json", //数据，这里使用的是Json格式进行传输
-							success: function(result) {
 
-								console.log(result);
-								if(result.code == 1) {
-								$(".detail21").css('display', 'block');
-									$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
-									$("#big-button").attr({
-										"disabled": "disabled"
-									});
-									q = q - $("#qian").text();
-									$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
+					if(parseInt($("#zhi").text()) < 1) {
 
-									$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
-									$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
-									$(".detail21 ").prepend($("body>p.record").clone(true));
-									zs = zs + parseInt($("#numbers").text());
-									zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
-
-									$("#record1 span:nth-child(1) i").text(zs);
-									$("#record1 span:nth-child(2) i").text(zj);
-
-									$("#number").val(1);
-
-									$("#max6").val("");
-									bian();
-									setTimeout(function() {
-										$("#big-button").removeAttr("disabled");
-									}, 1500);	
-									$(".overtop").text(result.msg);
-									overtop();
-									
-									/*window.location.reload();*/
-
-								} else {
-									$(".overtop").text(result.msg);
-									overtop();
-								}
-							},
-							error: function() {
-								$(".overtop").text('请刷新页面重试');
-								overtop();
-							}
-						});
-
-					} else {
-						$(".overtop").text("超出剩余数量，无法兑换");
+						$(".overtop").text("没有剩余数量，无法兑换");
 						overtop();
+					} else {
+						$("#big-button").attr({
+							"disabled": "disabled"
+						});
+						if(parseInt($("#zhi").text()) - parseInt($("#numbers").text()) >= 0) {
+							var sp_id = "{$com.id}";
+							var number = $("#number").val(); //兑换的数量
+							var pay_pass = $("#max6").val(); //兑换的数量
+							$.ajax({
+								type: "POST", //提交方式
+								url: "{:url('rancher/rainfo')}", //路径
+								data: {
+									"sp_id": sp_id,
+									"number": number,
+									"pay_pass": pay_pass
+								},
+								dataType: "json", //数据，这里使用的是Json格式进行传输
+								success: function(result) {
+
+									console.log(result);
+									if(result.code == 1) {
+										$(".overtop").text(result.msg);
+										overtop();
+										$(".detail21").css('display', 'block');
+										/*shu();
+										$("#record1 span:nth-child(1) i").text(zs1);
+										var zj = zs1*texts;
+											$("#record1 span:nth-child(2) i").text(zj1);*/
+											len();
+										pars();
+										/*window.location.reload();*/
+
+									} else {
+										$(".overtop").text(result.msg);
+										overtop();
+										$("#big-button").removeAttr("disabled");
+									}
+								},
+								error: function() {
+									$(".overtop").text('请刷新页面重试');
+									overtop();
+									$("#big-button").removeAttr("disabled");
+								}
+							});
+
+						} else {
+							$(".overtop").text("超出剩余数量，无法兑换");
+							overtop();
+							$("#big-button").removeAttr("disabled");
+						}
 					}
 				}
 			})
