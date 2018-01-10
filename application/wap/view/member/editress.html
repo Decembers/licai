@@ -12,7 +12,8 @@
         <link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
         <link rel="stylesheet" type="text/css" href="__WAP__/css/shop.css" />
         <script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" /> <link rel="stylesheet" type="text/css" href="__WAP__/css/LArea.css" />
+        <link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
+
         <style type="text/css">
             /*我的羊只 */
 
@@ -240,6 +241,7 @@
                 display: none;
             }
         </style>
+        <link rel="stylesheet" href="__WAP__/css/LArea.css">
     </head>
 
     <body>
@@ -287,7 +289,7 @@
                         <li class="dl region_select">
                             <span class="name">所&nbsp;在&nbsp;地</span>
                             <div class="content-block">
-		<input id="demo1" type="text" readonly="" placeholder="城市选择"  value="">
+		<input id="demo1" type="text" readonly="" placeholder="城市选择"  value="{$ress.province_name},{$ress.city_name},{$ress.district_name}">
 		<input id="value1" type="hidden" value="17,189,788">
 	</div>
 
@@ -360,7 +362,6 @@
 				'data': LAreaData //数据源
 			});
             var label = 0;
-                
                 if ("{$ress.is_default}" == 1) {
                     label = 1;
                     $("#label p").css("left", "2rem");
@@ -446,13 +447,16 @@
 
                     overtop();
                                         } else {
+                                            var str =$("#demo1").val();
+                                            var strs=str.split(",");
+
                                             var name=$("#names").val();
                                             var mobile=$("#bankcard").val();
                                             var address=$("#address").val();
                                             var postcode=$("#bankzone").val();
-                                            var province_name=$("#s_province  option:selected").text();
-                                            var city_name=$("#s_city  option:selected").text();
-                                            var district_name=$("#s_county option:selected").text();
+                                            var province_name=strs[0];
+                                            var city_name=strs[1];
+                                            var district_name=strs[2];
                                             var id=$("#ressid").val();
                                                 $.ajax({
                                                     type : "POST",  //提交方式
