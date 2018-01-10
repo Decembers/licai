@@ -277,13 +277,13 @@
                         <li class="dl">
                             <span class="name">姓名</span>
                             <div class="info">
-                                <input type="text" id="names" value="{$ress.name}" placeholder="请输入收货人姓名">
+                                <input type="text" id="names" value="{$ress.name}" placeholder="请输入收货人姓名" maxlength="6">
                             </div>
                         </li>
                         <li class="dl">
                             <span class="name">电      话</span>
                             <div class="info">
-                                <input id="bankcard" type="number" placeholder="请输入电话号码" value="{$ress.mobile}">
+                                <input id="bankcard" type="number" placeholder="请输入电话号码" value="{$ress.mobile}" maxlength="11">
                             </div>
                         </li>
                         <li class="dl region_select">
@@ -297,13 +297,13 @@
                         <li class="dl">
                             <span class="name">详细地址</span>
                             <div class=" bank_list open-popup">
-                                <textarea id="address" name="address"  placeholder="请输入详细地址" rows="1">{$ress.address}</textarea>
+                                <textarea id="address" name="address"  placeholder="请输入详细地址" rows="1" maxlength="20">{$ress.address}</textarea>
                             </div>
                         </li>
                         <li class="dl">
                             <span class="name">邮    编</span>
                             <div class="info">
-                                <input id="bankzone" type="tel" placeholder="请输入邮政编码" value="{$ress.postcode}">
+                                <input id="bankzone" type="tel" placeholder="请输入邮政编码" value="{$ress.postcode}" maxlength="6">
                             </div>
                         </li>
                         <li class="dl">
