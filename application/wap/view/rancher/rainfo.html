@@ -236,7 +236,7 @@
 			<div class="detail21" style="display: none;">
 				<!-- <p class="record"><span></span><span>￥</span></p> -->
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
-				<p class="record" id="record1"><span>总数量：0</span><span>总金额：￥0</span></p>
+				<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
 			</div>
 			{/if}
 			<div id="goodcover"></div>
@@ -354,6 +354,9 @@
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			$("#record1 span:nth-child(2) i").text(zj + ".00");
 			checkNum(zs);
+			/*$("#record1 span:nth-child(1) i").text(zs);
+				$("#record1 span:nth-child(2) i").text(zj);*/
+				/*alert($("#record1 span:nth-child(1) i").text()+"!!"+$("#record1 span:nth-child(1) i").text())*/
 			/*判断js验证是否为数字*/
 			function checkNum(obj) {
 				if(!isNaN(obj.value)) {
@@ -373,13 +376,18 @@ function shu(){
 				$("#big-button").attr({
 					"disabled": "disabled"
 				});
-				/*q = q - parseInt($("#qian").text());*/
-				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text((q - zj) + ".00");
+				q = q - parseInt($("#qian").text());
+				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(q + ".00");
 
 				$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 				$(".detail21 ").prepend($("body>p.record").clone(true));
-				
+				if($(".detail21 p").length==3){
+					
+				}
+				zs = zs + parseInt($("#numbers").text());
+				zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
+
 				$("#record1 span:nth-child(1) i").text(zs);
 				$("#record1 span:nth-child(2) i").text(zj);
 
@@ -393,20 +401,15 @@ function shu(){
 				}, 1000);
 
 			}
-			function len(){
-				if($(".detail21 p").length==2){
-					
-					zs = parseInt($("#numbers").text());
-					zj = parseInt($("#qian").text()) + ".00";
-					$("#record1 span:nth-child(1) i").text(zs);
-				$("#record1 span:nth-child(2) i").text(zj);
-				}else{
+			/*function len(){
+				if($(".detail21 p").length<=3){
+					alert($(".detail21 p").length)
 					zs = zs + parseInt($("#numbers").text());
-				zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
-
-				
+					zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
+					$("#record1 span:nth-child(1) i").text(parseInt($("#numbers").text()));
+					$("#record1 span:nth-child(2) i").text(parseInt($("#qian").text()));
 				}
-			}
+			}*/
 			/*alert(zs+" "+zj);*/
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
@@ -443,14 +446,8 @@ function shu(){
 										$(".overtop").text(result.msg);
 										overtop();
 										$(".detail21").css('display', 'block');
-										/*shu();
-										$("#record1 span:nth-child(1) i").text(zs1);
-										var zj = zs1*texts;
-											$("#record1 span:nth-child(2) i").text(zj1);*/
-											len();
-										pars();
-										/*window.location.reload();*/
-
+																				
+										pars();										
 									} else {
 										$(".overtop").text(result.msg);
 										overtop();
