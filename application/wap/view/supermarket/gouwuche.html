@@ -517,7 +517,7 @@
 
 				</div>
 				<div class="">
-					<p onclick="window.location='{:url("Supermarket/dingdaninfo")}'">结算</p>
+					<p id="pbuttom" >结算</p>
 				</div>
 			</div>
 			
@@ -530,10 +530,11 @@
 		<div class="none">
 			<p class="fa fa-shopping-cart fa-4x"></p>
 			<p>购物车还是空的，去挑选商品吧！</p>
-			<a href="">去逛逛</a>
+			<a href="{:url('Supermarket/index')}">去逛逛</a>
 		</div>
+		<p class="overtop"></p>
 		<div id="goodcover"></div>
-		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(".name").width(($(".sheep li").width() - 120) + "px");
 			$("input").focus(function() {
@@ -562,11 +563,35 @@
 				var th = $(this).hasClass('dui');
 				if(th == true) {
 					$(".sheep li>div:nth-child(1)").addClass("dui");
+					
+					
 				} else {
-					$(".sheep li>div:nth-child(1)").removeClass("dui");
+					$(".sheep li>div:nth-child(1)").removeClass("dui");$(".detail04 div:nth-child(3) p").attr({
+						"disabled": "disabled"
+					});
+					
 				}
 				sw();
 			})
+			$("#pbuttom").click(function(){
+				var th = $(".quan div").hasClass('dui');
+				
+				if($(".sheep li").length>0){
+					if(th == true) {
+							window.location.href = "{:url('Supermarket/pay')}";
+							
+						}else{
+							$(".overtop").text("没有选中的商品");
+							overtop();
+							
+						}
+				}else{
+					$(".overtop").text("购物车中没有商品，请去逛逛");
+							overtop();
+				}
+				
+			})
+			
 			/*数量加*/
 			$(".jia").click(function() {
 				$(this).prev().text(parseInt($(this).prev().text()) + 1);

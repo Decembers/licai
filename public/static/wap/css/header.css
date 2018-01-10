@@ -506,15 +506,16 @@ div.header {
 
 .overtop {
 	position: fixed;
-	top: 13.5rem;
+	top: 50%;
 	left: 50%;
+	margin-top: -20px;
 	margin-left: -40vw;
-	border-radius: 1.5rem;
+	border-radius: 10px;
 	width: 80vw;
-	height: 3rem;
+	height: 40px;
 	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
-	line-height: 3rem;
+	line-height: 40px;
 	text-align: center;
 	display: none;
 	z-index: 1000;

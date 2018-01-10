@@ -7,8 +7,8 @@ $(".wrapper").css("box-sizing", "border-box");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
 
 $("div.header>div").click(function() {
-	/*history.go(-1)*/
-	location.replace(document.referrer);
+	history.go(-1)
+	//location.replace(document.referrer);//返回上一页并刷新
 /*history.back(-1)*/
 })
 /*提示*/
