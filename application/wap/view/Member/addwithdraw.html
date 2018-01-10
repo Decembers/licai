@@ -107,6 +107,7 @@
 				background-color: #F0F0F3;
 				transition: top 0.3s;
 				overflow: auto;
+				opacity: 0;
 			}
 			
 			#red_select_list1 .red_seclet {
@@ -466,7 +467,7 @@ max-height:200px;//最大高度*/
 			/*红包选择 弹出*/
 			/*红包选择 弹出*/
 			$(".bank_list").click(function() {
-				$("#red_select_list1").css("top", "0");
+				$("#red_select_list1").css("top", "0");$("#red_select_list1").css("opacity", "1");
 				$(this).css("color", "black");
 			})
 			/*选择红包 或关闭*/
@@ -482,6 +483,7 @@ max-height:200px;//最大高度*/
 					$(".bank_list p").css("color", "black");
 					
 				}
+					setTimeout(function(){$("#red_select_list1").css("opacity", "0");},1000); 
 			})
 			$("#add").click(function() {
 				queren();
