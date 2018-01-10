@@ -234,21 +234,19 @@
 			$("a,input,button").focus(function() {
 				this.blur()
 			});
-
+var offset = $("#numbers").offset();var img = $("#img").attr("src");
 			/*羊数量 - */
 			$("#subtract").click(function() {
 				var num = parseInt($("#number").val());
 				if($("#number").val() == "") {
 					num = 0;
-					$("#number").val("1");
+					$("#number").val(num);
 					bian();
 				}
-				if(num > 1) {
+				if(num > 0) {
 					$("#number").val(num - 1);
 					bian();
-					var img = $("#img").attr("src");
-
-					var offset = $("#numbers").offset(),
+					offset ,
 						flyer = $("<img class='u-flyer' src='"+img+"'/>");
 
 					flyer.fly({
@@ -265,14 +263,14 @@
 						}
 					});
 				} else {
-					$("#number").val("1");
-					$(".overtop").text("购买数量不能小于1")
+					$("#number").val("0");
+					$(".overtop").text("购买数量不能为负数");
 					overtop();
 					bian();
 				}
 			})
 			/*羊数量 + */
-			var offset = $("#numbers").offset();
+			
 			$("#plus").click(function() {
 				var num = parseInt($("#number").val());
 				if($("#number").val() == "") {
@@ -286,11 +284,9 @@
 					bian();
 				} else {
 					$("#number").val(num + 1);
-					bian();
-					var img = $("#img").attr("src");
+					bian();					
 					offset,
 						flyer = $("<img class='u-flyer' src='"+img+"'/>");
-
 					flyer.fly({
 						start: {
 							left: event.clientX,
