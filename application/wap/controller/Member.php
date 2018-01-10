@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 16:19:17
+ * @Last Modified time: 2018-01-10 17:26:34
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -322,30 +322,33 @@ class Member extends Yang
             return json_encode($arr);
          }else{
 
-            $getuser = new Getuser;
-            $wxpay = new Wxpay;
-            if ($code) {
+        /***************微信获取收获地址代码**************************************************/
+            // $getuser = new Getuser;
+            // $wxpay = new Wxpay;
+            // if ($code) {
 
-                $access_token = $getuser->gettoken($code);//取得token
-                if ($access_token===false) {
-                    echo 'token参数错误';
-                }else{
-                    //echo $access_token;die;
-                    $editAddress = $wxpay->getaddress($access_token);
-                    //$editAddress = json_decode($editAddress);
-                    $this->assign('editAddress',$editAddress);
-                    $arr = R::where(['user_id'=>$this->id])->select();
-                    $this->assign('arr',$arr);
-                    return $this->fetch();
-                }
-            }else{
-                $url = $getuser->geturl(1);//传入参数 改变返回code地址
-                $this->redirect($url);echo $url;die;
-            }
+            //     $access_token = $getuser->gettoken($code);//取得token
+            //     if ($access_token===false) {
+            //         echo 'token参数错误';
+            //     }else{
+            //         //echo $access_token;die;
+            //         $editAddress = $wxpay->getaddress($access_token);
+            //         //$editAddress = json_decode($editAddress);
+            //         $this->assign('editAddress',$editAddress);
+            //         $arr = R::where(['user_id'=>$this->id])->select();
+            //         $this->assign('arr',$arr);
+            //         return $this->fetch();
+            //     }
+            // }else{
+            //     $url = $getuser->geturl(1);//传入参数 改变返回code地址
+            //     $this->redirect($url);echo $url;die;
+            // }
+        /**************************************************微信获取收获地址代码****************/
 
-            // $arr = R::where(['user_id'=>$this->id])->select();
-            // $this->assign('arr',$arr);
-            // return $this->fetch();
+
+            $arr = R::where(['user_id'=>$this->id])->select();
+            $this->assign('arr',$arr);
+            return $this->fetch();
         }
     }
     public function address()

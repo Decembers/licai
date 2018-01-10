@@ -291,7 +291,7 @@
 				<button class="big-button press">添加收货地址</button>
 
 
-				<button onclick="callpay()">获取微信收获地址</button>
+				<!-- <button onclick="callpay()">获取微信收获地址</button> -->
 				<!-- 交易统计弹出框成功弹出-->
 
 				<!-- 加载提示符 -->
@@ -318,42 +318,42 @@
 		<p class="overtop">签到成功</p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+		//获取微信地址
+		// 		console.log($editAddress);
+		// //获取共享地址
+		// function editAddress()
+		// {
+		// 	alert('hah');
+		// 	//eval('var data = '+$editAddress);
+		// 	WeixinJSBridge.invoke(
+		// 		'editAddress',$editAddress,
+		// 		function(res){
+		// 			var value1 = res.proviceFirstStageName;
+		// 			var value2 = res.addressCitySecondStageName;
+		// 			var value3 = res.addressCountiesThirdStageName;
+		// 			var value4 = res.addressDetailInfo;
+		// 			var tel = res.telNumber;
 
-				console.log({$editAddress});
-		//获取共享地址
-		function editAddress()
-		{
-			alert('hah');
-			//eval('var data = '+{$editAddress});
-			WeixinJSBridge.invoke(
-				'editAddress',{$editAddress},
-				function(res){
-					var value1 = res.proviceFirstStageName;
-					var value2 = res.addressCitySecondStageName;
-					var value3 = res.addressCountiesThirdStageName;
-					var value4 = res.addressDetailInfo;
-					var tel = res.telNumber;
+		// 			alert(value1 + value2 + value3 + value4 + ":" + tel);
+		// 			//alert(data);
+		// 		}
+		// 	);
+		// }
 
-					alert(value1 + value2 + value3 + value4 + ":" + tel);
-					//alert(data);
-				}
-			);
-		}
-
-		function callpay(){
-			alert('fdsafsd');
-			if (typeof window.WeixinJSBridge == "undefined"){
-				alert('fdsafsd');
-			    if( document.addEventListener ){
-			        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
-			    }else if (document.attachEvent){
-			        document.attachEvent('WeixinJSBridgeReady', editAddress);
-			        document.attachEvent('onWeixinJSBridgeReady', editAddress);
-			    }
-			}else{
-				editAddress();
-			}
-		};
+		// function callpay(){
+		// 	alert('fdsafsd');
+		// 	if (typeof window.WeixinJSBridge == "undefined"){
+		// 		alert('fdsafsd');
+		// 	    if( document.addEventListener ){
+		// 	        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
+		// 	    }else if (document.attachEvent){
+		// 	        document.attachEvent('WeixinJSBridgeReady', editAddress);
+		// 	        document.attachEvent('onWeixinJSBridgeReady', editAddress);
+		// 	    }
+		// 	}else{
+		// 		editAddress();
+		// 	}
+		// };
 
 		</script>
 		<script type="text/javascript">
