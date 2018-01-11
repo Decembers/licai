@@ -140,7 +140,7 @@
                         <ul>
                             <li class="form_modify">
                                 <span class="number"></span>
-                                <input type="number" id="dl_mobile" name="dl_mobile" value="" placeholder="请输入手机号码" maxlength="11">
+                                <input type="number" id="dl_mobile" name="dl_mobile" placeholder="请输入手机号码" oninput="if(value.length>11)value=value.slice(0,11)">
                             </li>
 
                             <li class="form_modify">

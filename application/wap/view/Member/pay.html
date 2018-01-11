@@ -210,7 +210,7 @@
 				<li>
 					<div class="figure">
 						<span>￥</span>
-						<input id="money1" type="number" placeholder="请输入充值金额">
+						<input id="money1" type="number" placeholder="请输入充值金额(最多11位数)" 	oninput="if(value.length>11)value=value.slice(0,11)">
 					</div>
 					<div class="figure_text">
 						<div id="purchase" class="fl1">充值金额可购常规鹅：<i id="num-sheep">0</i>只</div>

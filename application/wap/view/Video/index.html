@@ -124,10 +124,10 @@
 			<div class="content ">
 				<!-- 这里是页面内容区 -->
 				<div class="buttons-tab">
-					<a href="#tab1" class="tab-link active">农场</a>
-					<a href="#tab2" class="tab-link">加工厂</a>
-					<a href="#tab3" class="tab-link">火锅店</a>
-					<a href="#tab4" class="tab-link">实体店</a>
+					<p class="tab-link active">农场</p>
+					<p  class="tab-link">加工厂</p>
+					<p  class="tab-link">火锅店</p>
+					<p  class="tab-link">实体店</p>
 				</div>
 				<div class="content-block">
 					<div class="tabs">
@@ -264,9 +264,9 @@
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(".content .buttons-tab a").click(function() {
-				tt = $(".content .buttons-tab a").index($(this));
-				$(".content .buttons-tab a").removeClass("active");
+			$(".content .buttons-tab p").click(function() {
+				tt = $(".content .buttons-tab p").index($(this));
+				$(".content .buttons-tab p").removeClass("active");
 				$(this).addClass("active");
 				$(".content .content-block .tabs .tab").css("display", "none");
 				$(".content .content-block .tabs .tab:nth-child(" + (tt + 1) + ")").css("display", "block");

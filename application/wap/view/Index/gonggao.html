@@ -44,7 +44,7 @@
 				box-sizing: border-box;
 				width: 5.3rem;
 				height: 4rem;
-				background: url(__WAP__/img/logo_01.jpg) no-repeat center center;
+				background: url(__WAP__/img/logo.png) no-repeat center center;
 				background-size: 100%;
 				margin-right: 0.6rem;
 			}
@@ -100,7 +100,7 @@
 {volist name="notice" id="vo"}
 							<li class="fillet">
 								<a href="{:url('index/gonggaoin',['id'=>$vo.id])}">
-									<div class="announ_logo fl"><img src="{$vo.image}" width="80" height="60"></div>
+									<div class="announ_logo fl"><!--<img src="{$vo.image}" width="80" height="60">--></div>
 									<div class="announ_words">
 										<h5>{$vo.title}</h5>
 

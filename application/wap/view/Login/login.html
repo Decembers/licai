@@ -305,7 +305,7 @@
 					<div class="form_modify">
 						<span class="number"></span>
 						<span class="delect"></span>
-						<input type="number" id="phone1" name="phone" placeholder="请输入您的手机号" maxlength="11">
+						<input type="number" id="phone1" name="phone" placeholder="请输入您的手机号"	oninput="if(value.length>11)value=value.slice(0,11)">
 					</div>
 					<div class="form_modify">
 						<span class="code"></span>

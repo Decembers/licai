@@ -283,7 +283,7 @@
                         <li class="dl">
                             <span class="name">电      话</span>
                             <div class="info">
-                                <input id="bankcard" type="number" placeholder="请输入电话号码" value="{$ress.mobile}" maxlength="11">
+                                <input id="bankcard" type="number" placeholder="请输入电话号码" value="{$ress.mobile}" 	oninput="if(value.length>11)value=value.slice(0,11)">
                             </div>
                         </li>
                         <li class="dl region_select">
