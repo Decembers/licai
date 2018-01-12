@@ -341,6 +341,25 @@ $("#profit").text(p1);
 						$("#big-button").addClass("big-button1");
 				}
 			})
+			function ts1(n) {
+				var one = n % 1;
+				if(one == 0) {
+					n = n+".00"
+				} else {
+					var len = n.toString().split(".")[1].length;
+
+					if(len == 1) {
+						n = n + "0";
+					} else if(len == 2) {
+						n = n;
+					} else if(len > 2) {
+						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
+					} 
+				}
+				
+				$("#em1").text(n);
+
+			}
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 				if($("#vip6").val() == "") {
@@ -390,12 +409,11 @@ $("#profit").text(p1);
 										/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 										zhon = zhon -$("#qian").text();
 									/*tos(zhon);*/
-										$("#em1").text(zhon+".00");
+										ts1(zhon);
 										$("#number").val(1);
 										$("#numbers").text(1);
-										$("#qian").text(qian);
-										
-$("#profit").text(p1);
+										$("#qian").text(qian);					
+										$("#profit").text(p1);
 										$("#vip6").val("");
 										$("#max6").val("");
 								$("#big-button").removeAttr("disabled");

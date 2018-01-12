@@ -34,3 +34,45 @@ function overtop2() {
 					ss1.remove();
 				}, 2000);
 			}
+
+	/*转换 为两位小数*/
+function ts2(n) {
+				var one = n % 1;
+				if(one == 0) {
+					n = n+".00"
+				} else {
+					var len = n.toString().split(".")[1].length;
+
+					if(len == 1) {
+						n = n + "0";
+					} else if(len == 2) {
+						n = n;
+					} else if(len > 2) {
+						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
+					} else {
+						n = n + ".00";
+					}
+				}
+				
+
+			}
+/*function ts1(n) {
+				var one = n % 1;
+				if(one == 0) {
+					n = n+".00"
+				} else {
+					var len = n.toString().split(".")[1].length;
+
+					if(len == 1) {
+						n = n + "0";
+					} else if(len == 2) {
+						n = n;
+					} else if(len > 2) {
+						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
+					} 
+				}
+				alert(n);
+				return n;
+				$("#em1").text(n);
+
+			}*/

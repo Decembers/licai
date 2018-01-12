@@ -344,7 +344,7 @@ $("#profit").text(p1);
 					}
 				}
 			}
-
+		
 
 			/*红包选择 弹出*/
 			$(".detail3 .row:nth-child(3) p:nth-child(2)").click(function() {
@@ -375,7 +375,25 @@ $("#profit").text(p1);
 				$(".detail4").css("display", "none");
 				$(".detail3").css("display", "block");
 			})*/
+function ts1(n) {
+				var one = n % 1;
+				if(one == 0) {
+					n = n+".00"
+				} else {
+					var len = n.toString().split(".")[1].length;
 
+					if(len == 1) {
+						n = n + "0";
+					} else if(len == 2) {
+						n = n;
+					} else if(len > 2) {
+						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
+					} 
+				}
+				
+				$("#em1").text(n);
+
+			}
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 
@@ -416,9 +434,9 @@ $("#profit").text(p1);
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 									/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text((zhon-$("#qian").text())+".00");*/
-									zhon = zhon -$("#qian").text();
+									zhon = parseFloat(zhon) -parseFloat($("#qian").text());
 									/*tos(zhon);*/
-									$("#em1").text(zhon+".00");
+									ts1(zhon);
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
