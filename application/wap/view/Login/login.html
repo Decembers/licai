@@ -258,7 +258,7 @@
 						<input type="password" name="password" id="pwd" placeholder="请输入密码" maxlength="15">
 					</div>
 					<div class="forgeted clearfix">
-						<a href="#" class="fl m_co" id="wang" ><span id="" class="fa fa-weixin"></span><span id="">微信登录</span></a>
+						<a href="{:url('login/wxlogin')}" class="fl m_co" id="wang" ><span id="" class="fa fa-weixin"></span><span id="">微信登录</span></a>
 						<a href="{:url('index/index')}" class="fr m_co">随便逛逛</a>
 					</div>
 					<div class="clearfix">
@@ -526,7 +526,7 @@
 										$(".overtop").text(result.msg);
 										overtop();
 										setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
-											window.location = '{:url("Login/login");}';
+											window.location = '{:url("Login/index");}';
 										}, 1000);
 									}
 								},

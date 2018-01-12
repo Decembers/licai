@@ -45,10 +45,10 @@ class Withdraw extends Controller
             try {
                 $model = Db::name($this->parseTable($controller));
                 $ret = $model->where('id', $data['id'])->update($data);
-                if ($data['status'] == 1) {
-                    $withdraw = $model->where('id', $data['id'])->find();
-                    User::where(['id'=>$withdraw['user_id']])->inc('balance',$withdraw['money'])->update();
-                }
+                // if ($data['status'] == 1) {
+                //     $withdraw = $model->where('id', $data['id'])->find();
+                //     User::where(['id'=>$withdraw['user_id']])->inc('balance',$withdraw['money'])->update();
+                // }
 
                 // 提交事务
                 Db::commit();
