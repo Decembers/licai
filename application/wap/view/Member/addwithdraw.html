@@ -68,6 +68,7 @@
 				line-height: 3rem;
 				margin-top: 0.8rem;
 				font-size: 15px;
+				white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 			}
 
 			.region_select div {
@@ -212,6 +213,27 @@ max-height:200px;//最大高度*/
 				left: 100px;
 				top: 1rem;
 			}
+			.content-block{
+				position: relative;
+			}
+			/*.content-block input{
+				z-index: 3;
+				opacity: 0;
+			}*/
+			#diz{
+				position: absolute;
+				right: 0;
+				top: 0.8rem;
+				z-index: 2;
+				    height: 3rem;
+    line-height: 3rem;
+   width: 100%;
+   padding-left: 6rem;
+   padding-right: 0.5rem;
+   box-sizing: border-box;
+   white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
+   
+			}
 
 			.detail h6 {
 				padding: 0;
@@ -282,6 +304,7 @@ max-height:200px;//最大高度*/
 					<li class="dl region_select">
 						<span class="name">所在地</span>
 						<div class="content-block">
+							<!--<span id="diz">请选择地址</span>-->
 							<input id="demo1" type="text" readonly="" placeholder="请选择地址" value="">
 							<input id="value1" type="hidden" value="20,234,504">
 						</div>
@@ -441,7 +464,14 @@ max-height:200px;//最大高度*/
 				'data': LAreaData //数据源
 			});
 			//area1.value=[17,189,788];//控制初始位置，注意：该方法并不会影响到input的value
-
+/*$("#demo1").bind('input', function() {
+				
+				if($(this).val()==""){
+					
+				}else{
+					$("#diz").text($(this).val());
+				}
+			})*/
 
 		</script>
 		<script type="text/javascript">
