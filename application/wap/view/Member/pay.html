@@ -346,9 +346,11 @@
                     console.log(res.err_msg);
                         if(res.err_msg == "get_brand_wcpay_request:ok"){
                             //成功
-                            alert('支付成功');
-                       }else{
-                           alert(res.err_msg);
+			         		$(".overtop").text("充值成功");
+							overtop();
+							setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+								window.location = '{:url("member/paylog");}';
+							}, 2000);
                        }
                 }
             );

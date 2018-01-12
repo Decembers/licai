@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 19:35:45
+ * @Last Modified time: 2018-01-12 10:45:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -82,7 +82,7 @@ class Member extends Yang
     public function paylog()
     {
         $arr = D::where(['user_id'=>$this->id,'or'=>1])->order('create_time desc')->select();
-        $money = D::where(['user_id'=>$this->id,'or'=>1])->sum('money');
+        $money = D::where(['user_id'=>$this->id,'or'=>1,'status'=>1])->sum('money');
         $this->assign('arr',$arr);
         $this->assign('money',$money);
         return $this->fetch();
