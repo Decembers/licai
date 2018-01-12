@@ -254,7 +254,8 @@
 			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 			var zhon = parseFloat($("#em1").text());
-			$("#profit").text(profit.toString().substr(0,profit.toString().indexOf(".")+3));
+			var p1 = profit.toString().substr(0,profit.toString().indexOf(".")+3)
+$("#profit").text(p1);
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -363,7 +364,7 @@
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
-									$("#profit").text(profit);
+									$("#profit").text(p1);
 									$("#max6").val("");
 								$("#big-button").removeAttr("disabled");
 								

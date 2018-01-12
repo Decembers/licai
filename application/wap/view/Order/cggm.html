@@ -315,7 +315,8 @@
 			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 var zhon = parseFloat($("#em1").text());
-$("#profit").text(profit.toString().substr(0,profit.toString().indexOf(".")+3));
+var p1 = profit.toString().substr(0,profit.toString().indexOf(".")+3)
+$("#profit").text(p1);
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -344,9 +345,7 @@ $("#profit").text(profit.toString().substr(0,profit.toString().indexOf(".")+3));
 				}
 			}
 
-function ts2(n){
-	var len =  n.toString().split(".")[1].length;  
-}
+
 			/*红包选择 弹出*/
 			$(".detail3 .row:nth-child(3) p:nth-child(2)").click(function() {
 				$("#red_select_list1").css("top", "0");
@@ -423,7 +422,7 @@ function ts2(n){
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
-									$("#profit").text(profit);
+									$("#profit").text(p1);
 									$("#max6").val("");
 									$("#big-button").removeAttr("disabled");
 
