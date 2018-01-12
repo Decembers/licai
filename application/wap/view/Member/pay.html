@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
@@ -19,18 +20,18 @@
 				width: 100%;
 				margin: 1rem 0;
 			}
-
+			
 			.top {
 				display: flex;
 				justify-content: space-around;
 				box-sizing: border-box;
 				padding: 0 5%;
 			}
-
+			
 			.top li {
 				width: 45%;
-				height:40px;
-				line-height:40px;
+				height: 40px;
+				line-height: 40px;
 				text-align: center;
 				font-size: 1.7rem;
 				border-radius: 1.8rem;
@@ -40,63 +41,63 @@
 				box-sizing: border-box;
 				font-weight: 600;
 			}
-
+			
 			.top li.active {
 				color: #fff;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				border: 0;
 			}
-
+			
 			.bottom li>div {
 				width: 90%;
 				margin: 1rem auto;
 			}
-
+			
 			.figure,
 			.pay_detail {
 				background-color: white;
-				height:50px;
+				height: 50px;
 				position: relative;
 				border-radius: 5px;
 			}
-
+			
 			.figure span {
 				position: absolute;
 				top: 0;
 				left: 0;
-				line-height:50px;
-				width:50px;
+				line-height: 50px;
+				width: 50px;
 				text-align: center;
 				font-size: 3rem;
 			}
-
+			
 			.figure input {
 				width: 100%;
 				height: 100%;
 				line-height: 50px;
 				box-sizing: border-box;
-				padding-left:50px;
+				padding-left: 50px;
 				font-size: 1.8rem;
 			}
-
+			
 			.figure_text .fl1,
 			.pay_detail {
 				display: flex;
 				position: relative;
 			}
-
+			
 			.inline_pay_img_show {
-				height:50px;
-				width:50px;
+				height: 50px;
+				width: 50px;
 				padding: 5px;
 				box-sizing: border-box;
 			}
-
+			
 			.inline_pay_name {
 				line-height: 50px;
 				font-size: 1.8rem;
 			}
-
+			
 			.img_ri {
 				width: 26px;
 				height: 26px;
@@ -104,53 +105,53 @@
 				top: 12px;
 				right: 1rem;
 			}
-
+			
 			.figure_text {
 				color: #a9a9a9;
 			}
-
+			
 			.big-a {
 				color: #3db4cc;
 				text-align: center;
 				font-size: 1.50rem;
 			}
-
+			
 			.pay_detail1 {
 				padding: 0.5rem 1rem;
 				color: #fff;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				border-radius: 0.45rem;
 			}
-
+			
 			.pay_detail1 h5,
 			.pay_detail1 ul,
 			.pay_detail1 ul li {
 				width: 100%;
 			}
-
+			
 			.pay_detail1 h5 {
 				text-align: center;
 				line-height: 3rem;
 				font-size: 2rem;
 			}
-
+			
 			.pay_detail1 ul li {
 				overflow: hidden;
 			}
-
+			
 			.pay_detail1 ul li p {
 				float: left;
 				font-size: 1.5rem;
 			}
-
+			
 			.pay_detail1 ul li p:nth-child(1) {
 				width: 25%;
 			}
-
+			
 			.pay_detail1 ul li p:nth-child(2) {
 				width: 75%;
 			}
-
+			
 			.a_ophen {
 				display: block;
 				width: 90%;
@@ -162,32 +163,32 @@
 				margin-top: 0.45rem;
 				overflow: hidden;
 			}
-
+			
 			.portrait {
-				width:50px;
-				height:50px;
+				width: 50px;
+				height: 50px;
 				background: url(__WAP__/img/kefu.jpg) no-repeat center center;
 				background-size: 3.6rem;
 				margin-right: 1rem;
 			}
-
+			
 			.telephone {
 				font-size: 1.50rem;
 				color: #3db4cc;
 				line-height: 2.50rem;
 			}
-
+			
 			.work_time {
 				font-size: 1.2rem;
 				color: #a9a9a9;
 				line-height: 1.50rem;
 			}
-
-			.big-a{
-			    color: #3db4cc !important;
-			    padding: 0.5rem 0;
-			    font-size: 14px;
-			    flex-wrap: 600;
+			
+			.big-a {
+				color: #3db4cc !important;
+				padding: 0.5rem 0;
+				font-size: 14px;
+				flex-wrap: 600;
 			}
 		</style>
 	</head>
@@ -210,7 +211,7 @@
 				<li>
 					<div class="figure">
 						<span>￥</span>
-						<input id="money1" type="number" placeholder="请输入充值金额(最多11位数)" 	oninput="if(value.length>11)value=value.slice(0,11)">
+						<input id="money1" type="number" placeholder="请输入充值金额(最多11位数)" oninput="if(value.length>11)value=value.slice(0,11)">
 					</div>
 					<div class="figure_text">
 						<div id="purchase" class="fl1">充值金额可购常规鹅：<i id="num-sheep">0</i>只</div>
@@ -272,7 +273,7 @@
 			</ul>
 
 		</div>
-		<p class="overtop">签到成功</p>
+		<p class="overtop"></p>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -288,102 +289,115 @@
 				}
 			})
 			$("#money1").bind('input', function() {
-				var va = parseInt($("#money1").val())/80;
+				$(this).val(Math.abs($(this).val()));
+				var va = parseInt($("#money1").val()) / 80;
 				/*充值除以单价*/
 				$("#num-sheep").text(parseInt(va));
 			})
 		</script>
-    <script type="text/javascript">
-         function reward(money){
+		<script type="text/javascript">
+			function reward(money) {
 
-	        var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
-	        if (ua.match(/MicroMessenger/i) != "micromessenger") {
-         		$(".overtop").text("请在微信中打开");
-				overtop();
-				return false;
-	        }
-         	var money = $("#money1").val();//充值金额
-         	if (money=='') {
-         		$(".overtop").text("请输入充值金额");
-				overtop();
-				return false;
-         	}
-            $.ajax({
-                //一个Ajax过程
-                type: "post", //以post方式与后台沟通
-                url : "{:url('wxpay/getinfo')}", //与此php页面沟通
-                dataType:'json',//从php返回的值以 JSON方式 解释
-                data: {'money':money}, //发给php的数据有两项，分别是上面传来的u和p
-                success: function(json){
-                    //var data=JSON.stringify(json);
-                    //console.log(json.appId);
-                    eval('var data = '+json);
-                    callpay(data);
-                }
-            })
-        }
-        function callpay(data)
-        {
-            if (typeof WeixinJSBridge == "undefined"){
-                if( document.addEventListener ){
-                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-                }else if (document.attachEvent){
-                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
-                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-                }
-            }else{
-                jsApiCall(data);
-            }
-        }
-        //调用微信JS api 支付
-        function jsApiCall(data)
-        {
-            WeixinJSBridge.invoke(
-                'getBrandWCPayRequest',
-                data,
-                function(res){
-                    WeixinJSBridge.log(res.err_msg);
-                    console.log(res.err_msg);
-                        if(res.err_msg == "get_brand_wcpay_request:ok"){
-                            //成功
-			         		$(".overtop").text("充值成功");
+				if(Math.abs($("#money1").val()) != 0) {
+
+					$("#big-button").attr({
+						"disabled": "disabled"
+					});
+					var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
+					if(ua.match(/MicroMessenger/i) != "micromessenger") {
+						$(".overtop").text("请在微信中打开");
+						overtop();
+						return false;
+					}
+					var money = $("#money1").val(); //充值金额
+					if(money == '') {
+						$(".overtop").text("请输入充值金额");
+						overtop();
+						return false;
+					}
+					$.ajax({
+						//一个Ajax过程
+						type: "post", //以post方式与后台沟通
+						url: "{:url('wxpay/getinfo')}", //与此php页面沟通
+						dataType: 'json', //从php返回的值以 JSON方式 解释
+						data: {
+							'money': money
+						}, //发给php的数据有两项，分别是上面传来的u和p
+						success: function(json) {
+							//var data=JSON.stringify(json);
+							//console.log(json.appId);
+
+							eval('var data = ' + json);
+							callpay(data);
+						}
+					})
+				} else {
+					$(".overtop").text("提现金额不能为0");
+					overtop();
+				}
+			}
+
+			function callpay(data) {
+				if(typeof WeixinJSBridge == "undefined") {
+					if(document.addEventListener) {
+						document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+					} else if(document.attachEvent) {
+						document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+						document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+					}
+				} else {
+					jsApiCall(data);
+				}
+			}
+			//调用微信JS api 支付
+			function jsApiCall(data) {
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					data,
+					function(res) {
+						WeixinJSBridge.log(res.err_msg);
+						console.log(res.err_msg);
+						if(res.err_msg == "get_brand_wcpay_request:ok") {
+							//成功
+							$(".overtop").text("充值成功");
 							overtop();
+							$("#big-button").removeAttr("disabled");
 							setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 								window.location = '{:url("member/paylog");}';
 							}, 1500);
-                       }
-                }
-            );
-        }
+						}
+						$("#big-button").removeAttr("disabled");
+					}
+				);
+			}
 
-	//调用微信JS api 支付
-	// function jsApiCall(data)
-	// {
-	// 	WeixinJSBridge.invoke(
-	// 		'getBrandWCPayRequest',
-	// 		data,
-	// 		function(res){
-	// 			WeixinJSBridge.log(res.err_msg);
-	// 			alert(res.err_code+'$'+res.err_desc+'$'+res.err_msg);
-	// 		}
-	// 	);
-	// }
+			//调用微信JS api 支付
+			// function jsApiCall(data)
+			// {
+			// 	WeixinJSBridge.invoke(
+			// 		'getBrandWCPayRequest',
+			// 		data,
+			// 		function(res){
+			// 			WeixinJSBridge.log(res.err_msg);
+			// 			alert(res.err_code+'$'+res.err_desc+'$'+res.err_msg);
+			// 		}
+			// 	);
+			// }
 
-	// function callpay(data)
-	// {
-	// 	if (typeof WeixinJSBridge == "undefined"){
-	// 	    if( document.addEventListener ){
-	// 	        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-	// 	    }else if (document.attachEvent){
-	// 	        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
-	// 	        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-	// 	    }
-	// 	}else{
-	// 	    jsApiCall(data);
-	// 	}
-	// }
-
-    </script>
+			// function callpay(data)
+			// {
+			// 	if (typeof WeixinJSBridge == "undefined"){
+			// 	    if( document.addEventListener ){
+			// 	        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+			// 	    }else if (document.attachEvent){
+			// 	        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+			// 	        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+			// 	    }
+			// 	}else{
+			// 	    jsApiCall(data);
+			// 	}
+			// }
+		</script>
 
 	</body>
 

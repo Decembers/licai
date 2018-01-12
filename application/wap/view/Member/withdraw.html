@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
-		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<script src="__WAP__/js/jquery.js"></script>
 		<style type="text/css">
 			.bank_queue {
 				width: 95%;
@@ -236,6 +236,63 @@ max-height:200px;//最大高度*/
 			body>li {
 				display: none;
 			}
+			/*提示*/
+			
+			.modal1 {
+				width: 80%;
+				height: 100px;
+				position: fixed;
+				z-index: 1002;
+				left: 50%;
+				margin-left: -40%;
+				border-radius: 10px;
+				top: 50%;
+				margin-top: -50px;
+				text-align: center;
+				background: #e8e8e8;
+				color: #3d4145;
+				display: none;
+				overflow: hidden;
+			}
+			
+			.modal1 p {
+				line-height: 50px;
+				font-size: 16px;
+			}
+			
+			.modal1 p:nth-child(2) {
+				display: flex;
+				border-top: 1px solid #d9d9d9;
+			}
+			
+			.modal1 p:nth-child(2) span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+			
+			.modal1 p:nth-child(2) span:nth-child(1) {
+				border-right: 1px solid #d9d9d9;
+			}
+			
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
 		</style>
 	</head>
 
@@ -277,7 +334,7 @@ max-height:200px;//最大高度*/
 				{/volist}
 			{else /}
 			
-				<div class="no_record"></div>
+				<!--<div class="no_record"></div>-->
 			{/if}
 			</ul>
 			<!--<div class="bank_bg white fillet">
@@ -491,6 +548,11 @@ max-height:200px;//最大高度*/
 				</ul>
 			</div>
 		</div>-->
+		<div class="modal1" >
+			<p>是否删除？</p>
+			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
+		</div>
+		<div id="goodcover" ></div>
 		<p class="overtop">签到成功</p>
 		<!--<li class="checkin white fillet" style="display: none;">
 			<div class="bank_icon">
@@ -506,6 +568,9 @@ max-height:200px;//最大高度*/
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			
+			
+			
 			
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 			/*$(".bank_bg").css("display", "none");
@@ -570,6 +635,51 @@ max-height:200px;//最大高度*/
 				$("#add").text("添加银行卡");
 				$(".kahao").css("display", "block");
 			}
+		</script>
+		<script type="text/javascript">
+			var tts;
+			var tar;
+			var timeOutEvent = 0,
+				cardId;　　
+			$(".kahao>li").on({　　				
+						touchstart: function(e) {　　　　
+							var that = this;　　　　
+							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件									　　　　　　
+									timeOutEvent = 0;　　　　　　
+									 　tar = e.target;//这个target就是目标元素
+									tts = $(".kahao>li").index(tar);//下标  获取下标有误
+									/*alert(tts);*/
+									blck();
+									}, 800);　　　　 // e.preventDefault();							　　
+							}, 　　touchmove: function() {　　　　
+								clearTimeout(timeOutEvent);　　　　
+								timeOutEvent = 0;　　
+							}, 　　touchend: function() {　　　　
+								clearTimeout(timeOutEvent);　　　　 // return false;								　　
+							}
+						})			
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span:nth-child(2)").click(function() {
+				nones();
+			})
+			function blck(){
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
+			/*弹窗确定的删除*/
+			$(".modal-button-bold").click(function() {
+				nones();
+				
+				tar.remove();
+/*$(".kahao li:nth-child(" + (tts + 1) + ")").remove();*/
+			});
 		</script>
 	</body>
 

@@ -54,8 +54,15 @@
 .record li .chtx {
 	font-size: 2rem;
 }
-
+.record li .fw_left{
+	/*float: ;*/
+	flex-grow: 1;
+}
+.record li .fw_right{
+	flex-grow: 2;
+}
 .record li .fw_right div {
+	width: 100%;
 	text-align: right;
 	font-size: 1.4rem;
 }
@@ -123,6 +130,10 @@
 		<p class="overtop">签到成功</p>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*$(".fw_right").width(($(this).parent().width()-$(this).prev().width())+"px");*/
+			
+		</script>
 
 	</body>
 

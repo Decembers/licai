@@ -248,6 +248,63 @@
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
+			/*提示*/
+			
+			.modal1 {
+				width: 80%;
+				height: 100px;
+				position: fixed;
+				z-index: 1002;
+				left: 50%;
+				margin-left: -40%;
+				border-radius: 10px;
+				top: 50%;
+				margin-top: -50px;
+				text-align: center;
+				background: #e8e8e8;
+				color: #3d4145;
+				display: none;
+				overflow: hidden;
+			}
+			
+			.modal1 p {
+				line-height: 50px;
+				font-size: 16px;
+			}
+			
+			.modal1 p:nth-child(2) {
+				display: flex;
+				border-top: 1px solid #d9d9d9;
+			}
+			
+			.modal1 p:nth-child(2) span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+			
+			.modal1 p:nth-child(2) span:nth-child(1) {
+				border-right: 1px solid #d9d9d9;
+			}
+			
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
 		</style>
 	</head>
 
@@ -315,6 +372,11 @@
 		<div class="background">
 
 		</div>
+		<div class="modal1" >
+			<p>是否删除？</p>
+			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
+		</div>
+		<div id="goodcover" ></div>
 		<p class="overtop">签到成功</p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -354,7 +416,63 @@
 		// 		editAddress();
 		// 	}
 		// };
-
+/*长按删除*/
+var target1;// 长按元素
+			var tts;//下标
+			var timeOutEvent = 0,
+				cardId;　　
+			$(".uc_invest-box ul li").on({　　
+				
+						touchstart: function(e) {　　　　
+							var that = this;　　　　
+							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
+									　　　　　　
+									timeOutEvent = 0;　　　　　　
+									 target1 = e.target;//这个target就是目标元素
+									tts = $(".uc_invest-box ul li").index(target1);//下标
+									blck();
+									alert($(".uc_invest-box ul li").length);
+									}, 800);　　　　 // e.preventDefault();
+								　　
+							}, 　　touchmove: function() {　　　　
+								clearTimeout(timeOutEvent);　　　　
+								timeOutEvent = 0;　　
+							}, 　　touchend: function() {　　　　
+								clearTimeout(timeOutEvent);　　　　 // return false;
+								　　
+							}
+						})
+			
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span:nth-child(2)").click(function() {
+				nones();
+			})
+			function blck(){
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
+			function nos(){
+				if($(".sheep li").length ==0){
+					$(".none").css("display","block");
+				}
+			}
+			/*弹窗确定的删除*/
+			$(".modal-button-bold").click(function() {
+				nones();
+				/*nas.remove();*/
+				/*$(".uc_invest-box ul li:nth-child("+(tts+1)+")").remove();
+				alert($(".uc_invest-box ul li").length);*/
+				/*删除选择元素*/
+			target1.remove();
+				
+			});
 		</script>
 		<script type="text/javascript">
 			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");

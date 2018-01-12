@@ -131,9 +131,8 @@ max-height:200px;//最大高度*/
 			}
 
 			.info_num {
-				font-size: 0.7rem;
-				line-height: 20px;
-				margin: 5px 0;	
+				font-size: 14px;
+				line-height: 30px;				
 				display: flex;		
 				width: 100%;
 				height: 20px;			
@@ -202,7 +201,14 @@ max-height:200px;//最大高度*/
 			<div class="background"></div>
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
+				/*取绝对值*/
+				$("#Jcarry_amount").bind('input', function() {					
+			$(this).val(Math.abs($(this).val()));										
+			})
 				$("#add").click(function() {
+					if(Math.abs($("#Jcarry_amount").val())!=0){
+						
+					$("#add").attr({"disabled": "disabled"});
 					var Jcarry_amount=parseInt($("#Jcarry_amount").val());
 					var ti=parseInt($("#ti").text());
 					if( Jcarry_amount > ti) {
@@ -232,8 +238,10 @@ max-height:200px;//最大高度*/
 								}else{
 									$(".overtop").text(aa.msg);
 									overtop();
+									
 									setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 										$("#Jcarry_amount").val("");
+										$("#add").removeAttr("disabled");  
 									window.location="{:url('member/withdrawlog')}";
 									},1000);
 								}
@@ -241,8 +249,13 @@ max-height:200px;//最大高度*/
 		                    error : function (){
 		                    	$(".overtop").text('请刷新页面重试');
 								overtop();
+								$("#add").removeAttr("disabled");  
 		                }
 						});
+					}
+					}else{
+						$(".overtop").text("充值金额不能为0");
+           		overtop();
 					}
 				})
 				/*function (){
