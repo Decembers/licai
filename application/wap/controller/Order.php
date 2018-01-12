@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-12 15:42:09
+ * @Last Modified time: 2018-01-12 16:20:26
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -119,25 +119,26 @@ class Order extends Yang
                     $arr['msg'] = '商品数量不足';
                     throw new \think\Exception();
                 }
-
                 $orderss = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->find();
                 if (isset($orderss)) {
                     $update['order_price'] = $orderss['order_price']+$order_price;
                     $update['sp_count'] = $orderss['sp_count']+$num;
-                    $update['zexpect'] = substr(sprintf("%.3f",$update['sp_count']*$orderss['sp_price']*$comm['expect']*$comm['nexpect'],0,-1);
+                    $update['zexpect'] = substr(sprintf("%.3f",$update['sp_count']*$orderss['sp_price']*$comm['expect']*$comm['nexpect']),0,-1);
+                    $ara = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->update($update);
+                }else{
+                    $ara = Db::table('tp_order')->insert($row);
                 }
-                $ara = Db::table('tp_order')->insert($row);
-                if ($ara !== 1) {
+                // if ($ara !== 1) {
 
-                    throw new \think\Exception();
-                }
+                //     throw new \think\Exception();
+                // }
 
                 Db::table('tp_commodity')->where(['id'=>$sp_id])->update(['number' => $numbers]);
 
                 $detail['user_id']=$this->id;
                 $detail['or']=3;
                 $detail['money']=$row['order_price'];
-                $detail['comment']='购买羊只';
+                $detail['comment']='购买';
                 $detail['status']=1;
                 $detail['create_time']=time();
                 $detail['accomplish_time']=time();
