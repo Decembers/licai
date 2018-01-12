@@ -133,8 +133,7 @@ max-height:200px;//最大高度*/
 			.info_num {
 				font-size: 0.7rem;
 				line-height: 1.3rem;
-				margin: 0.5rem 0;
-				justify-content:flex-start !important;
+				margin: 0.5rem 0;				
 			}
 
 			.purchase_tip {
@@ -179,8 +178,8 @@ max-height:200px;//最大高度*/
 					<div class="rmb fl">￥</div>
 					<input class="fl" id="Jcarry_amount" type="number" placeholder="请输入提现金额" style="ime-mode:disabled" oninput="if(value.length>10)value=value.slice(0,10)" >
 				</div>
-				<p class="m_co info_num">
-					<span class="name">可&nbsp;&nbsp;提&nbsp;&nbsp;现：￥<i id="ti">{$arr.kbalance}</i></span>
+				<p class="info_num" style="color: #3db4cc;">
+					<span class="name">可提现：￥<i id="ti">{$arr.kbalance}</i></span>
 					
 				</p>
 				<p class="a9 info_num">

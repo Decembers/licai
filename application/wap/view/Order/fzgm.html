@@ -107,7 +107,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size: 0.8rem;">{$balance}</span></p>
+						<p><span class="em">￥</span><span class="em" id="em1" style="font-size: 0.8rem;">{$balance}</span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -253,6 +253,8 @@
 
 			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
+			var zhon = parseFloat($("#em1").text());
+			$("#profit").text(profit.toString().substr(0,profit.toString().indexOf(".")+3));
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -356,7 +358,9 @@
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 								$("#big-button").removeAttr("disabled");
 									window.location = '{:url("Rancher/index")}';
-									$("#em1").text($("#em1").text() - $("#qian").text());
+									zhao = zhao -$("#qian").text();
+									/*tos(zhao);*/
+									$("#em1").text(zhao);
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
