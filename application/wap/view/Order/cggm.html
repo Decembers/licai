@@ -428,21 +428,23 @@ $("#profit").text(profit.toString().substr(0,profit.toString().indexOf(".")+3));
 							if(aa.code == 0) {
 								$(".overtop").text(aa.msg);
 								overtop();
+								
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 									/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text((zhon-$("#qian").text())+".00");*/
-									$("#big-button").removeAttr("disabled");
-
-									window.location = '{:url("Rancher/index")}';
-									zhao = zhao -$("#qian").text();
-									/*tos(zhao);*/
-									$("#em1").text(zhao);
+									zhon = zhon -$("#qian").text();
+									/*tos(zhon);*/
+									$("#em1").text(zhon);
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
 									$("#profit").text(profit);
 									$("#max6").val("");
-								}, 500);
+									$("#big-button").removeAttr("disabled");
+
+									window.location = '{:url("Rancher/index")}';
+									
+								}, 300);
 							} else {
 								/*提示错误，取消 禁止点击*/
 								$("#big-button").removeAttr("disabled");
