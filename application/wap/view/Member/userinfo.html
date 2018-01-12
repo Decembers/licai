@@ -84,7 +84,10 @@
 				<h5>￥{$balance}</h5>
 				<p>账户明细</p>
 			</div>
-
+		{if condition="$arr"}
+		{else /}
+		<div class="no_record"></div>
+		{/if}
 			<ul>
 			{volist name="arr" id="vo"}
 			{if condition="$vo.or eq 1"}
@@ -131,7 +134,7 @@
 				</li>
 			{/if}
 			{/volist}
-			<div class="no_record"></div>
+			
 			</ul>
 
 		</div>
@@ -139,7 +142,7 @@
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-
+			
 		</script>
 	</body>
 
