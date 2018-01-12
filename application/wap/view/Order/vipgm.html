@@ -407,7 +407,7 @@ $("#profit").text(p1);
 									
 									setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 										/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
-										zhon = zhon -$("#qian").text();
+										zhon = parseFloat(zhon) -$("#qian").text();
 									/*tos(zhon);*/
 										ts1(zhon);
 										$("#number").val(1);
