@@ -295,6 +295,13 @@
 		</script>
     <script type="text/javascript">
          function reward(money){
+
+	        var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+	        if (ua.match(/MicroMessenger/i) != "micromessenger") {
+         		$(".overtop").text("请在微信中打开");
+				overtop();
+				return false;
+	        }
          	var money = $("#money1").val();//充值金额
          	if (money=='') {
          		$(".overtop").text("请输入充值金额");
