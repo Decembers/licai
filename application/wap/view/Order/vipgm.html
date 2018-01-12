@@ -278,6 +278,7 @@
 			}*/
 			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
+			var zhon = parseFloat($("#em1").text());
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -308,7 +309,7 @@
 			$("a.found").click(function() {
 				$("#goodcover").css("display", "block");
 				$("#code").css("display", "block");
-			})
+			})   
 			/*商铺辅助鹅群说明 关闭*/
 			$(".close").click(function() {
 				$("#goodcover").css("display", "none");
@@ -386,7 +387,10 @@
 										/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 								$("#big-button").removeAttr("disabled");
 										window.location = '{:url("Rancher/index")}';
-										$("#em1").text($("#em1").text() - $("#qian").text());
+									window.location = '{:url("Rancher/index")}';
+									zhao = zhao -$("#qian").text();
+									/*tos(zhao);*/
+									$("#em1").text(zhao+".00");
 										$("#number").val(1);
 										$("#numbers").text(1);
 										$("#qian").text(qian);
