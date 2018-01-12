@@ -344,24 +344,9 @@ $("#profit").text(profit.toString().substr(0,profit.toString().indexOf(".")+3));
 				}
 			}
 
-/*function tos(sst){
-				var zong = sst;
-				var zo = zong.toString();
-				var one = zong % 1;
-				var one2 = zong % 0.1;
-				if(one == 0) {
-					
-					sst = zo + ".00";
-				} else {
-					if(one2 == 0) {
-						
-						sst = zo + "0";
-					} else {
-						
-						sst = zo.substr(0,zo.indexOf(".")+3);
-					}
-				}
-}*/
+function ts2(n){
+	var len =  n.toString().split(".")[1].length;  
+}
 			/*红包选择 弹出*/
 			$(".detail3 .row:nth-child(3) p:nth-child(2)").click(function() {
 				$("#red_select_list1").css("top", "0");
