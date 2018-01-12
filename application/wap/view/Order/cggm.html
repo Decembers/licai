@@ -338,10 +338,11 @@
 					if(one2 == 0) {
 						st.text(zo + "0");
 					} else {
-						st.text(zong.toFixed(2));
+						st.text(zo.substr(0,zo.indexOf(".")+3));
 					}
 				}
 			}
+
 			/*红包选择 弹出*/
 			$(".detail3 .row:nth-child(3) p:nth-child(2)").click(function() {
 				$("#red_select_list1").css("top", "0");
