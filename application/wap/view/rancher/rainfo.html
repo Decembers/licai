@@ -378,7 +378,7 @@ function shu(){
 					"disabled": "disabled"
 				});
 				ns = ns - parseInt($("#qian").text());
-				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns);
+				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toFixed(2));
 
 				$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
