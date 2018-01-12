@@ -134,8 +134,7 @@ max-height:200px;//最大高度*/
 				font-size: 0.7rem;
 				line-height: 1.3rem;
 				margin: 0.5rem 0;
-				display: flex;
-				justify-content: flex-start;
+				justify-content:flex-start !important;
 			}
 
 			.purchase_tip {
@@ -184,13 +183,11 @@ max-height:200px;//最大高度*/
 				</div>
 				<p class="m_co info_num">
 					<span class="name">可&nbsp;&nbsp;提&nbsp;&nbsp;现：￥<i id="ti">{$arr.kbalance}</i></span>
-					<input id="Jcarry_totalAmount" type="hidden" value="">
-					<span></span>
+					
 				</p>
 				<p class="a9 info_num">
 					<span class="name">账户余额：￥<i id="yu">{$arr.balance}</i></span>
-					<input id="Jcarry_accountBalance" type="hidden" value="">
-					<span></span>
+					
 				</p>
 			</div>
 			<input type="hidden" id="bank_id" value="{$arr.id}">
