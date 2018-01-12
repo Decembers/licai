@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 19:22:26
+ * @Last Modified time: 2018-01-12 11:32:37
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -22,6 +22,20 @@ class Login extends Yang
     use \app\admin\traits\controller\Controller;
     public function login()
     {
+        // if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
+        //     //在微信内打开
+        //     $getuser = new Getuser;
+        //     $url = $getuser->geturl();
+        //     $this->redirect($url);
+        //     echo $url;die;
+        // }else{
+            //不在微信内
+            return  $this->fetch();
+        //}
+    }
+
+    public function wxlogin()
+    {
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
             //在微信内打开
             $getuser = new Getuser;
@@ -30,7 +44,7 @@ class Login extends Yang
             echo $url;die;
         }else{
             //不在微信内
-            return  $this->fetch();
+            echo '请在微信内使用微信登录';
         }
     }
 
