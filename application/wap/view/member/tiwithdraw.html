@@ -132,8 +132,11 @@ max-height:200px;//最大高度*/
 
 			.info_num {
 				font-size: 0.7rem;
-				line-height: 1.3rem;
-				margin: 0.5rem 0;				
+				line-height: 20px;
+				margin: 5px 0;	
+				display: flex;		
+				width: 100%;
+				height: 20px;			
 			}
 
 			.purchase_tip {
@@ -144,10 +147,10 @@ max-height:200px;//最大高度*/
 				padding-left: 1.2rem;
 				display: flex;
 			}
-			.name {
+			/*.name {
 				display: flex;
 				width: 100%;
-			}
+			}*/
 		</style>
 	</head>
 
@@ -180,13 +183,14 @@ max-height:200px;//最大高度*/
 					<input class="fl" id="Jcarry_amount" type="number" placeholder="请输入提现金额" style="ime-mode:disabled" oninput="if(value.length>10)value=value.slice(0,10)" >
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
-					<span class="name">可提现：￥<i id="ti">{$arr.kbalance}</i></span>
+					<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>
 					
 				</p>
 				<p class="a9 info_num">
-					<span class="name">账户余额：￥<i id="yu">{$arr.balance}</i></span>
 					
+					<span>账户余额：￥</span><span id="yu">{$arr.balance}</span>
 				</p>
+				
 			</div>
 			<input type="hidden" id="bank_id" value="{$arr.id}">
 <!-- 			<p class="purchase_tip a9">
