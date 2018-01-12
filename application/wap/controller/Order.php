@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-09 19:05:25
+ * @Last Modified time: 2018-01-12 09:47:10
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -150,7 +150,8 @@ class Order extends Yang
 
             $id = input('id');
             $arr = C::where(['id'=>$id])->find();
-            $arr['profit'] = $arr['expect'] * $arr['nexpect'];//养殖利润
+            $arr['profit'] = substr(sprintf("%.3f",$arr['expect'] * $arr['nexpect']),0,-1);//养殖利润
+            $arr['jsprofit'] = $arr['expect'] * $arr['nexpect'];//养殖利润
             $this->assign('arr',$arr);
             $user = U::where(['id'=>$this->id])->find();
             $this->assign('balance',$user['balance']);

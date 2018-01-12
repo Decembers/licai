@@ -421,8 +421,7 @@ trait Controller
                 $zong = $com['return_price']/100 * $com['price'] / 12 * $yer;
                 $qishu = 1;
             }
-            $zong = substr(sprintf("%.5f",$zong),0,-1);//保留两位小数 不四舍五入
-
+            $zong = substr(sprintf("%.7f",$zong),0,-1);//保留liu位小数 不四舍五入
             $arr['com_number'] = 'YAN'.date("Ymd").rand(1000,9999);//订单编号
 
             $arr['name'] = $com['name'].$time;

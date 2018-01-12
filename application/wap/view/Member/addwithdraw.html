@@ -107,7 +107,7 @@
 				background-color: #F0F0F3;
 				transition: top 0.3s;
 				overflow: auto;
-				
+
 			}
 
 			#red_select_list1 .red_seclet {
@@ -500,13 +500,15 @@ max-height:200px;//最大高度*/
 										$(".overtop").text("请选择地址");
 										overtop();
 									} else {
+										var str =$("#demo1").val();
+										var strs=str.split(",");
 										var name = $("#names").val();
 										var cardnum = $("#bankcard").val();
 										var bank_name = $(".this_bank").text();
 										var bank_opening = $("#bankzone").val();
-										var province_name = $("#s_province  option:selected").text();
-										var city_name = $("#s_city  option:selected").text();
-										var district_name = $("#s_county option:selected").text();
+										var province_name=strs[0];
+										var city_name=strs[1];
+										var district_name=strs[2];
 										$.ajax({
 											type: "POST", //提交方式
 											url: "{:url('member/addwithdraw')}", //路径
