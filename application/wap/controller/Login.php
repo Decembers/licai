@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-12 11:32:37
+ * @Last Modified time: 2018-01-12 14:42:20
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -41,7 +41,7 @@ class Login extends Yang
             $getuser = new Getuser;
             $url = $getuser->geturl();
             $this->redirect($url);
-            echo $url;die;
+            //echo $url;die;
         }else{
             //不在微信内
             echo '请在微信内使用微信登录';
@@ -177,7 +177,10 @@ class Login extends Yang
             if ($res!==false) {
                 Session::delete($mobile);
                 Session::delete($times);
-                return json(['code'=>200, 'msg'=>'注册成功,即将跳转到登录页']);
+                $res = User::where(['mobile'=>$mobile])->find();
+                Session::set('user',$res);
+                Cookie::set('user_id',$res['id'],2592000);
+                return json(['code'=>200, 'msg'=>'注册成功']);
             }
             return json(['code'=>1, 'msg'=>'注册失败']);
 

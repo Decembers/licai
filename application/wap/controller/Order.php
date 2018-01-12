@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-12 09:47:10
+ * @Last Modified time: 2018-01-12 15:42:09
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -112,11 +112,6 @@ class Order extends Yang
                 $zexpect = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润
                 $row['zexpect'] = substr(sprintf("%.3f",$zexpect),0,-1); //到期返还不会出问题 按月返还可能会出现问题
                 $row['nexpect'] = $comm['nexpect'];//返还几期
-                $ara = Db::table('tp_order')->insert($row);
-                if ($ara !== 1) {
-
-                    throw new \think\Exception();
-                }
 
                 $comms = Db::table('tp_commodity')->where(['id'=>$sp_id])->lock(true)->find();
                 $numbers = $comms['number'] - $num;
@@ -124,6 +119,19 @@ class Order extends Yang
                     $arr['msg'] = '商品数量不足';
                     throw new \think\Exception();
                 }
+
+                $orderss = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->find();
+                if (isset($orderss)) {
+                    $update['order_price'] = $orderss['order_price']+$order_price;
+                    $update['sp_count'] = $orderss['sp_count']+$num;
+                    $update['zexpect'] = substr(sprintf("%.3f",$update['sp_count']*$orderss['sp_price']*$comm['expect']*$comm['nexpect'],0,-1);
+                }
+                $ara = Db::table('tp_order')->insert($row);
+                if ($ara !== 1) {
+
+                    throw new \think\Exception();
+                }
+
                 Db::table('tp_commodity')->where(['id'=>$sp_id])->update(['number' => $numbers]);
 
                 $detail['user_id']=$this->id;
@@ -237,7 +245,7 @@ class Order extends Yang
     public function infolist()
     {
         $id = input('id');
-        $arr = O::where(['sp_id'=>$id])->field('user_id,create_time,sp_count')->select();
+        $arr = O::where(['sp_id'=>$id])->field('user_id,create_time,sp_count')->order('sp_count desc')->select();
         $comm = C::where(['id'=>$id])->find();
         $row = [];
         $status = [];

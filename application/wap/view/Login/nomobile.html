@@ -168,7 +168,7 @@
 								success: function(result) {
 									if(result.code == 200) {
 										setTimeout(function() {
-											window.location = '{:url("member/setting")}';
+											window.location = '{:url("member/index")}';
 										}, 1000);
 										$(".overtop").text(result.msg);
 										overtop();
