@@ -636,25 +636,20 @@ max-height:200px;//最大高度*/
 				$(".kahao").css("display", "block");
 			}
 		</script>
-		<script type="text/javascript">
-				/*var tts;
-			var target1;*/
+		<script type="text/javascript">					
+			var that;
 			var timeOutEvent = 0,
 				cardId;　　
 			$(".kahao li").on({　　
 				/*tts = $(".kahao li").index($(this));*/
 				touchstart: function(e) {　　　　
-					var that = this;　　　　
-					timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
-						　　　　　　
+					that = this;　　　//目标元素　
+					timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件						　　　　　　
 						timeOutEvent = 0;　　　　　　　
-						 var target1 = e.target; //这个target就是目标元素
-						var tts = $(".kahao li").index(target1); //下标
-						
-						/*target1.css("background-color", "red");*/
-						/*target1.css("border", "1px sold blue");*/
-						blck();
-						alert
+						 var  target = e.target; //这个target就是目标元素
+						/*tts = $(".kahao li").index(target); //下标*/						
+						/*alert(target.tagName);*/						
+						blck();						
 					}, 800);　　　　 // e.preventDefault();				　　
 				},
 				　　touchmove: function() {　　　　
@@ -683,11 +678,15 @@ max-height:200px;//最大高度*/
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				nones();
-				alert(tts);
-					/* var tt = $(".kahao>li").index(tar);
-					 alert(tt);*/
-				/*tar.remove();*/
-/*$(".kahao li:nth-child(" + (tts + 1) + ")").remove();*/
+				/*target.parent().tagName*/
+				that.remove();
+				/*if(tts<0){
+					var t = $(".kahao li").index(target.parent());
+					$(".kahao li:nth-child(" + (t + 1) + ")").remove();
+				}else{
+					$(".kahao li:nth-child(" + (tts + 1) + ")").remove();
+				}*/
+				
 			});
 		</script>
 	</body>
