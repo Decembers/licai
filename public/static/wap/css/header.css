@@ -634,14 +634,14 @@ div.header {
 
 .grow {
 	line-height: 2.3rem;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 }
 
-.ing {
+/*.ing {
 	margin-right: 0.7rem;
-}
+}*/
 
 .no_sheep {
 	width: 150px;

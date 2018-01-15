@@ -637,27 +637,34 @@ max-height:200px;//最大高度*/
 			}
 		</script>
 		<script type="text/javascript">
-			var tts;
-			var tar;
+				/*var tts;
+			var target1;*/
 			var timeOutEvent = 0,
 				cardId;　　
-			$(".kahao>li").on({　　				
-						touchstart: function(e) {　　　　
-							var that = this;　　　　
-							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件									　　　　　　
-									timeOutEvent = 0;　　　　　　
-									 　tar = e.target;//这个target就是目标元素
-									tts = $(".kahao>li").index(tar);//下标  获取下标有误
-									/*alert(tts);*/
-									blck();
-									}, 800);　　　　 // e.preventDefault();							　　
-							}, 　　touchmove: function() {　　　　
-								clearTimeout(timeOutEvent);　　　　
-								timeOutEvent = 0;　　
-							}, 　　touchend: function() {　　　　
-								clearTimeout(timeOutEvent);　　　　 // return false;								　　
-							}
-						})			
+			$(".kahao li").on({　　
+				/*tts = $(".kahao li").index($(this));*/
+				touchstart: function(e) {　　　　
+					var that = this;　　　　
+					timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
+						　　　　　　
+						timeOutEvent = 0;　　　　　　　
+						 var target1 = e.target; //这个target就是目标元素
+						var tts = $(".kahao li").index(target1); //下标
+						
+						/*target1.css("background-color", "red");*/
+						/*target1.css("border", "1px sold blue");*/
+						blck();
+						alert
+					}, 800);　　　　 // e.preventDefault();				　　
+				},
+				　　touchmove: function() {　　　　
+					clearTimeout(timeOutEvent);　　　　
+					timeOutEvent = 0;　　
+				},
+				　　touchend: function() {　　　　
+					clearTimeout(timeOutEvent);　　　　 // return false;					　　
+				}
+			})	
 			/*弹窗*/
 			$("#goodcover").click(function() {
 				nones();
@@ -676,8 +683,10 @@ max-height:200px;//最大高度*/
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				nones();
-				
-				tar.remove();
+				alert(tts);
+					/* var tt = $(".kahao>li").index(tar);
+					 alert(tt);*/
+				/*tar.remove();*/
 /*$(".kahao li:nth-child(" + (tts + 1) + ")").remove();*/
 			});
 		</script>
