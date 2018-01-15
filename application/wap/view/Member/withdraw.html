@@ -680,12 +680,11 @@ max-height:200px;//最大高度*/
 				nones();
 				/*target.parent().tagName*/
 				that.remove();
-				/*if(tts<0){
-					var t = $(".kahao li").index(target.parent());
-					$(".kahao li:nth-child(" + (t + 1) + ")").remove();
-				}else{
-					$(".kahao li:nth-child(" + (tts + 1) + ")").remove();
-				}*/
+				setInterval(function(){
+				$(".overtop").text('删除成功');
+												overtop();	
+				},1000);
+				
 				
 			});
 		</script>
