@@ -377,7 +377,7 @@
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
 		<div id="goodcover" ></div>
-		<p class="overtop">签到成功</p>
+		<p class="overtop"></p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 		//获取微信地址
@@ -416,63 +416,7 @@
 		// 		editAddress();
 		// 	}
 		// };
-/*长按删除*/
-var target1;// 长按元素
-			var tts;//下标
-			var timeOutEvent = 0,
-				cardId;　　
-			$(".uc_invest-box ul li").on({　　
-				
-						touchstart: function(e) {　　　　
-							var that = this;　　　　
-							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
-									　　　　　　
-									timeOutEvent = 0;　　　　　　
-									 target1 = e.target;//这个target就是目标元素
-									tts = $(".uc_invest-box ul li").index(target1);//下标
-									blck();
-									alert($(".uc_invest-box ul li").length);
-									}, 800);　　　　 // e.preventDefault();
-								　　
-							}, 　　touchmove: function() {　　　　
-								clearTimeout(timeOutEvent);　　　　
-								timeOutEvent = 0;　　
-							}, 　　touchend: function() {　　　　
-								clearTimeout(timeOutEvent);　　　　 // return false;
-								　　
-							}
-						})
-			
-			/*弹窗*/
-			$("#goodcover").click(function() {
-				nones();
-			})
-			$(".modal1_p span:nth-child(2)").click(function() {
-				nones();
-			})
-			function blck(){
-				$(".modal1").css("display", "block");
-				$("#goodcover").css("display", "block");
-			}
-			function nones() {
-				$(".modal1").css("display", "none");
-				$("#goodcover").css("display", "none");
-			}
-			function nos(){
-				if($(".sheep li").length ==0){
-					$(".none").css("display","block");
-				}
-			}
-			/*弹窗确定的删除*/
-			$(".modal-button-bold").click(function() {
-				nones();
-				/*nas.remove();*/
-				/*$(".uc_invest-box ul li:nth-child("+(tts+1)+")").remove();
-				alert($(".uc_invest-box ul li").length);*/
-				/*删除选择元素*/
-			target1.remove();
-				
-			});
+
 		</script>
 		<script type="text/javascript">
 			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
@@ -503,7 +447,13 @@ var target1;// 长按元素
 					/*label = 0;
 					lable1();
 					zuan1();*/
-					window.location.href = "{:url('member/address')}";
+					/*if($("ul .lis").length>3){
+						$(".overtop").text("最多可添加3条记录");
+						overtop();
+					}else{*/
+						window.location.href = "{:url('member/address')}";
+					/*}*/
+					
 				} else if($(this).text() == "朕填好了") {
 					/*kong();*/
 				}
@@ -557,7 +507,7 @@ var target1;// 长按元素
 				}
 			}
 			/*朕填好了 点击 判断*/
-			function kong() {
+			/*function kong() {
 				if($("#names").val() == "") {
 					alert("请输入收货人姓名")
 				} else {
@@ -588,7 +538,7 @@ var target1;// 长按元素
 						}
 					}
 				}
-			}
+			}*/
 			/* 填写完成 后  判断      lis 是否复制*/
 			function huoqu() {
 				var liss = $(".uc_invest-box ul li").length;
