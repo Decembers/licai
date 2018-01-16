@@ -317,10 +317,11 @@ pr();
 					}
 			}
 			}
-			qian();
+			qians();
 			/*总额写入 2位小数*/
-			function qian(){
-			var lens1 =qian.toString().split(".")[1].length;
+			function qians(){
+			var ss2 =  $("#qian").text();
+			var lens1 =ss2.toString().split(".")[1].length;
 			if(qian % 1 ==0){
 				$("#qian").text(qian + ".00");				
 			}else{
