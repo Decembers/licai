@@ -578,7 +578,9 @@ max-height:200px;//最大高度*/
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
-
+window.ontouchstart = function(e) { 
+    e.preventDefault(); 
+};
 
 
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
