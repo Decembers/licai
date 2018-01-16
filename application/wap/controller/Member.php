@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-16 15:23:10
+ * @Last Modified time: 2018-01-16 16:11:57
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -438,10 +438,10 @@ class Member extends Yang
              if ($data['is_default']==1) {
                  R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
              }
-                if (!checkMobile($data['mobile'])) {
-                  $arr['msg'] = '手机号格式不正确';
-                    return json_encode($arr);
-                }
+             if (!checkMobile($data['mobile'])) {
+               $arr['msg'] = '手机号格式不正确';
+                 return json_encode($arr);
+             }
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $add = R::insert($data);
@@ -462,10 +462,13 @@ class Member extends Yang
         $arr = ['code'=>-200,'data'=>'','msg'=>'修改地址失败'];
         if ($this->request->isAjax()) {
              $data = input();
+            if (!checkMobile($data['mobile'])) {
+              $arr['msg'] = '手机号格式不正确';
+                return json_encode($arr);
+            }
              if ($data['is_default']==1) {
                  R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
              }
-
              $add = R::update($data);
              if ($add !==false) {
                 $arr['code'] = 1;
