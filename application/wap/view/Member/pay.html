@@ -211,7 +211,7 @@
 				<li>
 					<div class="figure">
 						<span>￥</span>
-						<input id="money1" type="number" placeholder="请输入充值金额" oninput="if(value.length>11)value=value.slice(0,11)">
+						<input id="money1" type="number" placeholder="请输入充值金额" oninput="if(value.length>7)value=value.slice(0,7)">
 					</div>
 					<div class="figure_text">
 						<div id="purchase" class="fl1">
@@ -308,9 +308,15 @@
 			})
 			$("#money1").bind('input', function() {
 				/*$(this).val(Math.abs($(this).val()));*/
-				var va = parseInt($("#money1").val()) / 80;
+				if($("#money1").val() ==""){
+					
+				$("#num-sheep").text("0");
+				}else{
+					var va = parseInt($("#money1").val()) / 80;
 				/*充值除以单价*/
 				$("#num-sheep").text(parseInt(va));
+				}
+				
 			})
 		</script>
 		<script type="text/javascript">
