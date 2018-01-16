@@ -296,20 +296,24 @@
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 var zhon = parseFloat($("#em1").text());
 
+var p1;
 pr();
 			/*利润 写入 2位小数*/
 			function pr(){
-				var p1 = profit.toString().substr(0, profit.toString().indexOf(".") + 3);
 			var lens =profit.toString().split(".")[1].length;
 			if(profit % 1 ==0){
 				$("#profit").text(profit + ".00");
+				p1 =profit.toString()+".00";
 			}else{
 				if(lens == 1) {
 						$("#profit").text(profit + "0");
+						p1 =profit.toString()+"0";
 					} else if(lens == 2) {
 						$("#profit").text(profit);
+						p1 =profit;
 					} else if(lens > 2) {
 						$("#profit").text(p1);
+						p1 =profit.toString().substr(0, profit.toString().indexOf(".") + 3);
 					}
 			}
 			}
