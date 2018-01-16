@@ -285,10 +285,11 @@ qians();
 			/*总额写入 2位小数*/
 			function qians(){
 			var ss2 =  $("#qian").text();
-			var lens1 =ss2.toString().split(".")[1].length;
+			
 			if(qian % 1 ==0){
 				$("#qian").text(qian + ".00");				
 			}else{
+				var lens1 =ss2.toString().split(".")[1].length;
 				if(lens1 == 1) {
 						$("#qian").text(qian + "0");						
 					} else if(lens1 == 2) {
