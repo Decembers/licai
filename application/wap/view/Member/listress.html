@@ -15,11 +15,12 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
 			/*我的羊只 */
-*{
-				  -webkit-user-select:none;
- 	              -webkit-touch-callout:none;
+			
+			* {
+				-webkit-user-select: none;
+				-webkit-touch-callout: none;
 			}
-
+			
 			.no_sheep {
 				width: 150px;
 				height: 150px;
@@ -28,7 +29,7 @@
 				background-size: 100% 100%;
 			}
 			/*交易弹窗 黑色背景*/
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -42,16 +43,16 @@
 				opacity: 0.65;
 			}
 			/*交易弹窗 开始*/
-
+			
 			.big-button {
 				display: block;
 			}
-
+			
 			.uc_invest-box ul,
 			.bank_bg {
 				/* display: none; */
 			}
-
+			
 			.bank_bg {
 				width: 95%;
 				margin: 1rem auto;
@@ -60,19 +61,19 @@
 				padding-right: 1rem;
 				background-color: white;
 			}
-
+			
 			.bank_bg ul,
 			.bank_bg ul li,
 			.uc_invest-box ul {
 				width: 100%;
 			}
-
+			
 			.uc_invest-box ul li {
 				width: 95%;
 				margin: 0.5rem auto;
 				background-color: white;
 			}
-
+			
 			.bank_bg ul li {
 				display: flex;
 				height: 3.5rem;
@@ -80,24 +81,24 @@
 				border-top: 1px solid #ededed;
 				position: relative;
 			}
-
+			
 			.bank_bg ul li:nth-child(1) {
 				border: none;
 			}
-
+			
 			.bank_bg ul li>span {
 				line-height: 3.5rem;
 				position: absolute;
 				top: 0;
 				left: 0;
 			}
-
+			
 			.bank_bg ul li>div {
 				width: 100%;
 				box-sizing: border-box;
 				padding-left: 5rem;
 			}
-
+			
 			.bank_bg ul li>div input {
 				width: 100%;
 				height: 2rem;
@@ -105,7 +106,7 @@
 				font-size: 15px;
 				margin-top: 0.8rem;
 			}
-
+			
 			.bank_bg ul li>div textarea {
 				width: 100%;
 				line-height: 2rem;
@@ -113,11 +114,11 @@
 				font-size: 15px;
 				margin-top: 0.8rem;
 			}
-
+			
 			.region_select div {
 				display: flex;
 			}
-
+			
 			.region_select div select {
 				width: 33%;
 				height: 2.5rem;
@@ -125,22 +126,22 @@
 				color: gray;
 				margin-top: 1rem;
 			}
-
+			
 			.this_bank {
 				color: gray;
 			}
-
+			
 			.bank_list {
 				position: relative;
 			}
-
+			
 			.entered {
 				transform: rotate(90deg);
 				position: absolute;
 				top: 0;
 				right: 1rem;
 			}
-
+			
 			#label {
 				width: 4rem;
 				height: 2rem;
@@ -152,7 +153,7 @@
 				overflow: hidden;
 				/*box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.18);*/
 			}
-
+			
 			#label div {
 				width: 8rem;
 				height: 2rem;
@@ -161,7 +162,7 @@
 				transition: margin-left 0.5s;
 				box-sizing: border-box;
 			}
-
+			
 			#label div span {
 				width: 4rem;
 				height: 2rem;
@@ -173,12 +174,12 @@
 				box-sizing: border-box;
 				padding: 0 0.5rem;
 			}
-
+			
 			#label div span:nth-child(2) {
 				background-color: gray;
 				text-align: right;
 			}
-
+			
 			#label p {
 				position: absolute;
 				top: 0;
@@ -193,37 +194,37 @@
 				transition: left 0.5s;
 			}
 			/*uc_invest-box ul*/
-
+			
 			.uc_invest-box ul li {
 				border-radius: 0.5rem;
 				padding: 0.5rem;
 				box-sizing: border-box;
 			}
-
+			
 			.uc_invest-box ul li p {
 				width: 100%;
 				line-height: 2rem;
 				display: flex;
 				justify-content: space-between;
 			}
-
+			
 			.uc_invest-box ul li .lip2 {
 				color: gray;
 				border-bottom: 1px solid #ededed;
 				position: relative;
 			}
-
+			
 			.uc_invest-box ul li .lip2 span {
 				width: 100%;
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
-
+			
 			.uc_invest-box ul li .lip3 span:nth-child(2) {
 				color: #3db4cc;
 			}
-
+			
 			.sz {
 				display: flex;
 				position: absolute;
@@ -231,7 +232,7 @@
 				right: 0;
 				opacity: 0;
 			}
-
+			
 			.lip1 span,
 			.lip3 span {
 				width: 50%;
@@ -239,12 +240,12 @@
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
-
+			
 			.lip1 span:nth-child(2),
 			.lip3 span:nth-child(2) {
 				text-align: right;
 			}
-
+			
 			.lip2 span {
 				width: 100%;
 				white-space: nowrap;
@@ -252,7 +253,7 @@
 				overflow: hidden;
 			}
 			/*提示*/
-
+			
 			.modal1 {
 				width: 80%;
 				height: 100px;
@@ -269,17 +270,17 @@
 				display: none;
 				overflow: hidden;
 			}
-
+			
 			.modal1 p {
 				line-height: 50px;
 				font-size: 16px;
 			}
-
+			
 			.modal1 p:nth-child(2) {
 				display: flex;
 				border-top: 1px solid #d9d9d9;
 			}
-
+			
 			.modal1 p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
@@ -291,11 +292,11 @@
 				background: #e8e8e8;
 				box-sizing: border-box;
 			}
-
+			
 			.modal1 p:nth-child(2) span:nth-child(1) {
 				border-right: 1px solid #d9d9d9;
 			}
-
+			
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -333,14 +334,11 @@
 					<ul>
 						{volist name="arr" id="vo"}
 						<li class="lis" id="{$vo.id}">
-							<p class="lip1" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span>{$vo.name}</span><span>{$vo.mobile}</span></p>
-							<p class="lip2" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span class="dz">{$vo.address}</span><span class="sz"><i class="sz1">{$vo.province_name}</i><i class="sz2">{$vo.city_name}</i><i class="sz3">{$vo.district_name}</i></span></p>
-							<p class="lip3"><span class="youbian">{$vo.postcode}</span>
-							{if condition="$vo.is_default eq 1"}
-								<span class="labels"></span>
-							{else /}
-								<span class="labels" onclick="shemr({$vo.id})">设为默认</span>
-							{/if}
+							<p class="lip1" onclick="window.location.href = '{:url(" member/editress ",["id "=>$vo.id])}'"><span>{$vo.name}</span><span>{$vo.mobile}</span></p>
+							<p class="lip2" onclick="window.location.href = '{:url(" member/editress ",["id "=>$vo.id])}'"><span class="dz">{$vo.address}</span><span class="sz"><i class="sz1">{$vo.province_name}</i><i class="sz2">{$vo.city_name}</i><i class="sz3">{$vo.district_name}</i></span></p>
+							<p class="lip3"><span class="youbian">{$vo.postcode}</span> {if condition="$vo.is_default eq 1"}
+								<span class="labels"></span> {else /}
+								<span class="labels" onclick="shemr({$vo.id})">设为默认</span> {/if}
 							</p>
 						</li>
 						{/volist}
@@ -350,7 +348,6 @@
 					{/if}
 				</div>
 				<button class="big-button press">添加收货地址</button>
-
 
 				<!-- <button onclick="callpay()">获取微信收获地址</button> -->
 				<!-- 交易统计弹出框成功弹出-->
@@ -376,80 +373,82 @@
 		<div class="background">
 
 		</div>
-		<div class="modal1" >
+		<div class="modal1">
 			<p>是否删除？</p>
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
-		<div id="goodcover" ></div>
+		<div id="goodcover"></div>
 		<p class="overtop"></p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-		//获取微信地址
-		// 		console.log($editAddress);
-		// //获取共享地址
-		// function editAddress()
-		// {
-		// 	alert('hah');
-		// 	//eval('var data = '+$editAddress);
-		// 	WeixinJSBridge.invoke(
-		// 		'editAddress',$editAddress,
-		// 		function(res){
-		// 			var value1 = res.proviceFirstStageName;
-		// 			var value2 = res.addressCitySecondStageName;
-		// 			var value3 = res.addressCountiesThirdStageName;
-		// 			var value4 = res.addressDetailInfo;
-		// 			var tel = res.telNumber;
+			//获取微信地址
+			// 		console.log($editAddress);
+			// //获取共享地址
+			// function editAddress()
+			// {
+			// 	alert('hah');
+			// 	//eval('var data = '+$editAddress);
+			// 	WeixinJSBridge.invoke(
+			// 		'editAddress',$editAddress,
+			// 		function(res){
+			// 			var value1 = res.proviceFirstStageName;
+			// 			var value2 = res.addressCitySecondStageName;
+			// 			var value3 = res.addressCountiesThirdStageName;
+			// 			var value4 = res.addressDetailInfo;
+			// 			var tel = res.telNumber;
 
-		// 			alert(value1 + value2 + value3 + value4 + ":" + tel);
-		// 			//alert(data);
-		// 		}
-		// 	);
-		// }
+			// 			alert(value1 + value2 + value3 + value4 + ":" + tel);
+			// 			//alert(data);
+			// 		}
+			// 	);
+			// }
 
-		// function callpay(){
-		// 	alert('fdsafsd');
-		// 	if (typeof window.WeixinJSBridge == "undefined"){
-		// 		alert('fdsafsd');
-		// 	    if( document.addEventListener ){
-		// 	        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
-		// 	    }else if (document.attachEvent){
-		// 	        document.attachEvent('WeixinJSBridgeReady', editAddress);
-		// 	        document.attachEvent('onWeixinJSBridgeReady', editAddress);
-		// 	    }
-		// 	}else{
-		// 		editAddress();
-		// 	}
-		// };
-/*长按删除*/
-window.ontouchstart = function(e) { 
-    e.preventDefault(); 
-};
-			var target1;// 长按元素
-			var tts;//下标
+			// function callpay(){
+			// 	alert('fdsafsd');
+			// 	if (typeof window.WeixinJSBridge == "undefined"){
+			// 		alert('fdsafsd');
+			// 	    if( document.addEventListener ){
+			// 	        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
+			// 	    }else if (document.attachEvent){
+			// 	        document.attachEvent('WeixinJSBridgeReady', editAddress);
+			// 	        document.attachEvent('onWeixinJSBridgeReady', editAddress);
+			// 	    }
+			// 	}else{
+			// 		editAddress();
+			// 	}
+			// };
+			/*长按删除*/
+			window.ontouchstart = function(e) {
+				e.preventDefault();
+			};
+			var target1; // 长按元素
+			var tts; //下标
 			var timeOutEvent = 0,
 				cardId;　　
 			var id = 0;　
 			var that;
 			$(".uc_invest-box ul li").on({　　
 
-						touchstart: function(e) {　　　　
-							that = this;
-							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
-							// that.remove();　　　　
-							// return false;
-									id = that.id;　　　　　　
-									blck();
-									//alert(id);
-									}, 800);　　　　 // e.preventDefault();
-								　　
-							}, 　　touchmove: function() {　　　　
-								clearTimeout(timeOutEvent);　　　　
-								timeOutEvent = 0;　　
-							}, 　　touchend: function() {　　　　
-								clearTimeout(timeOutEvent);　　　　 // return false;
-								　　
-							}
-						})
+				touchstart: function(e) {　　　　
+					that = this;
+					timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
+						// that.remove();　　　　
+						// return false;
+						id = that.id;　　　　　　
+						blck();
+						//alert(id);
+					}, 800);　　　　 // e.preventDefault();
+					　　
+				},
+				　　touchmove: function() {　　　　
+					clearTimeout(timeOutEvent);　　　　
+					timeOutEvent = 0;　　
+				},
+				　　touchend: function() {　　　　
+					clearTimeout(timeOutEvent);　　　　 // return false;
+					　　
+				}
+			})
 
 			/*弹窗*/
 			$("#goodcover").click(function() {
@@ -458,59 +457,55 @@ window.ontouchstart = function(e) {
 			$(".modal1_p span:nth-child(2)").click(function() {
 				nones();
 			})
-			function blck(){
+
+			function blck() {
 				$(".modal1").css("display", "block");
 				$("#goodcover").css("display", "block");
 			}
+
 			function nones() {
 				$(".modal1").css("display", "none");
 				$("#goodcover").css("display", "none");
 			}
-			function nos(){
-				if($(".sheep li").length ==0){
-					$(".none").css("display","block");
-				}
-			}
+
+			
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
-						$.ajax({
-		                    type : "POST",  //提交方式
-		                    url : "{:url('member/deleress')}",//路径
-		                    data : {
-		                        "id" : id,
-		                    },
-		                    dataType : "json",//数据，这里使用的是Json格式进行传输
-		                    success : function(result) {
-		                    	//alert("请输入用111户名")
-								var aa = JSON.parse(result);
-								if (aa.code!=1) {
-									$(".overtop").text(aa.msg);
-									overtop();
-									nones();
-								}else{
-									
-									nones();
-									that.remove();
-									$(".overtop").text(aa.msg);
-									overtop();
-									lilen();
-								}
-		                    },
-		                    error : function (){
-		                    	$(".overtop").text('请刷新页面重试');
-								overtop();
-		                }
-						});
-						
+				$.ajax({
+					type: "POST", //提交方式
+					url: "{:url('member/deleress')}", //路径
+					data: {
+						"id": id,
+					},
+					dataType: "json", //数据，这里使用的是Json格式进行传输
+					success: function(result) {
+						//alert("请输入用111户名")
+						var aa = JSON.parse(result);
+						if(aa.code != 1) {
+							$(".overtop").text(aa.msg);
+							overtop();
+							nones();
+						} else {
+							nones();
+							that.remove();
+							$(".overtop").text(aa.msg);
+							overtop();
+							lilen();
+						}
+					},
+					error: function() {
+						$(".overtop").text('请刷新页面重试');
+						overtop();
+					}
+				});
+
 			});
-			function lilen(){
-				if($(".uc_invest-box ul li").length>0){
-					
-				}else{
-					$(".uc_invest-box .no_sheep").css("display","block");
+
+			function lilen() {
+				if($(".uc_invest-box ul li").length > 0) {} else {
+					$(".uc_invest-box .no_sheep").css("display", "block");
 				}
 			}
-
 		</script>
 		<script type="text/javascript">
 			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
@@ -545,7 +540,7 @@ window.ontouchstart = function(e) {
 						$(".overtop").text("最多可添加3条记录");
 						overtop();
 					}else{*/
-						window.location.href = "{:url('member/address')}";
+					window.location.href = "{:url('member/address')}";
 					/*}*/
 
 				} else if($(this).text() == "朕填好了") {
