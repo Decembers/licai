@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-12 10:45:50
+ * @Last Modified time: 2018-01-13 14:34:10
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -35,10 +35,12 @@ class Member extends Yang
         $user = U::where(['id'=>$this->id])->find();
         $balance = $user['balance'];
         $authentication = $user['authentication'];
-        if ($authentication==1) {
-            $authti = '已认证';
-        }else{
+        if ($authentication==0) {
             $authti = '未认证';
+        }elseif($authentication==1){
+            $authti = '认证中';
+        }else{
+            $authti = '已认证';
         }
         $this->assign('name',$name);
         $this->assign('balance',$balance);
@@ -110,6 +112,8 @@ class Member extends Yang
         $arr = ['code'=>-200,'data'=>'','msg'=>'添加银行卡失败'];
         if ($this->request->isAjax()) {
              $data = input();
+             // $arr['msg'] = $data['cardnum'];
+             // return json_encode($arr);
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $add = B::insert($data);
@@ -128,10 +132,15 @@ class Member extends Yang
     {
         $arr = ['code'=>-200,'data'=>'','msg'=>'提现失败'];
         $user = U::where(['id'=>$this->id])->find();
+        //$ytixian = W::where(['user_id'=>$this->id,'status'=>0])->sum('money');
         $kbalance=intval($user['balance']);
         if ($this->request->isAjax()) {
              $money = input('money');
              $bank_id = input('bank_id');
+             if ($money!=intval($money)) {
+                  $arr['msg'] = '提现金额必须为整数';
+                  return json_encode($arr);
+             }
              if ($money>$kbalance) {
                   $arr['msg'] = '提现金额大于可提现金额';
                   return json_encode($arr);
@@ -192,11 +201,38 @@ class Member extends Yang
     public function withdrawlog()
     {
         $arr = W::where(['user_id'=>$this->id])->order('create_time desc')->select();
-        $money = W::where(['user_id'=>$this->id])->sum('money');
+        $money = W::where(['user_id'=>$this->id,'status'=>1])->sum('money');
+        foreach ($arr as $k => $v) {
+          $bake = B::where(['id'=>$v['bank_id']])->find();
+          $arr[$k]['name'] = $bake['bank_name'];
+          $arr[$k]['num'] = $bake['cardnum'];
+        }
         $this->assign('arr',$arr);
         $this->assign('money',$money);
         return $this->fetch();
     }
+    public function delewith()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'添加银行卡失败'];
+        if ($this->request->isAjax())
+        {
+            $id = input('id');
+             if (!isset($id)) {
+                  $arr['msg'] = '数据错误';
+                  return json_encode($arr);
+             }
+             $result=B::where(['id'=>$id])->delete();
+             if ($result==0) {
+                $arr['msg'] = '删除失败';
+                return json_encode($arr);
+             }else{
+                $arr['msg'] = '删除成功';
+                $arr['code'] = 1;
+                return json_encode($arr);
+             }
+        }
+    }
+
     //合同
     public function contract()
     {
@@ -426,6 +462,29 @@ class Member extends Yang
         }
 
     }
+    public function deleress()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'添加银行卡失败'];
+        if ($this->request->isAjax())
+        {
+            $id = input('id');
+             if (!isset($id)) {
+                  $arr['msg'] = '数据错误';
+                  return json_encode($arr);
+             }
+             $result=R::where(['id'=>$id])->delete();
+             if ($result==0) {
+                $arr['msg'] = '删除失败';
+                return json_encode($arr);
+             }else{
+                $arr['msg'] = '删除成功';
+                $arr['code'] = 1;
+                return json_encode($arr);
+             }
+        }
+    }
+
+
     /*
      *设置
      */

@@ -132,10 +132,10 @@ max-height:200px;//最大高度*/
 
 			.info_num {
 				font-size: 14px;
-				line-height: 30px;				
-				display: flex;		
+				line-height: 30px;
+				display: flex;
 				width: 100%;
-				height: 20px;			
+				height: 20px;
 			}
 
 			.purchase_tip {
@@ -183,13 +183,13 @@ max-height:200px;//最大高度*/
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
 					<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>
-					
+
 				</p>
 				<p class="a9 info_num">
-					
+
 					<span>账户余额：￥</span><span id="yu">{$arr.balance}</span>
 				</p>
-				
+
 			</div>
 			<input type="hidden" id="bank_id" value="{$arr.id}">
 <!-- 			<p class="purchase_tip a9">
@@ -202,25 +202,27 @@ max-height:200px;//最大高度*/
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
 				/*取绝对值*/
-				$("#Jcarry_amount").bind('input', function() {					
-			$(this).val(Math.abs($(this).val()));										
+				$("#Jcarry_amount").bind('input', function() {
+			$(this).val(Math.abs($(this).val()));
 			})
 				$("#add").click(function() {
 					if(Math.abs($("#Jcarry_amount").val())!=0){
-						
+
 					$("#add").attr({"disabled": "disabled"});
 					var Jcarry_amount=parseInt($("#Jcarry_amount").val());
 					var ti=parseInt($("#ti").text());
 					if( Jcarry_amount > ti) {
 						$(".overtop").text("提现金额大于可提现金额");
+						$("#add").removeAttr("disabled");
 						overtop();
 					} else {
 						if(ti==0) {
 						$(".overtop").text("提现金额不可为0");
+						$("#add").removeAttr("disabled");
 						overtop();return false;
 						}
 						var bank_id =  $("#bank_id").val();
-
+						var money =  $("#Jcarry_amount").val();
 						$.ajax({
 		                    type : "POST",  //提交方式
 		                    url : "{:url('member/tiwithdraw')}",//路径
@@ -233,15 +235,19 @@ max-height:200px;//最大高度*/
 		                    	//alert("请输入用111户名")
 								var aa = JSON.parse(result);
 								if (aa.code!=1) {
+									$("#add").removeAttr("disabled");
 									$(".overtop").text(aa.msg);
-									overtop();
+										overtop();
+
 								}else{
 									$(".overtop").text(aa.msg);
 									overtop();
-									
+
 									setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 										$("#Jcarry_amount").val("");
-										$("#add").removeAttr("disabled");  
+										$("#add").removeAttr("disabled");
+										var ti = $("#ti").text() - money;
+										$("#ti").text(ti);
 									window.location="{:url('member/withdrawlog')}";
 									},1000);
 								}
@@ -249,7 +255,7 @@ max-height:200px;//最大高度*/
 		                    error : function (){
 		                    	$(".overtop").text('请刷新页面重试');
 								overtop();
-								$("#add").removeAttr("disabled");  
+								$("#add").removeAttr("disabled");
 		                }
 						});
 					}

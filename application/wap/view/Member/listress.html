@@ -249,7 +249,7 @@
 				overflow: hidden;
 			}
 			/*提示*/
-			
+
 			.modal1 {
 				width: 80%;
 				height: 100px;
@@ -266,17 +266,17 @@
 				display: none;
 				overflow: hidden;
 			}
-			
+
 			.modal1 p {
 				line-height: 50px;
 				font-size: 16px;
 			}
-			
+
 			.modal1 p:nth-child(2) {
 				display: flex;
 				border-top: 1px solid #d9d9d9;
 			}
-			
+
 			.modal1 p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
@@ -288,11 +288,11 @@
 				background: #e8e8e8;
 				box-sizing: border-box;
 			}
-			
+
 			.modal1 p:nth-child(2) span:nth-child(1) {
 				border-right: 1px solid #d9d9d9;
 			}
-			
+
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -328,7 +328,7 @@
 					{if condition="$arr"}
 					<ul>
 						{volist name="arr" id="vo"}
-						<li class="lis">
+						<li class="lis" id="{$vo.id}">
 							<p class="lip1" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span>{$vo.name}</span><span>{$vo.mobile}</span></p>
 							<p class="lip2" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span class="dz">{$vo.address}</span><span class="sz"><i class="sz1">{$vo.province_name}</i><i class="sz2">{$vo.city_name}</i><i class="sz3">{$vo.district_name}</i></span></p>
 							<p class="lip3"><span class="youbian">{$vo.postcode}</span>
@@ -417,21 +417,22 @@
 		// 	}
 		// };
 /*长按删除*/
-var target1;// 长按元素
+			var target1;// 长按元素
 			var tts;//下标
 			var timeOutEvent = 0,
 				cardId;　　
+			var id = 0;　
+			var that;
 			$(".uc_invest-box ul li").on({　　
-				
+
 						touchstart: function(e) {　　　　
-							var that = this;　　　　
+							that = this;
 							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件
-									　　　　　　
-									timeOutEvent = 0;　　　　　　
-									 target1 = e.target;//这个target就是目标元素
-									tts = $(".uc_invest-box ul li").index(target1);//下标
+							// that.remove();　　　　
+							// return false;
+									id = that.id;　　　　　　
 									blck();
-									alert($(".uc_invest-box ul li").length);
+									//alert(id);
 									}, 800);　　　　 // e.preventDefault();
 								　　
 							}, 　　touchmove: function() {　　　　
@@ -442,7 +443,7 @@ var target1;// 长按元素
 								　　
 							}
 						})
-			
+
 			/*弹窗*/
 			$("#goodcover").click(function() {
 				nones();
@@ -465,13 +466,32 @@ var target1;// 长按元素
 			}
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
-				nones();
-				/*nas.remove();*/
-				/*$(".uc_invest-box ul li:nth-child("+(tts+1)+")").remove();
-				alert($(".uc_invest-box ul li").length);*/
-				/*删除选择元素*/
-			target1.remove();
-				
+						$.ajax({
+		                    type : "POST",  //提交方式
+		                    url : "{:url('member/deleress')}",//路径
+		                    data : {
+		                        "id" : id,
+		                    },
+		                    dataType : "json",//数据，这里使用的是Json格式进行传输
+		                    success : function(result) {
+		                    	//alert("请输入用111户名")
+								var aa = JSON.parse(result);
+								if (aa.code!=1) {
+									$(".overtop").text(aa.msg);
+									overtop();
+									nones();
+								}else{
+									nones();
+									that.remove();
+									$(".overtop").text(aa.msg);
+									overtop();
+								}
+		                    },
+		                    error : function (){
+		                    	$(".overtop").text('请刷新页面重试');
+								overtop();
+		                }
+						});
 			});
 		</script>
 		<script type="text/javascript">

@@ -76,7 +76,7 @@
 }
 .record li.blue .chtx{
 	 color: white !important;
-	
+
 }
 		</style>
 	</head>
@@ -92,7 +92,7 @@
 			</div>
 			<ul class="Money_Log invest">
 				<p class="total_transaction a9 white">
-					提现总额：<span class="a1">￥
+					已提现总额：<span class="a1">￥
 					{if condition="$money"}
 					{$money}
 					{else /}
@@ -116,15 +116,21 @@
 						<div >审核状态 :
 						{if condition="$vo.status eq 1"}
 						已通过
-						{else /}
+						{elseif condition="$vo.status eq 2" /}
 						未通过
+						{else /}
+						审核中
 						{/if}</div>
 						<div>申请时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+					</div>
+					<div class="fw_right fr">
+						<div >提现银行 :{$vo.name}</div>
+						<div>提现卡号 : {$vo.num}</div>
 					</div>
 				</li>
 			{/volist}
 			</ul>
-			
+
 
 		</div>
 		<p class="overtop">签到成功</p>
@@ -132,7 +138,7 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*$(".fw_right").width(($(this).parent().width()-$(this).prev().width())+"px");*/
-			
+
 		</script>
 
 	</body>

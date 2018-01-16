@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-12 14:42:20
+ * @Last Modified time: 2018-01-13 09:21:44
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -418,8 +418,9 @@ class Login extends Yang
      */
     public function admin()
     {
-       $arr = User::where(['id'=>62])->find();
+       $arr = User::where(['id'=>94])->find();
        Session::set('user',$arr);
+       Cookie::set('user_id',94);
        echo 'ok';
     }
 

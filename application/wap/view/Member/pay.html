@@ -20,14 +20,14 @@
 				width: 100%;
 				margin: 1rem 0;
 			}
-			
+
 			.top {
 				display: flex;
 				justify-content: space-around;
 				box-sizing: border-box;
 				padding: 0 5%;
 			}
-			
+
 			.top li {
 				width: 45%;
 				height: 40px;
@@ -41,18 +41,18 @@
 				box-sizing: border-box;
 				font-weight: 600;
 			}
-			
+
 			.top li.active {
 				color: #fff;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				border: 0;
 			}
-			
+
 			.bottom li>div {
 				width: 90%;
 				margin: 1rem auto;
 			}
-			
+
 			.figure,
 			.pay_detail {
 				background-color: white;
@@ -60,7 +60,7 @@
 				position: relative;
 				border-radius: 5px;
 			}
-			
+
 			.figure span {
 				position: absolute;
 				top: 0;
@@ -70,7 +70,7 @@
 				text-align: center;
 				font-size: 3rem;
 			}
-			
+
 			.figure input {
 				width: 100%;
 				height: 100%;
@@ -79,25 +79,25 @@
 				padding-left: 50px;
 				font-size: 1.8rem;
 			}
-			
+
 			.figure_text .fl1,
 			.pay_detail {
 				display: flex;
 				position: relative;
 			}
-			
+
 			.inline_pay_img_show {
 				height: 50px;
 				width: 50px;
 				padding: 5px;
 				box-sizing: border-box;
 			}
-			
+
 			.inline_pay_name {
 				line-height: 50px;
 				font-size: 1.8rem;
 			}
-			
+
 			.img_ri {
 				width: 26px;
 				height: 26px;
@@ -105,53 +105,53 @@
 				top: 12px;
 				right: 1rem;
 			}
-			
+
 			.figure_text {
 				color: #a9a9a9;
 			}
-			
+
 			.big-a {
 				color: #3db4cc;
 				text-align: center;
 				font-size: 1.50rem;
 			}
-			
+
 			.pay_detail1 {
 				padding: 0.5rem 1rem;
 				color: #fff;
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				border-radius: 0.45rem;
 			}
-			
+
 			.pay_detail1 h5,
 			.pay_detail1 ul,
 			.pay_detail1 ul li {
 				width: 100%;
 			}
-			
+
 			.pay_detail1 h5 {
 				text-align: center;
 				line-height: 3rem;
 				font-size: 2rem;
 			}
-			
+
 			.pay_detail1 ul li {
 				overflow: hidden;
 			}
-			
+
 			.pay_detail1 ul li p {
 				float: left;
 				font-size: 1.5rem;
 			}
-			
+
 			.pay_detail1 ul li p:nth-child(1) {
 				width: 25%;
 			}
-			
+
 			.pay_detail1 ul li p:nth-child(2) {
 				width: 75%;
 			}
-			
+
 			.a_ophen {
 				display: block;
 				width: 90%;
@@ -163,7 +163,7 @@
 				margin-top: 0.45rem;
 				overflow: hidden;
 			}
-			
+
 			.portrait {
 				width: 50px;
 				height: 50px;
@@ -171,19 +171,19 @@
 				background-size: 3.6rem;
 				margin-right: 1rem;
 			}
-			
+
 			.telephone {
 				font-size: 1.50rem;
 				color: #3db4cc;
 				line-height: 2.50rem;
 			}
-			
+
 			.work_time {
 				font-size: 1.2rem;
 				color: #a9a9a9;
 				line-height: 1.50rem;
 			}
-			
+
 			.big-a {
 				color: #3db4cc !important;
 				padding: 0.5rem 0;
@@ -211,7 +211,7 @@
 				<li>
 					<div class="figure">
 						<span>￥</span>
-						<input id="money1" type="number" placeholder="请输入充值金额(最多11位数)" oninput="if(value.length>11)value=value.slice(0,11)">
+						<input id="money1" type="number" placeholder="请输入充值金额" oninput="if(value.length>11)value=value.slice(0,11)">
 					</div>
 					<div class="figure_text">
 						<div id="purchase" class="fl1">充值金额可购常规鹅：<i id="num-sheep">0</i>只</div>
@@ -306,12 +306,14 @@
 					var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
 					if(ua.match(/MicroMessenger/i) != "micromessenger") {
 						$(".overtop").text("请在微信中打开");
+						$("#big-button").removeAttr("disabled");
 						overtop();
 						return false;
 					}
 					var money = $("#money1").val(); //充值金额
 					if(money == '') {
 						$(".overtop").text("请输入充值金额");
+						$("#big-button").removeAttr("disabled");
 						overtop();
 						return false;
 					}
@@ -329,10 +331,16 @@
 
 							eval('var data = ' + json);
 							callpay(data);
+						},
+						error: function() {
+							$(".overtop").text("参数错误");
+							$("#big-button").removeAttr("disabled");
+							overtop();
 						}
 					})
 				} else {
 					$(".overtop").text("提现金额不能为0");
+					$("#big-button").removeAttr("disabled");
 					overtop();
 				}
 			}

@@ -177,7 +177,7 @@ max-height:200px;//最大高度*/
 
 			.checkin {
 				position: relative;
-				
+
 			}
 
 			.white {
@@ -216,7 +216,7 @@ max-height:200px;//最大高度*/
 				left: 100px;
 				top: 10px;
 				height: 50px;
-				
+
 			}
 
 			.detail h6 {
@@ -237,7 +237,7 @@ max-height:200px;//最大高度*/
 				display: none;
 			}
 			/*提示*/
-			
+
 			.modal1 {
 				width: 80%;
 				height: 100px;
@@ -254,17 +254,17 @@ max-height:200px;//最大高度*/
 				display: none;
 				overflow: hidden;
 			}
-			
+
 			.modal1 p {
 				line-height: 50px;
 				font-size: 16px;
 			}
-			
+
 			.modal1 p:nth-child(2) {
 				display: flex;
 				border-top: 1px solid #d9d9d9;
 			}
-			
+
 			.modal1 p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
@@ -276,11 +276,11 @@ max-height:200px;//最大高度*/
 				background: #e8e8e8;
 				box-sizing: border-box;
 			}
-			
+
 			.modal1 p:nth-child(2) span:nth-child(1) {
 				border-right: 1px solid #d9d9d9;
 			}
-			
+
 			#goodcover {
 				display: none;
 				position: fixed;
@@ -307,24 +307,25 @@ max-height:200px;//最大高度*/
 			</div>
 			<div class="bank_queue">
 				<!-- 如果没有银行卡，则以下显示-->
-				<!--
+<!--
 			<p class="auTip a9">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 			<div class="no_record"></div>
-			-->
+ -->
 				<!-- 结束-->
 				<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 				<div class="no_record"></div>
 			</div>
 			<ul class="kahao">
+
 			{if condition="$arr"}
 				{volist name="arr" id="vo"}
-				
-				<li class="checkin white fillet" 	>
+
+				<li class="checkin white fillet" 	id="{$vo.id}">
 					<a href="{:url('member/tiwithdraw',['id'=>$vo.id])}">
 					<div class="bank_icon">
 						<img src="__WAP__/img/bank/{$vo.image}.jpg">
 					</div>
-					
+
 						<div class="detail">
 							<h6>{$vo.bank_name}</h6>
 							<span>尾号{$vo.cardnum}储蓄卡</span>
@@ -333,8 +334,7 @@ max-height:200px;//最大高度*/
 				</li>
 				{/volist}
 			{else /}
-			
-				<!--<div class="no_record"></div>-->
+				<div class="no_record"></div>
 			{/if}
 			</ul>
 			<!--<div class="bank_bg white fillet">
@@ -568,10 +568,10 @@ max-height:200px;//最大高度*/
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			
-			
-			
-			
+
+
+
+
 			//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 			/*$(".bank_bg").css("display", "none");
 			$(".dl div select").focus(function() {
@@ -595,8 +595,8 @@ max-height:200px;//最大高度*/
 				$("#red_select_list1").css("top", "0");
 				$(this).css("color", "black");
 			})*/
-			
-			
+
+
 			/* 填写完成 后  判断      lis 是否复制*/
 			/*function huoqu() {
 				var liss = $(".kahao li").length;
@@ -640,15 +640,18 @@ max-height:200px;//最大高度*/
 			var tts;
 			var tar;
 			var timeOutEvent = 0,
-				cardId;　　
-			$(".kahao>li").on({　　				
+				cardId;　
+			var id = 0;　
+			var that;
+			$(".kahao>li").on({　　
 						touchstart: function(e) {　　　　
-							var that = this;　　　　
+							that = this;　　　　
 							timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件									　　　　　　
 									timeOutEvent = 0;　　　　　　
-									 　tar = e.target;//这个target就是目标元素
-									tts = $(".kahao>li").index(tar);//下标  获取下标有误
-									/*alert(tts);*/
+									  　tar = e.target;//这个target就是目标元素
+									// tts = $(".kahao>li").index(tar);//下标  获取下标有误
+									//alert(that.id);
+									id = that.id;
 									blck();
 									}, 800);　　　　 // e.preventDefault();							　　
 							}, 　　touchmove: function() {　　　　
@@ -657,7 +660,7 @@ max-height:200px;//最大高度*/
 							}, 　　touchend: function() {　　　　
 								clearTimeout(timeOutEvent);　　　　 // return false;								　　
 							}
-						})			
+						})
 			/*弹窗*/
 			$("#goodcover").click(function() {
 				nones();
@@ -675,10 +678,32 @@ max-height:200px;//最大高度*/
 			}
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
-				nones();
-				
-				tar.remove();
-/*$(".kahao li:nth-child(" + (tts + 1) + ")").remove();*/
+						$.ajax({
+		                    type : "POST",  //提交方式
+		                    url : "{:url('member/delewith')}",//路径
+		                    data : {
+		                        "id" : id,
+		                    },
+		                    dataType : "json",//数据，这里使用的是Json格式进行传输
+		                    success : function(result) {
+		                    	//alert("请输入用111户名")
+								var aa = JSON.parse(result);
+								if (aa.code!=1) {
+									$(".overtop").text(aa.msg);
+									overtop();
+									nones();
+								}else{
+									nones();
+									that.remove();
+									$(".overtop").text(aa.msg);
+									overtop();
+								}
+		                    },
+		                    error : function (){
+		                    	$(".overtop").text('请刷新页面重试');
+								overtop();
+		                }
+						});
 			});
 		</script>
 	</body>
