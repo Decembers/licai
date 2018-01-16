@@ -418,9 +418,12 @@
 			// 	}
 			// };
 			/*长按删除*/
-			window.ontouchstart = function(e) {
+			/*window.ontouchstart = function(e) {
 				e.preventDefault();
-			};
+			};*/
+			window.addEventListener('contextmenu', function(e) {
+					e.preventDefault();
+				});
 
 			var target1; // 长按元素
 			var tts; //下标
