@@ -358,19 +358,28 @@
 
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			$("#record1 span:nth-child(2) i").text(zj + ".00");
+			
 			qians();
 			/*总额写入 2位小数*/
 			function qians() {
-				/*var nss = $(".detail3 .row:nth-child(1) span:nth-child(2)").text();
-				var lens1 = nss.toString().split(".")[1].length;*/
+				var nss = $(".detail3 .row:nth-child(1) span:nth-child(2)").text();
+				var lens1 = nss.toString().split(".")[1].length;
+				
 				if(ns % 1 == 0) {
-					$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns + ".00");
+					$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toString() + ".00");
 				} else {
-					if(ns % 0.1 == 0) {
-						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns + "0");
+					/*if(ns % 0.1 == 0) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toString()+"0");
 					} else if(ns % 0.01 == 0) {
 						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns);
-					} else /*if(lens1 > 2)*/ {
+					} else if(lens1 > 2) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toString().substr(0, ns.toString().indexOf(".") + 3));
+					}*/
+					if(lens1 == 1) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toString()+"0");			
+					} else if(lens1 == 2) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns);				
+					} else if(lens1 > 2) {
 						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toString().substr(0, ns.toString().indexOf(".") + 3));
 					}
 				}
