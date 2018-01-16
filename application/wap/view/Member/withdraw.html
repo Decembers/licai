@@ -296,6 +296,7 @@ max-height:200px;//最大高度*/
 	</head>
 
 	<body>
+		<p class="overtop"></p>
 		<div class="wrapper">
 			<div class="header">
 				<div class="">
@@ -319,7 +320,7 @@ max-height:200px;//最大高度*/
 			</div>
 
 			<ul class="kahao">
-				<span id="" class="a9 span" style="margin-bottom: 0.5rem;margin-left: 1rem;">
+				<span id="span" class="a9 span" style="margin-bottom: 0.5rem;margin-left: 1rem;">
 					点击可申请提现（长按删除）
 				</span>
 				<p class="auTip a9" style="margin-top: 1rem; display: none;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
@@ -339,6 +340,7 @@ max-height:200px;//最大高度*/
 					</a>
 				</li>
 				{/volist} {else /}
+				<p class="auTip a9" style="margin-top: 1rem; ">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 				<div class="no_record"></div>
 				{/if}
 			</ul>
@@ -558,7 +560,7 @@ max-height:200px;//最大高度*/
 				<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 			</div>
 			<div id="goodcover"></div>
-			<p class="overtop">签到成功</p>
+			
 			<!--<li class="checkin white fillet" style="display: none;">
 			<div class="bank_icon">
 				<img src="http://www.caifumuchang.com./public/bank/1.jpg" alt="中国工商银行">
@@ -571,6 +573,7 @@ max-height:200px;//最大高度*/
 			</a>
 		</li>-->
 			<div class="background"></div>
+			
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
 				/*	window.ontouchstart = function(e) {
@@ -580,7 +583,7 @@ max-height:200px;//最大高度*/
 						window.addEventListener('contextmenu', function(e){
     e.preventDefault();
 });
-javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
+
 				//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 				/*$(".bank_bg").css("display", "none");
 				$(".dl div select").focus(function() {
@@ -645,7 +648,9 @@ javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
 				}
 			</script>
 			<script type="text/javascript">
-
+				if($(".kahao li").length == 0){
+					$("#span").css("display", "none");
+				}
 				var that;
 				var timeOutEvent = 0,
 					cardId;　
@@ -751,13 +756,13 @@ javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
 					// },1000);
 
 				});
-
+				
 				function lilen() {
 					if($(".kahao li").length > 0) {} else {
 
 						$(".no_record").css("display", "block");
 						$(".auTip").css("display", "block");
-						$(".span").css("display", "none");
+						$("#span").css("display", "none");
 
 					}
 				}
