@@ -22,59 +22,61 @@
 				background-color: rgba(0, 0, 0, 0);
 				-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
 			}
-.big-button{
-	background:linear-gradient(to right,#b7b5b4,#b7b5b4);
-}
+			
+			.big-button {
+				background: linear-gradient(to right, #b7b5b4, #b7b5b4);
+			}
+			
 			.detail1,
 			.big-button1 {
 				background-image: url(__WAP__/img/vip.jpg) !important;
 				-moz-background-size: 100% 100% !important;
 				background-size: 100% 100% !important;
 			}
-
+			
 			a.found {
 				color: #FDC45D;
 				font-size: 0.75rem;
 			}
-
+			
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #FDC45D;
 			}
-
+			
 			.row6>div>div {
 				border: 1px solid #FDC45D;
 				background-color: #FDC45D;
 				box-sizing: border-box;
 			}
-
+			
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-
+			
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-
+			
 			#timer {
 				display: flex;
 			}
-
+			
 			.detail3 .row:nth-child(3) p {
 				border: none;
 			}
-
+			
 			.detail3 .row:nth-child(3) input {
 				border: none;
 				width: 7rem;
 				-webkit-text-security: disc;
 				text-security: disc;
 			}
-
+			
 			.detail3 .row:nth-child(4) input {
 				width: 7rem;
 			}
@@ -279,8 +281,25 @@
 			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 			var zhon = parseFloat($("#em1").text());
-			var p1 = profit.toString().substr(0,profit.toString().indexOf(".")+3);
-$("#profit").text(p1);
+			pr();
+			/*利润 写入 2位小数*/
+			function pr(){
+				var p1 = profit.toString().substr(0, profit.toString().indexOf(".") + 3);
+			var lens =profit.toString().split(".")[1].length;
+			if(profit % 1 ==0){
+				$("#profit").text(profit + ".00");
+			}else{
+				if(lens == 1) {
+						$("#profit").text(profit + "0");
+					} else if(lens == 2) {
+						$("#profit").text(profit);
+					} else if(lens > 2) {
+						$("#profit").text(p1);
+					}
+			}
+			}
+			
+			
 			function bian() {
 				/*鹅只数量 输出*/
 				if($("#number").val() == "") {
@@ -300,10 +319,18 @@ $("#profit").text(p1);
 				if(one == 0) {
 					st.text(zo + ".00");
 				} else {
-					if(one2 == 0) {
+					/*if(one2 == 0) {
 						st.text(zo + "0");
 					} else {
-						st.text(zo.substr(0,zo.indexOf(".")+3));
+						st.text(zo.substr(0, zo.indexOf(".") + 3));
+					}*/
+					var len = zo.split(".")[1].length;
+					if(len == 1) {
+						st.text(zo + "0");
+					} else if(len == 2) {
+						st.text(zo);
+					} else if(len > 2) {
+						st.text(zo.toString().substr(0, zo.toString().indexOf(".") + 3));
 					}
 				}
 			}
@@ -311,7 +338,7 @@ $("#profit").text(p1);
 			$("a.found").click(function() {
 				$("#goodcover").css("display", "block");
 				$("#code").css("display", "block");
-			})   
+			})
 			/*商铺辅助鹅群说明 关闭*/
 			$(".close").click(function() {
 				$("#goodcover").css("display", "none");
@@ -329,34 +356,34 @@ $("#profit").text(p1);
 				$(this).toggleClass("dui");
 				var duis = $(this).hasClass("dui");
 
-				if(duis==true) {
+				if(duis == true) {
 					/*取消选择 禁用*/
 					$("#big-button").attr({
 						"disabled": "disabled"
 					});
-						$("#big-button").removeClass("big-button1");
+					$("#big-button").removeClass("big-button1");
 				} else {
 					/*选择  取消禁用*/
 					$("#big-button").removeAttr("disabled");
-						$("#big-button").addClass("big-button1");
+					$("#big-button").addClass("big-button1");
 				}
 			})
+
 			function ts1(n) {
 				var one = n % 1;
 				if(one == 0) {
-					n = n+".00"
+					n = n + ".00"
 				} else {
 					var len = n.toString().split(".")[1].length;
-
 					if(len == 1) {
 						n = n + "0";
 					} else if(len == 2) {
 						n = n;
 					} else if(len > 2) {
 						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
-					} 
+					}
 				}
-				
+
 				$("#em1").text(n);
 
 			}
@@ -381,9 +408,9 @@ $("#profit").text(p1);
 							$(".overtop1 .overtop_text").text("余额不足");
 						}*/
 						/*js判断完成，防止连续点击，禁止点击*/
-					$("#big-button").attr({
-						"disabled": "disabled"
-					});
+						$("#big-button").attr({
+							"disabled": "disabled"
+						});
 						var sp_id = $("#sp_id").val();
 						var number = $("#number").val();
 						var max6 = $("#max6").val();
@@ -404,25 +431,25 @@ $("#profit").text(p1);
 								if(aa.code == 0) {
 									$(".overtop").text(aa.msg);
 									overtop();
-									
+
 									setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 										/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
-										zhon = parseFloat(zhon) -$("#qian").text();
-									/*tos(zhon);*/
+										zhon = parseFloat(zhon) - $("#qian").text();
+										/*tos(zhon);*/
 										ts1(zhon);
 										$("#number").val(1);
 										$("#numbers").text(1);
-										$("#qian").text(qian);					
+										$("#qian").text(qian);
 										$("#profit").text(p1);
 										$("#vip6").val("");
 										$("#max6").val("");
-								$("#big-button").removeAttr("disabled");
-									window.location = '{:url("Rancher/index")}';
-									
+										$("#big-button").removeAttr("disabled");
+										window.location = '{:url("Rancher/index")}';
+
 									}, 300);
 								} else {
 									/*提示错误，取消 禁止点击*/
-								$("#big-button").removeAttr("disabled");
+									$("#big-button").removeAttr("disabled");
 									$(".overtop").text(aa.msg);
 									overtop();
 
