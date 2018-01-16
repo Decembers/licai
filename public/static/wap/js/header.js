@@ -14,6 +14,7 @@ $("div.header>div").click(function() {window.history.back();
 /*提示*/
 function overtop() {
 				$(".wrapper>div:nth-child(1)").after($("body>p.overtop").clone(true));
+				
 				var ss1 = $(".wrapper .overtop");
 				$(".wrapper .overtop").css("background-color","rgba(0,0,0,0.7)");
 				ss1.css("display", "block");
@@ -32,7 +33,7 @@ function overtop2() {
 				setTimeout(function() {
 					ss1.css("opacity", "0");
 					ss1.remove();
-				}, 2000);
+				}, 2000);  
 			}
 
 	/*转换 为两位小数*/

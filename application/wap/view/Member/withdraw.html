@@ -319,9 +319,10 @@ max-height:200px;//最大高度*/
 			</div>
 
 			<ul class="kahao">
-				<span id="" class="a9" style="margin-bottom: 0.5rem;margin-left: 1rem;">
+				<span id="" class="a9 span" style="margin-bottom: 0.5rem;margin-left: 1rem;">
 					点击可申请提现（长按删除）
 				</span>
+				<p class="auTip a9" style="margin-top: 1rem; display: none;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 <div class="no_record" style="display: none;"></div>
 				{if condition="$arr"} {volist name="arr" id="vo"}
 
@@ -753,7 +754,11 @@ javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
 
 				function lilen() {
 					if($(".kahao li").length > 0) {} else {
+
 						$(".no_record").css("display", "block");
+						$(".auTip").css("display", "block");
+						$(".span").css("display", "none");
+
 					}
 				}
 			</script>
