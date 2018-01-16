@@ -214,7 +214,7 @@
 						<input id="money1" type="number" placeholder="请输入充值金额" oninput="if(value.length>11)value=value.slice(0,11)">
 					</div>
 					<div class="figure_text">
-						<div id="purchase" class="fl1">充值金额可购常规鹅：<i id="num-sheep">0</i>只</div>
+						<div id="purchase" class="fl1"><!--充值金额禁止小数，-->充值金额可购常规鹅：<i id="num-sheep">0</i>只</div>
 					</div>
 
 					<div class="pay_detail clearfix">
@@ -277,6 +277,14 @@
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			$(document).ready(function(){
+    var ipt = $("#money1");
+    ipt.on('keyup',function(){
+        if(! /^\d+$/.test(this.value)){           
+        this.value='';
+        }
+    })
+});
 			$(".top li").click(function() {
 				tt = $(".top li").index($(this));
 				$(".top li").removeClass("active");
@@ -289,7 +297,7 @@
 				}
 			})
 			$("#money1").bind('input', function() {
-				$(this).val(Math.abs($(this).val()));
+				/*$(this).val(Math.abs($(this).val()));*/
 				var va = parseInt($("#money1").val()) / 80;
 				/*充值除以单价*/
 				$("#num-sheep").text(parseInt(va));

@@ -124,7 +124,7 @@ max-height:200px;//最大高度*/
 
 			#Jcarry_amount {
 				width: 100%;
-				font-size: 24px;
+				font-size: 20px;
 				box-sizing: border-box;
 				line-height: 3rem;
 				padding-left: 2.5rem;
@@ -179,7 +179,7 @@ max-height:200px;//最大高度*/
 				<p class="sm_title">提现金额</p>
 				<div class="infos clearfix">
 					<div class="rmb fl">￥</div>
-					<input class="fl" id="Jcarry_amount" type="number" placeholder="请输入提现金额" style="ime-mode:disabled" oninput="if(value.length>10)value=value.slice(0,10)" >
+					<input class="fl" id="Jcarry_amount" type="number" placeholder="提现金额(禁止小数)" style="ime-mode:disabled" oninput="if(value.length>10)value=value.slice(0,10)" >
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
 					<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>
@@ -201,10 +201,15 @@ max-height:200px;//最大高度*/
 			<div class="background"></div>
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
-				/*取绝对值*/
-				$("#Jcarry_amount").bind('input', function() {
-			$(this).val(Math.abs($(this).val()));
-			});
+				$(document).ready(function(){
+    var ipt = $("#Jcarry_amount");
+    ipt.on('keyup',function(){
+        if(! /^\d+$/.test(this.value)){           
+        this.value='';
+        }
+    })
+});
+				
 			sa();
 
 			function sa() {
