@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 16:54:58
+ * @Last Modified time: 2018-01-16 15:39:59
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -25,6 +25,7 @@ class Rancher extends Yang
         $sp_count = 0;//羊只的总和
         $fulfill = 0;////已完成的羊
         $nofulfill = 0;//未完成羊
+        $caigousheep = 0;//采购中的羊
         $principal = 0;//已收本金
         $count = 0;//购买期数 产生多少笔订单
         $money = 0;//交易总金额
@@ -48,7 +49,15 @@ class Rancher extends Yang
                 $principal += $v['order_price'];//已收本金
                 $he += $v['zexpect'];//查询已返还的总利润
             }else{
-                $nofulfill += $v['sp_count'];//未完成的羊
+
+                $row[$k]['caigou'] = 0;
+                if (time()<$com['deal_time']) {
+                    $row[$k]['caigou'] = 1;
+                    $row[$k]['sky'] = ceil(($com['deal_time']-time())/86400);
+                    $caigousheep += $v['sp_count'];
+                }else{
+                    $nofulfill += $v['sp_count'];//未完成的羊
+                }
                 $dprincipal +=$v['order_price'];
                 $yifanh = $v['zexpect'] / $v['nexpect'] * $v['which'];
                 $he += $yifanh;//查询已返还的总利润
@@ -68,6 +77,7 @@ class Rancher extends Yang
         $arr["money"] = $money;
         $arr["fulfill"] = $fulfill;
         $arr["nofulfill"] = $nofulfill;
+        $arr["caigousheep"] = $caigousheep;
         $arr["sp_count"] = $sp_count;
         $arr['dlirun'] = $dlirun;
         $arr['dshou'] = $dlirun + $dprincipal;//未返还金额
