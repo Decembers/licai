@@ -572,6 +572,12 @@ max-height:200px;//最大高度*/
 			<div class="background"></div>
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
+				/*	window.ontouchstart = function(e) {
+					e.preventDefault();
+				};*/
+						window.addEventListener('contextmenu', function(e){  
+    e.preventDefault();  
+});
 				//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 				/*$(".bank_bg").css("display", "none");
 				$(".dl div select").focus(function() {
@@ -636,9 +642,7 @@ max-height:200px;//最大高度*/
 				}
 			</script>
 			<script type="text/javascript">
-				window.ontouchstart = function(e) {
-					e.preventDefault();
-				};
+			
 				var that;
 				var timeOutEvent = 0,
 					cardId;　
