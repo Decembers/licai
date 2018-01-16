@@ -274,6 +274,7 @@
 
 		</div>
 		<p class="overtop"></p>
+		<span id="val" style="position: fixed; top: 50%;opacity: 0;"></span>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -286,6 +287,13 @@
         }
     })
 });
+/*禁止输入小数点*/
+ $("#money1").bind('input',function(){		    
+		    	$("#val").text(parseInt($(this).val()));
+		    	$(this).val("");
+		    	$(this).val($("#val").text());
+		    })
+		    
 			$(".top li").click(function() {
 				tt = $(".top li").index($(this));
 				$(".top li").removeClass("active");

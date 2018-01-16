@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
-		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css"/>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
 
 		<style type="text/css">
@@ -19,7 +19,7 @@
 			.total_transaction {
 				width: 100%;
 			}
-
+			
 			.total_transaction {
 				line-height: 4rem;
 				box-sizing: border-box;
@@ -28,56 +28,51 @@
 				background-color: white;
 				margin-top: 2px;
 			}
+			
 			.record,
-.record li {
-	width: 100%;
-	overflow: auto;
-}
+			.record li {
+				width: 100%;
+				overflow: auto;
+			}
+			
+			.record li {
+				background-color: white;
+				color: #a9a9a9;
+				font-size: 1rem;
+				box-sizing: border-box;
+				padding: 1rem ;
+				margin-top: 2px;
+			}
+			
+			
+			.fw_left p.chtx {
+				font-size: 2.5rem;
+			}
 
-.record li {
-	background-color: white;
-	color: #a9a9a9;
-	font-size: 1rem;
-	box-sizing: border-box;
-	padding: 1rem 1.5rem;
-	margin-top: 2px;
+			.fw_left p {
+				font-size: 1.3rem;
+			}
+			
+.fw_right{
+	width: 60%;
 }
+.fw_left{
+	width: 40%;
+}
+			.fw_right p {				
+				width: 100%;
+				line-height: 2rem;
+			}
 
-.record li>div>div:nth-child(1) {
-	line-height: 3rem;
-}
-
-.record li>div>div:nth-child(2) {
-	line-height: 2rem;
-}
-
-.record li .chtx {
-	font-size: 2rem;
-}
-.record li .fw_left{
-	/*float: ;*/
-	flex-grow: 1;
-}
-.record li .fw_right{
-	flex-grow: 2;
-}
-.record li .fw_right div {
-	width: 100%;
-	text-align: right;
-	font-size: 1.4rem;
-}
-
-.record li .fw_left div:nth-child(2) {
-	font-size: 1.4rem;
-}
-.record li.blue{
-	    background: linear-gradient(to right,#3db4cc,#6fd6ea)!important;
-	    color: white !important;
-}
-.record li.blue .chtx{
-	 color: white !important;
-
-}
+			.fw_left p{
+				line-height: 3rem;
+			}
+			.friend li{
+				margin-bottom: 2px;
+			}
+			.navs li .fw_right p{
+				line-height: 3rem;
+			}
 		</style>
 	</head>
 
@@ -100,37 +95,28 @@
 					{/if}
 					</span>
 				</p>
-				{if condition="$arr"}
-				{else /}
+				{if condition="$arr"} {else /}
 				<div class="no_record"></div>
 				{/if}
 			</ul>
 			<ul class="record">
-			{volist name="arr" id="vo"}
+				{volist name="arr" id="vo"}
 				<li>
 					<div class="fw_left fl">
-						<div class="chtx a1">{$vo.money}元</div>
-						<div>操作金额</div>
+						<p class="chtx a1">{$vo.money}元</p>
+						<p>操作金额</p>
 					</div>
 					<div class="fw_right fr">
-						<div >审核状态 :
-						{if condition="$vo.status eq 1"}
-						已通过
-						{elseif condition="$vo.status eq 2" /}
-						未通过
-						{else /}
-						审核中
-						{/if}</div>
-						<div>申请时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+						<p>审核状态 : {if condition="$vo.status eq 1"} 已通过 {elseif condition="$vo.status eq 2" /} 未通过 {else /} 审核中 {/if}
+						</p>
+						<p>申请时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</p>
+						<p>提现银行 :{$vo.name}</p>
+						<p>提现卡号 : {$vo.num}</p>
 					</div>
-					<div class="fw_right fr">
-						<div >提现银行 :{$vo.name}</div>
-						<div>提现卡号 : {$vo.num}</div>
-					</div>
+					
 				</li>
-			{/volist}
+				{/volist}
 			</ul>
-
 
 		</div>
 		<p class="overtop">签到成功</p>
@@ -138,7 +124,6 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*$(".fw_right").width(($(this).parent().width()-$(this).prev().width())+"px");*/
-
 		</script>
 
 	</body>
