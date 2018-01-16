@@ -455,11 +455,12 @@
 											//alert(strs[0]);
 											var name=$("#names").val();
 											var mobile=$("#bankcard").val();
-											var address=$(".big-buttonress").val();
+											var address=$("#address").val();
 											var postcode=$("#bankzone").val();
 											var province_name=strs[0];
 											var city_name=strs[1];
 											var district_name=strs[2];
+											//alert(address);
 												$.ajax({
 								                    type : "POST",  //提交方式
 								                    url : "{:url('member/address')}",//路径
@@ -480,7 +481,7 @@
 														if (aa.code==1) {
 															$(".overtop").text(aa.msg);
 															overtop();
-															
+
 															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 																$(".info input").val("");
 														$(".big-button").removeAttr("disabled");
