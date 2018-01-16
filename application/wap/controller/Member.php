@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-16 11:19:37
+ * @Last Modified time: 2018-01-16 11:51:20
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -117,6 +117,11 @@ class Member extends Yang
                   $arr['msg'] = '请实名认证成功后再添加银行卡';
                   return json_encode($arr);
              }
+             $identity = I::where(['user_id'=>$this->id])->find();
+             if ($data['name']!=$identity['name']) {
+                  $arr['msg'] = '真实姓名和实名认证姓名不一致';
+                  return json_encode($arr);
+             }
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $add = B::insert($data);
@@ -223,6 +228,11 @@ class Member extends Yang
              if (!isset($id)) {
                   $arr['msg'] = '数据错误';
                   return json_encode($arr);
+             }
+             $result=W::where(['bank_id'=>$id,'status'=>0])->find();
+             if (isset($result)) {
+                $arr['msg'] = '删除失败,您有提现申请还在审核中,请等待审核完成!';
+                return json_encode($arr);
              }
              $result=B::where(['id'=>$id])->delete();
              if ($result==0) {
