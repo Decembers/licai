@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-16 15:00:10
+ * @Last Modified time: 2018-01-16 15:23:10
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -215,11 +215,9 @@ class Member extends Yang
     {
         $arr = W::where(['user_id'=>$this->id])->order('create_time desc')->select();
         $money = W::where(['user_id'=>$this->id,'status'=>1])->sum('money');
-        // foreach ($arr as $k => $v) {
-        //   $bake = B::where(['id'=>$v['bank_id']])->find();
-        //   $arr[$k]['name'] = $bake['bank_name'];
-        //   $arr[$k]['num'] = $bake['cardnum'];
-        // }
+        foreach ($arr as $k => $v) {
+          $arr[$k]['bank_card'] = substr($v['bank_card'],-4);;
+        }
         $this->assign('arr',$arr);
         $this->assign('money',$money);
         return $this->fetch();
