@@ -9,6 +9,7 @@ use think\Loader;
 use think\exception\HttpException;
 use think\Config;
 use app\common\model\User;
+use app\common\model\Detail;
 class Withdraw extends Controller
 {
     use \app\admin\traits\controller\Controller;
@@ -49,7 +50,7 @@ class Withdraw extends Controller
                     $withdraw = $model->where('id', $data['id'])->find();
                     User::where(['id'=>$withdraw['user_id']])->inc('balance',$withdraw['money'])->update();
                 }
-
+                Detail::where(['withdraw_id'=>$data['id']])->update(['status'=>$data['status']]);
                 // 提交事务
                 Db::commit();
             } catch (\Exception $e) {

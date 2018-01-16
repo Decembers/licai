@@ -19,7 +19,7 @@
 			.total_transaction {
 				width: 100%;
 			}
-			
+
 			.total_transaction {
 				line-height: 4rem;
 				box-sizing: border-box;
@@ -28,13 +28,13 @@
 				background-color: white;
 				margin-top: 2px;
 			}
-			
+
 			.record,
 			.record li {
 				width: 100%;
 				overflow: auto;
 			}
-			
+
 			.record li {
 				background-color: white;
 				color: #a9a9a9;
@@ -43,8 +43,8 @@
 				padding: 1rem ;
 				margin-top: 2px;
 			}
-			
-			
+
+
 			.fw_left p.chtx {
 				font-size: 2.5rem;
 			}
@@ -52,14 +52,14 @@
 			.fw_left p {
 				font-size: 1.3rem;
 			}
-			
+
 .fw_right{
 	width: 60%;
 }
 .fw_left{
 	width: 40%;
 }
-			.fw_right p {				
+			.fw_right p {
 				width: 100%;
 				line-height: 2rem;
 			}
@@ -106,14 +106,17 @@
 						<p class="chtx a1">{$vo.money}元</p>
 						<p>操作金额</p>
 					</div>
+
 					<div class="fw_right fr">
+
 						<p>审核状态 : {if condition="$vo.status eq 1"} 已通过 {elseif condition="$vo.status eq 2" /} 未通过 {else /} 审核中 {/if}
 						</p>
 						<p>申请时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</p>
-						<p>提现银行 :{$vo.name}</p>
-						<p>提现卡号 : {$vo.num}</p>
+						<p>提现银行 :{$vo.bank_name}</p>
+						<p>提现卡号 : {$vo.bank_card}</p>
+
 					</div>
-					
+
 				</li>
 				{/volist}
 			</ul>
