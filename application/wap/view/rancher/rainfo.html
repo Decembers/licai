@@ -358,6 +358,23 @@
 
 			var zj = parseInt($("#record1 span:nth-child(2) i").text());
 			$("#record1 span:nth-child(2) i").text(zj + ".00");
+			qians();
+			/*总额写入 2位小数*/
+			function qians(){
+			var lens1 =ns.toString().split(".")[1].length;
+			
+			if(qian % 1 ==0){
+				$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns + ".00");				
+			}else{
+				if(lens1 == 1) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns + "0");						
+					} else if(lens1 == 2) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns);					
+					} else if(lens1 > 2) {
+						$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text(ns.toString().substr(0, ns.toString().indexOf(".") + 3));						
+					}
+			}
+			}
 			checkNum(zs);
 			/*$("#record1 span:nth-child(1) i").text(zs);
 				$("#record1 span:nth-child(2) i").text(zj);*/
