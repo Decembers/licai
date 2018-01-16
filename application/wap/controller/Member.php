@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-16 11:51:20
+ * @Last Modified time: 2018-01-16 15:00:10
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -165,14 +165,18 @@ class Member extends Yang
                 $arr['msg']='请等待实名认证成功后提现';
                  return json_encode($arr);
              }
+             $bank=B::where(['id'=>$bank_id])->find();
              $data['user_id'] = $this->id;
              $data['money'] = $money;
              $data['bank_id'] = $bank_id;
+             $data['bank_name'] = $bank['bank_name'];
+             $data['bank_card'] = $bank['cardnum'];
              $data['create_time'] = time();
              $data['update_time'] = time();
 
             $arr['msg'] = '提现申请失败!';
             $add = W::insert($data);
+            $userId = W::getLastInsID();
 
             $row['user_id'] = $this->id;
             $row['or'] = 2;
@@ -180,7 +184,8 @@ class Member extends Yang
             $row['comment'] = '提现';
             $row['status'] = 0;
             $row['create_time'] = time();
-            $row['withdraw_id'] = $bank_id;
+            $row['withdraw_id'] = $userId;
+            $row['bank_id'] = $bank_id;
             $row['accomplish_time'] = 0;
              D::insert($row);
 
@@ -210,11 +215,11 @@ class Member extends Yang
     {
         $arr = W::where(['user_id'=>$this->id])->order('create_time desc')->select();
         $money = W::where(['user_id'=>$this->id,'status'=>1])->sum('money');
-        foreach ($arr as $k => $v) {
-          $bake = B::where(['id'=>$v['bank_id']])->find();
-          $arr[$k]['name'] = $bake['bank_name'];
-          $arr[$k]['num'] = $bake['cardnum'];
-        }
+        // foreach ($arr as $k => $v) {
+        //   $bake = B::where(['id'=>$v['bank_id']])->find();
+        //   $arr[$k]['name'] = $bake['bank_name'];
+        //   $arr[$k]['num'] = $bake['cardnum'];
+        // }
         $this->assign('arr',$arr);
         $this->assign('money',$money);
         return $this->fetch();
@@ -231,7 +236,7 @@ class Member extends Yang
              }
              $result=W::where(['bank_id'=>$id,'status'=>0])->find();
              if (isset($result)) {
-                $arr['msg'] = '删除失败,您有提现申请还在审核中,请等待审核完成!';
+                $arr['msg'] = '删除失败,此卡有提现申请还在审核中!';
                 return json_encode($arr);
              }
              $result=B::where(['id'=>$id])->delete();
