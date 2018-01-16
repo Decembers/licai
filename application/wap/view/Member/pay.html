@@ -308,9 +308,15 @@
 			})
 			$("#money1").bind('input', function() {
 				/*$(this).val(Math.abs($(this).val()));*/
-				var va = parseInt($("#money1").val()) / 80;
+				if($("#money1").val() ==""){
+					
+				$("#num-sheep").text("0");
+				}else{
+					var va = parseInt($("#money1").val()) / 80;
 				/*充值除以单价*/
 				$("#num-sheep").text(parseInt(va));
+				}
+				
 			})
 		</script>
 		<script type="text/javascript">

@@ -252,10 +252,10 @@
 			<div class="content infinite-scroll bgCo native-scroll" data-distance="0" now_page="1">
 				<!-- 这里是页面内容区 -->
 				<input type="hidden" id="response_code" value="1">
-				<div class="fillet mysheep">
+				<div class="fillet mysheep" style="position: relative;">
 					<h5>{$arr.sp_count}</h5>
 					<p class="my_sheep">我的鹅只</p>
-					<p class="grow">
+					<p class="grow" style="position: absolute; bottom: 0; left: 0; width: 100%; line-height: 30px;">
 						<span >采购中：{$arr.nofulfill}只</span>
 						<span >成长中：{$arr.fulfill}只</span>
 						<span>已出栏：{$arr.fulfill}只</span>
@@ -393,13 +393,11 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
-			$("button").focus(function() {
-				this.blur()
-			});
+			$("button").focus(function() {this.blur()});
 			//返回上一页且刷新
 			$("div.header>div").click(function() {
-	location.replace(document.referrer);
-})
+				location.replace(document.referrer);
+			})
 			$(".sheep li .project_name").css("padding-right", $(".sheep li .project_name .fr").width() + 10 + "px");
 			/*点击切换*/
 			$(".header p").click(function() {
