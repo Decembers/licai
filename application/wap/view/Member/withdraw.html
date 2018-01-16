@@ -575,9 +575,11 @@ max-height:200px;//最大高度*/
 				/*	window.ontouchstart = function(e) {
 					e.preventDefault();
 				};*/
+				/*安卓 长按弹出*/
 						window.addEventListener('contextmenu', function(e){  
     e.preventDefault();  
 });
+javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
 				//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 				/*$(".bank_bg").css("display", "none");
 				$(".dl div select").focus(function() {
