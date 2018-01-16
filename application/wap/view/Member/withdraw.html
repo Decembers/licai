@@ -156,9 +156,7 @@
 				display: flex;
 			}
 
-			.bank_queue {
-				display: none;
-			}
+			
 
 			.kahao {
 				width: 95%;
@@ -308,27 +306,29 @@ max-height:200px;//最大高度*/
 				<h3>提现</h3>
 				<a href="{:url('member/withdrawlog');}">提现记录</a>
 			</div>
-			<div class="bank_queue">
+			<div class="bank_queue" style="display: block;">
 				<!-- 如果没有银行卡，则以下显示-->
 <!--
 			<p class="auTip a9">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 			<div class="no_record"></div>
  -->
 				<!-- 结束-->
-				<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
-				<div class="no_record"></div>
+				<!--<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>-->
+				<span id="" class="a9" style="margin-bottom: 0.5rem;margin-left: 1rem;">
+					点击可申请提现（长按删除）
+				</span>
+				<div class="no_record" style="display: none;"></div>
 			</div>
 
 			<ul class="kahao">
 
 
-				<span id="" class="a9" style="margin-bottom: 0.5rem;margin-left: 1rem;">
-					点击可申请提现（长按删除）
-				</span>
+				
 
 			{if condition="$arr"}
+			
 				{volist name="arr" id="vo"}
-
+				
 				<li class="checkin white fillet" 	id="{$vo.id}">
 					<a href="{:url('member/tiwithdraw',['id'=>$vo.id])}">
 					<div class="bank_icon">
@@ -731,6 +731,8 @@ max-height:200px;//最大高度*/
 									that.remove();
 									$(".overtop").text(aa.msg);
 									overtop();
+									 lilen();
+									/*alert($(".kahao li").length);*/
 								}
 		                    },
 		                    error : function (){
@@ -749,7 +751,14 @@ max-height:200px;//最大高度*/
 
 
 			});
-
+function lilen(){
+				if($(".kahao li").length>0){
+					
+				}else{
+					$(".no_record").css("display","block");
+					alert(123);
+				}
+			}
 		</script>
 	</body>
 

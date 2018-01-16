@@ -324,6 +324,7 @@
 				<div class="uc_invest-box" all_page="0" ajaxurl="/wap/member.php?ctl=uc_invest&amp;status=2">
 					<!-- 如果没有羊，则显示-->
 					<!--<div class="no_sheep"></div>-->
+					<div class="no_sheep" style="display: none;"></div>
 					<!-- 没有羊结束-->
 					{if condition="$arr"}
 					<ul>
@@ -481,10 +482,12 @@
 									overtop();
 									nones();
 								}else{
+									
 									nones();
 									that.remove();
 									$(".overtop").text(aa.msg);
 									overtop();
+									lilen();
 								}
 		                    },
 		                    error : function (){
@@ -492,7 +495,15 @@
 								overtop();
 		                }
 						});
+						
 			});
+			function lilen(){
+				if($(".uc_invest-box ul li").length>0){
+					
+				}else{
+					$(".uc_invest-box .no_sheep").css("display","block");
+				}
+			}
 
 		</script>
 		<script type="text/javascript">
