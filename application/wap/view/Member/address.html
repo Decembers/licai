@@ -299,7 +299,7 @@
 						<li class="dl">
 							<span class="name">详细地址</span>
 							<div class=" bank_list open-popup">
-								<textarea id="address" name="address" value="" placeholder="请输入详细地址" rows="1" maxlength="20"></textarea>
+								<textarea id="address" name="address"  placeholder="请输入详细地址" rows="1" maxlength="20"></textarea>
 							</div>
 						</li>
 						<li class="dl">
@@ -387,16 +387,16 @@
 					moren(ts);
 				}
 			})*/
-			$(".big-button").click(function() {
+			/*$(".big-button").click(function() {
 				if($(this).text() == "添加收货地址") {
-					/*label = 0;
+					label = 0;
 					lable1();
-					zuan1();*/
+					zuan1();
 				} else if($(this).text() == "朕填好了") {
 					kong();
 
 				}
-			});
+			});*/
 
 			function zuan1() {
 				$(".uc_invest-box").css("display", "none");
@@ -417,7 +417,7 @@
 				}
 			}
 			/*朕填好了 点击 判断*/
-			function kong() {
+			$(".big-button").click(function() {
 				if($("#names").val() == "") {
 					$(".overtop").text("请输入持卡人姓名");
 					overtop();
@@ -427,7 +427,7 @@
 
 					overtop();
 					} else {
-						if($("#address").val() == "") {
+						if($(".big-buttonress").val() == "") {
 							$(".overtop").text("请输入详细地址")
 
 					overtop();
@@ -443,13 +443,16 @@
 											$(".overtop").text("请选择所在地")
 											overtop();
 										} else {
+											$(".big-button").attr({
+											"disabled": "disabled"
+										});
 											//alert($("#demo1").val());
 											var str =$("#demo1").val();
 											var strs=str.split(",");
 											//alert(strs[0]);
 											var name=$("#names").val();
 											var mobile=$("#bankcard").val();
-											var address=$("#address").val();
+											var address=$(".big-buttonress").val();
 											var postcode=$("#bankzone").val();
 											var province_name=strs[0];
 											var city_name=strs[1];
@@ -474,17 +477,22 @@
 														if (aa.code==1) {
 															$(".overtop").text(aa.msg);
 															overtop();
+															
 															setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+																$(".info input").val("");
+														$(".big-button").removeAttr("disabled");
 															window.location='{:url("member/listress");}';
 															},1000);
 														}else{
 															$(".overtop").text(aa.msg);
 															overtop();
+															$(".big-button").removeAttr("disabled");
 														}
 								                    },
 								                    error : function (){
 								                    	$(".overtop").text('请刷新页面重试');
 														overtop();
+														$(".big-button").removeAttr("disabled");
 								                }
 												});
 
@@ -494,7 +502,7 @@
 						}
 					}
 				}
-			}
+			});
 			/* 填写完成 后  判断      lis 是否复制*/
 			function huoqu() {
 				var liss = $(".uc_invest-box ul li").length;
@@ -515,7 +523,7 @@
 				}
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip1 span:nth-child(1)").text($("#names").val());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip1 span:nth-child(2)").text($("#bankcard").val());
-				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 span:nth-child(1)").text($("#address").val());
+				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 span:nth-child(1)").text($(".big-buttonress").val());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 .sz .sz1").text($("#s_province  option:selected").text());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 .sz .sz2").text($("#s_city  option:selected").text());
 				$(".uc_invest-box ul li:nth-child(" + len + ") .lip2 .sz .sz3").text($("#s_county option:selected").text());
@@ -546,7 +554,7 @@
 				ts = ts + 1;
 				$("#names").val($(".uc_invest-box ul li:nth-child(" + ts + ") .lip1 span:nth-child(1)").text());
 				$("#bankcard").val($(".uc_invest-box ul li:nth-child(" + ts + ") .lip1 span:nth-child(2)").text());
-				$("#address").val($(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 span:nth-child(1)").text());
+				$(".big-buttonress").val($(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 span:nth-child(1)").text());
 				$("#s_province option:selected").text($(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 .sz .sz1").text());
 				$("#s_city option:selected").text($(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 .sz .sz2").text());
 				$("#s_county option:selected").text($(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 .sz .sz3").text());
@@ -554,7 +562,7 @@
 
 				/*$(".uc_invest-box ul li:nth-child(" + ts + ") .lip1 span:nth-child(1)").text($("#names").val());
 				$(".uc_invest-box ul li:nth-child(" + ts + ") .lip1 span:nth-child(2)").text($("#bankcard").val());
-				$(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 span:nth-child(1)").text($("#address").val());
+				$(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 span:nth-child(1)").text($(".big-buttonress").val());
 				$(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 .sz .sz1").text($("#s_province  option:selected").text());
 				$(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 .sz .sz2").text($("#s_city  option:selected").text());
 				$(".uc_invest-box ul li:nth-child(" + ts + ") .lip2 .sz .sz3").text($("#s_county option:selected").text());
