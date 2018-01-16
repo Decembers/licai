@@ -18,7 +18,10 @@
 				width: 95%;
 				margin: 0 auto;
 			}
-
+*{
+				  -webkit-user-select:none;
+ 	              -webkit-touch-callout:none;
+			}
 			.big-button {
 
 			}
@@ -159,7 +162,7 @@
 
 			.kahao {
 				width: 95%;
-				margin: 1rem auto;
+				margin: 0.5rem auto;
 				min-height:300px;
 			}
 			/*min-height:100px;//最小高度
@@ -315,7 +318,13 @@ max-height:200px;//最大高度*/
 				<p class="auTip a9" style="margin-top: 1rem;">您只有身份认证（请到“设置”中进行认证）后才可添加银行卡，提现哦。若您已认证，请直接添加银行卡∩_∩。</p>
 				<div class="no_record"></div>
 			</div>
+
 			<ul class="kahao">
+
+
+				<span id="" class="a9" style="margin-bottom: 0.5rem;margin-left: 1rem;">
+					点击可申请提现（长按删除）
+				</span>
 
 			{if condition="$arr"}
 				{volist name="arr" id="vo"}
@@ -637,9 +646,9 @@ max-height:200px;//最大高度*/
 			}
 		</script>
 		<script type="text/javascript">
-			var tts;
-			var tar;
+			var that;
 			var timeOutEvent = 0,
+
 				cardId;　
 			var id = 0;　
 			var that;
@@ -661,6 +670,29 @@ max-height:200px;//最大高度*/
 								clearTimeout(timeOutEvent);　　　　 // return false;								　　
 							}
 						})
+
+			// 	cardId;　　
+			// $(".kahao li").on({　　
+			// 	/*tts = $(".kahao li").index($(this));*/
+			// 	touchstart: function(e) {　　　　
+			// 		that = this;　　　//目标元素　
+			// 		timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件						　　　　　　
+			// 			timeOutEvent = 0;　　　　　　　
+			// 			 var  target = e.target; //这个target就是目标元素
+			// 			tts = $(".kahao li").index(target); //下标
+			// 			/*alert(target.tagName);*/
+			// 			blck();
+			// 		}, 800);　　　　 // e.preventDefault();				　　
+			// 	},
+			// 	　　touchmove: function() {　　　　
+			// 		clearTimeout(timeOutEvent);　　　　
+			// 		timeOutEvent = 0;　　
+			// 	},
+			// 	　　touchend: function() {　　　　
+			// 		clearTimeout(timeOutEvent);　　　　 // return false;					　　
+			// 	}
+			// })
+
 			/*弹窗*/
 			$("#goodcover").click(function() {
 				nones();
@@ -678,6 +710,8 @@ max-height:200px;//最大高度*/
 			}
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
+
+						nones();
 						$.ajax({
 		                    type : "POST",  //提交方式
 		                    url : "{:url('member/delewith')}",//路径
@@ -704,7 +738,18 @@ max-height:200px;//最大高度*/
 								overtop();
 		                }
 						});
+
+				// nones();
+				// /*target.parent().tagName*/
+				// that.remove();
+				// setInterval(function(){
+				// $(".overtop").text('删除成功');
+				// 								overtop();
+				// },1000);
+
+
 			});
+
 		</script>
 	</body>
 

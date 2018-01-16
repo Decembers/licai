@@ -112,7 +112,7 @@ max-height:200px;//最大高度*/
 			}
 
 			.rmb {
-				width: 2rem;
+				width: 2.5rem;
 				height: 3rem;
 				line-height: 3rem;
 				font-size: 24px;
@@ -204,7 +204,20 @@ max-height:200px;//最大高度*/
 				/*取绝对值*/
 				$("#Jcarry_amount").bind('input', function() {
 			$(this).val(Math.abs($(this).val()));
-			})
+			});
+			sa();
+
+			function sa() {
+				/*判断是否为苹果手机*/
+				var u = navigator.userAgent;
+
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+				if(isiOS) {
+					$(".infos").css("height", "4rem");$(".infos").css("padding", "0.5rem  0");
+					$(".rmb").css("top","0.5rem");
+				}
+			}
+
 				$("#add").click(function() {
 					if(Math.abs($("#Jcarry_amount").val())!=0){
 

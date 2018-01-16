@@ -377,7 +377,7 @@
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
 		<div id="goodcover" ></div>
-		<p class="overtop">签到成功</p>
+		<p class="overtop"></p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 		//获取微信地址
@@ -493,6 +493,7 @@
 		                }
 						});
 			});
+
 		</script>
 		<script type="text/javascript">
 			$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");
@@ -523,7 +524,13 @@
 					/*label = 0;
 					lable1();
 					zuan1();*/
-					window.location.href = "{:url('member/address')}";
+					/*if($("ul .lis").length>3){
+						$(".overtop").text("最多可添加3条记录");
+						overtop();
+					}else{*/
+						window.location.href = "{:url('member/address')}";
+					/*}*/
+
 				} else if($(this).text() == "朕填好了") {
 					/*kong();*/
 				}
@@ -577,7 +584,7 @@
 				}
 			}
 			/*朕填好了 点击 判断*/
-			function kong() {
+			/*function kong() {
 				if($("#names").val() == "") {
 					alert("请输入收货人姓名")
 				} else {
@@ -608,7 +615,7 @@
 						}
 					}
 				}
-			}
+			}*/
 			/* 填写完成 后  判断      lis 是否复制*/
 			function huoqu() {
 				var liss = $(".uc_invest-box ul li").length;

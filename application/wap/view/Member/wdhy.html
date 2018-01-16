@@ -28,29 +28,35 @@
 				padding: 1rem 2rem;
 				margin-top: 1px;
 			}
+			
+			
 
-			.wrapper ul li>div>div:nth-child(1) {
-				line-height: 3rem;
-			}
-
-			.wrapper ul li>div>div:nth-child(2) {
-				line-height: 2rem;
-			}
-
-			.wrapper ul li>div>div.chtx {
+			.fw_left p.chtx {
 				font-size: 2.5rem;
 			}
 
-			.wrapper ul li>div>div {
+			.fw_left p {
 				font-size: 1.3rem;
 			}
-
-			.fw_right div {
-				text-align: right;
-				display: flex;
+			
+.fw_right{
+	width: 50%;
+}
+.fw_left{
+	width: 45%;
+}
+			.fw_right p {				
+				width: 100%;
+				line-height: 2rem;
 			}
 
-			.fw_left div {
+			.fw_left p{
+				line-height: 3rem;
+			}
+			.friend li{
+				margin-bottom: 2px;
+			}
+			.navs li .fw_right p{
 				line-height: 3rem;
 			}
 		</style>
@@ -66,15 +72,28 @@
 
 			</div>
 
-			<ul>
+			<ul class="navs">
 				<li>
 					<div class="fw_left fl">
-						<div class="chtx a1">0</div>
-						<div>好友人数</div>
+						<p class="chtx a1">1</p>
+						<p>好友人数</p>
 					</div>
 					<div class="fw_right fr">
-						<div><span>有效推荐：</span><span>0人</span></div>
-						<div><span>无效推荐：</span><span>0人</span></div>
+						<p>有效推荐：0人</p>
+						<p>无效推荐：1人</p>
+					</div>
+
+				</li>
+			</ul>
+			<ul class="friend" style="margin-top:5px; ">
+				<li>
+					<div class="fw_left fl">
+						<p class="chtx a1">liu</p>
+						
+					</div>
+					<div class="fw_right fr">
+						<p class="a1">当前会回报率：1.0000%</p>
+						<p>注册时间：2017-12-28 17：27：59</p><p>无效原因：尚未购买</p>
 					</div>
 
 				</li>
