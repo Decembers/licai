@@ -204,12 +204,12 @@ max-height:200px;//最大高度*/
 				$(document).ready(function(){
     var ipt = $("#Jcarry_amount");
     ipt.on('keyup',function(){
-        if(! /^\d+$/.test(this.value)){           
+        if(! /^\d+$/.test(this.value)){
         this.value='';
         }
     })
 });
-				
+
 			sa();
 
 			function sa() {
@@ -265,7 +265,9 @@ max-height:200px;//最大高度*/
 										$("#Jcarry_amount").val("");
 										$("#add").removeAttr("disabled");
 										var ti = $("#ti").text() - money;
+										var yu = $("#yu").text() - money;
 										$("#ti").text(ti);
+										$("#yu").text(yu);
 									window.location="{:url('member/withdrawlog')}";
 									},1000);
 								}

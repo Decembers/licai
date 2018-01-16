@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-13 14:34:10
+ * @Last Modified time: 2018-01-16 11:19:37
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -112,8 +112,11 @@ class Member extends Yang
         $arr = ['code'=>-200,'data'=>'','msg'=>'添加银行卡失败'];
         if ($this->request->isAjax()) {
              $data = input();
-             // $arr['msg'] = $data['cardnum'];
-             // return json_encode($arr);
+             $user = U::where(['id'=>$this->id])->find();
+             if ($user['authentication']!=2) {
+                  $arr['msg'] = '请实名认证成功后再添加银行卡';
+                  return json_encode($arr);
+             }
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $add = B::insert($data);
@@ -422,6 +425,10 @@ class Member extends Yang
              if ($data['is_default']==1) {
                  R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
              }
+                if (!checkMobile($data['mobile'])) {
+                  $arr['msg'] = '手机号格式不正确';
+                    return json_encode($arr);
+                }
              $data['user_id'] = $this->id;
              $data['create_time'] = time();
              $add = R::insert($data);
