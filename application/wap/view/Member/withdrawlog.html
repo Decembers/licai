@@ -62,7 +62,7 @@
 			.fw_right p {
 				width: 100%;
 				line-height: 25px;
-				font-size: 12px;
+				font-size: 15px;
 			}
 
 			.fw_left p{
@@ -110,11 +110,11 @@
 
 					<div class="fw_right fr">
 
-						<p>审核状态 : {if condition="$vo.status eq 1"} 已通过 {elseif condition="$vo.status eq 2" /} 未通过 {else /} 审核中 {/if}
+						<p>状态 : {if condition="$vo.status eq 1"} 已通过 {elseif condition="$vo.status eq 2" /} 未通过 {else /} 审核中 {/if}
 						</p>
-						<p>申请时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</p>
-						<p>提现银行 :{$vo.bank_name}</p>
-						<p>提现卡号 : {$vo.bank_card}</p>
+						<p>时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</p>
+						<p>银行 :{$vo.bank_name}</p>
+						<p>卡号 : 尾号{$vo.bank_card}储蓄卡</p>
 
 					</div>
 
