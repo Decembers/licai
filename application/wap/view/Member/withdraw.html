@@ -647,6 +647,7 @@ max-height:200px;//最大高度*/
 					$("#add").text("添加银行卡");
 					$(".kahao").css("display", "block");
 				}
+				/*$(".uc_invest-box ul").css("background-color", "rgba(255,255,255,0.4)");*/
 			</script>
 			<script type="text/javascript">
 				if($(".kahao li").length == 0) {
@@ -663,6 +664,8 @@ max-height:200px;//最大高度*/
 						timeOutEvent = setTimeout(function() {　　　　　　 //长按触发事件									　　　　　　
 							timeOutEvent = 0;　　　　　　　
 							tar = e.target; //这个target就是目标元素
+							that.style.backgroundColor = "rgba(255,255,255,0.4)";
+							
 							// tts = $(".kahao>li").index(tar);//下标  获取下标有误
 							//alert(that.id);
 							id = that.id;
@@ -711,14 +714,17 @@ max-height:200px;//最大高度*/
 				function blck() {
 					$(".modal1").css("display", "block");
 					$("#goodcover").css("display", "block");
+					that.style.backgroundColor = "rgba(255,255,255,1)";
 				}
 
 				function nones() {
 					$(".modal1").css("display", "none");
 					$("#goodcover").css("display", "none");
+					that.style.backgroundColor = "rgba(255,255,255,1)";
 				}
 				/*弹窗确定的删除*/
 				$(".modal-button-bold").click(function() {
+					that.style.backgroundColor = "rgba(255,255,255,1)";
 					$.ajax({
 						type: "POST", //提交方式
 						url: "{:url('member/delewith')}", //路径
