@@ -221,7 +221,7 @@
 					<span class="em" id="qian">0.00</span>
 				</div>
 				<div class="">
-					<p onclick="window.location='{:url('Supermarket/pay')}'">朕要购买</p>
+					<p  id="gm">朕要购买</p>
 				</div>
 			</div>
 
@@ -316,7 +316,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				tofix($("#qian"), 199); /*羊总价*/
 			}
 
-			function tofix(st, fs) {
+		/*	function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				var zo = zong.toString();
 				var one = zong % 1;
@@ -330,7 +330,30 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 						st.text(zong.toFixed(2));
 					}
 				}
+			}*/
+			function tofix(st, fs) {
+				var zong = $("#number").val() * fs;
+				if(zong % 1 ==0){
+					st.text(zong + ".00");				
+				}else{
+					var lens1 =zong.toString().split(".")[1].length;
+					if(lens1 == 1) {
+							st.text(zong + "0");					
+						} else if(lens1 == 2) {
+							st.text(zong + "0");			
+						} else if(lens1 > 2) {
+							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+						}
+				}
 			}
+			$("#gm").click(function(){
+				if($("#number").val()>0){
+					window.location='{:url('Supermarket/pay')}';
+				}else{
+					$(".overtop").text("没有购买");
+								overtop();
+				}
+			})
 		</script>
 	</body>
 

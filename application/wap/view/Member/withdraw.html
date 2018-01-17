@@ -194,6 +194,7 @@ max-height:200px;//最大高度*/
 				position: absolute;
 				top: 15px;
 				left: 20px;
+				z-index: 5;
 			}
 
 			.bank_icon img {
@@ -209,6 +210,7 @@ max-height:200px;//最大高度*/
 				-moz-transform: rotateY(60deg);
 				-o-transform: rotateY(60deg);
 				-ms-transform: rotateY(60deg);
+				z-index: 5;
 			}
 
 			.kahao li .detail {
@@ -284,8 +286,8 @@ max-height:200px;//最大高度*/
 			#goodcover {
 				display: none;
 				position: fixed;
-				top: -50vh;
-				left: -50vw;
+				top: 0;
+				right: 0;
 				width: 200vw;
 				height: 200vh;
 				background-color: white;
@@ -705,9 +707,9 @@ max-height:200px;//最大高度*/
 				// })
 
 				/*弹窗*/
-				$("#goodcover").click(function() {
+				/*$("#goodcover").click(function() {
 					nones();
-				})
+				})*/
 				$(".modal1_p span:nth-child(2)").click(function() {
 					nones();
 				})
