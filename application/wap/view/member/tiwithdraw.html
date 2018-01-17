@@ -214,8 +214,7 @@ max-height:200px;//最大高度*/
 			        $("#Jcarry_amount").textbox('setValue', $(this).val().replace(/\D/g,''));
 		    });*/
 		   /*禁止输入小数点*/
-		    $("#Jcarry_amount").bind('input',function(){
-		    
+		    $("#Jcarry_amount").bind('input',function(){		    
 		    	$("#val").text(parseInt($(this).val()));
 		    	$(this).val("");
 		    	$(this).val($("#val").text());

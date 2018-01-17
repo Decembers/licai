@@ -211,7 +211,7 @@
 				<li>
 					<div class="figure">
 						<span>￥</span>
-						<input id="money1" type="number" placeholder="请输入充值金额" oninput="if(value.length>7)value=value.slice(0,7)">
+						<input id="money1" type="number" placeholder="请输入充值金额" oninput="if(value.length>7)value=value.slice(0,7)" step="0" style="ime-mode:disabled" oninput="if(value.length>7)value=value.slice(0,7)"  onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"  onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
 					</div>
 					<div class="figure_text">
 						<div id="purchase" class="fl1">
