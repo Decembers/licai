@@ -440,6 +440,9 @@
 
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
+				$(".modal-button-bold").attr({
+											"disabled": "disabled"
+										});
 				$.ajax({
 					type: "POST", //提交方式
 					url: "{:url('member/deleress')}", //路径
@@ -454,17 +457,20 @@
 							$(".overtop").text(aa.msg);
 							overtop();
 							nones();
+							$(".modal-button-bold").removeAttr("disabled");
 						} else {
 							nones();
 							that.remove();
 							$(".overtop").text(aa.msg);
 							overtop();
 							lilen();
+							$(".modal-button-bold").removeAttr("disabled");
 						}
 					},
 					error: function() {
 						$(".overtop").text('请刷新页面重试');
 						overtop();
+						$(".modal-button-bold").removeAttr("disabled");
 					}
 				});
 

@@ -195,11 +195,13 @@ max-height:200px;//最大高度*/
 				top: 15px;
 				left: 20px;
 				z-index: 5;
+				border: 1px solid red;
 			}
 
 			.bank_icon img {
 				margin: 0;
 				padding: 0;
+				border: 1px solid yellow;
 				margin-left: -40px;
 				transition: All 0.4s ease-in-out;
 				-webkit-transition: All 0.4s ease-in-out;
@@ -729,6 +731,9 @@ max-height:200px;//最大高度*/
 				/*弹窗确定的删除*/
 				$(".modal-button-bold").click(function() {
 				/*	that.style.backgroundColor = "rgba(255,255,255,1)";*/
+				$(".modal-button-bold").attr({
+											"disabled": "disabled"
+										});
 					$.ajax({
 						type: "POST", //提交方式
 						url: "{:url('member/delewith')}", //路径
@@ -743,18 +748,21 @@ max-height:200px;//最大高度*/
 								$(".overtop").text(aa.msg);
 								overtop2();
 								nones();
+								$(".modal-button-bold").removeAttr("disabled");
 							} else {
 								nones();
 								that.remove();
 								$(".overtop").text(aa.msg);
 								overtop();
 								lilen();
+								$(".modal-button-bold").removeAttr("disabled");
 								/*alert($(".kahao li").length);*/
 							}
 						},
 						error: function() {
 							$(".overtop").text('请刷新页面重试');
 							overtop();
+							$(".modal-button-bold").removeAttr("disabled");
 						}
 					});
 
