@@ -197,13 +197,13 @@ max-height:200px;//最大高度*/
 				z-index: 5;
 				width: 80px;
 				height: 40px;
-				border: 1px solid red;
+				/*border: 1px solid red;*/
 			}
 
-			/*.bank_icon img {
+			.bank_icon img {
 				margin: 0;
 				padding: 0;
-				border: 1px solid yellow;
+				
 				margin-left: -40px;
 				transition: All 0.4s ease-in-out;
 				-webkit-transition: All 0.4s ease-in-out;
@@ -216,7 +216,7 @@ max-height:200px;//最大高度*/
 				-ms-transform: rotateY(60deg);
 				z-index: 5;
 			}
-*/
+
 			.kahao li .detail {
 				position: absolute;
 				left: 100px;
@@ -337,7 +337,7 @@ max-height:200px;//最大高度*/
 				<li class="checkin white fillet" id="{$vo.id}">
 					<a href="{:url('member/tiwithdraw',['id'=>$vo.id])}">
 						<div class="bank_icon" style="background-image: url(__WAP__/img/bank/{$vo.image}.jpg); -moz-background-size:100% 100%;background-size:100% 100%;">
-							<!--<img src="__WAP__/img/bank/{$vo.image}.jpg">-->
+							<img src="__WAP__/img/bank/{$vo.image}.jpg">
 						</div>
 
 						<div class="detail">
