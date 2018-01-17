@@ -213,6 +213,14 @@ max-height:200px;//最大高度*/
  /* $("#Jcarry_amount").textbox('textbox').bind('keyup', function(e){
 			        $("#Jcarry_amount").textbox('setValue', $(this).val().replace(/\D/g,''));
 		    });*/
+		   $(document).ready(function() {
+				var ipt = $("#money1");
+				ipt.on('keyup', function() {
+					if(!/^\d+$/.test(this.value)) {
+						this.value = '';
+					}
+				})
+			});
 		   /*禁止输入小数点*/
 		    $("#Jcarry_amount").bind('input',function(){		    
 		    	$("#val").text(parseInt($(this).val()));
