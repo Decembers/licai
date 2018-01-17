@@ -833,7 +833,7 @@
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div id="goodcover"></div>
-		<div class="without">
+		<div class="without" style="display: none;">
 			<p class="fa fa-envelope-open-o fa-3x"></p>
 			<p>您暂时没有订单</p>
 			<a href="{:url('Supermarket/index')}">去逛逛</a>
@@ -867,11 +867,14 @@ function overtop() {
 				}, 1000);
 			}
 
-
-			
-			var is = $("#is").val();
-
-			clickp(is);			/*alert(is);*/
+			if($("#is").val()==""){
+				var i = 0;
+			}else{
+				var i = $("#is").val();
+			}
+			/*var i = $("#is").val();
+			alert((isNaN(i))*/
+			clickp(parseInt(i));			/*alert(is);*/
 
 			len();
 
@@ -906,7 +909,7 @@ function overtop() {
 			function clickp(t){
 				$(".order p").removeClass("red");
 				$(".order p:nth-child("+(t + 1)+")").addClass("red");
-				var tt = $(".order p").index($(this));
+				$(".main .case").css("margin-left", -t * 100 + "%");
 				var ulheight = $(".case ul:nth-child(" + (t + 1) + ")").height();
 				var win = $(window).height() - 71;
 				if(ulheight > win) {
@@ -915,15 +918,10 @@ function overtop() {
 				} else {
 					$(".main").css("height", win + "px");
 					$(".main").css("overflow", "hidden");
-					$(".main").css("border", "1px soled blo")
-
+					
 				}
-				$(".main .case").css("margin-left", -t * 100 + "%");
-				if($(".case ul:nth-child(" + (t + 1) + ") li").length == 0) {
-					/*if($(".case ul:nth-child(" + (tt + 1) + ") .without").length == 0) {
-						$(".case ul:nth-child(" + (tt + 1) + ") ").prepend($("body>div.without").clone(true));
-					}
-					$(".case ul:nth-child(" + (tt + 1) + ") .without").css("display", "block");*/
+			
+				if($(".case ul:nth-child(" + (t + 1) + ") li").length == 0) {										
 					$(".without").css("display", "block");
 				}else{
 					$(".without").css("display", "none");
