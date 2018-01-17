@@ -15,12 +15,14 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
 			/*我的羊只 */
-
-*{
+/*禁止ios端 微信 的长按弹出  
+ 但，也禁止input 的输入
+ 把-webkit-user-select:none改成-webkit-user-select:auto;覆盖掉或者直接注释掉就行！*/
+/**{
 				  -webkit-user-select:none;
  	              -webkit-touch-callout:none;
 			}
-
+*/
 			#goodcover {
 				display: none;
 				position: fixed;

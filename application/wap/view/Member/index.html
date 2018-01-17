@@ -90,8 +90,8 @@
 				<div class="uc_center">
 					<div class="uc_c_top">
 						<div class="uc_c_top_conten clearfix">
-							<div class="uc_img_bor_small fl">
-								<img src="__WAP__/img/touxiang.png" id="picDisplay">
+							<div class="uc_img_bor_small fl" style="position: relative;">
+								<img src="__WAP__/img/e.png" id="picDisplay" style="position: absolute; width: auto; top: 0; left: 50%;">
 								<form id="uploadForm" enctype="multipart/form-data" method="post" action="">
 									<!-- <input type="file" name="imageFile" id="imageFile"/> -->
 								</form>
@@ -258,6 +258,8 @@
 			$(".footer a:nth-child(4) .icons").css("background-size", "2.5rem");
 			$(".authen_tip .fr").css("width", "auto");
 			$(".authen_tip .fl").css("width", ($(".authen_tip").width() - $(".authen_tip .fr").width() - 5) + "px");
+			/*$("#picDisplay").width()*/
+			$("#picDisplay").css("margin-left","-"+($("#picDisplay").width()/2)+"px");
 		</script>
 	</body>
 

@@ -295,16 +295,21 @@
 			}
 		var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
-var zhon = parseFloat($("#em1").text());
-var p1;
+			var zhon = parseFloat($("#em1").text());
+			var liday =  parseInt({$arr.rate}/30);/*联养周期*/
+			var lilu = {$arr.return_price};
+			var  kkkl = qian/1200*lilu*liday;
+			/*alert(kkkl*9+"yu"+kkkl)*/
+			var profit = kkkl; /*鹅利润*/
+			var p1;
 pr();
 			/*利润 写入 2位小数*/
-			function pr(){
-			var lens =profit.toString().split(".")[1].length;
+			function pr(){			
 			if(profit % 1 ==0){
 				$("#profit").text(profit + ".00");
 				p1 =profit.toString()+".00";
 			}else{
+				var lens =profit.toString().split(".")[1].length;
 				if(lens == 1) {
 						$("#profit").text(profit + "0");
 						p1 =profit.toString()+"0";
@@ -349,17 +354,17 @@ pr();
 			/* 总价 利润 输出*/
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
-				var zo = zong.toString();
-				var one = zong % 1;
-				var one2 = zong % 0.1;
-				if(one == 0) {
-					st.text(zo + ".00");
-				} else {
-					if(one2 == 0) {
-						st.text(zo + "0");
-					} else {
-						st.text(zo.substr(0,zo.indexOf(".")+3));
-					}
+				if(zong % 1 ==0){
+					st.text(zong + ".00");				
+				}else{
+					var lens1 =zong.toString().split(".")[1].length;
+					if(lens1 == 1) {
+							st.text(zong + "0");					
+						} else if(lens1 == 2) {
+							st.text(zong + "0");			
+						} else if(lens1 > 2) {
+							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+						}
 				}
 			}
 			/*红包选择 弹出*/
