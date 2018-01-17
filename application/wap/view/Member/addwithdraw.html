@@ -195,6 +195,11 @@ max-height:200px;//最大高度*/
 				position: absolute;
 				top: 1.2rem;
 				left: 0.75rem;
+				transform: rotateY(60deg);
+				-webkit-transform: rotateY(60deg);
+				-moz-transform: rotateY(60deg);
+				-o-transform: rotateY(60deg);
+				-ms-transform: rotateY(60deg);
 			}
 
 			.bank_icon img {
@@ -487,7 +492,8 @@ max-height:200px;//最大高度*/
 
 				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 				if(isiOS) {
-					$(".this_bank").css("left","6.8rem");
+					$(".this_bank").css("left","6.8rem");$(".clearfix").css("padding-left","6.8rem");
+					
 				}
 			}
 		</script>
