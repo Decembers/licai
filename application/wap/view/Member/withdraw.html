@@ -287,13 +287,13 @@ max-height:200px;//最大高度*/
 				display: none;
 				position: fixed;
 				top: 0;
-				right: 0;
-				width: 200vw;
-				height: 200vh;
-				background-color: white;
-				z-index: 999;
-				/*-moz-opacity: 0.65;
-				opacity: 0.65;*/
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
 			}
 		</style>
 	</head>
@@ -716,6 +716,8 @@ max-height:200px;//最大高度*/
 				function blck() {
 					$(".modal1").css("display", "block");
 					$("#goodcover").css("display", "block");
+					$(".modal1").css("z-index", "9999");
+					$("#goodcover").css("z-index", "9998");
 					/*that.style.backgroundColor = "rgba(255,255,255,1)";*/
 				}
 
