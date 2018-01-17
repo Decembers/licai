@@ -338,6 +338,7 @@
 					<span class="icon"></span><span>返回</span>
 				</div>
 				<h3>我的订单</h3>
+				<input type="hidden" name="" id="is" value="{$is}"/>
 				<!--<a href="">回收站</a>-->
 			</div>
 			<div class="order">
@@ -868,7 +869,7 @@ function overtop() {
 
 
 			
-			var is = {$is};
+			var is = $("#is").val();
 
 			clickp(is);			/*alert(is);*/
 
