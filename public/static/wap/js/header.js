@@ -6,8 +6,8 @@ $(".wrapper").css("padding-top", ($(".header").height()) + "px");
 $(".wrapper").css("box-sizing", "border-box");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
 
-$("div.header>div").click(function() {window.history.back(); 
-	/*history.go(-1)*/
+$("div.header>div").click(function() {/*window.history.back(); */
+	history.go(-1)
 	//location.replace(document.referrer);//返回上一页并刷新
 /*history.back(-1)*/
 })

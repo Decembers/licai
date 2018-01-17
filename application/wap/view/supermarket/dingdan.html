@@ -332,7 +332,7 @@
 	</head>
 
 	<body>
-		<div class="wrapper" id="shopping_mall">
+		<div class="wrapper" id="shopping_mall" style="padding-top: 71px !important;">
 			<div class="header">
 				<div class="">
 					<span class="icon"></span><span>返回</span>
@@ -837,12 +837,37 @@
 			<p>您暂时没有订单</p>
 			<a href="{:url('Supermarket/index')}">去逛逛</a>
 		</div>
-		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script type="text/javascript">
 			$(".top p").css("line-height", $(".top p .fa").height() + "px");
-			$(".wrapper").css("padding-top", "71px");
+			/*有.footer 时 .wrapper 下面的外边距 */
+
+/*有.header 时 .wrapper 上面的外边距 */
+$(".wrapper").css("padding-top","71px");
+$(".wrapper").css("box-sizing", "border-box");
+/*$(".packet").css("width", $(".wrapper").width() + "px");*/
+
+$("div.header>div").click(function() { 
+	history.go(-1)
+	//location.replace(document.referrer);//返回上一页并刷新
+/*history.back(-1)*/
+})
+/*提示*/
+function overtop() {
+				$(".wrapper>div:nth-child(1)").after($("body>p.overtop").clone(true));
+				
+				var ss1 = $(".wrapper .overtop");
+				$(".wrapper .overtop").css("background-color","rgba(0,0,0,0.7)");
+				ss1.css("display", "block");
+				ss1.css("opacity", "1");
+				setTimeout(function() {
+					ss1.css("opacity", "0");
+					ss1.remove();
+				}, 1000);
+			}
 
 
+			
 			var is = {$is};
 
 			clickp(is);			/*alert(is);*/
