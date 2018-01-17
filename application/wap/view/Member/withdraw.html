@@ -558,11 +558,7 @@ max-height:200px;//最大高度*/
 				</ul>
 			</div>
 		</div>-->
-			<div class="modal1">
-				<p>是否删除？</p>
-				<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
-			</div>
-			<div id="goodcover"></div>
+			
 
 			<!--<li class="checkin white fillet" style="display: none;">
 			<div class="bank_icon">
@@ -576,6 +572,11 @@ max-height:200px;//最大高度*/
 			</a>
 		</li>-->
 		</div>
+		<div class="modal1">
+				<p>是否删除？</p>
+				<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
+			</div>
+			<div id="goodcover"></div>
 			<div class="background"></div>
 
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -583,11 +584,6 @@ max-height:200px;//最大高度*/
 				/*	window.ontouchstart = function(e) {
 									e.preventDefault();
 								};*/
-				/*安卓 长按弹出*/
-				window.addEventListener('contextmenu', function(e) {
-					e.preventDefault();
-				});
-
 				//			$(".big-button").css("margin-left","-"+$(".big-button").width()/2+"px")
 				/*$(".bank_bg").css("display", "none");
 				$(".dl div select").focus(function() {
@@ -653,6 +649,9 @@ max-height:200px;//最大高度*/
 				/*$(".uc_invest-box ul").css("background-color", "rgba(255,255,255,0.4)");*/
 			</script>
 			<script type="text/javascript">
+				window.addEventListener('contextmenu', function(e) {
+					e.preventDefault();
+				});
 				if($(".kahao li").length == 0) {
 					$("#span").css("display", "none");
 				}
