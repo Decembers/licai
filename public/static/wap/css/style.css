@@ -364,9 +364,9 @@ h6 {
 
 .mascot {
 	width: 8.6rem;
-	height: 8.95rem;
-	background: url(../img/mengmeng.png) no-repeat center center;
-	background-size: 100%;
+	height: 11rem;
+	background: url(../img/e.png) no-repeat center center;
+	background-size: 100% 100%;
 	margin: 0 auto 2.5rem auto;
 }
 
