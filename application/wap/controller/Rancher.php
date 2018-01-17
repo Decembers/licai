@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-16 15:39:59
+ * @Last Modified time: 2018-01-17 09:48:53
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -159,7 +159,7 @@ class Rancher extends Yang
                 $detail['user_id']=$this->id;
                 $detail['or']=3;
                 $detail['money']=$order_price;
-                $detail['comment']='兑换羊只';
+                $detail['comment']='兑换鹅只';
                 $detail['status']=0;
                 $detail['create_time']=time();
                 $detail['accomplish_time']=time();

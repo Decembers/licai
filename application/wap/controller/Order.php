@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-12 16:28:39
+ * @Last Modified time: 2018-01-17 09:47:39
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -109,7 +109,10 @@ class Order extends Yang
                 }
                 Db::table('tp_user')->where(['id'=>$user_id])->update(['balance' => $balance]);
                 $arr['msg'] = '订单创建失败';
-                $zexpect = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润
+                //$zexpect = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润
+
+                $zexpect = $num * $comm['price'] * ($comm['return_price']/100) / 12 * ($comm['rate']/30);//应返还的总利润
+
                 $row['zexpect'] = substr(sprintf("%.3f",$zexpect),0,-1); //到期返还不会出问题 按月返还可能会出现问题
                 $row['nexpect'] = $comm['nexpect'];//返还几期
 
@@ -138,7 +141,7 @@ class Order extends Yang
                 $detail['user_id']=$this->id;
                 $detail['or']=3;
                 $detail['money']=$row['order_price'];
-                $detail['comment']='购买';
+                $detail['comment']='购买鹅只';
                 $detail['status']=1;
                 $detail['create_time']=time();
                 $detail['accomplish_time']=time();
