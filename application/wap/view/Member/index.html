@@ -323,7 +323,7 @@
 		<p class="overtop"></p>
 		<div class="modal1">
 			<h5>大白客服</h5>
-			<p class="modal1_p1">大白客服<br>13613820359</p>
+			<p class="modal1_p1">大白客服<br><a href="tel:13613820359">13613820359</a></p>
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">拨打</span></p>
 		</div>
 		<div id="goodcover"></div>
@@ -351,8 +351,9 @@
 				if($(this).text()=="取消"){
 					nones();
 					
-				}else if($(this).text()=="拨打"){
+				}else if($(this).text()=="拨打"){				
 					nones();
+					window.location.href="tel:13613820359";
 				}
 				
 			})

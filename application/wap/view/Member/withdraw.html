@@ -413,7 +413,7 @@ max-height:200px;//最大高度*/
 					</li>
 				</ul>
 			</div>-->
-			<button id="add" class="big-button press"><a href="{:url('member/addwithdraw')}">添加银行卡</a></button>
+			<button id="add" class="big-button press">添加银行卡</button>
 			<!--<div id="red_select_list1" style="display: none;">
 
 				<ul class="red_seclet white">
@@ -654,6 +654,7 @@ max-height:200px;//最大高度*/
 					$("#add").text("添加银行卡");
 					$(".kahao").css("display", "block");
 				}
+				
 				/*$(".uc_invest-box ul").css("background-color", "rgba(255,255,255,0.4)");*/
 			</script>
 			<script type="text/javascript">
@@ -791,6 +792,15 @@ max-height:200px;//最大高度*/
 
 					}
 				}
+				$("#add").click(function(){
+					if($(".kahao li").length<3){
+						
+						window.location.href = "{:url('member/addwithdraw')}";
+					}else{
+						$(".overtop").text("最多可添加3条记录");
+						overtop();
+					}
+				})
 			</script>
 	</body>
 
