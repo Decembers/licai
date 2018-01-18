@@ -80,6 +80,77 @@
 				text-align: center;
 				line-height: 20px;
 			}
+			
+			.modal1 {
+				width: 80vw;
+				position: fixed;
+				z-index: 1002;
+				left: 50%;
+				margin-left: -40vw;
+				border-radius: 0.5rem;
+				top: 50%;
+				margin-top: -60px;
+				text-align: center;
+				background: #e8e8e8;
+				color: #3d4145;
+				display: none;
+				overflow: hidden;
+			}
+
+			.modal1 h5 {
+				width: 100%;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				line-height: 40px;
+				height: 30px;
+				font-size: 16px;
+				display: none;
+			}
+
+			.modal1 p {
+				font-size: 16px;
+			}
+
+			.modal1 .modal1_p1 {
+				box-sizing: border-box;
+				padding: 15px 0;
+			}
+
+			.modal1 .modal1_p {
+				line-height: 40px;
+				display: flex;
+				border-top: 1px solid white;
+			}
+
+			.modal1 .modal1_p span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+
+			.modal1 .modal1_p span:nth-child(1) {
+				border-right: 1px solid white;
+			}
+
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
 		</style>
 	</head>
 
@@ -173,11 +244,11 @@
 						</li>
 
 						<li class="dingdan">
-							<a href="#">
-								<div class="icon fl"></div>
-								<p class="fl">购物清单</p>
+							<!--<a href="#">-->
+								<div class="fl glyphicon glyphicon-earphone" style="width: 2.2rem;height: 3rem; margin-top: 0.5rem; line-height: 3rem;text-align: center;"></div>
+								<p class="fl" style="margin-left: 1rem; color: black !important;">专属客服</p>
 								<span class="entered fr"></span>
-							</a>
+							<!--</a>-->
 						</li>
 
 						<li class="voucher">
@@ -249,7 +320,13 @@
 				</a>
 			</div>
 		</div>
-		<p class="overtop">签到成功</p>
+		<p class="overtop"></p>
+		<div class="modal1">
+			<h5>大白客服</h5>
+			<p class="modal1_p1">大白客服<br>13613820359</p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">拨打</span></p>
+		</div>
+		<div id="goodcover"></div>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -260,6 +337,35 @@
 			$(".authen_tip .fl").css("width", ($(".authen_tip").width() - $(".authen_tip .fr").width() - 5) + "px");
 			/*$("#picDisplay").width()*/
 			$("#picDisplay").css("margin-left","-"+($("#picDisplay").width()/2)+"px");
+			
+			
+			$(".uc_c_middle ul .dingdan").click(function(){
+				
+					blocks();
+			})
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span").click(function() {
+				if($(this).text()=="取消"){
+					nones();
+					
+				}else if($(this).text()=="拨打"){
+					nones();
+				}
+				
+			})
+
+			function blocks() {
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
 		</script>
 	</body>
 
