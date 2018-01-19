@@ -273,8 +273,8 @@ function ts1(n) {
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 			var zhon = parseFloat($("#em1").text());
 			var liday =  parseInt({$arr.rate}/30);/*联养周期*/
-			var lilu = {$arr.return_price};
-			var  kkkl = qian/1200*lilu*liday;
+			var lilu = {$arr.return_price} /100;
+			var  kkkl = qian/12*lilu*liday;
 			/*alert(kkkl*9+"yu"+kkkl)*/
 			var profit = kkkl; /*鹅利润*/
 			var p1;
@@ -324,8 +324,7 @@ pr();
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
 				tofix($("#qian"), qian); /*鹅总价*/
-				tofix($("#profit"), profit); /*鹅利润*/
-
+				tofix1(); /*鹅利润*/
 			}
 			/* 总价 利润 输出*/
 			function tofix(st, fs) {
@@ -337,9 +336,24 @@ pr();
 					if(lens1 == 1) {
 							st.text(zong + "0");					
 						} else if(lens1 == 2) {
-							st.text(zong + "0");			
+							st.text(zong);			
 						} else if(lens1 > 2) {
 							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+						}
+				}
+			}
+			function tofix1() {
+				var zong = parseInt($("#number").val())*qian/12*lilu*liday ;
+				if(zong % 1 ==0){
+					$("#profit").text(zong + ".00");				
+				}else{
+					var lens1 =zong.toString().split(".")[1].length;
+					if(lens1 == 1) {
+							$("#profit").text(zong + "0");					
+						} else if(lens1 == 2) {
+							$("#profit").text(zong);			
+						} else if(lens1 > 2) {
+							$("#profit").text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
 						}
 				}
 			}
