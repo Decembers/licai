@@ -19,6 +19,7 @@ use app\common\model\Order;
 use app\common\model\Commodity;
 use app\common\model\Record;
 use app\common\model\User;
+use app\common\model\Detail;
 
 trait Controller
 {
@@ -278,7 +279,8 @@ trait Controller
         $commodity = new Commodity;
         $record = new Record;
         $user = new User;
-        $testtime = time();//+7776000
+        $detail = new Detail;
+        $testtime = time()+7776000;//
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         $users = User::where(['id'=>$id])->find();
         foreach ($orders as $k => $v) {
@@ -390,6 +392,28 @@ trait Controller
                     $balances = $balance + $return_price;
                     $user->where(['id'=>$id])->update(['balance'=>$balances]);
                     Session::set('user.balance',$balances);
+                    //生成详细
+                    $deta['user_id'] = $id;
+                    $deta['or'] = 4;
+                    $deta['money'] = $v['zexpect'];
+                    $deta['create_time'] = time();
+                    $deta['comment'] = '返利利润';
+                    $deta['status'] = 1;
+
+                    $deta = [
+                    ['user_id' => $id, 'or' => 4,'money'=>$v['zexpect'],'create_time'=>time()+1,'comment'=>'返利利润','status'=>1],
+                    ['user_id' => $id, 'or' => 4,'money'=>$v['order_price'],'create_time'=>time()+2,'comment'=>'返利本金','status'=>1]
+                    ];
+
+                    $detail->insertAll($deta);
+
+                    // $deta['user_id'] = $id;
+                    // $deta['or'] = 4;
+                    // $deta['money'] = $v['order_price'];
+                    // $deta['create_time'] = time();
+                    // $deta['comment'] = '返利本金';
+                    // $deta['status'] = 1;
+                    // $detail->insert($deta);
                 }
             }
         }

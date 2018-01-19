@@ -159,6 +159,20 @@
 					</div>
 				</li>
 				{/if}
+			{elseif condition="$vo.or eq 4" /}
+				<li>
+					<div class="fw_left fl">
+						<div class="chtx a1">
+						<b>+</b>{$vo.money}元
+						</div>
+						<div>操作金额</div>
+					</div>
+					<div class="fw_right fr">
+						<div >{$vo.comment}</div>
+						<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+
+					</div>
+				</li>
 			{else /}
 				<li>
 					<div class="fw_left fl">
