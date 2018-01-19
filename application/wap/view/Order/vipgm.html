@@ -288,6 +288,7 @@
 			/*alert(kkkl*9+"yu"+kkkl)*/
 			var profit = kkkl; /*鹅利润*/
 			var p1;
+			
 pr();
 			/*利润 写入 2位小数*/
 			function pr(){			
@@ -296,6 +297,7 @@ pr();
 				p1 =profit.toString()+".00";
 			}else{
 				var lens =profit.toString().split(".")[1].length;
+				
 				if(lens == 1) {
 						$("#profit").text(profit + "0");
 						p1 =profit.toString()+"0";
@@ -303,11 +305,12 @@ pr();
 						$("#profit").text(profit);
 						p1 =profit;
 					} else if(lens > 2) {
-						$("#profit").text(p1);
 						p1 =profit.toString().substr(0, profit.toString().indexOf(".") + 3);
+						$("#profit").text(p1);
 					}
 			}
 			}
+			alert(profit+"()"+p1);
 			qians();
 			/*总额写入 2位小数*/
 			function qians(){

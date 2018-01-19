@@ -309,15 +309,16 @@ pr();
 				p1 =profit.toString()+".00";
 			}else{
 				var lens =profit.toString().split(".")[1].length;
+				alert(lens)
 				if(lens == 1) {
 						$("#profit").text(profit + "0");
 						p1 =profit.toString()+"0";
 					} else if(lens == 2) {
 						$("#profit").text(profit);
 						p1 =profit;
-					} else if(lens > 2) {
-						$("#profit").text(p1);
+					} else if(lens > 2) {						
 						p1 =profit.toString().substr(0, profit.toString().indexOf(".") + 3);
+						$("#profit").text(p1);
 					}
 			}
 			}
