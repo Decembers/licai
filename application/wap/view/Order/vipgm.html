@@ -279,19 +279,18 @@
 				}, 1000);
 			}*/
 			/*利润计算*/
-			var qian = parseFloat($("#qian").text()); /*鹅总价*/
-			var profit = {$arr.jsprofit}; /*后台鹅利润*/
-			var zhon = parseFloat($("#em1").text());//剩余钱数
+
+			var qian = parseFloat($("#qian").text()); /*鹅单价*/
+			//var profit = {$arr.jsprofit}; /*鹅利润*/
+			var zhon = parseFloat($("#em1").text());
+
 			var liday =  parseInt({$arr.rate}/30);/*联养周期*/
 			var lilu = {$arr.return_price};
-			var  kkkl = qian/1200*lilu*liday;
+			var  kkkl = qian*lilu*liday/12/100;
 			/*alert(kkkl*9+"yu"+kkkl)*/
 			var profit = kkkl; /*鹅利润*/
+
 			var p1;
-
-			var aa = qian*lilu/12*liday/100;//
-			alert(aa);
-
 pr();
 			/*利润 写入 2位小数*/
 			function pr(){
@@ -300,6 +299,7 @@ pr();
 				p1 =profit.toString()+".00";
 			}else{
 				var lens =profit.toString().split(".")[1].length;
+
 				if(lens == 1) {
 						$("#profit").text(profit + "0");
 						p1 =profit.toString()+"0";
@@ -307,12 +307,12 @@ pr();
 						$("#profit").text(profit);
 						p1 =profit;
 					} else if(lens > 2) {
-						$("#profit").text(p1);
 						p1 =profit.toString().substr(0, profit.toString().indexOf(".") + 3);
+						$("#profit").text(p1);
 					}
 			}
 			}
-			/*alert(profit+"()"+p1);*/
+
 			qians();
 			/*总额写入 2位小数*/
 			function qians(){
@@ -339,8 +339,7 @@ pr();
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
 				tofix($("#qian"), qian); /*鹅总价*/
-				tofix($("#profit"), profit); /*鹅利润*/
-
+				tofix1(); /*鹅利润*/
 			}
 			/* 总价 利润 输出*/
 			function tofix(st, fs) {
@@ -352,9 +351,25 @@ pr();
 					if(lens1 == 1) {
 							st.text(zong + "0");
 						} else if(lens1 == 2) {
-							st.text(zong + "0");
+
+							st.text(zong);
 						} else if(lens1 > 2) {
 							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
+						}
+				}
+			}
+			function tofix1() {
+				var zong = parseInt($("#number").val())*qian*lilu*liday/12/100 ;
+				if(zong % 1 ==0){
+					$("#profit").text(zong + ".00");
+				}else{
+					var lens1 =zong.toString().split(".")[1].length;
+					if(lens1 == 1) {
+							$("#profit").text(zong + "0");
+						} else if(lens1 == 2) {
+							$("#profit").text(zong);
+						} else if(lens1 > 2) {
+							$("#profit").text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
 						}
 				}
 			}
