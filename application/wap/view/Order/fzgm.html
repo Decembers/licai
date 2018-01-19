@@ -263,9 +263,9 @@ function ts1(n) {
 						n = n;
 					} else if(len > 2) {
 						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
-					} 
+					}
 				}
-				
+
 				$("#em1").text(n);
 
 			}
@@ -280,7 +280,7 @@ function ts1(n) {
 			var p1;
 pr();
 			/*利润 写入 2位小数*/
-			function pr(){			
+			function pr(){
 			if(profit % 1 ==0){
 				$("#profit").text(profit + ".00");
 				p1 =profit.toString()+".00";
@@ -302,17 +302,17 @@ pr();
 			/*总额写入 2位小数*/
 			function qians(){
 			var ss2 =  $("#qian").text();
-			
+
 			if(qian % 1 ==0){
-				$("#qian").text(qian + ".00");				
+				$("#qian").text(qian + ".00");
 			}else{
 				var lens1 =ss2.toString().split(".")[1].length;
 				if(lens1 == 1) {
-						$("#qian").text(qian + "0");						
+						$("#qian").text(qian + "0");
 					} else if(lens1 == 2) {
-						$("#qian").text(qian);					
+						$("#qian").text(qian);
 					} else if(lens1 > 2) {
-						$("#qian").text(qian.toString().substr(0, qian.toString().indexOf(".") + 3));						
+						$("#qian").text(qian.toString().substr(0, qian.toString().indexOf(".") + 3));
 					}
 			}
 			}
@@ -331,15 +331,15 @@ pr();
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				if(zong % 1 ==0){
-					st.text(zong + ".00");				
+					st.text(zong + ".00");
 				}else{
 					var lens1 =zong.toString().split(".")[1].length;
 					if(lens1 == 1) {
-							st.text(zong + "0");					
+							st.text(zong + "0");
 						} else if(lens1 == 2) {
-							st.text(zong + "0");			
+							st.text(zong + "0");
 						} else if(lens1 > 2) {
-							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
 						}
 				}
 			}
@@ -415,7 +415,7 @@ pr();
 							if(aa.code == 0) {
 								$(".overtop").text(aa.msg);
 								overtop();
-								
+
 								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
 									zhon = parseFloat(zhon) -parseFloat($("#qian").text());
@@ -427,9 +427,9 @@ pr();
 									$("#profit").text(p1);
 									$("#max6").val("");
 								$("#big-button").removeAttr("disabled");
-								
+
 									window.location = '{:url("Rancher/index")}';
-									
+
 								}, 300);
 							} else {
 								/*提示错误，取消 禁止点击*/

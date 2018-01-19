@@ -280,7 +280,7 @@ trait Controller
         $record = new Record;
         $user = new User;
         $detail = new Detail;
-        $testtime = time()+7776000;//
+        $testtime = time();//+7776000
         $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//查询出 已付款,未完成的订单信息
         $users = User::where(['id'=>$id])->find();
         foreach ($orders as $k => $v) {

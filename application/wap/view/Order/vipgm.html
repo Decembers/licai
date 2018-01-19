@@ -22,61 +22,61 @@
 				background-color: rgba(0, 0, 0, 0);
 				-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
 			}
-			
+
 			.big-button {
 				background: linear-gradient(to right, #b7b5b4, #b7b5b4);
 			}
-			
+
 			.detail1,
 			.big-button1 {
 				background-image: url(__WAP__/img/vip.jpg) !important;
 				-moz-background-size: 100% 100% !important;
 				background-size: 100% 100% !important;
 			}
-			
+
 			a.found {
 				color: #FDC45D;
 				font-size: 0.75rem;
 			}
-			
+
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #FDC45D;
 			}
-			
+
 			.row6>div>div {
 				border: 1px solid #FDC45D;
 				background-color: #FDC45D;
 				box-sizing: border-box;
 			}
-			
+
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-			
+
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-			
+
 			#timer {
 				display: flex;
 			}
-			
+
 			.detail3 .row:nth-child(3) p {
 				border: none;
 			}
-			
+
 			.detail3 .row:nth-child(3) input {
 				border: none;
 				width: 7rem;
 				-webkit-text-security: disc;
 				text-security: disc;
 			}
-			
+
 			.detail3 .row:nth-child(4) input {
 				width: 7rem;
 			}
@@ -206,7 +206,7 @@
 			})
 			/*鹅数量 + */
 			$("#plus").click(function() {
-				var num = parseInt($("#number").val());
+				var num = parseInt($("#number").val());//数量
 				if($("#number").val() == "") {
 					num = 0;
 				}
@@ -279,18 +279,22 @@
 				}, 1000);
 			}*/
 			/*利润计算*/
-			var qian = parseFloat($("#qian").text()); /*鹅单价*/
-			var profit = {$arr.jsprofit}; /*鹅利润*/
-			var zhon = parseFloat($("#em1").text());
+			var qian = parseFloat($("#qian").text()); /*鹅总价*/
+			var profit = {$arr.jsprofit}; /*后台鹅利润*/
+			var zhon = parseFloat($("#em1").text());//剩余钱数
 			var liday =  parseInt({$arr.rate}/30);/*联养周期*/
 			var lilu = {$arr.return_price};
 			var  kkkl = qian/1200*lilu*liday;
 			/*alert(kkkl*9+"yu"+kkkl)*/
 			var profit = kkkl; /*鹅利润*/
 			var p1;
+
+			var aa = qian*lilu/12*liday/100;//
+			alert(aa);
+
 pr();
 			/*利润 写入 2位小数*/
-			function pr(){			
+			function pr(){
 			if(profit % 1 ==0){
 				$("#profit").text(profit + ".00");
 				p1 =profit.toString()+".00";
@@ -308,21 +312,22 @@ pr();
 					}
 			}
 			}
+			/*alert(profit+"()"+p1);*/
 			qians();
 			/*总额写入 2位小数*/
 			function qians(){
 			var ss2 =  $("#qian").text();
-			
+
 			if(qian % 1 ==0){
-				$("#qian").text(qian + ".00");				
+				$("#qian").text(qian + ".00");
 			}else{
 				var lens1 =ss2.toString().split(".")[1].length;
 				if(lens1 == 1) {
-						$("#qian").text(qian + "0");						
+						$("#qian").text(qian + "0");
 					} else if(lens1 == 2) {
-						$("#qian").text(qian);					
+						$("#qian").text(qian);
 					} else if(lens1 > 2) {
-						$("#qian").text(qian.toString().substr(0, qian.toString().indexOf(".") + 3));						
+						$("#qian").text(qian.toString().substr(0, qian.toString().indexOf(".") + 3));
 					}
 			}
 			}
@@ -341,15 +346,15 @@ pr();
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				if(zong % 1 ==0){
-					st.text(zong + ".00");				
+					st.text(zong + ".00");
 				}else{
 					var lens1 =zong.toString().split(".")[1].length;
 					if(lens1 == 1) {
-							st.text(zong + "0");					
+							st.text(zong + "0");
 						} else if(lens1 == 2) {
-							st.text(zong + "0");			
+							st.text(zong + "0");
 						} else if(lens1 > 2) {
-							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
 						}
 				}
 			}
