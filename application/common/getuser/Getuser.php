@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-22 19:04:18
+ * @Last Modified time: 2018-01-23 12:05:11
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -82,6 +82,9 @@ class Getuser
                 //将用户信息写入数据库 如果注册过查询出数据存入session
                 $user = User::where(['openid'=>$userinfo['openid']])->find();
                 if (isset($user)) {
+                    $user_login = rand('10000000','99999999');
+                    User::where(['openid'=>$userinfo['openid']])->update(['user_login'=>$user_login]);
+                    $user['user_login'] = $user_login;
                     Session::set('user',$user);
                     Cookie::set('user_id',$user['id'],2592000);
                     return true;
@@ -100,7 +103,7 @@ class Getuser
                     $userx = User::where(['openid'=>$userinfo['openid']])->find();
 
                     $user_login = rand('10000000','99999999');
-                    User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
+                    User::where(['openid'=>$userinfo['openid']])->update(['user_login'=>$user_login]);
                     $userx['user_login'] = $user_login;
 
                     Session::set('user',$userx);
