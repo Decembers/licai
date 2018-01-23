@@ -57,6 +57,7 @@ function ts2(n) {
 				
 
 			}
+
 /*function ts1(n) {
 				var one = n % 1;
 				if(one == 0) {
