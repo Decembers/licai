@@ -304,7 +304,7 @@
 			var liday =  {$arr.rate};/*联养周期*/
 			
 			var lilu = {$arr.return_price};
-			var  kkkl = qian*lilu*liday/365/100;
+			var  kkkl = qian*lilu*liday/360/100;
 			var profit = kkkl; /*鹅利润*/
 
 			var p1;
@@ -373,7 +373,7 @@ pr();
 				}
 			}
 			function tofix1() {
-				var zong = parseInt($("#number").val())*qian*lilu*liday/365/100 ;
+				var zong = parseInt($("#number").val())*qian*lilu*liday/360/100 ;
 				if(zong % 1 ==0){
 					$("#profit").text(zong + ".00");
 				}else{
