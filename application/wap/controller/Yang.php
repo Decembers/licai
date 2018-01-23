@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 10:11:03
+ * @Last Modified time: 2018-01-23 10:50:42
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -13,7 +13,7 @@ use app\common\model\User as U;
 
 class yang extends Controller
 {
-    protected $arr = ['Index/index','Login/login','Login/wxlogin','Login/nopassword','Login/checkreg','Login/checkindex','Login/reg','Login/admin','Login/getaccess_token','Login/codemsg','Wxpay/weixinjsapnotify'];
+    protected $arr = ['Index/index','Login/login','Login/wxlogin','Login/nopassword','Login/has','Login/checkreg','Login/checkindex','Login/reg','Login/admin','Login/getaccess_token','Login/codemsg','Wxpay/weixinjsapnotify'];
     public $id = null;
     public function __construct()
     {
@@ -45,7 +45,7 @@ class yang extends Controller
                 $user_login = Session::get('user.user_login');
                 $user = U::where(['id'=>$this->id])->find();
                 if ($user_login!=$user['user_login']) {
-                    echo '帐号已被登录,请您核实后从新登录!';exit;
+                    $this->redirect('wap/login/has');
                 }
             }
         }
