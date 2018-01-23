@@ -13,45 +13,45 @@
 		<style type="text/css">
 			/*开抢按钮 首行背景 颜色*/
 			/*时间*/
-			
+
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-			
+
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-			
+
 			#timer {
 				display: flex;
 			}
-			
+
 			.detail1,
 			.big-button {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 			}
-			
+
 			.row6>div>div {
 				border: 1px solid #3db4cc;
 				background-color: #3db4cc;
 				box-sizing: border-box;
 			}
-			
+
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #3db4cc;
 			}
 			/*开抢按钮*/
-			
+
 			#big-button {
 				display: flex;
 				justify-content: center;
 			}
-			
+
 			#big-button .icon {
 				background: url(__WAP__/img/nao.png) no-repeat center center;
 				background-size: 1.4rem;
@@ -60,11 +60,11 @@
 				line-height: 2.24rem;
 				margin-top: 0.35rem;
 			}
-			
+
 			#big-button span:nth-child(2) {
 				width: auto;
 			}
-			
+
 			.detail21 {
 				width: 95%;
 				margin: 10px auto;
@@ -77,7 +77,7 @@
 				position: relative;
 				display: none;
 			}
-			
+
 			.detail21>p {
 				width: 100%;
 				justify-content: space-between;
@@ -87,27 +87,27 @@
 				font-size: 0.8rem;
 				color: #a9a9a9;
 			}
-			
+
 			.record {
 				display: none;
 				overflow: hidden;
 			}
-			
+
 			.record span:nth-child(1) {
 				float: left;
 				width: 80px;
 			}
-			
+
 			.record span:nth-child(2) {
 				float: right;
 			}
-			
+
 			.record span:nth-child(3) {
 				float: left;
 				width: 100px;
 				text-align: center;
 			}
-			
+
 			#record {
 				border: none;
 				position: absolute;
@@ -117,23 +117,23 @@
 				box-sizing: border-box;
 				border-radius: 5px 5px 0 0;
 			}
-			
+
 			#record1 {
 				position: relative;
 				left: -15px;
 				padding: 0 15px;
 			}
-			
+
 			#record1 span {
 				display: flex;
 			}
-			
+
 			#record1 {
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				color: white;
 				border-radius: 5px;
 			}
-			
+
 			.detail21 .record {
 				display: block;
 			}
@@ -270,14 +270,18 @@
 			//兑换商品类型
 			var classify = {$com.classify};
 			if(classify == 2) {
+
 				$("#big-button").css('background', 'linear-gradient(to right, #51d2a7, #51d1a1)');
 				$("#jjjj").css('background', 'linear-gradient(to right, #51d1a1, #51d1a1)');
+				$("#record1").css('background', 'linear-gradient(to right, #51d1a1, #51d1a1)');
 				$(".eee").css({
 					'border': '1px solid #51d2a7',
 					'background-color': '#51d2a7'
 				});
 				$(".tttt").css('color', '#51d2a7');
 			} else if(classify == 3) {
+				$("#record1").css('background', 'linear-gradient(to right, #FDC45D, #FDC45D)');
+
 				$("#big-button").css('background', 'linear-gradient(to right, #FDC45D, #FDC45D)');
 				$("#jjjj").css('background', 'linear-gradient(to right, #FDC45D, #FDC45D)');
 				$(".eee").css({
@@ -313,11 +317,11 @@
 					} else {
 						$("#big-button").css("background", "linear-gradient(to right, #FDC45D, #FDC45D)");
 					}
-	
+
 				}
 			})
 
-			
+
 			// var j = setInterval(function() {
 			// 	if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
 			// 		clearInterval(j);
@@ -565,8 +569,8 @@ function shu(){
 					$("#goodcover").css("display", "none");
 					$(".overtop1").css("display", "none");
 					$("#code").css("display", "none");
-				}) 
-			
+				})
+
 
 			// var j = setInterval(function() {
 			// 	if($("#timer").text()=="出栏后开始兑换"){
@@ -582,7 +586,7 @@ function shu(){
 			// 	}}
 			// }, 1000);
 
-			     
+
 		</script>
 
 	</body>
