@@ -240,7 +240,6 @@
 				{volist name="conversion" id="vo"}
 				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span><span>{$vo.create_time|date='y-m-d H:i',###}</span></p>
 				{/volist}
-
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span> <span>兑换时间</span></p>
 				<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
 			</div>
@@ -297,9 +296,9 @@
 			/*阅读并同意的按钮*/
 			var r6 = 0;
 			$(".row6>div>div").click(function() {
-				$(this).toggleClass("dui");
-				r6 = r6 + 1;
-				var r6s = r6 % 2;
+			$(this).toggleClass("dui");
+			r6 = r6 + 1;
+			var r6s = r6 % 2;
 				if(r6s == 1) {
 					$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
 					$("#big-button").attr({
@@ -314,9 +313,21 @@
 					} else {
 						$("#big-button").css("background", "linear-gradient(to right, #FDC45D, #FDC45D)");
 					}
-
+	
 				}
 			})
+
+			
+			// var j = setInterval(function() {
+			// 	if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
+			// 		clearInterval(j);
+			// 		$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
+			// 			$("#big-button").attr({
+			// 				"disabled": "disabled"
+			// 			});
+			// 	}
+			// }, 1000);
+
 			//}
 
 			/*鹅数量 - */
@@ -551,27 +562,27 @@ function shu(){
 			})
 			/* 弹窗提示的背景*/
 			$("#goodcover").click(function() {
-				$("#goodcover").css("display", "none");
-				$(".overtop1").css("display", "none");
-				$("#code").css("display", "none");
-			})
-			$("#big-button").attr({
-				"disabled": "disabled"
-			});
-			var j = setInterval(function() {
-				if($("#timer").text() == "出栏后开始兑换" ||$("#timer").text() == "兑换时间已结束") {
-					alert("出栏后开始兑换")
-				} else {
-					if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
-						clearInterval(j);
-						$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
-						$("#big-button").attr({
-							"disabled": "disabled"
-						});
+					$("#goodcover").css("display", "none");
+					$(".overtop1").css("display", "none");
+					$("#code").css("display", "none");
+				}) 
+			
 
-					}
-				}
-			}, 1000);
+			// var j = setInterval(function() {
+			// 	if($("#timer").text()=="出栏后开始兑换"){
+
+			// 	}else{
+
+			// 	if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
+			// 		clearInterval(j);
+			// 		$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
+			// 			$("#big-button").attr({
+			// 				"disabled": "disabled"
+			// 			});
+			// 	}}
+			// }, 1000);
+
+			
 		</script>
 
 	</body>
