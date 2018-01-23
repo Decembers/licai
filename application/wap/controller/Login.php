@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 10:50:07
+ * @Last Modified time: 2018-01-23 11:29:13
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -48,7 +48,7 @@ class Login extends Yang
             //是否成功 成功跳转
             if ($result) {
                 if (Session::get('user.mobile') == '') {
-                    return $this->fetch('identity');
+                    return $this->fetch('phone');
                 }
                 if (Session::get('user.authentication') == 0) {
                     return $this->fetch('identity');
@@ -324,7 +324,6 @@ class Login extends Yang
                 if (!checkMobile($mobilex)) {
                     return json(['code'=>1, 'msg'=>'手机号格式不正确']);
                 }
-
                 if ($code != Session::get($mobile)) {
                     return json(['code'=>1, 'msg'=>'短信验证码错误']);
                 }
@@ -390,6 +389,13 @@ class Login extends Yang
         }
     }
     /*
+     * 绑定手机号码
+     */
+    public function phone()
+    {
+       return $this->fetch();
+    }
+    /*
      * 单点登录
      */
     public function has()
@@ -414,7 +420,6 @@ class Login extends Yang
     {
        return $this->fetch();
     }
-
     /*
      * 测试用登录
      */
