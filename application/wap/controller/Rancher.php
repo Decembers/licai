@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 13:52:14
+ * @Last Modified time: 2018-01-23 13:59:03
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -179,7 +179,7 @@ class Rancher extends Yang
             return json($arr);
 
         }else{
-            $conversion = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->field('number,order_price,create_time')->order('create_time')->select();
+            $conversion = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->field('number,order_price,create_time')->order('create_time desc')->select();
             $yimai = 0;
             $yihua = 0;
             foreach ($conversion as $k => $v) {

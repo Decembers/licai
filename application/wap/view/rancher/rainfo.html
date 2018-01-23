@@ -242,7 +242,6 @@
 				{volist name="conversion" id="vo"}
 				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span><span>{$vo.create_time|date='y-m-d H:i',###}</span></p>
 				{/volist}
-
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span> <span>兑换时间</span></p>
 				<p class="record" id="record1"><span>总数量：<i>{$yimai}</i></span><span>总金额：￥<i>{$yihua}</i></span></p>
 			</div>
@@ -553,15 +552,15 @@ function shu(){
 				$("#code").css("display", "none");
 			})
 
-			var j = setInterval(function() {
-				if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
-					clearInterval(j);
-					$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
-						$("#big-button").attr({
-							"disabled": "disabled"
-						});
-				}
-			}, 1000);
+			// var j = setInterval(function() {
+			// 	if($("#timer .day").text() == 0 && $("#timer .hour").text() == 00 && $("#timer .minute").text() == 00 && $("#timer .second").text() == 00) {
+			// 		clearInterval(j);
+			// 		$("#big-button").css("background", "linear-gradient(to right, #b7b5b4, #b7b5b4)");
+			// 			$("#big-button").attr({
+			// 				"disabled": "disabled"
+			// 			});
+			// 	}
+			// }, 1000);
 		</script>
 
 	</body>
