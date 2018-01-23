@@ -432,6 +432,14 @@ trait Controller
             $time = date('ymd', time());
             $today = strtotime(date("Y-m-d"),time()); //获得当日凌晨的时间戳
             $preselle_time = $today + $com['preselle_time']*3600;
+            $arr['com_number'] = 'YAN'.date("Ymd").rand(1000,9999);//订单编号
+            //判断时间是否是早上10点后.晚上12点以前,如果是生成第二天十点的标,如果不是生成当天的标
+            $onetwo = $today+86400;
+            if (time()>$preselle_time && time()<$onetwo) {
+                $preselle_time = $onetwo + $com['preselle_time']*3600;
+                $time = date('ymd', $preselle_time);
+                $arr['com_number'] = 'YAN'.date("Ymd",$preselle_time).rand(1000,9999);//订单编号
+            }
             if ($classify==3) {
                 $arr['vip6'] = rand(100000,999999);//vip邀请码
             }
@@ -446,7 +454,6 @@ trait Controller
                 $qishu = 1;
             }
             $zong = substr(sprintf("%.7f",$zong),0,-1);//保留liu位小数 不四舍五入
-            $arr['com_number'] = 'YAN'.date("Ymd").rand(1000,9999);//订单编号
 
             $arr['name'] = $com['name'].$time;
             $arr['image'] = $com['image'];
@@ -473,7 +480,7 @@ trait Controller
             $arr['convert_time'] = $arr['over_time'] + $com['convert_time'];//兑换结束时间
             $arr['expect'] = $zong;
             $arr['nexpect'] = $qishu;
-            unset($com['id']);
+            //unset($com['id']);
             Commodity::insert($arr);
             $sp_id = Commodity::getLastInsID();
             return $sp_id;

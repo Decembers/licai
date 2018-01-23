@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 13:46:53
+ * @Last Modified time: 2018-01-22 19:04:18
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -98,6 +98,11 @@ class Getuser
                     $arr['authentication'] = 0;
                     User::insert($arr);
                     $userx = User::where(['openid'=>$userinfo['openid']])->find();
+
+                    $user_login = rand('10000000','99999999');
+                    User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
+                    $userx['user_login'] = $user_login;
+
                     Session::set('user',$userx);
                     Cookie::set('user_id',$userx['id'],2592000);
                     return true;

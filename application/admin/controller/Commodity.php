@@ -139,6 +139,7 @@ class Commodity extends Controller
 
             $content = $_POST['content'];
             $data['content'] = $content;
+            $data['numbers'] = $data['number'];
             $data['preselle_time'] = strtotime($data['preselle_time']);
             $data['down_time'] = strtotime($data['down_time']);
             $data['deal_time'] = strtotime($data['deal_time']);

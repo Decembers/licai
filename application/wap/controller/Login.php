@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-13 09:21:44
+ * @Last Modified time: 2018-01-22 19:03:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -22,16 +22,7 @@ class Login extends Yang
     use \app\admin\traits\controller\Controller;
     public function login()
     {
-        // if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
-        //     //在微信内打开
-        //     $getuser = new Getuser;
-        //     $url = $getuser->geturl();
-        //     $this->redirect($url);
-        //     echo $url;die;
-        // }else{
-            //不在微信内
             return  $this->fetch();
-        //}
     }
 
     public function wxlogin()
@@ -41,7 +32,6 @@ class Login extends Yang
             $getuser = new Getuser;
             $url = $getuser->geturl();
             $this->redirect($url);
-            //echo $url;die;
         }else{
             //不在微信内
             echo '请在微信内使用微信登录';
@@ -80,11 +70,6 @@ class Login extends Yang
             $mobile=input('post.mobile');
             $code=input('post.code');
             $arr = input('post.');
-            // $password=input('post.password');
-            // $arr['password'] = md5($password);
-            // if (!$password) {
-            //     return json(['code'=>1, 'msg'=>'密码不能为空']);
-            // }
 
         if (!$mobile) {
             return json(['code'=>1, 'msg'=>'手机号不能为空']);
@@ -106,6 +91,9 @@ class Login extends Yang
                 //存cookie
                 Session::delete($mobile);
                 Session::delete($times);
+                $user_login = rand('10000000','99999999');
+                User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
+                $res['user_login'] = $user_login;
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
                 $url = url("index/index");

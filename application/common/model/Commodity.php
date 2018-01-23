@@ -15,11 +15,15 @@ class Commodity extends Model
     public function index($where)
     {
         $obj = new commodity;
-        $arr = $obj->where($where)->order('classify')->field('id,com_number,name,price,rate,return_price,number,classify,numbers,deal_time,down_time')->select();
+        $arr = $obj
+        ->where($where)
+        ->order('classify')
+        ->field('id,com_number,name,price,rate,return_price,number,classify,numbers,deal_time,down_time')
+        ->select();
         $row=[];
         foreach ($arr as $k => $v) {
             if (time() > $v['down_time'] || $v['number']<=0) {
-                $obj -> where(['id'=> $v['id']])->update(['isdelete'=>1]);
+                $obj-> where(['id'=> $v['id']])->update(['isdelete'=>1]);
                 $sp_id = $this->allocation($v['classify']);
                 if ($sp_id!=0) {
                     $com = $obj->where(['id'=>$sp_id])->find();

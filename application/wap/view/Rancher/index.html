@@ -257,7 +257,7 @@
 					<p class="my_sheep">我的鹅只</p>
 
 					<p class="grow" style="position: absolute; bottom: 0; left: 0; width: 100%; line-height: 30px;">
-					
+
 						<span >采购中：{$arr.caigousheep}只</span>
 						<span >成长中：{$arr.nofulfill}只</span>
 						<span>已出栏：{$arr.fulfill}只</span>
@@ -281,7 +281,7 @@
 									<div class="w_b tc">
 										<div class="tl je">
 											<p class="m_co"><i class="big">{$vo.sp_price}</i><i class="small">元</i></p>
-											<p class="small">单价</p>
+											<p class="small">鹅单价</p>
 										</div>
 										<div class="tl sj">
 											<p class="m_co"><i class="big">{$vo.sp_count}</i><i class="small">只</i></p>
@@ -298,14 +298,14 @@
 						{else /}
 							{if condition="$vo.caigou eq 1"}
 								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'  onclick="window.location='{:url("rancher/rainfo",['sp_id'=>$vo.sp_id])}'">
-									<div class="stage sellOut01  fl" style="background-color:#FF8C00;color:#fff">采购中</div>
+									<div class="stage sellOut01  fl">采购中</div>
 									<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
 									<div class="title_nav">
 										<div class="con_height">
 											<div class="w_b tc">
 												<div class="tl je">
 													<p class="m_co"><i class="big">{$vo.sp_price}</i><i class="small">元</i></p>
-													<p class="small">单价</p>
+													<p class="small">鹅单价</p>
 												</div>
 												<div class="tl sj">
 													<p class="m_co"><i class="big">{$vo.sp_count}</i><i class="small">只</i></p>
@@ -321,14 +321,14 @@
 								</li>
 							{else /}
 								<li class='{if condition="$vo.classify eq 1"}type1{elseif condition="$vo.classify eq 2"/}type2{else /}type3{/if}'  onclick="window.location='{:url("rancher/rainfo",['sp_id'=>$vo.sp_id])}'">
-									<div class="stage sellOut01  fl">进行中</div>
+									<div class="stage sellOut01  fl">成长中</div>
 									<p class="project_name">{$vo.name}<span class=" fr">总价：{$vo.order_price}</span></p>
 									<div class="title_nav">
 										<div class="con_height">
 											<div class="w_b tc">
 												<div class="tl je">
 													<p class="m_co"><i class="big">{$vo.sp_price}</i><i class="small">元</i></p>
-													<p class="small">单价</p>
+													<p class="small">鹅单价</p>
 												</div>
 												<div class="tl sj">
 													<p class="m_co"><i class="big">{$vo.sp_count}</i><i class="small">只</i></p>

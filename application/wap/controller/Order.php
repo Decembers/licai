@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-17 09:47:39
+ * @Last Modified time: 2018-01-22 17:12:49
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -30,10 +30,7 @@ class Order extends Yang
             $restriction = $comm['restrict'];
             $num = $data['number'];//用户购买数量
             $user_id = Session::get('user.id');
-            if ($data['pay_pass']=='') {
-                $arr['msg']='请输入密码!';
-                return json_encode($arr);
-            }
+
             if (!isset($user_id)) {
                 $arr['msg']='请登陆后购买!';
                 return json_encode($arr);
@@ -81,7 +78,6 @@ class Order extends Yang
                 return json_encode($arr);
             }
 
-
             Db::startTrans();
             try{
                 //扣除用户余额
@@ -97,6 +93,14 @@ class Order extends Yang
                     $arr['msg']='请实名认证后购买';
                     throw new \think\Exception();
                 }
+                if ($user['pay_pass']=='') {
+                    $arr['msg']='请先设置支付密码!';
+                    throw new \think\Exception();
+                }
+                if ($data['pay_pass']=='') {
+                    $arr['msg']='请输入支付密码!';
+                    throw new \think\Exception();
+                }
                 $pay_pass = md5($data['pay_pass']);
                 if ($user['pay_pass']!=$pay_pass) {
                     $arr['msg']='您输入的支付密码不正确';
@@ -109,10 +113,8 @@ class Order extends Yang
                 }
                 Db::table('tp_user')->where(['id'=>$user_id])->update(['balance' => $balance]);
                 $arr['msg'] = '订单创建失败';
-                //$zexpect = $num * $comm['expect'] * $comm['nexpect'];//应返还的总利润
 
-                $zexpect = $num * $comm['price'] * ($comm['return_price']/100) / 12 * ($comm['rate']/30);//应返还的总利润
-
+                $zexpect = $num * $comm['price'] * ($comm['return_price']/100) / 360 * $comm['rate'];//应返还的总利润
                 $row['zexpect'] = substr(sprintf("%.3f",$zexpect),0,-1); //到期返还不会出问题 按月返还可能会出现问题
                 $row['nexpect'] = $comm['nexpect'];//返还几期
 
@@ -126,7 +128,7 @@ class Order extends Yang
                 if (isset($orderss)) {
                     $update['order_price'] = $orderss['order_price']+$order_price;
                     $update['sp_count'] = $orderss['sp_count']+$num;
-                    $update['zexpect'] = substr(sprintf("%.3f",$update['sp_count']*$comm['expect']*$comm['nexpect']),0,-1);
+                    $update['zexpect'] = substr(sprintf("%.3f",$update['order_price']*($comm['return_price']/100) / 360 * $comm['rate']),0,-1);
                     $ara = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->update($update);
                 }else{
                     $ara = Db::table('tp_order')->insert($row);
