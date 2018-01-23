@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-22 19:03:50
+ * @Last Modified time: 2018-01-23 10:39:02
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -159,13 +159,15 @@ class Login extends Yang
             $row['create_time']=time();
             $row['status']=1;
             $row['login_time']=time();
-            //$row['password']=md5($password);
             $row['integral']=1000;
             $res = User::insert($row);
             if ($res!==false) {
                 Session::delete($mobile);
                 Session::delete($times);
                 $res = User::where(['mobile'=>$mobile])->find();
+                $user_login = rand('10000000','99999999');
+                User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
+                $res['user_login'] = $user_login;
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
                 return json(['code'=>200, 'msg'=>'注册成功']);
@@ -267,6 +269,9 @@ class Login extends Yang
 
                 if (!$pay_pass) {
                     return json(['code'=>1, 'msg'=>'支付密码不能为空']);
+                }
+                if (strlen($pay_pass) != 6) {
+                    return json(['code'=>1, 'msg'=>'支付密码长度为六位']);
                 }
                 if ($code != Session::get($mobile)) {
                     return json(['code'=>1, 'msg'=>'短信验证码错误']);
