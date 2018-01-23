@@ -240,7 +240,7 @@
 			<button class="big-button press" id="big-button">朕要兑换</button> {if condition="$conversion"}
 			<div class="detail21" style="display: block;">
 				{volist name="conversion" id="vo"}
-				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span><span>18-01-23-10-38</span></p>
+				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span><span>{$vo.create_time|date='y-m-d H:i',###}</span></p>
 				{/volist}
 
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span> <span>兑换时间</span></p>
@@ -441,7 +441,7 @@ function shu(){
 	     zs1 = zs1 + parseInt($(".detail21 p:nth-child("+i+") span:nth-child(1)").text());
 	}
 }*/
-			function pars() {
+			function pars(time) {
 				$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
 				$("#big-button").attr({
 					"disabled": "disabled"
@@ -451,6 +451,7 @@ function shu(){
 
 				$("body>.record span:nth-child(1)").text(parseInt($("#numbers").text()));
 				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
+				$("body>.record span:nth-child(3)").text(time);
 				$(".detail21 ").prepend($("body>p.record").clone(true));
 				if($(".detail21 p").length == 3) {
 
@@ -513,11 +514,11 @@ function shu(){
 
 									console.log(result);
 									if(result.code == 1) {
+
 										$(".overtop").text(result.msg);
 										overtop();
 										$(".detail21").css('display', 'block');
-
-										pars();
+										pars(result.time);
 									} else {
 										$(".overtop").text(result.msg);
 										overtop();

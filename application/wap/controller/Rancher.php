@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-22 13:42:04
+ * @Last Modified time: 2018-01-23 13:52:14
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -175,10 +175,11 @@ class Rancher extends Yang
             }
             $arr['msg'] = '订单创建成功';
             $arr['code'] = 1;
+            $arr['time'] = date("y-m-d H:i",time());
             return json($arr);
 
         }else{
-            $conversion = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->field('number,order_price')->select();
+            $conversion = CO::where(['user_id'=>$this->id,'sp_id'=>$sp_id])->field('number,order_price,create_time')->order('create_time')->select();
             $yimai = 0;
             $yihua = 0;
             foreach ($conversion as $k => $v) {
