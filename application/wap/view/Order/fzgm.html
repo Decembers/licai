@@ -272,9 +272,9 @@ function ts1(n) {
 			var qian = parseFloat($("#qian").text()); /*鹅单价*/
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 			var zhon = parseFloat($("#em1").text());
-			var liday =  parseInt({$arr.rate}/30);/*联养周期*/
+			var liday =  {$arr.rate};/*联养周期*/
 			var lilu = {$arr.return_price};
-			var  kkkl = qian*lilu*liday/12/100;
+			var  kkkl = qian*lilu*liday/12/365;
 			/*alert(kkkl*9+"yu"+kkkl)*/
 			var profit = kkkl; /*鹅利润*/
 			var p1;
@@ -345,7 +345,7 @@ pr();
 				}
 			}
 			function tofix1() {
-				var zong = parseInt($("#number").val())*qian*lilu*liday/12/100 ;
+				var zong = parseInt($("#number").val())*qian*lilu*liday/12/365 ;
 				if(zong % 1 ==0){
 					$("#profit").text(zong + ".00");
 				}else{
