@@ -140,7 +140,23 @@
 				<div class="uc_c_middle fillet" style="margin-top: 1rem;">
 					<ul>
 						<!-- 我的合同-->
-
+{if condition="$mobile"}
+						<li class="dingdan">
+							<a href="#">
+								<div class="icon fl"></div>
+								<p class="fl">绑定手机号码</p>
+									<span class="fr">已绑定</span>
+							</a>
+						</li>
+{else /}
+						<li class="dingdan">
+							<a href='{:url("login/mobile")}'>
+								<div class="icon fl"></div>
+								<p class="fl">绑定手机号码</p>
+									<span class="entered fr"></span>
+							</a>
+						</li>
+{/if}
 						{if condition="$authentication eq 2"}
 							<li class="contract">
 								<a href="#">
@@ -166,40 +182,18 @@
 								</a>
 							</li>
 						{/if}
-						<!-- 我的邀请-->
-						<!-- <li class="invitation">
-							<a href="{:url('login/nopassword')}">
-								<div class="icon fl"></div>
-								<p class="fl">修改登录密码</p>
-								<span class="entered fr"></span>
-							</a>
-						</li>-->
-{if condition="$mobile"}
-						<li class="dingdan">
-							<a href="#">
-								<div class="icon fl"></div>
-								<p class="fl">绑定手机号码</p>
-									<span class="fr">已绑定</span>
-							</a>
-						</li>
-{else /}
-						<li class="dingdan">
-							<a href='{:url("login/mobile")}'>
-								<div class="icon fl"></div>
-								<p class="fl">绑定手机号码</p>
-									<span class="entered fr"></span>
-							</a>
-						</li>
-{/if}
-
 						<li class="dingdan">
 							<a href="{:url('login/nopay')}">
 								<div class="icon fl"></div>
+							{if condition="$pay_pass"}
+								<p class="fl">修改支付密码</p>
+							{else /}
 								<p class="fl">设置支付密码</p>
+							{/if}
 								<span class="entered fr"></span>
 							</a>
 						</li>
-
+{if condition="$mobile"}
 						<li class="voucher">
 							<a href="{:url('login/nomobile')}">
 								<div class="icon fl"></div>
@@ -207,7 +201,7 @@
 								<span class="entered fr"></span>
 							</a>
 						</li>
-
+{/if}
 					</ul>
 
 				</div>
