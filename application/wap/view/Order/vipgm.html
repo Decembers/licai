@@ -242,6 +242,9 @@
 				if($(this).val() < 0) {
 					$(this).val("0");
 				}
+				if($(this).val() == "") {
+					$(this).val("0");
+				}
 				/*获取鹅数量 剩余*/
 				var zui = parseInt($(".detail1_top div:nth-child(2) p:nth-child(2)").text());
 				if($(this).val() >= zui) {

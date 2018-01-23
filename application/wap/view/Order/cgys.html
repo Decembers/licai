@@ -272,7 +272,11 @@
 			})
 			/*鹅数量输入时时变更*/
 			$("#number").bind('input', function() {
+				
 				if($(this).val() < 0) {
+					$(this).val("0");
+				}
+				if($(this).val() == "") {
 					$(this).val("0");
 				}
 				/*获取鹅数量 剩余*/
