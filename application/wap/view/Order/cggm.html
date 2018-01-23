@@ -377,6 +377,52 @@ pr();
 			}
 			function tofix1() {
 				var zong = parseInt($("#number").val())*qian*lilu*liday/360/100 ;
+				$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Order/info')}", //路径
+						data: {
+							"sp_id": sp_id,
+							"number": number,
+							"pay_pass": max6
+						},
+						dataType: "json", //数据，这里使用的是Json格式进行传输
+						success: function(result) {
+							var aa = JSON.parse(result);
+							//console.log(aa);
+							if(aa.code == 0) {
+								$(".overtop").text(aa.msg);
+								overtop();
+
+								setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+									/*提示完成，取消 禁止点击，防止返回上一页继续购买*/
+									/*$(".detail3 .row:nth-child(1) p:nth-child(2) span:nth-child(2)").text((zhon-$("#qian").text())+".00");*/
+									zhon = parseFloat(zhon) - parseFloat($("#qian").text());
+									/*tos(zhon);*/
+									ts1(zhon);
+									$("#number").val(1);
+									$("#numbers").text(1);
+									$("#qian").text(qian);
+									$("#profit").text(p1);
+									$("#max6").val("");
+									$("#big-button").removeAttr("disabled");
+
+									window.location = '{:url("Rancher/index")}';
+
+								}, 300);
+							} else {
+								/*提示错误，取消 禁止点击*/
+								$("#big-button").removeAttr("disabled");
+								$(".overtop").text(aa.msg);
+								overtop();
+							}
+						},
+						error: function() {
+							/*提示错误，取消 禁止点击*/
+							$("#big-button").removeAttr("disabled");
+							$(".overtop").text("请刷新页面重试");
+							overtop();
+						}
+					});
 				if(zong % 1 ==0){
 					$("#profit").text(zong + ".00");
 				}else{
