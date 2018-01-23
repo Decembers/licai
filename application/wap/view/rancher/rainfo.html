@@ -100,6 +100,10 @@
 			.record span:nth-child(2) {
 				float: right;
 			}
+			.record span:nth-child(3) {
+				float: left;
+				width: 100%;
+			}
 
 			#record {
 				border: none;
@@ -234,7 +238,7 @@
 			<button class="big-button press" id="big-button">朕要兑换</button> {if condition="$conversion"}
 			<div class="detail21" style="display: block;">
 				{volist name="conversion" id="vo"}
-				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span></p>
+				<p class="record"><span>{$vo.number}</span><span>￥{$vo.order_price}</span><span>131321231232</span></p>
 				{/volist}
 
 				<p class="record" id="record"><span>兑换数量</span><span>兑换金额</span></p>
@@ -256,7 +260,7 @@
 
 		<!--红包 结束-->
 		<p class="overtop">购买成功</p>
-		<p class="record"><span></span><span></span></p>
+		<p class="record"><span></span><span></span> <span>1231231231313123</span></p>
 		<div class="overtop1">
 			<p class="overtop_text"></p>
 			<p>确定</p>

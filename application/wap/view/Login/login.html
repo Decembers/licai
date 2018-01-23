@@ -500,6 +500,11 @@
 						$(".overtop").text("请输入您的手机号");
 						overtop();
 					} else {
+						if(!(/^1[34578]\d{9}$/.test($("#phone").val()))) {
+						$(".overtop").text("手机号码有误，请重填")
+						overtop();
+						
+					} else {
 						if($("#mobile_code").val() == "") {
 							$(".overtop").text("请输入验证码");
 							overtop();
@@ -538,6 +543,7 @@
 								}
 							});
 						}
+						}
 					}
 
 				}
@@ -548,8 +554,12 @@
 					$(".overtop").text("请输入手机号");
 					overtop();
 				} else {
-					if($("#phone").val().length == 11) {
+					if(!(/^1[34578]\d{9}$/.test($("#phone").val()))) {
+						$(".overtop").text("手机号码有误，请重填")
+						overtop();
 
+						
+					} else {
 						var mobile = $("#phone").val();
 						$.ajax({
 							type: "POST", //提交方式
@@ -583,9 +593,6 @@
 								clearInterval(j);
 							}
 						}, 1000)
-					} else {
-						$(".overtop").text("请重新输入新手机号");
-						overtop();
 					}
 				}
 			})
@@ -595,8 +602,12 @@
 					$(".overtop").text("请输入手机号");
 					overtop();
 				} else {
-					if($("#email").val().length == 11) {
+					if(!(/^1[34578]\d{9}$/.test($("#email").val()))) {
+						$(".overtop").text("手机号码有误，请重填")
+						overtop();
 
+						
+					} else {
 						var mobile = $("#email").val();
 						$.ajax({
 							type: "POST", //提交方式
@@ -630,9 +641,6 @@
 								clearInterval(j);
 							}
 						}, 1000)
-					} else {
-						$(".overtop").text("请重新输入新手机号");
-						overtop();
 					}
 				}
 			})
@@ -644,6 +652,12 @@
 					$(".overtop").text("请输入您的手机号");
 					overtop();
 				} else {
+					if(!(/^1[34578]\d{9}$/.test($("#email").val()))) {
+						$(".overtop").text("手机号码有误，请重填")
+						overtop();
+
+						
+					} else {
 					if($("#mobile_code1").val() == "") {
 						$(".overtop").text("请输入验证码");
 						overtop();
@@ -688,6 +702,7 @@
 								overtop();
 							}
 						}
+					}
 					}
 
 				}
