@@ -384,7 +384,7 @@
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -418,7 +418,7 @@
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -456,7 +456,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button">查看详情</p>
 								<!--<p class="button">追加评价</p>-->
 							</div>
@@ -503,7 +503,7 @@
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
 								<!--<p class="button">查看物流</p>
 								<p class="button">追加评价</p>-->
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -543,7 +543,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -581,7 +581,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -619,7 +619,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button he">去支付</p>
 							</div>
 						</li>
@@ -660,7 +660,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button">查看详情</p>
 							</div>
 						</li>
@@ -700,7 +700,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button">查看物流</p>
 							</div>
 						</li>
@@ -738,7 +738,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button">查看物流</p>
 							</div>
 						</li>
@@ -776,7 +776,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<p class="button">联系客服</p>
+								<a class="button">联系客服</a>
 								<p class="button">查看物流</p>
 							</div>
 						</li>
@@ -931,11 +931,6 @@ function overtop() {
 					nas = $(this).parent().parent();
 					$(".modal1 h5 ").css("display", "block");
 					$(".modal1 .modal1_p1").text("是否删除本条记录？")
-					blocks();
-				} else if($(this).text() == "联系客服") {
-					nas = 0;
-					$(".modal1 h5 ").css("display", "none");
-					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
 					blocks();
 				} else if($(this).text() == "去支付") {
 					window.location.href = "{:url('supermarket/pay')}";
