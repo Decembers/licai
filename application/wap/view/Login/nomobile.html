@@ -19,35 +19,35 @@
 				padding: 0 1rem;
 				margin: 0.5rem 0;
 			}
-
+			
 			.fillet ul li {
 				margin: 0 1rem;
 				padding: 1rem 0;
 				border-top: 1px solid #e5e5e5;
 			}
-
+			
 			.fillet ul li:nth-child(1) {
 				border: none;
 			}
-
+			
 			.form_modify {
 				position: relative;
 				margin: 0 auto;
 			}
-
+			
 			.form_modify .number {
 				background-position: left 55.5%;
 			}
-
+			
 			.form_modify .code {
 				background-position: left 67.5%;
 			}
-
+			
 			.form_modify .upwd,
 			.form_modify .more {
 				background-position: left 40%;
 			}
-
+			
 			.form_modify span {
 				position: absolute;
 				top: 1rem;
@@ -58,7 +58,7 @@
 				background: url(__WAP__/img/iconlist_01.png) no-repeat;
 				background-size: cover;
 			}
-
+			
 			.form_modify .ver_code,
 			.count_down {
 				position: absolute;
@@ -75,11 +75,11 @@
 				background-color: #5ac3d8;
 				box-sizing: border-box;
 			}
-
+			
 			.count_down {
 				background-color: rgba(0, 0, 0, 0.6);
 			}
-
+			
 			.form_modify input {
 				width: 100%;
 				height: 3rem;
@@ -87,7 +87,7 @@
 				padding-left: 3rem;
 				box-sizing: border-box;
 			}
-
+			
 			.changed,
 			.pay-changed {
 				display: block;
@@ -123,7 +123,7 @@
 						<ul>
 							<li class="form_modify">
 								<span class="number"></span>
-								<input type="number" id="dl_mobile1" name="dl_mobile" value="" placeholder="请输入新手机号" 	oninput="if(value.length>11)value=value.slice(0,11)">
+								<input type="number" id="dl_mobile1" name="dl_mobile" value="" placeholder="请输入新手机号" oninput="if(value.length>11)value=value.slice(0,11)">
 							</li>
 							<li class="form_modify">
 								<span class="code"></span>
@@ -146,15 +146,18 @@
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
 			$(".changed").click(function() {
-					if($("#dl_mobile1").val() == "") {
-						$(".overtop").text("请输入新手机号");
+				if($("#dl_mobile1").val() == "") {
+					$(".overtop").text("请输入新手机号");
+					overtop();
+				} else {
+					if(!(/^1[34578]\d{9}$/.test($("#dl_mobile").val()))) {
+						$(".overtop").text("手机号码有误，请重填")
 						overtop();
 					} else {
 						if($("#dl_mobile_code").val() == "") {
 							$(".overtop").text("请输入验证码");
 							overtop();
 						} else {
-
 							var mobilex = $("#dl_mobile1").val();
 							var code = $("#dl_mobile_code").val();
 							$.ajax({
@@ -186,6 +189,7 @@
 							});
 						}
 					}
+				}
 			})
 
 			$('#dl_getcode').click(function() {
@@ -193,29 +197,31 @@
 					$(".overtop").text("请输入新手机号");
 					overtop();
 				} else {
-					if($("#dl_mobile1").val().length == 11) {
+					if(!(/^1[34578]\d{9}$/.test($("#dl_mobile").val()))) {
+						$(".overtop").text("手机号码有误，请重填")
+						overtop();
+
+					} else {
 
 						var mobile = "{:session('user.mobile');}";
 						$.ajax({
-		                    type : "POST",  //提交方式
-		                    url : "{:url('Login/codemsg')}",//路径
-		                    data : {
-		                        "mobile" : mobile,
-		                        "model" : 2
-		                    },
-		                    dataType : "json",//数据，这里使用的是Json格式进行传输
-		                    success : function(result) {
-
-		                    		console.log(result);
-									$(".overtop").text(result.msg);
-									overtop();
-		                    },
-		                    error : function (){
-		                    	$(".overtop").text('请刷新页面重试');
+							type: "POST", //提交方式
+							url: "{:url('Login/codemsg')}", //路径
+							data: {
+								"mobile": mobile,
+								"model": 2
+							},
+							dataType: "json", //数据，这里使用的是Json格式进行传输
+							success: function(result) {
+								console.log(result);
+								$(".overtop").text(result.msg);
 								overtop();
-		                }
+							},
+							error: function() {
+								$(".overtop").text('请刷新页面重试');
+								overtop();
+							}
 						});
-
 
 						$(".count_down").css("display", "block");
 						$(".count_down").css("z-index", "10");
@@ -233,8 +239,6 @@
 								$(".count_down").text("60秒");
 							}
 						}, 1000)
-					} else {
-						$(".overtop").text("请重新输入新手机号");overtop();
 					}
 				}
 			})
