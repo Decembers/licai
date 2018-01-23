@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 10:39:02
+ * @Last Modified time: 2018-01-23 10:50:07
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -388,6 +388,15 @@ class Login extends Yang
         }else{
             return $this->fetch();
         }
+    }
+    /*
+     * 单点登录
+     */
+    public function has()
+    {
+       Session::delete('user');
+       Cookie::delete('user_id');
+       return $this->fetch();
     }
     /*
      * 退出
