@@ -150,7 +150,7 @@
 						</ul>
 					</div>
 					<input type="submit" value="绑定" class="changed confirm" name="dl-submit" id="dl-submit">
-					<!-- <a href="{:url('index/index')}" class="found m_co sh_au-ex" style="">稍后认证</a> -->
+					<a href="{:url('index/index')}" class="found m_co sh_au-ex" style="">稍后认证</a>
 				</div>
 
 			</div>
@@ -227,6 +227,22 @@
 							},
 							dataType: "json", //数据，这里使用的是Json格式进行传输
 							success: function(result) {
+								if (result.code==200) {
+									$(".count_down").css("display", "block");
+									$(".count_down").css("z-index", "10");
+									$(".count_down").css("text-align", "center");
+									var s = 60;
+									var j = setInterval(function() {
+										s = s - 1;
+										$(".count_down").html(s + "秒");
+										if(s == 0) {
+											$(".count_down").css("display", "none");
+											$('#dl_getcode').val("请重新获取");
+											clearInterval(j);
+											$(".count_down").text("60秒");
+										}
+									}, 1000)
+								};
 								$(".overtop").text(result.msg);
 								overtop();
 							},
@@ -235,21 +251,6 @@
 								overtop();
 							}
 						});
-
-						$(".count_down").css("display", "block");
-						$(".count_down").css("z-index", "10");
-						$(".count_down").css("text-align", "center");
-						var s = 60;
-						var j = setInterval(function() {
-							s = s - 1;
-							$(".count_down").html(s + "秒");
-							if(s == 0) {
-								$(".count_down").css("display", "none");
-								$('#dl_getcode').val("请重新获取");
-								clearInterval(j);
-								$(".count_down").text("60秒");
-							}
-						}, 1000)
 					}
 				}
 			})
