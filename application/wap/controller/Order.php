@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-22 17:12:49
+ * @Last Modified time: 2018-01-23 17:03:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -82,11 +82,11 @@ class Order extends Yang
             try{
                 //扣除用户余额
                 $user = Db::table('tp_user')->where(['id'=>$user_id])->find();
-                if ($user['authentication']==1) {
                 if ($user['mobile']=='') {
                     $arr['msg']='请先在设置中绑定手机号码';
                     throw new \think\Exception();
                 }
+                if ($user['authentication']==1) {
                     $arr['msg']='请等待实名认证成功后购买';
                     throw new \think\Exception();
                 }elseif($user['authentication']==0){
@@ -291,6 +291,16 @@ class Order extends Yang
         $this -> assign('status',$status);
         return $this -> fetch();
     }
+
+    public function suanfa()
+    {
+        if ($this->request->isAjax()) {
+            $num = input('num');
+            $sp_id = input('sp_id');
+            $com = C::where(['id'=>$sp_id])->find();
+        }
+    }
+
     public function xieyi()
     {
         return $this -> fetch();
