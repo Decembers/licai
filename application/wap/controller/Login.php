@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 11:29:13
+ * @Last Modified time: 2018-01-24 09:31:13
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -392,6 +392,13 @@ class Login extends Yang
      * 绑定手机号码
      */
     public function phone()
+    {
+       return $this->fetch();
+    }
+    /*
+     * 设置支付密码
+     */
+    public function pay()
     {
        return $this->fetch();
     }
