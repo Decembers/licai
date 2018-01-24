@@ -440,7 +440,7 @@
 					}
 				}
 			}
-			checkNum(zs);
+			/*checkNum(zs);*/
 			/*$("#record1 span:nth-child(1) i").text(zs);
 				$("#record1 span:nth-child(2) i").text(zj);*/
 			/*alert($("#record1 span:nth-child(1) i").text()+"!!"+$("#record1 span:nth-child(1) i").text())*/
@@ -458,6 +458,7 @@ function shu(){
 	     zs1 = zs1 + parseInt($(".detail21 p:nth-child("+i+") span:nth-child(1)").text());
 	}
 }*/
+
 			function pars(time) {
 				$("#zhi").text(parseInt($("#zhi").text()) - parseInt($("#numbers").text()));
 				$("#big-button").attr({
@@ -470,10 +471,8 @@ function shu(){
 				$("body>.record span:nth-child(2)").text("￥" + $("#qian").text());
 				$("body>.record span:nth-child(3)").text(time);
 				$(".detail21 ").prepend($("body>p.record").clone(true));
-				if($(".detail21 p").length == 3) {
-
-				}
-				zs = zs + parseInt($("#numbers").text());
+				
+				zs += parseInt($("#number").val());
 				zj = parseInt(zj) + parseInt($("#qian").text()) + ".00";
 
 				$("#record1 span:nth-child(1) i").text(zs);
