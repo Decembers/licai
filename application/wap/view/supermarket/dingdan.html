@@ -932,7 +932,13 @@ function overtop() {
 					$(".modal1 h5 ").css("display", "block");
 					$(".modal1 .modal1_p1").text("是否删除本条记录？")
 					blocks();
-				} else if($(this).text() == "去支付") {
+				} else if($(this).text() == "联系客服") {
+					nas = 0;
+					$(".modal1 h5 ").css("display", "none");
+					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
+					blocks();
+					alert($(".modal1 .modal1_p1").text())
+				}  else if($(this).text() == "去支付") {
 					window.location.href = "{:url('supermarket/pay')}";
 				} else if($(this).text() == "再次购买") {
 					window.location.href = "index2.html";
@@ -958,7 +964,10 @@ function overtop() {
 				if($(".modal1_p1").text() == "是否删除本条记录？") {
 					nones();
 					nas.remove();
-				} else {
+				} else if($(".modal1 .modal1_p1").text()=="确定拨打电话:13613820359 吗？"){
+					nones();
+					window.location.href = "tel:13613820359 ";
+				}else{
 					nones();
 				}
 			});
