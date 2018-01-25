@@ -11,42 +11,43 @@
 		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			/*开抢按钮 首行背景 颜色*/
-			
+
 			.detail1,
 			.big-button {
 				background: linear-gradient(to right, #51d2a7, #51d1a1);
 			}
 			
+
 			.detail3 .row6>p,
 			.detail3 .row6>div>a,
 			.overtop1 p:nth-child(2) {
 				color: #51d2a7;
 			}
-			
+
 			.row6>div>div {
 				border: 1px solid #51d2a7;
 				background-color: #51d2a7;
 				box-sizing: border-box;
 			}
 			/*商铺辅助鹅群说明*/
-			
+
 			a.found {
 				color: #51d2a7;
 				font-size: 0.75rem;
 			}
 			/*时间*/
-			
+
 			.timer-simple-seconds {
 				font-size: 0.8rem;
 			}
-			
+
 			.day,
 			.hour,
 			.minute,
 			.second {
 				font-size: 0.8rem;
 			}
-			
+
 			#timer {
 				display: flex;
 			}
@@ -132,7 +133,7 @@
 							<span>朕已阅读并同意</span>
 							<a href="{:url('Order/xieyi')}">《趣味农场服务协议》</a>
 						</div>
-						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist",["id "=>$arr.id])}'">交易详情</p>
+						<p style="font-size: 0.8rem;" onclick="window.location='{:url("Order/infolist",["id"=>$arr.id])}'">交易详情</p>
 					</div>
 				</div>
 				<div class="detail4">
@@ -271,7 +272,7 @@
 			var p1;
 pr();
 			/*利润 写入 2位小数*/
-			function pr(){			
+			function pr(){
 			if(profit % 1 ==0){
 				$("#profit").text(profit + ".00");
 				p1 =profit.toString()+".00";
@@ -293,17 +294,17 @@ pr();
 			/*总额写入 2位小数*/
 			function qians(){
 			var ss2 =  $("#qian").text();
-			
+
 			if(qian % 1 ==0){
-				$("#qian").text(qian + ".00");				
+				$("#qian").text(qian + ".00");
 			}else{
 				var lens1 =ss2.toString().split(".")[1].length;
 				if(lens1 == 1) {
-						$("#qian").text(qian + "0");						
+						$("#qian").text(qian + "0");
 					} else if(lens1 == 2) {
-						$("#qian").text(qian);					
+						$("#qian").text(qian);
 					} else if(lens1 > 2) {
-						$("#qian").text(qian.toString().substr(0, qian.toString().indexOf(".") + 3));						
+						$("#qian").text(qian.toString().substr(0, qian.toString().indexOf(".") + 3));
 					}
 			}
 			}
@@ -321,30 +322,30 @@ pr();
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				if(zong % 1 ==0){
-					st.text(zong + ".00");				
+					st.text(zong + ".00");
 				}else{
 					var lens1 =zong.toString().split(".")[1].length;
 					if(lens1 == 1) {
-							st.text(zong + "0");					
+							st.text(zong + "0");
 						} else if(lens1 == 2) {
-							st.text(zong);			
+							st.text(zong);
 						} else if(lens1 > 2) {
-							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
 						}
 				}
 			}
 			function tofix1() {
 				var zong = parseInt($("#number").val())*qian*lilu*liday/360/100 ;
 				if(zong % 1 ==0){
-					$("#profit").text(zong + ".00");				
+					$("#profit").text(zong + ".00");
 				}else{
 					var lens1 =zong.toString().split(".")[1].length;
 					if(lens1 == 1) {
-							$("#profit").text(zong + "0");					
+							$("#profit").text(zong + "0");
 						} else if(lens1 == 2) {
-							$("#profit").text(zong);			
+							$("#profit").text(zong);
 						} else if(lens1 > 2) {
-							$("#profit").text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+							$("#profit").text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
 						}
 				}
 			}
