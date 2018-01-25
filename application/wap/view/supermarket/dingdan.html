@@ -937,7 +937,7 @@ function overtop() {
 					$(".modal1 h5 ").css("display", "none");
 					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
 					blocks();
-					alert($(".modal1 .modal1_p1").text())
+					
 				}  else if($(this).text() == "去支付") {
 					window.location.href = "{:url('supermarket/pay')}";
 				} else if($(this).text() == "再次购买") {
@@ -966,7 +966,7 @@ function overtop() {
 					nas.remove();
 				} else if($(".modal1 .modal1_p1").text()=="确定拨打电话:13613820359 吗？"){
 					nones();
-					window.location.href = "tel:13613820359 ";
+					window.location.href = "tel:13613820359";
 				}else{
 					nones();
 				}
