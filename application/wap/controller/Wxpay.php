@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-10 14:29:15
+ * @Last Modified time: 2018-01-29 11:09:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -34,13 +34,13 @@ class Wxpay extends Yang
             //生成订单
             $str = $this->generate_password();//随机字符串
             $order_id = time().$str;
-            $money = $_POST['money'];
+            $money = $_POST['money']*100;
             $name = '微信充值';
 
             $row['order_id']= $order_id;
             $row['user_id']=Session::get('user.id');
             $row['or']=1;
-            $row['money']=$money;
+            $row['money']=$money/100;
             $row['comment']= $name;
             $row['create_time']=time();
 
