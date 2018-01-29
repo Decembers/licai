@@ -332,6 +332,9 @@
 					<!-- 没有羊结束-->
 					{if condition="$arr"}
 					<ul>
+						<span id="span" class="a9 span" style="margin-bottom: 0.5rem;margin-left: 1rem;">
+					点击可申请提现（长按删除）
+				</span>
 						{volist name="arr" id="vo"}
 						<li class="lis" id="{$vo.id}">
 							<p class="lip1" onclick="window.location.href = '{:url("member/editress",["id"=>$vo.id])}'"><span>{$vo.name}</span><span>{$vo.mobile}</span></p>
