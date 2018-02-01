@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-01 15:15:50
+ * @Last Modified time: 2018-02-01 15:31:37
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -146,7 +146,7 @@ class Member extends Yang
             $money = input('money');
             $bank_id = input('bank_id');
             $rate = RA::find();
-            $charge = $money*($rate['rate']/100);
+            $charge = substr(sprintf("%.3f",$money*($rate['rate']/100)),0,-1);
             if ($money!=intval($money)) {
               $arr['msg'] = '提现金额必须为整数';
               return json_encode($arr);
