@@ -313,7 +313,9 @@ function ts1(n) {
 											$("#Jcarry_amount").val("");
 											$("#add").removeAttr("disabled");
 										/*	var ti = $("#ti").text() - money;*/
-											var yu = $("#yu").text() - money;
+										var yus = $("#fei").text();
+
+											var yu = $("#yu").text() - money-yus;
 											/*$("#ti").text(ti);*/
 											$("#yu").text(yu);
 											window.location = "{:url('member/withdrawlog')}";
