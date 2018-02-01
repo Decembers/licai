@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-01 17:45:48
+ * @Last Modified time: 2018-02-01 17:57:08
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -142,7 +142,7 @@ class Member extends Yang
         $arr = ['code'=>-200,'data'=>'','msg'=>'提现失败'];
         $user = U::where(['id'=>$this->id])->find();
         $rate = RA::find();
-        $lilv = 1-$rate['rate']/100;
+        $lilv = $rate['rate']/100;
         $kbalance=intval($user['balance']);
         if ($this->request->isAjax()) {
             $money = input('money');
@@ -223,6 +223,7 @@ class Member extends Yang
             $arr['cardnum'] = substr($arr['cardnum'],-4);
             $arr['kbalance'] = $kbalance;
             $arr['balance'] = $user['balance'];
+            $arr['lilv'] = $lilv;
             $this->assign('arr',$arr);
             return $this->fetch();
         }
