@@ -19,7 +19,7 @@
 					background-color: rgb(240, 240, 243);
 				}
 			}
-
+			
 			.kahao,
 			.modular {
 				width: 95%;
@@ -27,34 +27,34 @@
 			}
 			/*min-height:100px;//最小高度
 max-height:200px;//最大高度*/
-
+			
 			.kahao li {
 				box-sizing: border-box;
 				height: 70px;
 				margin-bottom: 0.5rem;
 			}
-
+			
 			.checkin {
 				position: relative;
 				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
 			}
-
+			
 			.white {
 				background: #fff;
 			}
-
+			
 			.fillet {
 				border: 1px solid #ededed;
 				border-radius: 0.4rem;
 				background: #fff;
 			}
-
+			
 			.checkin .bank_icon {
 				position: absolute;
 				top: 15px;
 				left: 20px;
 			}
-
+			
 			.bank_icon img {
 				margin: 0;
 				padding: 0;
@@ -69,13 +69,13 @@ max-height:200px;//最大高度*/
 				-o-transform: rotateY(60deg);
 				-ms-transform: rotateY(60deg);
 			}
-
+			
 			.kahao li a {
 				position: absolute;
 				left: 100px;
 				top: 10px;
 			}
-
+			
 			.detail h6 {
 				padding: 0;
 				margin: 0;
@@ -83,26 +83,26 @@ max-height:200px;//最大高度*/
 				font-size: 18px;
 				line-height: 30px;
 			}
-
+			
 			.detail span {
 				font-size: 14px;
 				color: gray;
 				line-height: 20px;
 			}
-
+			
 			body>li {
 				display: none;
 			}
-
+			
 			.sm_title {
 				font-size: 13px;
 			}
-
+			
 			.modular {
 				padding: 1rem 2rem;
 				box-sizing: border-box;
 			}
-
+			
 			.infos {
 				position: relative;
 				box-sizing: border-box;
@@ -110,7 +110,7 @@ max-height:200px;//最大高度*/
 				border-bottom: 1px solid #ededed;
 				margin-bottom: 0.3rem;
 			}
-
+			
 			.rmb {
 				width: 2.5rem;
 				height: 3rem;
@@ -121,7 +121,7 @@ max-height:200px;//最大高度*/
 				top: 0;
 				left: 0;
 			}
-
+			
 			#Jcarry_amount {
 				width: 100%;
 				font-size: 20px;
@@ -129,7 +129,7 @@ max-height:200px;//最大高度*/
 				line-height: 3rem;
 				padding-left: 2.5rem;
 			}
-
+			
 			.info_num {
 				font-size: 14px;
 				line-height: 30px;
@@ -137,7 +137,7 @@ max-height:200px;//最大高度*/
 				width: 100%;
 				height: 20px;
 			}
-
+			
 			.purchase_tip {
 				width: 95%;
 				margin: 0.5rem auto;
@@ -179,7 +179,7 @@ max-height:200px;//最大高度*/
 				<p class="sm_title">提现金额</p>
 				<div class="infos clearfix">
 					<div class="rmb fl">￥</div>
-					<input class="fl" id="Jcarry_amount" type="number" placeholder="提现金额(禁止小数)" step="0" style="ime-mode:disabled" oninput="if(value.length>7)value=value.slice(0,7)"  onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"  onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}" >
+					<input class="fl" id="Jcarry_amount" type="number" placeholder="提现金额(禁止小数)" step="0" style="ime-mode:disabled" oninput="if(value.length>7)value=value.slice(0,7)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
 					<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>
@@ -192,28 +192,28 @@ max-height:200px;//最大高度*/
 
 			</div>
 			<input type="hidden" id="bank_id" value="{$arr.id}">
-<!-- 			<p class="purchase_tip a9">
+			<!-- 			<p class="purchase_tip a9">
 				<input id="Jcarry_purchase" type="hidden" value=""> 注：您的余额还可购买
 				<span class="m_co" style="margin: 0;">0</span> 只常规羊。</p> -->
 			<button id="add" class="big-button press">朕要提现</button>
-</div>
-			<p class="overtop"></p>
-			<span id="val" style="position: fixed; top: 50%;opacity: 0;"></span>
-			<div class="background"></div>
-			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-			<script type="text/javascript">
-	/*			$(document).ready(function(){
-    var ipt = $("#Jcarry_amount");
-    ipt.on('keyup',function(){
-        if(! /^\d+$/.test(this.value)){
-        this.value='';
-        }
-    })
-});*/
- /* $("#Jcarry_amount").textbox('textbox').bind('keyup', function(e){
+		</div>
+		<p class="overtop"></p>
+		<span id="val" style="position: fixed; top: 50%;opacity: 0;"></span>
+		<div class="background"></div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*			$(document).ready(function(){
+						    var ipt = $("#Jcarry_amount");
+						    ipt.on('keyup',function(){
+						        if(! /^\d+$/.test(this.value)){
+						        this.value='';
+						        }
+						    })
+						});*/
+			/* $("#Jcarry_amount").textbox('textbox').bind('keyup', function(e){
 			        $("#Jcarry_amount").textbox('setValue', $(this).val().replace(/\D/g,''));
 		    });*/
-		   $(document).ready(function() {
+			$(document).ready(function() {
 				var ipt = $("#money1");
 				ipt.on('keyup', function() {
 					if(!/^\d+$/.test(this.value)) {
@@ -221,13 +221,12 @@ max-height:200px;//最大高度*/
 					}
 				})
 			});
-		   /*禁止输入小数点*/
-		    $("#Jcarry_amount").bind('input',function(){		    
-		    	$("#val").text(parseInt($(this).val()));
-		    	$(this).val("");
-		    	$(this).val($("#val").text());
-		    })
-		    
+			/*禁止输入小数点*/
+			$("#Jcarry_amount").bind('input', function() {
+				$("#val").text(parseInt($(this).val()));
+				$(this).val("");
+				$(this).val($("#val").text());
+			})
 
 			sa();
 
@@ -237,82 +236,91 @@ max-height:200px;//最大高度*/
 
 				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 				if(isiOS) {
-					$(".infos").css("height", "4rem");$(".infos").css("padding", "0.5rem  0");
-					$(".rmb").css("top","0.5rem");
+					$(".infos").css("height", "4rem");
+					$(".infos").css("padding", "0.5rem  0");
+					$(".rmb").css("top", "0.5rem");
 				}
 			}
 
-				$("#add").click(function() {
-					if(Math.abs($("#Jcarry_amount").val())!=0){
-						
+			$("#add").click(function() {
+				if(Math.abs($("#Jcarry_amount").val()) != 0) {
+
 					$("#add").attr({"disabled": "disabled"});
-					var Jcarry_amount=parseInt($("#Jcarry_amount").val());
-					var ti=parseInt($("#ti").text());
-					if( Jcarry_amount > ti) {
-						$(".overtop").text("提现金额大于可提现金额");
-						$("#add").removeAttr("disabled");
-						overtop();
-					} else {
-						if(ti==0) {
-						$(".overtop").text("提现金额不可为0");
-						$("#add").removeAttr("disabled");
-						overtop();return false;
-						}
-						var bank_id =  $("#bank_id").val();
-						var money =  $("#Jcarry_amount").val();
-						$.ajax({
-		                    type : "POST",  //提交方式
-		                    url : "{:url('member/tiwithdraw')}",//路径
-		                    data : {
-		                        "money" : $("#Jcarry_amount").val(),
-		                        "bank_id" : bank_id,
-		                    },
-		                    dataType : "json",//数据，这里使用的是Json格式进行传输
-		                    success : function(result) {
-		                    	//alert("请输入用111户名")
-								var aa = JSON.parse(result);
-								if (aa.code!=1) {
-									$("#add").removeAttr("disabled");
-									$(".overtop").text(aa.msg);
+					var Jcarry_amount = parseInt($("#Jcarry_amount").val());
+					var ti = parseInt($("#ti").text());
+					if(Jcarry_amount > 100) {
+						if(Jcarry_amount > ti) {
+							$(".overtop").text("提现金额大于可提现金额 或小于100");
+							$("#add").removeAttr("disabled");
+							overtop();
+						} else {
+							if(ti == 0) {
+								$(".overtop").text("提现金额不可为0");
+								$("#add").removeAttr("disabled");
+								overtop();
+								return false;
+							}
+							var bank_id = $("#bank_id").val();
+							var money = $("#Jcarry_amount").val();
+							$.ajax({
+								type: "POST", //提交方式
+								url: "{:url('member/tiwithdraw')}", //路径
+								data: {
+									"money": $("#Jcarry_amount").val(),
+									"bank_id": bank_id,
+								},
+								dataType: "json", //数据，这里使用的是Json格式进行传输
+								success: function(result) {
+									//alert("请输入用111户名")
+									var aa = JSON.parse(result);
+									if(aa.code != 1) {
+										$("#add").removeAttr("disabled");
+										$(".overtop").text(aa.msg);
 										overtop();
 
-								}else{
-									$(".overtop").text(aa.msg);
-									overtop();
+									} else {
+										$(".overtop").text(aa.msg);
+										overtop();
 
-									setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-										$("#Jcarry_amount").val("");
-										$("#add").removeAttr("disabled");
-										var ti = $("#ti").text() - money;
-										var yu = $("#yu").text() - money;
-										$("#ti").text(ti);
-										$("#yu").text(yu);
-									window.location="{:url('member/withdrawlog')}";
-									},1000);
+										setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
+											$("#Jcarry_amount").val("");
+											$("#add").removeAttr("disabled");
+											var ti = $("#ti").text() - money;
+											var yu = $("#yu").text() - money;
+											$("#ti").text(ti);
+											$("#yu").text(yu);
+											window.location = "{:url('member/withdrawlog')}";
+										}, 1000);
+									}
+								},
+								error: function() {
+									$(".overtop").text('请刷新页面重试');
+									overtop();
+									$("#add").removeAttr("disabled");
 								}
-		                    },
-		                    error : function (){
-		                    	$(".overtop").text('请刷新页面重试');
-								overtop();
-								$("#add").removeAttr("disabled");
-		                }
-						});
-					}
-					}else{
-						$(".overtop").text("充值金额不能为0");
-           		overtop();
-					}
-				})
-				/*function (){
-					if($("#yu").text()<$("#ti").text()){
-						$(".overtop").text("提现金额大于账户余额");
-						overtop();
-					}else{
-						$(".overtop").text("1");
+							});
+						}
+					} else {
+						$(".overtop").text("提现金额不能小于100");
+						$("#add").removeAttr("disabled");
 						overtop();
 					}
-				}*/
-			</script>
+
+				} else {
+					$(".overtop").text("充值金额不能为0");
+					overtop();
+				}
+			})
+			/*function (){
+				if($("#yu").text()<$("#ti").text()){
+					$(".overtop").text("提现金额大于账户余额");
+					overtop();
+				}else{
+					$(".overtop").text("1");
+					overtop();
+				}
+			}*/
+		</script>
 	</body>
 
 </html>
