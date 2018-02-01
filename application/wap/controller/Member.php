@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-01 15:31:37
+ * @Last Modified time: 2018-02-01 17:45:48
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -141,11 +141,12 @@ class Member extends Yang
     {
         $arr = ['code'=>-200,'data'=>'','msg'=>'提现失败'];
         $user = U::where(['id'=>$this->id])->find();
+        $rate = RA::find();
+        $lilv = 1-$rate['rate']/100;
         $kbalance=intval($user['balance']);
         if ($this->request->isAjax()) {
             $money = input('money');
             $bank_id = input('bank_id');
-            $rate = RA::find();
             $charge = substr(sprintf("%.3f",$money*($rate['rate']/100)),0,-1);
             if ($money!=intval($money)) {
               $arr['msg'] = '提现金额必须为整数';
@@ -167,11 +168,10 @@ class Member extends Yang
             $arr['msg']='请等待实名认证成功后提现';
              return json_encode($arr);
             }
-            if ($money<100) {
+            if ($money<99) {
               $arr['msg'] = '提现金额必须大于或等于100';
               return json_encode($arr);
             }
-
             // 启动事务
             Db::startTrans();
             try{

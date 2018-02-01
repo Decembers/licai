@@ -48,7 +48,8 @@ class Withdraw extends Controller
                 $ret = $model->where('id', $data['id'])->update($data);
                 if ($data['status'] == 2) {
                     $withdraw = $model->where('id', $data['id'])->find();
-                    User::where(['id'=>$withdraw['user_id']])->inc('balance',$withdraw['money'])->update();
+                    $money = $withdraw['money'] + $withdraw['charge'];
+                    User::where(['id'=>$withdraw['user_id']])->inc('balance',$money)->update();
                 }
                 Detail::where(['withdraw_id'=>$data['id']])->update(['status'=>$data['status']]);
                 // 提交事务

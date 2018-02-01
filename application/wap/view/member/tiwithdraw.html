@@ -19,7 +19,7 @@
 					background-color: rgb(240, 240, 243);
 				}
 			}
-			
+
 			.kahao,
 			.modular {
 				width: 95%;
@@ -27,34 +27,34 @@
 			}
 			/*min-height:100px;//最小高度
 max-height:200px;//最大高度*/
-			
+
 			.kahao li {
 				box-sizing: border-box;
 				height: 70px;
 				margin-bottom: 0.5rem;
 			}
-			
+
 			.checkin {
 				position: relative;
 				padding: 1.2rem 0.75rem 1.2rem 3.65rem;
 			}
-			
+
 			.white {
 				background: #fff;
 			}
-			
+
 			.fillet {
 				border: 1px solid #ededed;
 				border-radius: 0.4rem;
 				background: #fff;
 			}
-			
+
 			.checkin .bank_icon {
 				position: absolute;
 				top: 15px;
 				left: 20px;
 			}
-			
+
 			.bank_icon img {
 				margin: 0;
 				padding: 0;
@@ -69,13 +69,13 @@ max-height:200px;//最大高度*/
 				-o-transform: rotateY(60deg);
 				-ms-transform: rotateY(60deg);
 			}
-			
+
 			.kahao li a {
 				position: absolute;
 				left: 100px;
 				top: 10px;
 			}
-			
+
 			.detail h6 {
 				padding: 0;
 				margin: 0;
@@ -83,26 +83,26 @@ max-height:200px;//最大高度*/
 				font-size: 18px;
 				line-height: 30px;
 			}
-			
+
 			.detail span {
 				font-size: 14px;
 				color: gray;
 				line-height: 20px;
 			}
-			
+
 			body>li {
 				display: none;
 			}
-			
+
 			.sm_title {
 				font-size: 13px;
 			}
-			
+
 			.modular {
 				padding: 1rem 2rem;
 				box-sizing: border-box;
 			}
-			
+
 			.infos {
 				position: relative;
 				box-sizing: border-box;
@@ -110,7 +110,7 @@ max-height:200px;//最大高度*/
 				border-bottom: 1px solid #ededed;
 				margin-bottom: 0.3rem;
 			}
-			
+
 			.rmb {
 				width: 2.5rem;
 				height: 3rem;
@@ -121,7 +121,7 @@ max-height:200px;//最大高度*/
 				top: 0;
 				left: 0;
 			}
-			
+
 			#Jcarry_amount {
 				width: 100%;
 				font-size: 20px;
@@ -129,7 +129,7 @@ max-height:200px;//最大高度*/
 				line-height: 3rem;
 				padding-left: 2.5rem;
 			}
-			
+
 			.info_num {
 				font-size: 14px;
 				line-height: 30px;
@@ -137,7 +137,7 @@ max-height:200px;//最大高度*/
 				width: 100%;
 				height: 20px;
 			}
-			
+
 			.purchase_tip {
 				width: 95%;
 				margin: 0.5rem auto;
@@ -248,7 +248,7 @@ max-height:200px;//最大高度*/
 					$("#add").attr({"disabled": "disabled"});
 					var Jcarry_amount = parseInt($("#Jcarry_amount").val());
 					var ti = parseInt($("#ti").text());
-					if(Jcarry_amount > 100) {
+					if(Jcarry_amount > 99) {
 						if(Jcarry_amount > ti) {
 							$(".overtop").text("提现金额大于可提现金额 或小于100");
 							$("#add").removeAttr("disabled");
