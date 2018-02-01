@@ -182,7 +182,7 @@ max-height:200px;//最大高度*/
 					<input class="fl" id="Jcarry_amount" type="number" placeholder="提现金额(禁止小数)" step="0" style="ime-mode:disabled" oninput="if(value.length>7)value=value.slice(0,7)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
-					<!--<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>--><span>手续费：￥</span><span id="fei">12</span>
+					<!--<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>--><span>手续费：￥</span><span id="fei">0</span>
 
 				</p>
 				<p class="a9 info_num">
@@ -222,14 +222,38 @@ max-height:200px;//最大高度*/
 				})
 			});
 			/*禁止输入小数点*/
-			//var feis = {$arr.lilv};
+			var feis = {$arr.lilv};
 			$("#Jcarry_amount").bind('input', function() {
 				$("#val").text(parseInt($(this).val()));
 				$(this).val("");
 				$(this).val($("#val").text());
-				$("#fei").text(parseInt($(this).val()));
+				var va = parseInt($(this).val());
+				if($(this).val() ==""){
+					va = 0;
+				}
+				var vas = va*(feis*1000)/1000;
+				ts1(vas);
+				
 			})
+function ts1(n) {
+				var one = n % 1;
+				if(one == 0) {
+					n = n + ".00"
+				} else {
+					var len = n.toString().split(".")[1].length;
 
+					if(len == 1) {
+						n = n + "0";
+					} else if(len == 2) {
+						n = n;
+					} else if(len > 2) {
+						n = n.toString().substr(0, n.toString().indexOf(".") + 3)
+					}
+				}
+
+				$("#fei").text(n);
+
+			}
 			sa();
 
 			function sa() {
