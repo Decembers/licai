@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-29 11:09:50
+ * @Last Modified time: 2018-01-31 16:36:50
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -134,7 +134,7 @@ class Wxpay extends Yang
                         //修改数据库 增加余额 修改状态
                         Detail::where(['order_id'=>$out_trade_no])->update(['status'=>1]);
                         $user = User::where(['openid'=>$openid])->find();
-                        $balance = $user['balance'] + $total_fee;
+                        $balance = $user['balance'] + $total_fee/100;
                         User::where(['openid'=>$openid])->update(['balance'=>$balance]);
                         // 提交事务
                         Db::commit();
