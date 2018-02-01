@@ -182,7 +182,7 @@ max-height:200px;//最大高度*/
 					<input class="fl" id="Jcarry_amount" type="number" placeholder="提现金额(禁止小数)" step="0" style="ime-mode:disabled" oninput="if(value.length>7)value=value.slice(0,7)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
-					<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>
+					<!--<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>--><span>手续费：￥</span><span id="fei">12</span>
 
 				</p>
 				<p class="a9 info_num">
@@ -222,10 +222,12 @@ max-height:200px;//最大高度*/
 				})
 			});
 			/*禁止输入小数点*/
+			//var feis = ;
 			$("#Jcarry_amount").bind('input', function() {
 				$("#val").text(parseInt($(this).val()));
 				$(this).val("");
 				$(this).val($("#val").text());
+				$("#fei").text(parseInt($(this).val()));
 			})
 
 			sa();
@@ -247,7 +249,7 @@ max-height:200px;//最大高度*/
 
 					$("#add").attr({"disabled": "disabled"});
 					var Jcarry_amount = parseInt($("#Jcarry_amount").val());
-					var ti = parseInt($("#ti").text());
+					var ti = {$arr.kbalance};
 					if(Jcarry_amount > 100) {
 						if(Jcarry_amount > ti) {
 							$(".overtop").text("提现金额大于可提现金额 或小于100");
@@ -285,9 +287,9 @@ max-height:200px;//最大高度*/
 										setTimeout(function() { //使用  setTimeout（）方法设定定时2000毫秒
 											$("#Jcarry_amount").val("");
 											$("#add").removeAttr("disabled");
-											var ti = $("#ti").text() - money;
+										/*	var ti = $("#ti").text() - money;*/
 											var yu = $("#yu").text() - money;
-											$("#ti").text(ti);
+											/*$("#ti").text(ti);*/
 											$("#yu").text(yu);
 											window.location = "{:url('member/withdrawlog')}";
 										}, 1000);
