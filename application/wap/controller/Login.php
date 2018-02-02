@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-24 09:31:13
+ * @Last Modified time: 2018-02-02 09:31:07
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -373,15 +373,41 @@ class Login extends Yang
                 Session::delete($mobile);
                 Session::delete($times);
                 $user = User::where(['mobile'=>$mobile])->find();
-                if (!isset($user)) {
+                if (isset($user)) {
+                    if (!empty($user['openid'])) {
+                        return json(['code'=>1, 'msg'=>'手机号码已被绑定']);
+                    }else{
+                        $err = ['code'=>200, 'msg'=>'绑定手机号码成功'];
+                        Db::startTrans();
+                        try{
+                            $err = ['code'=>1, 'msg'=>'绑定手机号码失败111'];
+                            $wxuser = User::where(['id'=>$this->id])->find();
+                            $upda['openid'] = $wxuser['openid'];
+                            $upda['image'] = $wxuser['image'];
+                            $upda['name'] = $wxuser['name'];
+                            $upda['user_login'] = $wxuser['user_login'];
+                            $result = User::where(['mobile'=>$mobile])->update($upda);
+                            if ($result!==false) {
+                                db('user')->delete($this->id);
+                                $user = User::where(['mobile'=>$mobile])->find();
+                                Session::set('user',$user);
+                                Cookie::set('user_id',$user['id']);
+                                $err = ['code'=>200, 'msg'=>'绑定手机号码成功'];
+                            }
+                            Db::commit();
+                        } catch (\Exception $e) {
+                            // 回滚事务
+                            Db::rollback();
+                        }
+                        return json($err);
+                    }
+                }else{
                     $ress = User::where(['id'=>$this->id])->update($arr);
                     if ($ress!==false) {
                         Session::set('user.mobile',$mobile);
                         return json(['code'=>200, 'msg'=>'绑定手机号码成功']);
                     }
                     return json(['code'=>1, 'msg'=>'绑定手机号码失败']);
-                }else{
-                    return json(['code'=>1, 'msg'=>'手机号码已被绑定']);
                 }
 
         }else{
@@ -432,9 +458,9 @@ class Login extends Yang
      */
     public function admin()
     {
-       $arr = User::where(['id'=>94])->find();
+       $arr = User::where(['id'=>110])->find();
        Session::set('user',$arr);
-       Cookie::set('user_id',94);
+       Cookie::set('user_id',110);
        echo 'ok';
     }
 
