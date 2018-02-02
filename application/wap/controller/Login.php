@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-02 09:31:07
+ * @Last Modified time: 2018-02-02 11:16:55
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -77,6 +77,9 @@ class Login extends Yang
         if (!checkMobile($mobile)) {
             return json(['code'=>1, 'msg'=>'手机号格式不正确']);
         }
+        if ($code == '') {
+            return json(['code'=>1, 'msg'=>'短信验证码不能为空']);
+        }
         if ($code != Session::get($mobile)) {
             return json(['code'=>1, 'msg'=>'短信验证码错误']);
         }
@@ -103,7 +106,27 @@ class Login extends Yang
                 return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
 
         } else {
-            return json(['code'=>1, 'msg'=>'用户不存在']);
+
+            $row['mobile']=$mobile;
+            $row['name'] = '大场主';
+            $row['create_time']=time();
+            $row['status']=1;
+            $row['login_time']=time();
+            $row['integral']=1000;
+            $res = User::insert($row);
+            if ($res!==false) {
+                Session::delete($mobile);
+                Session::delete($times);
+                $res = User::where(['mobile'=>$mobile])->find();
+                $user_login = rand('10000000','99999999');
+                User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
+                $res['user_login'] = $user_login;
+                Session::set('user',$res);
+                Cookie::set('user_id',$res['id'],2592000);
+                $url = url("login/phone");
+                return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
+            }
+            return json(['code'=>1, 'msg'=>'登录失败']);
         }
             return json(['code'=>1, 'msg'=>'登录失败']);
 
@@ -264,6 +287,7 @@ class Login extends Yang
                 $mobile=Session::get('user.mobile');
                 $pay_pass=input('post.pay_pass');
                 $code      = input('post.code');
+                $times=Session::get($code);
                 $arr['mobile']= $mobile;
                 $arr['pay_pass'] = md5($pay_pass);
 
@@ -273,25 +297,28 @@ class Login extends Yang
                 if (strlen($pay_pass) != 6) {
                     return json(['code'=>1, 'msg'=>'支付密码长度为六位']);
                 }
-                if ($code != Session::get($mobile)) {
-                    return json(['code'=>1, 'msg'=>'短信验证码错误']);
+                if (empty(input('post.shibie'))) {
+                    if ($code == '') {
+                        return json(['code'=>1, 'msg'=>'短信验证码不能为空']);
+                    }
+                    if ($code != Session::get($mobile)) {
+                        return json(['code'=>1, 'msg'=>'短信验证码错误']);
+                    }
+                    if (time() > ($times+5*60)) {
+                        Session::delete($times);
+                        return json(['code'=>1, 'msg'=>'短信验证码已失效']);
+                    }
                 }
-                $times=Session::get($code);
-                if (time() > ($times+5*60)) {
-                    Session::delete($times);
-                    return json(['code'=>1, 'msg'=>'短信验证码已失效']);
-                }
-
                 $res = User::where(['mobile'=>$mobile])->find();
                 if (isset($res)) {
                     Session::delete($mobile);
                     Session::delete($times);
                     $ress = User::where(['mobile'=>$mobile])->update($arr);
                     Session::set('user.pay_pass',$arr['pay_pass']);
-                    return json(['code'=>200, 'msg'=>'重置支付密码成功']);
+                    return json(['code'=>200, 'msg'=>'支付密码设置成功']);
                 }
 
-                return json(['code'=>1, 'msg'=>'重置支付密码失败']);
+                return json(['code'=>1, 'msg'=>'支付密码设置失败']);
         }else{
 
             return $this->fetch();
@@ -419,13 +446,21 @@ class Login extends Yang
      */
     public function phone()
     {
-       return $this->fetch();
+        $user = User::where(['id'=>$this->id])->find();
+        if (!empty($user['pay_pass'])) {
+           $this->redirect('index/index');
+        }
+        return $this->fetch();
     }
     /*
      * 设置支付密码
      */
     public function pay()
     {
+        $user = User::where(['id'=>$this->id])->find();
+        if (!empty($user['mobile'])) {
+           $this->redirect('index/index');
+        }
        return $this->fetch();
     }
     /*
@@ -451,16 +486,20 @@ class Login extends Yang
      */
     public function identity()
     {
-       return $this->fetch();
+        $user = User::where(['id'=>$this->id])->find();
+        if ($user['authentication']!=0) {
+           $this->redirect('index/index');
+        }
+        return $this->fetch();
     }
     /*
      * 测试用登录
      */
     public function admin()
     {
-       $arr = User::where(['id'=>110])->find();
+       $arr = User::where(['id'=>94])->find();
        Session::set('user',$arr);
-       Cookie::set('user_id',110);
+       Cookie::set('user_id',94);
        echo 'ok';
     }
 

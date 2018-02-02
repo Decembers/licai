@@ -119,13 +119,6 @@
 				<div class="register_login bgCo" id="mb_re_pwd">
 					<div class="modify_login fillet">
 						<ul>
-
-							<li class="form_modify">
-								<span class="code"></span>
-								<input type="tel" id="dl_mobile_code" name="dl_mobile_code" placeholder="请输入验证码" maxlength="6">
-								<div class="count_down">60s</div>
-								<input type="button" class="ver_code" value="验证码" id="dl_getcode">
-							</li>
 							<li class="form_modify">
 								<span class="more"></span>
 								<span class="delect"></span>
@@ -152,10 +145,10 @@
 
 			/*footer 当前页选中状态*/
 			$(".changed").click(function() {
-				if($("#dl_mobile_code").val() == "") {
-					$(".overtop").text("请输入验证码");
-					overtop();
-				} else {
+				// if($("#dl_mobile_code").val() == "") {
+				// 	$(".overtop").text("请输入验证码");
+				// 	overtop();
+				// } else {
 					if($("#dl_user_pwd").val() == "") {
 						$(".overtop").text("请输入支付密码");
 						overtop();
@@ -172,7 +165,7 @@
 									url: "{:url('Login/nopay')}", //路径
 									data: {
 										"pay_pass": password,
-										"code": code,
+										"shibie": 1,
 									},
 									dataType: "json", //数据，这里使用的是Json格式进行传输
 									success: function(result) {
@@ -198,7 +191,7 @@
 							}
 						}
 					}
-				}
+				// }
 			})
 
 			$('#dl_getcode').click(function() {
