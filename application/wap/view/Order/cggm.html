@@ -159,7 +159,7 @@
 							<span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
-					<div class="row row6">
+					<div class="row row6">    
 						<div>
 							<div class="">
 								<span>√</span>
@@ -528,6 +528,7 @@ pr();
 									zhon = parseFloat(zhon) - parseFloat($("#qian").text());
 									/*tos(zhon);*/
 									ts1(zhon);
+									$(".detail1_top div:nth-child(2) p:nth-child(2)").text($(".detail1_top div:nth-child(2) p:nth-child(2)").text()-$("#number").val());
 									$("#number").val(1);
 									$("#numbers").text(1);
 									$("#qian").text(qian);
