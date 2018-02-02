@@ -39,7 +39,28 @@ class Commodity extends Model
     public function orlist($where)
     {
         $obj = new commodity;
-        $arr = $obj->where($where)->order('isdelete,preselle_time desc')->field('id,com_number,name,price,rate,return_price,number,classify,numbers,deal_time,isdelete')->select();
-        return $arr;
+        $arr = $obj
+        ->where($where)
+        ->order('isdelete,preselle_time desc')
+        ->field('id,com_number,name,price,rate,return_price,number,classify,numbers,deal_time,isdelete,down_time')
+        ->select();
+        $row=[];
+        foreach ($arr as $k => $v) {
+            if ($v['isdelete']==0) {
+                if (time() > $v['down_time'] || $v['number']<=0) {
+                    $obj-> where(['id'=> $v['id']])->update(['isdelete'=>1]);
+                    $sp_id = $this->allocation($v['classify']);
+                    if ($sp_id!=0) {
+                        $com = $obj->where(['id'=>$sp_id])->find();
+                        $row[$k]=$com;
+                    }
+                }else{
+                    $row[$k] = $v;
+                }
+            }else{
+                $row[$k] = $v;
+            }
+        }
+        return $row;
     }
 }
