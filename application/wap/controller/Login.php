@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 09:48:06
+ * @Last Modified time: 2018-02-03 11:37:07
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -23,10 +23,10 @@ class Login extends Yang
     public function login()
     {
             $id = 0;
-            if (!empty(input('get.id'))) {
-                $id = input('get.id');
+            if (!empty(input('friends'))) {
+                $id = input('friends');
             }
-            $this->assign('referrer',$id);
+            $this->assign('friends',$id);
             return  $this->fetch();
     }
 
@@ -35,6 +35,10 @@ class Login extends Yang
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
             //在微信内打开
             $getuser = new Getuser;
+            if (input('referrer')) {
+                echo input('referrer');die;
+                Session::set('referrer',input('referrer'));
+            }
             $url = $getuser->geturl();
             $this->redirect($url);
         }else{
@@ -74,7 +78,7 @@ class Login extends Yang
         {
             $mobile=input('post.mobile');
             $code=input('post.code');
-            $friends=input('post.friends');
+            $referrer=input('post.referrer');
             $arr = input('post.');
 
         if (!$mobile) {
@@ -119,7 +123,7 @@ class Login extends Yang
             $row['status']=1;
             $row['login_time']=time();
             $row['integral']=1000;
-            $row['friends']=$friends;
+            $row['referrer']=$referrer;
             $res = User::insert($row);
             if ($res!==false) {
                 Session::delete($mobile);

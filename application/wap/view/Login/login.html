@@ -244,7 +244,7 @@
 				<div class="logo"></div>
 				<h3>农场上的交易专家</h3>
 				<div class="container01">
-					<input type="hidden" id="referrer" value="{$id}">
+					<input type="hidden" id="referrerss" value="{$friends}">
 					<div class="form_group ">
 						<span class="user"></span>
 						<span class="delect"></span>
@@ -262,7 +262,7 @@
 						<input type="password" name="password" id="pwd" placeholder="请输入密码" maxlength="15">
 					</div>
 					<div class="forgeted clearfix">
-						<a href="{:url('login/wxlogin')}" class="fl m_co" id="wang" ><span id="" class="fa fa-weixin"></span><span id="">微信登录</span></a>
+						<a href="{:url('login/wxlogin',['referrer'=>$friends])}" class="fl m_co" id="wang" ><span id="" class="fa fa-weixin"></span><span id="">微信登录</span></a>
 						<a href="{:url('index/index')}" class="fr m_co">随便逛逛</a>
 					</div>
 					<div class="clearfix">
@@ -344,14 +344,14 @@
 				if(reg.test(tag.value)) {
 					var mobile = $("#email").val();
 					var code = $("#mobile_code2").val();
-					var friends = $("#friends").val();
+					var referrer = $("#referrerss").val();
 					$.ajax({
 						type: "POST", //提交方式
 						url: "{:url('Login/checkindex')}", //路径
 						data: {
 							"mobile": mobile,
 							"code": code,
-							"friends": friends,
+							"referrer": referrer,
 						},
 						dataType: "json", //数据，这里使用的是Json格式进行传输
 						success: function(result) {
