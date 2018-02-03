@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 09:33:10
+ * @Last Modified time: 2018-02-03 15:53:47
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -22,6 +22,7 @@ use app\common\model\Identity as I;
 use app\common\model\Help as H;
 use app\common\model\Withdraw as W;
 use app\common\model\Rate as Ra;
+use app\common\model\Referrer as RE;
 use \app\common\getuser\Getuser;
 class Member extends Yang
 {
@@ -334,6 +335,20 @@ class Member extends Yang
     }
     public function wdhy()
     {
+        //查处推荐id等于本id的用户,循环查询赏金表
+
+        $user = U::where(['referrer'=>$this->id])->field('id,name,create_time')->select();
+        $num = 0;
+        $money = 0;
+        foreach ($user as $k => $v) {
+            $num +=1;
+            $re=RE::where(['user_id'=>$this->id,'buser_id'=>$v['id']])->sum('money');
+            $money += 1;
+            $user[$k]['money'] = $re;
+        }
+        $this->assign('user',$user);
+        $this->assign('num',$num);
+        $this->assign('money',$money);
         return $this->fetch();
     }
     public function tghb()

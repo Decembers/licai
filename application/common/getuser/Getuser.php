@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 12:05:11
+ * @Last Modified time: 2018-02-03 11:49:53
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -97,6 +97,7 @@ class Getuser
                     $arr['user_type'] = 1;
                     $arr['status'] = 1;
                     $arr['login_time'] = time();
+                    $arr['referrer'] = Session::get('referrer') ? Session::get('referrer') : 0;
                     $arr['isdelete'] = 0;
                     $arr['authentication'] = 0;
                     User::insert($arr);

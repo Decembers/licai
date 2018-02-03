@@ -28,10 +28,10 @@
 				padding: 1rem;
 				margin-top: 1px;
 			}
-			
-			
 
-			.fw_left p.chtx {				
+
+
+			.fw_left p.chtx {
 				font-size: 18px;
 				width: 100%;
 				white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
@@ -40,14 +40,14 @@
 			.fw_left p {
 				font-size: 15px;
 			}
-			
+
 			.fw_right{
 				width: 60%;
 			}
 			.fw_left{
 				width: 40%;
 			}
-			.fw_right p {				
+			.fw_right p {
 				width: 100%;
 				line-height: 2rem;
 				font-size: 14px;
@@ -70,7 +70,7 @@
 				border: 2px solid rgb(240, 240, 243);
 				border-radius:50% ;
 				overflow: hidden;
-				
+
 			}
 			.picDisplay{
 				width: 20px;
@@ -102,7 +102,7 @@
 			<ul class="navs">
 				<li>
 					<div class="fw_left fl" style="width: auto;">
-						<p class="chtx a1" style=" text-align: center;">1</p>
+						<p class="chtx a1" style=" text-align: center;">{$num},{$money}</p>
 						<p style="">好友人数</p>
 					</div>
 					<div class="fw_right fr">
@@ -113,17 +113,19 @@
 				</li>
 			</ul>
 			<ul class="friend" style="margin-top:5px; ">
+			{volist name="user" id="vo"}
 				<li>
 					<div class="fw_left fl">
-						<p class="chtx a1">趣味农场</p>
+						<p class="chtx a1">{$vo.name}</p>
 						<p class="img"><img src="__WAP__/img/e.png" class="picDisplay"></p>
 					</div>
 					<div class="fw_right fr">
 						<p class="a1">当前会回报率：1.0000%</p>
-						<p>注册时间：2017-12-28 17：27：59</p><p>已收回报： 1元</p>
+						<p>注册时间：{$vo.create_time|date="y-m-d h:i",###}</p><p>已收回报： {$vo.money}元</p>
 					</div>
 
 				</li>
+			{/volist}
 			</ul>
 
 		</div>
