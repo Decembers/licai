@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 17:03:50
+ * @Last Modified time: 2018-02-03 15:31:14
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -13,6 +13,7 @@ use app\common\model\Order as O;
 use app\common\model\Commodity as C;
 use app\common\model\User as U;
 use app\common\model\Detail as D;
+use app\common\model\Referrer as R;
 
 class Order extends Yang
 {
@@ -129,14 +130,32 @@ class Order extends Yang
                     $update['order_price'] = $orderss['order_price']+$order_price;
                     $update['sp_count'] = $orderss['sp_count']+$num;
                     $update['zexpect'] = substr(sprintf("%.3f",$update['order_price']*($comm['return_price']/100) / 360 * $comm['rate']),0,-1);
-                    $ara = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->update($update);
+                    $ara = Db::table('tp_order')
+                    ->where(['user_id'=>$this->id,'sp_id'=>$sp_id])
+                    ->update($update);
+
+                    if ($user['referrer']!=0) {
+                        $referrer = R::where(['user_id'=>$user['referrer'],'buser_id'=>$user['id'],'order_id'=>$orderss['id']])->find();
+                        $money = substr(sprintf("%.3f",$update['order_price']*0.01),0,-1);
+                        R::where(['user_id'=>$user['referrer'],'buser_id'=>$user['id'],'order_id'=>$orderss['id']])
+                        ->update(['money'=>$money]);
+                        $innn = $money - $referrer['money'];
+                        U::where(['id'=>$user['referrer']])->inc('balance',$innn)->update();
+                    }
+
                 }else{
                     $ara = Db::table('tp_order')->insert($row);
+                    if ($user['referrer']!=0) {
+                        $order_id = Db::name('tp_order')->getLastInsID();
+                        $ref['user_id']=$user['referrer'];
+                        $ref['buser_id']=$user['id'];
+                        $ref['order_id']=$order_id;
+                        $ref['money']=substr(sprintf("%.3f",$order_price*0.01),0,-1);
+                        $ref['create_time']=time();
+                        R::insert($ref);
+                        U::where(['id'=>$user['referrer']])->inc('balance',$ref['money'])->update();
+                    }
                 }
-                // if ($ara !== 1) {
-
-                //     throw new \think\Exception();
-                // }
 
                 Db::table('tp_commodity')->where(['id'=>$sp_id])->update(['number' => $numbers]);
 
@@ -149,6 +168,8 @@ class Order extends Yang
                 $detail['accomplish_time']=time();
                 $arr['msg'] = '添加详细信息失败';
                 Db::table('tp_detail')->insert($detail);
+
+
                 // 提交事务
                 Db::commit();
             } catch (\think\Exception $e) {

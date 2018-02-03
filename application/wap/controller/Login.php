@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 11:37:07
+ * @Last Modified time: 2018-02-03 15:52:56
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -35,8 +35,9 @@ class Login extends Yang
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
             //在微信内打开
             $getuser = new Getuser;
+            //echo input('referrer');die;
+
             if (input('referrer')) {
-                echo input('referrer');die;
                 Session::set('referrer',input('referrer'));
             }
             $url = $getuser->geturl();
@@ -508,9 +509,9 @@ class Login extends Yang
      */
     public function admin()
     {
-       $arr = User::where(['id'=>94])->find();
+       $arr = User::where(['id'=>120])->find();
        Session::set('user',$arr);
-       Cookie::set('user_id',94);
+       Cookie::set('user_id',120);
        echo 'ok';
     }
 
