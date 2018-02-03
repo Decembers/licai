@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 10:50:42
+ * @Last Modified time: 2018-02-03 09:36:04
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -26,10 +26,15 @@ class yang extends Controller
             $suser = Session::get('user');
             if (!isset($suser)) {
                 //未登录
-                    $cuser = Cookie::get('user_id');
+                $cuser = Cookie::get('user_id');
                 if (!isset($cuser)) {
                     //无cookie
-                    $this->redirect('wap/login/login');
+                    $friends = input('get.friends');
+                    if (!empty($friends)) {
+                        $this->redirect('wap/login/login' , ['friends' => $friends]);
+                    }else{
+                        $this->redirect('wap/login/login');
+                    }
                 }else{
                     //有cookie
                     $user = U::where(['id'=>$cuser])->find();
