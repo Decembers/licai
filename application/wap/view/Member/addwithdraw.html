@@ -313,7 +313,7 @@ max-height:200px;//最大高度*/
 							<input id="bankcard" type="tel" placeholder="请输入卡号" maxlength="19">
 						</div>
 					</li>
-					<li class="dl region_select">
+					<li class="dl region_select" style="display: none;">
 						<span class="name">所在地</span>
 						<div class="content-block">
 							<!--<span id="diz">请选择地址</span>-->
@@ -460,11 +460,11 @@ max-height:200px;//最大高度*/
 		</li>
 		<div class="background"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/LAreaData1.js"></script>
+		<!--<script src="__WAP__/js/LAreaData1.js"></script>
 		<script src="__WAP__/js/LAreaData2.js"></script>
-		<script src="__WAP__/js/LArea.js"></script>
+		<script src="__WAP__/js/LArea.js"></script>-->
 		<script>
-			var area1 = new LArea();
+			/*var area1 = new LArea();
 			area1.init({
 				'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
 				'valueTo': '#value1', //选择完毕后id属性输出到该位置
@@ -474,7 +474,7 @@ max-height:200px;//最大高度*/
 				}, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
 				'type': 1, //数据源类型
 				'data': LAreaData //数据源
-			});
+			});*/
 			//area1.value=[17,189,788];//控制初始位置，注意：该方法并不会影响到input的value
 			/*$("#demo1").bind('input', function() {
 
@@ -550,22 +550,22 @@ max-height:200px;//最大高度*/
 									$(".overtop").text("请输入开户行");
 									overtop();
 								} else {
-									if($("#demo1").val() == "") {
+									/*if($("#demo1").val() == "") {
 										$(".overtop").text("请选择地址");
 										overtop();
-									} else {
+									} else {*/
 										$("#add").attr({
 											"disabled": "disabled"
 										});
-										var str = $("#demo1").val();
-										var strs = str.split(",");
+									/*	var str = $("#demo1").val();
+										var strs = str.split(",");*/
 										var name = $("#names").val();
 										var cardnum = $("#bankcard").val();
 										var bank_name = $(".this_bank").text();
 										var bank_opening = $("#bankzone").val();
-										var province_name = strs[0];
+									/*	var province_name = strs[0];
 										var city_name = strs[1];
-										var district_name = strs[2];
+										var district_name = strs[2];*/
 										$.ajax({
 											type: "POST", //提交方式
 											url: "{:url('member/addwithdraw')}", //路径
@@ -575,9 +575,9 @@ max-height:200px;//最大高度*/
 												"cardnum": cardnum,
 												"bank_name": bank_name,
 												"bank_opening": bank_opening,
-												"province_name": province_name,
+												/*"province_name": province_name,
 												"city_name": city_name,
-												"district_name": district_name,
+												"district_name": district_name,*/
 											},
 											dataType: "json", //数据，这里使用的是Json格式进行传输
 											success: function(result) {
@@ -606,8 +606,8 @@ $("#add").removeAttr("disabled");
 											}
 										});
 									}
-
-								}
+/*
+								}*/
 							}
 						} else {
 							$(".overtop").text("卡号错误，请重新输入");

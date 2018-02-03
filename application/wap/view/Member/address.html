@@ -293,7 +293,7 @@
 								<input id="bankcard" type="number" placeholder="请输入电话号码" 	oninput="if(value.length>11)value=value.slice(0,11)">
 							</div>
 						</li>
-						<li class="dl region_select">
+						<li class="dl region_select" style="display: none;">
 							<span class="name">所在地</span>
 							<div class="content-block">
 		<input id="demo1" type="text" readonly="" placeholder="请选择地址"  value="">
@@ -352,12 +352,12 @@
 		</div>
 		<p class="overtop">超出剩余数量</p>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__WAP__/js/LAreaData1.js"></script>
+	<!--	<script src="__WAP__/js/LAreaData1.js"></script>
 		<script src="__WAP__/js/LAreaData2.js"></script>
-		<script src="__WAP__/js/LArea.js"></script>
+		<script src="__WAP__/js/LArea.js"></script>-->
 
 		<script type="text/javascript">
-				var area1 = new LArea();
+				/*var area1 = new LArea();
 			area1.init({
 				'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
 				'valueTo': '#value1', //选择完毕后id属性输出到该位置
@@ -367,7 +367,7 @@
 				}, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
 				'type': 1, //数据源类型
 				'data': LAreaData //数据源
-			});
+			});*/
 
 			/*$(".mysheep").height(($(".mysheep").width() / 710 * 298) + "px");*/
 			$("button").focus(function() {
@@ -444,24 +444,24 @@
 								overtop();
 							} else {
 
-										if($("#demo1").val() == "") {
+										/*if($("#demo1").val() == "") {
 											$(".overtop").text("请选择所在地")
 											overtop();
-										} else {
+										} else {*/
 											$(".big-button").attr({
 											"disabled": "disabled"
 										});
 											//alert($("#demo1").val());
-											var str =$("#demo1").val();
-											var strs=str.split(",");
+											/*var str =$("#demo1").val();
+											var strs=str.split(",");*/
 											//alert(strs[0]);
 											var name=$("#names").val();
 											var mobile=$("#bankcard").val();
 											var address=$("#address").val();
 											var postcode=$("#bankzone").val();
-											var province_name=strs[0];
+										/*	var province_name=strs[0];
 											var city_name=strs[1];
-											var district_name=strs[2];
+											var district_name=strs[2];*/
 											//	alert(address);
 												$.ajax({
 								                    type : "POST",  //提交方式
@@ -471,9 +471,9 @@
 								                        "mobile" : mobile,
 								                        "address" : address,
 								                        "postcode" : postcode,
-								                        "province_name" : province_name,
+								                      /*  "province_name" : province_name,
 								                        "city_name" : city_name,
-								                        "district_name" : district_name,
+								                        "district_name" : district_name,*/
 								                        "is_default" : label
 								                    },
 								                    dataType : "json",//数据，这里使用的是Json格式进行传输
@@ -503,7 +503,7 @@
 												});
 
 
-								}
+								/*}*/
 							}
 						}
 					}
