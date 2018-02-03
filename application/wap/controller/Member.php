@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 15:53:47
+ * @Last Modified time: 2018-02-03 16:35:58
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -343,7 +343,7 @@ class Member extends Yang
         foreach ($user as $k => $v) {
             $num +=1;
             $re=RE::where(['user_id'=>$this->id,'buser_id'=>$v['id']])->sum('money');
-            $money += 1;
+            $money += $re;
             $user[$k]['money'] = $re;
         }
         $this->assign('user',$user);

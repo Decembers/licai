@@ -120,8 +120,8 @@
 						<p class="chtx a1" >{$num}</p>
 						<p style="width: 100%; text-align: center;">好友人数</p>
 
-						
-						
+
+
 
 					</div>
 					<div class="fw_right fr" >
@@ -140,7 +140,7 @@
 					</div>
 					<div class="fw_right fr">
 						<p class="a1">当前会回报率：1.0000%</p>
-						<p>注册时间：{$vo.create_time|date="y-m-d h:i",###}</p><p>已收回报： {$vo.money}元</p>
+						<p>注册时间：{$vo.create_time|date="y-m-d h:i",###}</p><p>已收回报： {$vo.money?? 0}元</p>
 					</div>
 
 				</li>
