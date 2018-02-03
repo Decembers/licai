@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-02 11:16:55
+ * @Last Modified time: 2018-02-03 09:48:06
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -22,6 +22,11 @@ class Login extends Yang
     use \app\admin\traits\controller\Controller;
     public function login()
     {
+            $id = 0;
+            if (!empty(input('get.id'))) {
+                $id = input('get.id');
+            }
+            $this->assign('referrer',$id);
             return  $this->fetch();
     }
 
@@ -69,6 +74,7 @@ class Login extends Yang
         {
             $mobile=input('post.mobile');
             $code=input('post.code');
+            $friends=input('post.friends');
             $arr = input('post.');
 
         if (!$mobile) {
@@ -108,11 +114,12 @@ class Login extends Yang
         } else {
 
             $row['mobile']=$mobile;
-            $row['name'] = '大场主';
+            $row['name'] = '农场主';
             $row['create_time']=time();
             $row['status']=1;
             $row['login_time']=time();
             $row['integral']=1000;
+            $row['friends']=$friends;
             $res = User::insert($row);
             if ($res!==false) {
                 Session::delete($mobile);
@@ -123,7 +130,7 @@ class Login extends Yang
                 $res['user_login'] = $user_login;
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
-                $url = url("login/phone");
+                $url = url("login/identity");
                 return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
             }
             return json(['code'=>1, 'msg'=>'登录失败']);
@@ -447,7 +454,7 @@ class Login extends Yang
     public function phone()
     {
         $user = User::where(['id'=>$this->id])->find();
-        if (!empty($user['pay_pass'])) {
+        if (!empty($user['mobile'])) {
            $this->redirect('index/index');
         }
         return $this->fetch();
@@ -458,7 +465,7 @@ class Login extends Yang
     public function pay()
     {
         $user = User::where(['id'=>$this->id])->find();
-        if (!empty($user['mobile'])) {
+        if (!empty($user['pay_pass'])) {
            $this->redirect('index/index');
         }
        return $this->fetch();

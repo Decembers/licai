@@ -194,7 +194,7 @@
 				height: 3rem;
 				line-height: 3rem;
 				border-radius: 2rem;
-				
+
 				box-sizing: border-box;
 				font-size: 1.5rem;
 				text-align: center;
@@ -244,6 +244,7 @@
 				<div class="logo"></div>
 				<h3>农场上的交易专家</h3>
 				<div class="container01">
+					<input type="hidden" id="referrer" value="{$id}">
 					<div class="form_group ">
 						<span class="user"></span>
 						<span class="delect"></span>
@@ -343,12 +344,14 @@
 				if(reg.test(tag.value)) {
 					var mobile = $("#email").val();
 					var code = $("#mobile_code2").val();
+					var friends = $("#friends").val();
 					$.ajax({
 						type: "POST", //提交方式
 						url: "{:url('Login/checkindex')}", //路径
 						data: {
 							"mobile": mobile,
 							"code": code,
+							"friends": friends,
 						},
 						dataType: "json", //数据，这里使用的是Json格式进行传输
 						success: function(result) {
@@ -504,7 +507,7 @@
 						if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
 						$(".overtop").text("手机号码有误，请重填")
 						overtop();
-						
+
 					} else {
 						if($("#mobile_code").val() == "") {
 							$(".overtop").text("请输入验证码");
@@ -559,7 +562,7 @@
 						$(".overtop").text("手机号码有误，请重填")
 						overtop();
 
-						
+
 					} else {
 						var mobile = $("#phone").val();
 						$.ajax({
@@ -607,7 +610,7 @@
 						$(".overtop").text("手机号码有误，请重填")
 						overtop();
 
-						
+
 					} else {
 						var mobile = $("#email").val();
 						$.ajax({
@@ -657,7 +660,7 @@
 						$(".overtop").text("手机号码有误，请重填")
 						overtop();
 
-						
+
 					} else {
 					if($("#mobile_code1").val() == "") {
 						$(".overtop").text("请输入验证码");

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-01 17:57:08
+ * @Last Modified time: 2018-02-03 09:33:10
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -43,6 +43,7 @@ class Member extends Yang
         }else{
             $authti = '已认证';
         }
+        $this->assign('id',$id);
         $this->assign('name',$name);
         $this->assign('balance',$balance);
         $this->assign('authti',$authti);
