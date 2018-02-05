@@ -1,4 +1,6 @@
 <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td onclick="layer_open('订单用户详情', '/admin/user/info/id/{$vo.user_id}.html')">{$vo.user_id}</td>
+<td>{$vo.id}</td>
 <td>{$vo.number}</td>
 <td>{$vo.order_price}</td>
 <td>{$vo.sp_price}</td>

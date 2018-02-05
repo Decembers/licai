@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 11:49:53
+ * @Last Modified time: 2018-02-03 17:42:35
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -80,6 +80,16 @@ class Getuser
         if ($userinfo) {
             if (isset($userinfo['openid'])) {
                 //将用户信息写入数据库 如果注册过查询出数据存入session
+                if (!empty(Session::get('user.id')) && empty(Session::get('user.openid'))) {
+                    $upd['openid'] = $userinfo['openid'];
+                    $upd['name'] = $userinfo['nickname'];
+                    $upd['image'] = $userinfo['headimgurl'];
+                    User::where(['id'=>Session::get('user.id')])->update($upd);
+                    Session::set('user.openid',$userinfo['openid']);
+                    Session::set('user.name',$userinfo['nickname']);
+                    Session::set('isopenid',1);
+                    return true;
+                }
                 $user = User::where(['openid'=>$userinfo['openid']])->find();
                 if (isset($user)) {
                     $user_login = rand('10000000','99999999');

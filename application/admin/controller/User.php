@@ -87,4 +87,11 @@ class User extends Controller
         }
     }
 
+    public function info()
+    {
+        $id = input('id');
+        $user = Db::table('tp_user')->where('id',$id)->find();
+        $this->view->assign('user',$user);
+        return $this->view->fetch();
+    }
 }

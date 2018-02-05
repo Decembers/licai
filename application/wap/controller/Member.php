@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 16:35:58
+ * @Last Modified time: 2018-02-05 11:01:24
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -81,6 +81,9 @@ class Member extends Yang
         if ($this->request->isAjax()) {
 
         }else{
+            $rate = RA::find();
+            $lilv = $rate['rate']/100;
+            $this->assign('lilv',$lilv);
             return $this->fetch();
         }
     }
