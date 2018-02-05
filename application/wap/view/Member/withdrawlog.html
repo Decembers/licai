@@ -114,7 +114,7 @@
 						</p>
 						<p>时间 : {$vo.create_time|date="y-m-d h:i:s",### ?? ''}</p>
 						<p>银行 :{$vo.bank_name}</p>
-						<p>卡号 : 尾号{$vo.bank_card}储蓄卡</p><p>提现手续费：{$vo.charge}元</p>
+						<p>卡号 : 尾号{$vo.bank_card}储蓄卡</p><p>提现手续费：{$vo.charge ? $vo.charge : '0.00'}元</p>
 
 					</div>
 
