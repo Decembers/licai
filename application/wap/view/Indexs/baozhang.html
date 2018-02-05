@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--<title>安全保障</title>-->
+		<title>开新牧场</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body,
+			div,
+			ul,
+			li,
+			p,
+			a,
+			span,
+			i {
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			
+			@media screen and (max-width: 900px) {
+				/*body{
+					background-color: rgb(240, 240, 243);
+				}
+				.wrapper {
+					background-color: rgb(240, 240, 243);
+				}*/
+			}
+			
+			@media screen and (min-width: 900px) {
+				.wrapper {
+					background-color: rgba(255, 255, 255, 0.01);
+				}
+			}
+			
+			input,
+			button,
+			a {
+				outline: none;
+				border: none;
+				-moz-outline: none;
+				-moz-border: none;
+				-webkit-outline: none;
+				-webkit-border: none;
+				background-color: rgba(0, 0, 0, 0);
+			}
+			
+			span {
+				-webkit-appearance: none;
+			}
+			
+			a,
+			span {
+				outline: none;
+				-moz-outline-style: none;
+				-webkit-outline-style: none;
+			}
+			
+			#uc_safety_guarantee {
+				background: #fff;
+			}
+			
+			.page.page-current {
+				overflow: hidden;
+			}
+			
+			.page.page-current,
+			.page.page-from-center-to-left,
+			.page.page-from-center-to-right,
+			.page.page-from-left-to-center,
+			.page.page-from-right-to-center {
+				display: block;
+			}
+			
+			.content {}
+			
+			.enounce {
+				width: 100%;
+				text-align: center;
+				font-size: 1.1rem;
+				color: #4cc2ea;
+				margin: 3.1rem auto 2rem auto;
+			}
+			
+			.safe01 {
+				width: 100%;
+				height: 6.9rem;
+				background: url(__WAP__/img/safe01.jpg) no-repeat center center;
+				background-size: 100%;
+			}
+			
+			.safe_detail {
+				width: 100%;
+				height: 17rem;
+				background: #4cc2ea;
+				color: #fff;
+				text-align: center;
+			}
+			
+			.safe_title_01 {
+				font-size: 1.1rem;
+				padding: 2rem 0 0.7rem 0;
+			}
+			
+			.safe_con {
+				font-size: 0.75rem;
+				line-height: 1.1rem;
+				text-align: justify;
+				padding: 0 1.65rem;
+				letter-spacing: 1px;
+				text-indent: 1.4rem;
+			}
+			
+			.detail_middle {
+				width: 6.2rem;
+				height: 6.75rem;
+				margin: 0.25rem auto 0 auto;
+				background: url(__WAP__/img/safe02.png) no-repeat center center;
+				background-size: 100%;
+			}
+			
+			.detail_bottom {
+				width: 100%;
+				height: 2rem;
+				margin-top: -2px;
+				background: url(__WAP__/img/safe03.png) no-repeat center center;
+				background-size: 100%;
+			}
+			
+			.safe03 {
+				width: 100%;
+				height: 2rem;
+				background: url(__WAP__/img/cir.jpg) no-repeat center center;
+				background-size: 0.5rem;
+			}
+			
+			.safe04,
+			.safe05,
+			.safe06,
+			.direct01,
+			.direct02 {
+				display: none;
+			}
+			
+			.safe04 {
+				width: 100%;
+				height: 14.5rem;
+				color: #4cc2ea;
+				text-align: center;
+				background: url(__WAP__/img/safe04.jpg) no-repeat center bottom;
+				background-size: 7.4rem;
+			}
+			
+			.safe04 .safe_title_01,
+			.safe05 .safe_title_01 {
+				padding: 1.25rem 0 0.7rem 0;
+			}
+			
+			.safe_title_01 {
+				font-size: 1.1rem;
+				padding: 2rem 0 0.7rem 0;
+			}
+			
+			.safe04 .safe_con {
+				padding: 0 2.25rem;
+			}
+			
+			.safe_con {
+				font-size: 0.85rem;
+				line-height: 1.2rem;
+				text-align: justify;
+				padding: 0 1.65rem;
+				letter-spacing: 1px;
+				text-indent: 1.4rem;
+			}
+			
+			.safe03 {
+				width: 100%;
+				height: 2rem;
+				background: url(__WAP__/img/cir.jpg) no-repeat center center;
+				background-size: 0.5rem;
+			}
+			
+			.safe05 {
+				margin-top: 1rem;
+			}
+			
+			.safe05 .safe_detail {
+				height: 14.6rem;
+			}
+			
+			.safe_detail {
+				width: 100%;
+				height: 19rem;
+				background: #4cc2ea;
+				color: #fff;
+				text-align: center;
+			}
+			
+			.safe_title_01 {
+				font-size: 1.1rem;
+				padding: 2rem 0 0.7rem 0;
+			}
+			
+			.safe05 .detail_middle {
+				width: 7.05rem;
+				height: 5.15rem;
+				margin: 0.5rem auto 0 auto;
+				background: url(__WAP__/img/safe05.png) no-repeat center center;
+				background-size: 100%;
+			}
+			
+			.safe06 {
+				height: 6rem;
+				line-height: 6rem;
+				font-size: 1.1rem;
+				text-align: center;
+				color: #47a9d0;
+				letter-spacing: 2px;
+				background: url(__WAP__/img/safe06.jpg) no-repeat center center;
+				background-size: 17rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
+				<h3>安全保障</h3>
+				<a href="####" style="opacity: 0;">交易统计</a>
+			</div>
+			<div class="page page-current" id="uc_safety_guarantee">
+				<!-- 安全保障-->
+
+				<div class="content native-scroll">
+					<!-- 这里是页面内容区 -->
+					<div class="enounce">安全&nbsp;•&nbsp;真实&nbsp;•&nbsp;可追溯</div>
+					<div class="safe01"></div>
+					<div class="safe02">
+						<div class="safe_detail">
+							<div class="safe_title_01">羊只保障</div>
+							<p class="safe_con">开新牧场与新县瑞泰农业生态旅游开发公司进行深度战略合作，每只羊都有自己独立的养殖保障，如果发生羊只死亡等风险，给客户造成的财产损失，由合同中的主体，甲方：新县瑞泰农业生态旅游开发有限公司与羊民共同承担并先行赔付。</p>
+							<div class="detail_middle"></div>
+						</div>
+						<div class="detail_bottom"></div>
+					</div>
+					<div class="safe03 direct01" style="display: block;"></div>
+					<div class="safe04" style="display: block;">
+						<div class="safe_title_01">独立羊标</div>
+						<p class="safe_con"> 开新牧场在安全性上更是做到了极致，每只鹅都有自己的独立鹅标，安全、卫生、真实、可靠。可追溯的，才是最放心的。</p>
+					</div>
+					<div class="safe03 direct02" style="display: block;"></div>
+					<div class="safe05" style="display: block;">
+						<div class="safe_detail">
+							<div class="safe_title_01">实时监控</div>
+							<p class="safe_con">开新牧场的会员可以随时通过手机登陆，24小时实时查看牧场的具体情况，不但能使项目有了真实的监管，还能从真正意义上让客户体验身在都市、心向牧场的乐趣。</p>
+							<div class="detail_middle"></div>
+						</div>
+					</div>
+					<div class="safe06" style="display: block;">牧场上的交易专家</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="background">
+
+		</div>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		</script>
+	</body>
+
+</html>
