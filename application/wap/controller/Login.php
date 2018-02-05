@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 15:52:56
+ * @Last Modified time: 2018-02-03 17:53:24
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -35,8 +35,6 @@ class Login extends Yang
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
             //在微信内打开
             $getuser = new Getuser;
-            //echo input('referrer');die;
-
             if (input('referrer')) {
                 Session::set('referrer',input('referrer'));
             }
@@ -56,6 +54,9 @@ class Login extends Yang
             $result = $getuser->getaccess_token($code);
             //echo $result;die;
             //是否成功 成功跳转
+            if (Session::get('isopenid')==1) {
+                $this->redirect(url('member/pay'));
+            }
             if ($result) {
                 if (Session::get('user.mobile') == '') {
                     return $this->fetch('phone');
@@ -490,6 +491,7 @@ class Login extends Yang
     public function noadmin()
     {
        Session::delete('user');
+       Session::delete('isopenid');
        Cookie::delete('user_id');
        $this->redirect('Index/index');
     }
@@ -507,12 +509,12 @@ class Login extends Yang
     /*
      * 测试用登录
      */
-    public function admin()
-    {
-       $arr = User::where(['id'=>120])->find();
-       Session::set('user',$arr);
-       Cookie::set('user_id',120);
-       echo 'ok';
-    }
+    // public function admin()
+    // {
+    //    $arr = User::where(['id'=>120])->find();
+    //    Session::set('user',$arr);
+    //    Cookie::set('user_id',120);
+    //    echo 'ok';
+    // }
 
 }

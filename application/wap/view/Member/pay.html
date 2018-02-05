@@ -229,7 +229,7 @@
 							微信手机WAP支付 </div><img class="img_ri" src="__WAP__/img/dui.png" />
 					</div>
 					<div class="figure_text">
-						温馨提示：当您在工作日内申请提现次日到账，节假日申请提现延顺到账。您申请提现时我们将收取0.6%手续费噢 ∩_∩。
+						温馨提示：当您在工作日内申请提现次日到账，节假日申请提现延顺到账。您申请提现时我们将收取{$lilv*100}%手续费噢 ∩_∩。
 					</div>
 					<button class="big-button press" id="big-button" onclick="reward()">朕要充值</button>
 					<a href="{:url('member/paygz')}" class="big-a">充值、提现规则</a>
@@ -310,14 +310,14 @@
 			$("#money1").bind('input', function() {
 				/*$(this).val(Math.abs($(this).val()));*/
 				if($("#money1").val() ==""){
-					
+
 				$("#num-sheep").text("0");
 				}else{
 					var va = parseInt($("#money1").val()) / 80;
 				/*充值除以单价*/
 				$("#num-sheep").text(parseInt(va));
 				}
-				
+
 			})
 		</script>
 		<script type="text/javascript">
@@ -342,6 +342,14 @@
 						overtop();
 						return false;
 					}
+					var openid = "{:session('user.openid')}";
+					if (openid=='') {
+						$(".overtop").text("正在获取微信授权");
+						$("#big-button").removeAttr("disabled");
+						overtop();
+						window.location = '{:url("login/wxlogin");}';
+						return false;
+					}
 					$.ajax({
 						//一个Ajax过程
 						type: "post", //以post方式与后台沟通
@@ -364,7 +372,7 @@
 						}
 					})
 				} else {
-					$(".overtop").text("提现金额不能为0");
+					$(".overtop").text("充值金额不能为0");
 					$("#big-button").removeAttr("disabled");
 					overtop();
 				}

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-21 13:43:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 11:10:59
+ * @Last Modified time: 2018-02-05 13:50:29
  */
 namespace app\wap\controller;
 use think\Controller;
@@ -54,6 +54,12 @@ class yang extends Controller
                 if ($user_login!=$user['user_login']) {
                     $this->redirect('wap/login/has');
                 }
+                if ($url=='Member/invite') {
+                    if (input('friends')!=$this->id) {
+                        $this->redirect('wap/Index/index');
+                    }
+                }
+
             }
         }
     }

@@ -192,7 +192,7 @@ max-height:200px;//最大高度*/
 
 			</div>
 			<input type="hidden" id="bank_id" value="{$arr.id}">
-			<p class="" style="width: 90%;margin-left: 5%; font-size: 14px;">温馨提示：当您在工作日内申请提现次日到账，节假日申请提现延顺到账。您申请提现时我们将收取0.6%手续费噢 ∩_∩。</p>
+			<p class="" style="width: 90%;margin-left: 5%; font-size: 14px;">温馨提示：当您在工作日内申请提现次日到账，节假日申请提现延顺到账。您申请提现时我们将收取{$arr.lilv*100}%手续费噢 ∩_∩。</p>
 			<!-- 			<p class="purchase_tip a9">
 				<input id="Jcarry_purchase" type="hidden" value=""> 注：您的余额还可购买
 				<span class="m_co" style="margin: 0;">0</span> 只常规羊。</p> -->
@@ -234,7 +234,7 @@ max-height:200px;//最大高度*/
 				}
 				var vas = va*(feis*1000)/1000;
 				ts1(vas);
-				
+
 			})
 function ts1(n) {
 				var one = n % 1;

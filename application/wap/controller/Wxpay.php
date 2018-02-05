@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-31 16:36:50
+ * @Last Modified time: 2018-02-03 17:31:45
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -58,11 +58,6 @@ class Wxpay extends Yang
                 /*此处做数据库的查询  这里操作数据库把产品信息显示出来*/
                 //设置统一支付接口参数
                 //设置必填参数
-                //appid已填,商户无需重复填写
-                //mch_id已填,商户无需重复填写
-                //noncestr已填,商户无需重复填写
-                //spbill_create_ip已填,商户无需重复填写
-                //sign已填,商户无需重复填写
                 $NOTIFY_URL=URLL.url('wxpay/weixinjsapnotify');
                 $unifiedOrder->setParameter("openid",$openid);//openid
                 $unifiedOrder->setParameter("body",'充值');//商品描述

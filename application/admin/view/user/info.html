@@ -1,0 +1,28 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">昵称：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+               <p>{$user.name}</p>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">手机号码：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+               <p>{$user.mobile}</p>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">余额：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+               <p>{$user.balance}</p>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+</div>
+{/block}
+{block name="script"}
+{/block}
