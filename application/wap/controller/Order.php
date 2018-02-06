@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-06 17:36:58
+ * @Last Modified time: 2018-02-06 18:17:55
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -108,7 +108,24 @@ class Order extends Yang
                     $arr['msg']='您输入的支付密码不正确';
                     throw new \think\Exception();
                 }
+                //红包
                 $balance = $user['balance'] - $row['order_price'];
+                if (!empty($data['packet'])) {
+                    $packet = UP::wehre(['id'=>$data['packet'],'number'=>['>',0]])->find();
+                    if (!isset($packet)) {
+                        $arr['msg']='红包非法';
+                        throw new \think\Exception()
+                    }
+                    $row['packet'] = $packet['money'];
+                    $balance = $balance - $packet['money'];
+                    $arr['msg']='红包减失败';
+                    if ($packet<2) {
+                        UP::wehre(['id'=>$data['packet']])->delete();
+                    }else{
+                        UP::wehre(['id'=>$data['packet']])->dec('number',1)->find();
+                    }
+                }
+
                 if ($balance < 0) {
                     $arr['msg'] = '您的余额不足!请充值!';
                     throw new \think\Exception();
@@ -128,6 +145,12 @@ class Order extends Yang
                 }
                 $orderss = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->find();
                 if (isset($orderss)) {
+
+                    if (!empty($orderss['packet']) && !empty($data['packet'])) {
+                        $arr['msg']='您已经使用过红包';
+                        throw new \think\Exception()
+                    }
+
                     $update['order_price'] = $orderss['order_price']+$order_price;
                     $update['sp_count'] = $orderss['sp_count']+$num;
                     $update['zexpect'] = substr(sprintf("%.3f",$update['order_price']*($comm['return_price']/100) / 360 * $comm['rate']),0,-1);
