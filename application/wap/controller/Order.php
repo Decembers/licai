@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 15:31:14
+ * @Last Modified time: 2018-02-06 17:36:58
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -14,6 +14,7 @@ use app\common\model\Commodity as C;
 use app\common\model\User as U;
 use app\common\model\Detail as D;
 use app\common\model\Referrer as R;
+use app\common\model\UserPacket as UP;
 
 class Order extends Yang
 {
@@ -189,7 +190,9 @@ class Order extends Yang
             $arr['jsprofit'] = $arr['expect'] * $arr['nexpect'];//养殖利润
             $this->assign('arr',$arr);
             $user = U::where(['id'=>$this->id])->find();
+            $packet = UP::where(['user_id'=>$this->id])->select();
             $this->assign('balance',$user['balance']);
+            $this->assign('packet',$packet);
             if ($arr['classify']==1) {
                 //常规羊群
                  if (time() < $arr['preselle_time']) {

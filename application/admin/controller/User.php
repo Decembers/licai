@@ -89,8 +89,15 @@ class User extends Controller
     public function info()
     {
         $id = input('id');
-        $user = Db::table('tp_detail')->where('user_id',$id)->select();
+        $or = input('or');
+        //echo $or;die;
+        $where['user_id']=$id;
+        if (isset($or)) {
+            $where['or']=$or;
+        }
+        $user = Db::table('tp_detail')->where($where)->select();
         $this->view->assign('list',$user);
+        $this->view->assign('id',$id);
         return $this->view->fetch();
     }
 }

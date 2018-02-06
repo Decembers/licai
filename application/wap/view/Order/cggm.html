@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/shop.css" />
-	
+
 		<style type="text/css">
 			/*开抢按钮 首行背景 颜色*/
 
@@ -159,7 +159,7 @@
 							<span class="em"></span><span style="font-size: 0.6rem;">）</span>
 						</p>
 					</div>
-					<div class="row row6">    
+					<div class="row row6">
 						<div>
 							<div class="">
 								<span>√</span>
@@ -196,11 +196,14 @@
 		<div id="red_select_list1">
 			<ul class="red_seclet white">
 				<li class="closeList"><span class="close-popup">关闭</span></li>
-				<li class="default_red close-popup">
-					<span class="fl"><span class="red_name">注册红包 </span><span>￥10元 </span> </span><span class="fr">剩余：20个</span>
+				{volist name="packet" id="vo"}
+				<li class="default_red close-popup" data-packet="{$vo.id}">
+					<span class="fl"><span class="red_name">注册红包 </span><span>￥{$vo.money}元 </span> </span><span class="fr">剩余：{$vo.number}个</span>
 					<input type="hidden" value="6104" class="red_xz">
 				</li>
+				{/volist}
 			</ul>
+			<input type="hidden" id="hongbao" value="">
 		</div>
 		<!--红包 结束-->
 		<p class="overtop"></p>
@@ -306,7 +309,7 @@
 			var profit = {$arr.jsprofit}; /*鹅利润*/
 			var zhon = parseFloat($("#em1").text());
 			var liday =  {$arr.rate};/*联养周期*/
-			
+
 			var lilu = {$arr.return_price};
 			var  kkkl = qian*lilu*liday/360/100;
 			var profit = kkkl; /*鹅利润*/

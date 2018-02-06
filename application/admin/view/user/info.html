@@ -1,6 +1,10 @@
 {extend name="template/base" /}
 {block name="content"}
 <div class="page-container">
+    <form class="mb-20" method="get" action="/admin/user/info/id/{$id}.html">
+        <input type="text" class="input-text" style="width:250px" placeholder="1充值,2提现,3购买" name="or" >
+        <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+    </form>
     <table class="table table-border table-bordered table-hover table-bg mt-20">
         <thead>
         <tr class="text-c">

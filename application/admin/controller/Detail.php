@@ -19,6 +19,9 @@ class Detail extends Controller
         if ($this->request->param("name")) {
             $map['name'] = ["like", "%" . $this->request->param("name") . "%"];
         }
+        if ($this->request->param("or")) {
+            $map['or'] = ["like", "%" . $this->request->param("or") . "%"];
+        }
     }
     /**
      * 充值详情

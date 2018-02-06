@@ -39,7 +39,7 @@
     <div class="page-bootstrap">{$page ?? ''}</div>
 </div>
 <script>
-    setInterval("clock()",5000);
+    var interval=setInterval("clock()",5000);
     function clock()
     {
         var id = $("#num").text();
@@ -55,9 +55,11 @@
                     var audio = document.createElement("audio");
                     audio.src = "/static/admin/song.mp3";
                     audio.addEventListener("canplaythrough",audio.play(),false);
+                    clearInterval(interval);
+
                     setTimeout(function(){
                         window.location.reload();
-                    },1000)
+                    },60000)
                 }
             }
         })

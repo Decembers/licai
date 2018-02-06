@@ -19,7 +19,7 @@
 				width: 95%;
 				margin: 0 auto;
 			}
-			
+
 			.wrapper ul li {
 				background-color: white;
 				color: #a9a9a9;
@@ -31,33 +31,33 @@
 				border-radius: 1rem;
 				margin-top: 0.5rem;
 			}
-			
+
 			.wrapper ul li>div>div:nth-child(1) {
 				line-height: 2.5rem;
 			}
-			
+
 			.wrapper ul li>div>div:nth-child(2) {
 				line-height: 1.5rem;
 			}
-			
+
 			.wrapper ul li>div>div {
 				display: flex;
 			}
-			
+
 			.chtx {
 				font-size: 1.8rem;
 			}
-			
+
 			.fw_right div {
 				text-align: right;
 				display: flex;
 				font-size: 1.3rem;
 			}
-			
+
 			.fw_left div:nth-child(2) {
 				font-size: 1.3rem;
 			}
-			
+
 			.redPackets_0 {
 				width: 3.1rem;
 				height: 3.5rem;
@@ -66,11 +66,11 @@
 				background: url(__WAP__/img/hongbao.jpg) no-repeat;
 				background-size: cover;
 			}
-			
+
 			.ri {
 				color: black;
 			}
-			
+
 			.ri span:nth-child(2) {
 				font-size: 2.5rem;
 			}
@@ -105,7 +105,9 @@
 				</li>
 				{/volist}
 			</ul>
-
+		{if condition="!$arr"}
+			<div class="no_record"></div>
+		{/if}
 		</div>
 		<p class="overtop">签到成功</p>
 		<div class="background"></div>
