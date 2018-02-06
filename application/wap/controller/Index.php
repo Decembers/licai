@@ -3,6 +3,7 @@ namespace app\wap\controller;
 use app\wap\controller\Yang;
 use app\common\model\Commodity as C;
 use app\common\model\Notice as N;
+use app\common\model\Barner as B;
 
 class Index extends Yang
 {
@@ -14,7 +15,9 @@ class Index extends Yang
         $where['automation'] = 0;
         $cc = new C;
         $row = $cc->index($where);
+        $barner = B::select();
         $this->assign('row',$row);
+        $this->assign('barner',$barner);
         return $this->fetch();
     }
 

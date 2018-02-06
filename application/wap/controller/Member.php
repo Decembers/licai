@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-05 11:01:24
+ * @Last Modified time: 2018-02-05 17:23:27
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -157,7 +157,7 @@ class Member extends Yang
               $arr['msg'] = '提现金额必须为整数';
               return json_encode($arr);
             }
-            if (($money-$charge) > $kbalance) {
+            if (($money+$charge) > $kbalance) {
               $arr['msg'] = '提现金额大于可提现金额';
               return json_encode($arr);
             }

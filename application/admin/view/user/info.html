@@ -1,28 +1,41 @@
 {extend name="template/base" /}
 {block name="content"}
 <div class="page-container">
-        <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">昵称：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-               <p>{$user.name}</p>
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">手机号码：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-               <p>{$user.mobile}</p>
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">余额：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-               <p>{$user.balance}</p>
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">id</th>
+            <th width="">用户id</th>
+            <th width="">用途</th>
+            <th width="">金额</th>
+            <th width="">备注</th>
+            <th width="">创建时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.user_id}</td>
+            <td>
+            {if condition="$vo.or eq 1"}
+            充值
+            {elseif condition="$vo.or eq 2"}
+            提现
+            {else/}
+            购买
+            {/if}
+            </td>
+            <td>{$vo.money}</td>
+            <td>{$vo.comment}</td>
+            <td>{$vo.create_time|date="y-m-d h:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
 </div>
 {/block}
-{block name="script"}
-{/block}
+

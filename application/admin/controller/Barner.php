@@ -24,7 +24,6 @@ class Barner extends Controller
         if ($this->request->isAjax()) {
             // 插入
             $data = $this->request->except(['id']);
-            $data['isdelete'] = 0;
             $data['addtime'] = time();
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {

@@ -29,12 +29,12 @@ class Upload extends Controller
     public function upload()
     {
         $file = $this->request->file('file');
-        $path = ROOT_PATH . 'uploads/management/';
+        $path = ROOT_PATH . 'public/tmp/uploads/management/';
         $info = $file->move($path);
         if (!$info) {
             return ajax_return_error($file->getError());
         }
-        $data = '/uploads/management/' . $info->getSaveName();
+        $data = '/tmp/uploads/management/' . $info->getSaveName();
 
         $insert = [
             'cate'     => 3,

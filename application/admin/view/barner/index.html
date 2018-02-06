@@ -4,7 +4,7 @@
     {include file="form" /}
     <div class="cl pd-5 bg-1 bk-gray">
         <span class="l">
-            {tp:menu menu="add,forbid,resume,delete,recyclebin" /}
+            {tp:menu menu="add" /}
         </span>
         <span class="r pt-5 pr-5">
             共有数据 ：<strong>{$count ?? '0'}</strong> 条
@@ -22,9 +22,8 @@
         <tr class="text-c">
             {include file="td" /}
             <td class="f-14">
-                {$vo.status|show_status=$vo.id}
                 {tp:menu menu='sedit' /}
-                {tp:menu menu='sdelete' /}
+                <a href="javascript:;" onclick="del_forever(this,'{$vo.id}','/admin/barner/deleteforever.html')" class="label label-danger radius ml-5">彻底删除</a>
             </td>
         </tr>
         {/volist}

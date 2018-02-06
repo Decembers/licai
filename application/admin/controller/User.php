@@ -9,7 +9,6 @@ use think\Loader;
 use think\exception\HttpException;
 use think\Config;
 
-
 class User extends Controller
 {
     use \app\admin\traits\controller\Controller;
@@ -90,8 +89,8 @@ class User extends Controller
     public function info()
     {
         $id = input('id');
-        $user = Db::table('tp_user')->where('id',$id)->find();
-        $this->view->assign('user',$user);
+        $user = Db::table('tp_detail')->where('user_id',$id)->select();
+        $this->view->assign('list',$user);
         return $this->view->fetch();
     }
 }

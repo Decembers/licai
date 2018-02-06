@@ -3,9 +3,6 @@
 <div class="page-container">
 
     <div class="cl pd-5 bg-1 bk-gray">
-        <span class="l">
-            {tp:menu menu="delete" /}
-        </span>
         <span class="r pt-5 pr-5">
             共有数据 ：<strong>{$count ?? '0'}</strong> 条
         </span>
@@ -26,8 +23,8 @@
         {volist name="list" id="vo"}
         <tr class="text-c">
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
-            <td>{$vo.user_id}</td>
-            <td>{$vo.bank_id}</td>
+            <td onclick="layer_open('用户详情', '/admin/order/info/id/{$vo.user_id}.html')">{$vo.user_id}</td>
+            <td onclick="layer_open('提现银行详情', '/admin/bank/index/id/{$vo.bank_id}.html')">{$vo.bank_id}</td>
             <td>{$vo.money}</td>
             <td>{$vo.status|get_status}</td>
             <td>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</td>

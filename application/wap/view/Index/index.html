@@ -164,13 +164,13 @@
 
 		<script type="text/javascript">
 			host = window.location.host;
-				
+
 //if(host=="licai.com"){
 					/*window.location.href = "/wap/index/index/id/12.html";*/
 					//window.location.href = "/wap/index/index.html?id/12";
 					//window.location.href = "?id/12";
 				//}
-		
+
 		</script>
 	</head>
 
@@ -178,7 +178,7 @@
 
 		<div class="wrapper" style="padding-bottom: 1px;">
 
-			<!--移动端 长按下滑-->0
+			<!--移动端 长按下滑-->
 
 			<!--<div class="pull-to-refresh-layer">
 
@@ -193,12 +193,13 @@
 				<!-- 轮播（Carousel）指标     引用bootstrap -->
 
 				<ol class="carousel-indicators">
-
+					{volist name="barner" id="voss"}
+					{if condition="$i eq 1"}
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-
-					<li data-target="#myCarousel" data-slide-to="2"></li>
+					{else /}
+					<li data-target="#myCarousel" data-slide-to="{$i - 1}"></li>
+					{/if}
+					{/volist}
 
 				</ol>
 
@@ -206,29 +207,19 @@
 
 				<div class="carousel-inner">
 
+					{volist name="barner" id="vos"}
+					{if condition="$i eq 1"}
 					<div class="item active">
-
-						<img src="__WAP__/img/banner1.jpg" alt="First slide">
-
+						<img src="{$vos.img}">
 						<div class="carousel-caption"></div>
-
 					</div>
-
+					{else /}
 					<div class="item">
-
-						<img src="__WAP__/img/banner2.jpg" alt="Second slide">
-
+						<img src="{$vos.img}">
 						<div class="carousel-caption"></div>
-
 					</div>
-
-					<div class="item">
-
-						<img src="__WAP__/img/banner3.jpg" alt="Third slide">
-
-						<div class="carousel-caption"></div>
-
-					</div>
+					{/if}
+					{/volist}
 
 				</div>
 

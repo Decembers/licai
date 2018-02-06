@@ -1,0 +1,37 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+<th width="25"><input type="checkbox"></th>
+<th width="">id</th>
+<th width="">手机号码</th>
+<th width="">余额</th>
+<th width="">昵称</th>
+<th width="">状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+<td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td>{$vo.id|high_light=$Request.param.id}</td>
+<td>{$vo.mobile|high_light=$Request.param.mobile}</td>
+<td>{$vo.balance}</td>
+<td>{$vo.name|high_light=$Request.param.name}</td>
+<td>
+{if condition="$vo.status eq 1"}
+<i class="Hui-iconfont status c-success" title="正常"></i>
+{else /}
+<i class="Hui-iconfont status c-warning" title="禁用"></i>
+{/if}
+</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}
+

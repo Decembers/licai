@@ -3,9 +3,6 @@
 <div class="page-container">
     {include file="form" /}
     <div class="cl pd-5 bg-1 bk-gray">
-        <span class="l">
-            {tp:menu menu="add,delete" /}
-        </span>
         <span class="r pt-5 pr-5">
             共有数据 ：<strong>{$count ?? '0'}</strong> 条
         </span>
@@ -14,9 +11,9 @@
         <thead>
         <tr class="text-c">
             <th width="25"><input type="checkbox"></th>
-            <th width="">明细id</th>
+            <th width="">id</th>
             <th width="">用户id</th>
-            <th width="">充值或提现 金额</th>
+            <th width="">提现金额</th>
             <th width="">提现的手续费</th>
             <th width="">备注</th>
             <th width="">状态</th>
@@ -29,7 +26,7 @@
         <tr class="text-c">
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
             <td>{$vo.id}</td>
-            <td>{$vo.user_id}</td>
+            <td onclick="layer_open('用户详情', '/admin/order/info/id/{$vo.user_id}.html')">{$vo.user_id}</td>
             <td>{$vo.money}</td>
             <td>{$vo.charge}</td>
             <td>{$vo.comment}</td>

@@ -6,23 +6,9 @@
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red"></span>图片：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" name="img" value="{$vo.image ?? ''}" class="input-text" id="upload" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请填写图片url" style="width: 70%">
+                <input type="text" name="img" value="{$vo.img ?? ''}" class="input-text" id="upload" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请填写图片url" style="width: 70%">
                 <button type="button" class="btn btn-primary radius" onclick="layer_open('文件上传','{:\\think\\Url::build(\'Upload/index\', [\'id\' => \'upload\'])}')">上传</button>
                 <a onclick="$(this).attr('href', $('#upload').val())" type="button" class="btn btn-success radius" data-lightbox="preview">预览</a>
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">状态：</label>
-            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
-                <div class="radio-box">
-                    <input type="radio" name="status" id="status-1" value="1" checked>
-                    <label for="status-1">启用</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" name="status" id="status-0" value="0">
-                    <label for="status-0">禁用</label>
-                </div>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>

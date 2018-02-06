@@ -3,9 +3,6 @@
 <div class="page-container">
     {include file="form" /}
     <div class="cl pd-5 bg-1 bk-gray">
-        <span class="l">
-            {tp:menu menu="add,delete" /}
-        </span>
         <span class="r pt-5 pr-5">
             共有数据 ：<strong>{$count ?? '0'}</strong> 条
         </span>
@@ -14,11 +11,9 @@
         <thead>
         <tr class="text-c">
             <th width="25"><input type="checkbox"></th>
-            <th width=""></th>
+            <th width="">id</th>
             <th width="">用户id</th>
-            <th width="">用途</th>
-            <th width="">充值或提现 金额</th>
-            <th width="">提现的手续费</th>
+            <th width="">充值金额</th>
             <th width="">备注</th>
             <th width="">状态</th>
             <th width="">创建时间</th>
@@ -30,15 +25,12 @@
         <tr class="text-c">
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
             <td>{$vo.id}</td>
-            <td>{$vo.user_id}</td>
-            <td>{$vo.or }</td>
+            <td onclick="layer_open('用户详情', '/admin/order/info/id/{$vo.user_id}.html')">{$vo.user_id}</td>
             <td>{$vo.money}</td>
-            <td>{$vo.charge}</td>
             <td>{$vo.comment}</td>
             <td>{$vo.status|get_status}</td>
-            <td>{$vo.create_time}</td>
+            <td>{$vo.create_time|date="y-m-d h:i:s",###}</td>
             <td class="f-14">
-                {tp:menu menu='sedit' /}
                 {tp:menu menu='sdeleteforever' /}
             </td>
         </tr>
