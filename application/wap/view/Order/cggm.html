@@ -142,7 +142,7 @@
 					<div class="row">
 						<p><span>使用红包</span><span>超出不返还</span></p>
 						<p>
-							<span>请选择红包</span><span class="icon"></span>
+							<span id="redb">请选择红包</span><span class="icon"></span>
 						</p>
 					</div>
 					<div class="row">
@@ -445,6 +445,7 @@ pr();
 				$("#red_select_list1").css("top", "0");
 			})
 			/*选择红包 或关闭*/
+			var datapa = 0;
 			$("#red_select_list1 ul li").click(function() {
 				var tt = $("#red_select_list1 ul li").index($(this));
 				if(tt == 0) {
@@ -452,9 +453,12 @@ pr();
 				} else {
 					$("#red_select_list1").css("top", "100vh");
 					/*红包*/
-					var s1 = $(this).children().children().next().text();
-					var s2 = $(this).children().next().text();
-					/*alert(s1+" "+s2);*/
+					/*var s1 = $(this).children().children().next().text();
+					var s2 = $(this).children().next().text();*/
+					var ss = $(this).data("packet")
+					datapa = ss;
+					$("#redb").text("已选择红包")
+					
 				}
 			})
 
