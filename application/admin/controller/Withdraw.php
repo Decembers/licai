@@ -80,4 +80,13 @@ class Withdraw extends Controller
         }
     }
 
+    public function msg()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $num = Db::table("tp_withdraw")->count('id');
+            return json(['num'=>$num]);
+        }
+    }
+
 }

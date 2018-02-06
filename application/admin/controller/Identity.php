@@ -90,4 +90,12 @@ class Identity extends Controller
             return $this->view->fetch();
         }
     }
+    public function msg()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $num = Db::table("tp_identity")->count('id');
+            return json(['num'=>$num]);
+        }
+    }
 }

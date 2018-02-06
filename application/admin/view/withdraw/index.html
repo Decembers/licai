@@ -4,7 +4,7 @@
 
     <div class="cl pd-5 bg-1 bk-gray">
         <span class="r pt-5 pr-5">
-            共有数据 ：<strong>{$count ?? '0'}</strong> 条
+            共有数据 ：<strong id="num">{$count ?? '0'}</strong> 条
         </span>
     </div>
     <table class="table table-border table-bordered table-hover table-bg mt-20">
@@ -16,7 +16,7 @@
             <th width="">提现金额</th>
             <th width="">提现状态</th>
             <th width="">提现时间</th>
-            <th width="70">操作</th>
+            <th width="70">操作222</th>
         </tr>
         </thead>
         <tbody>
@@ -38,5 +38,31 @@
     </table>
     <div class="page-bootstrap">{$page ?? ''}</div>
 </div>
+<!-- <audio src="/static/admin/song.mp3" controls="controls">
+</audio> -->
+<script>
+    setInterval("clock()",5000);
+    function clock()
+    {
+        var id = $("#num").text();
+        $.ajax({
+            type: "POST", //提交方式
+            url: "{:url('withdraw/msg')}", //路径
+            data: {
+                "id": id,
+            },
+            dataType: "json", //数据，这里使用的是Json格式进行传输
+            success: function(result) {
+                if(result.num>id) {
+                    var audio = document.createElement("audio");
+                    audio.src = "/static/admin/song.mp3";
+                    audio.addEventListener("canplaythrough",audio.play(),false);
+                    setTimeout(function(){
+                        window.location.reload();
+                    },1000)
+                }
+            }
+        })
+    }
+</script>
 {/block}
-
