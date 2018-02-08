@@ -3,12 +3,13 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 17:42:35
+ * @Last Modified time: 2018-02-08 09:31:27
  */
 namespace  app\common\getuser;
 use think\Session;
 use think\Cookie;
 use app\common\model\User;
+use app\common\model\UserPacket as UP;
 /**
 * 微信授权获取用户信息
 */
@@ -116,6 +117,12 @@ class Getuser
                     $user_login = rand('10000000','99999999');
                     User::where(['openid'=>$userinfo['openid']])->update(['user_login'=>$user_login]);
                     $userx['user_login'] = $user_login;
+
+                    $up['user_id'] =  $res['id'];
+                    $up['number'] =  5;
+                    $up['money'] =  20;
+                    $up['remark'] = '注册红包';
+                    UP::insert($up);
 
                     Session::set('user',$userx);
                     Cookie::set('user_id',$userx['id'],2592000);

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-06 18:17:55
+ * @Last Modified time: 2018-02-06 19:13:17
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -60,7 +60,7 @@ class Order extends Yang
             $row['isdelete'] = 0;
             $row['create_time'] = time();
             $row['update_time'] = time();
-
+            $row['packet'] = 0;
 
 
             if ($num>$restriction) {
@@ -110,19 +110,22 @@ class Order extends Yang
                 }
                 //红包
                 $balance = $user['balance'] - $row['order_price'];
+                        // $arr['msg']=$data['packet'];
+                        // throw new \think\Exception();
+                $packet = '';
                 if (!empty($data['packet'])) {
-                    $packet = UP::wehre(['id'=>$data['packet'],'number'=>['>',0]])->find();
+                    $packet = UP::where(['id'=>$data['packet'],'number'=>['>',0]])->find();
                     if (!isset($packet)) {
                         $arr['msg']='红包非法';
-                        throw new \think\Exception()
+                        throw new \think\Exception();
                     }
                     $row['packet'] = $packet['money'];
-                    $balance = $balance - $packet['money'];
-                    $arr['msg']='红包减失败';
-                    if ($packet<2) {
-                        UP::wehre(['id'=>$data['packet']])->delete();
+                    $balance = $balance + $packet['money'];
+                    $arr['msg'] ='红包减失败';
+                    if ($packet['number']<2) {
+                        UP::where(['id'=>$data['packet']])->delete();
                     }else{
-                        UP::wehre(['id'=>$data['packet']])->dec('number',1)->find();
+                        UP::where(['id'=>$data['packet']])->dec('number',1)->update();
                     }
                 }
 
@@ -146,17 +149,23 @@ class Order extends Yang
                 $orderss = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->find();
                 if (isset($orderss)) {
 
-                    if (!empty($orderss['packet']) && !empty($data['packet'])) {
+                    if ($orderss['packet']!=0 && $data['packet']!=0) {
                         $arr['msg']='您已经使用过红包';
-                        throw new \think\Exception()
+                        throw new \think\Exception();
                     }
 
                     $update['order_price'] = $orderss['order_price']+$order_price;
                     $update['sp_count'] = $orderss['sp_count']+$num;
                     $update['zexpect'] = substr(sprintf("%.3f",$update['order_price']*($comm['return_price']/100) / 360 * $comm['rate']),0,-1);
+                    $arr['msg']='您已经使用ffdff包';
+                    if (!empty($data['packet'])) {
+                        $update['packet'] = $packet['money'];
+                    }
                     $ara = Db::table('tp_order')
                     ->where(['user_id'=>$this->id,'sp_id'=>$sp_id])
                     ->update($update);
+
+
 
                     if ($user['referrer']!=0) {
                         $referrer = R::where(['user_id'=>$user['referrer'],'buser_id'=>$user['id'],'order_id'=>$orderss['id']])->find();

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-03 17:53:24
+ * @Last Modified time: 2018-02-08 09:27:49
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -13,6 +13,7 @@ use think\Session;
 use think\Cookie;
 use app\common\model\User;
 use app\common\getuser\Getuser;
+use app\common\model\UserPacket as UP;
 
 /**
 * 会员管理
@@ -127,6 +128,7 @@ class Login extends Yang
             $row['integral']=1000;
             $row['referrer']=$referrer;
             $res = User::insert($row);
+
             if ($res!==false) {
                 Session::delete($mobile);
                 Session::delete($times);
@@ -136,6 +138,13 @@ class Login extends Yang
                 $res['user_login'] = $user_login;
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
+
+                $up['user_id'] =  $res['id'];
+                $up['number'] =  5;
+                $up['money'] =  20;
+                $up['remark'] = '注册红包';
+                UP::insert($up);
+
                 $url = url("login/identity");
                 return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
             }

@@ -216,6 +216,9 @@
 		<script src="__WAP__/js/time.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
+			var datapa = 0;//红包id
+
+
 			$(".row6>div>div").click(function() {
 				$(this).toggleClass("dui");
 				var duis = $(this).hasClass("dui");
@@ -445,7 +448,6 @@ pr();
 				$("#red_select_list1").css("top", "0");
 			})
 			/*选择红包 或关闭*/
-			var datapa = 0;
 			$("#red_select_list1 ul li").click(function() {
 				var tt = $("#red_select_list1 ul li").index($(this));
 				if(tt == 0) {
@@ -457,8 +459,9 @@ pr();
 					var s2 = $(this).children().next().text();*/
 					var ss = $(this).data("packet")
 					datapa = ss;
+					//alert(datapa);
 					$("#redb").text("已选择红包")
-					
+
 				}
 			})
 
@@ -519,7 +522,8 @@ pr();
 						data: {
 							"sp_id": sp_id,
 							"number": number,
-							"pay_pass": max6
+							"pay_pass": max6,
+							"packet" : datapa
 						},
 						dataType: "json", //数据，这里使用的是Json格式进行传输
 						success: function(result) {
