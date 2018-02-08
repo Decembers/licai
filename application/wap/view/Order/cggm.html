@@ -198,7 +198,8 @@
 				<li class="closeList"><span class="close-popup">关闭</span></li>
 				{volist name="packet" id="vo"}
 				<li class="default_red close-popup" data-packet="{$vo.id}">
-					<span class="fl"><span class="red_name">注册红包 </span><span>￥{$vo.money}元 </span> </span><span class="fr">剩余：{$vo.number}个</span>
+					<span class="fl">注册红包 &nbsp;&nbsp;￥<span>{$vo.money}</span>元 </span><span class="fr">剩余：<span>{$vo.number}</span>个</span>
+
 					<input type="hidden" value="6104" class="red_xz">
 				</li>
 				{/volist}
@@ -366,9 +367,43 @@ pr();
 				tofix($("#qian"), qian); /*鹅总价*/
 				tofix1(); /*鹅利润*/
 			}
-			/* 总价 利润 输出*/
+
+			/*红包选择 弹出*/
+			$(".detail3 .row:nth-child(3) p:nth-child(2)").click(function() {
+				$("#red_select_list1").css("top", "0");
+			})
+			/*选择红包 或关闭*/
+			var datapa = 0;
+			var s1 = 0;
+			$("#red_select_list1 ul li").click(function() {
+				var tt = $("#red_select_list1 ul li").index($(this));
+				if(tt == 0) {
+					$("#red_select_list1").css("top", "100vh");
+				} else {
+					$("#red_select_list1").css("top", "100vh");
+					/*红包*/
+					/*var s1 = $(this).children().children().children().text();
+					var s2 = $(this).children().next().children().text();*/
+					s1 = $("#red_select_list1 ul li:nth-child("+(tt+1)+") .fl span").text();
+					var s2 = $("#red_select_list1 ul li:nth-child("+(tt+1)+") .fr span").text();
+					var ss = $(this).data("packet")
+					datapa = ss;
+					$("#redb").text("已选择红包")
+
+					bian();
+				}
+			})
+/* 总价 利润 输出*/
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
+				if(s1==0){
+
+				}else if(s1>zong){
+
+				}else{
+					zong = zong-s1;
+				}
+
 				if(zong % 1 ==0){
 					st.text(zong + ".00");
 				}else{
@@ -443,27 +478,6 @@ pr();
 						}
 				}
 			}
-			/*红包选择 弹出*/
-			$(".detail3 .row:nth-child(3) p:nth-child(2)").click(function() {
-				$("#red_select_list1").css("top", "0");
-			})
-			/*选择红包 或关闭*/
-			$("#red_select_list1 ul li").click(function() {
-				var tt = $("#red_select_list1 ul li").index($(this));
-				if(tt == 0) {
-					$("#red_select_list1").css("top", "100vh");
-				} else {
-					$("#red_select_list1").css("top", "100vh");
-					/*红包*/
-					/*var s1 = $(this).children().children().next().text();
-					var s2 = $(this).children().next().text();*/
-					var ss = $(this).data("packet")
-					datapa = ss;
-					//alert(datapa);
-					$("#redb").text("已选择红包")
-
-				}
-			})
 
 			/*商铺辅助鹅群说明*/
 			/*$("a.found").click(function() {

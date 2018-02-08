@@ -478,7 +478,7 @@ body,
 	justify-content: space-between;
 	font-size: 0.9rem;
 }
-.default_red .fl{
+.default_red .fl,.default_red .fr{
 	display: flex;
 
 }
