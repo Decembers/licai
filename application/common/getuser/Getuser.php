@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-08 09:31:27
+ * @Last Modified time: 2018-02-08 10:00:22
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -118,10 +118,11 @@ class Getuser
                     User::where(['openid'=>$userinfo['openid']])->update(['user_login'=>$user_login]);
                     $userx['user_login'] = $user_login;
 
-                    $up['user_id'] =  $res['id'];
-                    $up['number'] =  5;
-                    $up['money'] =  20;
-                    $up['remark'] = '注册红包';
+                    $ups = UP::where(['id'=>1])->find();
+                    $up['user_id'] =  $userx['id'];
+                    $up['number'] =  $ups['number'];
+                    $up['money'] =  $ups['money'];
+                    $up['remark'] = $ups['money'];
                     UP::insert($up);
 
                     Session::set('user',$userx);

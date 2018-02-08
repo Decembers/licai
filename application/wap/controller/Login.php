@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-08 09:27:49
+ * @Last Modified time: 2018-02-08 09:59:40
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -139,10 +139,11 @@ class Login extends Yang
                 Session::set('user',$res);
                 Cookie::set('user_id',$res['id'],2592000);
 
+                $ups = UP::where(['id'=>1])->find();
                 $up['user_id'] =  $res['id'];
-                $up['number'] =  5;
-                $up['money'] =  20;
-                $up['remark'] = '注册红包';
+                $up['number'] =  $ups['number'];
+                $up['money'] =  $ups['money'];
+                $up['remark'] = $ups['money'];
                 UP::insert($up);
 
                 $url = url("login/identity");

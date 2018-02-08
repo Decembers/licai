@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-06 19:13:17
+ * @Last Modified time: 2018-02-08 10:06:06
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -117,6 +117,10 @@ class Order extends Yang
                     $packet = UP::where(['id'=>$data['packet'],'number'=>['>',0]])->find();
                     if (!isset($packet)) {
                         $arr['msg']='红包非法';
+                        throw new \think\Exception();
+                    }
+                    if ($order_price<$packet['full']) {
+                        $arr['msg']='购买金额须满'.$packet['full'].'元才可使用红包!';
                         throw new \think\Exception();
                     }
                     $row['packet'] = $packet['money'];
