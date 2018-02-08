@@ -6,13 +6,13 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<!--<title>我的</title>-->
 		<title>趣味农场</title>
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/header.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/spirit.css" />
-		<link rel="stylesheet" type="text/css" href="css/media_quer.css" />
-		<script src="js/jQuery v2.1.1.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/media_quer-background.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
 			@media screen and (max-width: 900px) {
 				.wrapper {
@@ -21,110 +21,9 @@
 					box-sizing: border-box;
 				}
 			}
-			
-			.fillet {
-				box-sizing: border-box;
-				padding: 0 1rem;
-				margin: 0.5rem 0;
-			}
-			
-			.fillet ul li {
-				margin: 0 1rem;
-				padding: 1rem 0;
-				border-top: 1px solid #e5e5e5;
-			}
-			
-			.fillet ul li:nth-child(1) {
-				border: none;
-			}
-			
-			.form_modify {
-				position: relative;
-				margin: 0 auto;
-			}
-			
-			.form_modify .number {
-				background-position: left 28%;
-			}
-			
-			.form_modify .code {
-				background-position: left 67.5%;
-			}
-			
-			.form_modify .upwd,
-			.form_modify .more {
-				background-position: left 40%;
-			}
-			
-			.form_modify span {
-				position: absolute;
-				top: 1rem;
-				left: 0.5rem;
-				display: inline-block;
-				width: 2rem;
-				height: 3rem;
-				background: url(img/iconlist_01.png) no-repeat;
-				background-size: cover;
-			}
-			
-			.form_modify .ver_code,
-			.count_down {
-				position: absolute;
-				right: 0;
-				top: 1rem;
-				width: 8rem;
-				height: 3rem;
-				line-height: 3rem;
-				border-radius: 1.5rem;
-				font-size: 1.3rem;
-				color: #fff;
-				padding: 0;
-				border-bottom: 0;
-				background-color: #5ac3d8;
-				box-sizing: border-box;
-			}
-			
-			.count_down {
-				background-color: rgba(0, 0, 0, 0.6);
-			}
-			
-			.form_modify input {
-				width: 100%;
-				height: 3rem;
-				line-height: 3rem;
-				padding-left: 3rem;
-				box-sizing: border-box;
-				font-size: 1.3rem;
-			}
-			
-			.changed,
-			.pay-changed {
-				display: block;
-				width: 80%;
-				height: 4rem;
-				line-height: 4rem;
-				border-radius: 2rem;
-				font-size: 2rem;
-				color: #fff;
-				border: 0;
-				background: linear-gradient(to right, #3db4cc, #6fd6ea);
-				margin-left: 10%;
-				margin-top: 3rem;
-				text-align: center;
-			}
-			
-			.found {
-				color: #3db4cc !important;
-				font-size: 1.5rem;
-				height: 2rem;
-				line-height: 2rem;
-			}
-			.mb_re_pwd{
-				
-			}
 			.native-scroll{
 				width: 100%;			
-				background-image: url(img/qiandao.png);
+				background-image: url(__WAP__/img/qiandao.png);
 				  -moz-background-size:100% 100%;
 			   background-size:100% 100%;
 			   position: relative;
@@ -136,6 +35,61 @@
 				position: absolute;
 				left: 15%;
 			}
+			#mb_re_pwd>p{
+				display: flex;
+				justify-content: center;
+			}
+			#day{
+				padding: 0 5px;
+				color: red;
+				font-size: 16px;
+			}
+			.ul{
+				width: 100%;
+				position: relative;
+				height: 20px;
+				margin: 15px  0;
+			}
+			.ul p{
+				width: 100%;
+				display: flex;
+				justify-content:  space-between;
+				position: absolute;
+				top: 0;
+			}
+			.qi{
+				z-index: 20;
+			}
+			.qi span{
+				width: 16px;
+				height: 16px;
+				background-color: gray;
+				border-radius:50% ;
+				border: 1px solid  white ;
+				box-sizing: border-box;
+			}
+			.qx{
+				z-index: 10;
+				padding-top: 7px;
+				
+			}
+			.qx span{
+				flex-grow: 1;
+				height: 2px;
+				background-color: gray;
+			}
+			#but{
+				width: 70%;
+				height: 25px;
+				lighting-color: 25px;
+				background-color: red;
+				border-radius:5px ;
+				color: white;
+				margin: 5px  15%;
+			}
+			.qi .blue,.qx .blue{
+				background-color: #4CC5FB !important;
+			}
 		</style>
 	</head>
 
@@ -143,17 +97,21 @@
 		<div class="wrapper">
 			<div class="header">
 
-				<h3>绑定手机号码</h3>
+				<h3>签到</h3>
 				<!--<a href="###">交易统计</a>-->
 			</div>
 			<div class="content bgCo native-scroll">
 				<!-- 这里是页面内容区 -->
 
 				<div class="register_login bgCo" id="mb_re_pwd">
-					<p>第<span id="">
-						0
+					<p>第<span id="day">
+						1
 					</span>天</p>
-					<buttom>今日签到</buttom>
+					<div class="ul">
+						<p class="qi"><span class=""></span><span class=""></span><span class="" ></span><span class=""></span><span class=""></span><span class=""></span><span></span></p>
+						<p class="qx"><span></span><span></span><span></span><span></span><span></span><span></span></p>
+					</div>
+					<button id="but">今日签到</button>
 				</div>
 
 			</div>
@@ -161,10 +119,29 @@
 		</div>
 		<p class="overtop"></p>
 		<div class="background"></div>
-		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var dy = parseInt($("#day").text());
+			days(dy);
 			$(".native-scroll").height($(window).height()-40);
 			$("#mb_re_pwd").css("top",($(window).height()-40)/4+"px");
+			$("#but").click(function(){
+				$(this).css("background-color","gray");
+				$(this).text("已签到");			
+				$("#but").attr({"disabled": "disabled"});
+				var day = parseInt($("#day").text());
+				days(day+1);
+			})
+			function days(s){
+				var da =  parseInt(s);				
+				$("#day").text(da);				
+				for(var i = 0;i<(da+1);i++){
+					$(".qi span:nth-child("+i+")").addClass("blue");
+					if(i>1){
+						$(".qx span:nth-child("+(i-1)+")").addClass("blue");
+					}
+				}
+			}
 		</script>
 	</body>
 
