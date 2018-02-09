@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-08 10:00:22
+ * @Last Modified time: 2018-02-08 10:45:41
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -122,7 +122,8 @@ class Getuser
                     $up['user_id'] =  $userx['id'];
                     $up['number'] =  $ups['number'];
                     $up['money'] =  $ups['money'];
-                    $up['remark'] = $ups['money'];
+                    $up['remark'] = $ups['remark'];
+                    $up['full'] = $ups['full'];
                     UP::insert($up);
 
                     Session::set('user',$userx);

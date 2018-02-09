@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-08 09:59:40
+ * @Last Modified time: 2018-02-08 10:45:05
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -144,6 +144,7 @@ class Login extends Yang
                 $up['number'] =  $ups['number'];
                 $up['money'] =  $ups['money'];
                 $up['remark'] = $ups['money'];
+                $up['full'] = $ups['full'];
                 UP::insert($up);
 
                 $url = url("login/identity");
