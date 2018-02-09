@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-08 10:06:06
+ * @Last Modified time: 2018-02-09 15:44:45
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -329,21 +329,27 @@ class Order extends Yang
             $status['status'] = 2;
         }
         $ke = $ke+1;
-        if (time()>$comm['down_time']) {
-            $ar = [66,67,68];
-            $a1 = $comm['number']%3;
-            $a2 = $comm['number'] - $a1;
-            $a3 = $a2/3;
-            for ($i=0; $i < 3 ; $i++) {
-                $ke = $ke + $i;
-                $user = U::where(['id'=>$ar[$i]])->find();
-                $row[$ke]['name'] = $user['name'];
-                $row[$ke]['create_time'] = $comm['down_time'] - 100*$ke;
-                $row[$ke]['sp_count'] = $a3;
-                if ($i==2) {
-                     $row[$ke]['sp_count'] = $a3+$a1;
+        if (time()>$comm['down_time']&&$comm['number']!=0) {
+            if ($comm['number']>3) {
+                $ar = [66,67,68];
+                $a1 = $comm['number']%3;
+                $a2 = $comm['number'] - $a1;
+                $a3 = $a2/3;
+                for ($i=0; $i < 3 ; $i++) {
+                    $ke = $ke + $i;
+                    $user = U::where(['id'=>$ar[$i]])->find();
+                    $row[$ke]['name'] = $user['name'];
+                    $row[$ke]['create_time'] = $comm['down_time'] - 100*$ke;
+                    $row[$ke]['sp_count'] = $a3;
+                    if ($i==2) {
+                         $row[$ke]['sp_count'] = $a3+$a1;
+                    }
                 }
-
+            }else{
+                $user = U::where(['id'=>66])->find();
+                $row[$ke]['name'] = $user['name'];
+                $row[$ke]['create_time'] = $comm['down_time'] - 100;
+                $row[$ke]['sp_count'] = $comm['number'];
             }
         }
 
