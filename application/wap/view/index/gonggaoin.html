@@ -28,14 +28,15 @@
 			}
 
 			.text .card .card-header {
-				padding: 2rem 0rem;
+				padding: 20px 0px 10px 5px;
 				font-size: 1.5rem;
+				
 			}
 
 			.text .card .card-content {
 				line-height: 2rem;
 				font-size: 1.3rem;
-				padding: 0 1rem;
+				padding: 0 0.5rem;
 			}
 
 			.card-content-inner p, .card-content-inner>div,.card-content-inner>div>div{
@@ -48,6 +49,12 @@
 
 			.card-content-inner img {
 				width: 100%;
+			}
+			.time{
+				
+			margin-left: 0.5rem;
+				font-size: 15px;
+				color: gray;
 			}
 		</style>
 	</head>
@@ -67,9 +74,9 @@
 				<div class="text">
 					<div class="card">
 						<div class="card-header">{$notice.title}</div>
+						<p class="time">{$notice.create_time|date="y-m-d",###}</p>
 						<div class="card-content">
-							<div class="card-content-inner">
-								{$notice.create_time|date="y-m-d",###}
+							<div class="card-content-inner">								
 								{$notice.content}
 							</div>
 						</div>
