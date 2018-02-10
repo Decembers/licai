@@ -37,6 +37,7 @@
 				display: block;
 				width: 100%;
 				display: flex;
+				justify-content: space-between;
 			}
 			/*公告 左 图*/
 
@@ -60,25 +61,22 @@
 				overflow: hidden;
 				font-size: 1.2rem;
 				color: black;
+				opacity: 0.7;
 			}
 
 			.announ_words {
 				height: auto;
 				width: 60%;
+				
 			}
 
 			.announ_list li .announ_words p {
 				color: #a9a9a9;
 				font-size: 0.9rem;
-				margin-left: 0.5rem;
+				
 			}
 
-			.announ_words .announ_date2 {
-				position: absolute;
-				bottom: 0.5rem;
-				left: 6.35rem;
-			}
-			/*公告 结束*/
+			
 		</style>
 	</head>
 
@@ -102,7 +100,7 @@
 								<a href="{:url('index/gonggaoin',['id'=>$vo.id])}">
 									<div class="announ_logo fl" style="background-image: url({$vo.image}) no-repeat center center;"><!--<img src="{$vo.image}" width="80" height="60">--></div>
 									<div class="announ_words">
-										<h5>{$vo.title}</h5>
+										<h5>【{$vo.title}】</h5>
 
 										<p class="announ_date2">{$vo.create_time|date="Y-m-d",###}</p>
 									</div>
