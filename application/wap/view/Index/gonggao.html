@@ -100,11 +100,11 @@
 {volist name="notice" id="vo"}
 							<li class="fillet">
 								<a href="{:url('index/gonggaoin',['id'=>$vo.id])}">
-									<div class="announ_logo fl" style="background: url({$vo.image}) no-repeat center center;"><!--<img src="{$vo.image}" width="80" height="60">--></div>
+									<div class="announ_logo fl" style="background-image: url({$vo.image}) no-repeat center center;"><!--<img src="{$vo.image}" width="80" height="60">--></div>
 									<div class="announ_words">
 										<h5>{$vo.title}</h5>
 
-										<p class="announ_date2">{$vo.create_time|date="y-m-d",###}</p>
+										<p class="announ_date2">{$vo.create_time|date="Y-m-d",###}</p>
 									</div>
 								</a>
 							</li>
