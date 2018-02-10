@@ -27,17 +27,33 @@
 
 			.native-scroll{
 				width: 100%;
-				background-image: url(__WAP__/img/qiandao.png);
+				/*background-image: url(__WAP__/img/qiandao.png);
 				  -moz-background-size:100% 100%;
-			   background-size:100% 100%;
-			   position: relative;
+			   background-size:100% 100%;*/
+			  background-color: #00c6ff;
+			  margin: 0;
+			  
+			}
+			.native-scroll>h2,.native-scroll>p,.native-scroll>h4,.native-scroll>h5{
+				margin: 0;
+				width: 100%;
+				text-align: center;
+				color: white;
+			}
+			.native-scroll>h2{
+				color: #fafc00;
+				padding: 20px 0px ;
+				
+			}
+			.native-scroll>h5{
+				margin: 10px 0px;
 			}
 			#mb_re_pwd{
-				width: 70%;
-
+				width: 80%;
 				background-color: white;
-				position: absolute;
-				left: 15%;
+				border-radius:10px ;
+				padding: 10px 20px;
+				margin: 10px  auto;
 			}
 			#mb_re_pwd>p{
 				display: flex;
@@ -48,11 +64,19 @@
 				color: red;
 				font-size: 16px;
 			}
+			.qian{
+				width:100%;
+				margin: 5px  auto;
+				background-image: url(__WAP__/img/qian.png);
+				height: 30px;
+				-moz-background-size:100% 100%;
+			   background-size:100% 100%;
+			}
 			.ul{
 				width: 100%;
 				position: relative;
 				height: 20px;
-				margin: 15px  0;
+				margin: 30px  0;
 			}
 			.ul p{
 				width: 100%;
@@ -138,20 +162,60 @@
 				margin-right: -10px;
 
 			}
+			.jianglii{
+				width: 90%;
+				margin: 10px auto;	
+				overflow: hidden;			
+			}
+			.jianglii>div{
+				width: 48%;				
+				margin-bottom: 10px;
+				background-color: white;
+				border-radius: 10px;
+				height: 60px;
+				float: left;
+				
+			}
+			.jianglii>div:nth-child(odd){
+				margin-right: 4%;
+			}
+			.jianglii>div p{				
+				width: 100%;
+				text-align: center;
+			}
+			.jianglii>div p:nth-child(1){
+				font-size: 15px;
+			font-weight: bold;
+			line-height: 30px;
+			margin-top: 5px;
+			}
+			.jianglii>div p:nth-child(2){
+				font-size: 14px;
+			line-height: 20px;
+			}
+			.jianglii>p{
+				line-height: 25px;
+				text-indent:2em;
+				
+			}
 		</style>
 	</head>
 
-	<body>
+	<body style=" background-color: #00c6ff;">
 		<div class="wrapper">
 			<div class="header">
-
+<div class="">
+					<span class="icon"></span><span>返回</span>
+				</div>
 				<h3>签到</h3>
 				<!--<a href="###">交易统计</a>-->
 			</div>
 			<div class="content bgCo native-scroll">
 				<!-- 这里是页面内容区 -->
-
+				<h2>签到赢大奖</h2>
+				<p>活动时间：20127年10月10日-2018年2月30日</p>
 				<div class="register_login bgCo" id="mb_re_pwd">
+					<p  class="qian"></p>
 					<p>第<span id="day">
 						1
 					</span>天</p>
@@ -163,7 +227,32 @@
 					</div>
 					<button id="but">今日签到</button>
 				</div>
-
+				<h4>活动奖励</h4>
+				<div class="jianglii">
+					<div class="" >
+						<p>1元现金卷</p><p>每周首次签到</p>
+					</div>
+					<div class="">
+						<p>5元现金卷</p><p>每周连续3天签到</p>
+					</div>
+					<div class="">
+						<p>10元现金卷</p><p>每周连续7天签到</p>
+					</div>
+				</div>
+				<h4>活动规则</h4>
+				<h5>活动期间，签到即送好礼</h5>
+				<div class="jianglii">
+					
+						<p>1.每周首次签到即送1元现金卷（任意金额可用，每周限领取一次）；</p>
+						<p>2.每周连续3天签到即送5元现金卷（限2000元可用，每周限领取一次）；</p>
+					
+						<p>3.每周连续7天签到即送10元现金卷（限5000元可用）；</p>
+						<p>4.通过本活动领取的现金券，在领取之日起7日内有效；</p>
+						<p>5.签到次数当周累计，每周日24：00清零，下周重新计算，周一至周日为一个统计周期。</p>
+					
+						
+					
+				</div>
 			</div>
 
 		</div>
@@ -173,8 +262,8 @@
 		<script type="text/javascript">
 			var dy = parseInt($("#day").text());
 			days(dy);
-			$(".native-scroll").height($(window).height()-40);
-			$("#mb_re_pwd").css("top",($(window).height()-40)/4+"px");
+			/*$(".native-scroll").height($(window).height()-40);
+			$("#mb_re_pwd").css("top",($(window).height()-40)/4+"px");*/
 			$("#but").click(function(){
 				$(this).css("background-color","gray");
 				$(this).text("已签到");
