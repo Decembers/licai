@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 14:59:19
+ * @Last Modified time: 2018-02-10 15:06:00
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -215,6 +215,7 @@ class Order extends Yang
                 $detail['status']=1;
                 $detail['create_time']=time();
                 $detail['accomplish_time']=time();
+                Db::table('tp_detail')->insert($detail);
 
                 // 提交事务
                 Db::commit();
