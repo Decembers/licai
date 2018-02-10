@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 15:46:28
+ * @Last Modified time: 2018-02-10 17:26:09
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -110,6 +110,7 @@ class Order extends Yang
                 }
                 //红包
                 $balance = $user['balance'] - $row['order_price'];
+                $balanceinfo = $row['order_price'];
                         // $arr['msg']=$data['packet'];
                         // throw new \think\Exception();
                 $packet = '';
@@ -123,6 +124,7 @@ class Order extends Yang
                         $arr['msg']='购买金额须满'.$packet['full'].'元才可使用红包!';
                         throw new \think\Exception();
                     }
+                    $balanceinfo = $row['order_price'] - $packet['money'];
                     $row['packet'] = $packet['money'];
                     $balance = $balance + $packet['money'];
                     $arr['msg'] ='红包减失败';
@@ -155,15 +157,16 @@ class Order extends Yang
 
                 if (isset($orderss)) {
 
-                    if ($orderss['packet']!=0 && $data['packet']!=0) {
-                        $arr['msg']='您已经使用过红包';
-                        throw new \think\Exception();
-                    }
+                    //同一个羊群不能使用多次红包限制
+                    // if ($orderss['packet']!=0 && $data['packet']!=0) {
+                    //     $arr['msg']='您已经使用过红包';
+                    //     throw new \think\Exception();
+                    // }
 
                     $update['order_price'] = $orderss['order_price']+$order_price;
                     $update['sp_count'] = $orderss['sp_count']+$num;
                     $update['zexpect'] = substr(sprintf("%.3f",$update['order_price']*($comm['return_price']/100) / 360 * $comm['rate']),0,-1);
-                    $arr['msg']='您已经使用ffdff包';
+
                     if (!empty($data['packet'])) {
                         $update['packet'] = $packet['money'];
                     }
@@ -199,7 +202,7 @@ class Order extends Yang
 
                 $detail['user_id']=$this->id;
                 $detail['or']=3;
-                $detail['money']=$row['order_price'];
+                $detail['money']=$balanceinfo;
                 $detail['comment']='购买鹅只';
                 $detail['status']=1;
                 $detail['create_time']=time();

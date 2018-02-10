@@ -9,6 +9,7 @@ use think\Db;
 use think\Loader;
 use think\exception\HttpException;
 use think\Config;
+use app\common\model\UserPacket as UP;
 
 class Identity extends Controller
 {
@@ -67,9 +68,21 @@ class Identity extends Controller
             $authentication = 0;
             if ($data['status']==1) {
                 $authentication = 2;
+
+                $ups = UP::where(['id'=>2])->find();
+                $up['user_id'] =  $data['user_id'];
+                $up['number'] =  $ups['number'];
+                $up['money'] =  $ups['money'];
+                $up['remark'] = $ups['remark'];
+                $up['full'] = $ups['full'];
+                UP::insert($up);
+
             }else{
                 $authentication = 1;
             }
+
+
+
             U::where('id',$data['user_id'])->update(['authentication'=>$authentication]);
 
             return ajax_return_adv("修改成功");

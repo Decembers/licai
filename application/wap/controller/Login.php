@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 14:36:43
+ * @Last Modified time: 2018-02-10 17:11:55
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -144,7 +144,7 @@ class Login extends Yang
                 $up['user_id'] =  $res['id'];
                 $up['number'] =  $ups['number'];
                 $up['money'] =  $ups['money'];
-                $up['remark'] = $ups['money'];
+                $up['remark'] = $ups['remark'];
                 $up['full'] = $ups['full'];
                 UP::insert($up);
 
