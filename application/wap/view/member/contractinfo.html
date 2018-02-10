@@ -23,6 +23,9 @@
 				box-sizing: border-box;
 				border: 1px solid red;
 			}
+			.column{
+				text-indent:2em
+			}
 		</style>
 	</head>
 
@@ -100,45 +103,19 @@
 
 
 					<p><strong>本页为签署页。</strong></p>
-					<br><br><br><br><br>
-					<style>
-						.column {
-							text-indent: 30px;
-						}
-
-						.sn {
-							width: 161px;
-							height: 158px;
-							margin-top: -100px;
-							margin-left: 30px;
-						}
-
-						.ml {
-							width: 161px;
-							height: 158px;
-							margin-top: -100px;
-							margin-left: 30px;
-						}
-
-						.mg {
-							width: 161px;
-							height: 158px;
-							margin-top: -100px;
-							margin-left: 30px;
-						}
-					</style>
-					<p style="text-align: left;font-weight: 600;">甲方（盖章）：________________<br>法定代表人（签字）：__________<br>
-__________年_______月_______日</p>
+					<br><br>
+					
+					<p style="text-align: left;font-weight: 600;">甲方：农村家禽养殖专业合作社<br>法定代表人（签字）：王肖华<br>
+{$hetong.create_time|date="Y 年 m 月 d 日",###}</p>
 					<!--<div class="sn"><img src="img/sn.png"></div>-->
-					<br><br><br><br><br>
-					<p style="text-align: left;font-weight: 600;">乙方（盖章）：________________<br>
-法定代表人（签字）：{$hetong.username}<br>
+					<br><br>
+					<p style="text-align: left;font-weight: 600;">乙方（签字）：{$hetong.username}<br>
 {$hetong.create_time|date="Y 年 m 月 d 日",###}</p>
 					<!--<div class="ml"><img src="img/ml.png"></div>-->
 					<!--<br><br><br><br><br>
 					<p style="text-align: left;font-weight: 600;">锡林郭勒盟蒙高丽亚农牧业发展有限公司</p>-->
 					<!--<div class="mg"><img src="img/mg.png"></div>-->
-					<br><br><br><br><br>
+					<br><br>
 
 <!-- 					<p><strong>本页为鹅只编号。</strong></p>
 					<table border="1" style="margin: 0px auto; border-collapse: collapse; border: 1px solid rgb(0, 0, 0); width: 100%; ">
