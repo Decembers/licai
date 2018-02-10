@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-05 17:23:27
+ * @Last Modified time: 2018-02-10 14:47:06
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -326,6 +326,8 @@ class Member extends Yang
     //邀请
     public function invite()
     {
+        $rate = DB::table('tp_referrer_rate')->find();
+        $this->assign('rate',$rate['rate']*100);
         return $this->fetch();
     }
     public function invitehb()
@@ -340,7 +342,8 @@ class Member extends Yang
     {
         //查处推荐id等于本id的用户,循环查询赏金表
 
-        $user = U::where(['referrer'=>$this->id])->field('id,name,create_time')->select();
+        $user = U::where(['referrer'=>$this->id])->field('id,name,create_time')->order('invite_time desc')->select();
+        $rate = DB::table('tp_referrer_rate')->find();
         $num = 0;
         $money = 0;
         foreach ($user as $k => $v) {
@@ -348,6 +351,7 @@ class Member extends Yang
             $re=RE::where(['user_id'=>$this->id,'buser_id'=>$v['id']])->sum('money');
             $money += $re;
             $user[$k]['money'] = $re;
+            $user[$k]['rate'] = $rate['rate']*100;
         }
         $this->assign('user',$user);
         $this->assign('num',$num);

@@ -146,9 +146,9 @@
 						<p class="img"><img src="__WAP__/img/e.png" class="picDisplay"></p>
 					</div>
 					<div class="fw_right fr">
-						<p class="a1">当前会回报率：1.0000%</p>
+						<p class="a1">当前会回报率：{$vo.rate}%</p>
 						<p>注册时间：{$vo.create_time|date="y-m-d h:i",###}</p>
-						<p>已收回报： {$vo.money?? 0}元</p>
+						<p>已收回报： {$vo.money ? $vo.money : '0.00'}元</p>
 					</div>
 
 				</li>

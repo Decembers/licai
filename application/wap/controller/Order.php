@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 14:19:12
+ * @Last Modified time: 2018-02-10 14:59:19
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -151,6 +151,8 @@ class Order extends Yang
                     throw new \think\Exception();
                 }
                 $orderss = Db::table('tp_order')->where(['user_id'=>$this->id,'sp_id'=>$sp_id])->find();
+                $rate = DB::table('tp_referrer_rate')->find();
+
                 if (isset($orderss)) {
 
                     if ($orderss['packet']!=0 && $data['packet']!=0) {
@@ -170,10 +172,9 @@ class Order extends Yang
                     ->update($update);
 
 
-
                     if ($user['referrer']!=0) {
                         $referrer = R::where(['user_id'=>$user['referrer'],'buser_id'=>$user['id'],'order_id'=>$orderss['id']])->find();
-                        $money = substr(sprintf("%.3f",$update['order_price']*0.01),0,-1);
+                        $money = substr(sprintf("%.3f",$update['order_price']*$rate['rate']),0,-1);
                         R::where(['user_id'=>$user['referrer'],'buser_id'=>$user['id'],'order_id'=>$orderss['id']])
                         ->update(['money'=>$money]);
                         $innn = $money - $referrer['money'];
@@ -187,7 +188,7 @@ class Order extends Yang
                         $ref['user_id']=$user['referrer'];
                         $ref['buser_id']=$user['id'];
                         $ref['order_id']=$order_id;
-                        $ref['money']=substr(sprintf("%.3f",$order_price*0.01),0,-1);
+                        $ref['money']=substr(sprintf("%.3f",$order_price*$rate['rate']),0,-1);
                         $ref['create_time']=time();
                         R::insert($ref);
                         U::where(['id'=>$user['referrer']])->inc('balance',$ref['money'])->update();
@@ -206,6 +207,14 @@ class Order extends Yang
                 $arr['msg'] = '添加详细信息失败';
                 Db::table('tp_detail')->insert($detail);
 
+                //给推荐人
+                $detail['user_id']=$user['referrer'];
+                $detail['or']=4;
+                $detail['money']=$row['order_price']*$rate['rate'];
+                $detail['comment']='推荐赏金';
+                $detail['status']=1;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
 
                 // 提交事务
                 Db::commit();
