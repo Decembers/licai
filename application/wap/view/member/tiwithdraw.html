@@ -182,7 +182,7 @@ max-height:200px;//最大高度*/
 					<input class="fl" id="Jcarry_amount" type="number" placeholder="提现金额(禁止小数)" step="0" style="ime-mode:disabled" oninput="if(value.length>7)value=value.slice(0,7)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
 				</div>
 				<p class="info_num" style="color: #3db4cc;">
-					<!--<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>--><span>手续费：￥</span><span id="fei">0</span>
+					<!--<span>可提现：￥</span><span id="ti">{$arr.kbalance}</span>--><span>手续费：￥</span><span id="fei">0</span><span style="margin-left: 5px;">额外扣除</span>
 
 				</p>
 				<p class="a9 info_num">
