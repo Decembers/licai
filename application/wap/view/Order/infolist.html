@@ -161,7 +161,6 @@
 							<div class="buy_sheep_num fl">123</div>
 							<div class="fr">123</div>
 						</li>-->
-					{if condition="$status.status == 1"}
 					{volist name="row" id="vo"}
 						<li>
 							<div class="userName fl">
@@ -174,13 +173,7 @@
 							<div class="fr">{$vo.create_time|date="y-m-d h:i:s",###}</div>
 						</li>
 					{/volist}
-					{else /}
-						
-							<div>
-								暂无信息
-							</div>
-						
-					{/if}
+
 					</ul>
 				</div>
 			</div>
