@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 17:26:09
+ * @Last Modified time: 2018-02-10 17:46:05
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -330,10 +330,8 @@ class Order extends Yang
         $arr = O::where(['sp_id'=>$id])->field('user_id,create_time,sp_count')->order('sp_count desc')->select();
         $comm = C::where(['id'=>$id])->find();
         $row = [];
-        $status = [];
         $ke = 0;
         if (!empty($arr)) {
-            $status['status'] = 1;
             foreach ($arr as $k => $v) {
                 $user = U::where(['id'=>$v['user_id']])->find();
                 $row[$k]['name'] = $user['name'];
@@ -341,8 +339,6 @@ class Order extends Yang
                 $row[$k]['sp_count'] = $arr[$k]['sp_count'];
                 $ke = $k;
             }
-        }else{
-            $status['status'] = 2;
         }
         $ke = $ke+1;
         if (time()>$comm['down_time']&&$comm['number']!=0) {
@@ -370,7 +366,6 @@ class Order extends Yang
         }
 
         $this -> assign('row',$row);
-        $this -> assign('status',$status);
         return $this -> fetch();
     }
 
