@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 15:15:34
+ * @Last Modified time: 2018-02-10 15:46:28
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -218,7 +218,7 @@ class Order extends Yang
                 Db::table('tp_detail')->insert($detail);
 
                 //修改赏金排序
-                U::where(['id'=>$user['referrer']])->update(['invite_time'=>time()]);
+                U::where(['id'=>$user['id']])->update(['invite_time'=>time()]);
 
                 // 提交事务
                 Db::commit();
