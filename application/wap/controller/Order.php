@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-09 15:44:45
+ * @Last Modified time: 2018-02-10 14:19:12
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -316,7 +316,7 @@ class Order extends Yang
         $row = [];
         $status = [];
         $ke = 0;
-        if (isset($arr)) {
+        if (!empty($arr)) {
             $status['status'] = 1;
             foreach ($arr as $k => $v) {
                 $user = U::where(['id'=>$v['user_id']])->find();
