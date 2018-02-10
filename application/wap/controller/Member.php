@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 14:47:06
+ * @Last Modified time: 2018-02-10 16:10:43
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -55,12 +55,16 @@ class Member extends Yang
      */
     public function qiandao()
     {
-        $arr = ['code'=>1,'data'=>'','msg'=>''];
-        $user = U::where(['id'=>$this->id])->find();
-        $id = Session::get('user.id');
-        $integral = $user['integral']+20;
-        U::where(['id'=>$this->id])->update(['integral'=>$integral]);
-        return json_encode($arr);
+        if ($this->request->isajax()) {
+            $arr = ['code'=>1,'data'=>'','msg'=>''];
+            $user = U::where(['id'=>$this->id])->find();
+            $id = Session::get('user.id');
+            $integral = $user['integral']+20;
+            U::where(['id'=>$this->id])->update(['integral'=>$integral]);
+            return json_encode($arr);
+        }else{
+            return $this->fetch();
+        }
     }
     /*
      *账户明细
@@ -356,6 +360,15 @@ class Member extends Yang
         $this->assign('user',$user);
         $this->assign('num',$num);
         $this->assign('money',$money);
+        return $this->fetch();
+    }
+
+    //赏金明细
+    public function wdhyinfo()
+    {
+        $id = input('id');//用户id
+        $arr=RE::where(['user_id'=>$id])->select();
+        $this->assign('arr',$arr);
         return $this->fetch();
     }
     public function tghb()

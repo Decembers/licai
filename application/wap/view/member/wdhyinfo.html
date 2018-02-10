@@ -87,12 +87,8 @@
 				<div class="">
 					<span class="icon"></span><span>返回</span>
 				</div>
-				<h3>账户明细</h3>
+				<h3>赏金明细</h3>
 				<a href="###"></a>
-			</div>
-			<div class="integrel_balance">
-				<h5>￥{$balance}</h5>
-				<p>账户明细</p>
 			</div>
 		{if condition="$arr"}
 		{else /}
@@ -100,106 +96,18 @@
 		{/if}
 			<ul>
 			{volist name="arr" id="vo"}
-				{if condition="$vo.or eq 1"}
-					{if condition="$vo.status eq 1"}
 					<li>
 						<div class="fw_left fl">
 							<div class="chtx a1">
 							<b>+</b>{$vo.money}元
 							</div>
-							<div>操作金额</div>
+							<div>赏金金额</div>
 						</div>
 						<div class="fw_right fr">
-							<div >{$vo.comment}</div>
+							<div >购买</div>
 							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
 						</div>
 					</li>
-					{else /}
-					<li>
-						<div class="fw_left fl">
-							<div class="chtx a1">
-							<b></b>{$vo.money}元
-							</div>
-							<div>操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}&nbsp;&nbsp;&nbsp;未完成</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
-						</div>
-					</li>
-					{/if}
-				{elseif condition="$vo.or eq 2" /}
-					{if condition="$vo.status eq 1"}
-					<li>
-						<div class="fw_left fl ts">
-							<div class="chtx a1">
-							<b>-</b>{$vo.money}元
-							</div>
-							<div class="three">操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}&nbsp;&nbsp;&nbsp;提现成功</div>
-								<div>手续费：{$vo.charge}元</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
-						</div>
-					</li>
-					{elseif condition="$vo.status eq 2" /}
-					<li>
-						<div class="fw_left fl ts">
-							<div class="chtx a1">
-							<b></b>{$vo.money}元
-							</div>
-							<div class="three">操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}&nbsp;&nbsp;&nbsp;审核未通过</div>
-								<div>手续费：{$vo.charge}元</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
-						</div>
-					</li>
-					{else /}
-					<li>
-						<div class="fw_left fl ts">
-							<div class="chtx a1">
-							<b>-</b>{$vo.money}元
-							</div>
-							<div class="three">操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}&nbsp;&nbsp;&nbsp;审核中</div>
-								<div>手续费：{$vo.charge}元</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
-						</div>
-					</li>
-					{/if}
-				{elseif condition="$vo.or eq 3" /}
-					<li>
-						<div class="fw_left fl">
-							<div class="chtx a1">
-							<b>-</b>{$vo.money}元
-							</div>
-							<div>操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
-
-						</div>
-					</li>
-				{else /}
-					<li>
-						<div class="fw_left fl">
-							<div class="chtx a1">
-							<b>+</b>{$vo.money}元
-							</div>
-							<div>操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
-						</div>
-					</li>
-				{/if}
 			{/volist}
 
 			</ul>

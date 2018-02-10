@@ -6,13 +6,13 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 		<!--<title>我的</title>-->
 		<title>趣味农场</title>
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/header.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/spirit.css" />
-		<link rel="stylesheet" type="text/css" href="css/media_quer.css" />
-		<script src="js/jQuery v2.1.1.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/media_quer-background.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
 			@media screen and (max-width: 900px) {
 				.wrapper {
@@ -21,20 +21,20 @@
 					box-sizing: border-box;
 				}
 			}
-			
-			
-			
-			
+
+
+
+
 			.native-scroll{
-				width: 100%;			
-				background-image: url(img/qiandao.png);
+				width: 100%;
+				background-image: url(__WAP__/img/qiandao.png);
 				  -moz-background-size:100% 100%;
 			   background-size:100% 100%;
 			   position: relative;
 			}
 			#mb_re_pwd{
 				width: 70%;
-				
+
 				background-color: white;
 				position: absolute;
 				left: 15%;
@@ -75,7 +75,7 @@
 			.qx{
 				z-index: 10;
 				padding-top: 7px;
-				
+
 			}
 			.qx span{
 				flex-grow: 1;
@@ -95,10 +95,10 @@
 				background-color: #4CC5FB !important;
 			}
 			.red{
-				
-				
+
+
 				top: -20px !important;
-				
+
 			}
 			.z{
 				top: 15px !important;
@@ -108,35 +108,35 @@
 				width: 16px;
 				text-align: center;
 			}
-			.red span{				
+			.red span{
 				width: 36px;
 				height: 20px;
-				background-image: url(img/red.png);
+				background-image: url(__WAP__/img/red.png);
 				 -moz-background-size:100% 100%;
 			   background-size:100% 100%;
 			 font-size:10px;
 				text-align: center;
 				color: red;
-			   
+
 			}
 			.red .res:nth-child(1){
 				position: absolute;
 				left: 0;
 				margin-left: -10px;
-				
+
 			}
-		
+
 			.red .res:nth-child(2){
 				position: absolute;
 				left: 33.3%;
 				margin-left: -18px;
-				
+
 			}
 			.red .res:nth-child(3){
 				position: absolute;
 				right: 0;
 				margin-right: -10px;
-				
+
 			}
 		</style>
 	</head>
@@ -169,7 +169,7 @@
 		</div>
 		<p class="overtop"></p>
 		<div class="background"></div>
-		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var dy = parseInt($("#day").text());
 			days(dy);
@@ -177,18 +177,18 @@
 			$("#mb_re_pwd").css("top",($(window).height()-40)/4+"px");
 			$("#but").click(function(){
 				$(this).css("background-color","gray");
-				$(this).text("已签到");			
+				$(this).text("已签到");
 				$("#but").attr({"disabled": "disabled"});
 				var day = parseInt($("#day").text());
 				days(day+1);
 			})
 			function days(s){
-				var da =  parseInt(s);				
+				var da =  parseInt(s);
 				$("#day").text(da);
 				/*$(".qi span:nth-child("+das+")").css("background-color","#0894EC");
 				$(".qx span:nth-child("+da+")").css("background-color","#0894EC");*/
 				/*$(".qi span:nth-child("+da+")").addClass("blue");
-				
+
 				$(".qx span:nth-child("+(da-1)+")").addClass("blue");*/
 				for(var i = 0;i<(da+1);i++){
 					$(".qi span:nth-child("+i+")").addClass("blue");
