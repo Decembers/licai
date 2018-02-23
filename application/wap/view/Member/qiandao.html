@@ -220,7 +220,7 @@
 							{$user.sign_num}
 					</span>天</p>
 					<div class="ul">
-						<p class="red"><span class="res">3元</span><span class="res"class="res">5元</span><span class="res">10元</span></p>
+						<p class="red"><span class="res">1元</span><span class="res"class="res">5元</span><span class="res">10元</span></p>
 						<p class="qi"><span class=""></span><span class=""></span><span class="" ></span><span class=""></span><span class=""></span><span class=""></span><span></span></p>
 						<p class="qx"><span></span><span></span><span></span><span></span><span></span><span></span></p>
 						<p class="z"><span class="">1</span><span class="">2</span><span class="" >3</span><span class="">4</span><span class="">5</span><span class="">6</span><span>7</span></p>
@@ -243,10 +243,10 @@
 				<h5>活动期间，签到即送好礼</h5>
 				<div class="jianglii">
 
-						<p>1.每周首次签到即送1元现金卷（限200元可用，每周限领取一次）；</p>
-						<p>2.每周连续3天签到即送5元现金卷（限200元可用，每周限领取一次）；</p>
+						<p>1.每周首次签到即送1元现金卷（限80元可用，每周限领取一次）；</p>
+						<p>2.每周连续3天签到即送5元现金卷（限1000元可用，每周限领取一次）；</p>
 
-						<p>3.每周连续7天签到即送10元现金卷（限200元可用，每周限领取一次）；</p>
+						<p>3.每周连续7天签到即送10元现金卷（限2000元可用，每周限领取一次）；</p>
 						<p>4.通过本活动领取的现金券，在领取之日起7日内有效；</p>
 						<p>5.签到次数当周累计，每周日24：00清零，下周重新计算，周一至周日为一个统计周期。</p>
 
@@ -281,7 +281,7 @@
 						success: function(result) {
 							var aa = JSON.parse(result);
 							if (aa.code==1) {
-								alert(aa.code);
+								//alert(aa.code);
 
 								$("#but").css("background-color","gray");
 								$("#but").text("已签到");
@@ -290,7 +290,9 @@
 								days(day+1);
 
 							}else{
-								alert(aa.msg);
+								
+								$(".overtop").text(aa.msg);
+					overtop();
 							}
 						}
 					});
