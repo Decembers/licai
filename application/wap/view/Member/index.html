@@ -175,7 +175,7 @@
 								<div class="authened">{$authti}</div>
 							</div>
 							<div class="integral fr" >
-								<a class="sign_success" id="shan"><!--签到赚积分--></a>
+								<a class="sign_success" id="shan">签到领红包</a>
 								<span class="increase">+20</span>
 								<a href="{:url('member/qiandao')}">
 									我的签到
@@ -333,7 +333,16 @@
 			$(".authen_tip .fl").css("width", ($(".authen_tip").width() - $(".authen_tip .fr").width() - 5) + "px");
 			/*$("#picDisplay").width()*/
 			/*$("#picDisplay").css("margin-left","-"+($("#picDisplay").width()/2)+"px");*/
-
+$(".sign_success").click(function() {
+				$(this).text("已签到");
+				$(this).css("opacity", "0.5");
+				$(".overtop").text("签到成功");
+				$(".overtop").css("display", "block");
+				$(".overtop").css("opacity", "1");
+				setTimeout(function() {
+					$(".overtop").css("opacity", "0");
+				}, 2000);
+			})
 
 
 		</script>
