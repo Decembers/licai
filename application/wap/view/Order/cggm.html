@@ -378,6 +378,8 @@ pr();
 			/*选择红包 或关闭*/
 			var datapa = 0;
 			var s1 = 0;
+			var s2 = 0;
+			var lentes = 0;
 			$("#red_select_list1 ul li").click(function() {
 				var tt = $("#red_select_list1 ul li").index($(this));
 				if(tt == 0) {
@@ -387,12 +389,12 @@ pr();
 					/*红包*/
 					/*var s1 = $(this).children().children().children().text();
 					var s2 = $(this).children().next().children().text();*/
+					lentes = tt+1;
 					s1 = $("#red_select_list1 ul li:nth-child("+(tt+1)+") .fl span").text();
-					var s2 = $("#red_select_list1 ul li:nth-child("+(tt+1)+") .fr span").text();
+					s2 = $("#red_select_list1 ul li:nth-child("+(tt+1)+") .fr span").text();
 					var ss = $(this).data("packet")
 					datapa = ss;
-					$("#redb").text("已选择红包")
-
+					$("#redb").text("已选择红包");					
 					bian();
 				}
 			})
@@ -563,7 +565,17 @@ pr();
 									$("#profit").text(p1);
 									$("#max6").val("");
 									$("#big-button").removeAttr("disabled");
+									
 									datapa=0;
+									$("#redb").text("请选择红包");
+									if(lentes !=0){
+										if(s2==1){
+											$("#red_select_list1 ul li:nth-child("+lentes+")").remove();
+										}else{
+											$("#red_select_list1 ul li:nth-child("+lentes+") .fr span").text(s2-1);
+										}																			
+									}
+									
 
 									window.location = '{:url("Rancher/index")}';
 
