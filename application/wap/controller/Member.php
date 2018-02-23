@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 16:10:43
+ * @Last Modified time: 2018-02-11 10:09:59
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -56,13 +56,115 @@ class Member extends Yang
     public function qiandao()
     {
         if ($this->request->isajax()) {
+
             $arr = ['code'=>1,'data'=>'','msg'=>''];
             $user = U::where(['id'=>$this->id])->find();
-            $id = Session::get('user.id');
-            $integral = $user['integral']+20;
-            U::where(['id'=>$this->id])->update(['integral'=>$integral]);
+            //不是同一天,看是否是同一周
+            $end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']));
+            if (time()>$end_time) {
+                //进入下一周
+                $user = U::where(['id'=>$this->id])
+                ->update(['sign_time'=>time(),'sign_num'=>1]);
+                if ($user===false) {
+                    $arr['code'] = -200;
+                    $arr['msg'] = '签到失败';
+                    return json_encode($arr);
+                }
+
+                $ups = UP::where(['id'=>3])->find();
+
+                $userpa = UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                ->find();
+
+                if (isset($userpa)) {
+
+                    UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                    ->inc('number',$ups['number'])->update();
+
+                }else{
+
+                    $up['user_id'] =  $this->id;
+                    $up['number'] =  $ups['number'];
+                    $up['money'] =  $ups['money'];
+                    $up['remark'] = $ups['remark'];
+                    $up['full'] = $ups['full'];
+                    UP::insert($up);
+
+                }
+
+            }else{
+
+                if (date('Y-m-d') == date('Y-m-d',$user['sign_time'])) {
+                    $arr['code'] = -200;
+                    $arr['msg'] = '您已签过到';
+                    return json_encode($arr);
+                }
+                //本周签到
+                $users = U::where(['id'=>$this->id])
+                ->update(['sign_time'=>time(),'sign_num'=>$user['sign_num']+1]);
+                if ($users===false) {
+                    $arr['code'] = -200;
+                    $arr['msg'] = '签到失败';
+                    return json_encode($arr);
+                }
+
+                if ($user['sign_num']==2) {
+                    //已经签到3天
+                    $ups = UP::where(['id'=>4])->find();
+                    $userpa = UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                    ->find();
+                    if (isset($userpa)) {
+                        UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                        ->inc('number',$ups['number'])->update();
+                    }else{
+                        $up['user_id'] =  $this->id;
+                        $up['number'] =  $ups['number'];
+                        $up['money'] =  $ups['money'];
+                        $up['remark'] = $ups['remark'];
+                        $up['full'] = $ups['full'];
+                        UP::insert($up);
+                    }
+                }elseif ($user['sign_num']==6) {
+                    //已经签到7天
+                    $ups = UP::where(['id'=>5])->find();
+                    $userpa = UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                    ->find();
+                    if (isset($userpa)) {
+                        UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                        ->inc('number',$ups['number'])->update();
+                    }else{
+                        $up['user_id'] =  $this->id;
+                        $up['number'] =  $ups['number'];
+                        $up['money'] =  $ups['money'];
+                        $up['remark'] = $ups['remark'];
+                        $up['full'] = $ups['full'];
+                        UP::insert($up);
+                    }
+                }
+            }
+
+            $arr['msg'] = '签到成功';
             return json_encode($arr);
+
+
         }else{
+
+            $user = U::where(['id'=>$this->id])->find();
+
+            $end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']));//本周日
+            $user['jjjjj'] = 0;
+
+            if (time()>$end_time) {
+                U::where(['id'=>$this->id])->update(['sign_num'=>0]);
+
+            }else{
+
+                if (date('Y-m-d') == date('Y-m-d',$user['sign_time'])) {
+                    $user['jjjjj'] = 1;
+                }
+            }
+
+            $this->assign('user',$user);
             return $this->fetch();
         }
     }

@@ -32,7 +32,7 @@
 			   background-size:100% 100%;*/
 			  background-color: #00c6ff;
 			  margin: 0;
-			  
+
 			}
 			.native-scroll>h2,.native-scroll>p,.native-scroll>h4,.native-scroll>h5{
 				margin: 0;
@@ -43,7 +43,7 @@
 			.native-scroll>h2{
 				color: #fafc00;
 				padding: 20px 0px ;
-				
+
 			}
 			.native-scroll>h5{
 				margin: 10px 0px;
@@ -164,22 +164,22 @@
 			}
 			.jianglii{
 				width: 90%;
-				margin: 10px auto;	
-				overflow: hidden;			
+				margin: 10px auto;
+				overflow: hidden;
 			}
 			.jianglii>div{
-				width: 48%;				
+				width: 48%;
 				margin-bottom: 10px;
 				background-color: white;
 				border-radius: 10px;
 				height: 60px;
 				float: left;
-				
+
 			}
 			.jianglii>div:nth-child(odd){
 				margin-right: 4%;
 			}
-			.jianglii>div p{				
+			.jianglii>div p{
 				width: 100%;
 				text-align: center;
 			}
@@ -196,7 +196,7 @@
 			.jianglii>p{
 				line-height: 25px;
 				text-indent:2em;
-				
+
 			}
 		</style>
 	</head>
@@ -213,14 +213,14 @@
 			<div class="content bgCo native-scroll">
 				<!-- 这里是页面内容区 -->
 				<h2>签到赢大奖</h2>
-				<p>活动时间：20127年10月10日-2018年2月30日</p>
+				<p>活动时间：2018年1月1日-2018年12月1日</p>
 				<div class="register_login bgCo" id="mb_re_pwd">
 					<p  class="qian"></p>
 					<p>第<span id="day">
-						1
+							{$user.sign_num}
 					</span>天</p>
 					<div class="ul">
-						<p class="red"><span class="res">1元</span><span class="res"class="res">5元</span><span class="res">10元</span></p>
+						<p class="red"><span class="res">3元</span><span class="res"class="res">5元</span><span class="res">10元</span></p>
 						<p class="qi"><span class=""></span><span class=""></span><span class="" ></span><span class=""></span><span class=""></span><span class=""></span><span></span></p>
 						<p class="qx"><span></span><span></span><span></span><span></span><span></span><span></span></p>
 						<p class="z"><span class="">1</span><span class="">2</span><span class="" >3</span><span class="">4</span><span class="">5</span><span class="">6</span><span>7</span></p>
@@ -242,16 +242,16 @@
 				<h4>活动规则</h4>
 				<h5>活动期间，签到即送好礼</h5>
 				<div class="jianglii">
-					
-						<p>1.每周首次签到即送1元现金卷（任意金额可用，每周限领取一次）；</p>
-						<p>2.每周连续3天签到即送5元现金卷（限2000元可用，每周限领取一次）；</p>
-					
-						<p>3.每周连续7天签到即送10元现金卷（限5000元可用）；</p>
+
+						<p>1.每周首次签到即送1元现金卷（限200元可用，每周限领取一次）；</p>
+						<p>2.每周连续3天签到即送5元现金卷（限200元可用，每周限领取一次）；</p>
+
+						<p>3.每周连续7天签到即送10元现金卷（限200元可用，每周限领取一次）；</p>
 						<p>4.通过本活动领取的现金券，在领取之日起7日内有效；</p>
 						<p>5.签到次数当周累计，每周日24：00清零，下周重新计算，周一至周日为一个统计周期。</p>
-					
-						
-					
+
+
+
 				</div>
 			</div>
 
@@ -262,14 +262,40 @@
 		<script type="text/javascript">
 			var dy = parseInt($("#day").text());
 			days(dy);
+
+			var aa = '{$user.jjjjj}';
+			if(aa==1){
+				$("#but").css("background-color","gray");
+				$("#but").text("已签到");
+				$("#but").attr({"disabled": "disabled"});
+			}
+
+
 			/*$(".native-scroll").height($(window).height()-40);
 			$("#mb_re_pwd").css("top",($(window).height()-40)/4+"px");*/
 			$("#but").click(function(){
-				$(this).css("background-color","gray");
-				$(this).text("已签到");
-				$("#but").attr({"disabled": "disabled"});
-				var day = parseInt($("#day").text());
-				days(day+1);
+
+					$.ajax({
+						type: "POST", //提交方式
+						url: "{:url('Member/qiandao')}", //路径
+						success: function(result) {
+							var aa = JSON.parse(result);
+							if (aa.code==1) {
+								alert(aa.code);
+
+								$("#but").css("background-color","gray");
+								$("#but").text("已签到");
+								$("#but").attr({"disabled": "disabled"});
+								var day = parseInt($("#day").text());
+								days(day+1);
+
+							}else{
+								alert(aa.msg);
+							}
+						}
+					});
+
+
 			})
 			function days(s){
 				var da =  parseInt(s);

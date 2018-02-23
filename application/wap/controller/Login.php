@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 17:11:55
+ * @Last Modified time: 2018-02-10 18:26:31
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -126,6 +126,7 @@ class Login extends Yang
             $row['status']=1;
             $row['login_time']=time();
             $row['invite_time']=time();
+            $row['sign_time']=time();
             $row['integral']=1000;
             $row['referrer']=$referrer;
             $res = User::insert($row);

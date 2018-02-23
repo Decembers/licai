@@ -10,6 +10,7 @@ class Index extends Yang
     use \app\admin\traits\controller\Controller;
     public function index()
     {
+        
         $where['status'] = 1;
         $where['isdelete'] = 0;
         $where['automation'] = 0;
