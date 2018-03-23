@@ -123,6 +123,10 @@
 						<ul>
 							<li class="form_modify">
 								<span class="number"></span>
+								<input type="number" id="dl_mobile" name="dl_mobile" value="13203940281" placeholder="请输入新手机号" disabled="disabled">
+							</li>
+							<li class="form_modify">
+								<span class="number"></span>
 								<input type="number" id="dl_mobile1" name="dl_mobile" value="" placeholder="请输入新手机号" oninput="if(value.length>11)value=value.slice(0,11)">
 							</li>
 							<li class="form_modify">
@@ -151,9 +155,13 @@
 					overtop();
 				} else {
 					if(!(/^1[3456789]\d{9}$/.test($("#dl_mobile1").val()))) {
-						$(".overtop").text("手机号码有误，请重填")
+						$(".overtop").text("手机号码有误，请重填");
 						overtop();
 					} else {
+						if($("#dl_mobile1").val()==$("#dl_mobile1").val()){
+							$(".overtop").text("新手机号与原手机号相同");
+						overtop();
+						}else{
 						if($("#dl_mobile_code").val() == "") {
 							$(".overtop").text("请输入验证码");
 							overtop();
@@ -187,7 +195,7 @@
 									overtop();
 								}
 							});
-						}
+						}}
 					}
 				}
 			})
