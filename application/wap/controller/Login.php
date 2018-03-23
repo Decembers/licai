@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 18:26:31
+ * @Last Modified time: 2018-03-13 14:39:34
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -58,6 +58,7 @@ class Login extends Yang
             if (Session::get('isopenid')==1) {
                 $this->redirect(url('member/pay'));
             }
+
             if ($result) {
                 if (Session::get('user.mobile') == '') {
                     return $this->fetch('phone');

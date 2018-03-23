@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-11 10:09:59
+ * @Last Modified time: 2018-03-23 10:55:43
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -44,6 +44,16 @@ class Member extends Yang
         }else{
             $authti = '已认证';
         }
+        // 获得零点的时间戳
+        $time = strtotime(date('Ymd'));
+        // 获得今天24点的时间戳
+        $etime = strtotime(date('Ymd')) + 86400;
+        $sign = 0;
+        if ($user['sign_time']>$time && $user['sign_time']<$etime) {
+           $sign = 1;
+        }
+
+        $this->assign('sign',$sign);
         $this->assign('id',$id);
         $this->assign('name',$name);
         $this->assign('balance',$balance);

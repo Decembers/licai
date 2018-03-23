@@ -85,7 +85,6 @@ class User extends Controller
             return $this->view->fetch();
         }
     }
-
     public function info()
     {
         $id = input('id');
