@@ -399,7 +399,7 @@
 					<p><img src="__WAP__/img/icon/ren.png"/><span>李先生</span><span>13613820359</span></p>
 					<p><img src="__WAP__/img/icon/ditu.png"/><span>深圳市南山区科技园南区R2-B三楼</span></p>
 					<a href="" id="right"><span  class="fa fa-3x fa-angle-right">
-						
+
 					</span></a>
 				</div>
 				<div class="border"></div>
@@ -545,13 +545,12 @@
 							arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
 						};
 						console.log(arr);
-						arr = JSON.stringify(arr);
-						//console.log(arra);
+						arr = arr.join(',');
 
 						$.ajax({
 						    type : 'POST',
 						    url : "{:url('supermarket/shoppingorder')}",
-						    data : arr,
+						    data : {order:arr},
 						    success : function(data){
 						    	console.log(data);
 						    }
