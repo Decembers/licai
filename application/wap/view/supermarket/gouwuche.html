@@ -410,7 +410,7 @@
 				<ul class="sheep">
 					{volist name="shopping" id="data"}
 						<li>
-							<div class="dui">
+							<div class="dui" data-id="{$data.sp_id}">
 								<span>√</span>
 							</div>
 							<div class="imgs">
@@ -421,9 +421,9 @@
 								<p><span>￥</span><span class="qian">{$data.sp_price}</span></p>
 							</div>
 							<div class="shu">
-								<span class="jian">-</span>
+								<span class="jian" data-id="{$data.id}">-</span>
 								<p class="input">{$data.num}</p>
-								<span class="jia">+</span>
+								<span class="jia" data-id="{$data.id}">+</span>
 							</div>
 						</li>
 					{/volist}
@@ -531,7 +531,24 @@
 
 				if($(".sheep li").length>0){
 					if(th == true) {
-							window.location.href = "{:url('Supermarket/pay')}";
+						var arr = [];
+						for (var i = 0; i < $(".sheep .dui").length; i++) {
+							arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
+						};
+						console.log(arr);
+						arr = JSON.stringify(arr);
+						//console.log(arra);
+
+						$.ajax({
+						    type : 'POST',
+						    url : "{:url('supermarket/shoppingorder')}",
+						    data : arr,
+						    success : function(data){
+						    	console.log(data);
+						    }
+						})
+
+						//window.location.href = "{:url('Supermarket/pay')}";
 
 						}else{
 							$(".overtop").text("没有选中的商品");
@@ -551,12 +568,32 @@
 				var danjia = parseInt($(this).parent().prev().children("p:last-child").children("span:last-child").text()); //单价
 				var shus = $(this).prev().val();
 				sw();
+				id = $(this).attr('data-id');
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/shoppingja')}",
+				    data : {id:id},
+				    success : function(data){
+
+				    }
+				})
+
 			})
 			/*数量减*/
 			var nas;
 			$(".jian").click(function() {
 				var val = parseInt($(this).next().text());
 				if(val > 1) {
+					id = $(this).attr('data-id');
+					$.ajax({
+					    type : 'POST',
+					    url : "{:url('supermarket/shoppingj')}",
+					    data : {id:id},
+					    success : function(data){
+
+					    }
+					})
+
 					$(this).next().text(val - 1);
 					sw();
 				} else {

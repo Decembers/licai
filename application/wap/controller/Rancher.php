@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-23 13:59:03
+ * @Last Modified time: 2018-03-29 17:29:40
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -105,10 +105,10 @@ class Rancher extends Yang
                 $arr['msg'] = '请输入支付密码';
                 return json($arr);
             }
-            // if (time()<$com['over_time']) {
-            //     $arr['msg']='兑换时间还未开始!';
-            //     return json($arr);
-            // }
+            if (time()<$com['over_time']) {
+                $arr['msg']='兑换时间还未开始!';
+                return json($arr);
+            }
             if (time()>$com['convert_time']) {
                 $arr['msg']='兑换时间已结束!';
                 return json($arr);

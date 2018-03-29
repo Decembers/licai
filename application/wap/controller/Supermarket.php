@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-29 17:15:03
+ * @Last Modified time: 2018-03-29 18:51:06
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -42,7 +42,52 @@ class Supermarket extends Yang
 
         }
     }
+    //购物车减
+    public function shoppingj()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->find();
+            $supermarket = S::where('id', $shopping['sp_id'])->find();
 
+            Shopping::where('id', $id)->setDec('num',1);
+            Shopping::where('id', $id)->setDec('price',$supermarket['price']);
+        }
+    }
+    //购物车加
+    public function shoppingja()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->find();
+            $supermarket = S::where('id', $shopping['sp_id'])->find();
+
+            Shopping::where('id', $id)->setInc('num',1);
+            Shopping::where('id', $id)->setInc('price',$supermarket['price']);
+        }
+    }
+    //储存购物信息
+    public function shoppingorder()
+    {
+        if ($this->request->isAjax()) {
+            $data = input();
+            return json($data);
+            var_dump($data);die;
+            // $data['user_id'] = $this->id;
+            // $data['sp_id'] = (int)$data['sp_id'];
+            // $supermarket = S::where('id',$data['sp_id'])->find();
+            // $data['sj_id'] = $supermarket['user_id'];
+            // $shopping = Shopping::where($data)->find();
+            // $data['price'] = $supermarket['price'];
+            // if (!empty($shopping)) {
+            //     Shopping::where('id', $shopping['id'])->setInc('num',1);
+            //     Shopping::where('id', $shopping['id'])->setInc('price',$supermarket['price']);
+            // }else{
+            //     Shopping::insert($data);
+            // }
+
+        }
+    }
     public function lists()
     {
         return $this->fetch();
