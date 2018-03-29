@@ -35,6 +35,7 @@
             <td style="color:red">{if condition="$vo.status eq 1"}已完成{elseif condition="$vo.status eq 2" /}未通过{else/}未完成{/if}</td>
             <td>{$vo.create_time|date="y-m-d h:i:s",###}</td>
             <td class="f-14">
+                {tp:menu menu='sedit' /}
                 {tp:menu menu='sdeleteforever' /}
             </td>
         </tr>

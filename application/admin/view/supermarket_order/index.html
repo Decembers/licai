@@ -1,0 +1,61 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <form class="mb-20" method="get" action="{:\\think\\Url::build($Request.action)}">
+        <input type="text" class="input-text" style="width:250px" placeholder="订单编号" name="number" value="{$Request.param.number}" >
+        <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+    </form>
+    <div class="cl pd-5 bg-1 bk-gray">
+        <span class="r pt-5 pr-5">
+            共有数据 ：<strong>{$count ?? '0'}</strong> 条
+        </span>
+    </div>
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">订单编号</th>
+            <th width="">用户id</th>
+            <th width="">商品id</th>
+            <th width="">商品名称</th>
+            <th width="">商品价格</th>
+            <th width="">商品数量</th>
+            <th width="">订单价格</th>
+            <th width="">订单状态</th>
+            <th width="">订单取消原因</th>
+            <th width="">收获地址</th>
+            <th width="">创建时间</th>
+            <th width="">发货时间</th>
+            <th width="">完成时间</th>
+            <th width="70">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+            <td>{$vo.number|high_light=$Request.param.number}</td>
+            <td onclick="layer_open('用户信息', '/admin/user/user/id/{$vo.user_id}.html')">{$vo.user_id}</td>
+            <td onclick="layer_open('商品信息', '/admin/Supermarket/index_one/id/{$vo.sp_id}.html')">{$vo.sp_id}</td>
+            <td>{$vo.sp_name}</td>
+            <td>{$vo.price}</td>
+            <td>{$vo.quantity}</td>
+            <td>{$vo.order_price}</td>
+            <td style="color:red">{if condition="$vo.status eq 1"}待发货{elseif condition="$vo.status eq 2" /}已发货{elseif condition="$vo.status eq 3"/}已完成{else/}已取消{/if}</td>
+            <td>{$vo.remark}</td>
+            <td onclick="layer_open('收获地址', '/admin/Ress/index/id/{$vo.ress_id}.html')">{$vo.ress_id}</td>
+            <td>{$vo.create_time|date="y-m-d H:i",###}</td>
+            <td>{$vo.deliver_time|date="y-m-d H:i",###}</td>
+            <td>{$vo.yes_time|date="y-m-d H:i",###}</td>
+            <td class="f-14">
+                {tp:menu menu='sedit' /}
+                {tp:menu menu='sdeleteforever' /}
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}
+

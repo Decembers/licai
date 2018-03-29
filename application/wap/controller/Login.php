@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-13 14:39:34
+ * @Last Modified time: 2018-03-23 11:17:40
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -356,8 +356,8 @@ class Login extends Yang
  *修改手机号码
  */
     public function nomobile(){
+        $user = User::where(['id'=>$this->id])->find();
         if ($this->request->isAjax() && $this->request->isPost()){
-
                 $user = User::where(['id'=>$this->id])->find();
                 if ($user['mobile']=='') {
                      $arr['msg'] = '请先在设置中绑定手机号码!';
@@ -399,6 +399,7 @@ class Login extends Yang
                 }
                 return json(['code'=>1, 'msg'=>'重置手机号码失败']);
         }else{
+            $this->assign('mobile',$user['mobile']);
             return $this->fetch();
         }
     }

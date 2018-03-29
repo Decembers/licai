@@ -75,7 +75,7 @@
 				color: white;
 			}
 
-			
+
 		</style>
 	</head>
 
@@ -91,22 +91,25 @@
 				<!--超市物品展示-->
 				<div>
 					<ul class="integral_goods clearfix">
+					{volist name="supermarket" id="data"}
 						<li>
-							<a href="{:url('Supermarket/info')}">
+							<a href="{:url('Supermarket/info',['id'=>$data.id])}">
 								<div class="pro_pic">
-									<img src="__WAP__/img/5959ee9350d4c.jpg">
+									<img src="{$data.image}">
 								</div>
 								<div class="text_int">
-									<h5>平装礼盒</h5>
+									<h5>{$data.name}</h5>
 								</div>
 							</a>
 							<div class="text_con">
-								<span class="price"><i>￥</i><i >99</i></span>
-								<div class="f_r">
+								<span class="price"><i>￥</i><i >{$data.price}</i></span>
+								<div class="f_r" data-id="{$data.id}">
 								</div>
 							</div>
 						</li>
-						<li>
+					{/volist}
+
+<!-- 						<li>
 							<a href="{:url('Supermarket/info')}">
 								<div class="pro_pic">
 									<img src="__WAP__/img/5959edd60688c.jpg">
@@ -152,103 +155,7 @@
 
 								</div>
 							</div>
-						</li>
-						<li>
-							<a href="{:url('Supermarket/info')}">
-								<div class="pro_pic">
-									<img src="__WAP__/img/595617b6e853f.jpg">
-								</div>
-								<div class="text_int">
-									<h5>羊寸排</h5>
-								</div>
-							</a>
-							<div class="text_con">
-								<span class="price"><i>￥</i><i>499</i></span>
-								<div class="f_r">
-
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="{:url('Supermarket/info')}">
-								<div class="pro_pic">
-									<img src="__WAP__/img/59561844b1f79.jpg">
-								</div>
-								<div class="text_int">
-									<h5>高钙肉切块</h5>
-								</div>
-							</a>
-							<div class="text_con">
-								<span class="price"><i>￥</i><i>919</i></span>
-								<div class="f_r">
-
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="{:url('Supermarket/info')}">
-								<div class="pro_pic">
-									<img src="__WAP__/img/595618e48412b.jpg">
-								</div>
-								<div class="text_int">
-									<h5>羊前腿</h5>
-								</div>
-							</a>
-							<div class="text_con">
-								<span class="price"><i>￥</i><i>990</i></span>
-								<div class="f_r">
-
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="{:url('Supermarket/info')}">
-								<div class="pro_pic">
-									<img src="__WAP__/img/595619515cddc.jpg">
-								</div>
-								<div class="text_int">
-									<h5>羔羊大卷</h5>
-								</div>
-							</a>
-							<div class="text_con">
-								<span class="price"><i>￥</i><i>230</i></span>
-								<div class="f_r">
-
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="{:url('Supermarket/info')}">
-								<div class="pro_pic">
-									<img src="__WAP__/img/595619ce1b33b.jpg">
-								</div>
-								<div class="text_int">
-									<h5>太阳卷</h5>
-								</div>
-							</a>
-							<div class="text_con">
-								<span class="price"><i>￥</i><i>327</i></span>
-								<div class="f_r">
-
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="{:url('Supermarket/info')}">
-								<div class="pro_pic">
-									<img src="__WAP__/img/59561a4011f9e.jpg">
-								</div>
-								<div class="text_int">
-									<h5>后腿肉包</h5>
-								</div>
-							</a>
-							<div class="text_con">
-								<span class="price"><i>￥</i><i>824</i></span>
-								<div class="f_r">
-
-								</div>
-							</div>
-						</li>
+						</li> -->
 
 					</ul>
 					<!--<div class="no_more">没有更多数据了哦</div>-->
@@ -258,11 +165,11 @@
 			<div class="detail04">
 				<div class="">
 					<span>共</span>
-					<span class="em" id="numbers">0</span>
+					<span class="em" id="numbers">{$shopping.num ?? '0'}</span>
 					<span>件</span>
 					<span>小计</span>
 					<span>￥</span>
-					<span class="em" id="qian">0</span>
+					<span class="em" id="qian">{$shopping.price ?? '0'}</span>
 
 				</div>
 				<div class="">
@@ -327,6 +234,16 @@ var offset = $("#numbers").offset();
 						this.destory(); //销毁抛物体
 					}
 				});
+			sp_id = $(this).attr("data-id");
+			$.ajax({
+			    type : 'POST',
+			    url : "{:url('supermarket/shopping')}",
+			    data : {sp_id:sp_id},
+			    success : function(data){
+
+			    }
+			})
+
 			});
 		</script>
 	</body>

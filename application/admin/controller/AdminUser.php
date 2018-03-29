@@ -18,13 +18,17 @@ namespace app\admin\controller;
 
 use app\admin\Controller;
 use think\Exception;
+use think\Db;
 use think\Loader;
+use think\exception\HttpException;
+use think\Config;
+use think\Session;
+use app\common\model\AdminUser as A;
 
 class AdminUser extends Controller
 {
     use \app\admin\traits\controller\Controller;
 
-//    protected static $blacklist = ['delete', 'clear', 'deleteforever', 'recyclebin', 'recycle'];
 
     protected function filter(&$map)
     {
@@ -43,6 +47,19 @@ class AdminUser extends Controller
         if ($this->request->param('mobile')) {
             $map['mobile'] = ["like", "%" . $this->request->param('mobile') . "%"];
         }
+    }
+
+    /**
+     * 首页
+     * @return mixed
+     */
+    public function info()
+    {
+        $id = input('id');
+        $list = A::where('id',$id)->select();
+
+        $this->view->assign('list',$list);
+        return $this->view->fetch();
     }
 
     /**

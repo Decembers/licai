@@ -1,0 +1,55 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <form class="mb-20" method="get" action="{:\\think\\Url::build($Request.action)}">
+        <input type="text" class="input-text" style="width:250px" placeholder="商品名称" name="name" value="{$Request.param.name}" >
+        <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+    </form>
+    <div class="cl pd-5 bg-1 bk-gray">
+        <span class="l">
+            {tp:menu menu="add" /}
+        </span>
+        <span class="r pt-5 pr-5">
+            共有数据 ：<strong>{$count ?? '0'}</strong> 条
+        </span>
+    </div>
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">商品名称</th>
+            <th width="">商品单价</th>
+            <th width="">商品简介</th>
+            <th width="">商品图片</th>
+            <th width="">商品介绍图片</th>
+            <th width="">商品数量</th>
+            <th width="">创建时间</th>
+            <th width="">商品状态</th>
+            <th width="70">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+            <td>{$vo.name|high_light=$Request.param.name}</td>
+            <td>{$vo.price}</td>
+            <td>{$vo.content}</td>
+            <td><img src="{$vo.image}" width="80" height="80"></td>
+            <td><img src="{$vo.content_img}" width="80" height="80"></td>
+            <td>{$vo.number}</td>
+            <td>{$vo.create_time|date="y-m-d H:i",###}</td>
+            <td>{$vo.status|get_status}</td>
+            <td class="f-14">
+                {$vo.status|show_status=$vo.id}
+                {tp:menu menu='sedit' /}
+                {tp:menu menu='sdeleteforever' /}
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}
+

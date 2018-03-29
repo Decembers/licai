@@ -122,17 +122,9 @@ trait Controller
         $controller = $this->request->controller();
 
         if ($this->request->isAjax()) {
-            //return json($_POST);
             // 更新
             $data = $this->request->post();
-            // if (isset($data['content'])) {
-            //     $content = $_POST['content'];
-            //     $data['content'] = $content;
-            //     $data['preselle_time'] = strtotime($data['preselle_time']);
-            //     $data['down_time'] = strtotime($data['down_time']);
-            //     $data['deal_time'] = strtotime($data['deal_time']);
-            //     $data['begin_time'] = $data['deal_time'];
-            // }
+
             if (!$data['id']) {
                 return ajax_return_adv_error("缺少参数ID");
             }

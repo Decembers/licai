@@ -8,8 +8,9 @@ use think\Db;
 use think\Loader;
 use think\exception\HttpException;
 use think\Config;
+use think\Session;
 
-class User extends Controller
+class Supermarket extends Controller
 {
     use \app\admin\traits\controller\Controller;
     // 方法黑名单
@@ -17,30 +18,25 @@ class User extends Controller
 
     protected function filter(&$map)
     {
-        if ($this->request->param("id")) {
-            $map['id'] = ["like", "%" . $this->request->param("id") . "%"];
-        }
-        if ($this->request->param("mobile")) {
-            $map['mobile'] = ["like", "%" . $this->request->param("mobile") . "%"];
-        }
         if ($this->request->param("name")) {
             $map['name'] = ["like", "%" . $this->request->param("name") . "%"];
         }
     }
 
     /**
-     *添加 yangyang 自定义
+     * 添加
      * @return mixed
      */
-    public function useradd()
+    public function add()
     {
-
         $controller = $this->request->controller();
 
         if ($this->request->isAjax()) {
             // 插入
             $data = $this->request->except(['id']);
-
+            $data['user_id'] = Session::get('auth_id');
+            $data['numbers'] = $data['number'];
+            $data['create_time'] = time();
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
                 $validate = new $validateClass();
@@ -56,12 +52,6 @@ class User extends Controller
             ) {
                 //使用模型写入，可以在模型中定义更高级的操作
                 $model = new $modelClass();
-
-             $data['create_time']=time();
-             $data['login_time']=time();
-             $data['password']=md5($data['password']);
-             $data['isdelete']=0;
-
                 $ret = $model->isUpdate(false)->save($data);
             } else {
                 // 简单的直接使用db写入
@@ -82,33 +72,55 @@ class User extends Controller
             return ajax_return_adv('添加成功');
         } else {
             // 添加
-            return $this->view->fetch();
+            return $this->view->fetch(isset($this->template) ? $this->template : 'edit');
         }
     }
-    public function info()
-    {
-        $id = input('id');
-        $or = input('or');
-        //echo $or;die;
-        $where['user_id']=$id;
-        if (isset($or)) {
-            $where['or']=$or;
-        }
-        $user = Db::table('tp_detail')->where($where)->select();
-        $this->view->assign('list',$user);
-        $this->view->assign('id',$id);
-        return $this->view->fetch();
-    }
-    /*
-     *展示给商户户看的用户信息
+
+    /**
+     * 首页
+     * @return mixed
      */
-    public function user()
+    public function index()
     {
-        $id = input('id');
 
         $model = $this->getModel();
 
-        // 列表过滤器，生成查询Map对象
+        if (Session::get('auth_id')==1) {
+            // 列表过滤器，生成查询Map对象
+            $map = $this->search($model, [$this->fieldIsDelete => $this::$isdelete]);
+        }else{
+            // 列表过滤器，生成查询Map对象
+            $map = $this->search($model, [$this->fieldIsDelete => $this::$isdelete,'user_id'=>Session::get('auth_id')]);
+        }
+
+        // 特殊过滤器，后缀是方法名的
+        $actionFilter = 'filter' . $this->request->action();
+        if (method_exists($this, $actionFilter)) {
+            $this->$actionFilter($map);
+        }
+
+        // 自定义过滤器
+        if (method_exists($this, 'filter')) {
+            $this->filter($map);
+        }
+
+        $this->datalist($model, $map);
+        if (Session::get('auth_id')==1) {
+            return $this->view->fetch();
+        }else{
+            return $this->view->fetch("supermarket_index");
+        }
+    }
+
+    /**
+     * 首页
+     * @return mixed
+     */
+    public function index_one()
+    {
+        $id = input('id');
+        $model = $this->getModel();
+
         $map = $this->search($model, [$this->fieldIsDelete => $this::$isdelete,'id'=>$id]);
 
         // 特殊过滤器，后缀是方法名的
@@ -123,7 +135,7 @@ class User extends Controller
         }
 
         $this->datalist($model, $map);
-
         return $this->view->fetch();
     }
+
 }

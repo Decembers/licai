@@ -3,9 +3,9 @@ namespace app\common\model;
 
 use think\Model;
 
-class Ress extends Model
+class Shopping extends Model
 {
     // 指定表名,不含前缀
-    protected $name = 'ress';
-    
+    protected $name = 'shopping';
+
 }

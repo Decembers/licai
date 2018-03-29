@@ -214,7 +214,7 @@ class Pub
             return ajax_return_adv("信息修改成功", '');
         } else {
             // 查看用户信息
-            $vo = Db::name("AdminUser")->field('realname,email,mobile,remark')->where("id", UID)->find();
+            $vo = Db::name("AdminUser")->field('money,realname,email,mobile,remark')->where("id", UID)->find();
             $this->view->assign('vo', $vo);
 
             return $this->view->fetch();

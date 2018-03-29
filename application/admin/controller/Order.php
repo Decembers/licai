@@ -27,8 +27,10 @@ class Order extends Controller
     {
         $id = input('id');
         $user = Db::table('tp_user')->where('id',$id)->select();
-        ///var_dump($user);die;
-        $this->view->assign('list',$user);
+        $detail = Db::table('tp_detail')->where('user_id',$id)->order('id desc')->select();
+        $this->view->assign('user',$user);
+        $this->view->assign('detail',$detail);
+
         return $this->view->fetch();
     }
 }

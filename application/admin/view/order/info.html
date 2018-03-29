@@ -13,7 +13,7 @@
         </tr>
         </thead>
         <tbody>
-        {volist name="list" id="vo"}
+        {volist name="user" id="vo"}
         <tr class="text-c">
 <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
 <td>{$vo.id|high_light=$Request.param.id}</td>
@@ -27,6 +27,46 @@
 <i class="Hui-iconfont status c-warning" title="禁用"></i>
 {/if}
 </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+    <H3 style="text-align: center;">账户明细</H3>
+<div class="page-container">
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">id</th>
+            <th width="">用户id</th>
+            <th width="">用途</th>
+            <th width="">金额</th>
+            <th width="">备注</th>
+            <th width="">状态</th>
+            <th width="">创建时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="detail" id="vos"}
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$vos.id}"></td>
+            <td>{$vos.id}</td>
+            <td onclick="layer_open('用户详情', '/admin/order/info/id/{$vos.user_id}.html')">{$vos.user_id}</td>
+            <td>
+            {if condition="$vos.or eq 1"}
+            充值
+            {elseif condition="$vos.or eq 2"}
+            提现
+            {else/}
+            购买
+            {/if}
+            </td>
+            <td>{$vos.money}</td>
+            <td>{$vos.comment}</td>
+            <td style="color:red">{if condition="$vos.status eq 1"}已完成{elseif condition="$vos.status eq 2" /}未通过{else/}未完成{/if}</td>
+            <td>{$vos.create_time|date="y-m-d h:i:s",###}</td>
         </tr>
         {/volist}
         </tbody>

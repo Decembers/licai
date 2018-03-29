@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-23 10:55:43
+ * @Last Modified time: 2018-03-23 14:21:18
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -298,19 +298,6 @@ class Member extends Yang
             try{
 
                 $bank=B::where(['id'=>$bank_id])->find();
-                $data['user_id'] = $this->id;
-                $data['money'] = $money;
-                $data['charge'] = $charge;
-                $data['bank_id'] = $bank_id;
-                $data['bank_name'] = $bank['bank_name'];
-                $data['bank_card'] = $bank['cardnum'];
-                $data['create_time'] = time();
-                $data['update_time'] = time();
-
-                $arr['msg'] = '提现申请失败!';
-                $add = W::insert($data);
-                $userId = W::getLastInsID();
-
                 $row['user_id'] = $this->id;
                 $row['or'] = 2;
                 $row['money'] =$money;
@@ -318,9 +305,9 @@ class Member extends Yang
                 $row['comment'] = '提现';
                 $row['status'] = 0;
                 $row['create_time'] = time();
-                $row['withdraw_id'] = $userId;
                 $row['bank_id'] = $bank_id;
-                $row['accomplish_time'] = 0;
+                $row['bank_name'] = $bank['bank_name'];
+                $row['bank_card'] = $bank['cardnum'];
                 D::insert($row);
 
                 $balance = $user['balance'] - $money - $charge;
@@ -351,8 +338,8 @@ class Member extends Yang
     }
     public function withdrawlog()
     {
-        $arr = W::where(['user_id'=>$this->id])->order('create_time desc')->select();
-        $money = W::where(['user_id'=>$this->id,'status'=>1])->sum('money');
+        $arr = D::where(['user_id'=>$this->id,'or'=>2])->order('create_time desc')->select();
+        $money = D::where(['user_id'=>$this->id,'or'=>2,'status'=>1])->sum('money');
         foreach ($arr as $k => $v) {
           $arr[$k]['bank_card'] = substr($v['bank_card'],-4);;
         }
@@ -370,7 +357,7 @@ class Member extends Yang
                   $arr['msg'] = '数据错误';
                   return json_encode($arr);
              }
-             $result=W::where(['bank_id'=>$id,'status'=>0])->find();
+             $result=D::where(['bank_id'=>$id,'status'=>0])->find();
              if (isset($result)) {
                 $arr['msg'] = '删除失败,此卡有提现申请还在审核中!';
                 return json_encode($arr);

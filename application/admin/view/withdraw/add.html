@@ -6,7 +6,7 @@
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>提现金额：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="number" class="input-text" placeholder="提现金额" name="money" value="{$vo.money ?? ''}" readonly="money" datatype="*" nullmsg="请填写提现金额">
+                <input type="number" class="input-text" placeholder="提现金额" name="money" value="{$vo.money ?? ''}"  datatype="*" nullmsg="请填写提现金额">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
@@ -14,46 +14,35 @@
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>姓名：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="姓名" name="username" value="{$vo.username ?? ''}" readonly="username" datatype="*" nullmsg="请填写姓名">
+                <input type="text" class="input-text" placeholder="姓名" name="username" value="{$vo.username ?? ''}"  datatype="*" nullmsg="请填写姓名">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>手机号码：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="手机号码" name="mobile" value="{$vo.mobile ?? ''}" readonly="mobile"  datatype="*" nullmsg="请填写手机号码">
+                <input type="text" class="input-text" placeholder="手机号码" name="mobile" value="{$vo.mobile ?? ''}"  datatype="*" nullmsg="请填写手机号码">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>银行名称：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="银行名称" name="bank_name" value="{$vo.bank_name ?? ''}" readonly="bank_name" datatype="*" nullmsg="请填写银行名称">
+                <input type="text" class="input-text" placeholder="银行名称" name="bank_name" value="{$vo.bank_name ?? ''}"  datatype="*" nullmsg="请填写银行名称">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>银行卡号：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="银行卡号" name="bank_card" value="{$vo.bank_card ?? ''}"  readonly="bank_card" datatype="*" nullmsg="请填写银行卡号">
+                <input type="text" class="input-text" placeholder="银行卡号" name="bank_card" value="{$vo.bank_card ?? ''}"  datatype="*" nullmsg="请填写银行卡号">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>提现状态：</label>
-            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
-                <div class="radio-box">
-                    <input type="radio" name="status" id="status-0" value="0" datatype="*" nullmsg="请选择商品状态">
-                    <label for="status-0">审核中</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" name="status" id="status-1" value="1" datatype="*" nullmsg="请选择商品状态">
-                    <label for="status-1">通过</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" name="status" id="status-2" value="2" datatype="*" nullmsg="请选择商品状态">
-                    <label for="status-2">未通过</label>
-                </div>
+            <label class="form-label col-xs-3 col-sm-3"></label>
+            <div class="formControls col-xs-6 col-sm-6">
+            <span>提现收取2%的手续费,手续费将从余额中扣除 !</span>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>

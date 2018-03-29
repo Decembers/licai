@@ -16,6 +16,7 @@
             <th width="">用途</th>
             <th width="">金额</th>
             <th width="">备注</th>
+            <th width="">状态</th>
             <th width="">创建时间</th>
             <th width="70">操作</th>
         </tr>
@@ -37,6 +38,7 @@
             </td>
             <td>{$vo.money}</td>
             <td>{$vo.comment}</td>
+            <td style="color:red">{if condition="$vo.status eq 1"}已完成{elseif condition="$vo.status eq 2" /}未通过{else/}未完成{/if}</td>
             <td>{$vo.create_time|date="y-m-d h:i:s",###}</td>
             <td class="f-14">
                 {tp:menu menu='sdeleteforever' /}

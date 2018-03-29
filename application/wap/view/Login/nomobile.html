@@ -19,35 +19,35 @@
 				padding: 0 1rem;
 				margin: 0.5rem 0;
 			}
-			
+
 			.fillet ul li {
 				margin: 0 1rem;
 				padding: 1rem 0;
 				border-top: 1px solid #e5e5e5;
 			}
-			
+
 			.fillet ul li:nth-child(1) {
 				border: none;
 			}
-			
+
 			.form_modify {
 				position: relative;
 				margin: 0 auto;
 			}
-			
+
 			.form_modify .number {
 				background-position: left 55.5%;
 			}
-			
+
 			.form_modify .code {
 				background-position: left 67.5%;
 			}
-			
+
 			.form_modify .upwd,
 			.form_modify .more {
 				background-position: left 40%;
 			}
-			
+
 			.form_modify span {
 				position: absolute;
 				top: 1rem;
@@ -58,7 +58,7 @@
 				background: url(__WAP__/img/iconlist_01.png) no-repeat;
 				background-size: cover;
 			}
-			
+
 			.form_modify .ver_code,
 			.count_down {
 				position: absolute;
@@ -75,11 +75,11 @@
 				background-color: #5ac3d8;
 				box-sizing: border-box;
 			}
-			
+
 			.count_down {
 				background-color: rgba(0, 0, 0, 0.6);
 			}
-			
+
 			.form_modify input {
 				width: 100%;
 				height: 3rem;
@@ -87,7 +87,7 @@
 				padding-left: 3rem;
 				box-sizing: border-box;
 			}
-			
+
 			.changed,
 			.pay-changed {
 				display: block;
@@ -123,11 +123,11 @@
 						<ul>
 							<li class="form_modify">
 								<span class="number"></span>
-								<input type="number" id="dl_mobile" name="dl_mobile" value="13203940281" placeholder="请输入新手机号" disabled="disabled">
+								<input type="number" id="dl_mobile" name="dl_mobile" value="{$mobile}" placeholder="请输入新手机号" disabled="disabled">
 							</li>
 							<li class="form_modify">
 								<span class="number"></span>
-								<input type="number" id="dl_mobile1" name="dl_mobile" value="" placeholder="请输入新手机号" oninput="if(value.length>11)value=value.slice(0,11)">
+								<input type="number" id="dl_mobile1" name="dl_mobile" value="" placeholder="请输入新手机号码" oninput="if(value.length>11)value=value.slice(0,11)">
 							</li>
 							<li class="form_modify">
 								<span class="code"></span>

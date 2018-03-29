@@ -1,42 +1,33 @@
 {extend name="template/base" /}
-{block name="nav"}{/block}
 {block name="content"}
 <div class="page-container">
     <form class="form form-horizontal" id="form" method="post" action="{:\\think\\Request::instance()->baseUrl()}">
+        <input type="hidden" name="id" value="{$vo.id ?? ''}">
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>姓名：</label>
+            <label class="form-label col-xs-3 col-sm-3">收获人：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" value="{$vo.realname ?? ''}" placeholder="" name="realname" datatype="*" nullmsg="请填写姓名">
+                <input type="text" class="input-text" placeholder="收获人" name="name" value="{$vo.name ?? ''}" >
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">邮箱：</label>
+            <label class="form-label col-xs-3 col-sm-3">手机号码：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" value="{$vo.email ?? ''}" placeholder="" name="email" datatype="e" ignore="ignore" errormsg="邮箱格式错误">
+                <input type="text" class="input-text" placeholder="手机号码" name="mobile" value="{$vo.mobile ?? ''}" >
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">手机：</label>
+            <label class="form-label col-xs-3 col-sm-3">详细地址：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" value="{$vo.mobile ?? ''}" placeholder="" name="mobile" datatype="m" ignore="ignore" errormsg="手机格式错误">
+                <input type="text" class="input-text" placeholder="详细地址" name="address" value="{$vo.address ?? ''}" >
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">备注：</label>
+            <label class="form-label col-xs-3 col-sm-3">邮编：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <textarea class="textarea" placeholder="" name="remark" onKeyUp="textarealength(this,100)">{$vo.remark ?? ''}</textarea>
-                <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
-
-        <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">余额：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-            <span style="color: red;">{$vo.money ?? ''}</span>
+                <input type="text" class="input-text" placeholder="邮编" name="postcode" value="{$vo.postcode ?? ''}" >
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
@@ -54,11 +45,19 @@
 <script type="text/javascript" src="__LIB__/Validform/5.3.2/Validform.min.js"></script>
 <script>
     $(function () {
+
+
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
         $("#form").Validform({
-            tiptype:2,
-            ajaxPost:true,
-            showAllError:true,
-            callback:function(ret){
+            tiptype: 2,
+            ajaxPost: true,
+            showAllError: true,
+            callback: function (ret){
                 ajax_progress(ret);
             }
         });
