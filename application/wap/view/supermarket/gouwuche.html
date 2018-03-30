@@ -465,8 +465,8 @@ flex-grow: 1;
 			<div class="border" style="margin-top: 5px;"><!--<img src="__WAP__/img/icon/1.png"/>--></div>
 			<div class="top1">
 
-					<p><img src="__WAP__/img/icon/ren.png"/><span>李先生</span><span>13613820359</span></p>
-					<p><img src="__WAP__/img/icon/ditu.png"/><span>深圳市南山区科技园南区R2-B三楼</span></p>
+					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">李先生</span><span id="phone">13613820359</span></p>
+					<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">深圳市南山区科技园南区R2-B三楼</span></p>
 					<span  class="fa fa-3x fa-angle-right" id="right"></span>
 				</div>
 				<div class="border"></div>
@@ -677,7 +677,7 @@ flex-grow: 1;
 					nas = $(this).parent().parent();
 					$(".modal1").css("display", "block");
 					$("#goodcover").css("display", "block");
-
+ 
 				}
 			})
 			$(".shu input").bind('input', function() {
@@ -743,8 +743,12 @@ flex-grow: 1;
 			/*var names = $("#top1 .tops").eq(tt).firstChild.innerText;*/
 			var names = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p1 .tops_span1").text();
 			var phone = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p1 .tops_span2").text();
-			var phone = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p2").text();
-			  			alert(openid);
+			var dz = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p2").text();
+			  			/*alert(openid);*/
+			  			$("#top1").css("display","none");
+			  			$("#name").text(names);
+			  			$("#phone").text(phone);
+			  			$("#diz").text(dz);
 		})
 		
 	</script>
