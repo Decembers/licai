@@ -385,7 +385,19 @@
 			.modal2 .click span:nth-child(1) {
 				border: 5px solid #3db4cc;
 			}
-			
+			.modal2 h5{
+				width: 100%;
+				margin: 0px ;
+			}
+			.modal2 button{
+				width: 50%;
+				height: 30px;
+				line-height: 30px;
+				border-radius:10px ;
+				margin-left: 25%;
+				background-color: #3db4cc;
+				color: white;
+			}
 			
 		</style>
 	</head>
@@ -484,7 +496,7 @@
 				</div>
 				<div class="bottom">
 					<p class="button">取消订单</p>
-					<p class="button">支付订单</p>
+					<!--<p class="button">支付订单</p>-->
 				</div>
 			</div>
 		</div>
@@ -501,6 +513,8 @@
 			<p><span></span><span>信息填写错误，重新拍</span></p>
 			<p><span></span><span>同城见面交易</span></p>
 			<p><span></span><span>其他原因</span></p>
+			<h5><button >确认</button></h5>
+			
 		</div>
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -551,24 +565,29 @@
 					window.location.href = "{:url('Supermarket/pay')}";
 				}
 			})
+			var t1 = 0;
 			$(".modal2 p").click(function() {
 				$(".modal2 p").removeClass("click");
 				$(this).addClass("click");
-				var tt = $(".modal2 p").index($(this));
-				setTimeout(function() {
-					if(tt == 0) {
+				 t1 = $(".modal2 p").index($(this));
+				
+
+			})
+			$(".modal2 h5 button").click(function(){
+				/*判断是否取消，之后执行*/
+				
+					if(t1 == 0) {
 						nones();
 					} else {
 						nones();
-						setTimeout(function() {
+						
 							$(".modal1 h5 ").css("display", "block");
 							$(".modal1 .modal1_p1").text("是否删除本条记录？")
 							blocks();
-						}, 500)
+						
 
 					}
-				}, 50);
-
+				
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
