@@ -222,7 +222,7 @@
 			}
 			/*提示*/
 
-			.modal1 {
+			.modal1,.modal1s {
 				width: 80%;
 				height: 100px;
 				position: fixed;
@@ -239,17 +239,17 @@
 				overflow: hidden;
 			}
 
-			.modal1 p {
+			.modal1 p,.modal1s p {
 				line-height: 50px;
 				font-size: 16px;
 			}
 
-			.modal1 p:nth-child(2) {
+			.modal1 p:nth-child(2),.modal1s p:nth-child(2) {
 				display: flex;
 				border-top: 1px solid #d9d9d9;
 			}
 
-			.modal1 p:nth-child(2) span {
+			.modal1 p:nth-child(2) span,.modal1s p:nth-child(2) span {
 				width: 50%;
 				text-align: center;
 				padding: 0 .25rem;
@@ -261,7 +261,7 @@
 				box-sizing: border-box;
 			}
 
-			.modal1 p:nth-child(2) span:nth-child(1) {
+			.modal1 p:nth-child(2) span:nth-child(1),.modal1s p:nth-child(2) span:nth-child(1) {
 				border-right: 1px solid #d9d9d9;
 			}
 
@@ -279,25 +279,25 @@
 			}
 			/*top*/
 
-			.top {
+			.content .top {
 				background-color: #F3F3F3;
 				display: flex;
 			}
 
-			.top div {
+			.content .top div {
 				width: 30px;
 				height: 30px;
 				border-radius: 50%;
 				overflow: hidden;
 			}
 
-			.top div img {
+			.content .top div img {
 				width: 50px;
 				height: 50px;
 				margin: -10px 0 0 -10px;
 			}
 
-			.top span {
+			.content .top span {
 				line-height: 30px;
 				margin-left: 1rem;color: #606060;
 			}
@@ -435,6 +435,170 @@ flex-grow: 1;
 				display: block;
 			}
 
+
+
+			#main{
+				position: fixed;
+				top: 0;
+				left: 100vw;
+				z-index: 500;
+				/*min-height: 100vh;*/
+				min-height: 100vh;
+				background-color: #F0F0F3;
+				transition: left .4s;
+			}
+#main,
+			#main>div {
+				width: 100%;
+				overflow: hidden;
+			}
+
+			#main>div {
+				background-color: white;
+				margin-bottom: 2px;
+				box-sizing: border-box;
+				padding: 0.5rem;
+			}
+
+			#main .order p {
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				line-height: 25px;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			#main .order p:nth-child(2) {
+				/*font-size: 14px;*/
+			}
+			#main .order p span:first-child{
+				color: gray;
+			}
+			#main .blue {
+				 color: #6fd6ea !important; font-weight: 600;
+     font-size: 15px !important;
+			}
+
+			#main .top>div {
+				display: flex;
+				border-top: 1px solid #F0F0F3;
+				padding: 0.5rem 0;
+			}
+
+			#main .top>.wei {
+				padding-top: 0;
+				border: none;
+			}
+
+			#main .top>.yu {
+				padding-bottom: 0;
+			}
+
+			#main .top>div>.fa {
+				width: 60px;
+				text-align: center;
+				line-height: 40px;
+			}
+
+			#main .top>div div:nth-child(1) {
+				border-right: 1px solid #EBEBEB;
+				/* color: #6fd6ea ;*/
+			}
+
+			#main .fa-weixin {
+				color: #4BB709;
+			}
+
+			#main .fa-gg-circle {
+				 color: #6fd6ea ;
+			}
+
+			#main .top>div .text_fa {
+				flex-grow: 3;
+			}
+
+			#main .text_fa p {
+				line-height: 20px;
+				display: flex;
+				padding-left: 1rem;
+				font-size: 16px;
+			}
+
+			#main .text_fa p span {
+				font-size: 13px;
+				opacity: 0.7;
+			}
+
+			#main .text_fa p span.fa {
+				line-height: 20px;
+				margin-right: 0.5rem;
+			}
+
+			#main .fa-angle-right {
+				color: #B2B2B2;
+				width: 30px !important;
+			}
+			/*提示*/
+			/*提示*/
+
+			
+
+			.modal1s h5 {
+				width: 100%;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				line-height: 40px;
+				height: 30px;
+				font-size: 16px;
+				display: none;
+			}
+
+			.modal1 p {
+				font-size: 16px;
+			}
+
+			.modal1 .modal1_p1 {
+				box-sizing: border-box;
+				padding: 15px 0;
+			}
+
+			.modal1 .modal1_p {
+				line-height: 40px;
+				display: flex;
+
+				border-top: 1px solid rgba(72,74,74,0.3);
+			}
+
+			.modal1 .modal1_p span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+
+			.modal1 .modal1_p span:nth-child(1) {
+				border-right: 1px solid rgba(72,74,74,0.3);
+			}
+
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
 		</style>
 	</head>
 
@@ -466,7 +630,7 @@ flex-grow: 1;
 			<div class="top1">
 
 
-					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">李先生</span><span id="phone">13613820359</span></p>
+					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">李先生</span><span id="phone" style="margin-left: 10px;">13613820359</span></p>
 					<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">深圳市南山区科技园南区R2-B三楼</span></p>
 
 
@@ -554,10 +718,53 @@ flex-grow: 1;
 			</div>
 
 		</div>
+		<div  id="main">
+				<div class="order">
+					<p><span>商品小计</span><span>￥405.00</span>
+</p>
+					<p><span>运费</span><span>￥0.00</span>
+</p>
+					<p><span>实付费（含运费）</span><span class="blue">￥405.00</span>
+</p>
+
+				</div>
+				<div class="top">
+					<div class="wei">
+						<div class="fa fa-weixin fa-2x">
+
+						</div>
+						<div class="text_fa">
+							<p>微信支付</p>
+							<p><span class="fa fa-expeditedssl "></span><span>微信安全支付</span></p>
+						</div>
+						<div class="fa fa-angle-right fa-2x">
+
+						</div>
+					</div>
+					<div class="yu">
+						<div class="fa fa-gg-circle fa-2x">
+
+						</div>
+						<div class="text_fa">
+							<p>余额支付</p>
+							<p><span class="fa ">当前余额</span><span class="blue">￥0.00</span></p>
+						</div>
+						<div class="fa fa-angle-right fa-2x">
+
+						</div>
+					</div>
+				</div>
+
+			</div>
 		<div class="background"></div>
 		<div class="modal1">
 			<p>是否删除本商品？</p>
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
+		</div>
+		<div class="modal1s">
+			<h5>提醒</h5>
+			<p class="modal1_p1">确定要支付吗？</p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div class="none">
 			<p class="fa fa-shopping-cart fa-4x"></p>
@@ -607,6 +814,7 @@ flex-grow: 1;
 			})
 			$("#pbuttom").click(function(){
 				var th = $(".quan div").hasClass('dui');
+				$("#main").css("left","0vw");
 
 				if($(".sheep li").length>0){
 					if(th == true) {
@@ -712,7 +920,7 @@ flex-grow: 1;
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				nones();
-				nas.remove();
+				/*nas.remove();*/
 				sw();nos();
 			});
 
@@ -752,7 +960,38 @@ flex-grow: 1;
 			  			$("#phone").text(phone);
 			  			$("#diz").text(dz);
 		})
+$(".yu").click(function() {
+					blocks();
+			})
+			/*弹窗确定的删除*/
+			$(".modal-button-bold").click(function() {
+				nones();
+				/*判断余额与订单金额*/
+				/*间隔定时器*/
+				setTimeout(function(){
+					$(".overtop").text("余额不足");
+					overtop();
+				},1000)
 
+			});
+
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span:nth-child(1)").click(function() {
+				nones();
+			})
+			/*显示*/
+			function blocks() {
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+			/*隐藏*/
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
 	</script>
 	</body>
 
