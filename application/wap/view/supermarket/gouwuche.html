@@ -756,14 +756,18 @@ flex-grow: 1;
 
 			</div>
 		<div class="background"></div>
-		<div class="modal1">
+		<div class="modal1" id="modal1">
 			<p>是否删除本商品？</p>
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
 		
-		<div class="modal1s">
+		<div class="modal1s" id="">
 			<h5>提醒</h5>
 			<p class="modal1_p1">确定要支付吗？</p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
+		</div>
+		<div class="modal1" id="modal2">
+			<p>是否确认支付？</p>
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div class="none">
@@ -812,7 +816,13 @@ flex-grow: 1;
 				}
 				sw();
 			})
+			
+			$("#modal2 .modal-button-bold").click(function(){
+				
+			})
 			$("#pbuttom").click(function(){
+				$("#modal2").css("display","block");
+				$("#goodcover").css("display", "block");
 				var th = $(".quan div").hasClass('dui');
 				//$("#main").css("left","0vw");
 
@@ -889,7 +899,7 @@ flex-grow: 1;
 				} else {
 					/*deletes($(this).parent().parent());*/
 					nas = $(this).parent().parent();
-					$(".modal1").css("display", "block");
+					$("#modal1").css("display", "block");
 					$("#goodcover").css("display", "block");
 
 				}
@@ -922,7 +932,7 @@ flex-grow: 1;
 
 			}
 			/*弹窗确定的删除*/
-			$(".modal1 .modal-button-bold").click(function() {
+			$("#modal1 .modal-button-bold").click(function() {
 				nones();
 				nas.remove();
 				
@@ -995,11 +1005,7 @@ $(".yu").click(function() {
 				$(".modal1").css("display", "block");
 				$("#goodcover").css("display", "block");
 			}
-			/*隐藏*/
-			function nones() {
-				$(".modal1").css("display", "none");
-				$("#goodcover").css("display", "none");
-			}
+			
 	</script>
 	</body>
 
