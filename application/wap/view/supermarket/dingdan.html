@@ -354,23 +354,19 @@
 			<div class="main">
 				<div class="case">
 					<ul class="entire">
+					{volist name="oupermarketorder" id="vo"}
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="blue">待付款</p>
+								<p class="blue">{if condition="$vo.status eq 1"}待发货{elseif condition="$vo.status eq 2" /}已发货{elseif condition="$vo.status eq 3"/}已完成{else/}已取消{/if}</p>
 							</div>
 							<div class="center">
 								<div class="fl">
+									{for start="0" end="$vo.quantity"}
 									<div class="">
 										<img src="__WAP__/img/595617b6e853f.jpg" />
 									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-
+									{/for}
 								</div>
 								<div class="fr">
 									<span>
@@ -382,130 +378,11 @@
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-
+								<p class="fu"><span>实付款：￥</span><span>{$vo.order_price}</span></p>
 								<a class="button">联系客服</a>
-								<p class="button he">去支付</p>
 							</div>
 						</li>
-						<li>
-							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p class="blue">待付款</p>
-							</div>
-							<div class="center">
-								<div class="fl">
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-
-								</div>
-								<div class="fr">
-									<span>
-										...共<i></i>件
-									</span>
-									<span class="fa fa-angle-right">
-
-									</span>
-								</div>
-							</div>
-							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-
-								<a class="button">联系客服</a>
-								<p class="button he">去支付</p>
-							</div>
-						</li>
-						<li>
-							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p>已完成</p>
-							</div>
-							<div class="center">
-								<div class="fl">
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-								</div>
-								<div class="fr">
-									<span>
-										...共<i></i>件
-									</span>
-									<span class="fa fa-angle-right">
-
-									</span>
-								</div>
-							</div>
-							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<a class="button">联系客服</a>
-								<p class="button">查看详情</p>
-				
-							</div>
-						</li>
-						<li>
-							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p>待付款</p>
-							</div>
-							<div class="center">
-								<div class="fl">
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-								</div>
-								<div class="fr">
-									<span>
-										...共<i></i>件
-									</span>
-									<span class="fa fa-angle-right">
-
-									</span>
-								</div>
-							</div>
-							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-							
-								<a class="button">联系客服</a>
-								<p class="button he">去支付</p>
-							</div>
-						</li>
+					{/volist}
 					</ul>
 					<ul class="unpaid">
 						<li>
@@ -837,7 +714,7 @@
 			<p>您暂时没有订单</p>
 			<a href="{:url('Supermarket/index')}">去逛逛</a>
 		</div>
-		
+
 		<script type="text/javascript">
 			$(".top p").css("line-height", $(".top p .fa").height() + "px");
 			/*有.footer 时 .wrapper 下面的外边距 */
@@ -847,7 +724,7 @@ $(".wrapper").css("padding-top","71px");
 $(".wrapper").css("box-sizing", "border-box");
 /*$(".packet").css("width", $(".wrapper").width() + "px");*/
 
-$("div.header>div").click(function() { 
+$("div.header>div").click(function() {
 	history.go(-1)
 	//location.replace(document.referrer);//返回上一页并刷新
 /*history.back(-1)*/
@@ -855,7 +732,7 @@ $("div.header>div").click(function() {
 /*提示*/
 function overtop() {
 				$(".wrapper>div:nth-child(1)").after($("body>p.overtop").clone(true));
-				
+
 				var ss1 = $(".wrapper .overtop");
 				$(".wrapper .overtop").css("background-color","rgba(0,0,0,0.7)");
 				ss1.css("display", "block");
@@ -915,10 +792,10 @@ function overtop() {
 				} else {
 					$(".main").css("height", win + "px");
 					$(".main").css("overflow", "hidden");
-					
+
 				}
-			
-				if($(".case ul:nth-child(" + (t + 1) + ") li").length == 0) {										
+
+				if($(".case ul:nth-child(" + (t + 1) + ") li").length == 0) {
 					$(".without").css("display", "block");
 				}else{
 					$(".without").css("display", "none");
@@ -936,7 +813,7 @@ function overtop() {
 					$(".modal1 h5 ").css("display", "none");
 					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
 					blocks();
-					
+
 				}  else if($(this).text() == "去支付") {
 					window.location.href = "{:url('supermarket/pay')}";
 				} else if($(this).text() == "再次购买") {

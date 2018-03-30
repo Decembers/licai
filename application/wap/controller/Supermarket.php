@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 11:25:20
+ * @Last Modified time: 2018-03-30 12:06:12
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -168,11 +168,26 @@ class Supermarket extends Yang
     public function dingdan()
     {
         $is = input('is');
+
+        $oupermarketorder = SupermarketOrder::where(['user_id'=>$this->id])->select();
+
         $this->assign('is',$is);
+        $this->assign('oupermarketorder',$oupermarketorder);
         return $this->fetch();
     }
     public function dingdaninfo()
     {
+        $id = input('id');
+        $oupermarketorder = SupermarketOrder::where(['id'=>$id])->find();
+        $supermarket = S::where('id', $oupermarketorder['sp_id'])->find();
+        $ress = Ress::where(['id'=>$oupermarketorder['ress_id']])->find();
+        $adminuser = AdminUser::where(['id'=>$oupermarketorder['sj_id']])->find();
+
+        $this->assign('oupermarketorder',$oupermarketorder);
+        $this->assign('supermarket',$supermarket);
+        $this->assign('ress',$ress);
+        $this->assign('adminuser',$adminuser);
+
         return $this->fetch();
     }
     public function gouwuche()
