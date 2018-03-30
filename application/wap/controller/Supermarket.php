@@ -3,12 +3,16 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 09:51:23
+ * @Last Modified time: 2018-03-30 11:25:20
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
+use app\common\model\Ress;
+use app\common\model\User;
+use app\common\model\AdminUser;
 use app\common\model\Shopping;
 use app\common\model\Supermarket as S;
+use app\common\model\SupermarketOrder;
 use think\Session;
 use think\Db;
 class Supermarket extends Yang
@@ -71,35 +75,86 @@ class Supermarket extends Yang
     {
         if ($this->request->isAjax()) {
             $data = input('order');
+            $ress_id = input('ress_id');
             $data = explode(",",$data);
+            $arr = ['code'=>-200,'data'=>'','msg'=>''];
+
+
+            //生成订单,每个商品生成一笔订单
             Db::startTrans();
             try{
 
             foreach ($data as $key => $value) {
 
-                $shopping = Shopping::where('id', $value['id'])->find();
+                $shopping = Shopping::where('id', $data[$key])->find();
                 $supermarket = S::where('id', $shopping['sp_id'])->find();
+                $order_price = $supermarket['price']*$shopping['num'];
 
-                $arr['number'] = time().rand(100000,999999);
-                $arr['sj_id'] = $supermarket['user_id'];
-                $arr['sp_id'] = $supermarket['id'];
-                $arr['user_id'] = $this->id;
-                $arr['sp_name'] = $supermarket['name'];
-                $arr['price'] = $supermarket['price'];
-                $arr['quantity'] = $shopping['num'];
-                $arr['order_price'] = $supermarket['price']*$shopping['num'];
-                $arr['status'] = 1;
-                $arr['ress_id'] = 0;
-                $arr['create_time'] = time();
+                $user = User::where('id', $this->id)->find();
+                if ($user['mobile']=='') {
+                    $arr['msg']='请先在设置中绑定手机号码';
+                    throw new \think\Exception();
+                }
+                if ($user['authentication']==1) {
+                    $arr['msg']='请等待实名认证成功后购买';
+                    throw new \think\Exception();
+                }elseif($user['authentication']==0){
+                    $arr['msg']='请实名认证后购买';
+                    throw new \think\Exception();
+                }
+                if ($user['balance'] < $order_price) {
+                    $arr['msg'] = '您的余额不足!请充值!';
+                    throw new \think\Exception();
+                }
+                if ($shopping['num'] > $supermarket['number']) {
+                    $arr['msg'] = '商品数量不足'.$key;
+                    throw new \think\Exception();
+                }
+
+                $arr['msg'] = '减去购买的数量失败'.$key;
+                S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
+
+                $arr['msg'] = '生成订单失败'.$key;
+                $order['number'] = time().rand(100000,999999);
+                $order['sj_id'] = $supermarket['user_id'];
+                $order['sp_id'] = $supermarket['id'];
+                $order['user_id'] = $this->id;
+                $order['sp_name'] = $supermarket['name'];
+                $order['price'] = $supermarket['price'];
+                $order['quantity'] = $shopping['num'];
+                $order['order_price'] = $order_price;
+                $order['status'] = 1;
+                $order['ress_id'] = $ress_id;
+                $order['create_time'] = time();
+                SupermarketOrder::insert($order);//生成订单
+
+                $arr['msg'] = '扣除用户余额失败'.$key;
+                User::where('id',$this->id)->setDec('balance',$order_price);//扣除用户余额
+
+                $arr['msg'] = '增加商户余额失败'.$key;
+                AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//增加商户余额
+
+                $detail['user_id']=$this->id;
+                $detail['or']=3;
+                $detail['money']=$order_price;
+                $detail['comment']='超市购物';
+                $detail['status']=1;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
+                $arr['msg'] = '添加详细信息失败'.$key;
+                Db::table('tp_detail')->insert($detail);//添加详细信息
+
+                $shopping = Shopping::where('id', $data[$key])->delete();//删除购物车商品
+
             }
-
-            //做一系列安全验证
-
+                $arr['msg'] = '订单创建成功';
+                $arr['code'] = 0;
                 Db::commit();
             } catch (\think\Exception $e) {
                 Db::rollback();
+                return json($arr);
             }
-
+            return json($arr);
         }
     }
     public function lists()
@@ -129,6 +184,11 @@ class Supermarket extends Yang
             $shopping[$key]['sp_img'] = $supermarket['image'];
             $shopping[$key]['sp_price'] = $supermarket['price'];
         }
+        $ress = Ress::where(['user_id'=>$this->id])->select();
+        $defult = Ress::where(['user_id'=>$this->id,'is_default'=>1])->find();
+
+        $this->assign('ress',$ress);
+        $this->assign('defult',$defult);
         $this->assign('shopping',$shopping);
 
         return $this->fetch();

@@ -443,35 +443,33 @@ flex-grow: 1;
 
 			<!--header -->
 			<div class="" id="top1">
-				<div class="tops" data-type = "1">
-
-					<p class="tops_p1"><span class="tops_span1">李1</span><span class="tops_span2">13613820359</span></p>
-					<p class="tops_p2">三楼</p>
-
+				{volist name="ress" id="vos"}
+				<div class="tops" data-ress = "{$vos.id}">
+					<p class="tops_p1"><span class="tops_span1">{$vos.name}</span><span class="tops_span2">{$vos.mobile}</span></p>
+					<p class="tops_p2">{$vos.address}</p>
 				</div>
-				<div class="tops">
-
-				<p class="tops_p1"><span class="tops_span1">李2</span><span class="tops_span2">2</span></p>
-					<p class="tops_p2">2楼</p>
-
-				</div>
-				<div class="tops">
-
-					<p class="tops_p1"><span class="tops_span1">李3</span><span class="tops_span2">3</span></p>
-					<p class="tops_p2">1楼</p>
-
-				</div>
+				{/volist}
 			</div>
 			<div class="border" style="margin-top: 5px;"><!--<img src="__WAP__/img/icon/1.png"/>--></div>
-			<div class="top1">
-
-
-					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">李先生</span><span id="phone">13613820359</span></p>
-					<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">深圳市南山区科技园南区R2-B三楼</span></p>
-
-
+				{if condition="$defult"}
+				<div class="top1" data-ress="{$defult.id}">
+					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">{$defult.name}</span><span id="phone">{$defult.mobile}</span></p>
+					<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">{$defult.address}</span></p>
 					<span  class="fa fa-3x fa-angle-right" id="right"></span>
 				</div>
+				{else/}
+				{if condition="$ress"}
+					<div class="top1" data-ress="{$vos.id}">
+						<p><img src="__WAP__/img/icon/ren.png"/><span id="name">{$vos.name}</span><span id="phone">{$vos.mobile}</span></p>
+						<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">{$vos.address}</span></p>
+						<span  class="fa fa-3x fa-angle-right" id="right"></span>
+					</div>
+				{else/}
+					<div class="top1">
+						<p><span>请在个人中心添加地址</span></p>
+					</div>
+				{/if}
+				{/if}
 				<div class="border"></div>
 			<div class="content infinite-scroll native-scroll">
 				<div class="top">
@@ -489,7 +487,7 @@ flex-grow: 1;
 				<ul class="sheep">
 					{volist name="shopping" id="data"}
 						<li>
-							<div class="dui" data-id="{$data.sp_id}">
+							<div class="dui" data-id="{$data.id}">
 								<span>√</span>
 							</div>
 							<div class="imgs">
@@ -616,11 +614,15 @@ flex-grow: 1;
 						};
 						console.log(arr);
 						arr = arr.join(',');
-
+						var ress = $(".top1").attr("data-ress");
+						if (!ress) {
+							$(".overtop").text("请选择收获地址");
+							overtop();return false;
+						}
 						$.ajax({
 						    type : 'POST',
 						    url : "{:url('supermarket/shoppingorder')}",
-						    data : {order:arr},
+						    data : {order:arr,ress_id:ress},
 						    success : function(data){
 						    	console.log(data);
 						    }
@@ -679,7 +681,7 @@ flex-grow: 1;
 					nas = $(this).parent().parent();
 					$(".modal1").css("display", "block");
 					$("#goodcover").css("display", "block");
- 
+
 				}
 			})
 			$(".shu input").bind('input', function() {
@@ -741,16 +743,17 @@ flex-grow: 1;
 		$("#top1 .tops").click(function(){
 			/*$(this).children.text();*/
 			var  tt = $("#top1 .tops").index($(this));
-			var openid = $(this).attr("data-type");
+			var openid = $(this).attr("data-ress");
+			$(".top1").attr("data-ress",openid);
 			/*var names = $("#top1 .tops").eq(tt).firstChild.innerText;*/
 			var names = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p1 .tops_span1").text();
 			var phone = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p1 .tops_span2").text();
 			var dz = $("#top1 .tops:nth-child("+(tt+1)+") .tops_p2").text();
-			  			/*alert(openid);*/
-			  			$("#top1").css("display","none");
-			  			$("#name").text(names);
-			  			$("#phone").text(phone);
-			  			$("#diz").text(dz);
+			/*alert(openid);*/
+			$("#top1").css("display","none");
+			$("#name").text(names);
+			$("#phone").text(phone);
+			$("#diz").text(dz);
 		})
 
 	</script>
