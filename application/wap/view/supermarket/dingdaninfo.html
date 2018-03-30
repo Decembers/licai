@@ -496,15 +496,21 @@
 				</div>
 				<div class="bottom">
 					<p class="button">取消订单</p>
+					<p class="button" id="shou">确认收货</p>
 					<!--<p class="button">支付订单</p>-->
 				</div>
 			</div>
 		</div>
 		<div class="background"></div>
 		<p class="overtop"></p>
-		<div class="modal1">
+		<div class="modal1" id="moadel1">
 			<h5>提示</h5>
 			<p class="modal1_p1"></p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
+		</div>
+		<div class="modal1" id="moadel2">
+			<h5>提示</h5>
+			<p class="modal1_p1">确认收货</p>
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div class="modal2">
@@ -581,13 +587,21 @@
 					} else {
 						nones();
 						
-							$(".modal1 h5 ").css("display", "block");
-							$(".modal1 .modal1_p1").text("是否删除本条记录？")
+							$("#moadel1 h5 ").css("display", "block");
+							$("#moadel1 .modal1_p1").text("是否删除本条记录？");
+							$("#moadel1").css("display", "block");
 							blocks();
 						
 
 					}
 				
+			})
+			$("#shou").click(function(){
+				
+							$("#moadel2 h5 ").css("display", "block");
+							$("#moadel2 .modal1_p1").text("确认收货？");
+							$("#moadel2").css("display", "block");
+							blocks();
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
@@ -605,7 +619,7 @@
 			})
 
 			function blocks() {
-				$(".modal1").css("display", "block");
+				
 				$("#goodcover").css("display", "block");
 			}
 
