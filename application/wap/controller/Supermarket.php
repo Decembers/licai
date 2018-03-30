@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-29 19:11:34
+ * @Last Modified time: 2018-03-30 09:51:23
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -66,7 +66,7 @@ class Supermarket extends Yang
             Shopping::where('id', $id)->setInc('price',$supermarket['price']);
         }
     }
-    //储存购物信息
+    //结算购物车
     public function shoppingorder()
     {
         if ($this->request->isAjax()) {
@@ -92,6 +92,8 @@ class Supermarket extends Yang
                 $arr['ress_id'] = 0;
                 $arr['create_time'] = time();
             }
+
+            //做一系列安全验证
 
                 Db::commit();
             } catch (\think\Exception $e) {
