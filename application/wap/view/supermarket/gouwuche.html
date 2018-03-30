@@ -394,7 +394,7 @@
 		left: 0;
 		width: 100%;
 		background-color: #F0F0F3;
-		
+
 		padding: 5px 10px;
 		min-height: 100vh;
 		z-index: 500;
@@ -408,16 +408,16 @@
 	}
 	#top1 .tops p {
 				width: 100%;
-				
+
 			}
-			
+
 
 			#top1 .tops .tops_p1 {
 				font-size: 16px;overflow:hidden
 			}
 			#top1 .tops .tops_p1 span{
 				width: 50%;float: left;
-				
+
 				color: #606060 !important;
 			}
 			#top1 .tops .tops_p1 .tops_span2{
@@ -428,45 +428,51 @@ flex-grow: 1;
 				font-size: 14px;
 				width: 100%;white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 			}
-			
+
 			#top1 .tops p{
-				
+
 				line-height:30px;
 				display: block;
 			}
-			
+
 		</style>
 	</head>
 
 	<body>
 		<div class="wrapper" id="shopping_mall" style=" box-sizing: border-box; padding-bottom: 40px;">
-			
+
 			<!--header -->
 			<div class="" id="top1">
 				<div class="tops" data-type = "1">
 
 					<p class="tops_p1"><span class="tops_span1">李1</span><span class="tops_span2">13613820359</span></p>
 					<p class="tops_p2">三楼</p>
-					
+
 				</div>
 				<div class="tops">
 
 				<p class="tops_p1"><span class="tops_span1">李2</span><span class="tops_span2">2</span></p>
 					<p class="tops_p2">2楼</p>
-					
+
 				</div>
 				<div class="tops">
 
 					<p class="tops_p1"><span class="tops_span1">李3</span><span class="tops_span2">3</span></p>
 					<p class="tops_p2">1楼</p>
-					
+
 				</div>
 			</div>
 			<div class="border" style="margin-top: 5px;"><!--<img src="__WAP__/img/icon/1.png"/>--></div>
 			<div class="top1">
 
+<<<<<<< HEAD
 					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">李先生</span><span id="phone">13613820359</span></p>
 					<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">深圳市南山区科技园南区R2-B三楼</span></p>
+=======
+					<p><img src="__WAP__/img/icon/ren.png"/><span>李先生</span><span>13613820359</span></p>
+					<p><img src="__WAP__/img/icon/ditu.png"/><span>深圳市南山区科技园南区R2-B三楼</span></p>
+
+>>>>>>> 613c5a9a6f2b74f13ec7a197d455a84d6c7797bc
 					<span  class="fa fa-3x fa-angle-right" id="right"></span>
 				</div>
 				<div class="border"></div>
@@ -612,13 +618,12 @@ flex-grow: 1;
 							arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
 						};
 						console.log(arr);
-						arr = JSON.stringify(arr);
-						//console.log(arra);
+						arr = arr.join(',');
 
 						$.ajax({
 						    type : 'POST',
 						    url : "{:url('supermarket/shoppingorder')}",
-						    data : arr,
+						    data : {order:arr},
 						    success : function(data){
 						    	console.log(data);
 						    }
@@ -750,7 +755,7 @@ flex-grow: 1;
 			  			$("#phone").text(phone);
 			  			$("#diz").text(dz);
 		})
-		
+
 	</script>
 	</body>
 
