@@ -571,6 +571,16 @@
 							$("#moadel2 .modal1_p1").text("确认收货？");
 							$("#moadel2").css("display", "block");
 							blocks();
+
+				// $.ajax({
+				//     type : 'POST',
+				//     url : "{:url('supermarket/quedingdan')}",
+				//     data : {id:id},
+				//     success : function(data){
+				// 		window.location.href = "{:url('Supermarket/dingdan')}";
+				//     }
+				// })
+
 			})
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
@@ -599,7 +609,6 @@
 			})
 
 			function blocks() {
-
 				$("#goodcover").css("display", "block");
 			}
 

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 13:25:35
+ * @Last Modified time: 2018-03-30 13:43:07
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -203,7 +203,14 @@ class Supermarket extends Yang
             SupermarketOrder::where(['id'=>$id])->update(['status' => 4,'remark'=>$remark]);
         }
     }
-
+    //确认完成
+    public function quedingdan()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            SupermarketOrder::where(['id'=>$id])->update(['status' => 2]);
+        }
+    }
     public function gouwuche()
     {
         $shopping = Shopping::where('user_id',$this->id)->select();
