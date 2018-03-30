@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 13:43:07
+ * @Last Modified time: 2018-03-30 14:38:05
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -46,6 +46,14 @@ class Supermarket extends Yang
 
         }
     }
+    //购物车删除一个商品
+    public function shoppingde()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->delete();
+        }
+    }
     //购物车减
     public function shoppingj()
     {
@@ -56,6 +64,27 @@ class Supermarket extends Yang
 
             Shopping::where('id', $id)->setDec('num',1);
             Shopping::where('id', $id)->setDec('price',$supermarket['price']);
+        }
+    }
+    //购物车加指定数量商品
+    public function shoppingjanum()
+    {
+        if ($this->request->isAjax()) {
+            $num = input('num');
+            $data['sp_id'] = input('sp_id');
+            $data['user_id'] = $this->id;
+            $supermarket = S::where('id',$data['sp_id'])->find();
+            $data['sj_id'] = $supermarket['user_id'];
+            $shopping = Shopping::where($data)->find();
+            $data['price'] = $supermarket['price'];
+            if (!empty($shopping)) {
+                Shopping::where('id', $shopping['id'])->setInc('num',$num);
+                Shopping::where('id', $shopping['id'])->setInc('price',$supermarket['price']*$num);
+            }else{
+                $data['num'] = $num;
+                Shopping::insert($data);
+            }
+
         }
     }
     //购物车加
@@ -163,6 +192,12 @@ class Supermarket extends Yang
     }
     public function info()
     {
+        $id = input('id');
+        $supermarket = S::where('id', $id)->find();
+        $user = User::where('id',$this->id)->find();
+
+        $this->assign('supermarket',$supermarket);
+        $this->assign('user',$user);
         return $this->fetch();
     }
     public function dingdan()
@@ -173,6 +208,8 @@ class Supermarket extends Yang
         foreach ($oupermarketorder as $key => $value) {
             $supermarket = S::where('id',$value['sp_id'])->find();
             $oupermarketorder[$key]['image'] = $supermarket['image'];
+            $adminuser = AdminUser::where(['id'=>$supermarket['user_id']])->find();
+            $oupermarketorder[$key]['sj_name'] = $adminuser['realname'];
         }
 
         $this->assign('is',$is);
@@ -208,7 +245,7 @@ class Supermarket extends Yang
     {
         if ($this->request->isAjax()) {
             $id = input('id');
-            SupermarketOrder::where(['id'=>$id])->update(['status' => 2]);
+            SupermarketOrder::where(['id'=>$id])->update(['status' => 3]);
         }
     }
     public function gouwuche()

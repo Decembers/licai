@@ -356,7 +356,7 @@
 					{volist name="oupermarketorder" id="vo"}
 						<li>
 							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（{$vo.sj_name}）</span></p>
 								<p class="blue">{if condition="$vo.status eq 1"}待发货{elseif condition="$vo.status eq 2" /}已发货{elseif condition="$vo.status eq 3"/}已完成{else/}已取消{/if}</p>
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vo.id])}'">
@@ -387,7 +387,7 @@
 						{if condition="$vos.status eq 1"}
 						<li>
 							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（{$vos.sj_name}）</span></p>
 								<p>待发货</p>
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vos.id])}'">
@@ -421,7 +421,7 @@
 						{if condition="$voss.status eq 2"}
 						<li>
 							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（{$voss.sj_name}）</span></p>
 								<p>已发货</p>
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$voss.id])}'">
@@ -494,7 +494,7 @@
 						{if condition="$vosss.status eq 3"}
 						<li>
 							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p><span class="fa fa-institution"></span><span>趣味农场（{$vosss.sj_name}）</span></p>
 								<p>已完成</p>
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vosss.id])}'">

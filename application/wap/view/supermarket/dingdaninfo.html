@@ -617,12 +617,19 @@
 				$("#goodcover").css("display", "none");
 				$(".modal2").css("display", "none");
 			}
-			
-			
+
+
 			/*确认收货*/
 			$("#moadel2 .modal1_p .modal-button-bold").click(function(){
 				nones();
-				alert("完成");
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/quedingdan')}",
+				    data : {id:id},
+				    success : function(data){
+						window.location.href = "{:url('Supermarket/dingdan')}";
+				    }
+				})
 			})
 		</script>
 	</body>

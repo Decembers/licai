@@ -165,7 +165,7 @@
 				color: white;
 			}
 
-			
+
 		</style>
 	</head>
 
@@ -181,22 +181,22 @@
 			<div class="details">
 				<div class="detail01">
 					<div class="row">
-						<span class="shopname">平装礼盒</span>￥<span id="pay_inmoney">199</span>
+						<span class="shopname">{$supermarket.name}</span>￥<span id="pay_inmoney">{$supermarket.price}</span>
 					</div>
 					<div class="row">
-						羊肉馅600g/袋*1、蒙古包子450g/袋*1、羊肉片320g/袋*1
+						{$supermarket.content}
 					</div>
 					<div class="row">
-						<img src="__WAP__/img/5959ee9350d4c.jpg" id="img">
+						<img src="{$supermarket.image}" id="img">
 					</div>
-					<div class="row">
+					<!-- <div class="row">
 						（包邮）平装礼盒1.37kg
-					</div>
+					</div> -->
 				</div>
 				<ul class="detail02">
 					<li>
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" style="font-size:1rem;">0.00</span></p>
+						<p><span class="em">￥</span><span class="em" style="font-size:1rem;">{$user.balance}</span></p>
 					</li>
 					<li>
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -208,7 +208,7 @@
 					</li>
 				</ul>
 				<div class="detail03">
-					<img src="__WAP__/img/5959ee6315e84.jpg" alt="推荐" onclick="window.location='{:url('Supermarket/index')}'"/>
+					<img src="{$supermarket.content_img}" alt="推荐"/>
 				</div>
 			</div>
 			<div class="detail04">
@@ -231,6 +231,7 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+		var id = {$supermarket.id};
 			$("a,input,button").focus(function() {
 				this.blur()
 			});
@@ -270,7 +271,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				}
 			})
 			/*羊数量 + */
-			
+
 			$("#plus").click(function() {
 				var num = parseInt($("#number").val());
 				if($("#number").val() == "") {
@@ -284,7 +285,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 					bian();
 				} else {
 					$("#number").val(num + 1);
-					bian();					
+					bian();
 					offset,
 						flyer = $("<img class='u-flyer' src='"+img+"'/>");
 					flyer.fly({
@@ -303,7 +304,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 						}
 					});
 				}
-  
+
 			})
 			/*羊数量输入时时变更*/
 			function bian() {
@@ -313,7 +314,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				} else {
 					$("#numbers").text(Math.abs($("#number").val()));
 				}
-				tofix($("#qian"), 199); /*羊总价*/
+				tofix($("#qian"), {$supermarket.price}); /*羊总价*/
 			}
 
 		/*	function tofix(st, fs) {
@@ -334,21 +335,31 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 			function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				if(zong % 1 ==0){
-					st.text(zong + ".00");				
+					st.text(zong + ".00");
 				}else{
 					var lens1 =zong.toString().split(".")[1].length;
 					if(lens1 == 1) {
-							st.text(zong + "0");					
+							st.text(zong + "0");
 						} else if(lens1 == 2) {
-							st.text(zong + "0");			
+							st.text(zong + "0");
 						} else if(lens1 > 2) {
-							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));						
+							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
 						}
 				}
 			}
 			$("#gm").click(function(){
 				if($("#number").val()>0){
-					window.location='{:url('Supermarket/pay')}';
+					number = $("#number").val();
+					$.ajax({
+					    type : 'POST',
+					    url : "{:url('supermarket/shoppingjanum')}",
+					    data : {sp_id:id,num:number},
+					    success : function(data){
+				    		$(".overtop").text("已添加购物车");
+							overtop();
+					    }
+					})
+
 				}else{
 					$(".overtop").text("没有购买");
 								overtop();
