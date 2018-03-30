@@ -651,7 +651,7 @@ flex-grow: 1;
 				<!--超市物品展示-->
 				<ul class="sheep">
 					{volist name="shopping" id="data"}
-						<li>
+						<li data-id="{$data.id}">
 							<div class="dui" data-id="{$data.id}">
 								<span>√</span>
 							</div>
@@ -760,6 +760,7 @@ flex-grow: 1;
 			<p>是否删除本商品？</p>
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
+
 		<div class="modal1s">
 			<h5>提醒</h5>
 			<p class="modal1_p1">确定要支付吗？</p>
@@ -833,11 +834,18 @@ flex-grow: 1;
 						    url : "{:url('supermarket/shoppingorder')}",
 						    data : {order:arr,ress_id:ress},
 						    success : function(data){
-						    	console.log(data);
+						    	if (data.code==1) {
+									$(".overtop").text(data.msg);
+									overtop();
+									window.location.href = "{:url('Supermarket/dingdan')}";
+
+						    	}else{
+									$(".overtop").text(data.msg);
+									overtop();
+						    	}
 						    }
 						})
 
-						//window.location.href = "{:url('Supermarket/pay')}";
 
 						}else{
 							$(".overtop").text("没有选中的商品");
@@ -921,9 +929,20 @@ flex-grow: 1;
 
 			}
 			/*弹窗确定的删除*/
-			$(".modal-button-bold").click(function() {
+			$(".modal1 .modal-button-bold").click(function() {
 				nones();
-				/*nas.remove();*/
+				nas.remove();
+
+				id = $(nas).attr('data-id');
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/shoppingde')}",
+				    data : {id:id},
+				    success : function(data){
+
+				    }
+				})
+
 				sw();nos();
 			});
 
@@ -964,11 +983,15 @@ flex-grow: 1;
 			$("#phone").text(phone);
 			$("#diz").text(dz);
 		})
-			$(".yu").click(function() {
-					blocks();
+
+$(".yu").click(function() {
+
+					$(".modal1s").css("display", "block");
+				$("#goodcover").css("display", "block");
+
 			})
 			/*弹窗确定的删除*/
-			$(".modal-button-bold").click(function() {
+			$(".modal1s .modal-button-bold").click(function() {
 				nones();
 				/*判断余额与订单金额*/
 				/*间隔定时器*/

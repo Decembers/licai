@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 14:38:05
+ * @Last Modified time: 2018-03-30 14:52:56
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -19,7 +19,7 @@ class Supermarket extends Yang
 {
     public function index()
     {
-        $supermarket = S::select();
+        $supermarket = S::where(['user_id'=>6])->select();
         $shopping['num'] = Shopping::where('user_id',$this->id)->sum('num');
         $shopping['price'] = Shopping::where('user_id',$this->id)->sum('price');
         //var_dump($shopping);die;
@@ -204,7 +204,7 @@ class Supermarket extends Yang
     {
         $is = input('is');
 
-        $oupermarketorder = SupermarketOrder::where(['user_id'=>$this->id])->select();
+        $oupermarketorder = SupermarketOrder::where(['user_id'=>$this->id])->order('create_time desc')->select();
         foreach ($oupermarketorder as $key => $value) {
             $supermarket = S::where('id',$value['sp_id'])->find();
             $oupermarketorder[$key]['image'] = $supermarket['image'];
