@@ -760,6 +760,7 @@ flex-grow: 1;
 			<p>是否删除本商品？</p>
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
+		
 		<div class="modal1s">
 			<h5>提醒</h5>
 			<p class="modal1_p1">确定要支付吗？</p>
@@ -921,9 +922,10 @@ flex-grow: 1;
 
 			}
 			/*弹窗确定的删除*/
-			$(".modal-button-bold").click(function() {
+			$(".modal1 .modal-button-bold").click(function() {
 				nones();
-				/*nas.remove();*/
+				nas.remove();
+				
 				sw();nos();
 			});
 
@@ -965,10 +967,12 @@ flex-grow: 1;
 			$("#diz").text(dz);
 		})
 $(".yu").click(function() {
-					blocks();
+					
+					$(".modal1s").css("display", "block");
+				$("#goodcover").css("display", "block");
 			})
 			/*弹窗确定的删除*/
-			$(".modal-button-bold").click(function() {
+			$(".modal1s .modal-button-bold").click(function() {
 				nones();
 				/*判断余额与订单金额*/
 				/*间隔定时器*/
