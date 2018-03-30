@@ -344,7 +344,7 @@
 			<div class="order">
 				<!--fa-book-->
 				<p class="red"><span id=""><img src="__WAP__/img/icon/d0.png"/></span><span>全部</span></p>
-			
+
 				<p><span id=""><!--<img src="__WAP__/img/icon/d2.png"/>--></span><span>待发货</span></p>
 				<p><span id=""><!--<img src="__WAP__/img/icon/d3.png"/>--></span><span>已发货</span></p>
 				<p><span id=""><!--<img src="__WAP__/img/icon/d4.png"/>--></span><span>已完成</span></p>
@@ -358,17 +358,15 @@
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
 								<p class="blue">{if condition="$vo.status eq 1"}待发货{elseif condition="$vo.status eq 2" /}已发货{elseif condition="$vo.status eq 3"/}已完成{else/}已取消{/if}</p>
 							</div>
-							<div class="center">
+							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vo.id])}'">
 								<div class="fl">
-									{for start="0" end="$vo.quantity"}
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="{$vo.image}" />
 									</div>
-									{/for}
 								</div>
 								<div class="fr">
 									<span>
-										...共<i></i>件
+										...共<i>{$vo.quantity}</i>件
 									</span>
 									<span class="fa fa-angle-right">
 
@@ -382,35 +380,25 @@
 						</li>
 					{/volist}
 					</ul>
-					
-					<ul class="send">
 
+					<ul class="send">
+					{volist name="oupermarketorder" id="vos"}
+						{if condition="$vos.status eq 1"}
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
 								<p>待发货</p>
 							</div>
-							<div class="center">
+							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vos.id])}'">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="{$vos.image}" />
 									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
+
 								</div>
 								<div class="fr">
 									<span>
-										...共<i></i>件
+										...共<i>{$vos.quantity}</i>件
 									</span>
 									<span class="fa fa-angle-right">
 
@@ -418,39 +406,33 @@
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="fu"><span>实付款：￥</span><span>{$vos.order_price}</span></p>
 								<a class="button">联系客服</a>
-								<p class="button">查看详情</p>
 							</div>
 						</li>
+						{/if}
+					{/volist}
+
 					</ul>
 					<ul class="receiving">
+
+					{volist name="oupermarketorder" id="voss"}
+						{if condition="$voss.status eq 2"}
 						<li>
 							<div class="top">
 								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
 								<p>已发货</p>
 							</div>
-							<div class="center">
+							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$voss.id])}'">
 								<div class="fl">
 									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
+										<img src="{$voss.image}" />
 									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
+
 								</div>
 								<div class="fr">
 									<span>
-										...共<i></i>件
+										...共<i>{$voss.quantity}</i>件
 									</span>
 									<span class="fa fa-angle-right">
 
@@ -458,87 +440,13 @@
 								</div>
 							</div>
 							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
+								<p class="fu"><span>实付款：￥</span><span>{$voss.order_price}</span></p>
 								<a class="button">联系客服</a>
-								<p class="button">查看物流</p>
 							</div>
 						</li>
-						<li>
-							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p>已发货</p>
-							</div>
-							<div class="center">
-								<div class="fl">
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-								</div>
-								<div class="fr">
-									<span>
-										...共<i></i>件
-									</span>
-									<span class="fa fa-angle-right">
+						{/if}
+					{/volist}
 
-									</span>
-								</div>
-							</div>
-							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<a class="button">联系客服</a>
-								<p class="button">查看物流</p>
-							</div>
-						</li>
-						<li>
-							<div class="top">
-								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
-								<p>已发货</p>
-							</div>
-							<div class="center">
-								<div class="fl">
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-									<div class="">
-										<img src="__WAP__/img/595617b6e853f.jpg" />
-									</div>
-								</div>
-								<div class="fr">
-									<span>
-										...共<i></i>件
-									</span>
-									<span class="fa fa-angle-right">
-
-									</span>
-								</div>
-							</div>
-							<div class="bottom">
-								<p class="fu"><span>实付款：￥</span><span>132.00</span></p>
-								<a class="button">联系客服</a>
-								<p class="button">查看物流</p>
-							</div>
-						</li>
 					</ul>
 					<ul class="accomplish">
 
@@ -580,6 +488,38 @@
 								<p class="button">追加评价</p>
 							</div>
 						</li>-->
+
+					{volist name="oupermarketorder" id="vosss"}
+						{if condition="$vosss.status eq 3"}
+						<li>
+							<div class="top">
+								<p><span class="fa fa-institution"></span><span>趣味农场（漯河店）</span></p>
+								<p>已完成</p>
+							</div>
+							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vosss.id])}'">
+								<div class="fl">
+									<div class="">
+										<img src="{$vosss.image}" />
+									</div>
+
+								</div>
+								<div class="fr">
+									<span>
+										...共<i>{$vosss.quantity}</i>件
+									</span>
+									<span class="fa fa-angle-right">
+
+									</span>
+								</div>
+							</div>
+							<div class="bottom">
+								<p class="fu"><span>实付款：￥</span><span>{$vosss.order_price}</span></p>
+								<a class="button">联系客服</a>
+							</div>
+						</li>
+						{/if}
+					{/volist}
+
 					</ul>
 				</div>
 			</div>
@@ -636,26 +576,26 @@ function overtop() {
 			len();
 
 			function len() {
-				for(var i = 0; i < $(".case ul").length; i++) {
-					for(var n = 0; n < $(".case ul:nth-child(" + (i + 1) + ") li").length; n++) {
-						if($(".case ul:nth-child(" + (i + 1) + ") li").length == 0) {
-							/*$(".case ul:nth-child(" + (i + 1) + ") ").prepend($("body>div.without").clone(true));*/
-							/*$(".case ul:nth-child(" + (i + 1) + ") .without").css("display","block");*/
-						}
-						for(var s = 0; s < $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ")").length; s++) {
-							var lens = $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").length;
-							$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr span i").text(lens);
-							if(lens > 3) {
-								$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").css("display", "none");
-								for(var is = 1; is < 4; is++) {
-									$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div:nth-child(" + is + ")").css("display", "block");
-								}
-							} else {
-								/*$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity", "0");*/
-							}
-						}
-					}
-				}
+				// for(var i = 0; i < $(".case ul").length; i++) {
+				// 	for(var n = 0; n < $(".case ul:nth-child(" + (i + 1) + ") li").length; n++) {
+				// 		if($(".case ul:nth-child(" + (i + 1) + ") li").length == 0) {
+				// 			/*$(".case ul:nth-child(" + (i + 1) + ") ").prepend($("body>div.without").clone(true));*/
+				// 			/*$(".case ul:nth-child(" + (i + 1) + ") .without").css("display","block");*/
+				// 		}
+				// 		for(var s = 0; s < $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ")").length; s++) {
+				// 			var lens = $(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").length;
+				// 			$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr span i").text(lens);
+				// 			if(lens > 3) {
+				// 				$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div").css("display", "none");
+				// 				for(var is = 1; is < 4; is++) {
+				// 					$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fl div:nth-child(" + is + ")").css("display", "block");
+				// 				}
+				// 			} else {
+				// 				/*$(".case ul:nth-child(" + (i + 1) + ") li:nth-child(" + (n + 1) + ") .center .fr").css("opacity", "0");*/
+				// 			}
+				// 		}
+				// 	}
+				// }
 			}
 			/*alert($(".accomplish li").length)*/
 			$(".order p").click(function() {
@@ -712,12 +652,12 @@ function overtop() {
 				}
 			})
 
-			$(".center .fl").click(function() {
-				window.location.href = "{:url('supermarket/dingdaninfo')}";
-			});
-			$(".center .fr").click(function() {
-				window.location.href = "{:url('supermarket/dingdaninfo')}";
-			})
+			// $(".center .fl").click(function() {
+			// 	window.location.href = "{:url('supermarket/dingdaninfo')}";
+			// });
+			// $(".center .fr").click(function() {
+			// 	window.location.href = "{:url('supermarket/dingdaninfo')}";
+			// })
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				if($(".modal1_p1").text() == "是否删除本条记录？") {

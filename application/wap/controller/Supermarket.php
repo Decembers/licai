@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 12:06:12
+ * @Last Modified time: 2018-03-30 13:25:35
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -170,6 +170,10 @@ class Supermarket extends Yang
         $is = input('is');
 
         $oupermarketorder = SupermarketOrder::where(['user_id'=>$this->id])->select();
+        foreach ($oupermarketorder as $key => $value) {
+            $supermarket = S::where('id',$value['sp_id'])->find();
+            $oupermarketorder[$key]['image'] = $supermarket['image'];
+        }
 
         $this->assign('is',$is);
         $this->assign('oupermarketorder',$oupermarketorder);
@@ -190,6 +194,16 @@ class Supermarket extends Yang
 
         return $this->fetch();
     }
+    //取消订单
+    public function dededingdan()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $remark = input('remark');
+            SupermarketOrder::where(['id'=>$id])->update(['status' => 4,'remark'=>$remark]);
+        }
+    }
+
     public function gouwuche()
     {
         $shopping = Shopping::where('user_id',$this->id)->select();
