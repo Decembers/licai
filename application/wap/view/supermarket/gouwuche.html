@@ -768,7 +768,7 @@ flex-grow: 1;
 		</div>
 		<div class="modal1" id="modal2">
 			<p>是否确认支付？</p>
-			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
+			<p class="modal1_p"><span class="modal-button modal-button-bolds">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div class="none">
 			<p class="fa fa-shopping-cart fa-4x"></p>
@@ -801,6 +801,7 @@ flex-grow: 1;
 				$(this).toggleClass("dui");
 				sw();
 			})
+			/*全选*/
 			$(".quan div").click(function() {
 				$(this).toggleClass("dui");
 				var th = $(this).hasClass('dui');
