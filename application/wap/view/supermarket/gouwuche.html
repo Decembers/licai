@@ -647,7 +647,7 @@ flex-grow: 1;
 						<span id="">
 							趣味农场（漯河店）
 						</span>
-					</div>
+				</div>
 				<!--超市物品展示-->
 				<ul class="sheep">
 					{volist name="shopping" id="data"}
@@ -669,24 +669,6 @@ flex-grow: 1;
 							</div>
 						</li>
 					{/volist}
-
-					<!-- <li>
-						<div class="dui">
-							<span>√</span>
-						</div>
-						<div class="imgs">
-							<img src="__WAP__/img/595619ce1b33b.jpg" />
-						</div>
-						<div class="name">
-							<p>太阳卷</p>
-							<p><span>￥</span><span class="qian">663</span></p>
-						</div>
-						<div class="shu">
-							<span class="jian">-</span>
-							<p class="input">1</p>
-							<span class="jia">+</span>
-						</div>
-					</li> -->
 
 				</ul>
 			</div>
@@ -771,11 +753,19 @@ flex-grow: 1;
 			<p>是否确认支付？</p>
 			<p class="modal1_p"><span class="modal-button modal-button-bolds">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
+		{if condition="$shopping"}
 		<div class="none">
 			<p class="fa fa-shopping-cart fa-4x"></p>
 			<p>购物车还是空的，去挑选商品吧！</p>
 			<a href="{:url('Supermarket/index')}">去逛逛</a>
 		</div>
+		{else/}
+		<div class="none" style="display:block">
+			<p class="fa fa-shopping-cart fa-4x"></p>
+			<p>购物车还是空的，去挑选商品吧！</p>
+			<a href="{:url('Supermarket/index')}">去逛逛</a>
+		</div>
+		{/if}
 		<p class="overtop"></p>
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
