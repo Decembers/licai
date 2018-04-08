@@ -613,7 +613,7 @@ flex-grow: 1;
 					<p class="tops_p2">{$vos.address}</p>
 				</div>
 				{/volist}
-				<p style="width: 50%; margin: 20px  auto; line-height: 30px ;background-color: #3db4cc; color: white; text-align: center; border-radius: 10px;">添加或修改信息</p>
+				<p style="width: 50%; margin: 20px  auto; line-height: 30px ;background-color: #3db4cc; color: white; text-align: center; border-radius: 10px;" onclick="window.location.href='{:url("member/listress")}'">添加或修改信息</p>
 			</div>
 			<div class="border" style="margin-top: 5px;"><!--<img src="__WAP__/img/icon/1.png"/>--></div>
 
@@ -812,53 +812,53 @@ flex-grow: 1;
 
 			$("#modal2 .modal-button-bold").click(function(){
 var th = $(".quan div").hasClass('dui');
-				//$("#main").css("left","0vw");
+				$("#main").css("left","0vw");
 
-				if($(".sheep li").length>0){
-					
-					if($(".sheep .dui").length>0) {
-						var arr = [];
-						for (var i = 0; i < $(".sheep .dui").length; i++) {
-							arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
-						};
-						console.log(arr);
-						arr = arr.join(',');
-						var ress = $(".top1").attr("data-ress");
-						if (!ress) {
-							$(".overtop").text("请选择收获地址");
-							overtop();return false;
-						}
-						$.ajax({
-						    type : 'POST',
-						    url : "{:url('supermarket/shoppingorder')}",
-						    data : {order:arr,ress_id:ress},
-						    success : function(data){
-						    	if (data.code==1) {
-									$(".overtop").text(data.msg);
-									overtop();
-									window.location.href = "{:url('Supermarket/dingdan')}";
+				// if($(".sheep li").length>0){
 
-						    	}else{
-									$(".overtop").text(data.msg);
-									overtop();
-						    	}
-						    }
-						})
+				// 	if($(".sheep .dui").length>0) {
+				// 		var arr = [];
+				// 		for (var i = 0; i < $(".sheep .dui").length; i++) {
+				// 			arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
+				// 		};
+				// 		console.log(arr);
+				// 		arr = arr.join(',');
+				// 		var ress = $(".top1").attr("data-ress");
+				// 		if (!ress) {
+				// 			$(".overtop").text("请选择收获地址");
+				// 			overtop();return false;
+				// 		}
+				// 		$.ajax({
+				// 		    type : 'POST',
+				// 		    url : "{:url('supermarket/shoppingorder')}",
+				// 		    data : {order:arr,ress_id:ress},
+				// 		    success : function(data){
+				// 		    	if (data.code==1) {
+				// 					$(".overtop").text(data.msg);
+				// 					overtop();
+				// 					window.location.href = "{:url('Supermarket/dingdan')}";
+
+				// 		    	}else{
+				// 					$(".overtop").text(data.msg);
+				// 					overtop();
+				// 		    	}
+				// 		    }
+				// 		})
 
 
-						}else{						
-								$(".overtop").text("没有选中的商品");
-							overtop();
-						}
-				}else{
-					$(".overtop").text("购物车中没有商品，请去逛逛");
-							overtop();
-				}
+				// 		}else{
+				// 				$(".overtop").text("没有选中的商品");
+				// 			overtop();
+				// 		}
+				// }else{
+				// 	$(".overtop").text("购物车中没有商品，请去逛逛");
+				// 			overtop();
+				// }
 			})
 			$("#pbuttom").click(function(){
 				$("#modal2").css("display","block");
 				$("#goodcover").css("display", "block");
-				
+
 
 			})
 
