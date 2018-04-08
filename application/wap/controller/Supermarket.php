@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-30 14:52:56
+ * @Last Modified time: 2018-03-30 15:24:40
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -177,7 +177,7 @@ class Supermarket extends Yang
 
             }
                 $arr['msg'] = '订单创建成功';
-                $arr['code'] = 0;
+                $arr['code'] = 1;
                 Db::commit();
             } catch (\think\Exception $e) {
                 Db::rollback();

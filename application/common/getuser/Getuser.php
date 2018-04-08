@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 14:36:57
+ * @Last Modified time: 2018-04-02 10:10:37
  */
 namespace  app\common\getuser;
 use think\Session;
