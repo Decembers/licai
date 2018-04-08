@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+		<link rel="stylesheet" type="text/css" href="__WAP__/font-awesome-4.7.0/css/font-awesome.min.css" />
 		<script src="__WAP__/js/jquery.js"></script>
 		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer-background.css" />
 		<style type="text/css">
@@ -164,7 +165,176 @@
 				background: linear-gradient(to right, #3db4cc, #6fd6ea);
 				color: white;
 			}
+			.main{
+				min-height: 100vh;
+				display: none;
+			}
+.main,
+			.main>div {
+				width: 100%;
+				overflow: hidden;
+			}
 
+			.main>div {
+				background-color: white;
+				margin-bottom: 2px;
+				box-sizing: border-box;
+				padding: 0.5rem;
+			}
+
+			.order p {
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				line-height: 25px;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.order p:nth-child(2) {
+				/*font-size: 14px;*/
+			}
+			.order p span:first-child{
+				color: gray;
+			}
+			.blue {
+				 color: #6fd6ea !important; font-weight: 600;
+     font-size: 15px !important;
+			}
+
+			.top>div {
+				display: flex;
+				border-top: 1px solid #F0F0F3;
+				padding: 0.5rem 0;
+			}
+
+			.top>div:first-child {
+				padding-top: 0;
+				border: none;
+			}
+
+			.top>div:last-child {
+				padding-bottom: 0;
+			}
+
+			.top>div>.fa {
+				width: 60px;
+				text-align: center;
+				line-height: 40px;
+			}
+
+			.top>div div:nth-child(1) {
+				border-right: 1px solid #EBEBEB;
+				/* color: #6fd6ea ;*/
+			}
+
+			.fa-weixin {
+				color: #4BB709;
+			}
+
+			.fa-gg-circle {
+				 color: #6fd6ea ;
+			}
+
+			.top>div .text_fa {
+				flex-grow: 3;
+			}
+
+			.text_fa p {
+				line-height: 20px;
+				display: flex;
+				padding-left: 1rem;
+				font-size: 16px;
+			}
+
+			.text_fa p span {
+				font-size: 13px;
+				opacity: 0.7;
+			}
+
+			.text_fa p span.fa {
+				line-height: 20px;
+				margin-right: 0.5rem;
+			}
+
+			.fa-angle-right {
+				color: #B2B2B2;
+				width: 30px !important;
+			}
+			/*提示*/
+			/*提示*/
+
+			.modal1 {
+				width: 80vw;
+				position: fixed;
+				z-index: 1002;
+				left: 50%;
+				margin-left: -40vw;
+				border-radius: 0.5rem;
+				top: 50%;
+				margin-top: -60px;
+				text-align: center;
+				background: #e8e8e8;
+				color: #3d4145;
+				display: none;
+				overflow: hidden;
+			}
+
+			.modal1 h5 {
+				width: 100%;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				line-height: 40px;
+				height: 30px;
+				font-size: 16px;
+				display: none;
+			}
+
+			.modal1 p {
+				font-size: 16px;
+			}
+
+			.modal1 .modal1_p1 {
+				box-sizing: border-box;
+				padding: 15px 0;
+			}
+
+			.modal1 .modal1_p {
+				line-height: 40px;
+				display: flex;
+
+				border-top: 1px solid rgba(72,74,74,0.3);
+			}
+
+			.modal1 .modal1_p span {
+				width: 50%;
+				text-align: center;
+				padding: 0 .25rem;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #0894ec;
+				background: #e8e8e8;
+				box-sizing: border-box;
+			}
+
+			.modal1 .modal1_p span:nth-child(1) {
+				border-right: 1px solid rgba(72,74,74,0.3);
+			}
+
+			#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
 
 		</style>
 	</head>
@@ -177,6 +347,44 @@
 				</div>
 				<h3>农场超市</h3>
 				<a href="{:url('Supermarket/gouwuche')}">购物车</a>
+			</div>
+			<div class="main">
+				<div class="order">
+					<p><span>商品小计</span><span>￥405.00</span>
+</p>
+					<p><span>运费</span><span>￥0.00</span>
+</p>
+					<p><span>实付费（含运费）</span><span class="blue">￥405.00</span>
+</p>
+
+				</div>
+				<div class="top">
+					<div class="wei">
+						<div class="fa fa-weixin fa-2x">
+
+						</div>
+						<div class="text_fa">
+							<p>微信支付</p>
+							<p><span class="fa fa-expeditedssl "></span><span>微信安全支付</span></p>
+						</div>
+						<div class="fa fa-angle-right fa-2x">
+
+						</div>
+					</div>
+					<div class="yu">
+						<div class="fa fa-gg-circle fa-2x">
+
+						</div>
+						<div class="text_fa">
+							<p>余额支付</p>
+							<p><span class="fa ">当前余额</span><span class="blue">￥0.00</span></p>
+						</div>
+						<div class="fa fa-angle-right fa-2x">
+
+						</div>
+					</div>
+				</div>
+
 			</div>
 			<div class="details">
 				<div class="detail01">
@@ -228,6 +436,13 @@
 		</div>
 		<div class="background"></div>
 		<p class="overtop"></p>
+		<div class="modal1">
+			<h5>提醒</h5>
+			<p class="modal1_p1">确定要支付吗？</p>
+			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
+		</div>
+		<div id="goodcover"></div>
+		
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -348,7 +563,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				}
 			}
 			$("#gm").click(function(){
-				if($("#number").val()>0){
+				/*if($("#number").val()>0){
 					number = $("#number").val();
 					$.ajax({
 					    type : 'POST',
@@ -363,8 +578,47 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				}else{
 					$(".overtop").text("没有购买");
 								overtop();
-				}
+				}*/
+				$(".details").css("display","none");
+				$(".detail04").css("display","none");
+				$(".main").css("display","block");
 			})
+			$(".yu").click(function() {
+					/*余额支付*/
+					blocks();
+			})
+			$(".wei").click(function() {
+					/*微信支付*/
+			})
+			/*弹窗确定的删除*/
+			$(".modal-button-bold").click(function() {
+				nones();
+				/*判断余额与订单金额*/
+				/*间隔定时器*/
+				setTimeout(function(){
+					$(".overtop").text("余额不足");
+					overtop();
+				},1000)
+
+			});
+
+			/*弹窗*/
+			$("#goodcover").click(function() {
+				nones();
+			})
+			$(".modal1_p span:nth-child(1)").click(function() {
+				nones();
+			})
+			/*显示*/
+			function blocks() {
+				$(".modal1").css("display", "block");
+				$("#goodcover").css("display", "block");
+			}
+			/*隐藏*/
+			function nones() {
+				$(".modal1").css("display", "none");
+				$("#goodcover").css("display", "none");
+			}
 		</script>
 	</body>
 
