@@ -561,7 +561,7 @@ flex-grow: 1;
 
 			.modal1 .modal1_p1 {
 				box-sizing: border-box;
-				padding: 15px 0;
+				/*padding: 15px 0;*/
 			}
 
 			.modal1 .modal1_p {
@@ -744,9 +744,9 @@ flex-grow: 1;
 			<p class="modal1_p"><span class="modal-button modal-button-bold">删除</span><span class="modal-button">取消</span></p>
 		</div>
 
-		<div class="modal1s">
+		<div class="modal1" id="modal1s">
 
-			<h5>提醒</h5>
+			<!--<h5>提醒</h5>-->
 			<p class="modal1_p1">确定要支付吗？</p>
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
@@ -994,12 +994,12 @@ var th = $(".quan div").hasClass('dui');
 
 $(".yu").click(function() {
 
-					$(".modal1s").css("display", "block");
+					$("#modal1s").css("display", "block");
 				$("#goodcover").css("display", "block");
 
 			})
 			/*弹窗确定的删除*/
-			$(".modal1s .modal-button-bold").click(function() {
+			$("#modal1s .modal-button-bold").click(function() {
 				nones();
 				/*判断余额与订单金额*/
 				/*间隔定时器*/
