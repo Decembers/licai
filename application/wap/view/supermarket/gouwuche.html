@@ -792,6 +792,11 @@ flex-grow: 1;
 			$(".sheep li>div:nth-child(1)").click(function() {
 				$(this).toggleClass("dui");
 				sw();
+				if($(".sheep li").length>$(".sheep li .dui").length){
+					$(".quan div").removeClass("dui");
+				}else{
+					$(".quan div").addClass("dui");
+				}
 			})
 			/*全选*/
 			$(".quan div").click(function() {
