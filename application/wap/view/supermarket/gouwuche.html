@@ -613,6 +613,7 @@ flex-grow: 1;
 					<p class="tops_p2">{$vos.address}</p>
 				</div>
 				{/volist}
+				<p style="width: 50%; margin: 20px  auto; line-height: 30px ;background-color: #3db4cc; color: white; text-align: center; border-radius: 10px;">添加或修改信息</p>
 			</div>
 			<div class="border" style="margin-top: 5px;"><!--<img src="__WAP__/img/icon/1.png"/>--></div>
 
@@ -814,7 +815,8 @@ var th = $(".quan div").hasClass('dui');
 				//$("#main").css("left","0vw");
 
 				if($(".sheep li").length>0){
-					if(th == true) {
+					
+					if($(".sheep .dui").length>0) {
 						var arr = [];
 						for (var i = 0; i < $(".sheep .dui").length; i++) {
 							arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
@@ -844,10 +846,9 @@ var th = $(".quan div").hasClass('dui');
 						})
 
 
-						}else{
-							$(".overtop").text("没有选中的商品");
+						}else{						
+								$(".overtop").text("没有选中的商品");
 							overtop();
-
 						}
 				}else{
 					$(".overtop").text("购物车中没有商品，请去逛逛");
