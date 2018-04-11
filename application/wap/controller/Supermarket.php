@@ -3,12 +3,13 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-10 16:22:47
+ * @Last Modified time: 2018-04-11 16:55:39
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
 use app\common\model\Ress;
 use app\common\model\User;
+use app\common\model\Detail;
 use app\common\model\AdminUser;
 use app\common\model\Shopping;
 use app\common\model\Supermarket as S;
@@ -195,7 +196,10 @@ class Supermarket extends Yang
         $id = input('id');
         $supermarket = S::where('id', $id)->find();
         $user = User::where('id',$this->id)->find();
+        $shopping['num'] = Shopping::where('user_id',$this->id)->sum('num');
+        $shopping['price'] = Shopping::where('user_id',$this->id)->sum('price');
 
+        $this->assign('shopping',$shopping);
         $this->assign('supermarket',$supermarket);
         $this->assign('user',$user);
         return $this->fetch();
@@ -295,6 +299,7 @@ class Supermarket extends Yang
             $oupermarketorder[$key]['image'] = $supermarket['image'];
             $adminuser = AdminUser::where(['id'=>$supermarket['user_id']])->find();
             $oupermarketorder[$key]['sj_name'] = $adminuser['realname'];
+            $oupermarketorder[$key]['sj_mobile'] = $adminuser['mobile'];
         }
 
         $this->assign('is',$is);
@@ -325,6 +330,14 @@ class Supermarket extends Yang
             $SupermarketOrder = SupermarketOrder::where(['id'=>$id])->find();
             SupermarketOrder::where(['id'=>$id])->update(['status' => 4,'remark'=>$remark]);
             User::where('id',$this->id)->setInc('balance', $SupermarketOrder['order_price']);
+            $detail['user_id']=$this->id;
+            $detail['or']=1;
+            $detail['money']=$SupermarketOrder['order_price'];
+            $detail['comment']='退款';
+            $detail['status']=1;
+            $detail['create_time']=time();
+            $detail['accomplish_time']=time();
+            Detail::insert($detail);//添加详细信息
         }
     }
     //确认完成
@@ -345,8 +358,8 @@ class Supermarket extends Yang
             $shopping[$key]['sp_img'] = $supermarket['image'];
             $shopping[$key]['sp_price'] = $supermarket['price'];
         }
-        $ress = Ress::where(['user_id'=>$this->id])->select();
-        $defult = Ress::where(['user_id'=>$this->id,'is_default'=>1])->find();
+        $ress = Ress::where(['user_id'=>$this->id,'status'=>1])->select();
+        $defult = Ress::where(['user_id'=>$this->id,'is_default'=>1,'status'=>1])->find();
 
         $this->assign('ress',$ress);
         $this->assign('defult',$defult);

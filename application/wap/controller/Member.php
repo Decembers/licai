@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-10 09:53:03
+ * @Last Modified time: 2018-04-11 16:28:05
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -583,7 +583,7 @@ class Member extends Yang
         /**************************************************微信获取收获地址代码****************/
 
 
-            $arr = R::where(['user_id'=>$this->id])->select();
+            $arr = R::where(['user_id'=>$this->id,'status'=>1])->select();
             $this->assign('arr',$arr);
             return $this->fetch();
         }
@@ -653,13 +653,13 @@ class Member extends Yang
                   $arr['msg'] = '数据错误';
                   return json_encode($arr);
              }
-             $result=R::where(['id'=>$id])->delete();
-             if ($result==0) {
-                $arr['msg'] = '删除失败';
-                return json_encode($arr);
-             }else{
+             $result=R::where(['id'=>$id])->update(['status'=>0]);
+             if ($result) {
                 $arr['msg'] = '删除成功';
                 $arr['code'] = 1;
+                return json_encode($arr);
+             }else{
+                $arr['msg'] = '删除失败';
                 return json_encode($arr);
              }
         }

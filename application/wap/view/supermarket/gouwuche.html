@@ -850,6 +850,14 @@ var th = $(".quan div").hasClass('dui');
 								$(".overtop").text("购买金额需在30元以上");
 								overtop();
 						}else{
+
+							var ress = $(".top1").attr("data-ress");
+							if (!ress) {
+								$(".overtop").text("请选择收获地址");
+								overtop();return false;
+							}
+
+
 								$(".qian").text('￥'+qian+'.00');
 								$("#main").css("left","0vw");
 						}
