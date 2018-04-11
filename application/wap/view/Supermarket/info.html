@@ -447,6 +447,16 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var shuliang = parseInt($("#numbers").text());
+			var zhongjia = Math.abs($("#qian").text());
+			/*var zhongjia1 =zhongjia.toString().split(".")[1].length;
+					if(zhongjia1 == 1) {
+							$("#qian").text(zhongjia1 + "0");
+						} else if(zhongjia1 == 2) {
+							$("#qian").text(zhongjia1 + "0");
+						} else if(zhongjia1 > 2) {
+							$("#qian").text(zhongjia1.toString().substr(0, zhongjia1.toString().indexOf(".") + 3));
+						}*/
 		var id = {$supermarket.id};
 			$("a,input,button").focus(function() {
 				this.blur()
@@ -526,9 +536,9 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 			function bian() {
 				/*羊只数量 输出*/
 				if($("#number").val() == "") {
-					$("#numbers").text(0);
+					$("#numbers").text(shuliang);
 				} else {
-					$("#numbers").text(Math.abs($("#number").val()));
+					$("#numbers").text(shuliang+Math.abs($("#number").val()));
 				}
 				tofix($("#qian"), {$supermarket.price}); /*羊总价*/
 			}
@@ -549,7 +559,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				}
 			}*/
 			function tofix(st, fs) {
-				var zong = $("#number").val() * fs;
+				var zong = $("#number").val() * fs+zhongjia;
 				if(zong % 1 ==0){
 					st.text(zong + ".00");
 				}else{
