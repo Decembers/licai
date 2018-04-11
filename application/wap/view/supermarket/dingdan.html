@@ -376,7 +376,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>{$vo.order_price}</span></p>
-								<a class="button">联系客服</a>
+								<a class="button" href="tel:13613820359">联系客服</a>
 							</div>
 						</li>
 					{/volist}
@@ -408,7 +408,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>{$vos.order_price}</span></p>
-								<a class="button">联系客服</a>
+								<a class="button" href="tel:13613820359">联系客服</a>
 							</div>
 						</li>
 						{/if}
@@ -442,7 +442,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>{$voss.order_price}</span></p>
-								<a class="button">联系客服</a>
+								<a class="button" href="tel:13613820359">联系客服</a>
 							</div>
 						</li>
 						{/if}
@@ -515,7 +515,7 @@
 							</div>
 							<div class="bottom">
 								<p class="fu"><span>实付款：￥</span><span>{$vosss.order_price}</span></p>
-								<a class="button">联系客服</a>
+								<a class="button" href="tel:13613820359">联系客服</a>
 							</div>
 						</li>
 						{/if}
@@ -633,10 +633,10 @@ function overtop() {
 					$(".modal1 .modal1_p1").text("是否删除本条记录？")
 					blocks();
 				} else if($(this).text() == "联系客服") {
-					nas = 0;
+					/*nas = 0;
 					$(".modal1 h5 ").css("display", "none");
 					$(".modal1 .modal1_p1").html("确定拨打电话:<br>13613820359 吗？");
-					blocks();
+					blocks();*/
 
 				}  else if($(this).text() == "去支付") {
 					window.location.href = "{:url('supermarket/pay')}";
