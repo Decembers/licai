@@ -350,11 +350,11 @@
 			</div>
 			<div class="main">
 				<div class="order">
-					<p><span>商品小计</span><span>￥405.00</span>
+					<p><span>商品小计</span><span class="qian">￥405.00</span>
 </p>
 					<p><span>运费</span><span>￥0.00</span>
 </p>
-					<p><span>实付费（含运费）</span><span class="blue">￥405.00</span>
+					<p><span>实付费（含运费）</span><span class="blue qian">￥405.00</span>
 </p>
 
 				</div>
@@ -377,7 +377,7 @@
 						</div>
 						<div class="text_fa">
 							<p>余额支付</p>
-							<p><span class="fa ">当前余额</span><span class="blue">￥0.00</span></p>
+							<p><span class="fa ">当前余额</span><span class="blue">￥{$user.balance}</span></p>
 						</div>
 						<div class="fa fa-angle-right fa-2x">
 
@@ -386,6 +386,7 @@
 				</div>
 
 			</div>
+			<input type="hidden" value="{$supermarket.id}" id="sp_id">
 			<div class="details">
 				<div class="detail01">
 					<div class="row">
@@ -442,7 +443,7 @@
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div id="goodcover"></div>
-		
+
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -563,25 +564,18 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				}
 			}
 			$("#gm").click(function(){
-				/*if($("#number").val()>0){
-					number = $("#number").val();
-					$.ajax({
-					    type : 'POST',
-					    url : "{:url('supermarket/shoppingjanum')}",
-					    data : {sp_id:id,num:number},
-					    success : function(data){
-				    		$(".overtop").text("已添加购物车");
-							overtop();
-					    }
-					})
+				if($("#number").val()>0){
+					pay_inmoney = $("#pay_inmoney").text();
+					qian = $("#number").val()*pay_inmoney;
+					$(".qian").text('￥'+qian+'.00');
 
+					$(".details").css("display","none");
+					$(".detail04").css("display","none");
+					$(".main").css("display","block");
 				}else{
 					$(".overtop").text("没有购买");
 								overtop();
-				}*/
-				$(".details").css("display","none");
-				$(".detail04").css("display","none");
-				$(".main").css("display","block");
+				}
 			})
 			$(".yu").click(function() {
 					/*余额支付*/
@@ -593,13 +587,42 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 			/*弹窗确定的删除*/
 			$(".modal-button-bold").click(function() {
 				nones();
+				sp_id = $("#sp_id").val();
+				number = $("#number").val();
+
+				qian = $("#pay_inmoney").text() * number;
+				if (qian<30) {
+						$(".overtop").text("购买金额需在30元以上");
+						overtop();return false;
+				}
+
 				/*判断余额与订单金额*/
 				/*间隔定时器*/
-				setTimeout(function(){
-					$(".overtop").text("余额不足");
-					overtop();
-				},1000)
 
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/infoorder')}",
+				    data : {
+				    	sp_id:sp_id,
+				    	number:number
+				    },
+				    success : function(data){
+				    	if (data.code==1) {
+							$(".overtop").text(data.msg);
+							overtop();
+							window.location.href = "{:url('Supermarket/dingdan')}";
+
+				    	}else{
+							$(".overtop").text(data.msg);
+							overtop();
+				    	}
+				    }
+				})
+
+				// setTimeout(function(){
+				// 	$(".overtop").text("余额不足");
+				// 	overtop();
+				// },1000)
 			});
 
 			/*弹窗*/

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-22 09:35:57
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-23 14:21:18
+ * @Last Modified time: 2018-04-10 09:53:03
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -71,6 +71,8 @@ class Member extends Yang
             $user = U::where(['id'=>$this->id])->find();
             //不是同一天,看是否是同一周
             $end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']));
+            //$end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']))-604800;//本周日
+
             if (time()>$end_time) {
                 //进入下一周
                 $user = U::where(['id'=>$this->id])
@@ -162,7 +164,9 @@ class Member extends Yang
             $user = U::where(['id'=>$this->id])->find();
 
             $end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']));//本周日
-            $user['jjjjj'] = 0;
+            //echo $end_time;die;
+            //$user['jjjjj'] = 0;
+            $jjjjj = 0;
 
             if (time()>$end_time) {
                 U::where(['id'=>$this->id])->update(['sign_num'=>0]);
@@ -170,9 +174,11 @@ class Member extends Yang
             }else{
 
                 if (date('Y-m-d') == date('Y-m-d',$user['sign_time'])) {
-                    $user['jjjjj'] = 1;
+                    $jjjjj = 1;
                 }
             }
+            $user = U::where(['id'=>$this->id])->find();
+            $user['jjjjj'] = $jjjjj;
 
             $this->assign('user',$user);
             return $this->fetch();

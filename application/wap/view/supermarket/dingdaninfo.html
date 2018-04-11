@@ -409,18 +409,14 @@
 					<span class="icon"></span><span>返回</span>
 				</div>
 				<h3>订单详情</h3>
-				<!--<a href="">回收站</a>-->
 			</div>
-
 			<div class="main">
-
 					{if condition="$oupermarketorder.status eq 4"}
 						<div class="order">
 							<p>交易关闭</p>
 							<p>订单金额：￥{$oupermarketorder.order_price}</p>
 						</div>
 					{/if}
-
 				<div class="top">
 					<p><span class="fa fa-thumb-tack fa-2x"></span><span>{$ress.name}</span><span>{$ress.mobile}</span></p>
 					<p>{$ress.address}</p>
@@ -482,7 +478,7 @@
 			<p class="modal1_p"><span class="modal-button">取消</span><span class="modal-button modal-button-bold">确定</span></p>
 		</div>
 		<div class="modal2">
-			<p class="click"><span></span><span>不取消了</span></p>
+			<p><span></span><span>不取消了</span></p>
 			<p><span></span><span>我不买了</span></p>
 			<p><span></span><span>信息填写错误，重新拍</span></p>
 			<p><span></span><span>同城见面交易</span></p>
@@ -557,7 +553,7 @@
 						nones();
 
 							$("#moadel1 h5 ").css("display", "block");
-							$("#moadel1 .modal1_p1").text("是否删除本条记录？");
+							$("#moadel1 .modal1_p1").text("是否取消订单？");
 							$("#moadel1").css("display", "block");
 							blocks();
 
