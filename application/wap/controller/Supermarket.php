@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-08 17:55:09
+ * @Last Modified time: 2018-04-10 16:22:47
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -200,6 +200,91 @@ class Supermarket extends Yang
         $this->assign('user',$user);
         return $this->fetch();
     }
+
+    public function infoorder()
+    {
+        if ($this->request->isAjax()) {
+            $sp_id = input("sp_id");
+            $number = input("number");
+
+            Db::startTrans();
+            try{
+
+                $supermarket = S::where('id',$sp_id)->find();
+                $order_price = $supermarket['price']*$number;
+                $ress_id = Ress::where(['user_id'=>$this->id,'is_default'=>0])->find();
+
+                $user = User::where('id', $this->id)->find();
+                if ($user['mobile']=='') {
+                    $arr['msg']='请先在设置中绑定手机号码';
+                    throw new \think\Exception();
+                }
+                if ($user['authentication']==1) {
+                    $arr['msg']='请等待实名认证成功后购买';
+                    throw new \think\Exception();
+                }elseif($user['authentication']==0){
+                    $arr['msg']='请实名认证后购买';
+                    throw new \think\Exception();
+                }
+                if ($user['balance'] < $order_price) {
+                    $arr['msg'] = '您的余额不足!请充值!';
+                    throw new \think\Exception();
+                }
+                if ($number > $supermarket['number']) {
+                    $arr['msg'] = '商品数量不足';
+                    throw new \think\Exception();
+                }
+                $arr['msg'] = '减去购买的数量失败';
+                S::where('id',$sp_id)->setDec('number',$number);//减去购买的数量
+
+                $arr['msg'] = '生成订单失败';
+                $order['number'] = time().rand(100000,999999);
+                $order['sj_id'] = $supermarket['user_id'];
+                $order['sp_id'] = $supermarket['id'];
+                $order['user_id'] = $this->id;
+                $order['sp_name'] = $supermarket['name'];
+                $order['price'] = $supermarket['price'];
+                $order['quantity'] = $number;
+                $order['order_price'] = $order_price;
+                $order['status'] = 1;
+                $order['ress_id'] = $ress_id['id'];
+                $order['create_time'] = time();
+
+                // $arr['msg'] = $order;
+                // $arr['code'] = -200;
+                // return json($arr);
+
+                SupermarketOrder::insert($order);//生成订单
+
+                $arr['msg'] = '扣除用户余额失败';
+                User::where('id',$this->id)->setDec('balance',$order_price);//扣除用户余额
+
+                $arr['msg'] = '增加商户余额失败';
+                AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//增加商户余额
+
+                $detail['user_id']=$this->id;
+                $detail['or']=3;
+                $detail['money']=$order_price;
+                $detail['comment']='超市购物';
+                $detail['status']=1;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
+                $arr['msg'] = '添加详细信息失败';
+                Db::table('tp_detail')->insert($detail);//添加详细信息
+
+
+                $arr['msg'] = '订单创建成功';
+                $arr['code'] = 1;
+                Db::commit();
+
+            } catch (\think\Exception $e) {
+                Db::rollback();
+                return json($arr);
+            }
+            return json($arr);
+        }
+    }
+
     public function dingdan()
     {
         $is = input('is');
@@ -237,7 +322,9 @@ class Supermarket extends Yang
         if ($this->request->isAjax()) {
             $id = input('id');
             $remark = input('remark');
+            $SupermarketOrder = SupermarketOrder::where(['id'=>$id])->find();
             SupermarketOrder::where(['id'=>$id])->update(['status' => 4,'remark'=>$remark]);
+            User::where('id',$this->id)->setInc('balance', $SupermarketOrder['order_price']);
         }
     }
     //确认完成
@@ -250,6 +337,7 @@ class Supermarket extends Yang
     }
     public function gouwuche()
     {
+        $user = User::where('id',$this->id)->find();
         $shopping = Shopping::where('user_id',$this->id)->select();
         foreach ($shopping as $key => $value) {
             $supermarket = S::where('id',$value['sp_id'])->find();
@@ -263,6 +351,7 @@ class Supermarket extends Yang
         $this->assign('ress',$ress);
         $this->assign('defult',$defult);
         $this->assign('shopping',$shopping);
+        $this->assign('user',$user);
 
         return $this->fetch();
     }

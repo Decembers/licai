@@ -618,14 +618,14 @@ flex-grow: 1;
 			<div class="border" style="margin-top: 5px;"><!--<img src="__WAP__/img/icon/1.png"/>--></div>
 
 				{if condition="$defult"}
-				<div class="top1" data-ress="{$defult.id}">
+				<div class="top1 dianji" data-ress="{$defult.id}">
 					<p><img src="__WAP__/img/icon/ren.png"/><span id="name">{$defult.name}</span><span id="phone">{$defult.mobile}</span></p>
 					<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">{$defult.address}</span></p>
 					<span  class="fa fa-3x fa-angle-right" id="right"></span>
 				</div>
 				{else/}
 				{if condition="$ress"}
-					<div class="top1" data-ress="{$vos.id}">
+					<div class="top1 dianji" data-ress="{$vos.id}">
 						<p><img src="__WAP__/img/icon/ren.png"/><span id="name">{$vos.name}</span><span id="phone">{$vos.mobile}</span></p>
 						<p><img src="__WAP__/img/icon/ditu.png"/><span id="diz">{$vos.address}</span></p>
 						<span  class="fa fa-3x fa-angle-right" id="right"></span>
@@ -702,13 +702,9 @@ flex-grow: 1;
 		</div>
 		<div  id="main">
 				<div class="order">
-					<p><span>商品小计</span><span>￥405.00</span>
-</p>
-					<p><span>运费</span><span>￥0.00</span>
-</p>
-					<p><span>实付费（含运费）</span><span class="blue">￥405.00</span>
-</p>
-
+					<p><span>商品小计</span><span class="qian">￥405.00</span></p>
+					<p><span>运费</span><span>￥0.00</span></p>
+					<p><span>实付费（含运费）</span><span class="blue qian">￥405.00</span></p>
 				</div>
 				<div class="top">
 					<div class="wei">
@@ -729,7 +725,7 @@ flex-grow: 1;
 						</div>
 						<div class="text_fa">
 							<p>余额支付</p>
-							<p><span class="fa ">当前余额</span><span class="blue">￥0.00</span></p>
+							<p><span class="fa ">当前余额</span><span class="blue">￥{$user.balance}</span></p>
 						</div>
 						<div class="fa fa-angle-right fa-2x">
 
@@ -817,48 +813,55 @@ flex-grow: 1;
 
 			$("#modal2 .modal-button-bold").click(function(){
 var th = $(".quan div").hasClass('dui');
-				$("#main").css("left","0vw");
-
-				// if($(".sheep li").length>0){
-
-				// 	if($(".sheep .dui").length>0) {
-				// 		var arr = [];
-				// 		for (var i = 0; i < $(".sheep .dui").length; i++) {
-				// 			arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
-				// 		};
-				// 		console.log(arr);
-				// 		arr = arr.join(',');
-				// 		var ress = $(".top1").attr("data-ress");
-				// 		if (!ress) {
-				// 			$(".overtop").text("请选择收获地址");
-				// 			overtop();return false;
-				// 		}
-				// 		$.ajax({
-				// 		    type : 'POST',
-				// 		    url : "{:url('supermarket/shoppingorder')}",
-				// 		    data : {order:arr,ress_id:ress},
-				// 		    success : function(data){
-				// 		    	if (data.code==1) {
-				// 					$(".overtop").text(data.msg);
-				// 					overtop();
-				// 					window.location.href = "{:url('Supermarket/dingdan')}";
-
-				// 		    	}else{
-				// 					$(".overtop").text(data.msg);
-				// 					overtop();
-				// 		    	}
-				// 		    }
-				// 		})
 
 
-				// 		}else{
-				// 				$(".overtop").text("没有选中的商品");
-				// 			overtop();
-				// 		}
-				// }else{
-				// 	$(".overtop").text("购物车中没有商品，请去逛逛");
-				// 			overtop();
-				// }
+				if($(".sheep li").length>0){
+
+					if($(".sheep .dui").length>0) {
+						// var arr = [];
+						// for (var i = 0; i < $(".sheep .dui").length; i++) {
+						// 	arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
+						// };
+						// console.log(arr);
+						// arr = arr.join(',');
+						// var ress = $(".top1").attr("data-ress");
+						// if (!ress) {
+						// 	$(".overtop").text("请选择收获地址");
+						// 	overtop();return false;
+						// }
+						// $.ajax({
+						//     type : 'POST',
+						//     url : "{:url('supermarket/shoppingorder')}",
+						//     data : {order:arr,ress_id:ress},
+						//     success : function(data){
+						//     	if (data.code==1) {
+						// 			$(".overtop").text(data.msg);
+						// 			overtop();
+						// 			window.location.href = "{:url('Supermarket/dingdan')}";
+
+						//     	}else{
+						// 			$(".overtop").text(data.msg);
+						// 			overtop();
+						//     	}
+						//     }
+						// })
+						qian = $("#qian").text();
+						if (qian<30) {
+								$(".overtop").text("购买金额需在30元以上");
+								overtop();
+						}else{
+								$(".qian").text('￥'+qian+'.00');
+								$("#main").css("left","0vw");
+						}
+
+						}else{
+								$(".overtop").text("没有选中的商品");
+							overtop();
+						}
+				}else{
+					$(".overtop").text("购物车中没有商品，请去逛逛");
+							overtop();
+				}
 			})
 			$("#pbuttom").click(function(){
 				$("#modal2").css("display","block");
@@ -968,12 +971,13 @@ var th = $(".quan div").hasClass('dui');
 			}
 			function nos(){
 				if($(".sheep li").length ==0){
+					window.location.href = "{:url('Supermarket/index')}";
 					$(".none").css("display","block");
 				}
 			}
 		</script>
 	<script type="text/javascript">
-		$("#right").click(function(){
+		$(".dianji").click(function(){
 			$("#top1").css("display","block");
 		})
 		$("#top1 .tops").click(function(){
@@ -1003,11 +1007,34 @@ $(".yu").click(function() {
 				nones();
 				/*判断余额与订单金额*/
 				/*间隔定时器*/
-				setTimeout(function(){
-					$(".overtop").text("余额不足");
-					overtop();
-				},1000)
 
+					var arr = [];
+					for (var i = 0; i < $(".sheep .dui").length; i++) {
+						arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
+					};
+					console.log(arr);
+					arr = arr.join(',');
+					var ress = $(".top1").attr("data-ress");
+					if (!ress) {
+						$(".overtop").text("请选择收获地址");
+						overtop();return false;
+					}
+					$.ajax({
+					    type : 'POST',
+					    url : "{:url('supermarket/shoppingorder')}",
+					    data : {order:arr,ress_id:ress},
+					    success : function(data){
+					    	if (data.code==1) {
+								$(".overtop").text(data.msg);
+								overtop();
+								window.location.href = "{:url('Supermarket/dingdan')}";
+
+					    	}else{
+								$(".overtop").text(data.msg);
+								overtop();
+					    	}
+					    }
+					})
 			});
 
 			/*弹窗*/
