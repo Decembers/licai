@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-11 16:55:39
+ * @Last Modified time: 2018-04-11 17:40:08
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -137,14 +137,54 @@ class Supermarket extends Yang
                     throw new \think\Exception();
                 }
                 if ($shopping['num'] > $supermarket['number']) {
-                    $arr['msg'] = '商品数量不足'.$key;
+                    $arr['msg'] = '商品数量不足';
                     throw new \think\Exception();
                 }
 
-                $arr['msg'] = '减去购买的数量失败'.$key;
+                $order['sp_id'][]=$shopping['sp_id'];
+
+                // $arr['msg'] = '减去购买的数量失败';
+                // S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
+
+                // $arr['msg'] = '生成订单失败';
+                // $order['number'] = time().rand(100000,999999);
+                // $order['sj_id'] = $supermarket['user_id'];
+                // $order['sp_id'] = $supermarket['id'];
+                // $order['user_id'] = $this->id;
+                // $order['sp_name'] = $supermarket['name'];
+                // $order['price'] = $supermarket['price'];
+                // $order['quantity'] = $shopping['num'];
+                // $order['order_price'] = $order_price;
+                // $order['status'] = 1;
+                // $order['ress_id'] = $ress_id;
+                // $order['create_time'] = time();
+                // SupermarketOrder::insert($order);//生成订单
+
+                // $arr['msg'] = '扣除用户余额失败';
+                // User::where('id',$this->id)->setDec('balance',$order_price);//扣除用户余额
+
+                // $arr['msg'] = '增加商户余额失败';
+                // AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//增加商户余额
+
+                // $detail['user_id']=$this->id;
+                // $detail['or']=3;
+                // $detail['money']=$order_price;
+                // $detail['comment']='超市购物';
+                // $detail['status']=1;
+                // $detail['create_time']=time();
+                // $detail['accomplish_time']=time();
+                // $arr['msg'] = '添加详细信息失败';
+                // Db::table('tp_detail')->insert($detail);//添加详细信息
+
+                // $shopping = Shopping::where('id', $data[$key])->delete();//删除购物车商品
+
+            }
+
+
+                $arr['msg'] = '减去购买的数量失败';
                 S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
 
-                $arr['msg'] = '生成订单失败'.$key;
+                $arr['msg'] = '生成订单失败';
                 $order['number'] = time().rand(100000,999999);
                 $order['sj_id'] = $supermarket['user_id'];
                 $order['sp_id'] = $supermarket['id'];
@@ -158,10 +198,10 @@ class Supermarket extends Yang
                 $order['create_time'] = time();
                 SupermarketOrder::insert($order);//生成订单
 
-                $arr['msg'] = '扣除用户余额失败'.$key;
+                $arr['msg'] = '扣除用户余额失败';
                 User::where('id',$this->id)->setDec('balance',$order_price);//扣除用户余额
 
-                $arr['msg'] = '增加商户余额失败'.$key;
+                $arr['msg'] = '增加商户余额失败';
                 AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//增加商户余额
 
                 $detail['user_id']=$this->id;
@@ -171,12 +211,11 @@ class Supermarket extends Yang
                 $detail['status']=1;
                 $detail['create_time']=time();
                 $detail['accomplish_time']=time();
-                $arr['msg'] = '添加详细信息失败'.$key;
+                $arr['msg'] = '添加详细信息失败';
                 Db::table('tp_detail')->insert($detail);//添加详细信息
 
                 $shopping = Shopping::where('id', $data[$key])->delete();//删除购物车商品
 
-            }
                 $arr['msg'] = '订单创建成功';
                 $arr['code'] = 1;
                 Db::commit();
