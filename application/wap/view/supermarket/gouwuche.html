@@ -632,7 +632,7 @@ flex-grow: 1;
 					</div>
 				{else/}
 					<div class="top1">
-						<p><span>请在个人中心添加地址</span></p>
+						<p><span>点击添加收获地址</span></p>
 					</div>
 				{/if}
 				{/if}
@@ -958,11 +958,13 @@ var th = $(".quan div").hasClass('dui');
 				    url : "{:url('supermarket/shoppingde')}",
 				    data : {id:id},
 				    success : function(data){
-
+				    	if (data.code==1) {
+				    		nos();
+				    	};
 				    }
 				})
 
-				sw();nos();
+				sw();
 			});
 
 			/*弹窗*/
