@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-11 17:40:08
+ * @Last Modified time: 2018-04-12 09:33:54
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -108,17 +108,27 @@ class Supermarket extends Yang
             $ress_id = input('ress_id');
             $data = explode(",",$data);
             $arr = ['code'=>-200,'data'=>'','msg'=>''];
-
-
+            $order = [];
+            $order_price = 0;//订单总金额
             //生成订单,每个商品生成一笔订单
             Db::startTrans();
             try{
 
-            foreach ($data as $key => $value) {
+                foreach ($data as $key => $value) {
 
-                $shopping = Shopping::where('id', $data[$key])->find();
-                $supermarket = S::where('id', $shopping['sp_id'])->find();
-                $order_price = $supermarket['price']*$shopping['num'];
+                    $shopping = Shopping::where('id', $data[$key])->find();
+                    $supermarket = S::where('id', $shopping['sp_id'])->find();
+                    $order_price += $shopping['num']*$supermarket['price'];
+
+                    $order['sj_id'] = $supermarket['user_id'];
+                    $order['sp_id'][$key]=$shopping['sp_id'];
+                    $order['sp_name'][$key]=$supermarket['name'];
+                    $order['sp_img'][$key]=$supermarket['image'];
+                    $order['price'][$key]=$supermarket['price'];
+                    $order['quantity'][$key]=$shopping['num'];
+
+                    Shopping::where('id', $data[$key])->delete();//删除购物车商品
+                }
 
                 $user = User::where('id', $this->id)->find();
                 if ($user['mobile']=='') {
@@ -136,62 +146,18 @@ class Supermarket extends Yang
                     $arr['msg'] = '您的余额不足!请充值!';
                     throw new \think\Exception();
                 }
-                if ($shopping['num'] > $supermarket['number']) {
-                    $arr['msg'] = '商品数量不足';
-                    throw new \think\Exception();
-                }
 
-                $order['sp_id'][]=$shopping['sp_id'];
-
-                // $arr['msg'] = '减去购买的数量失败';
-                // S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
-
-                // $arr['msg'] = '生成订单失败';
-                // $order['number'] = time().rand(100000,999999);
-                // $order['sj_id'] = $supermarket['user_id'];
-                // $order['sp_id'] = $supermarket['id'];
-                // $order['user_id'] = $this->id;
-                // $order['sp_name'] = $supermarket['name'];
-                // $order['price'] = $supermarket['price'];
-                // $order['quantity'] = $shopping['num'];
-                // $order['order_price'] = $order_price;
-                // $order['status'] = 1;
-                // $order['ress_id'] = $ress_id;
-                // $order['create_time'] = time();
-                // SupermarketOrder::insert($order);//生成订单
-
-                // $arr['msg'] = '扣除用户余额失败';
-                // User::where('id',$this->id)->setDec('balance',$order_price);//扣除用户余额
-
-                // $arr['msg'] = '增加商户余额失败';
-                // AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//增加商户余额
-
-                // $detail['user_id']=$this->id;
-                // $detail['or']=3;
-                // $detail['money']=$order_price;
-                // $detail['comment']='超市购物';
-                // $detail['status']=1;
-                // $detail['create_time']=time();
-                // $detail['accomplish_time']=time();
-                // $arr['msg'] = '添加详细信息失败';
-                // Db::table('tp_detail')->insert($detail);//添加详细信息
-
-                // $shopping = Shopping::where('id', $data[$key])->delete();//删除购物车商品
-
-            }
-
-
-                $arr['msg'] = '减去购买的数量失败';
                 S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
 
                 $arr['msg'] = '生成订单失败';
                 $order['number'] = time().rand(100000,999999);
-                $order['sj_id'] = $supermarket['user_id'];
-                $order['sp_id'] = $supermarket['id'];
-                $order['user_id'] = $this->id;
-                $order['sp_name'] = $supermarket['name'];
-                $order['price'] = $supermarket['price'];
-                $order['quantity'] = $shopping['num'];
+                $order['user_id']=$this->id;
+                $order['sp_id']=json_encode($order['sp_id']);
+                $order['sp_name']=json_encode($order['sp_name']);
+                $order['sp_img']=json_encode($order['sp_img']);
+                $order['price']=json_encode($order['price']);
+                $order['quantity']=json_encode($order['quantity']);
+
                 $order['order_price'] = $order_price;
                 $order['status'] = 1;
                 $order['ress_id'] = $ress_id;
@@ -213,8 +179,6 @@ class Supermarket extends Yang
                 $detail['accomplish_time']=time();
                 $arr['msg'] = '添加详细信息失败';
                 Db::table('tp_detail')->insert($detail);//添加详细信息
-
-                $shopping = Shopping::where('id', $data[$key])->delete();//删除购物车商品
 
                 $arr['msg'] = '订单创建成功';
                 $arr['code'] = 1;
@@ -334,13 +298,15 @@ class Supermarket extends Yang
 
         $oupermarketorder = SupermarketOrder::where(['user_id'=>$this->id])->order('create_time desc')->select();
         foreach ($oupermarketorder as $key => $value) {
-            $supermarket = S::where('id',$value['sp_id'])->find();
-            $oupermarketorder[$key]['image'] = $supermarket['image'];
-            $adminuser = AdminUser::where(['id'=>$supermarket['user_id']])->find();
+            $oupermarketorder[$key]['image'] = json_decode($value['sp_img'],true);
+            $oupermarketorder[$key]['quantity'] = count(json_decode($value['quantity'],true));
+
+            $adminuser = AdminUser::where(['id'=>$value['sj_id']])->find();
+
             $oupermarketorder[$key]['sj_name'] = $adminuser['realname'];
             $oupermarketorder[$key]['sj_mobile'] = $adminuser['mobile'];
         }
-
+        //dump($oupermarketorder[0]);die;
         $this->assign('is',$is);
         $this->assign('oupermarketorder',$oupermarketorder);
         return $this->fetch();
@@ -349,12 +315,16 @@ class Supermarket extends Yang
     {
         $id = input('id');
         $oupermarketorder = SupermarketOrder::where(['id'=>$id])->find();
-        $supermarket = S::where('id', $oupermarketorder['sp_id'])->find();
+        $oupermarketorder['sp_img'] = json_decode($oupermarketorder['sp_img'],true);
+        $oupermarketorder['sp_name'] = json_decode($oupermarketorder['sp_name'],true);
+        $oupermarketorder['price'] = json_decode($oupermarketorder['price'],true);
+        $oupermarketorder['quantity'] = json_decode($oupermarketorder['quantity'],true);
+        $oupermarketorder['arr_n'] = count($oupermarketorder['quantity']);//数组数量
+
         $ress = Ress::where(['id'=>$oupermarketorder['ress_id']])->find();
         $adminuser = AdminUser::where(['id'=>$oupermarketorder['sj_id']])->find();
 
         $this->assign('oupermarketorder',$oupermarketorder);
-        $this->assign('supermarket',$supermarket);
         $this->assign('ress',$ress);
         $this->assign('adminuser',$adminuser);
 

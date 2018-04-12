@@ -361,9 +361,13 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vo.id])}'">
 								<div class="fl">
-									<div class="">
-										<img src="{$vo.image}" />
-									</div>
+
+								{foreach name="vo.image" item="im" }
+								    	<div class="">
+											<img src="{$im}" />
+										</div>
+								{/foreach}
+
 								</div>
 								<div class="fr">
 									<span>
@@ -392,9 +396,11 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vos.id])}'">
 								<div class="fl">
-									<div class="">
-										<img src="{$vos.image}" />
-									</div>
+								{foreach name="vos.image" item="ims" }
+								    	<div class="">
+											<img src="{$ims}" />
+										</div>
+								{/foreach}
 
 								</div>
 								<div class="fr">
@@ -426,9 +432,11 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$voss.id])}'">
 								<div class="fl">
-									<div class="">
-										<img src="{$voss.image}" />
-									</div>
+								{foreach name="voss.image" item="imss" }
+								    	<div class="">
+											<img src="{$imss}" />
+										</div>
+								{/foreach}
 
 								</div>
 								<div class="fr">
@@ -499,9 +507,11 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vosss.id])}'">
 								<div class="fl">
-									<div class="">
-										<img src="{$vosss.image}" />
-									</div>
+								{foreach name="vosss.image" item="imsss" }
+								    	<div class="">
+											<img src="{$imsss}" />
+										</div>
+								{/foreach}
 
 								</div>
 								<div class="fr">

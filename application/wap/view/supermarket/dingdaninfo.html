@@ -423,16 +423,18 @@
 				</div>
 				<div class="center">
 					<h3><span class="fa fa-institution"></span><span>趣味农场（{$adminuser.realname}）</span></h3>
+					{for start="0" end="$oupermarketorder['arr_n']" name="k"}
 					<div class="fl">
 						<div class="">
-							<img src="__WAP__/img/595617b6e853f.jpg" />
+							<img src="{$oupermarketorder.sp_img[$k]}" />
 							<div class="div">
-								<p style="font-size: 14px;">{$supermarket.name}</p>
-								<p><span><span style="font-size: 15px; line-height: 18px;">x</span>{$oupermarketorder.quantity}</span><span>￥{$oupermarketorder.price}</span></p>
+								<p style="font-size: 14px;">{$oupermarketorder.sp_name[$k]}</p>
+								<p><span><span style="font-size: 15px; line-height: 18px;">x</span>{$oupermarketorder.quantity[$k]}</span><span>￥{$oupermarketorder.price[$k]}</span></p>
 							</div>
 						</div>
-
 					</div>
+					{/for}
+
 					<div class="fr">
 						<span>还有<i></i>件</span>
 						<span class="fa fa-angle-down"></span>
