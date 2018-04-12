@@ -32,8 +32,12 @@
             充值
             {elseif condition="$vo.or eq 2"}
             提现
-            {else/}
+            {elseif condition="$vo.or eq 3"}
             购买
+            {elseif condition="$vo.or eq 4"}
+            推荐返利
+            {elseif condition="$vo.or eq 5"}
+            退款
             {/if}
             </td>
             <td>{$vo.money}</td>

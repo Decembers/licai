@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-12 11:27:06
+ * @Last Modified time: 2018-04-12 15:49:13
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -53,6 +53,9 @@ class Supermarket extends Yang
         if ($this->request->isAjax()) {
             $id = input('id');
             $shopping = Shopping::where('id', $id)->delete();
+            $arr['msg'] = '删除成功';
+            $arr['code'] = 1;
+            return json($arr);
         }
     }
     //购物车减
@@ -148,6 +151,8 @@ class Supermarket extends Yang
                     throw new \think\Exception();
                 }
 
+
+
                 $arr['msg'] = '生成订单失败';
                 $order['number'] = time().rand(100000,999999);
                 $order['user_id']=$this->id;
@@ -178,6 +183,22 @@ class Supermarket extends Yang
                 $detail['accomplish_time']=time();
                 $arr['msg'] = '添加详细信息失败';
                 Db::table('tp_detail')->insert($detail);//添加详细信息
+
+                //给推荐人分成
+                if ($user['referrer']!=0) {
+                    $rate = DB::table('tp_referrer_rate')->find();
+                    $order_price = substr(sprintf("%.3f",$order_price * $rate['rate']),0,-1);
+                    User::where('id',$user['referrer'])->setInc('balance',$order_price);//扣除用户余额
+
+                    $detail['user_id']=$user['referrer'];
+                    $detail['or']=4;
+                    $detail['money']=$order_price;
+                    $detail['comment']='推荐返利';
+                    $detail['status']=1;
+                    $detail['create_time']=time();
+                    $detail['accomplish_time']=time();
+                    Db::table('tp_detail')->insert($detail);//添加详细信息
+                }
 
                 $arr['msg'] = '订单创建成功';
                 $arr['code'] = 1;
@@ -366,7 +387,7 @@ class Supermarket extends Yang
             SupermarketOrder::where(['id'=>$id])->update(['status' => 4,'remark'=>$remark]);
             User::where('id',$this->id)->setInc('balance', $SupermarketOrder['order_price']);
             $detail['user_id']=$this->id;
-            $detail['or']=1;
+            $detail['or']=5;
             $detail['money']=$SupermarketOrder['order_price'];
             $detail['comment']='退款';
             $detail['status']=1;
