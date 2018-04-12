@@ -447,8 +447,15 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			var shuliang = parseInt($("#numbers").text());
-			var zhongjia = Math.abs($("#qian").text());
+			var shuliang = parseInt($("#numbers").text());/*总数*/
+			if($("#number").val()!=""){
+				var sls = parseInt($("#number").val());
+				var shuliangs =shuliang-sls;
+			}else{
+				var sls=0;
+			}/*数量*/
+			var pay_inmoney = parseInt($("#pay_inmoney").text());/*单价*/
+			var zhongjia = Math.abs($("#qian").text());/*总价*/
 			/*var zhongjia1 =zhongjia.toString().split(".")[1].length;
 					if(zhongjia1 == 1) {
 							$("#qian").text(zhongjia1 + "0");
@@ -468,23 +475,19 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				if($("#number").val() == "") {
 					num = 0;
 					$("#number").val(num);
-					bian();
+					/*bian();*/
+					
 				}
 
-				sp_id = $("#sp_id").val();
-				$.ajax({
-				    type : 'POST',
-				    url : "{:url('supermarket/supermarketj')}",
-				    data : {
-				    	sp_id:sp_id
-				    },
-				    success : function(data){
-				    }
-				})
+				
 
 				if(num > 0) {
 					$("#number").val(num - 1);
-					bian();
+					/*bian();*/
+					
+					$("#numbers").text(parseInt($("#numbers").text())-1);
+					
+					$("#qian").text(Math.abs($("#qian").text())-pay_inmoney);
 					offset ,
 						flyer = $("<img class='u-flyer' src='"+img+"'/>");
 
@@ -501,6 +504,16 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 							this.destory(); //销毁抛物体
 						}
 					});
+					sp_id = $("#sp_id").val();
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/supermarketj')}",
+				    data : {
+				    	sp_id:sp_id
+				    },
+				    success : function(data){
+				    }
+				})
 				} else {
 					$("#number").val("0");
 					$(".overtop").text("购买数量不能为负数");
@@ -516,7 +529,11 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 					num = 0;
 				}
 				/*获取羊数量 剩余*/
-
+$("#number").val(num + 1);
+					/*bian();*/
+					$("#numbers").text(parseInt($("#numbers").text())+1);
+					
+					$("#qian").text(Math.abs($("#qian").text())+pay_inmoney);
 				sp_id = $("#sp_id").val();
 				$.ajax({
 				    type : 'POST',
@@ -528,8 +545,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				    }
 				})
 
-					$("#number").val(num + 1);
-					bian();
+					
 					offset,
 						flyer = $("<img class='u-flyer' src='"+img+"'/>");
 					flyer.fly({
@@ -549,16 +565,34 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 					});
 			})
 			/*羊数量输入时时变更*/
-			function bian() {
-				/*羊只数量 输出*/
+//			function bian() {
+//				/*羊只数量 输出*/
+//				/*if(sls!=0){
+//					
+//					$("#numbers").text(shuliangs+Math.abs($("#number").val()));
+//				}else{
+//					$("#numbers").text(shuliang);
+//				}*/
+//				if($("#number").val() == "") {
+//					$("#numbers").text(shuliang);
+//				} else {
+//					/*$("#numbers").text(shuliang+Math.abs($("#number").val()));*/
+//					$("#numbers").text(shuliangs+Math.abs($("#number").val()));
+//				}
+//				
+//				tofix($("#qian"), {$supermarket.price}); /*羊总价*/
+//			}
+/*
+ function bian() {
+				
 				if($("#number").val() == "") {
 					$("#numbers").text(shuliang);
 				} else {
 					$("#numbers").text(shuliang+Math.abs($("#number").val()));
 				}
-				tofix($("#qian"), {$supermarket.price}); /*羊总价*/
+				tofix($("#qian"), 150.00); 
 			}
-
+*/
 		/*	function tofix(st, fs) {
 				var zong = $("#number").val() * fs;
 				var zo = zong.toString();
@@ -573,25 +607,33 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 						st.text(zong.toFixed(2));
 					}
 				}
+				
+				
 			}*/
-			function tofix(st, fs) {
-				var zong = $("#number").val() * fs+zhongjia;
-				if(zong % 1 ==0){
-					st.text(zong + ".00");
-				}else{
-					var lens1 =zong.toString().split(".")[1].length;
-					if(lens1 == 1) {
-							st.text(zong + "0");
-						} else if(lens1 == 2) {
-							st.text(zong + "0");
-						} else if(lens1 > 2) {
-							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
-						}
-				}
-			}
+//			function tofix(st, fs) {
+//				var nu = parseInt($("#number").val());
+//				if(nu>shuliang){
+//					var zong = (nu-shuliang)*fs+zhongjia;
+//				}else{
+//					var zong = zhongjia-(shuliang-nu)*fs;
+//				}
+//				/*var zong = $("#number").val() * fs+zhongjia;*/
+//				if(zong % 1 ==0){
+//					st.text(zong + ".00");
+//				}else{
+//					var lens1 =zong.toString().split(".")[1].length;
+//					if(lens1 == 1) {
+//							st.text(zong + "0");
+//						} else if(lens1 == 2) {
+//							st.text(zong + "0");
+//						} else if(lens1 > 2) {
+//							st.text(zong.toString().substr(0, zong.toString().indexOf(".") + 3));
+//						}
+//				}
+//			}
 			$("#gm").click(function(){
 				if($("#number").val()>0){
-					pay_inmoney = $("#pay_inmoney").text();
+				
 					qian = $("#qian").text();
 
 					if (qian<30) {
