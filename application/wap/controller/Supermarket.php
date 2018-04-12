@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-12 11:01:01
+ * @Last Modified time: 2018-04-12 11:27:06
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -260,10 +260,7 @@ class Supermarket extends Yang
                     $arr['msg'] = '您的余额不足!请充值!';
                     throw new \think\Exception();
                 }
-                if ($number > $supermarket['number']) {
-                    $arr['msg'] = '商品数量不足';
-                    throw new \think\Exception();
-                }
+
                 $arr['msg'] = '减去购买的数量失败';
                 S::where('id',$sp_id)->setDec('number',$number);//减去购买的数量
 

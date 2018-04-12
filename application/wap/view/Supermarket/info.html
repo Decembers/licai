@@ -504,12 +504,7 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 					num = 0;
 				}
 				/*获取羊数量 剩余*/
-				if(num >= 5) {
-					$("#number").val("5");
-					$(".overtop").text("购买数量不能大于5")
-					overtop();
-					bian();
-				} else {
+
 					$("#number").val(num + 1);
 					bian();
 					offset,
@@ -529,8 +524,6 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 							this.destory(); //销毁抛物体
 						}
 					});
-				}
-
 			})
 			/*羊数量输入时时变更*/
 			function bian() {
