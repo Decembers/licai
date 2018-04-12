@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-12 09:33:54
+ * @Last Modified time: 2018-04-12 11:01:01
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -128,6 +128,7 @@ class Supermarket extends Yang
                     $order['quantity'][$key]=$shopping['num'];
 
                     Shopping::where('id', $data[$key])->delete();//删除购物车商品
+                    S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
                 }
 
                 $user = User::where('id', $this->id)->find();
@@ -146,8 +147,6 @@ class Supermarket extends Yang
                     $arr['msg'] = '您的余额不足!请充值!';
                     throw new \think\Exception();
                 }
-
-                S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
 
                 $arr['msg'] = '生成订单失败';
                 $order['number'] = time().rand(100000,999999);
@@ -213,15 +212,39 @@ class Supermarket extends Yang
         if ($this->request->isAjax()) {
             $sp_id = input("sp_id");
             $number = input("number");
+            $order = [];
+            $order_price = 0;//订单总金额
 
             Db::startTrans();
             try{
 
-                $supermarket = S::where('id',$sp_id)->find();
-                $order_price = $supermarket['price']*$number;
-                $ress_id = Ress::where(['user_id'=>$this->id,'is_default'=>0])->find();
+                $data = Shopping::select();
+                foreach ($data as $key => $value) {
+                    if ($value['sp_id']==$sp_id) {
+                        $number = $number+$value['num'];
+                        Shopping::where('id', $value['id'])->delete();//删除购物车商品
+                        continue;
+                    }
 
+                    $supermarket = S::where('id', $value['sp_id'])->find();//查询商品信息
+                    $order_price += $value['num']*$supermarket['price'];//计算金额
+
+                    $order['sj_id'] = $supermarket['user_id'];//商户id
+                    $order['sp_id'][]=$value['sp_id'];//商品id
+                    $order['sp_name'][]=$supermarket['name'];//商品名称
+                    $order['sp_img'][]=$supermarket['image'];
+                    $order['price'][]=$supermarket['price'];
+                    $order['quantity'][]=$value['num'];
+
+                    Shopping::where('id', $value['id'])->delete();//删除购物车商品
+                    S::where('id', $value['sp_id'])->setDec('number',$value['num']);//减去购买的数量
+                }
+
+                $supermarket = S::where('id',$sp_id)->find();
+                $order_price = $supermarket['price']*$number+$order_price;
+                $ress_id = Ress::where(['user_id'=>$this->id,'is_default'=>0])->find();
                 $user = User::where('id', $this->id)->find();
+
                 if ($user['mobile']=='') {
                     $arr['msg']='请先在设置中绑定手机号码';
                     throw new \think\Exception();
@@ -246,20 +269,26 @@ class Supermarket extends Yang
 
                 $arr['msg'] = '生成订单失败';
                 $order['number'] = time().rand(100000,999999);
-                $order['sj_id'] = $supermarket['user_id'];
-                $order['sp_id'] = $supermarket['id'];
                 $order['user_id'] = $this->id;
-                $order['sp_name'] = $supermarket['name'];
-                $order['price'] = $supermarket['price'];
-                $order['quantity'] = $number;
+
+
+                $order['sp_id'][] = $supermarket['id'];
+                $order['sp_name'][] = $supermarket['name'];
+                $order['sp_img'][] = $supermarket['image'];
+                $order['price'][] = $supermarket['price'];
+                $order['quantity'][] = $number;
+
+                $order['sp_id'] = json_encode($order['sp_id']);
+                $order['sp_name'] = json_encode($order['sp_name']);
+                $order['sp_img'] = json_encode($order['sp_img']);
+                $order['price'] = json_encode($order['price']);
+                $order['quantity'] = json_encode($order['quantity']);
+
                 $order['order_price'] = $order_price;
                 $order['status'] = 1;
                 $order['ress_id'] = $ress_id['id'];
                 $order['create_time'] = time();
 
-                // $arr['msg'] = $order;
-                // $arr['code'] = -200;
-                // return json($arr);
 
                 SupermarketOrder::insert($order);//生成订单
 

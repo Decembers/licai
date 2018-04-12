@@ -423,11 +423,11 @@
 			<div class="detail04">
 				<div class="">
 					<span>共</span>
-					<span class="em" id="numbers">{$shopping.num}</span>
+					<span class="em" id="numbers">{$shopping.num ?? '0'}</span>
 					<span>件</span>
 					<span>小计</span>
 					<span>￥</span>
-					<span class="em" id="qian">{$shopping.price}</span>
+					<span class="em" id="qian">{$shopping.price ?? '0'}</span>
 				</div>
 				<div class="">
 					<p  id="gm">朕要购买</p>
@@ -576,8 +576,14 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 			$("#gm").click(function(){
 				if($("#number").val()>0){
 					pay_inmoney = $("#pay_inmoney").text();
-					qian = $("#number").val()*pay_inmoney;
-					$(".qian").text('￥'+qian+'.00');
+					qian = $("#qian").text();
+
+					if (qian<30) {
+							$(".overtop").text("购买金额需在30元以上");
+							overtop();return false;
+					}
+
+					$(".qian").text('￥'+qian);
 
 					$(".details").css("display","none");
 					$(".detail04").css("display","none");
@@ -599,12 +605,6 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				nones();
 				sp_id = $("#sp_id").val();
 				number = $("#number").val();
-
-				qian = $("#pay_inmoney").text() * number;
-				if (qian<30) {
-						$(".overtop").text("购买金额需在30元以上");
-						overtop();return false;
-				}
 
 				/*判断余额与订单金额*/
 				/*间隔定时器*/
@@ -628,11 +628,6 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 				    	}
 				    }
 				})
-
-				// setTimeout(function(){
-				// 	$(".overtop").text("余额不足");
-				// 	overtop();
-				// },1000)
 			});
 
 			/*弹窗*/
