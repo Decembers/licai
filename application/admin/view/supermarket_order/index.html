@@ -14,15 +14,15 @@
         <thead>
         <tr class="text-c">
             <th width="25"><input type="checkbox"></th>
-            <th width="">订单编号</th>
+            <th width="130">订单编号</th>
             <th width="">用户id</th>
             <th width="">商品id</th>
             <th width="">商品名称</th>
             <th width="">商品价格</th>
-            <th width="">商品数量</th>
-            <th width="">订单价格</th>
-            <th width="">订单状态</th>
-            <th width="">订单取消原因</th>
+            <th width="20">商品数量</th>
+            <th width="60">订单价格</th>
+            <th width="40">订单状态</th>
+            <th width="50">订单取消原因</th>
             <th width="">收获地址</th>
             <th width="">创建时间</th>
             <th width="">发货时间</th>
@@ -36,12 +36,27 @@
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
             <td>{$vo.number|high_light=$Request.param.number}</td>
             <td onclick="layer_open('用户信息', '/admin/user/user/id/{$vo.user_id}.html')">{$vo.user_id}</td>
-            <!-- <td onclick="layer_open('商品信息', '/admin/Supermarket/index_one/id/{$vo.sp_id}.html')">{$vo.sp_id}</td> -->
-            <td onclick="layer_open('商品信息', '/admin/supermarket_order/index_info/id/{$vo.id}.html')">{$vo.sp_id}</td>
+            <td>
+            {for start="0" end=":count(json_decode($vo.sp_id))"}
+                <p  onclick="layer_open('商品信息', '/admin/supermarket/index_one/id/{:json_decode($vo.sp_id)[$i]}.html')">{:json_decode($vo.sp_id)[$i]}</p>
+            {/for}
+            </td>
 
-            <td>{$vo.sp_name}</td>
-            <td>{$vo.price}</td>
-            <td>{$vo.quantity}</td>
+            <td>
+            {for start="0" end=":count(json_decode($vo.sp_name))"}
+                <p>{:json_decode($vo.sp_name)[$i]}</p>
+            {/for}
+            </td>
+            <td>
+            {for start="0" end=":count(json_decode($vo.price))"}
+                <p>{:json_decode($vo.price)[$i]}</p>
+            {/for}
+            </td>
+            <td>
+            {for start="0" end=":count(json_decode($vo.quantity))"}
+                <p>{:json_decode($vo.quantity)[$i]}</p>
+            {/for}
+            </td>
             <td>{$vo.order_price}</td>
             <td style="color:red">{if condition="$vo.status eq 1"}待发货{elseif condition="$vo.status eq 2" /}已发货{elseif condition="$vo.status eq 3"/}已完成{else/}已取消{/if}</td>
             <td>{$vo.remark}</td>

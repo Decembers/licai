@@ -57,31 +57,4 @@ class SupermarketOrder extends Controller
 
         return $this->view->fetch();
     }
-
-    /**
-     * 首页
-     * @return mixed
-     */
-    public function index_info()
-    {
-        $id = input('id');
-        $model = $this->getModel();
-
-        $map = $this->search($model, [$this->fieldIsDelete => $this::$isdelete,'id'=>$id]);
-
-        // 特殊过滤器，后缀是方法名的
-        $actionFilter = 'filter' . $this->request->action();
-        if (method_exists($this, $actionFilter)) {
-            $this->$actionFilter($map);
-        }
-
-        // 自定义过滤器
-        if (method_exists($this, 'filter')) {
-            $this->filter($map);
-        }
-
-        $this->datalist($model, $map);
-        return $this->view->fetch();
-    }
-
 }
