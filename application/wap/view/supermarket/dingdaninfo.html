@@ -436,7 +436,8 @@
 					{/for}
 
 					<div class="fr">
-						<span>还有<i></i>件</span>
+						<!--<span>还有<i></i>件</span>-->
+						<span>显示全部</span>
 						<span class="fa fa-angle-down"></span>
 					</div>
 				</div>
@@ -508,15 +509,19 @@
 			}
 
 			function len() {
-				var lens = $(".center .fl>div").length - 2;
-				$(".center .fr span i").text(lens);
-				if(lens > 0) {
+				var lens = $(".center .fl").length;
+				/*var lens = $(".center .fl>div").length - 2;*/
+				/*$(".center .fr span i").text(lens);*/
+				if(lens > 1) {
 					$(".center .fr").css("height", "auto");
-					$(".center .fl>div").css("display", "none");
-					for(var is = 1; is < 3; is++) {
-						$(".center .fl>div:nth-child(" + is + ")").css("display", "block");
+					/*$(".center .fl>div").css("display", "none");
+					$(".center .fl>div:nth-child(1)").css("display", "block");
+					*/
+					for(var is = 2; is < 3; is++) {
+						$(".center .fl:nth-child(" + is + ")>div").css("display", "none");
 
 					}
+					
 				}
 			}
 
