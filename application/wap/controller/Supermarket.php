@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-12 15:49:13
+ * @Last Modified time: 2018-04-12 17:03:27
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -58,18 +58,6 @@ class Supermarket extends Yang
             return json($arr);
         }
     }
-    //购物车减
-    public function shoppingj()
-    {
-        if ($this->request->isAjax()) {
-            $id = input('id');
-            $shopping = Shopping::where('id', $id)->find();
-            $supermarket = S::where('id', $shopping['sp_id'])->find();
-
-            Shopping::where('id', $id)->setDec('num',1);
-            Shopping::where('id', $id)->setDec('price',$supermarket['price']);
-        }
-    }
     //购物车加指定数量商品
     public function shoppingjanum()
     {
@@ -89,6 +77,61 @@ class Supermarket extends Yang
                 Shopping::insert($data);
             }
 
+        }
+    }
+    //商品减
+    public function supermarketj()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('sp_id');//商品id
+            $Shopping = Shopping::where(['user_id'=>$this->id,'sp_id'=>$id])->find();
+            $supermarket = S::where(['id'=>$Shopping['sp_id']])->find();
+
+            if (isset($Shopping)) {
+                if ($Shopping['num']>1) {
+                    Shopping::where('id',$Shopping['id'])->setDec('num',1);
+                    Shopping::where('id',$Shopping['id'])->setDec('price',$supermarket['price']);
+                }else{
+                    Shopping::where('id',$Shopping['id'])->delete();
+                }
+            }
+        }
+    }
+    //商品加
+    public function supermarketja()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('sp_id');//商品id
+            $Shopping = Shopping::where(['user_id'=>$this->id,'sp_id'=>$id])->find();
+            $supermarket = S::where(['id'=>$id])->find();
+
+            if (isset($Shopping)) {
+
+                Shopping::where('id',$Shopping['id'])->setInc('num',1);
+                Shopping::where('id',$Shopping['id'])->setInc('price',$supermarket['price']);
+
+            }else{
+
+                $shopping['user_id'] = $this->id;
+                $shopping['sj_id'] = $supermarket['user_id'];
+                $shopping['sp_id'] = $id;
+                $shopping['num'] = 1;
+                $shopping['price'] = $supermarket['price'];
+                Shopping::insert($shopping);
+
+            }
+        }
+    }
+    //购物车减
+    public function shoppingj()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->find();
+            $supermarket = S::where('id', $shopping['sp_id'])->find();
+
+            Shopping::where('id', $id)->setDec('num',1);
+            Shopping::where('id', $id)->setDec('price',$supermarket['price']);
         }
     }
     //购物车加
@@ -221,6 +264,8 @@ class Supermarket extends Yang
         $user = User::where('id',$this->id)->find();
         $shopping['num'] = Shopping::where('user_id',$this->id)->sum('num');
         $shopping['price'] = Shopping::where('user_id',$this->id)->sum('price');
+        $s_num = Shopping::where(['user_id'=>$this->id,'sp_id'=>$id])->find();
+        $shopping['s_num'] = $s_num['num'];
 
         $this->assign('shopping',$shopping);
         $this->assign('supermarket',$supermarket);

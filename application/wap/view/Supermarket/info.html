@@ -411,7 +411,7 @@
 						<p><span>购养数量</span><span>可手动输入</span></p>
 						<p class="shu">
 							<span id="subtract">-</span>
-							<input type="tel" name="" id="number" value="0" maxlength="5" />
+							<input type="tel" name="" id="number" value="{$shopping.s_num ?? '0'}"/>
 							<span id="plus">+</span>
 						</p>
 					</li>
@@ -470,6 +470,18 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 					$("#number").val(num);
 					bian();
 				}
+
+				sp_id = $("#sp_id").val();
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/supermarketj')}",
+				    data : {
+				    	sp_id:sp_id
+				    },
+				    success : function(data){
+				    }
+				})
+
 				if(num > 0) {
 					$("#number").val(num - 1);
 					bian();
@@ -504,6 +516,17 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 					num = 0;
 				}
 				/*获取羊数量 剩余*/
+
+				sp_id = $("#sp_id").val();
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/supermarketja')}",
+				    data : {
+				    	sp_id:sp_id
+				    },
+				    success : function(data){
+				    }
+				})
 
 					$("#number").val(num + 1);
 					bian();
