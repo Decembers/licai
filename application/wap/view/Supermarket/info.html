@@ -591,19 +591,20 @@ var offset = $("#numbers").offset();var img = $("#img").attr("src");
 			}
 			$("#gm").click(function(){
 				if($("#number").val()>0){
-					pay_inmoney = $("#pay_inmoney").text();
-					qian = $("#qian").text();
+					window.location.href="{:url('Supermarket/gouwuche')}"
+					// pay_inmoney = $("#pay_inmoney").text();
+					// qian = $("#qian").text();
 
-					if (qian<30) {
-							$(".overtop").text("购买金额需在30元以上");
-							overtop();return false;
-					}
+					// if (qian<30) {
+					// 		$(".overtop").text("购买金额需在30元以上");
+					// 		overtop();return false;
+					// }
 
-					$(".qian").text('￥'+qian);
+					// $(".qian").text('￥'+qian);
 
-					$(".details").css("display","none");
-					$(".detail04").css("display","none");
-					$(".main").css("display","block");
+					// $(".details").css("display","none");
+					// $(".detail04").css("display","none");
+					// $(".main").css("display","block");
 				}else{
 					$(".overtop").text("没有购买");
 								overtop();

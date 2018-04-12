@@ -1,15 +1,6 @@
 {extend name="template/base" /}
 {block name="content"}
 <div class="page-container">
-    <form class="mb-20" method="get" action="{:\\think\\Url::build($Request.action)}">
-        <input type="text" class="input-text" style="width:250px" placeholder="订单编号" name="number" value="{$Request.param.number}" >
-        <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
-    </form>
-    <div class="cl pd-5 bg-1 bk-gray">
-        <span class="r pt-5 pr-5">
-            共有数据 ：<strong>{$count ?? '0'}</strong> 条
-        </span>
-    </div>
     <table class="table table-border table-bordered table-hover table-bg mt-20">
         <thead>
         <tr class="text-c">
@@ -27,7 +18,6 @@
             <th width="">创建时间</th>
             <th width="">发货时间</th>
             <th width="">完成时间</th>
-            <th width="70">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -36,9 +26,11 @@
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
             <td>{$vo.number|high_light=$Request.param.number}</td>
             <td onclick="layer_open('用户信息', '/admin/user/user/id/{$vo.user_id}.html')">{$vo.user_id}</td>
-            <!-- <td onclick="layer_open('商品信息', '/admin/Supermarket/index_one/id/{$vo.sp_id}.html')">{$vo.sp_id}</td> -->
-            <td onclick="layer_open('商品信息', '/admin/supermarket_order/index_info/id/{$vo.id}.html')">{$vo.sp_id}</td>
-
+            <td>
+            {for start="0" end=":count(json_decode($vo.sp_id))"}
+                <span>{:json_decode($vo.sp_id)[$i]}</span></br>
+            {/for}
+            </td>
             <td>{$vo.sp_name}</td>
             <td>{$vo.price}</td>
             <td>{$vo.quantity}</td>
@@ -49,10 +41,6 @@
             <td>{$vo.create_time|date="y-m-d H:i",###}</td>
             <td>{$vo.deliver_time|date="y-m-d H:i",###}</td>
             <td>{$vo.yes_time|date="y-m-d H:i",###}</td>
-            <td class="f-14">
-                {tp:menu menu='sedit' /}
-                {tp:menu menu='sdeleteforever' /}
-            </td>
         </tr>
         {/volist}
         </tbody>
