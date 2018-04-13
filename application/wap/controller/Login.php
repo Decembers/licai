@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-23 11:17:40
+ * @Last Modified time: 2018-04-13 14:31:40
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -524,12 +524,12 @@ class Login extends Yang
     /*
      * 测试用登录
      */
-    // public function admin()
-    // {
-    //    $arr = User::where(['id'=>120])->find();
-    //    Session::set('user',$arr);
-    //    Cookie::set('user_id',120);
-    //    echo 'ok';
-    // }
+    public function admin()
+    {
+       $arr = User::where(['id'=>129])->find();
+       Session::set('user',$arr);
+       Cookie::set('user_id',120);
+       echo 'ok';
+    }
 
 }
