@@ -6,7 +6,7 @@
         <div class="panel-body tp-box-list">
             <ul id="module-list">
                 {foreach name='modules' item='module'}
-                    <li data-module-id="{$module.id}"><a href="javascript:;" class="list-select">{$module.title}（{$module.name}）</a></li>
+                    <li data-module-id="{$module.id}"><a href="dingdanxiangqing.html" class="list-select">{$module.title}（{$module.name}）</a></li>
                 {/foreach}
             </ul>
         </div>
@@ -16,7 +16,7 @@
         <div class="panel-header">分组</div>
         <div class="panel-body tp-box-list">
             <ul id="group-list">
-                <li data-group-id="0"><a href="javascript:;" class="list-select"><i class="Hui-iconfont"></i> 未分组</a></li>
+                <li data-group-id="0"><a href="dingdanxiangqing.html" class="list-select"><i class="Hui-iconfont"></i> 未分组</a></li>
             </ul>
         </div>
     </div>
@@ -26,23 +26,23 @@
         <div class="cl pd-5 bg-1 bk-gray">
         <span class="l">
             {tp:access action='add'}
-            <a class="btn btn-primary radius J_add" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加</a>
+            <a class="btn btn-primary radius J_add" href="dingdanxiangqing.html"><i class="Hui-iconfont">&#xe600;</i> 添加</a>
             {/tp:access}
             {tp:access action='forbid'}
-            <a href="javascript:;" onclick="treeOpAll('{:\\think\\Url::build(\'forbid\')}', '禁用')"
+            <a href="dingdanxiangqing.html" onclick="treeOpAll('{:\\think\\Url::build(\'forbid\')}', '禁用')"
                class="btn btn-warning radius ml-5"><i class="Hui-iconfont">&#xe631;</i> 禁用</a>
             {/tp:access}
             {tp:access action='resume'}
-            <a href="javascript:;" onclick="treeOpAll('{:\\think\\Url::build(\'resume\')}', '恢复')"
+            <a href="dingdanxiangqing.html" onclick="treeOpAll('{:\\think\\Url::build(\'resume\')}', '恢复')"
                class="btn btn-success radius ml-5"><i class="Hui-iconfont">&#xe615;</i> 恢复</a>
             {/tp:access}
             {tp:access action='delete'}
-            <a href="javascript:;" onclick="treeOpAll('{:\\think\\Url::build(\'delete\')}', '删除')"
+            <a href="dingdanxiangqing.html" onclick="treeOpAll('{:\\think\\Url::build(\'delete\')}', '删除')"
                class="btn btn-danger radius ml-5"><i class="Hui-iconfont">&#xe6e2;</i> 删除</a>
             {/tp:access}
              {tp:menu menu='recyclebin' /}
             {tp:access action='load'}
-            <a href="javascript:;" class="btn btn-primary radius J_load"><i class="Hui-iconfont">&#xe645;</i> 批量导入</a>
+            <a href="dingdanxiangqing.html" class="btn btn-primary radius J_load"><i class="Hui-iconfont">&#xe645;</i> 批量导入</a>
             {/tp:access}
         </span>
         </div>
