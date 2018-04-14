@@ -75,7 +75,32 @@
 				color: white;
 			}
 
-
+#dizs{
+	width: 100vw;
+	height: 50vh;
+	background-color: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 40px;
+	left: 0;
+	z-index: 999;
+	overflow: auto;
+	display: none;
+}
+#dizs li{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;	
+	color: white;
+	padding: 0px 15px;
+	background-color: rgba(0,0,0,0.5);
+	font-size: 16px;
+}
+#dizs li span{
+	float: right;
+	display: none;
+	font-size: 18px;
+	line-height: 40px;
+}
 		</style>
 	</head>
 
@@ -84,9 +109,17 @@
 			<!--header -->
 			<div class="header">
 				<p style="position: absolute; top: 10px;left: 10px ;line-height: 20px;color: grey;" onclick="window.location='{:url("index/index")}'">首页</p>
-				<h3>农场超市</h3>
+				<h3>选择地址</h3>
 				<a href="{:url('supermarket/dingdan')}" style="right: 10px;">我的订单</a>
 			</div>
+			<ul class="" id="dizs">
+				<li>1 <span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>1<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>1<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>1<span class="glyphicon glyphicon-pushpin"></span></li>
+				
+				
+			</ul>
 			<div class="content infinite-scroll native-scroll">
 				<!--超市物品展示-->
 				<div>
@@ -95,7 +128,7 @@
 						<li>
 							<a href="{:url('Supermarket/info',['id'=>$data.id])}">
 								<div class="pro_pic">
-									<img src="{$data.image}">
+									<!--<img src="{$data.image}">-->
 								</div>
 								<div class="text_int">
 									<h5>{$data.name}</h5>
@@ -197,6 +230,16 @@ var offset = $("#numbers").offset();
 			})
 
 			});
+			$(".header h3").click(function(){
+				$("#dizs").css("display","block");
+			})
+			$("#dizs li").click(function(){
+				$(".header h3").text($(this).text());
+				var tt = $("#dizs li").index($(this));
+				$("#dizs li span").css("display","none");
+				$("#dizs li:nth-child("+(tt+1)+") span").css("display","block");
+				$("#dizs").css("display","none");
+			})
 		</script>
 	</body>
 
