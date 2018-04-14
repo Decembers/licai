@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-26 18:01:28
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-29 17:29:40
+ * @Last Modified time: 2018-04-13 15:04:04
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -200,7 +200,7 @@ class Rancher extends Yang
             $this->assign('yihua',$yihua);
             $this->assign('com',$com);
             $this->assign('order',$order);
-            $this->assign('zongjin',$zongjin-$yihua);
+            $this->assign('zongjin',$zongjin);
             return $this->fetch();
         }
 

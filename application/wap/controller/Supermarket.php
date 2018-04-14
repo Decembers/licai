@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-12 17:03:27
+ * @Last Modified time: 2018-04-13 17:40:07
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -152,8 +152,9 @@ class Supermarket extends Yang
         if ($this->request->isAjax()) {
             $data = input('order');
             $ress_id = input('ress_id');
+            $is_wx = input('is_wx');
             $data = explode(",",$data);
-            $arr = ['code'=>-200,'data'=>'','msg'=>''];
+            $arr = ['code'=>-200,'data'=>'参数错误,请刷新重试!','msg'=>''];
             $order = [];
             $order_price = 0;//订单总金额
             //生成订单,每个商品生成一笔订单
@@ -220,7 +221,11 @@ class Supermarket extends Yang
                 $detail['user_id']=$this->id;
                 $detail['or']=3;
                 $detail['money']=$order_price;
-                $detail['comment']='超市购物';
+                if ($is_wx==0) {
+                    $detail['comment']='超市购物-余额支付';
+                }else{
+                    $detail['comment']='超市购物-微信充值';
+                }
                 $detail['status']=1;
                 $detail['create_time']=time();
                 $detail['accomplish_time']=time();

@@ -18,45 +18,28 @@
 	<body style="background-color: #F0F0F3;">
 		<div class="wrapper" style="padding-bottom: 30px;">
 			<ul class="activity">
+			{volist name="activity" id="vo"}
 				<li>
-					<a class="activitys" href="{:url('discover/info1')}">
+					<a class="activitys" href="{:url('discover/info',['id'=>$vo.id])}">
 						<div class="movable_panel">
-							<img src="__WAP__/img/ns4.jpg" />
+							<img src="{$vo.image}" />
 						</div>
 						<div class="activity_theme a1">
 							<div class="activity_con">
-								<span class="fl">端午节</span><span class="fr a9">已结束</span>
+								<span class="fl">{$vo.title}</span>
+								<span class="fr a9">
+								{if condition="$vo.status eq 1"}
+								进行中
+								{else /}
+								已结束
+								{/if}
+								</span>
 							</div>
 							<div class="activety_time a9">2017-09-19</div>
 						</div>
 					</a>
 				</li>
-				<li>
-					<a class="activitys" href="{:url('discover/info2')}">
-						<div class="movable_panel">
-							<img src="__WAP__/img/banner5.jpg" />
-						</div>
-						<div class="activity_theme a1">
-							<div class="activity_con">
-								<span class="fl">礼遇中秋</span><span class="fr a9">已结束</span>
-							</div>
-							<div class="activety_time a9">2017-09-22</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a class="activitys" href="{:url('discover/info3')}">
-						<div class="movable_panel">
-							<img src="__WAP__/img/banner6.jpg" />
-						</div>
-						<div class="activity_theme a1">
-							<div class="activity_con">
-								<span class="fl">七夕狂欢</span><span class="fr a9">已结束</span>
-							</div>
-							<div class="activety_time a9">2017-08-25</div>
-						</div>
-					</a>
-				</li>
+			{/volist}
 			</ul>
 		<!--footer 选中状态-->
 			<div class="footer">

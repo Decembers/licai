@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-12 17:12:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 17:46:05
+ * @Last Modified time: 2018-04-13 18:28:55
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -330,7 +330,7 @@ class Order extends Yang
         $arr = O::where(['sp_id'=>$id])->field('user_id,create_time,sp_count')->order('sp_count desc')->select();
         $comm = C::where(['id'=>$id])->find();
         $row = [];
-        $ke = 0;
+        $ke = 1;
         if (!empty($arr)) {
             foreach ($arr as $k => $v) {
                 $user = U::where(['id'=>$v['user_id']])->find();
@@ -340,23 +340,43 @@ class Order extends Yang
                 $ke = $k;
             }
         }
-        $ke = $ke+1;
+        //$ke = $ke+1;
         if (time()>$comm['down_time']&&$comm['number']!=0) {
-            if ($comm['number']>3) {
-                $ar = [66,67,68];
-                $a1 = $comm['number']%3;
+            if ($comm['number']>55) {
+                // $ar = [66,67,68];
+                // $a1 = $comm['number']%3;
+                // $a2 = $comm['number'] - $a1;
+                // $a3 = $a2/3;
+                // for ($i=0; $i < 3 ; $i++) {
+                //     $ke = $ke + $i;
+                //     $user = U::where(['id'=>$ar[$i]])->find();
+                //     $row[$ke]['name'] = $user['name'];
+                //     $row[$ke]['create_time'] = $comm['down_time'] - 100*$ke;
+                //     $row[$ke]['sp_count'] = $a3;
+                //     if ($i==2) {
+                //          $row[$ke]['sp_count'] = $a3+$a1;
+                //     }
+                // }
+                      //1  2  3  4  5  6  7   28份
+                $ar = [66,67,68,69,70,71,72];//7个虚假用户
+                $a1 = $comm['number']%28;
                 $a2 = $comm['number'] - $a1;
-                $a3 = $a2/3;
-                for ($i=0; $i < 3 ; $i++) {
-                    $ke = $ke + $i;
+                $a3 = $a2/28;
+                $he = 0;
+                for ($i=0; $i < 7 ; $i++) {
                     $user = U::where(['id'=>$ar[$i]])->find();
                     $row[$ke]['name'] = $user['name'];
                     $row[$ke]['create_time'] = $comm['down_time'] - 100*$ke;
-                    $row[$ke]['sp_count'] = $a3;
-                    if ($i==2) {
-                         $row[$ke]['sp_count'] = $a3+$a1;
+                    if ($i==6) {
+                        $row[$ke]['sp_count'] = $a3*$ke+$a1;
+                    }else{
+                        $row[$ke]['sp_count'] = $a3*$ke;
                     }
+
+                    $ke = $ke + 1;
                 }
+                //echo $he;die;
+
             }else{
                 $user = U::where(['id'=>66])->find();
                 $row[$ke]['name'] = $user['name'];

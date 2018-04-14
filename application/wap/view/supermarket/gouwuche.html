@@ -712,7 +712,6 @@ flex-grow: 1;
 				<div class="top">
 					<div class="wei">
 						<div class="fa fa-weixin fa-2x">
-
 						</div>
 						<div class="text_fa">
 							<p>微信支付</p>
@@ -815,39 +814,9 @@ flex-grow: 1;
 			})
 
 			$("#modal2 .modal-button-bold").click(function(){
-var th = $(".quan div").hasClass('dui');
-
-
+				var th = $(".quan div").hasClass('dui');
 				if($(".sheep li").length>0){
-
 					if($(".sheep .dui").length>0) {
-						// var arr = [];
-						// for (var i = 0; i < $(".sheep .dui").length; i++) {
-						// 	arr[i] = $(".sheep .dui:eq("+i+")").attr('data-id');
-						// };
-						// console.log(arr);
-						// arr = arr.join(',');
-						// var ress = $(".top1").attr("data-ress");
-						// if (!ress) {
-						// 	$(".overtop").text("请选择收获地址");
-						// 	overtop();return false;
-						// }
-						// $.ajax({
-						//     type : 'POST',
-						//     url : "{:url('supermarket/shoppingorder')}",
-						//     data : {order:arr,ress_id:ress},
-						//     success : function(data){
-						//     	if (data.code==1) {
-						// 			$(".overtop").text(data.msg);
-						// 			overtop();
-						// 			window.location.href = "{:url('Supermarket/dingdan')}";
-
-						//     	}else{
-						// 			$(".overtop").text(data.msg);
-						// 			overtop();
-						//     	}
-						//     }
-						// })
 						qian = $("#qian").text();
 						if (qian<30) {
 								$(".overtop").text("购买金额需在30元以上");
@@ -859,15 +828,13 @@ var th = $(".quan div").hasClass('dui');
 								$(".overtop").text("请选择收获地址");
 								overtop();return false;
 							}
-
-
 								$(".qian").text('￥'+qian+'.00');
 								$("#main").css("left","0vw");
 						}
 
 						}else{
 								$(".overtop").text("没有选中的商品");
-							overtop();
+								overtop();
 						}
 				}else{
 					$(".overtop").text("购物车中没有商品，请去逛逛");
@@ -990,6 +957,7 @@ var th = $(".quan div").hasClass('dui');
 			}
 		</script>
 	<script type="text/javascript">
+		var iswx = 0;
 		$(".dianji").click(function(){
 			$("#top1").css("display","block");
 		})
@@ -1009,7 +977,7 @@ var th = $(".quan div").hasClass('dui');
 			$("#diz").text(dz);
 		})
 
-$(".yu").click(function() {
+				$(".yu").click(function() {
 
 					$("#modal1s").css("display", "block");
 				$("#goodcover").css("display", "block");
@@ -1035,7 +1003,7 @@ $(".yu").click(function() {
 					$.ajax({
 					    type : 'POST',
 					    url : "{:url('supermarket/shoppingorder')}",
-					    data : {order:arr,ress_id:ress},
+					    data : {order:arr,ress_id:ress,is_wx:iswx},
 					    success : function(data){
 					    	if (data.code==1) {
 								$(".overtop").text(data.msg);
@@ -1064,6 +1032,83 @@ $(".yu").click(function() {
 			}
 
 	</script>
+		<script type="text/javascript">
+			$(".wei").click(function() {
+
+						var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
+						if(ua.match(/MicroMessenger/i) != "micromessenger") {
+							$(".overtop").text("请在微信中打开");
+							overtop();
+							return false;
+						}
+						var money = $("#qian").text(); //充值金额
+						if(money == '') {
+							$(".overtop").text("请输入金额");
+							overtop();
+							return false;
+						}
+						var openid = "{:session('user.openid')}";
+						if (openid=='') {
+							$(".overtop").text("正在获取微信授权");
+							overtop();
+							window.location = '{:url("login/wxlogin",["gouwu"=>1])}';
+							return false;
+						}
+						$.ajax({
+							//一个Ajax过程
+							type: "post", //以post方式与后台沟通
+							url: "{:url('wxpay/getinfo')}", //与此php页面沟通
+							dataType: 'json', //从php返回的值以 JSON方式 解释
+							data: {
+								'money': money,
+								'is_wx':1
+							}, //发给php的数据有两项，分别是上面传来的u和p
+							success: function(json) {
+								//var data=JSON.stringify(json);
+								//console.log(json.appId);
+
+								eval('var data = ' + json);
+								callpay(data);
+							},
+							error: function() {
+								$(".overtop").text("参数错误");
+								overtop();
+							}
+						})
+			})
+
+			function callpay(data) {
+				if(typeof WeixinJSBridge == "undefined") {
+					if(document.addEventListener) {
+						document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+					} else if(document.attachEvent) {
+						document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+						document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+					}
+				} else {
+					jsApiCall(data);
+				}
+			}
+			//调用微信JS api 支付
+			function jsApiCall(data) {
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					data,
+					function(res) {
+						WeixinJSBridge.log(res.err_msg);
+						console.log(res.err_msg);
+						if(res.err_msg == "get_brand_wcpay_request:ok") {
+							//成功
+							$(".overtop").text("充值成功");
+							overtop();
+							iswx = 1;
+							$("#modal1s .modal-button-bold").trigger("click");
+						}
+					}
+				);
+			}
+		</script>
+
 	</body>
 
 </html>

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-14 15:56:38
+ * @Last Modified time: 2018-04-13 17:53:56
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -31,6 +31,7 @@ class Wxpay extends Yang
                 echo '请求数据都不能为空';
                 return;
             }
+
             //生成订单
             $str = $this->generate_password();//随机字符串
             $order_id = time().$str;
@@ -43,8 +44,11 @@ class Wxpay extends Yang
             $row['money']=$money/100;
             $row['comment']= $name;
             $row['create_time']=time();
-
-            $result = Detail::insert($row);
+            if (empty($_POST['is_wx'])) {
+                $result = Detail::insert($row);
+            }else{
+                $result = 1;
+            }
             if (isset($result)) {
 
                 Loader::import('Weixinpay.WxPayPubHelper', EXTEND_PATH);
@@ -131,6 +135,7 @@ class Wxpay extends Yang
                         $user = User::where(['openid'=>$openid])->find();
                         $balance = $user['balance'] + $total_fee/100;
                         User::where(['openid'=>$openid])->update(['balance'=>$balance]);
+
                         // 提交事务
                         Db::commit();
                     } catch (\think\Exception $e) {

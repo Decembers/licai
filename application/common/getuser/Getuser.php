@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-02 10:10:37
+ * @Last Modified time: 2018-04-13 15:46:25
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -88,7 +88,11 @@ class Getuser
                     User::where(['id'=>Session::get('user.id')])->update($upd);
                     Session::set('user.openid',$userinfo['openid']);
                     Session::set('user.name',$userinfo['nickname']);
-                    Session::set('isopenid',1);
+                    if (!empty(Session::get('gouwu'))) {
+                        Session::set('isopenid',2);
+                    }else{
+                        Session::set('isopenid',1);
+                    }
                     return true;
                 }
                 $user = User::where(['openid'=>$userinfo['openid']])->find();
