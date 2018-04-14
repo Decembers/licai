@@ -76,31 +76,56 @@
 			}
 
 #dizs{
-	width: 100vw;
+	width: 90vw;
 	height: 50vh;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(255,255,255,1);
 	position: fixed;
 	top: 40px;
-	left: 0;
-	z-index: 999;
+	left: 5vw;
+	z-index: 1003;
 	overflow: auto;
+	border-radius: 15px;
 	display: none;
 }
 #dizs li{
-	width: 100%;
+	width: 95%;
 	height: 40px;
 	line-height: 40px;	
-	color: white;
-	padding: 0px 15px;
-	background-color: rgba(0,0,0,0.5);
+	color: black;
+	padding: 0px 40px 0px 15px;	
 	font-size: 16px;
+	margin: 5px  auto;
+	border-radius: 10px;
+	border: 1px solid #F4F4F4;
+	position: relative;
+	 white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 }
 #dizs li span{
-	float: right;
+	position: absolute;
+	top: 0px;
+	right: 10px;
 	display: none;
 	font-size: 18px;
 	line-height: 40px;
+	color: #6fd6ea;
 }
+#goodcover {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				z-index: 1001;
+				-moz-opacity: 0.65;
+				opacity: 0.65;
+			}
+			.header h3{
+				width: 70%;
+				margin: 0px  auto;
+				 white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
+			}
 		</style>
 	</head>
 
@@ -113,11 +138,19 @@
 				<a href="{:url('supermarket/dingdan')}" style="right: 10px;">我的订单</a>
 			</div>
 			<ul class="" id="dizs">
-				<li>1 <span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>1<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>1<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>1<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>甘肃省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>宁夏回族自治区<span class="glyphicon glyphicon-pushpin"></span></li>
 				
+				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>甘肃省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>宁夏回族自治区<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>甘肃省<span class="glyphicon glyphicon-pushpin"></span></li>
+				<li>宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区<span class="glyphicon glyphicon-pushpin"></span></li>
 				
 			</ul>
 			<div class="content infinite-scroll native-scroll">
@@ -185,7 +218,8 @@
 				</a>
 			</div>-->
 		</div>
-		<div class="background"></div>
+		<div class="background" ></div>
+		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 
@@ -231,13 +265,23 @@ var offset = $("#numbers").offset();
 
 			});
 			$(".header h3").click(function(){
+				$("#goodcover").css("display","block");
 				$("#dizs").css("display","block");
 			})
 			$("#dizs li").click(function(){
+				$("#goodcover").css("display","none");
 				$(".header h3").text($(this).text());
+				
 				var tt = $("#dizs li").index($(this));
 				$("#dizs li span").css("display","none");
+				$("#dizs li").css("border-color","#F4F4F4");
+				$("#dizs li:nth-child("+(tt+1)+")").css("border-color","#6fd6ea");
 				$("#dizs li:nth-child("+(tt+1)+") span").css("display","block");
+				$("#dizs").css("display","none");
+			})
+			$("#goodcover").click(function(){
+				$("#goodcover").css("display","none");
+				
 				$("#dizs").css("display","none");
 			})
 		</script>
