@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-27 09:41:47
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-13 17:40:07
+ * @Last Modified time: 2018-04-14 18:48:46
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -20,14 +20,50 @@ class Supermarket extends Yang
 {
     public function index()
     {
-        $supermarket = S::where(['user_id'=>6])->select();
-        $shopping['num'] = Shopping::where('user_id',$this->id)->sum('num');
-        $shopping['price'] = Shopping::where('user_id',$this->id)->sum('price');
-        //var_dump($shopping);die;
+
+        //获取城市id
+        $city = 1;
+        $citys['city_name'] = '郑州';
+        $ip = $_SERVER["REMOTE_ADDR"];
+        $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
+        $ip=json_decode(file_get_contents($url));
+        if((string)$ip->code=='0'){
+            $data = (array)$ip->data;
+            $citys = Db::table('tp_city')->where(['city_name'=>$data['city']])->find();
+            if (!empty($citys)) {
+                $city = $citys['id'];
+            }else{
+                $citys['city_name'] = '郑州';
+            }
+        }
+        //根据城市id获取小区信息
+        $adminuser = AdminUser::where(['city'=>$city])->select();
+
+        $user_id = $adminuser[0]['id'];//默认显示商家id
+        $supermarket = S::where(['user_id'=>$user_id])->select();
+        $shopping['num'] = Shopping::where(['sj_id'=>$user_id,'user_id'=>$this->id])->sum('num');
+        $shopping['price'] = Shopping::where(['sj_id'=>$user_id,'user_id'=>$this->id])->sum('price');
         $this->assign('shopping',$shopping);
+        $this->assign('adminuser',$adminuser);
+        $this->assign('city_name',$citys['city_name']);
         $this->assign('supermarket',$supermarket);
         return $this->fetch();
     }
+
+    //ajax获取店铺 商品,购物车信息,
+    public function dianpu()
+    {
+        if ($this->request->isAjax()) {
+            $user_id = input('user_id');
+            $supermarket = S::where(['user_id'=>$user_id])->select();
+            $shopping['num'] = Shopping::where(['user_id'=>$this->id,'sj_id'=>$user_id])->sum('num');
+            $shopping['price'] = Shopping::where(['user_id'=>$this->id,'sj_id'=>$user_id])->sum('price');
+            $arr['supermarket'] = $supermarket;
+            $arr['shopping'] = $shopping;
+            return json($arr);
+        }
+    }
+
     public function shopping()
     {
         if ($this->request->isAjax()) {
@@ -456,8 +492,9 @@ class Supermarket extends Yang
     }
     public function gouwuche()
     {
+        $user_id = input('user_id');
         $user = User::where('id',$this->id)->find();
-        $shopping = Shopping::where('user_id',$this->id)->select();
+        $shopping = Shopping::where(['sj_id'=>$user_id,'user_id'=>$this->id])->select();
         foreach ($shopping as $key => $value) {
             $supermarket = S::where('id',$value['sp_id'])->find();
             $shopping[$key]['sp_name'] = $supermarket['name'];

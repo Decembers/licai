@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<!--mobile apps-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Hipster Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--mobile apps-->
+<!--Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script> 
+<!-- //js -->
+<!--web-fonts-->
+<!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200italic,200,300,300italic,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,900' rel='stylesheet' type='text/css'>
+--><!--//web-fonts-->
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- start-smoth-scrolling-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>	
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!--//end-smoth-scrolling-->
+<style type="text/css">
+	
+
+.top-nav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+	.banner{
+		padding-top: 60px;
+		background-image: url(img/timg.jpg);
+	}
+	.banner:after {
+   opacity: 0;
+}
+.navbar-nav li a span{
+	font-weight: bold;
+}
+
+.img35{
+	width: 350px;
+	height: 240px;
+}
+figure h5{
+	opacity: 0;
+}
+figure:hover h5{
+	opacity: 1;
+}
+
+
+figure.effect-ming p{
+	font-size: 12px;
+}
+#services .col-md-4 .flip-effect .info-box,#services .col-md-4 .flip-effect{
+	background-color: white;
+}
+#services .col-md-4 .flip-effect,#services .col-md-4 .flip-effect .info-box{
+	 -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+}
+#services .col-md-4 .flip-effect .info-box h3,#services .col-md-4 .flip-effect .info-box p{
+	color: black;
+}
+
+#services .col-md-4 .flip-effect .text-box p{
+	color:#456A8E;
+}
+#img{
+	position: absolute; top: 40px;right: 100px; z-index: 300; width: 350px; 
+	height: 52px;
+	overflow: hidden;
+	transition: height .4s;
+	
+}
+
+#img #liao {
+	float: left;
+	 display: inline-block;
+    border: #fff 4px solid;
+    background: #63b582;
+    border-radius: 4px;
+    width: 198px;
+    font-size: 16px;
+    padding: 6px 0 5px;
+    text-align: center;
+    box-shadow: 0 5px 4px rgba(0,0,0,.3);
+    cursor: pointer;
+    color: white;
+}
+/*#liao:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    background: url(img/img/icon-triangle-aboutus.png) no-repeat;
+}*/
+#img #liao i{
+	    padding-right: 8px;
+    vertical-align: middle;
+        display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(img/img/icon-toright.png) no-repeat;
+    margin: 0;
+    padding: 0;
+    margin-top: -2px;
+    margin-right: 5px;
+}
+#img #codes{
+	background-image: url(img/icon-erweima-enter.png); width: 46px;height: 52px;
+	float: left;
+	margin-left: 10px;
+}
+.code{
+	margin-left: 158px;
+	margin-top: 52px;
+}
+.code,.code img{
+	width: 150px;
+	
+	
+}
+.code>div{
+	width: 75px;
+	height: 20px;
+	border-right: 2px solid white;
+}
+.callbacks_nav{
+	display: none;
+}
+/*.phn-no{
+	left: 6%;
+}*/
+
+.gallery-grid{
+	margin-top: 30px;
+}
+.gallery-grid {
+    
+    padding: 5px;
+}
+.grid figure img {
+	opacity: 1 !important;
+}
+.grid:hover figure img {
+	opacity: 0.5 !important;
+}
+
+
+.welcome, .team, .gallery, .contact {
+    padding: 3em 0;
+}
+.gallery-grids {
+    margin-top: 2em;
+}
+</style>
+</head>
+<body>
+	<!--navigation--> 
+	<div class="" id="img" >
+		<p id="liao"><i></i>扫描二维码预览</p>
+		<p id="codes"></p>
+		<div class="code">
+			<div id="">
+				
+			</div>
+			<img src="img/shop/1522400958.png"/>
+		</div>
+	</div>
+	<div class="top-nav">
+		<div class="container">
+			<div class="navbar-header logo">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<h1><a href="index.html" class="wow bounceIn animated" data-wow-delay=".5s" style="visibility: visible; -webkit-animation-delay: .5s;">趣味农场</a></h1>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-left cl-effect-5">
+					<li class="active"><a href="index.html"><span data-hover="首页">首页</span></a></li>
+					<li><a href="#gallerys" class="scroll"><span data-hover="农场">农场</span></a></li>
+					<li><a href="#gallery" class="scroll"><span data-hover="农场功能">农场功能</span></a></li>
+					<li><a href="#about" class="scroll"><span data-hover="活动">活动</span></a></li>
+					<li><a href="#services" class="scroll"><span data-hover="商城">商城</span></a></li>
+					
+					<li><a href="#contact" class="scroll"><span data-hover="联系我们">联系我们</span></a></li>
+					
+					<li class="phn-no wow fadeInRight animated" data-wow-delay=".5s" ><h4><!--郑州汇谷科技有限公司--></h4></li>
+				</ul>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>	
+	<!--//navigation-->
+	<!--banner-->
+	<div  id="home" class="banner">
+		<div class="banner-text">
+			<!--banner Slider starts Here-->
+			<script src="js/responsiveslides.min.js"></script>
+			<script>
+				// You can also use "$(window).load(function() {"
+				$(function () {
+				  // Slideshow 3
+				  $("#slider3").responsiveSlides({
+					auto: true,
+					pager: false,
+					nav: true,
+					speed: 500,
+					namespace: "callbacks",
+					before: function () {
+					  $('.events').append("<li>before event fired.</li>");
+					},
+					after: function () {
+					  $('.events').append("<li>after event fired.</li>");
+					}
+				  });
+			
+				});
+			</script>
+			<!--//End-slider-script-->
+			<div  id="top" class="callbacks_container">
+				<ul class="rslides" id="slider3" style="opacity: 0;">
+					<li>
+						<div class="banner-text-info">
+							<h3 class="bnr-text">注册趣味农场<br>
+							<span class="wow zoomIn animated" data-wow-delay=".5s">新手送红包</span>,<br>买鹅可提现。</h3>	
+						</div>
+					</li>
+					<li>
+						<div class="banner-text-info">
+							<h3 class="bnr-text">实名认证<br><span>确认身份</span>，<br>保证信息安全</h3>	
+						</div>	
+					</li>
+					<li>
+						<div class="banner-text-info">
+							<h3 class="bnr-text">添加银行卡<br><span>仅本人银行卡</span>，<br>保证资金流向安全。</h3>	
+						</div>	
+					</li>
+				</ul>
+			</div>
+			<div class="container">
+				<h2 class="wow fadeInUpBig animated" data-wow-delay=".5s">互联网+牧场</h2>
+				<div class="bnr-right" style="display: none;">
+					<h4>本项目是汇谷科技，趣味农场联合推出的线上养殖项目						</h4>
+					<p>关注“121797873” 微信公众号
+						</p>
+				</div>
+				<div class="social-icons wow fadeInUp animated" data-wow-delay=".5s" style="display: none;">
+					<a href="#"><span>Facebook</span></a>
+					<a href="#"><span>Pinterest</span></a>
+					<a href="#"><span>LinkedIn </span></a>
+					<a href="#"><span>Behance</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//banner-->
+	<div class="welcome" id="gallerys">
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s" style="color: black;">农场</h3>
+			<!--<h4>趣味农场常在节日时期举办一些活动</h4>-->
+			<p class="w-text">
+<!--汇谷农场主要从事农副产品、蔬菜水果等种植、加工、贸易，在全国各地拥有多个绿色、有机种植的大型农场，实现了新鲜蔬果的周年供应，构建了优势互补的大型蔬果种植基地，这是一款移动APP软件，其包含购买，交易的完善进程-->
+			趣味农场是一款用于购买农场作物的软件，它给产品标价，让用户购买，让用户体验一种农场生活的乐趣，回归乡土的自然。它同时具有数据管理软件、统计分析软件、矩阵计算软件和程序语言的特点，又在许多方面别具一格。操作灵活、简单，易学易用。</p>
+			<div class="welcome-row">
+				<div class="col-md-4 welcome-grids grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<img src="img/chun.jpg" class="img35" alt="">
+						<figcaption>
+							<h5><span>春节</span></h5>
+							<p>春节是指汉字文化圈传统上的农历新年，俗称“年节”，传统名称为新年、大年、新岁，但口头上又称度岁、庆新岁、过年，是中华民族最隆重的传统佳节。</p>
+						</figcaption>			
+					</figure>
+				</div>
+				<div class="col-md-4 welcome-grids grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<img src="img/qing.jpg" class="img35" alt="">
+						<figcaption>
+							<h5><span>清明节</span></h5>
+							<p>清明节又叫踏青节，在仲春与暮春之交，也就是冬至后的第104天，是中国传统节日之一，也是最重要的祭祀节日之一，是祭祖和扫墓的日子。</p>
+						</figcaption>			
+					</figure>
+				</div>
+				<div class="col-md-4 welcome-grids grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<img src="img/qiu.jpg" class="img35" alt="">
+						<figcaption>
+							<h5><span>中秋节</span></h5>
+							<p>中秋节，又称月夕、秋节、仲秋节、八月节、八月会、追月节、玩月节、拜月节、女儿节或团圆节，是流行于中国众多民族与汉字文化圈诸国的传统文化节日，时在农历八月十五。</p>
+						</figcaption>			
+					</figure>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="gallery" id="gallery"> 
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s" style="color: black;">产品功能</h3>
+			
+			<p class="w-text" style="margin-top: 15px;">一个专注于农业，畜牧业的互联网＋平台。用户只需投资购买牧场牲畜就可以成为牧场主，牧场主通过平台实时查看自己在投资周期内的收益增长。养殖周期结束后， 用户将收到投资的本金和收益，收益可以选择现金,或是使用本期资金以优惠的价格兑换养殖产品。</p>
+			
+			<div class="gallery-grids">
+				<div class="gallery-grid grid">
+					<figure class="effect-ming wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/01.jpg" rel="title" class="thickbox">
+							<!--<img src="images/img6.jpg" alt=" " class="img-responsive" />-->
+							<img src="img/img/01.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5>农场<span>首页</span></h5></figcaption>	
+						</a>	
+					</figure>
+				</div>
+				
+				<div class="gallery-grid grid">
+					
+					<figure class="effect-ming wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/02.jpg" rel="title" class="thickbox">
+							<img src="img/img/02.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>项目详情</span></h5></figcaption>
+						</a>	
+					</figure>
+					</div>
+				<div class="gallery-grid grid">
+					<figure class="effect-ming grid wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/03.jpg" rel="title" class="thickbox">
+							<img src="img/img/03.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>我的农场</span></h5></figcaption>
+						</a>	
+					</figure>
+				</div>
+				
+			
+				<div class="clearfix"> </div>
+			</div>
+			<!--script-->
+			<script src="js/jquery.chocolat.js"></script>
+			<script type="text/javascript" charset="utf-8">
+				$(function() {
+					$('.gallery-grid a').Chocolat();
+				});
+			</script>
+			<!--script-->
+		</div>
+	</div>	
+	<div class="gallery" > 
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s" style="color: black;">产品功能</h3>
+			
+			<p class="w-text" style="margin-top: 15px;">一个专注于农业，畜牧业的互联网＋平台。用户只需投资购买牧场牲畜就可以成为牧场主，牧场主通过平台实时查看自己在投资周期内的收益增长。养殖周期结束后， 用户将收到投资的本金和收益，收益可以选择现金,或是使用本期资金以优惠的价格兑换养殖产品。</p>
+			
+			<div class="gallery-grids">
+				
+				<div class="gallery-grid grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<a href="img/img/04.jpg" rel="title" class="thickbox">
+							<img src="img/img/04.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>兑换详情</span></h5></figcaption>
+						</a>	
+					</figure>
+					</div>
+				<div class="gallery-grid grid">
+					<figure class="effect-ming grid wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/05.jpg" rel="title" class="thickbox">
+							<img src="img/img/05.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>交易统计</span></h5></figcaption>
+						</a>	
+					</figure>
+				</div>
+				<div class="gallery-grid grid">
+					<figure class="effect-ming grid wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/06.jpg" rel="title" class="thickbox">
+							<img src="img/img/06.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>我的合同</span></h5></figcaption>
+						</a>	
+					</figure>
+				</div>
+				
+				
+				<div class="clearfix"> </div>
+			</div>
+			<!--script-->
+			<script src="js/jquery.chocolat.js"></script>
+			<script type="text/javascript" charset="utf-8">
+				$(function() {
+					$('.gallery-grid a').Chocolat();
+				});
+			</script>
+			<!--script-->
+		</div>
+	</div>	
+	<div class="gallery" id="gallerys"> 
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s" style="color: black;">产品功能</h3>
+			
+			<p class="w-text" style="margin-top: 15px;">一个专注于农业，畜牧业的互联网＋平台。用户只需投资购买牧场牲畜就可以成为牧场主，牧场主通过平台实时查看自己在投资周期内的收益增长。养殖周期结束后， 用户将收到投资的本金和收益，收益可以选择现金,或是使用本期资金以优惠的价格兑换养殖产品。</p>
+			
+			<div class="gallery-grids">
+				
+				
+				<div class="gallery-grid grid">
+					<figure class="effect-ming grid wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/09.jpg" rel="title" class="thickbox">
+							<img src="img/img/09.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>个人中心</span></h5></figcaption>
+						</a>	
+					</figure>
+				</div>
+				<div class="gallery-grid grid">
+					<figure class="effect-ming grid wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/07.jpg" rel="title" class="thickbox">
+							<img src="img/img/07.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>我的邀请</span></h5></figcaption>
+						</a>	
+					</figure>
+				</div>
+				<div class="gallery-grid grid">
+					<figure class="effect-ming grid wow zoomIn animated" data-wow-delay=".5s">
+						<a href="img/img/08.jpg" rel="title" class="thickbox">
+							<img src="img/img/08.jpg" alt=" " class="img-responsive" />
+							<figcaption><h5><span>签到</span></h5></figcaption>
+						</a>	
+					</figure>
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+			<!--script-->
+			<script src="js/jquery.chocolat.js"></script>
+			<script type="text/javascript" charset="utf-8">
+				$(function() {
+					$('.gallery-grid a').Chocolat();
+				});
+			</script>
+			<!--script-->
+		</div>
+	</div>	
+	<!--welcome-->
+	<div class="welcome" id="about">
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">活动</h3>
+			<h4>趣味农场常在节日时期举办一些活动</h4>
+			<p class="w-text">节日，是指生活中值得纪念的重要日子。是世界人民为适应生产和生活的需要而共同创造的一种民俗文化，是世界民俗文化的重要组成部分。
+
+各民族和地区都有自己的节日。一些节日源于传统习俗，如中国的春节、中秋节、清明节、重阳节等。有的节日源于宗教，比如基督教国家的圣诞节。有的节日源于对某人或某件事件的纪念，比如中国的端午节、国庆节、青年节等等。另有国际组织提倡的运动指定的日子，如劳动节、妇女节、母亲节。</p>
+			<div class="welcome-row">
+				<div class="col-md-4 welcome-grids grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<img src="img/chun.jpg" class="img35" alt="">
+						<figcaption>
+							<h5><span>春节</span></h5>
+							<p>春节是指汉字文化圈传统上的农历新年，俗称“年节”，传统名称为新年、大年、新岁，但口头上又称度岁、庆新岁、过年，是中华民族最隆重的传统佳节。</p>
+						</figcaption>			
+					</figure>
+				</div>
+				<div class="col-md-4 welcome-grids grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<img src="img/qing.jpg" class="img35" alt="">
+						<figcaption>
+							<h5><span>清明节</span></h5>
+							<p>清明节又叫踏青节，在仲春与暮春之交，也就是冬至后的第104天，是中国传统节日之一，也是最重要的祭祀节日之一，是祭祖和扫墓的日子。</p>
+						</figcaption>			
+					</figure>
+				</div>
+				<div class="col-md-4 welcome-grids grid wow zoomIn animated" data-wow-delay=".5s">
+					<figure class="effect-ming">
+						<img src="img/qiu.jpg" class="img35" alt="">
+						<figcaption>
+							<h5><span>中秋节</span></h5>
+							<p>中秋节，又称月夕、秋节、仲秋节、八月节、八月会、追月节、玩月节、拜月节、女儿节或团圆节，是流行于中国众多民族与汉字文化圈诸国的传统文化节日，时在农历八月十五。</p>
+						</figcaption>			
+					</figure>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--//welcome-->
+	<!--services-->
+	<div class="services" id="services">
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">商城</h3>
+			
+			<p class="w-text" style="margin-top: 20px;">可以在商城购买农场的一些产品</p>
+			</div>
+		<div class="col-md-4 services-grids wow zoomIn animated" data-wow-delay=".5s">
+			<div class="flip-effect right"style="background-image: url(img/shop/595616fe7b16f.jpg);">
+				<div class="text-box" >
+					<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+					<h5>白条羊</h5>
+					<p class="w-text">这是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的白条羊</p>
+				</div>
+				<div class="info-box"style="background-image: url(img/shop/595616fe7b16f.jpg);">
+					<div class="info-content">
+						<h3>白条羊</h3>
+						<p>这是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的白条羊</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 services-grids wow zoomIn animated" data-wow-delay=".5s">
+			<div class="flip-effect right" style="background-image: url(img/shop/595617b6e853f.jpg);">
+				<div class="text-box">
+					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+					<h5>羊寸排</h5>
+					<p class="w-text">是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的羊寸排 </p>
+				</div>
+				<div class="info-box" style="background-image: url(img/shop/595617b6e853f.jpg);">
+					<div class="info-content">
+						<h3>羊寸排</h3>
+						<p>是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的羊寸排</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 services-grids wow zoomIn animated" data-wow-delay=".5s">
+			<div class="flip-effect right" style="background-image: url(img/shop/59561844b1f79.jpg);">
+				<div class="text-box">
+					<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+					<h5>高钙肉切块</h5>
+					<p class="w-text">是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的高钙肉切块</p>
+				</div>
+				<div class="info-box" style="background-image: url(img/shop/59561844b1f79.jpg);">
+					<div class="info-content">
+						<h3>高钙肉切块</h3>
+						<p>是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的高钙肉切块</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 services-grids wow zoomIn animated" data-wow-delay=".5s">
+			<div class="flip-effect right" style="background-image: url(img/shop/595618e48412b.jpg);">
+				<div class="text-box">
+					<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+					<h5>羊前腿</h5>
+					<p class="w-text">是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的羊前腿 </p>
+				</div>
+				<div class="info-box" style="background-image: url(img/shop/595618e48412b.jpg);">
+					<div class="info-content">
+						<h3>羊前腿</h3>
+						<p>是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的羊前腿</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 services-grids wow zoomIn animated" data-wow-delay=".5s">
+			<div class="flip-effect right" style="background-image: url(img/shop/595619ce1b33b.jpg);">
+				<div class="text-box">
+					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+					<h5>太阳卷</h5>
+					<p class="w-text">是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的太阳卷 </p>
+				</div>
+				<div class="info-box" style="background-image: url(img/shop/595619ce1b33b.jpg);">
+					<div class="info-content">
+						<h3>太阳卷</h3>
+						<p>是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的太阳卷</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 services-grids wow zoomIn animated" data-wow-delay=".5s">
+			<div class="flip-effect right" style="background-image: url(img/shop/59561a4011f9e.jpg);">
+				<div class="text-box">
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<h5>后腿肉包</h5>
+					<p class="w-text">是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的后腿肉包</p>
+				</div>
+				<div class="info-box" style="background-image: url(img/shop/59561a4011f9e.jpg);">
+					<div class="info-content">
+						<h3>后腿肉包</h3>
+						<p>是农场中养殖的绿色羊只，养殖，屠宰一条龙服务，制作的后腿肉包</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!--//services-->
+	<!--<div class="copyrights">Collect from <a href="#" >企业网站模板</a></div>-->
+	<!--team-->
+	<div class="team" style="display: none;">
+		<div class="container">
+			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">Our Instructors </h3>
+			<p class="w-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit Mauris ex nulla aliquam ornare facilisis nec Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim </p>
+			<div class="team-row">
+				<div class="col-md-3 team-grids wow fadeInUp animated" data-wow-delay=".5s">
+					<h5>Mark Smithy</h5>
+					<p>Lorem ipsum dolor sit amet, consectetur adipi est eligendi scing elit consectetur</p>
+					<div class="social-icons">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+					<div class="team-img">
+						<img src="images/t1.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-md-3 team-grids team-mdl wow fadeInUp animated" data-wow-delay=".5s">
+					<h5>Aliquam amet</h5>
+					<p>Consectetur adipi lorem ipsum dolor sit amet, est eligendi scing elit consectetur.</p>
+					<div class="social-icons">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+					<div class="team-img">
+						<img src="images/t2.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-md-3 team-grids team-mdl1 wow fadeInUp animated" data-wow-delay=".5s">
+					<h5>Daniel Nyari</h5>
+					<p>Lorem ipsum dolor sit amet, consectetur adipi est eligendi scing elit consectetur.</p>
+					<div class="social-icons">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+					<div class="team-img">
+						<img src="images/t3.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-md-3 team-grids wow fadeInUp animated" data-wow-delay=".5s">
+					<h5>Alan ipsum</h5>
+					<p>Eligendi scing elit lorem ipsum dolor sit amet, consectetur dolore magnam aliquam</p>
+					<div class="social-icons">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+					<div class="team-img">
+						<img src="images/t4.jpg" alt="">
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>	
+	<!--//team-->		
+	<!--offers-->	
+	<div class="offers">
+		<div class="container">
+			<h4 class="wow fadeInRightBig animated" data-wow-delay=".5s">乡间的农场</h4>
+			<a href="#contact" class="scroll wow fadeInDown animated" data-wow-delay=".5s">联系我们</a>
+		</div>
+	</div>		
+	<!--//offers-->		
+	<!--gallery-->	
+	
+	<!--//gallery-->	
+	<!--work-->
+	<div class="work" style="display: none;">
+		<div class="col-md-6 work-grids work-img">			
+		</div>
+		<div class="col-md-6 work-grids">
+			<h3 class="wow zoomIn animated" data-wow-delay=".5s">What We Do ?</h3>
+			<p class="wow fadeInDown animated" data-wow-delay=".7s">Impedit quo minus id quod maxime placeat facere possimus omnis cum soluta nobis est eligendi optio cumque </p>
+			<ul class="wow fadeInDown animated" data-wow-delay=".7s">
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Rerum hic tenetur</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Molestiae non recusandae</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Voluptates repudiandae</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Necessitatibus saepe</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Debitis aut rerum</a></li>
+				<div id="small-dialog" class="mfp-hide work-text">
+					<h5>Impedit quominus id </h5>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non Porttitor vestibulum eu nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum luctus dui at velit rhoncus, eu tempus mi feugiat. Lorem ipsum dolor sit amet Integer consectetur metus nec eros elementum, sit amet sagittis lectus feugiat Phasellus vestibulum lorem vitae </p>
+				</div>
+				<!-- pop-up-box -->
+				<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+				<!--//pop-up-box -->
+				<script>
+					$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});														
+					});
+				</script>
+			</ul>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<div class="work" style="display: none;">		
+		<div class="col-md-6 work-grids work-grids-left">
+			<h3 class="wow zoomIn animated" data-wow-delay=".5s">Why Choose us ?</h3>
+			<p class="wow fadeInDown animated" data-wow-delay=".7s">Impedit quo minus id quod maxime placeat facere possimus omnis cum soluta nobis est eligendi optio cumque </p>
+			<ul class="wow fadeInDown animated" data-wow-delay=".7s">
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Rerum hic tenetur</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Molestiae non recusandae</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Voluptates repudiandae</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Necessitatibus saepe</a></li>
+				<li><a href="#small-dialog" class="popup-with-zoom-anim"><span class="glyphicon glyphicon-chevron-right"></span> Debitis aut rerum</a></li>
+				<div id="small-dialog" class="mfp-hide work-text">
+					<h5>Impedit quominus id </h5>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non Porttitor vestibulum eu nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum luctus dui at velit rhoncus, eu tempus mi feugiat. Lorem ipsum dolor sit amet Integer consectetur metus nec eros elementum, sit amet sagittis lectus feugiat Phasellus vestibulum lorem vitae </p>
+				</div>
+			</ul>
+		</div>
+		<div class="col-md-6 work-grids work-img work-img-btm">			
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!--//work-->
+	<!--contact-->
+	<div id="contact" class="contact">
+		<div class="container">
+			<div class="col-md-5 contact-left">
+				<div class="address wow fadeInDown animated" data-wow-delay=".7s">
+					<ul>
+						<li>郑州汇谷科技有限公司</li>
+						<li>客服QQ：121797873</li>
+						<li>官方电话：13613820359</li>
+						<li>公司地址：郑州市管城区紫金山路与商城路交叉路口兴达国贸1802</li>
+						<!--<li>Email : <a href="mailto:example@mail.com">mail@example.com</a></li>-->
+					<ul>
+				</div>
+				<h3 class="title wow fadeInDown animated" data-wow-delay=".5s"style="display: none;">如何找到我们 </h3>
+				<form class="wow fadeInUp animated" data-wow-delay=".7s" style="display: none;">
+					<input type="text" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}" required="">
+					<input class="input-mdl" type="text" value="邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '邮箱';}" required="">
+					<input type="text" value="手机号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '手机号';}" required="">
+					<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '内容...';}" required>内容...</textarea>
+					<input type="submit" value="提交" id="submit">
+				</form>
+			</div>
+			<div class="col-md-5 contact-right wow fadeInRight animated" data-wow-delay=".7s">
+				<div class="social-text">
+					<ul>
+						<li class="fb"><a href="#">趣味农场</a></li>
+						<li class="twt"><a href="#">共享健身</a></li>
+						<li class="gg"><a href="#">it</a></li>
+						<!--<li class="ins"><a href="#">Instagram</a></li>
+						<li class="pin"><a href="#">Pinterest</a></li>-->
+					<ul>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<!--footer-->
+		<div class="container">
+			<div class="footer wow fadeInUp animated" data-wow-delay=".5s">
+				<p>© 2016郑州汇谷电子科技有限公司 All rights reserved <a href="#">趣味农场</a> - 豫ICP备15001063号-3 </p>
+			</div>
+		</div>
+		<!--//footer-->
+	</div>
+	<!--//contact-->
+	<!--smooth-scrolling-of-move-up-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+		$("#submit").click(function(){})
+		
+		 //合成事件 hover()  
+       $("#codes").hover(function (){  
+            $("#img").height("250px");  
+        },function (){  
+            $("#img").height(52);  
+        }); 
+       
+      
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!--//smooth-scrolling-of-move-up-->
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

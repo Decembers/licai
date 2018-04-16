@@ -173,19 +173,35 @@
 					</li>
 					{/if}
 				{elseif condition="$vo.or eq 3" /}
-					<li>
-						<div class="fw_left fl">
-							<div class="chtx a1">
-							<b>-</b>{$vo.money}元
+					{if condition="$vo.status eq 1"}
+						<li>
+							<div class="fw_left fl">
+								<div class="chtx a1">
+								<b>-</b>{$vo.money}元
+								</div>
+								<div>操作金额</div>
 							</div>
-							<div>操作金额</div>
-						</div>
-						<div class="fw_right fr">
-							<div >{$vo.comment}</div>
-							<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+							<div class="fw_right fr">
+								<div >{$vo.comment}</div>
+								<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
 
-						</div>
-					</li>
+							</div>
+						</li>
+					{else /}
+						<li>
+							<div class="fw_left fl">
+								<div class="chtx a1">
+								<b></b>{$vo.money}元
+								</div>
+								<div>操作金额</div>
+							</div>
+							<div class="fw_right fr">
+								<div >{$vo.comment} 未完成</div>
+								<div>{$vo.create_time|date="y-m-d h:i:s",### ?? ''}</div>
+
+							</div>
+						</li>
+					{/if}
 				{else /}
 					<li>
 						<div class="fw_left fl">

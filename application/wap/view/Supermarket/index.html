@@ -86,48 +86,48 @@
 	overflow: auto;
 	border-radius: 15px;
 	display: none;
-SCROLLBAR-FACE-COLOR: rgba(0,0,0,.65); 
-SCROLLBAR-HIGHLIGHT-COLOR:rgba(0,0,0,.65); 
-SCROLLBAR-SHADOW-COLOR: rgba(0,0,0,.65); 
-SCROLLBAR-3DLIGHT-COLOR:rgba(0,0,0,.65);  
-SCROLLBAR-ARROW-COLOR: rgba(0,0,0,.65); 
-SCROLLBAR-TRACK-COLOR: rgba(0,0,0,.65); 
-SCROLLBAR-DARKSHADOW-COLOR:rgba(0,0,0,.65); 
-SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65); 
+SCROLLBAR-FACE-COLOR: rgba(0,0,0,.65);
+SCROLLBAR-HIGHLIGHT-COLOR:rgba(0,0,0,.65);
+SCROLLBAR-SHADOW-COLOR: rgba(0,0,0,.65);
+SCROLLBAR-3DLIGHT-COLOR:rgba(0,0,0,.65);
+SCROLLBAR-ARROW-COLOR: rgba(0,0,0,.65);
+SCROLLBAR-TRACK-COLOR: rgba(0,0,0,.65);
+SCROLLBAR-DARKSHADOW-COLOR:rgba(0,0,0,.65);
+SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 
 }
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
-#dizs::-webkit-scrollbar  
-{  
-    width: 0px;  
-    height: 0px;  
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+#dizs::-webkit-scrollbar
+{
+    width: 0px;
+    height: 0px;
     background-color: rgba(0,0,0,.5);
-    opacity: 0; 
-}  
-  
-/*定义滚动条轨道 内阴影+圆角*/  
-#dizs::-webkit-scrollbar-track  
-{  
+    opacity: 0;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+#dizs::-webkit-scrollbar-track
+{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.65) ;
-    border-radius: 10px;  
+    border-radius: 10px;
     background-color: rgba(0,0,0,.65);
-     opacity: 0; 
-}  
-  
-/*定义滑块 内阴影+圆角*/  
-#dizs::-webkit-scrollbar-thumb  
-{  
-    border-radius: 10px;  
+     opacity: 0;
+}
+
+/*定义滑块 内阴影+圆角*/
+#dizs::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.65);
     background-color: rgba(0,0,0,.65);
-     opacity: 0; 
-}  
+     opacity: 0;
+}
 #dizs li{
 	width: 95%;
 	height: 40px;
-	line-height: 40px;	
+	line-height: 40px;
 	color: black;
-	padding: 0px 40px 0px 15px;	
+	padding: 0px 40px 0px 15px;
 	font-size: 16px;
 	margin: 5px  auto;
 	border-radius: 10px;
@@ -170,24 +170,13 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 			<!--header -->
 			<div class="header">
 				<p style="position: absolute; top: 10px;left: 10px ;line-height: 20px;color: grey;" onclick="window.location='{:url("index/index")}'">首页</p>
-				<h3>选择地址</h3>
+				<h3>{$city_name}</h3>
 				<a href="{:url('supermarket/dingdan')}" style="right: 10px;">我的订单</a>
 			</div>
 			<ul class="" id="dizs">
-				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>甘肃省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>宁夏回族自治区<span class="glyphicon glyphicon-pushpin"></span></li>
-				
-				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>甘肃省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>宁夏回族自治区<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>贵州省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>甘肃省<span class="glyphicon glyphicon-pushpin"></span></li>
-				<li>宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区宁夏回族自治区<span class="glyphicon glyphicon-pushpin"></span></li>
-				
+					{volist name="adminuser" id="vo"}
+						<li class="dianpu" data-id="{$vo.id}">{$vo.realname}<span class="glyphicon glyphicon-pushpin"></span></li>
+					{/volist}
 			</ul>
 			<div class="content infinite-scroll native-scroll">
 				<!--超市物品展示-->
@@ -226,33 +215,11 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 					<span class="em" id="qian">{$shopping.price ?? '0'}</span>
 
 				</div>
-				<div class="">
-					<p onclick="window.location.href ='{:url("supermarket/gouwuche")}'">朕要购买</p>
+				<div class="mai">
+					<p>朕要购买</p>
 				</div>
 			</div>
-			<!--<div class="footer">
 
-				<a href="{:url('index/index')}">
-
-					<span class="icons "></span>
-
-					<p>农场</p>
-
-				</a>
-
-				<a href="{:url('Supermarket/index')}">
-					<span class="icons"></span>
-					<p>超市</p>
-				</a>
-				<a href="{:url('Discover/index')}">
-					<span class="icons"></span>
-					<p>发现</p>
-				</a>
-				<a href="{:url('member/index')}">
-					<span class="icons"></span>
-					<p>我的</p>
-				</a>
-			</div>-->
 		</div>
 		<div class="background" ></div>
 		<div id="goodcover"></div>
@@ -262,8 +229,8 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 		<script type="text/javascript">
 			/*footer 当前页选中状态*/
 			$(".wrapper").css("padding-bottom","40px");
-var offset = $("#numbers").offset();
-			$(".f_r").click(function() {
+			var offset = $("#numbers").offset();
+			$(".text_con .f_r").click(function() {
 				var men = parseInt($(this).prev().children("i:last-child").text());
 				$("#numbers").text(parseInt($("#numbers").text()) + 1);
 				$("#qian").text(parseInt($("#qian").text()) + men);
@@ -300,6 +267,10 @@ var offset = $("#numbers").offset();
 			})
 
 			});
+
+
+
+
 			$(".header h3").click(function(){
 				$("#goodcover").css("display","block");
 				$("#dizs").css("display","block");
@@ -307,7 +278,7 @@ var offset = $("#numbers").offset();
 			$("#dizs li").click(function(){
 				$("#goodcover").css("display","none");
 				$(".header h3").text($(this).text());
-				
+
 				var tt = $("#dizs li").index($(this));
 				$("#dizs li span").css("display","none");
 				$("#dizs li").css("border-color","#F4F4F4");
@@ -317,8 +288,84 @@ var offset = $("#numbers").offset();
 			})
 			$("#goodcover").click(function(){
 				$("#goodcover").css("display","none");
-				
+
 				$("#dizs").css("display","none");
+			})
+			var user_id = '{$data.user_id ?? "6"}';
+			$(".mai").click(function(){
+
+				url = '{:url("supermarket/gouwuche")}';
+				url = url.replace(".html","/user_id/"+user_id);
+				window.location.href = url;
+			})
+			$(".dianpu").click(function(){
+				user_id = $(this).data("id");
+				var li = '';
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/dianpu')}",
+				    data : {user_id:user_id},
+				    success : function(data){
+				    	console.log(data);
+						for(var n = 0; n < data.supermarket.length; n++) {
+							url = '{:url("supermarket/info")}';
+							url = url.replace(".html","/id/"+data.supermarket[n]['id']);
+
+							li += '<li><a href="'+url+'"><div class="pro_pic"><img src="'+data.supermarket[n]['image']+'"></div><div class="text_int"><h5>'+data.supermarket[n]['name']+'</h5></div></a><div class="text_con"><span class="price"><i>￥</i><i >'+data.supermarket[n]['price']+'</i></span><div class="f_r" data-id="'+data.supermarket[n]['id']+'"></div></div></li>';
+						}
+						$(".clearfix").html(li);
+						if (data.shopping.num==null) {
+							$("#numbers").text(0);
+						}else{
+							$("#numbers").text(data.shopping.num);
+						}
+						if (data.shopping.num==null) {
+							$("#qian").text(0);
+						}else{
+							$("#qian").text(data.shopping.price);
+						}
+
+
+			$(".text_con .f_r").click(function() {
+				var men = parseInt($(this).prev().children("i:last-child").text());
+				$("#numbers").text(parseInt($("#numbers").text()) + 1);
+				$("#qian").text(parseInt($("#qian").text()) + men);
+				var img = $(this).parent().prev().children("div:first-child").children("img:first-child").attr("src"); //获取当前点击图片链接
+				var imgs = $(this).parent().prev().children("div:first-child").children("img:first-child");
+				offset,
+			flyer = $("<img class='u-flyer' src='"+img+"'/>");
+				flyer.fly({
+					start: {
+						left: event.clientX,
+						top: event.clientY
+					},
+					end: {
+						left: offset.left,
+						top: offset.top,
+						width: 20,
+						height: 20
+					},
+					onEnd: function() {
+						/*$("#tip").show().animate({
+							width: '200px'
+						}, 300).fadeOut(500);*/ ////成功加入购物车动画效果
+						this.destory(); //销毁抛物体
+					}
+				});
+			sp_id = $(this).attr("data-id");
+			$.ajax({
+			    type : 'POST',
+			    url : "{:url('supermarket/shopping')}",
+			    data : {sp_id:sp_id},
+			    success : function(data){
+
+			    }
+			})
+
+			});
+
+				    }
+				})
 			})
 		</script>
 	</body>

@@ -65,6 +65,30 @@
         </div>
 
         <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">城市：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <div class="select-box">
+                    <select name="city" class="select" datatype="*" nullmsg="请选择父类id">
+                    {if condition="$vo.city"}
+                        {volist name="city" id="vos"}
+                            {if condition="$vo.city eq $vos.id"}
+                            <option value="{$vos.id}" selected="selected">{$vos.city_name}</option>
+                            {else/}
+                            <option value="{$vos.id}">{$vos.city_name}</option>
+                            {/if}
+                        {/volist}
+                    {else/}
+                        {volist name="city" id="vos"}
+                        <option value="{$vos.id}">{$vos.city_name}</option>
+                        {/volist}
+                    {/if}
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
+        <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <button type="submit" class="btn btn-primary radius">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
                 <button type="button" class="btn btn-default radius ml-20" onClick="layer_close();">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
