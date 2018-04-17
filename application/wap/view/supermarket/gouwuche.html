@@ -1064,9 +1064,6 @@ flex-grow: 1;
 								'is_wx':1
 							}, //发给php的数据有两项，分别是上面传来的u和p
 							success: function(json) {
-								//var data=JSON.stringify(json);
-								//console.log(json.appId);
-
 								eval('var data = ' + json);
 								callpay(data);
 							},

@@ -209,12 +209,12 @@
 
 					{volist name="barner" id="vos"}
 					{if condition="$i eq 1"}
-					<div class="item active">
+					<div class="item active" onclick="window.location.href='{$vos.url}'">
 						<img src="{$vos.img}" style='height: 170px'>
 						<div class="carousel-caption"></div>
 					</div>
 					{else /}
-					<div class="item">
+					<div class="item" onclick="window.location.href='{$vos.url}'">
 						<img src="{$vos.img}" style='height: 170px'>
 						<div class="carousel-caption"></div>
 					</div>

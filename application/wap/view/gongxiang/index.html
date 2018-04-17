@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>汇谷农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/mui/css/mui.css" />
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+			});
+		</script>
+		<style type="text/css">
+			.mui-slider-item a img {
+				width: 100%;
+				height: 200px;
+			}
+
+			#mui-bar-tab1~.mui-content {
+				/*padding-top: 75px;*/
+				padding-top: 40px;
+			}
+
+			#mui-bar-tab1 {
+				top: 40px;
+			}
+
+			#mui-bar-tab1,
+			#mui-bar-tab1 a.mui-tab-item {
+				height: 35px;
+			}
+
+			#mui-bar-tab1 a.mui-tab-item span.mui-tab-label {
+				display: block;
+				font-size: 14px !important;
+				height: 35px;
+				line-height: 35px;
+				width: auto;
+				color: black;
+			}
+
+			#mui-bar-tab1 a.mui-active span.mui-tab-label {
+				color: black;
+				border-bottom: 2px solid #007AFF;
+			}
+
+			.mui-card-content img {
+				width: 100%;
+				display: block;
+			}
+
+			.mui-card {
+				margin: 0px;
+			}
+
+			.mui-card-header.mui-card-media .mui-media-body {
+				margin-left: 20px;
+				color: white;
+				font-size: 18px;
+				line-height: 25px;
+			}
+
+			.mui-card-header.mui-card-media .mui-media-body p {
+				color: white;
+				font-size: 13px !important;
+				width: 160px;
+			}
+
+			.mui-card-header {
+				position: absolute;
+				top: 20px;
+				left: 0;
+				z-index: 100;
+			}
+
+			.mui-card-header:after {
+				opacity: 0;
+			}
+
+			body>.mui-row {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 100;
+				width: 100%;
+				height: 40px;
+				padding: 5px 0px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			}
+
+			body>.mui-row a {
+				text-align: center;
+				height: 30px;
+			}
+
+			body>.mui-row a img {
+				height: 20px;
+				margin-top: 5px;
+			}
+
+			body>.mui-row input {
+				text-align: center;
+				background-image: url(__WAP__/img/sou.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+				border-radius: 5px;
+				outline: none;
+				cursor: pointer;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				height: 30px;
+				font-size: 16px;
+			}
+
+			.mui-row {
+				background-color: white;
+			}
+
+			.mui-col-xs-4 img {
+				width: 40px;
+				display: block;
+				margin: 10px auto;
+			}
+
+			.customer-fixed {
+				position: fixed;
+				right: 10px;
+				top: 42%;
+				background: rgba(255, 150, 40, 0.8);
+				width: 48px;
+				height: 48px;
+				line-height: 18px;
+				text-align: center;
+				color: white;
+				z-index: 9999;
+				border-radius: 50%;
+				font-size: 14px;
+				padding-top: 6px;
+			}
+			.mui-scroll-wrapper{
+				-webkit-overflow-scrolling:touch;
+			}
+		</style>
+	</head>
+
+	<body>
+		<a class="customer-fixed" href="tel:4000001364">
+			在线<br />客服
+		</a>
+		<div class="mui-row">
+			<a class="mui-col-sm-2 mui-col-xs-2"><img src="__WAP__/img/541285014063608543.png" /></a>
+			<input class="mui-col-sm-8 mui-col-xs-8" type="" name="" id="" value="" placeholder="" disabled="disabled" />
+			<a class="mui-col-sm-2 mui-col-xs-2"><img src="__WAP__/img/farm_header_unmessage.png" /></a>
+		</div>
+		<nav class="mui-bar mui-bar-tab  " id="mui-bar-tab1" style="display: none;">
+
+			<a class="mui-tab-item mui-active" href="javascript:void(0)">
+
+				<span class="mui-tab-label">共享农场</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:void(0)">
+
+				<span class="mui-tab-label">全景农场 </span>
+			</a>
+
+			<a class="mui-tab-item" href="javascript:void(0)">
+
+				<span class="mui-tab-label">共享商城</span>
+			</a>
+		</nav>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="http://nongchang.yingjisong.com">
+				<span class="mui-icon mui-icon-location"></span>
+				<span class="mui-tab-label">农场</span>
+			</a>
+
+			<a class="mui-tab-item" href="http://nongchang.yingjisong.com/wap/supermarket/index.html">
+				<span class="mui-icon" style="background-image: url(__WAP__/img/njs.png); -moz-background-size:100% 100%;background-size:100% 100%;">
+					<!--<img src="__WAP__/img/ns.png" style="width: 30px;"/>-->
+				</span>
+				<span class="mui-tab-label">超市</span>
+			</a>
+			<a class="mui-tab-item" href="http://nongchang.yingjisong.com/wap/member/index.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!-- 主界面具体展示内容 -->
+				<!--轮播-->
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b07.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+						<a href="{:url('gongxiang/banner')}">
+								<img src="__WAP__/img/banner/b01.jpg">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="{:url('gongxiang/banner')}">
+								<img src="__WAP__/img/banner/b05.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="{:url('gongxiang/banner')}">
+								<img src="__WAP__/img/banner/b06.jpg">
+							</a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="{:url('gongxiang/banner')}">
+								<img src="__WAP__/img/banner/b07.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+
+						<!-- 第四张 -->
+
+						<!-- 第四张 -->
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b01.jpg">
+							</a>
+
+						</div>
+					</div>
+					<div class="mui-slider-indicator" style="display: block;">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+                      <div class="mui-indicator"></div>
+
+
+
+					</div>
+				</div>
+
+				<div class="mui-row" style="padding:10px  20px;">
+					<h3 class="mui-col-sm-12 mui-col-xs-12" style="text-align: center; margin: 10px 0px;"> 农场特色</h3>
+					<p class="mui-col-sm-12 mui-col-xs-12">
+						定制共享农场服务平台，为用户与良心农场牵桥搭线，盘活乡村闲置农场，助力都市人零距离亲近田园，让食材安全放心，让品质生活成为习惯。
+					</p>
+				</div>
+				<div class="mui-row" style="padding:10px  20px;">
+
+					<p class="mui-col-sm-4 mui-col-xs-4">
+						<img src="__WAP__/img/farmShare_icon1.png" />
+					</p>
+					<p class="mui-col-sm-4 mui-col-xs-4">
+						<img src="__WAP__/img/farmShare_icon2.png" />
+					</p>
+					<p class="mui-col-sm-4 mui-col-xs-4">
+						<img src="__WAP__/img/farmShare_icon3.png" />
+					</p>
+				</div>
+
+				<div class="mui-card">
+					<div class="mui-card-header mui-card-media">
+						<div class="mui-media-body">
+							汇谷科技
+							<p>为农场企业提供金融.销售.技术.传播.策略咨询与培训等服务。</p>
+						</div>
+					</div>
+					<div class="mui-card-content"><img src="__WAP__/img/farmShare_bg4.png" /></div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-header mui-card-media">
+						<div class="mui-media-body">
+							汇谷特色小镇
+							<p>融合农产品资源，为用户提供高品质旅游产品，让品质生活成为习惯。</p>
+						</div>
+					</div>
+					<div class="mui-card-content"><img src="__WAP__/img/farmShare_bg6.png" /></div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-header mui-card-media">
+						<div class="mui-media-body">共享农场
+							<p>点击这里了解更多共享农场品质生活的故事。</p>
+						</div>
+					</div>
+					<div class="mui-card-content"><img src="__WAP__/img/farmShare_bg7.jpg" /></div>
+				</div>
+
+
+			</div>
+		</div>
+		<script src="__WAP__/mui/js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/mui/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			(function($) {
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false, //滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				mui('body').on('tap', 'a', function() {
+					window.top.location.href = this.href;
+				});
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+
+			})(mui);
+		</script>
+	</body>
+
+</html>

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-13 15:47:46
+ * @Last Modified time: 2018-04-16 14:12:12
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -42,6 +42,9 @@ class Login extends Yang
             if (input('gouwu')) {
                 Session::set('gouwu',input('gouwu'));
             }
+            if (input('gongxiang')) {
+                Session::set('gongxiang',input('gongxiang'));
+            }
             $url = $getuser->geturl();
             $this->redirect($url);
         }else{
@@ -63,6 +66,9 @@ class Login extends Yang
             }
             if (Session::get('isopenid')==2) {
                 $this->redirect(url('Supermarket/gouwuche'));
+            }
+            if (Session::get('isopenid')==3) {
+                $this->redirect(url('wap/Gongxiang/banner'));
             }
             if ($result) {
                 if (Session::get('user.mobile') == '') {

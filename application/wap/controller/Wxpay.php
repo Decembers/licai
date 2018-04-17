@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-08 15:06:15
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-13 17:53:56
+ * @Last Modified time: 2018-04-16 14:35:56
  */
 namespace app\wap\controller;
 use app\wap\controller\Yang;
@@ -47,7 +47,20 @@ class Wxpay extends Yang
             if (empty($_POST['is_wx'])) {
                 $result = Detail::insert($row);
             }else{
-                $result = 1;
+                if ($_POST['is_wx']!=1) {
+                    $row['or']=3;
+                    if ($_POST['money']==100) {
+                        $row['comment']= '生态农场10平米菜地';
+                    }elseif($_POST['money']==200){
+                        $row['comment']= '生态农场20平米菜地';
+                    }else{
+                        $row['comment']= '生态农场100平米菜地';
+                    }
+
+                    $result = Detail::insert($row);
+                }else{
+                    $result = 1;
+                }
             }
             if (isset($result)) {
 

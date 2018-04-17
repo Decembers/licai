@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-07 13:49:50
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-13 15:46:25
+ * @Last Modified time: 2018-04-16 10:50:28
  */
 namespace  app\common\getuser;
 use think\Session;
@@ -93,6 +93,11 @@ class Getuser
                     }else{
                         Session::set('isopenid',1);
                     }
+                    if (!empty(Session::get('gongxiang'))) {
+                        Session::set('isopenid',3);//共享
+                    }
+                    Session::delete('gouwu');
+                    Session::delete('gongxiang');
                     return true;
                 }
                 $user = User::where(['openid'=>$userinfo['openid']])->find();

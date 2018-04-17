@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>汇谷农场</title>
+		<link rel="stylesheet" type="text/css" href="__WAP__/mui/css/mui.css" />
+		<style type="text/css">
+			.mui-slider-item a img {
+				width: 100%;
+				height: 230px;
+			}
+			.mui-bar-tab~.mui-content {
+				padding-bottom: 0px;
+			}
+
+			.mui-bar {
+				background-color: rgba(255, 255, 255, 0);
+				transition: background-color 2s;
+				-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+				box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+			}
+
+			.mui-bar-tab .mui-icon {
+				width: 40px !important;
+				height: 40px !important;
+				border-radius: 50% !important;
+				overflow: hidden !important;
+			}
+
+			.mui-bar-tab .mui-icon1 {
+				background-image: url(__WAP__/img/banner/back.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+
+			.mui-bar-tab .mui-icon2 {
+				background-image: url(__WAP__/img/banner/icon-share@3x.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+
+			.mui2 {
+				display: block;
+				width: 70%;
+				background-color: #FDD900;
+				height: 30px;
+				line-height: 30px;
+				border-radius: 10px;
+				font-size: 14px;
+				text-align: center;
+				margin: 5px auto;
+				color: black;
+				display: none;
+				transition: display 2s;
+			}
+
+			.mui-row_s h4,
+			.mui-row_s p {
+				margin: 0;
+			}
+
+			.mui-row {
+				margin: 0px 20px;
+				padding: 10px 0px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+			}
+
+			.mui-row div a,
+			.mui-row div a img,
+			.mui-row div a span {
+				display: block;
+			}
+
+			.mui-row div a img {
+				width: 25px;
+				margin: 5px auto;
+			}
+
+			.mui-row div span {
+				font-size: 12px;
+				text-align: center;
+				color: black;
+				line-height: 20px;
+			}
+
+			.mui-col-sm-6 h4{
+				line-height: 56px;
+				font-size: 24px;
+				height: 56px;
+				text-align: center;
+				overflow:hidden;color: red;
+			}
+			.mui-col-sm-6 h4 em{
+				font-size: 14px;
+				line-height: 60px;		font-style: normal;
+			}
+			/*.mui-col-sm-6 h4 span{
+				float: left;
+				color: red;
+				line-height: 56px;
+				width: 45%;
+
+			}
+			.mui-col-sm-6 h4 span:nth-child(1){
+				font-size: 14px;
+				text-align: right;
+				line-height: 60px;
+
+			}
+			.mui-col-sm-6 h4 span:nth-child(2){
+				font-size:24px;
+				text-align: left;
+
+			}*/
+
+			.mui-card {
+				margin: 20px 0px 0px 0px;
+				border-top: 1px solid rgba(0, 0, 0, 0.3);
+			}
+
+			.mui-card img {
+				display: block;
+				width: 100%;
+			}
+
+			.mui-scroll-wrapper {
+				-webkit-overflow-scrolling: touch;
+			}
+
+			#text {
+				position: relative;
+				overflow: hidden;
+			}
+
+			#text>p {
+				position: absolute;
+				top: 20px;
+				right: 0px;
+				width: 100%;
+				display: flex;
+				justify-content: flex-end;
+			}
+
+			#text>#index {
+				width: 300%;
+				display: flex;
+				transition: margin-left 1s;
+			}
+
+			#text .index1 {
+				margin-left: 0%;
+			}
+
+			#text .index2 {
+				margin-left: -100%;
+			}
+
+			#text .index3 {
+				margin-left: -200%;
+			}
+
+			#text>#index .mui-row_s {
+				width: 33.3%;
+				margin: 0px;
+			}
+
+			.mui-col-sm-6 {
+				height: 56px;
+				overflow: hidden;
+			}
+
+			#mui-col-sm-6s {
+				height: 180px;
+				transition: margin-top 0.5s;
+			}
+
+			.mui-col-sm-6s1 {
+				margin-top: 0px;
+			}
+
+			.mui-col-sm-6s2 {
+				margin-top: -56px;
+			}
+
+			.mui-col-sm-6s3 {
+				margin-top: -112px;
+			}
+
+			.mui-texts {
+				word-break: break-all;
+				display: -webkit-box;
+				/*-webkit-line-clamp: 1;*/
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+			.mui-text {
+				word-break: break-all;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+			h4.mui-col-sm-12{
+				line-height: 30px;
+				font-size: 20px;
+			}
+			p.mui-col-sm-12{
+				line-height: 20px;
+			}
+
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<nav class="mui-bar mui-bar-tab" id="mui-bar" style="top: 0;">
+			<a class="mui-tab-item" href="javascript:void(0)" onclick="window.history.back()">
+				<span class="mui-icon  mui-icon1"></span>
+			</a>
+			<a class="mui-tab-item" href="javascript:void(0)">
+				<span class="mui2" id="mui2">立即购买</span>
+			</a>
+			<a class="mui-tab-item" href="javascript:void(0)">
+				<span class="mui-icon mui-icon2"></span>
+			</a>
+		</nav>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="background-color: white;">
+			<div class="mui-scroll">
+				<!-- 主界面具体展示内容 -->
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b09.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b02.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b03.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+<div class="mui-slider-item">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b04.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b09.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="banner.html">
+								<img src="__WAP__/img/banner/b02.jpg">
+							</a>
+
+						</div>
+					</div>
+					<div class="mui-slider-indicator" style="display: block;">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+
+
+
+					</div>
+				</div>
+				<div class="mui-row" id="text" style="border-bottom: 1px solid white  ;">
+					<p class="" style="text-align: right;">
+						<span id="one">1</span><span>/3</span>
+					</p>
+					<div class="index1" id="index">
+						<div class="mui-row mui-row_s">
+							<h4 class="mui-col-sm-12 mui-col-xs-12">汇谷生态农场</h4>
+
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								我家菜园1年期
+							</p>
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								10平米菜地
+							</p>
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								冠名地主牌
+							</p>
+							<!--<p class="mui-col-sm-12 mui-col-xs-12 mui-text">
+								一年内同行三人免费农家住宿一晚/农家柴火饭一餐
+							</p>-->
+
+						</div>
+						<div class="mui-row mui-row_s">
+							<h4 class="mui-col-sm-12 mui-col-xs-12">汇谷生态农场</h4>
+
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								我家菜园1年期
+							</p>
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								20平米菜地
+							</p>
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								冠名地主牌
+							</p>
+							<!--<p class="mui-col-sm-12 mui-col-xs-12 mui-text">
+								一年内同行三人免费农家住宿两晚/农家柴火饭两餐
+							</p>-->
+
+						</div>
+						<div class="mui-row mui-row_s">
+							<h4 class="mui-col-sm-12 mui-col-xs-12">汇谷生态农场</h4>
+
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								我家菜园1年期
+							</p>
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								100平米菜地
+							</p>
+							<p class="mui-col-sm-12 mui-col-xs-12">
+								冠名地主牌
+							</p>
+							<!--<p class="mui-col-sm-12 mui-col-xs-12 mui-text">
+								一年内同行三人免费农家住宿三晚/农家柴火饭三餐<br /> 国家种地补贴1100元用于农场消费,购物使用
+							</p>-->
+
+						</div>
+					</div>
+				</div>
+
+				<div class="mui-row mui-row_s" style="margin: 0px ;padding: 10px 20px;">
+					<div class="mui-col-sm-3 mui-col-xs-3" style="border-right: 1px solid rgba(0, 0, 0,0.3);">
+						<a href="tel:15544161088">
+							<img src="__WAP__/img/banner/icon-kf-chat.png" />
+							<span id="">
+								客服咨询
+							</span>
+						</a>
+					</div>
+					<div class="mui-col-sm-6 mui-col-xs-6">
+						<div class="mui-col-sm-6s1" id="mui-col-sm-6s">
+							<div class="ons" id="on1" style="width: 100%;">
+								<h4><em>￥</em>100</h4>
+
+							</div>
+							<div class="ons" id="on2" style="width: 100%;">
+								<h4><em>￥</em>200</h4>
+
+							</div>
+							<div class="ons" id="on3" style="width: 100%;">
+								<h4><em>￥</em>998</h4>
+
+							</div>
+						</div>
+
+					</div>
+					<input type="hidden" id="money" value="100">
+					<div class="mui-col-sm-3 mui-col-xs-3" style="border-left: 1px solid rgba(0, 0, 0,0.3);">
+						<a href="#" id="ce">
+							<img src="__WAP__/img/banner/icon-now-cart.png" />
+							<span id="">
+								立即购买
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<!--<img src="__WAP__/img/banner/im01.jpg" />
+							<img src="__WAP__/img/banner/im02.jpg" />
+						<img src="__WAP__/img/banner/im03.jpg" />
+						<img src="__WAP__/img/banner/im04.jpg" />
+						<img src="__WAP__/img/banner/im05.jpg" />
+						<img src="__WAP__/img/banner/im06.jpg" />
+
+						<img src="__WAP__/img/banner/im07.jpg" />
+						<img src="__WAP__/img/banner/im08.jpg" />
+						<img src="__WAP__/img/banner/im09.jpg" />
+						<img src="__WAP__/img/banner/im10.jpg" />
+						<img src="__WAP__/img/banner/im11.jpg" />-->
+
+						<img src="__WAP__/img/banner/im12.png" alt="">
+						<img src="__WAP__/img/banner/im13.jpg" alt=""><img src="__WAP__/img/banner/im14s.jpg" alt="">
+						<p style="padding:10px 20px; text-align: center; line-height: 30px;color: #89AA35;">
+							一百元起给孩子一个菜园<br /> 你的孩子有多久没有采撷蔬果、呼吸清新的空气了？
+							<br /> 我们长大后，总是希望孩子得到自然教育，却忘记了真正的自然长什么样子了......
+							<br /> 在咱“汇谷共享”农场，这里有着几十亩的生态田园，这里地势平坦，蔬菜长势喜人......
+
+							<br /> 这不是一个普通的菜园，而是一个陪伴家庭和孩子的乐园......
+
+							<br />
+						</p>
+						<img src="__WAP__/img/banner/im15.png" alt="">
+						<p style="text-align: center;  margin:0px; color: #89AA35;font-size: 20px;">
+							《租前须知》
+						</p>
+						<p style="padding:10px 20px;  line-height: 30px;color: #89AA35;">
+1.如何认购“汇谷农场”的私人菜地？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+微信关注：应急送“公众号”，点击“趣味农场”点击首页轮播进行选购。<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+
+A:购买农场地主卡998元/张，（可转让，送亲戚送朋友）地主卡权益请看下面第14条。<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+B:农场推荐菜地20平米200元/年，（冠名地主牌，一年内同行3人免费农家住宿2晚。免费农家柴火饭2餐）<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+C:农场迷你菜地10平米100元/年。（冠名地主牌，一年内同行3人免费农家住宿1晚。免费农家柴火饭1餐）<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+（注：认租土地只能种植蔬菜，不能改变为其他用途）。付款成功即开始享受服务，10天犹豫期之内可以随时发起退款，服务即结束。<br /><br />
+
+2.购买私人菜地后，要如何支付？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+在每个农场的三种购买土地的方式中，购买土地后，可通过微信支付进行付款，方便快捷！<br /><br />
+
+3.成功购买私家菜地后，自己不能常去打理怎么办？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+私人菜地认租后，赠冠名地主牌，普通蔬菜种子、普通肥料、水及必要农具和种植技术服务：<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+A:半托管：会员需要定期到农场管理自己的菜园，农场提供农具，水，电等使用，
+种植、收获等均需用户前往处理，私人管家会根据作物的生长状况，通知用户。<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+B:全托管：管理费300元/月，私人管家负责管理菜园的日常维护，除草，浇水，松土，种植，等一切管理，
+会员收获：自己土地上的全部有机产品、与家人共享农耕的乐趣。<br /><br />
+
+4.农场私人管家的工作时间？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+农场私人管家上班时间为上午：9:00-12:00,下午：13:30-18:30。在此期间，你有任何问题均可与私人管家联系。<br /><br />
+
+5.私人管家可以帮我们解决哪些问题？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+只要用户有任何问题都可以找我们的私人管家，进行询问！私人管家会详细的为您解决！<br /><br />
+
+6.汇谷农场如何保证蔬菜绿色无农药？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+用户可以通过 “趣味农场” 直播功能查看蔬菜生长全过程，监督无有害物质的使用或添加。<br /><br />
+
+7.私家菜地租期结束，但菜地中的蔬果还未成熟怎么办？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+土地租满一年后，不想在继续租赁土地，土地中还有未成熟的蔬菜，用户有两种方式进行选择：A：不管蔬菜是否成熟，用户可选择将蔬菜带走。B：农场将土地和蔬菜全部回收。（用户可提前与私人管家联系）<br /><br />
+
+8.我的菜地中可以种植哪些蔬菜？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+在我们的每一个农场中都有一位专业的农艺师，他会根据播种前的气候和土壤提供适合种植的蔬菜，在用户决定下种前，私人管家会将适合下种的蔬菜提供给用户。在微信公众号里发布消息动态，我们会实时的更新相应的播种信息。<br /><br />
+
+9.选择由管家代种后，我还需要前往农场进行种植吗？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+私人菜地中的蔬菜，用户可以自己前往种植，也可以让农场的工作人员种植，同样若让农场中的工作人员种植，您则需要付一定的费用,种植一次XX元。<br /><br />
+
+10.蔬菜成熟后，不能去农场采摘怎么办？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+蔬菜成熟后，用户不能前往农场采摘可与我们的私人管家联系，如何处理这些成熟的蔬菜。用户可以选中蔬菜快递到家（运费自付），也可选择将蔬菜卖给农场，农场会支付相应的金额，买下用户的蔬菜。<br /><br />
+
+11.蔬菜下种后，如何进行管理？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+私人管家会在蔬菜需要管理时通知用户，同时我们也会通知您蔬菜需要进行管理。<br /><br />
+
+12.我的私家菜园里种植的蔬果，大致什么时候能够收获？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+公众号会通知用户蔬菜的成熟时间，用户也可询问私人管家。<br /><br />
+
+13.我租赁的土地让农场代为管理，农作物被别人采摘了怎么办？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+租赁的土地让农场代为管理，农作物是不会被别人采摘的，这个您尽可放心，我们每天有专门的人员看管您的蔬菜。<br /><br />
+
+14.购买汇谷“共享农场”地主卡可以享受哪些权益？<br />&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+购买汇谷“共享农场”地主卡，附赠价值998元的汇谷农场100平米私家菜园一块，冠名地主牌，注：只能种植蔬菜，不能改变菜地为其他用途（租期一年），一年内同行3人免费农家住宿3晚，免费农家柴火饭3餐，另自动获得国家种地补贴1100元用于农场消费（农家住宿20元/晚/人，农家柴火饭20元/餐/人，等等场景）。
+						</p>
+						<img src="__WAP__/img/banner/im24.png" alt="">
+						<!--<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn9218lk1d3e140e6mc1o6a43.jpg" alt="">
+						<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn92ov7hvffjk12hr9d44.jpg" alt="">-->
+						<!--<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn921e713o3kjg1pqm1j2c45.jpg" alt="">
+						<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn921e9hbra1if81ntrm3n46.jpg" alt="">
+						<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn921ed611hi19hd18p8cmr47.jpg" alt="">
+						<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn921gif7nsa641erp100v48.jpg" alt="">
+						<img src="http://o7nq1bhhi.bkt.clouddn.com/o_1c9lvbn93f94djm25v85br449.jpg" alt="">-->
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<script src="__WAP__/mui/js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__WAP__/mui/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		var money = 100;
+			(function($) {
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false, //滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				mui.init({
+					gestureConfig: {
+						tap: true, //默认为true
+						doubletap: true, //默认为false
+						longtap: true, //默认为false
+						swipe: true, //默认为true
+						drag: true, //默认为true
+						hold: false, //默认为false，不监听
+						release: false //默认为false，不监听
+					}
+				});
+				mui('body').on('tap', 'a', function() {
+					window.top.location.href = this.href;
+				});
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+				var scroll = mui('.mui-scroll-wrapper').scroll();
+				document.querySelector('.mui-scroll-wrapper').addEventListener('scroll', function(e) {
+					/*alert(scroll.y); */
+					var muibar = document.getElementById("mui-bar");
+					var mui2 = document.getElementById("mui2");
+					if(scroll.y < -200) {
+						muibar.style.backgroundColor = "rgba(255, 255, 255,1)";
+						mui2.style.display = "block";
+					} else {
+						muibar.style.backgroundColor = "rgba(255, 255, 255,0)";
+						mui2.style.display = "none";
+
+					}
+				})
+				mui('body').on('tap', '#mui2', function() {
+					mui.confirm("确认购买？", '提示', ['取消', '确认'], function(e) {
+						if(e.index == 0) {
+							//点击取消	this.text("123123");
+						} else {
+							window.top.location.href = "http://nongchang.yingjisong.com/wap/supermarket/index.html";
+						}
+					}, 'div');
+				});
+				mui('body').on('tap', '#ce', function() {
+
+
+					var openid = "{:session('user.openid')}";
+					if (openid=='') {
+						window.location = '{:url("login/wxlogin",["gongxiang"=>1])}';
+						return false;
+					}
+					mui.post("{:url('wxpay/getinfo')}",{
+							'money': money,
+							'is_wx': 2
+						},function(data){
+							//服务器返回响应，根据响应结果，分析是否登录成功；
+							eval('var data = ' + data);
+							callpay(data);
+						},'json'
+					);
+
+					// mui.confirm("确认加入购物车？", '提示', ['取消', '确认'], function(e) {
+					// 	if(e.index == 0) {
+					// 		//点击取消	this.text("123123");
+					// 	} else {
+					// 		window.top.location.href = "http://nongchang.yingjisong.com/wap/supermarket/index.html";
+					// 	}
+					// }, 'div');
+				});
+
+			function callpay(data) {
+				if(typeof WeixinJSBridge == "undefined") {
+					if(document.addEventListener) {
+						document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+					} else if(document.attachEvent) {
+						document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+						document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+					}
+				} else {
+					jsApiCall(data);
+				}
+			}
+			//调用微信JS api 支付
+			function jsApiCall(data) {
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					data,
+					function(res) {
+						WeixinJSBridge.log(res.err_msg);
+						console.log(res.err_msg);
+						if(res.err_msg == "get_brand_wcpay_request:ok") {
+							//成功
+							alert('充值成功');
+						}
+					}
+				);
+			}
+
+
+
+				mui('#text').on('swipeleft', '#index', function() {
+					var names = this.className;
+					/*mui.alert(this.className);*/
+					if(names == "index1") {
+						this.className = "index2";
+					} else if(names == "index2") {
+						this.className = "index3";
+					} else if(names == "index3") {
+						this.className = "index1";
+					} else {
+
+					}
+					var ns = this.className;
+					tes(ns);
+				});
+				mui('#text').on('swiperight', '#index', function() {
+					var names = this.className;
+					/*mui.alert(this.className);*/
+					if(names == "index1") {
+						this.className = "index3";
+					} else if(names == "index2") {
+						this.className = "index1";
+					} else if(names == "index3") {
+						this.className = "index2";
+					} else {
+
+					}
+					var ns = this.className;
+					tes(ns);
+				});
+
+
+				function tes(s) {
+					var one = document.getElementById("one");
+					var ms6 = document.getElementById("mui-col-sm-6s");
+
+					if(s == "index1") {
+
+						money = 100;
+						one.innerText = "1";
+						ms6.className = "mui-col-sm-6s1";
+
+					} else if(s == "index2") {
+
+						money = 200;
+						one.innerText = "2";
+						ms6.className = "mui-col-sm-6s2";
+
+					} else if(s == "index3") {
+						money = 998;
+						one.innerText = "3";
+						ms6.className = "mui-col-sm-6s3";
+					} else {
+
+					}
+				}
+
+				mui('#index .mui-row').on('tap', 'p.mui-text', function() {
+					var ofs = this;
+					this.className = "mui-col-sm-12 mui-col-xs-12 mui-texts";
+				});
+				mui('#index .mui-row').on('tap', 'p.mui-texts', function() {
+					var ofs = this;
+					this.className = "mui-col-sm-12 mui-col-xs-12 mui-text";
+				});
+
+			})(mui);
+		</script>
+	</body>
+
+</html>
