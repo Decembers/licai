@@ -176,7 +176,11 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 			</div>
 			<ul class="" id="dizs">
 					{volist name="adminuser" id="vo"}
-						<li class="dianpu" data-id="{$vo.id}">{$vo.realname}<span class="glyphicon glyphicon-pushpin"></span></li>
+						{if condition="$i eq 1"}
+							<li class="dianpu" data-id="{$vo.id}" style="border-color: rgb(111, 214, 234);">{$vo.realname}<span class="glyphicon glyphicon-pushpin" style="display: block;"></span></li>
+							{else /}
+							<li class="dianpu" data-id="{$vo.id}">{$vo.realname}<span class="glyphicon glyphicon-pushpin"></span></li>
+						{/if}
 					{/volist}
 			</ul>
 			<div class="content infinite-scroll native-scroll">
