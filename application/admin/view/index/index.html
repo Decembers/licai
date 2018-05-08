@@ -32,27 +32,27 @@
 <body>
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="{:\\think\\Url::build('/admin')}">{$Think.config.site.name}</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="{:\\think\\Url::build('/admin')}">tp</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs">{$Think.config.site.version}</span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="dingdanxiangqing.html">&#xe667;</a>
+        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">&#xe667;</a>
 <!--             {include file='template/nav_left' /} -->
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
                     <li>{$Think.session.realname}</li>
                     <li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">{$Think.session.real_name} <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="dingdanxiangqing.html" onclick="layer_open('个人信息', '{:\\think\\Url::build(\'Pub/profile\')}')">个人信息</a></li>
-                            <li><a href="dingdanxiangqing.html" onclick="layer_open('个人信息', '{:\\think\\Url::build(\'Pub/password\')}')">修改密码</a></li>
-                            <li><a href="dingdanxiangqing.html" onclick="logout()">退出</a></li>
+                            <li><a href="#" onclick="layer_open('个人信息', '{:\\think\\Url::build(\'Pub/profile\')}')">个人信息</a></li>
+                            <li><a href="#" onclick="layer_open('个人信息', '{:\\think\\Url::build(\'Pub/password\')}')">修改密码</a></li>
+                            <li><a href="#" onclick="logout()">退出</a></li>
                         </ul>
                     </li>
-                    <!-- <li id="Hui-msg"> <a href="dingdanxiangqing.html" onclick="layer.msg('这个功能自己做')" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li> -->
-                    <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="dingdanxiangqing.html" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+                    <!-- <li id="Hui-msg"> <a href="#" onclick="layer.msg('这个功能自己做')" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li> -->
+                    <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="#" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="dingdanxiangqing.html" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-                            <li><a href="dingdanxiangqing.html" data-val="blue" title="蓝色">蓝色</a></li>
-                            <li><a href="dingdanxiangqing.html" data-val="green" title="绿色">绿色</a></li>
-                            <li><a href="dingdanxiangqing.html" data-val="red" title="红色">红色</a></li>
-                            <li><a href="dingdanxiangqing.html" data-val="yellow" title="黄色">黄色</a></li>
-                            <li><a href="dingdanxiangqing.html" data-val="orange" title="绿色">橙色</a></li>
+                            <li><a href="#" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+                            <li><a href="#" data-val="blue" title="蓝色">蓝色</a></li>
+                            <li><a href="#" data-val="green" title="绿色">绿色</a></li>
+                            <li><a href="#" data-val="red" title="红色">红色</a></li>
+                            <li><a href="#" data-val="yellow" title="黄色">黄色</a></li>
+                            <li><a href="#" data-val="orange" title="绿色">橙色</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -66,15 +66,15 @@
         {include file='template/nav_menu' /}
     </div>
 </aside>
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="dingdanxiangqing.html" onClick="displaynavbar(this)"></a></div>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="#" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box">
     <div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
         <div class="Hui-tabNav-wp">
             <ul id="min_title_list" class="acrossTab cl">
-                <li class="active"><span title="我的桌面" data-href="welcome.html">我的桌面</span><em></em></li>
+                <li class="active"><span title="我的桌面" data-href="#">我的桌面</span><em></em></li>
             </ul>
         </div>
-        <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="dingdanxiangqing.html"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="dingdanxiangqing.html"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+        <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="#"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
     </div>
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
