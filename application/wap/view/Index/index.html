@@ -1,1 +1,520 @@
-﻿<!DOCTYPE html><html>	<head>		<meta charset="utf-8" />		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">				<title>趣味农场</title>		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />		<script src="__WAP__/js/jQuery v2.1.1.js"></script>		<script src="__WAP__/bootstrap-3.3.7/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>		<style type="text/css">			body,			div,			ul,			li,			p,			a,			span,			i {				margin: 0;				padding: 0;				display: block;			}								</style>		<script type="text/javascript">			host = window.location.host;//if(host=="licai.com"){										//window.location.href = "/wap/index/index.html?id/12";					//window.location.href = "?id/12";				//}		</script>	</head>	<body>		<div class="wrapper" style="padding-bottom: 1px;">									<div id="myCarousel" class="carousel slide">								<ol class="carousel-indicators">					{volist name="barner" id="voss"}					{if condition="$i eq 1"}					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>					{else /}					<li data-target="#myCarousel" data-slide-to="{$i - 1}"></li>					{/if}					{/volist}				</ol>								<div class="carousel-inner">					{volist name="barner" id="vos"}					{if condition="$i eq 1"}					<div class="item active" onclick="window.location.href='{$vos.url}'">						<img src="{$vos.img}" style='height: 170px'>						<div class="carousel-caption"></div>					</div>					{else /}					<div class="item" onclick="window.location.href='{$vos.url}'">						<img src="{$vos.img}" style='height: 170px'>						<div class="carousel-caption"></div>					</div>					{/if}					{/volist}				</div>								<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;				</a>				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;				</a>			</div>			<div class="navigation">								<div class="nav" >					<div class="nav1">						<div class="navs">							<a href="{:url('Index/zhidao')}" class="icon0"><span class="icon1"></span></a>							<a href="{:url('Index/zhidao')}">新手指导</a>						</div>						<div class="navs">							<a href="{:url('Index/orlist')}" class="icon0"><span class="icon2"></span></a>							<a href="{:url('Index/orlist')}">委托养殖</a>						</div>						<div class="navs">							<a href="{:url('Rancher/index')}" class="icon0"><span class="icon3"></span></a>							<a href="{:url('Rancher/index')}">我的农场</a>						</div>					</div>					<div class="nav1" style="margin: 0;">						<div class="navs">							<a href="{:url('Index/gonggao')}" class="icon0"><span class="icon4"></span></a>							<a href="{:url('Index/gonggao')}">官方公告</a>						</div>						<div class="navs">							<a href="{:url('Video/index')}" class="icon0"><span class="icon5"></span></a>							<a href="{:url('Video/index')}">农场视频</a>						</div>						<div class="navs">							<a href="{:url('index/baozhang')}" class="icon0"><span class="icon6"></span></a>							<a href="{:url('index/baozhang')}">安全保障</a>						</div>					</div>				</div>			</div>			<div class="shop">				{volist name="row" id="vo"} {if condition="$vo.classify eq 1"}								<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop1">					<div class="shops_top">						<p>常规</p>						<p>{$vo.name}</p>						<p>剩余:{$vo.number}</p>						<i class="clear"></i>					</div>					<div class="shops_cen">						<div class="">							<h2>{$vo.price}<em>元</em></h2>							<p>鹅单价</p>						</div>						<div class="">							<h2>{$vo.numbers}<em>只</em></h2>							<p>鹅数量</p>						</div>						<div class="">							<h2>{$vo.rate}<em>天</em></h2>							<p>联养周期</p>						</div>					</div>					<div class="shops_bottom">												<p class="return">本鹅群年联养回报{$vo.return_price}%，快养只自己的小鹅吧！</p>					</div>				</a>				{elseif condition="$vo.classify eq 2"/}								<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop2">					<div class="shops_top">						<p>辅助</p>						<p>{$vo.name}</p>						<p>剩余:{$vo.number}</p>						<i class="clear"></i>					</div>					<div class="shops_cen">						<div class="">							<h2>{$vo.price}<em>元</em></h2>							<p>鹅单价</p>						</div>						<div class="">							<h2>{$vo.numbers}<em>只</em></h2>							<p>鹅数量</p>						</div>						<div class="">							<h2>{$vo.rate}<em>天</em></h2>							<p>联养周期</p>						</div>					</div>					<div class="shops_bottom">						<p class="return">本鹅群年联养回报{$vo.return_price}% , 快养只自己的小鹅吧！</p>					</div>				</a>				{elseif condition="$vo.classify eq 3"/}								<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop3">					<div class="shops_top">						<p>VIP</p>						<p>{$vo.name}(请联系客服订购)</p>						<i class="clear"></i>					</div>					<div class="shops_cen">						<div class="">							<h2>私人订制 做农场主</h2>						</div>					</div>					<div class="shops_bottom">						<p class="return">VIP鹅群年联养回报{$vo.return_price}%，私人订制，回报尊享！</p>					</div>				</a>				{/if} {/volist}			</div>						<div class="footer">				<a href="{:url('index/index')}">					<span class="icons "></span>					<p>农场</p>				</a>				<a href="{:url('Supermarket/index')}">					<span class="icons"></span>					<p>超市</p>				</a>				<a href="{:url('Discover/index')}">					<span class="icons"></span>					<p>发现</p>				</a>				<a href="{:url('member/index')}">					<span class="icons"></span>					<p>我的</p>				</a>			</div>		</div>		<div class="background">		</div>		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>		<script src="__WAP__/js/encryption/md5.js" type="text/javascript" charset="utf-8"></script>		<script type="text/javascript">						$("#myCarousel .carousel-control").css("line-height", $("#myCarousel").height() + "px");						$(".footer a:nth-child(1) .icons").css("background", "url(__WAP__/img/iconlist_05.png) no-repeat center 10%");			$(".footer a:nth-child(1) .icons").css("background-size", "2.5rem");						$(".shops_top p:nth-child(2)").css("padding-right", $(this).next().width() + "px");			hex_md5($("p").text());			hex_md5($("a").text());			hex_md5($("span").text());			hex_md5($("h2").text());			hex_md5($("input").val());								</script>	</body></html>	
+﻿<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+		<!--<title>首页</title>-->
+
+		<title>趣味农场</title>
+
+		<link rel="stylesheet" type="text/css" href="__WAP__/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/header.css" />
+
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/style.css" />
+
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/spirit.css" />
+
+		<link rel="stylesheet" type="text/css" href="__WAP__/css/media_quer.css" />
+
+		<script src="__WAP__/js/jQuery v2.1.1.js"></script>
+
+		<script src="__WAP__/bootstrap-3.3.7/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<style type="text/css">
+			body,
+			div,
+			ul,
+			li,
+			p,
+			a,
+			span,
+			i {
+				margin: 0;
+				padding: 0;
+				display: block;
+			}
+			/*移动端 长按下滑 	未实现*/
+			/*.pull-to-refresh-layer {
+
+				position: relative;
+
+				left: 0;
+
+				top: 0;
+
+				width: 100%;
+
+				height: 2.2rem;
+
+			}
+
+
+
+			.pull-to-refresh-content:not(.refreshing) .pull-to-refresh-layer .preloader {
+
+				-webkit-animation: none;
+
+				animation: none;
+
+			}
+
+
+
+			.pull-to-refresh-layer .preloader {
+
+				position: absolute;
+
+				left: 50%;
+
+				top: 50%;
+
+				margin-left: -.5rem;
+
+				margin-top: -.5rem;
+
+				visibility: hidden;
+
+			}
+
+
+
+			.preloader {
+
+				display: inline-block;
+
+				width: 1rem;
+
+				height: 1rem;
+
+				-webkit-transform-origin: 50%;
+
+				transform-origin: 50%;
+
+				-webkit-animation: preloader-spin 1s steps(12, end) infinite;
+
+				animation: preloader-spin 1s steps(12, end) infinite;
+
+			}
+
+
+
+			.preloader:after {
+
+				display: block;
+
+				content: "";
+
+				width: 100%;
+
+				height: 100%;
+
+				background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20x…%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+
+ 				background-position: 50%;
+
+				background-size: 100%;
+
+				background-repeat: no-repeat;
+
+			}
+
+
+
+			.pull-to-refresh-layer .pull-to-refresh-arrow {
+
+				width: .65rem;
+
+				height: 1rem;
+
+				position: absolute;
+
+				left: 50%;
+
+				top: 50%;
+
+				margin-left: -.15rem;
+
+				margin-top: -.5rem;
+
+				background: no-repeat center;
+
+				background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%…C22%2026%2C22%2013.5%2C40%200%2C22'%20fill%3D'%238c8c8c'%2F%3E%3C%2Fsvg%3E);
+
+				background-size: .65rem 1rem;
+
+				z-index: 10;
+
+				-webkit-transform: rotate(0) translate3d(0, 0, 0);
+
+				transform: rotate(0) translate3d(0, 0, 0);
+
+				-webkit-transition-duration: .3s;
+
+				transition-duration: .3s;
+
+			}*/
+		</style>
+
+
+		<script type="text/javascript">
+			host = window.location.host;
+
+//if(host=="licai.com"){
+					/*window.location.href = "/wap/index/index/id/12.html";*/
+					//window.location.href = "/wap/index/index.html?id/12";
+					//window.location.href = "?id/12";
+				//}
+
+		</script>
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="padding-bottom: 1px;">
+
+			<!--移动端 长按下滑-->
+
+			<!--<div class="pull-to-refresh-layer">
+
+    <div class="preloader"></div>
+
+    <div class="pull-to-refresh-arrow"></div>
+
+</div>-->
+
+			<div id="myCarousel" class="carousel slide">
+
+				<!-- 轮播（Carousel）指标     引用bootstrap -->
+
+				<ol class="carousel-indicators">
+					{volist name="barner" id="voss"}
+					{if condition="$i eq 1"}
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					{else /}
+					<li data-target="#myCarousel" data-slide-to="{$i - 1}"></li>
+					{/if}
+					{/volist}
+
+				</ol>
+
+				<!-- 轮播（Carousel）项目 -->
+
+				<div class="carousel-inner">
+
+					{volist name="barner" id="vos"}
+					{if condition="$i eq 1"}
+					<div class="item active" onclick="window.location.href='{$vos.url}'">
+						<img src="{$vos.img}" style='height: 170px'>
+						<div class="carousel-caption"></div>
+					</div>
+					{else /}
+					<div class="item" onclick="window.location.href='{$vos.url}'">
+						<img src="{$vos.img}" style='height: 170px'>
+						<div class="carousel-caption"></div>
+					</div>
+					{/if}
+					{/volist}
+
+				</div>
+
+				<!-- 轮播（Carousel）导航 -->
+
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
+
+				</a>
+
+				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;
+
+				</a>
+
+			</div>
+
+			<div class="navigation">
+
+				<!--nav 导航-->
+
+				<div class="nav" >
+
+					<div class="nav1">
+
+						<div class="navs">
+
+							<a href="{:url('Index/zhidao')}" class="icon0"><span class="icon1"></span></a>
+
+							<a href="{:url('Index/zhidao')}">新手指导</a>
+
+						</div>
+
+						<div class="navs">
+
+							<a href="{:url('Index/orlist')}" class="icon0"><span class="icon2"></span></a>
+
+							<a href="{:url('Index/orlist')}">委托养殖</a>
+
+						</div>
+
+						<div class="navs">
+
+							<a href="{:url('Rancher/index')}" class="icon0"><span class="icon3"></span></a>
+
+							<a href="{:url('Rancher/index')}">我的农场</a>
+
+						</div>
+
+					</div>
+
+					<div class="nav1" style="margin: 0;">
+
+						<div class="navs">
+
+							<a href="{:url('Index/gonggao')}" class="icon0"><span class="icon4"></span></a>
+
+							<a href="{:url('Index/gonggao')}">官方公告</a>
+
+						</div>
+
+						<div class="navs">
+
+							<a href="{:url('Video/index')}" class="icon0"><span class="icon5"></span></a>
+
+							<a href="{:url('Video/index')}">农场视频</a>
+
+						</div>
+
+						<div class="navs">
+
+							<a href="{:url('index/baozhang')}" class="icon0"><span class="icon6"></span></a>
+
+							<a href="{:url('index/baozhang')}">安全保障</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="shop">
+
+				{volist name="row" id="vo"} {if condition="$vo.classify eq 1"}
+
+				<!--大白鹅-->
+
+				<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop1">
+
+					<div class="shops_top">
+
+						<p>常规</p>
+
+						<p>{$vo.name}</p>
+
+						<p>剩余:{$vo.number}</p>
+
+						<i class="clear"></i>
+
+					</div>
+
+					<div class="shops_cen">
+
+						<div class="">
+
+							<h2>{$vo.price}<em>元</em></h2>
+
+							<p>鹅单价</p>
+
+						</div>
+
+						<div class="">
+
+							<h2>{$vo.numbers}<em>只</em></h2>
+
+							<p>鹅数量</p>
+
+						</div>
+
+						<div class="">
+
+							<h2>{$vo.rate}<em>天</em></h2>
+
+							<p>联养周期</p>
+
+						</div>
+
+					</div>
+
+					<div class="shops_bottom">
+
+						<!--<span class="icon icon7"></span>-->
+
+						<p class="return">本鹅群年联养回报{$vo.return_price}%，快养只自己的小鹅吧！</p>
+
+					</div>
+
+				</a>
+
+				{elseif condition="$vo.classify eq 2"/}
+
+				<!--辅助鹅群-->
+
+				<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop2">
+
+					<div class="shops_top">
+
+						<p>辅助</p>
+
+						<p>{$vo.name}</p>
+
+						<p>剩余:{$vo.number}</p>
+
+						<i class="clear"></i>
+
+					</div>
+
+					<div class="shops_cen">
+
+						<div class="">
+
+							<h2>{$vo.price}<em>元</em></h2>
+
+							<p>鹅单价</p>
+
+						</div>
+
+						<div class="">
+
+							<h2>{$vo.numbers}<em>只</em></h2>
+
+							<p>鹅数量</p>
+
+						</div>
+
+						<div class="">
+
+							<h2>{$vo.rate}<em>天</em></h2>
+
+							<p>联养周期</p>
+
+						</div>
+
+					</div>
+
+					<div class="shops_bottom">
+
+						<p class="return">本鹅群年联养回报{$vo.return_price}% , 快养只自己的小鹅吧！</p>
+
+					</div>
+
+				</a>
+
+				{elseif condition="$vo.classify eq 3"/}
+
+				<!--VIP鹅群-->
+
+				<a href="{:url('Order/info',['id'=>$vo.id]);}" class="shop3">
+
+					<div class="shops_top">
+
+						<p>VIP</p>
+
+						<p>{$vo.name}(请联系客服订购)</p>
+
+						<i class="clear"></i>
+
+					</div>
+
+					<div class="shops_cen">
+
+						<div class="">
+
+							<h2>私人订制 做农场主</h2>
+
+						</div>
+
+					</div>
+
+					<div class="shops_bottom">
+
+						<p class="return">VIP鹅群年联养回报{$vo.return_price}%，私人订制，回报尊享！</p>
+
+					</div>
+
+				</a>
+
+				{/if} {/volist}
+
+			</div>
+
+			<!--footer-->
+
+			<div class="footer">
+
+				<a href="{:url('index/index')}">
+
+					<span class="icons "></span>
+
+					<p>农场</p>
+
+				</a>
+
+				<a href="{:url('Supermarket/index')}">
+
+					<span class="icons"></span>
+
+					<p>超市</p>
+
+				</a>
+
+				<a href="{:url('Discover/index')}">
+
+					<span class="icons"></span>
+
+					<p>发现</p>
+
+				</a>
+
+				<a href="{:url('member/index')}">
+
+					<span class="icons"></span>
+
+					<p>我的</p>
+
+				</a>
+
+			</div>
+
+		</div>
+
+		<div class="background">
+
+		</div>
+
+		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		
+
+		<script type="text/javascript">
+			/*轮播 左右 箭头 行高
+
+						 */
+
+			$("#myCarousel .carousel-control").css("line-height", $("#myCarousel").height() + "px");
+
+			/*footer 当前页选中状态*/
+
+			$(".footer a:nth-child(1) .icons").css("background", "url(__WAP__/img/iconlist_05.png) no-repeat center 10%");
+
+			$(".footer a:nth-child(1) .icons").css("background-size", "2.5rem");
+
+			/*$("shop3 .shops_top p:nth-child(2)").width(($(this).parent().width()-$(this).prev().width()-$(this).next().width()-20)+"px");*/
+			$(".shops_top p:nth-child(2)").css("padding-right", $(this).next().width() + "px");
+						
+		</script>
+	</body>
+
+</html>
