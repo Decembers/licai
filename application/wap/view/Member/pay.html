@@ -335,6 +335,14 @@
 						overtop();
 						return false;
 					}
+					var authentication = "{:session('user.authentication')}";
+					if (authentication != 2) {
+						$(".overtop").text("请实名认证后再充值");
+						$("#big-button").removeAttr("disabled");
+						overtop();
+						return false;
+					}
+
 					var money = $("#money1").val(); //充值金额
 					if(money == '') {
 						$(".overtop").text("请输入充值金额");

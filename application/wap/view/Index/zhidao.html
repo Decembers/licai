@@ -16,6 +16,18 @@
 				font-weight: bold;
 				color: #34b2e5;
 			}
+			.header p{
+				display: flex;
+			    position: absolute;
+			    top: 10px;
+			    left: 0px;
+			}
+			.header p span {
+			    line-height: 20px;
+			    height: 20px;
+			    font-size: 15px;
+			    color: gray;
+			}
 		</style>
 		<script type="text/javascript">
 			/*host = window.location.host;
@@ -26,9 +38,9 @@
 	<body>
 		<div class="wrapper">
 			<div class="header">
-				<div class="" >
+				<p class="fanhui" >
 					<span class="icon"></span><span>返回</span>
-				</div>
+				</p>
 				<h3 style="width: 100%; text-align: center;">新手指导</h3>
 				<a href="####" ></a>
 			</div>
@@ -119,6 +131,10 @@
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			/*返回地址*/
+			$(".fanhui").click(function() {
+				window.location.href = "{:url('discover/index')}";
+			})
 			/*floor1 的高度获取      中心文章区获取*/
 			var wrw = $(".wrapper").width();
 			var hei = parseInt(wrw / 750 * 1295);

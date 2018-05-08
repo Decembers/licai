@@ -226,6 +226,7 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 			</div>
 
 		</div>
+		<p class="overtop"></p>
 		<div class="background" ></div>
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -242,7 +243,7 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 				var img = $(this).parent().prev().children("div:first-child").children("img:first-child").attr("src"); //获取当前点击图片链接
 				var imgs = $(this).parent().prev().children("div:first-child").children("img:first-child");
 				offset,
-			flyer = $("<img class='u-flyer' src='"+img+"'/>");
+				flyer = $("<img class='u-flyer' src='"+img+"'/>");
 				flyer.fly({
 					start: {
 						left: event.clientX,
@@ -261,16 +262,24 @@ SCROLLBAR-BASE-COLOR: rgba(0,0,0,.65);
 						this.destory(); //销毁抛物体
 					}
 				});
-			sp_id = $(this).attr("data-id");
-			$.ajax({
-			    type : 'POST',
-			    url : "{:url('supermarket/shopping')}",
-			    data : {sp_id:sp_id},
-			    success : function(data){
 
-			    }
-			})
+				var user = "{:session('user.id')}";
+				if (user=='') {
+					// $(".overtop").text("请登录后添加购物车");
+					// $("#big-button").removeAttr("disabled");
+					// overtop();
+					return false;
+				}
 
+				sp_id = $(this).attr("data-id");
+				$.ajax({
+				    type : 'POST',
+				    url : "{:url('supermarket/shopping')}",
+				    data : {sp_id:sp_id},
+				    success : function(data){
+
+				    }
+				})
 			});
 
 
