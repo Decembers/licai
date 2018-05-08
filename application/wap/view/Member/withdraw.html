@@ -303,6 +303,18 @@ max-height:200px;//最大高度*/
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
+			.header p{
+				display: flex;
+			    position: absolute;
+			    top: 10px;
+			    left: 0px;
+			}
+			.header p span {
+			    line-height: 20px;
+			    height: 20px;
+			    font-size: 15px;
+			    color: gray;
+			}
 		</style>
 	</head>
 
@@ -310,9 +322,9 @@ max-height:200px;//最大高度*/
 		<p class="overtop"></p>
 		<div class="wrapper">
 			<div class="header">
-				<div class="">
+				<p class="fanhui" >
 					<span class="icon"></span><span>返回</span>
-				</div>
+				</p>
 				<h3>提现</h3>
 				<a href="{:url('member/withdrawlog');}">提现记录</a>
 			</div>
@@ -589,6 +601,10 @@ max-height:200px;//最大高度*/
 
 			<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
+			/*返回地址*/
+			$(".fanhui").click(function() {
+				window.location.href = "{:url('member/index')}";
+			})
 				/*	window.ontouchstart = function(e) {
 									e.preventDefault();
 								};*/
@@ -654,7 +670,7 @@ max-height:200px;//最大高度*/
 					$("#add").text("添加银行卡");
 					$(".kahao").css("display", "block");
 				}
-				
+
 				/*$(".uc_invest-box ul").css("background-color", "rgba(255,255,255,0.4)");*/
 			</script>
 			<script type="text/javascript">
@@ -794,7 +810,7 @@ max-height:200px;//最大高度*/
 				}
 				$("#add").click(function(){
 					if($(".kahao li").length<3){
-						
+
 						window.location.href = "{:url('member/addwithdraw')}";
 					}else{
 						$(".overtop").text("最多可添加3条记录");

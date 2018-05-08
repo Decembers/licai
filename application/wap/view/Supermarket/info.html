@@ -337,15 +337,28 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
+			.header p{
+				display: flex;
+			    position: absolute;
+			    top: 10px;
+			    left: 0px;
+			}
+			.header p span {
+			    line-height: 20px;
+			    height: 20px;
+			    font-size: 15px;
+			    color: gray;
+			}
+
 		</style>
 	</head>
 
 	<body>
 		<div class="wrapper" id="shopping_mall">
 			<div class="header">
-				<div class="">
+				<p class="fanhui" >
 					<span class="icon"></span><span>返回</span>
-				</div>
+				</p>
 				<h3>农场超市</h3>
 				<a href="{:url('Supermarket/dingdan')}">我的订单</a>
 			</div>
@@ -385,7 +398,7 @@
 					<!-- <div class="row">（包邮）平装礼盒1.37kg</div> -->
 				</div>
 				<ul class="detail02">
-					<li><p>资金余额</p><p><span class="em">￥</span><span class="em" style="font-size:1rem;">{$user.balance}</span></p></li>
+					<li><p>资金余额</p><p><span class="em">￥</span><span class="em" style="font-size:1rem;">{$user.balance ?? '0'}</span></p></li>
 					<li>
 						<p><span>购养数量</span><span>可手动输入</span></p>
 						<p class="shu"><span id="subtract">-</span>
@@ -421,6 +434,11 @@
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__WAP__/js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			/*返回地址*/
+			$(".fanhui").click(function() {
+				window.location.href = "{:url('supermarket/index')}";
+			})
+
 			var shuliang = parseInt($("#numbers").text()); /*总数*/
 			if($("#number").val() != "") {
 				var sls = parseInt($("#number").val());

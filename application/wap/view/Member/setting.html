@@ -122,15 +122,27 @@
 				-moz-opacity: 0.65;
 				opacity: 0.65;
 			}
+			.header p{
+				display: flex;
+			    position: absolute;
+			    top: 10px;
+			    left: 0px;
+			}
+			.header p span {
+			    line-height: 20px;
+			    height: 20px;
+			    font-size: 15px;
+			    color: gray;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div class="wrapper">
 			<div class="header">
-				<div class="">
+				<p class="fanhui" >
 					<span class="icon"></span><span>返回</span>
-				</div>
+				</p>
 				<h3>设置</h3>
 				<!--<a href="###">交易统计</a>-->
 			</div>
@@ -157,6 +169,26 @@
 							</a>
 						</li>
 {/if}
+
+{if condition="$openid"}
+						<li class="dingdan">
+							<a href="#">
+								<div class="icon fl"></div>
+								<p class="fl">绑定微信</p>
+									<span class="fr">已绑定</span>
+							</a>
+						</li>
+{else /}
+						<li class="dingdan">
+							<a href='{:url("login/wxlogin","bandwx=1")}'>
+								<div class="icon fl"></div>
+								<p class="fl">绑定微信</p>
+									<span class="entered fr"></span>
+							</a>
+						</li>
+{/if}
+
+
 						{if condition="$authentication eq 2"}
 							<li class="contract">
 								<a href="#">
@@ -220,6 +252,10 @@
 		<div id="goodcover"></div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			/*返回地址*/
+			$(".fanhui").click(function() {
+				window.location.href = "{:url('member/index')}";
+			})
 			/*footer 当前页选中状态*/
 			$(".big-button").click(function(){
 				blocks();

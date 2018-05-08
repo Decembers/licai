@@ -129,7 +129,7 @@
 				<div class="detail3">
 					<div class="row">
 						<p>资金余额</p>
-						<p><span class="em">￥</span><span class="em" id="em1" style="font-size: 0.8rem;">{$balance}</span></p>
+						<p><span class="em">￥</span><span class="em" id="em1" style="font-size: 0.8rem;">{$balance ?? '0'}</span></p>
 					</div>
 					<div class="row">
 						<p><span>购养数量</span><span>可手动输入</span></p>
@@ -394,7 +394,7 @@ pr();
 					s2 = $("#red_select_list1 ul li:nth-child("+(tt+1)+") .fr span").text();
 					var ss = $(this).data("packet")
 					datapa = ss;
-					$("#redb").text("已选择红包");					
+					$("#redb").text("已选择红包");
 					bian();
 				}
 			})
@@ -517,6 +517,15 @@ pr();
 			/*买鹅按钮点击*/
 			$("#big-button").click(function() {
 
+				var user = "{:session('user.id')}";
+				if (user == '') {
+					window.location.href="{:url('login/login')}";
+					// $(".overtop").text("请实名认证后再充值");
+					// $("#big-button").removeAttr("disabled");
+					// overtop();
+					return false;
+				}
+
 				if($("#max6").val() == "") {
 					$(".overtop1 .overtop_text").text("请输入支付密码");
 					$("#goodcover").css("display", "block");
@@ -565,7 +574,7 @@ pr();
 									$("#profit").text(p1);
 									$("#max6").val("");
 									$("#big-button").removeAttr("disabled");
-									
+
 									datapa=0;
 									$("#redb").text("请选择红包");
 									if(lentes !=0){
@@ -573,9 +582,9 @@ pr();
 											$("#red_select_list1 ul li:nth-child("+lentes+")").remove();
 										}else{
 											$("#red_select_list1 ul li:nth-child("+lentes+") .fr span").text(s2-1);
-										}																			
+										}
 									}
-									
+
 
 									window.location = '{:url("Rancher/index")}';
 
