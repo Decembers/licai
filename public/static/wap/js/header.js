@@ -8,7 +8,7 @@ $(".wrapper").css("box-sizing", "border-box");
 
 $("div.header>div").click(function() {/*window.history.back(); */
 	history.go(-1)
-	//location.replace(document.referrer);//返回上一页并刷新
+
 /*history.back(-1)*/
 })
 /*提示*/
