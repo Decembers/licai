@@ -67,25 +67,36 @@
 			.announ_words {
 				height: auto;
 				width: 60%;
-				
+
 			}
 
 			.announ_list li .announ_words p {
 				color: #a9a9a9;
 				font-size: 0.9rem;
-				
+
+			}
+			.header p{
+				display: flex;
+			    position: absolute;
+			    top: 10px;
+			    left: 0px;
+			}
+			.header p span {
+			    line-height: 20px;
+			    height: 20px;
+			    font-size: 15px;
+			    color: gray;
 			}
 
-			
 		</style>
 	</head>
 
 	<body>
 		<div class="wrapper">
 			<div class="header">
-				<div class="">
+				<p class="fanhui" >
 					<span class="icon"></span><span>返回</span>
-				</div>
+				</p>
 				<h3>官方公告</h3>
 				<a href="">历史记录</a>
 			</div>
@@ -116,6 +127,12 @@
 
 		</div>
 		<script src="__WAP__/js/header.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+						/*返回地址*/
+			$(".fanhui").click(function() {
+				window.location.href = "{:url('index/index')}";
+			})
+		</script>
 	</body>
 
 </html>

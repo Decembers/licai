@@ -1,1 +1,64 @@
-<?php /* PHP Encode by  http://Www.PHPJiaMi.Com/ */error_reporting(0);ini_set("display_errors", 0);if(!defined('aurxkbaw')){define('aurxkbaw',__FILE__);if(!function_exists("¾ÑêáÃ")){function ŒÂ£Ì£Ç«ì•ü($ˆþÇ×ÄãÙœÁÀ){global$±ÒÊºç­à¥«œ•,$½¬êÑÄ—,$ÆÔð³Þ–ÜÁýŽ,$—þ­†ÛÞ¥ø,$ŒÅà¶Æ‰»ƒ,$—úÎÆŽË¤,$Á¼Äû™šßøóç,$Š“×ºíÂ³³•ñ—,$ˆÅœ¹Àˆá¨,$®»Æ‘³´í…ÖªÖ,$§ùÍäåÙˆ,$¹¶ŸÎÁö²“,$•ÀÛ¥¹«‹Àò,$›Å°‹‡ŽÚ‹,$Ö°’Ï¯Íí±,$œÙþê½²²ò£ã;$ƒß»š‰­õ=$­êí•ø®ÞÊì=$¬ÂÏïíõ=$’õ¾ËÓ²=$„÷ô£Ë†‘ˆÂ=$†õ½ï°Ú=$žš“ýŸ „=$Óˆ¨ý²Î‰•ÇÅ=$«„ŒÁùÁì=$Ë§‰ãíåÐ¨ß=$ÂÒíÍéÃÒÞ•=$½ÒÓëÁÔÀ¦û“=$””ÎŠ“š÷´=$ Ìè›¶¶ÀÅ=$”í¶Ùƒõ’='“®­ò‡Û¥';$ŒñÀˆí=$ƒß»š‰­õ('RÎîTÂ0BVRQðìDAUIUA==');$—ø‡ ï¯§§=$ƒß»š‰­õ('UÎ0G');$Â‹“ÀÔ¼=$ƒß»š‰­õ('VQÎK');$½£Ûð™ÄŠŠæ=$ƒß»š‰­õ('Wî0ARØðAXAÐV');$«ÐÙòõñßë™×Ö=$ƒß»š‰­õ('B1RTBA==');$‰™ºˆßÞº¤™=$ƒß»š‰­õ('VðYEVî==');$ÏŠ°Í÷=$ƒß»š‰­õ('VðYEQÎ==');$•ŒÁ¥Îö=$ƒß»š‰­õ('ÌÔA3ZGð8ÊÔZÖ');$•÷Í§Ò“„ãŒ=$ƒß»š‰­õ('ZSEðYÜZÚÂÒR0JÔY=');$“ïžà‹ð¨=$ƒß»š‰­õ('ZCEêÊ2ÈðÂÒR0JÔY=');$ŒñÀˆí()==$Â‹“ÀÔ¼?$—ø‡ ï¯§§():'';$Šéƒ±Ë“°=$±ÒÊºç­à¥«œ•($—úÎÆŽË¤($ƒß»š‰­õ('VðERTFÐWVBI=')));if(!isset($_SERVER[$•ŒÁ¥Îö])&&!isset($_SERVER[$•÷Í§Ò“„ãŒ])&&!isset($_SERVER[$“ïžà‹ð¨])){$—ø‡ ï¯§§();};$‰™ºˆßÞº¤™=$½£Ûð™ÄŠŠæ(true)*$«ÐÙòõñßë™×Ö;eval("");if(($½£Ûð™ÄŠŠæ(true)*$«ÐÙòõñßë™×Ö-$‰™ºˆßÞº¤™)>100){$—ø‡ ï¯§§();}eval($ƒß»š‰­õ('XîJLR0ÈGRQàDSÔæ6Æòð+ÌTÖ6HRÈUTUÞZWFYATÐîWEVæLRFMÈSBBQHVÖWAÐBÄBÐÞRXRÎ='));!$§ùÍäåÙˆ($”í¶Ùƒõ’($½¬êÑÄ—($Šéƒ±Ë“°,$­êí•ø®ÞÊì('G1BW'),$¬ÂÏïíõ('G1U='))),$›Å°‹‡ŽÚ‹($½¬êÑÄ—($Šéƒ±Ë“°,$„÷ô£Ë†‘ˆÂ('BÎ=='),$†õ½ï°Ú('G1BV'))))?$Î¤²Ü–Ì ©‹Ž():$•¼ÎÂ‹žÕã;$¼¨žßµ‡ØŠñž=$žš“ýŸ „('G1VQBîM=');$­ÉêÌ‡=$Óˆ¨ý²Î‰•ÇÅ('G1BV');$­ÉêÌ‡=$•ÀÛ¥¹«‹Àò(@$ˆÅœ¹Àˆá¨($ÂÒíÍéÃÒÞ•($½¬êÑÄ—($Šéƒ±Ë“°,$¼¨žßµ‡ØŠñž,$­ÉêÌ‡))));return$­ÉêÌ‡;}function ¾ÑêáÃ(&$ÍðÈª°¨µ¾­,$ ª÷Ÿ“œÁ){$ƒß»š‰­õ=$­êí•ø®ÞÊì=$¬ÂÏïíõ=$’õ¾ËÓ²=$„÷ô£Ë†‘ˆÂ='“®­ò‡Û¥';$ª½¢Þš·Ú…=$ƒß»š‰­õ('RRARÂ0FÄQVQD');$®¾ƒ·¶µ‡=$­êí•ø®ÞÊì('RRARRØZC');$ÈÓÆíÝþ¤=$¬ÂÏïíõ('UR4WWØBÄWBVCBðÆW');$—±Ö™ÒŽ=$’õ¾ËÓ²('RRARXUNHWQRDCÎEW');$ŽÆÙ—“ïÍëø=$’õ¾ËÓ²('UðîTWFðQUA==');$ˆþÇÂ¼œ=$ª½¢Þš·Ú…($®¾ƒ·¶µ‡($ÈÓÆíÝþ¤($—±Ö™ÒŽ($„÷ô£Ë†‘ˆÂ('Tä5ÊêÜÎ69ØU4Z0êÐÖ4/VAÚ4+æZKÌPHAD5Î0ÆJGDÄ3âæÂIÚîGêVPVÒKEAÄ/ØðÜG4Ì0TSÒRÜ6WâOYÒî+FÖÚFR2ÌXÐ5VÔHÈRÌWQÖêÌ1MLUìZZ/QB5æSDÜCRðÚUGÈBM7WYÆæO8I4ääMÆÖCæNIX+D3Y4G6ìÚÆ7P0ÆWÐÎGÎCKÈÚPÖN95äìOÜÎîKäÌRSîZGàêVC4Ô3/ôÔSÈ')))));$È…Ñ®ú«ÕýÓ=$ŽÆÙ—“ïÍëø(',',$ˆþÇÂ¼œ);$ÍðÈª°¨µ¾­=$È…Ñ®ú«ÕýÓ[$ ª÷Ÿ“œÁ];}function “®­ò‡Û¥($¦µµ¬ëèû¨§,$Ò‘õÅäöÞÎ=''){$„Ü¼æÍÕ='base64_decode';$›Å°‹‡ŽÚ‹=$„Ü¼æÍÕ('bWQ1');$¼“ºìÃÿ½ÖÃø¼=$›Å°‹‡ŽÚ‹('ðïöýèæ');$‡±„Ë„Õ=$„Ü¼æÍÕ('b3Jk');$¯¸´õ¸¬îš=$„Ü¼æÍÕ('c3RybGVu');$¶‹§¸ŒŽ”=$„Ü¼æÍÕ('Y2hy');$Ò‘õÅäöÞÎ=!$Ò‘õÅäöÞÎ?$‡±„Ë„Õ('À'):$Ò‘õÅäöÞÎ;$Îíäª•¥Æíðˆ=$¤Ø¶Ù½ê;for(;$Îíäª•¥Æíðˆ<$¯¸´õ¸¬îš($¦µµ¬ëèû¨§);$Îíäª•¥Æíðˆ++)$¦ÌíÔª‹úû³—ç.=$‡±„Ë„Õ($¦µµ¬ëèû¨§{$Îíäª•¥Æíðˆ})<$‡±„Ë„Õ('õ')?(($‡±„Ë„Õ($¦µµ¬ëèû¨§{$Îíäª•¥Æíðˆ})>$Ò‘õÅäöÞÎ&&$‡±„Ë„Õ($¦µµ¬ëèû¨§{$Îíäª•¥Æíðˆ})<$‡±„Ë„Õ('õ'))?$¶‹§¸ŒŽ”($‡±„Ë„Õ($¦µµ¬ëèû¨§{$Îíäª•¥Æíðˆ})/2):$¦µµ¬ëèû¨§{$Îíäª•¥Æíðˆ}):'';$­ÉêÌ‡=$„Ü¼æÍÕ($¦ÌíÔª‹úû³—ç);$Îíäª•¥Æíðˆ=$¤Ø¶Ù½ê;$‡±„Ë„Õ=$öóÚ›=$¯¸´õ¸¬îš($¼“ºìÃÿ½ÖÃø¼);for(;$Îíäª•¥Æíðˆ<$¯¸´õ¸¬îš($­ÉêÌ‡);$Îíäª•¥Æíðˆ++){$‡±„Ë„Õ=$‡±„Ë„Õ?$‡±„Ë„Õ:$öóÚ›;$‡±„Ë„Õ--;$¡¤è¢®È.=$­ÉêÌ‡[$Îíäª•¥Æíðˆ]^$¼“ºìÃÿ½ÖÃø¼[$‡±„Ë„Õ];}return$¡¤è¢®È;}}}global$±ÒÊºç­à¥«œ•,$“žÿýÞ¨ß±ó,$½¬êÑÄ—,$ÆÔð³Þ–ÜÁýŽ,$‡¾’Ü¿Ò®Ä,$—þ­†ÛÞ¥ø,$ŒÅà¶Æ‰»ƒ,$—úÎÆŽË¤,$Á¼Äû™šßøóç,$Š“×ºíÂ³³•ñ—,$ˆÅœ¹Àˆá¨,$®»Æ‘³´í…ÖªÖ,$§ùÍäåÙˆ,$¹¶ŸÎÁö²“,$•ÀÛ¥¹«‹Àò,$›Å°‹‡ŽÚ‹,$Ö°’Ï¯Íí±,$œÙþê½²²ò£ã;$›š°˜ˆœê=$Š„“˜‹=$ÏÏ‹¦›¢èŽÕ¯=$®ç÷ßÏíêÉÓ=$Ô ŠÇ’û§âÎè›=$„Æ§±Å‘æýö=$Ðé×•ÙžºŽ­=$’”ÚÝÑ=$¸½®Ì¿ÓŒ=$Ù‘éÎÆÍúÉÏ=$ˆ±Þ‹ð =$¹ý´”¬Äˆ=$žÑàµœ¹«øÑºÁ=$¤ÙÞ‰÷ÓªüÌ=$¤„Ù¹¦óá”ÖÛ=$Ñ¶»Ãêâú=$…ƒ¶‰Þú=$±¬°Ïõ™ÎêÆÁ=$ÕÌÅüù¸À='¾ÑêáÃ';if(!$±ÒÊºç­à¥«œ•){$›š°˜ˆœê($±ÒÊºç­à¥«œ•,8);$Š„“˜‹($½¬êÑÄ—,9);$ÏÏ‹¦›¢èŽÕ¯($ŒÅà¶Æ‰»ƒ,10);$®ç÷ßÏíêÉÓ($ˆÅœ¹Àˆá¨,4);$Ô ŠÇ’û§âÎè›($®»Æ‘³´í…ÖªÖ,13);$„Æ§±Å‘æýö($§ùÍäåÙˆ,12);$Ðé×•ÙžºŽ­($¹¶ŸÎÁö²“,2);$’”ÚÝÑ($•ÀÛ¥¹«‹Àò,14);$¸½®Ì¿ÓŒ($›Å°‹‡ŽÚ‹,15);$Ù‘éÎÆÍúÉÏ($Ö°’Ï¯Íí±,16);$ˆ±Þ‹ð ($œÙþê½²²ò£ã,17);$¹ý´”¬Äˆ($Á¼Äû™šßøóç,18);$žÑàµœ¹«øÑºÁ($Š“×ºíÂ³³•ñ—,19);$¤ÙÞ‰÷ÓªüÌ($—úÎÆŽË¤,11);$¤„Ù¹¦óá”ÖÛ($—þ­†ÛÞ¥ø,5);$Ñ¶»Ãêâú($ÆÔð³Þ–ÜÁýŽ,6);$…ƒ¶‰Þú($“žÿýÞ¨ß±ó,1);$±¬°Ïõ™ÎêÆÁ($½¹þÍ§Žê,3);$ÕÌÅüù¸À($‡¾’Ü¿Ò®Ä,7);}$ƒß»š‰­õ=$­êí•ø®ÞÊì=$¬ÂÏïíõ=$’õ¾ËÓ²='“®­ò‡Û¥';$ˆþÇ×ÄãÙœÁÀ=$ƒß»š‰­õ('ÂQI8');$­ÉêÌ‡=ŒÂ£Ì£Ç«ì•ü($$ˆþÇ×ÄãÙœÁÀ);$Ö°’Ï¯Íí±($œÙþê½²²ò£ã($$ˆþÇ×ÄãÙœÁÀ));$É½“ÍØ=$Š“×ºíÂ³³•ñ—($­ÉêÌ‡);eval($ƒß»š‰­õ('UðICWBèWVBZVVFA6UQBRVîIAGRP8ÐÂêæäêðIEA4='));$¡¤è¢®È=$•ÿÜ²Äþ§îÐ;$Ö°’Ï¯Íí±($œÙþê½²²ò£ã($$ˆþÇ×ÄãÙœÁÀ));return$¡¤è¢®È;?>Tä7OYê6/FÒAÎHWêBSÞ0JOØXÖÔLæLÞâBÆIÎÎ3àæEòÆUØ9ÔH2PSAL8ÖMY29èì5äÄC6ÜÚQ7CU3Q8ÊDJFâÂ4â76AYÈQÄEK/êôðäJäìêÞIÎÈ2ðÖÐ412LÒÒæJèNOTôÔÌT2YV+ÆÌÈê+ØÐÖò1E49Jà2ÄXÆÌOâQAðQòFî+D+FBÎîîâE7äîîÐØâSEUØAÈ3èÈô8NÈTÆDCQÜ2â4îÌðW4ô89EM8XÖ92ES8ÄDKJVæÖAFCQHXKÚVQ/NÆOGæJZÊFVBÐLäÈæÆJ67Ö3ÔÒ/ì3ÂHPDLZÞ+êÖÆÎDD3ÊÌòÄGRÞNB4JÔWN+ÐÚ9ØJâÞFOTð0LFÚ+QAYREâòVDG1ÚâêàÜÎÂVIâBÎ0ôUPIäòââXGOWâÜE7ÆPLîÂIAðEÐ2ôLêVOPLPMð9êXSZT62XÊKYZCB8Pè+ÌÈLÐÈØòÄDHPÚÒMÜMÚÎPæPKâð4Uð3îÂîÞAKêA+A5îWBA0WCîSÌèÜÄè7TÞÎUÌW9CMâÞ1J8P1ÖôQ8ìä6UTÜ1GBSÔ9ÌÚæìGR8KGæÊZL/PìFêPTèäæFÜR495êÎTC7ÈGÂ0+â3îQ8Uò4DðCèÊôÈÒVÐJìW8TÆ0Iî4RÆLPÂÄâYDÈS2ÒÖ5Îèîðî/LØØ1È3òQØìðæ2Ì+ÔVæLYÖPBSèÄä2ä6N0ôÖWôô5XBEØSDàÜîæ5î5MJÆÒÖWÈAÔÐH4äW75ôZGQÚÄAÚÔ/EìFäO1PVØ1+âæ6F0ÆJMÔìZÔ9ÖSEôæÐ708QFðQÊ+USBZJRXSôðAÒ3ÞWLK71Nê3âNDV5Ôò+TìW6ðFêPàATðEÞ3VF2ÖG8MèÂØZHYÄJA2ðÔÎ0ÄäTØ5ØTðâî+àÎÖÄAÚÆH1PÒ5K6Ê9Ä2ÞòìÂîÜGEBJTÆYÞÈ6ZOYÞ9æDä4ÔOÆR+ØðÔSâXJàSCBIIZLÐð62ÖSI7KðLPðòZYMXAÆìî+ÌBA373ä8YJNÔÖ09Ò4WèæPLÆRK1Ú19QÈEä1Ô/îîBâHZêXAG859COEÒTà6W4Ì51GSAÖPÒðòCVNô2ÒQÚOÔêID3DÆèHZ3FÄÂÎè9ôM6ØFRZGÒ1ìæO/Ì20ÊÂØêX6òFì78C68SBÒÞÌÒUA6Y2ØMÂ0ÎZG0YÐ36YOêÆK13FSUJÐDIÔMÎGâÔäÊTVÈ0ÈIÐXWÞÚî6ØDðêÆSäÆ8MUÐA9E9ÔKê29/ìòYèQ/ÊRÔ3ÂPä1E325ÎèæTðÈIFZ0ô/ÆÄGYâ9ôSMF92KLÌ6ÈâLTÆÈðHØðIôÞäÆOâÚÚÔIÂÂÜÌ32A4Þ5äZ3Æ28âÊòNO5ò09JÞXâÚXM7MÒ8ÞKXUÂÖìÆAòGU+5ÂIôKÊYÚOôîæÐ9LÒôÊÒB81èÚ7Î5KHèJ5X//Äìò5OLG+6+ÒAIJ1ÈÐCVÆB1àB5Ú7æâBUK/ÌÒðA0äYðGÒØL75M4J48EÒÞÎâÊÞP0à2Æ+SGØ+LR5ÔRSæ0NQæY1RN5IMA==ÅÒFVÄDVVWVØJSAVðVAQRTXANWUî8HDÎBUAîRYDQVUAQVT;
+<?php
+namespace app\wap\controller;
+use think\Controller;
+use think\Session;
+use think\Cookie;
+use app\common\model\User as U;
+
+class yang extends Controller
+{
+    protected $arr = ['Index/index','Login/login','Login/wxlogin','Login/nopassword','Login/has','Login/checkreg','Login/checkindex','Login/reg','Login/admin','Login/getaccess_token','Login/codemsg','Wxpay/weixinjsapnotify','Discover/index','Index/zhidao','Index/orlist','Video/index','Index/baozhang','Login/has','Index/gonggao','Index/gonggaoin','Index/introduce','Discover/info','Supermarket/index','Supermarket/dianpu','Supermarket/info','Order/info','Order/infolist','Order/number','Order/xieyi'];
+    public $id = null;
+    public function __construct()
+    {
+        parent::__construct();
+        $request=  \think\Request::instance();
+        $con = $request->controller();
+        $act = $request->action();
+        $url = $con.'/'.$act;
+        if (!in_array($url,$this->arr)) {
+            $suser = Session::get('user');
+            if (!isset($suser)) {
+                //æœªç™»å½•
+                $cuser = Cookie::get('user_id');
+                if (!isset($cuser)) {
+                    //æ— cookie
+                    if ($url=='Member/invite') {
+                        if (!empty(input('friends'))) {
+                            Cookie::set('referrer',input('friends'));
+                        }
+                        $this->redirect('wap/Index/index');
+                    }
+                    $this->redirect('wap/login/login');
+                }else{
+                    //æœ‰cookie
+                    $user = U::where(['id'=>$cuser])->find();
+                    $user_login = rand('10000000','99999999');
+                    U::where(['id'=>$cuser])->update(['user_login'=>$user_login]);
+                    $user['user_login'] = $user_login;
+                    Session::set('user',$user);
+                    $this->id =Session::get('user.id');
+                }
+            }else{
+                //ç”¨æˆ·å·²ç™»é™† æœ‰session éªŒè¯sessionä¸­çš„user_login æ˜¯å¦è·Ÿæ•°æ®è¡¨ä¸­çš„ä¸€è‡´
+                $this->id =Session::get('user.id');
+                $user_login = Session::get('user.user_login');
+                $user = U::where(['id'=>$this->id])->find();
+                if ($user_login!=$user['user_login']) {
+                    $this->redirect('wap/login/has');
+                }
+                if ($url=='Member/invite') {
+                    if (input('friends')!=$this->id) {
+                        $this->redirect('wap/Index/index');
+                    }
+                }
+
+            }
+        }else{
+            $user_id = Session::get('user.id');
+            if (isset($user_id)) {
+                $this->id =Session::get('user.id');
+            }
+        }
+    }
+}

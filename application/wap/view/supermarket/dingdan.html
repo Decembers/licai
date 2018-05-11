@@ -362,11 +362,11 @@
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vo.id])}'">
 								<div class="fl">
 
-								{foreach name="vo.image" item="im" }
+								{volist name="vo.image" id="im" offset="0" length='3'}
 								    	<div class="">
 											<img src="{$im}" />
 										</div>
-								{/foreach}
+								{/volist}
 
 								</div>
 								<div class="fr">
@@ -396,11 +396,11 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vos.id])}'">
 								<div class="fl">
-								{foreach name="vos.image" item="ims" }
+								{volist name="vos.image" id="ims" offset="0" length='3'}
 								    	<div class="">
 											<img src="{$ims}" />
 										</div>
-								{/foreach}
+								{/volist}
 
 								</div>
 								<div class="fr">
@@ -432,11 +432,12 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$voss.id])}'">
 								<div class="fl">
-								{foreach name="voss.image" item="imss" }
+
+								{volist name="voss.image" id="imss" offset="0" length='3'}
 								    	<div class="">
 											<img src="{$imss}" />
 										</div>
-								{/foreach}
+								{/volist}
 
 								</div>
 								<div class="fr">
@@ -507,11 +508,12 @@
 							</div>
 							<div class="center" onclick="window.location.href='{:url("supermarket/dingdaninfo",["id"=>$vosss.id])}'">
 								<div class="fl">
-								{foreach name="vosss.image" item="imsss" }
+
+								{volist name="vosss.image" id="imsss" offset="0" length='3'}
 								    	<div class="">
 											<img src="{$imsss}" />
 										</div>
-								{/foreach}
+								{/volist}
 
 								</div>
 								<div class="fr">

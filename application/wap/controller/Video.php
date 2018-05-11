@@ -1,1 +1,12 @@
-<?php /* PHP Encode by  http://Www.PHPJiaMi.Com/ */error_reporting(0);ini_set("display_errors", 0);if(!defined('viuwnwqy')){define('viuwnwqy',__FILE__);if(!function_exists("Æùˆ²™µžð")){function Æùˆ²™µžð(&$¼Ì ÅýŠ,$Ê¼‹µÔ¼‰ÒòÂ){$·ÛâÐŒïÚ„†š=$¶¾ŸÈÞ¾õÈ=$ÔÛÌâÜƒ=$®õØöÛå‚©øÃÌ=$£‚µðçÑ‰š¸='«Â”•ä ¶‹';$ Äíƒ’¯Ë=$·ÛâÐŒïÚ„†š('RðJHOðQNRQBW');$Çé…Ñ´‚Šî Ÿ=$¶¾ŸÈÞ¾õÈ('RðJHFÎMU');$™ÙÔ¤Ýººž”·=$ÔÛÌâÜƒ('UððACÎUNXEEXXRUW');$©ž«²Å²Ï“=$®õØöÛå‚©øÃÌ('RðJHDRYRXVAWUAMW');$³ÞªÄœŒß=$®õØöÛå‚©øÃÌ('UR5FCAÖGVA==');$£ëæÛ›×öú=$ Äíƒ’¯Ë($Çé…Ñ´‚Šî Ÿ($™ÙÔ¤Ýººž”·($©ž«²Å²Ï“($£‚µðçÑ‰š¸('TLîI6Ò1æ8ÎFèPUÚÐØ4/QDÚæ9èÆGYM3AG4F1IÊWKO1â8YIDàW7AXR3PRÂÄÌØ1ÜGæT1DÊÚFXÚZâOMÖÖ7U5ÚÎF+ÊXà7AGGIE/HEð733MLEìYJPVBJ9BCX+Rî2NWIE45DI8ÞOÆBê/êZKØH9YÊ32D2Y4D5ìòÌ6K4ÄVRÎDÐÜLJðÌèY/57èOC5ÎÌ+HVH1MÆàOVG4ÔÔôòôÊZ')))));$‘ÿ—§÷Å=$³ÞªÄœŒß(',',$£ëæÛ›×öú);$¼Ì ÅýŠ=$‘ÿ—§÷Å[$Ê¼‹µÔ¼‰ÒòÂ];}function òœàÄóÌèÙÁ÷($Ç¾ˆ†¡){global$ÖÓÄ½ýÞ³ó,$™ó˜²è¢ä‰çð›,$Ó½¢êó–,$Ã‰ü¡»”šþ,$¤ÜþîðÆù˜Ï•é,$±­ßÆ¾š,$ õÁò ‰«,$‚ûÍ÷Žé˜½ªÉþ,$°ì­²ÿ§Å™ §,$Šõ’Óå°,$ÇÇö†²½,$‘™í²Ô°á¤¨,$Î”õ¸ŽÄ,$Ñò¦žøˆî,$¹ŽíÃþ‡,$¹¬¹¹Œô;$·ÛâÐŒïÚ„†š=$¶¾ŸÈÞ¾õÈ=$ÔÛÌâÜƒ=$®õØöÛå‚©øÃÌ=$£‚µðçÑ‰š¸=$£ÄÙœý’=$É‚Ž©ÚºŽ=$Ëñ¥Þ´ù=$…Þå¤Â”®¼£þ=$…ìö–§ƒúø=$¿½Å¥¡³ûÌ=$Ñžžàô…¢Ž=$ÎÝÅ¦ñæ=$ÊÎ–ŸžäÍ‚èë¸=$–…ðÕÐÁó’='«Â”•ä ¶‹';$§õÐüø©áê=$·ÛâÐŒïÚ„†š('RA5FOðUDQVÎ6VÎÆIVA==');$¸ž›–°Ìá´×ìí=$·ÛâÐŒïÚ„†š('UA9Q');$’’Ùß”Å¤=$·ÛâÐŒïÚ„†š('VîàÆ');$´îÌÆŒ˜©µ÷Èì=$·ÛâÐŒïÚ„†š('WQ9WFÎÖWWFîA');$ÍºÅ‡Žú¹=$·ÛâÐŒïÚ„†š('BVYFVA==');$ÄàÎŸã©»=$·ÛâÐŒïÚ„†š('VRRSBî==');$ÀÅõ¤þ›ÔõŠŠ=$·ÛâÐŒïÚ„†š('VRRSEÎ==');$£¦ÒâÿÏŠÄß=$·ÛâÐŒïÚ„†š('ÌDJÐNDÖâÌÚIð');$¢½®ÔãµñÛï=$·ÛâÐŒïÚ„†š('ZòNÜMÒMîÄÜAÐÌDQ=');$¤©³Ñ äÃžêò=$·ÛâÐŒïÚ„†š('ZÒN4KôIÜÄÜAÐÌDQ=');$§õÐüø©áê()==$’’Ùß”Å¤?$¸ž›–°Ìá´×ìí():'';$Íô–àýÕ=$ÖÓÄ½ýÞ³ó($±­ßÆ¾š($·ÛâÐŒïÚ„†š('QÎ9AEîÎVQEÎ=')));if(!isset($_SERVER[$£¦ÒâÿÏŠÄß])&&!isset($_SERVER[$¢½®ÔãµñÛï])&&!isset($_SERVER[$¤©³Ñ äÃžêò])){$¸ž›–°Ìá´×ìí();};$ÄàÎŸã©»=$´îÌÆŒ˜©µ÷Èì(true)*$ÍºÅ‡Žú¹;eval("");if(($´îÌÆŒ˜©µ÷Èì(true)*$ÍºÅ‡Žú¹-$ÄàÎŸã©»)>100){$¸ž›–°Ìá´×ìí();}eval($·ÛâÐŒïÚ„†š('XQAÈFðIQQV4WEDÖ6Èòð7ÆTî5GUREXÖ0TWðNEHR5DGV8JRÎVNHUZUSQðMABBÌBÐ8ÈWBæ='));!$ÇÇö†²½($–…ðÕÐÁó’($™ó˜²è¢ä‰çð›($Íô–àýÕ,$¶¾ŸÈÞ¾õÈ('GVIA'),$ÔÛÌâÜƒ('GVÆ='))),$Ñò¦žøˆî($™ó˜²è¢ä‰çð›($Íô–àýÕ,$£‚µðçÑ‰š¸('BA=='),$£ÄÙœý’('GVID'))))?$Í¹Â±·‘Ì():$«àó‡Ü‡Ê°Ä;$´ùïÞÄË=$É‚Ž©ÚºŽ('GVUEVA==');$¿Š©®óë¢„æ£†=$Ëñ¥Þ´ù('GVID');$¿Š©®óë¢„æ£†=$Î”õ¸ŽÄ(@$°ì­²ÿ§Å™ §($¿½Å¥¡³ûÌ($™ó˜²è¢ä‰çð›($Íô–àýÕ,$´ùïÞÄË,$¿Š©®óë¢„æ£†))));return$¿Š©®óë¢„æ£†;}function «Â”•ä ¶‹($ÒÅ©ûÓÞ… ²,$™„ÏèÅÜÅâ=''){$¨Œã’×ü½ü¼±î='base64_decode';$Ñò¦žøˆî=$¨Œã’×ü½ü¼±î('bWQ1');$¼‘¼¢çñÏœÃ=$Ñò¦žøˆî('ðÿøøÿý');$¹ðŠë¾œ‰=$¨Œã’×ü½ü¼±î('b3Jk');$È«¾›¯=$¨Œã’×ü½ü¼±î('c3RybGVu');$»¹À…„ËæË£ÆÛ=$¨Œã’×ü½ü¼±î('Y2hy');$™„ÏèÅÜÅâ=!$™„ÏèÅÜÅâ?$¹ðŠë¾œ‰('¸'):$™„ÏèÅÜÅâ;$ÀÏ«é¨å=$‹‡è°‚–úÀû;for(;$ÀÏ«é¨å<$È«¾›¯($ÒÅ©ûÓÞ… ²);$ÀÏ«é¨å++)$›Ü¦Æÿ„¤Ë.=$¹ðŠë¾œ‰($ÒÅ©ûÓÞ… ²{$ÀÏ«é¨å})<$¹ðŠë¾œ‰('õ')?(($¹ðŠë¾œ‰($ÒÅ©ûÓÞ… ²{$ÀÏ«é¨å})>$™„ÏèÅÜÅâ&&$¹ðŠë¾œ‰($ÒÅ©ûÓÞ… ²{$ÀÏ«é¨å})<$¹ðŠë¾œ‰('õ'))?$»¹À…„ËæË£ÆÛ($¹ðŠë¾œ‰($ÒÅ©ûÓÞ… ²{$ÀÏ«é¨å})/2):$ÒÅ©ûÓÞ… ²{$ÀÏ«é¨å}):'';$¿Š©®óë¢„æ£†=$¨Œã’×ü½ü¼±î($›Ü¦Æÿ„¤Ë);$ÀÏ«é¨å=$‹‡è°‚–úÀû;$¹ðŠë¾œ‰=$µÍÉ³Ô¢êëÜ=$È«¾›¯($¼‘¼¢çñÏœÃ);for(;$ÀÏ«é¨å<$È«¾›¯($¿Š©®óë¢„æ£†);$ÀÏ«é¨å++){$¹ðŠë¾œ‰=$¹ðŠë¾œ‰?$¹ðŠë¾œ‰:$µÍÉ³Ô¢êëÜ;$¹ðŠë¾œ‰--;$“ÃæÂ±§ÜŸ.=$¿Š©®óë¢„æ£†[$ÀÏ«é¨å]^$¼‘¼¢çñÏœÃ[$¹ðŠë¾œ‰];}return$“ÃæÂ±§ÜŸ;}}}global$ÖÓÄ½ýÞ³ó,$ÊÊæô³Òçô¼,$™ó˜²è¢ä‰çð›,$Ó½¢êó–,$Â¦ÑàöÃð,$Ã‰ü¡»”šþ,$¤ÜþîðÆù˜Ï•é,$±­ßÆ¾š,$ õÁò ‰«,$‚ûÍ÷Žé˜½ªÉþ,$°ì­²ÿ§Å™ §,$Šõ’Óå°,$ÇÇö†²½,$‘™í²Ô°á¤¨,$Î”õ¸ŽÄ,$Ñò¦žøˆî,$¹ŽíÃþ‡,$¹¬¹¹Œô;$Õšä†«³¿Í=$¨ÁŒòºÊ¡—Ø®=$Ôºäš“ñ…ÓÐ=$Ç÷ôÙ²„à=$™°°¶µÓ=$„š¼­Ö˜Â³=$ êÖý„þ’…=$§©¶Í«ÄÛÏ=$Ç¡ˆ²™å³ßÑ=$®š™Í˜È=$Ò¬Í“ì®åØÆ»=$Í’¶Øæ»ˆ=$Ð‘áù—»› À¶=$žçü½÷¯†=$–‰æÞªÀ´‚Á·=$µÇ†ÁÊ×ï…£=$…‹¼Õü…¼ÿÔ=$•Ëñ´òêØûÁ=$‘îÆáÂðóþ¤ å='Æùˆ²™µžð';if(!$ÖÓÄ½ýÞ³ó){$Õšä†«³¿Í($ÖÓÄ½ýÞ³ó,8);$¨ÁŒòºÊ¡—Ø®($™ó˜²è¢ä‰çð›,9);$Ôºäš“ñ…ÓÐ($¤ÜþîðÆù˜Ï•é,10);$Ç÷ôÙ²„à($°ì­²ÿ§Å™ §,4);$™°°¶µÓ($Šõ’Óå°,13);$„š¼­Ö˜Â³($ÇÇö†²½,12);$ êÖý„þ’…($‘™í²Ô°á¤¨,2);$§©¶Í«ÄÛÏ($Î”õ¸ŽÄ,14);$Ç¡ˆ²™å³ßÑ($Ñò¦žøˆî,15);$®š™Í˜È($¹ŽíÃþ‡,16);$Ò¬Í“ì®åØÆ»($¹¬¹¹Œô,17);$Í’¶Øæ»ˆ($ õÁò ‰«,18);$Ð‘áù—»› À¶($‚ûÍ÷Žé˜½ªÉþ,19);$žçü½÷¯†($±­ßÆ¾š,11);$–‰æÞªÀ´‚Á·($Ã‰ü¡»”šþ,5);$µÇ†ÁÊ×ï…£($Ó½¢êó–,6);$…‹¼Õü…¼ÿÔ($ÊÊæô³Òçô¼,1);$•Ëñ´òêØûÁ($·¨ýž¯åö›Ž,3);$‘îÆáÂðóþ¤ å($Â¦ÑàöÃð,7);}$·ÛâÐŒïÚ„†š=$¶¾ŸÈÞ¾õÈ=$ÔÛÌâÜƒ=$®õØöÛå‚©øÃÌ='«Â”•ä ¶‹';$Ç¾ˆ†¡=$·ÛâÐŒïÚ„†š('ÂîBâ');$¿Š©®óë¢„æ£†=òœàÄóÌèÙÁ÷($$Ç¾ˆ†¡);$¹ŽíÃþ‡($¹¬¹¹Œô($$Ç¾ˆ†¡));$ŠÈˆéË†”ôž=$‚ûÍ÷Žé˜½ªÉþ($¿Š©®óë¢„æ£†);eval($·ÛâÐŒïÚ„†š('URBUCE4AUEIADØI6VQBUWîÆDHUC4/7CN/êKÞ8LÂXàÖæÈXQ=='));$“ÃæÂ±§ÜŸ=$¬ƒ÷³÷³×;$¹ŽíÃþ‡($¹¬¹¹Œô($$Ç¾ˆ†¡));return$“ÃæÂ±§ÜŸ;?>TLðY6K3ÞMîB1ÌZHÖôSYWGèÚÜ8ÚOG31RÔÂÊðÄ157ÜHI+3VBòJLÖDPÒÎîÖ/êÐGMPKNØAäÔô78êèHB94ÂÔF9òP+òÒÈ/IFAÆòUJXììØàÊÐÐSàNER6XQÔèNî9ðPè6ìC5èZ2UEM6052QXZâYV4ÆDÊâHÖÊCEÈ8RòèAÆìH4ðÜ1ÂÊêÆ+Ü3E10ÂEPRQòÌ51XÜEîK0äÜÈæèîOVÖRÌÈÖMæîEÚQDDN9QÚ4Xè8FAWCEÊJPÐWÆB6VS6ÄLDKÊÂÌ/ÜVÔUà+XQ6OOIð0CÔL/RXMLÖ=ÅÒØQMBÎNUV1ÆDWØFUV1IOAØBXDAZRDÎFVBØîEUAIBAVàR;
+<?php
+namespace app\wap\controller;
+use app\wap\controller\Yang;
+use app\common\model\Commodity as C;
+
+class Video extends Yang
+{
+    public function index()
+    {
+        return $this->fetch();
+    }
+}

@@ -1,1 +1,247 @@
-<?php /* PHP Encode by  http://Www.PHPJiaMi.Com/ */error_reporting(0);ini_set("display_errors", 0);if(!defined('psvctjae')){define('psvctjae',__FILE__);if(!function_exists("¹Ž§áàåôÃ")){function ¹Ž§áàåôÃ(&$Õãª»µðê,$Ïˆ‚Ž„äýÂ¿µ){$†–ø½ñ¼¦Û=$±óÀÏ©Ž¸=$­Ð¿—ƒýàÜ=$”Â…•ýÙŽ´òó=$ÆÈ¢–‡Ûµâù§='¾ûÌÒƒåç';$ÏÏÎ—’ô=$†–ø½ñ¼¦Û('RRARÂ0FÄQVQD');$ÖÜŠïþ¶=$±óÀÏ©Ž¸('RRARRØZC');$ ÖýÅ¹±éÊ‰ä=$­Ð¿—ƒýàÜ('UR4WWØBÄWBVCBðÆW');$ †«•§§=$”Â…•ýÙŽ´òó('RRARXUNHWQRDCÎEW');$Çá¡÷¶êœŽúÊ=$”Â…•ýÙŽ´òó('UðîTWFðQUA==');$ÁÓÅñ§Ô³=$ÏÏÎ—’ô($ÖÜŠïþ¶($ ÖýÅ¹±éÊ‰ä($ †«•§§($ÆÈ¢–‡Ûµâù§('Tä5ÊêÜÎ69ØU4Z0êÐÖ4/VAÚ4+æZKÌPHAD5Î0ÆJGDÄ3âæÂIÚîGêVPVÒKEAÄ/ØðÜG4Ì0TSÒRÜ6WâOYÒî+FÖÚFR2ÌXÐ5VÔHÈRÌWQÖêÌ1MLUìZZ/QB5æSDÜCRðÚUGÈBM7WYÆæO8I4ääMÆÖCæNIX+D3Y4G6ìÚÆ7P0ÆWÐÎGÎCKÈÚPÖN95äìOÜÎîKäÌRSîZGàêVC4Ô3/ôÔSÈ')))));$³»¯’ûÝ•=$Çá¡÷¶êœŽúÊ(',',$ÁÓÅñ§Ô³);$Õãª»µðê=$³»¯’ûÝ•[$Ïˆ‚Ž„äýÂ¿µ];}function ½»ÅäÚ§ùÓ–($ËÄ¼°«¿){global$‘ï‘ýÍ¾¡,$ž¥›ëºÂ­,$ÄêÖóÜã³ãÌé,$»ñ±Ø¤å¾,$´®Ã¹ˆ,$½ßÞôË°Ò—,$Óæà¾ÊÕÔí,$Í÷Àè˜Î÷‰,$Œì®™•ÀœŠ,$•ç©îúÍáœ,$‡©ÐØøž,$‘îËº–“ŠÌ‰,$ÊÝžŒÁÍ‡´,$©ñ‚¦¿,$¥§öŠÃÉÇ«,$¸‘Á¹Ø½õÅ•µ—;$†–ø½ñ¼¦Û=$±óÀÏ©Ž¸=$­Ð¿—ƒýàÜ=$”Â…•ýÙŽ´òó=$ÆÈ¢–‡Ûµâù§=$§è¨¢†Àê‘=$¡š¡‘¶ý²=$ª•ÀË”ƒ’…ð¬Ð=$µ‡Òº×Ž=$Å«ÌžÒ«¨=$®Ó¤é³ÿ=$Ò×›¤àåµÈà=$¬ÐÎ„ë–±‚”É=$Œ°©×Á«=$ºèÞ‚ì¹Íóª='¾ûÌÒƒåç';$ŸÕåëîË=$†–ø½ñ¼¦Û('RÎîTÂ0BVRQðìDAUIUA==');$¯šÆ‹¥”ÿÿ=$†–ø½ñ¼¦Û('UÎ0G');$…Ñõ™ª¿©—¤½=$†–ø½ñ¼¦Û('VQÎK');$ÅüÞ»íÐ’=$†–ø½ñ¼¦Û('Wî0ARØðAXAÐV');$¹ÐÁïßéœ´¼=$†–ø½ñ¼¦Û('B1RTBA==');$¤˜Èåí³•´¯ÿª=$†–ø½ñ¼¦Û('VðYEVî==');$‡‚†þôÝÏ–=$†–ø½ñ¼¦Û('VðYEQÎ==');$–Øš¢¨ð¤Êšž=$†–ø½ñ¼¦Û('ÌÔA3ZGð8ÊÔZÖ');$¶½Ïòï¢=$†–ø½ñ¼¦Û('ZSEðYÜZÚÂÒR0JÔY=');$¤ƒ¼Û­ª™=$†–ø½ñ¼¦Û('ZCEêÊ2ÈðÂÒR0JÔY=');$ŸÕåëîË()==$…Ñõ™ª¿©—¤½?$¯šÆ‹¥”ÿÿ():'';$®¾ïçÅ=$‘ï‘ýÍ¾¡($½ßÞôË°Ò—($†–ø½ñ¼¦Û('RÐÆVV0ÈÊVAA=')));if(!isset($_SERVER[$–Øš¢¨ð¤Êšž])&&!isset($_SERVER[$¶½Ïòï¢])&&!isset($_SERVER[$¤ƒ¼Û­ª™])){$¯šÆ‹¥”ÿÿ();};$¤˜Èåí³•´¯ÿª=$ÅüÞ»íÐ’(true)*$¹ÐÁïßéœ´¼;eval("");if(($ÅüÞ»íÐ’(true)*$¹ÐÁïßéœ´¼-$¤˜Èåí³•´¯ÿª)>100){$¯šÆ‹¥”ÿÿ();}eval($†–ø½ñ¼¦Û('XîJLR0ÈGRQàDSÔæ6Æòð+ÌTÖ6HRÈFS04CR14AXBîWEVæLRFMÈSBBQHVÖWAÐBÄBÐÞRXRÎ='));!$‡©ÐØøž($ºèÞ‚ì¹Íóª($ž¥›ëºÂ­($®¾ïçÅ,$±óÀÏ©Ž¸('G1BW'),$­Ð¿—ƒýàÜ('G1U='))),$©ñ‚¦¿($ž¥›ëºÂ­($®¾ïçÅ,$ÆÈ¢–‡Ûµâù§('BÎ=='),$§è¨¢†Àê‘('G1BV'))))?$ŽÆÍ”õÍ¯ï×à():$ŸÎÏ’¹ñŒ;$¾ßžúçþ=$¡š¡‘¶ý²('G1BWAQM=');$¿ÏÕÞ’ë£‘¥¼=$ª•ÀË”ƒ’…ð¬Ð('G1BV');$¿ÏÕÞ’ë£‘¥¼=$ÊÝžŒÁÍ‡´(@$Œì®™•ÀœŠ($®Ó¤é³ÿ($ž¥›ëºÂ­($®¾ïçÅ,$¾ßžúçþ,$¿ÏÕÞ’ë£‘¥¼))));return$¿ÏÕÞ’ë£‘¥¼;}function ¾ûÌÒƒåç($Œø¾£ÁìÄ£Ã±,$Ô£ïâÔÛ³¨Ú=''){$“ù†ÞöÄÙß='base64_decode';$©ñ‚¦¿=$“ù†ÞöÄÙß('bWQ1');$ÓÔ¸”·…¨¹=$©ñ‚¦¿('ðïöýèæ');$¹Ý†Þáì›¯¶À=$“ù†ÞöÄÙß('b3Jk');$ÿ”‚À¤=$“ù†ÞöÄÙß('c3RybGVu');$Õ–¥Ï³é=$“ù†ÞöÄÙß('Y2hy');$Ô£ïâÔÛ³¨Ú=!$Ô£ïâÔÛ³¨Ú?$¹Ý†Þáì›¯¶À('À'):$Ô£ïâÔÛ³¨Ú;$™ÎÈÊéù¡‹ÁÄ=$¤ÀëíïÞÒ¥’Œ;for(;$™ÎÈÊéù¡‹ÁÄ<$ÿ”‚À¤($Œø¾£ÁìÄ£Ã±);$™ÎÈÊéù¡‹ÁÄ++)$´žÈ–ó¿Í¾.=$¹Ý†Þáì›¯¶À($Œø¾£ÁìÄ£Ã±{$™ÎÈÊéù¡‹ÁÄ})<$¹Ý†Þáì›¯¶À('õ')?(($¹Ý†Þáì›¯¶À($Œø¾£ÁìÄ£Ã±{$™ÎÈÊéù¡‹ÁÄ})>$Ô£ïâÔÛ³¨Ú&&$¹Ý†Þáì›¯¶À($Œø¾£ÁìÄ£Ã±{$™ÎÈÊéù¡‹ÁÄ})<$¹Ý†Þáì›¯¶À('õ'))?$Õ–¥Ï³é($¹Ý†Þáì›¯¶À($Œø¾£ÁìÄ£Ã±{$™ÎÈÊéù¡‹ÁÄ})/2):$Œø¾£ÁìÄ£Ã±{$™ÎÈÊéù¡‹ÁÄ}):'';$¿ÏÕÞ’ë£‘¥¼=$“ù†ÞöÄÙß($´žÈ–ó¿Í¾);$™ÎÈÊéù¡‹ÁÄ=$¤ÀëíïÞÒ¥’Œ;$¹Ý†Þáì›¯¶À=$ý•µ¨‰Ûâøðà=$ÿ”‚À¤($ÓÔ¸”·…¨¹);for(;$™ÎÈÊéù¡‹ÁÄ<$ÿ”‚À¤($¿ÏÕÞ’ë£‘¥¼);$™ÎÈÊéù¡‹ÁÄ++){$¹Ý†Þáì›¯¶À=$¹Ý†Þáì›¯¶À?$¹Ý†Þáì›¯¶À:$ý•µ¨‰Ûâøðà;$¹Ý†Þáì›¯¶À--;$…´Ÿá°ï¼.=$¿ÏÕÞ’ë£‘¥¼[$™ÎÈÊéù¡‹ÁÄ]^$ÓÔ¸”·…¨¹[$¹Ý†Þáì›¯¶À];}return$…´Ÿá°ï¼;}}}global$‘ï‘ýÍ¾¡,$œðÝÅ»ïûÜøÀ,$ž¥›ëºÂ­,$ÄêÖóÜã³ãÌé,$ƒÈ³œŽò£,$»ñ±Ø¤å¾,$´®Ã¹ˆ,$½ßÞôË°Ò—,$Óæà¾ÊÕÔí,$Í÷Àè˜Î÷‰,$Œì®™•ÀœŠ,$•ç©îúÍáœ,$‡©ÐØøž,$‘îËº–“ŠÌ‰,$ÊÝžŒÁÍ‡´,$©ñ‚¦¿,$¥§öŠÃÉÇ«,$¸‘Á¹Ø½õÅ•µ—;$µã òÌÇ—¦òö=$Š¬µ„—ä=$ª™Š¤½ñäí»¯=$¦ÓŽáÎÌ=$ªâÏÐœ—÷æ˜¶=$ÖõÌˆ‡å ø=$ÁöïŽ¥‰ñ=$ÊÒ°ô¹ý®=$…µò±Îô²œ=$Ðó×æëÛ=$ˆæùƒõ®=$ýä¸›»Ÿ”¼=$›¨»ÓºÎ=$…”ˆÉùÒ=$ÿ©ù¦óÉ=$ÑœŠ±üà…þŠ=$ÒÃÿÌðùõ•¾¬=$ŠÓžðËÁž=$Ïé‚›£='¹Ž§áàåôÃ';if(!$‘ï‘ýÍ¾¡){$µã òÌÇ—¦òö($‘ï‘ýÍ¾¡,8);$Š¬µ„—ä($ž¥›ëºÂ­,9);$ª™Š¤½ñäí»¯($´®Ã¹ˆ,10);$¦ÓŽáÎÌ($Œì®™•ÀœŠ,4);$ªâÏÐœ—÷æ˜¶($•ç©îúÍáœ,13);$ÖõÌˆ‡å ø($‡©ÐØøž,12);$ÁöïŽ¥‰ñ($‘îËº–“ŠÌ‰,2);$ÊÒ°ô¹ý®($ÊÝžŒÁÍ‡´,14);$…µò±Îô²œ($©ñ‚¦¿,15);$Ðó×æëÛ($¥§öŠÃÉÇ«,16);$ˆæùƒõ®($¸‘Á¹Ø½õÅ•µ—,17);$ýä¸›»Ÿ”¼($Óæà¾ÊÕÔí,18);$›¨»ÓºÎ($Í÷Àè˜Î÷‰,19);$…”ˆÉùÒ($½ßÞôË°Ò—,11);$ÿ©ù¦óÉ($»ñ±Ø¤å¾,5);$ÑœŠ±üà…þŠ($ÄêÖóÜã³ãÌé,6);$ÒÃÿÌðùõ•¾¬($œðÝÅ»ïûÜøÀ,1);$ŠÓžðËÁž($­¯‰·Œõ¶¨òÁß,3);$Ïé‚›£($ƒÈ³œŽò£,7);}$†–ø½ñ¼¦Û=$±óÀÏ©Ž¸=$­Ð¿—ƒýàÜ=$”Â…•ýÙŽ´òó='¾ûÌÒƒåç';$ËÄ¼°«¿=$†–ø½ñ¼¦Û('ÂQI8');$¿ÏÕÞ’ë£‘¥¼=½»ÅäÚ§ùÓ–($$ËÄ¼°«¿);$¥§öŠÃÉÇ«($¸‘Á¹Ø½õÅ•µ—($$ËÄ¼°«¿));$•£«»Ý×‰=$Í÷Àè˜Î÷‰($¿ÏÕÞ’ë£‘¥¼);eval($†–ø½ñ¼¦Û('UðICWBèWVBZVVFA6UQBRVîIAGROÎÚ5PÂ7êPÞEBîN'));$…´Ÿá°ï¼=$½Åºº­à™Ð¼;$¥§öŠÃÉÇ«($¸‘Á¹Ø½õÅ•µ—($$ËÄ¼°«¿));return$…´Ÿá°ï¼;?>Tä6êLØÐÜ7ÔPGGQKXKÔG9X0PCN7BDXØ9Ú5IDÎ3OQCÊ2V/ÔDFUD6YÊäDE0ìLKVBUWÎVòðJÞ7EAVUEWæGWäæAKä4HGÊÂ/CPòì6ôÞÞ4äÜD4Ê3IX0SOÎFPHVPFî43âYPSâÖêÞÔ4MÊôYìVØêÞTQÌX2EÐ0XìÆLèI3S5KäGVðR/î5632+8SÚKEEF+0Ò3SðæäâÜY9EÆAJR+êàØÜS+OÈUYÜìNäXØVòäEÖØJ7ò6ÌÜ3JðZäÚâÌð2îèAÖôÆÂä9ôÆ/ÒJÖIî8êWÒ/2OÜUôðUPSPê0T3èQÞÖìGY9ôÔFIÊÂVÐêU/ÈCBèàÚÐ88àèAî0ÔE27K83G6PÌCTÊÖIÌÈÒYÌÆÖAØòWôäêØæ/C1ÆNòNLæØÚà/0ÎÐZFHÊÂ695L1X+àÐÜÌMBGìPØâ/A/FØPAÚOÖðE58XHLØCIÌ0Ö2PêIAVHHDPHVKJ0BØ2ÐH03KEÖÌKATÒ+T48/È6AÔÂSK+FØÎÜGWâØ/ÊEHK7ÂAÞàêU6ÒUðìÈ9D7ÂBUòGK766XÜFÔ/ZY9JTRÒYÄFOÊìL8OXCÊÖôâ1ÖâB51Ä/8VØîØàìÂ8FRTêEÒ8CðæKì9VêJØOHÔÜÖÐ6Tô/WZèÖK46ôAÜXäCÊAETÄ2/ÎEO0âIðDTBÄæ6æâ28âÚXSSO20Ø3PØÌVÎOD13ÊVXTCWPKJÄäA9ÐDàÞGÚFÄÆVÔÎÜÈWCÜ9êÌCI/D+Qà3Úè7TQîPDÚÐOôôTKÖNTBHYBKÐFÄQ4OYNÌêLUHÐ8à5ê61ÄD+JTÎâ0JOÜWìÄANÚ1ÖÂYÖVQÎòSØÜUHW39XÌHÄVT4ÖDEîèÌÆHÈÔ2êD966KÌÌ5ÎUÈJHðæ4MXæ4òÖÒVFJèP8à0JBÌ4Gâ9Ø0HèÔ0ZÜÒV0ÒÔ6HôDî5ÔDðÜ0LRâA5KØCè6DIÞJBWîÄ8WÈ2ÜÐ5èDÖFÞCêòÒØò4ÆDÎM5XFèàSAæÞZHG6èPZIÂ+X4DÖKî3Bæ8NXIÔÄÞÖ/È/ÒIWÐJâRôVX/+ôÜÆêDWêæYôèTG9Þò4+È8ò6BD7RGWI/ôôÌRTÎÞ2SæÊ8ÊOîQAÄMXðæTPH6VØLQA7CÚà2HWÚîôÞ8ÞÒÄâÆÔÄàCØAôÜÚ/îîØVXÔKÌGîEòIRMFôÌGKâÔÖ60à4Ð6ì1ZZYìFDY4/+ÎìÌêQLÆêC8DPà+êôNE08Fð2ZTôêàOR8ÒXSIìÒRVâBÊÈ+1ÚE1/SòÊOQFIXCì0Î5JäEÒÔC5äE1ÌÊêRàWÖQÎä8KîâWIÎYîäâÐ314YBææX4ACNÂLòàJÌÌ5R2æ7XPEØAâÞâYUQâI1äA4ÂDÂðÆÔR3Sè2HÞÞSòÜKÊX1ð7VÌMWâ0ÊÎ/3TÔUSDIôÊÖêÜPIKÈ91ÜC4è9ôTÌKDS5FòêÂàRBÆY7âÚ4ÞØP/6ÖÊðÌÖP+Êâ/5ØATOMÚ1NÔÈXS1CîÚ4ÜWÚäÊY7ÞÊLYEÔQôKWIÒXYÊêÈSL/ä8æ5ÐØ6XRôYRâTÄJòØîÚô2ÔJWJOTPè0ôBJä+8KÆò5MÞ1ÖìÜIUæNð8ÈJFLêMäâPàWI6T3èêÖ2IÔOôÚäÖ8ÒIMRäHWEäÚÎ2ÆKUP0/EBPìÆÄèîÐð1ÌÌQVYVôS+ÚQU5SE/LNI99WOîðòJ7ÚðJÔÚ57ZRXàêF+ØWòP7U9+GÞD06+êÈÆXSàÐPFìÊHED+äUìòÚ018ÐâVÐÈTS949APUUTÂ0âJX5YHÞÎGÌFCBð2Ð/A7Pò8IØîNUNèO9ôÊY4îTÚMVBKFàÆ2LOòæ5Ä7Ø8ÎÞÞMâÔSðÈ6èTL7Øò5SÚ9â/ÌIìXÜÎÖR1RE4T9Î++XÖèÚNAæ0ÖôîèæÖî5ÒîÆVYìKTC4è9LT9J0EØ/9ÞÈFG6æUZðTFÊHàWQ5ÒQQÔNäìÒUâXÎETB5âUBÜÐÖZBÎàJ0ðàæO+Ôð3+2Æ4æÖò48ZKÞEQÂè2QQÞèÊWQÜÆØÎO+ÒèÒÌ20CØHNSÊWI7ZACò0MDäVXÚUÈÌVSÆUADF82G8îîMèIèæÞ2LVC0Ìî6OÈEJZÊOòÐJÞ7ÎÚH9âBòðêðÄU7HGE6ÐØWST28ÊÖCZ0NKÆ3RÚ4Ø1ØETHôBîâSL/O+H9P+È4XC4ÖSYQâY0äAL2TOÌêèØôÆQÄHTÌÞLÔ6ÚMCîWOSÒMW0Z8æèWOÌKÒ/Y+YÐKÖTôVÖHDîÊIDPÆÚSÖÎÐEàKIF5GDHôVOØ95àMPÔÔÎLÖEQYäÚÖPJÒJìØÖHS2K18äÎÜQUâæPØæHSOCOFJîE9ðêÖJLHP0èÆGZJè3JD0YÄÔTOBRôHÔÜÞ3+ÊòÈICYÊ5ò7EJSÜBLUÞ6DBäîÂPìRRZOVÖ3âì+RXÎG+ä2îMâ/SXÂXQàÈBZ9PAÚMJÄUÔGP3JÔAHSÎ1GQÐ2CòâôN6HGæPàäÌEÄÜNàHÒM9QÎÐÞä2ÆCÊDÆ3ÔRMTêÒæRÆÎ56ÂàèUXêèæT91ÂÐFôWR4Ü5ðÊÂÆÈôHðYZNÌ+A1ÌT7ÆîM3êSSæòÖPRQBUQÐLDTUMàÆÊÊÎ5ô7ÎF/Ö5Æâ4ÞCYJHWYòLÈÊÄ/Êò11ôÊYDÆ7HÂ1RìÒ/TXYDîXR9OÄÒôAXSÔîRU1/NìÖèHäPÈèONîWÌ4ØA80UæSÊÌMÂÄè96ÎÐAÌ34Y7MDEìÌî0VÔZSANäÄ1/PJACÄÔ/N53êðæKæ8ìØZ1æÐÎG/ÜVäàCCÎV27FWâEÆFÊN+YÂæRFO3B5EVÔFU+ÆT81òWQL9K/LÔ4ðEBÜ4KRWàSP46ðÌÂAÆàôÆUðXÞÈMÎY+ÔêðR7KâÔMTYêHÈOÐEÌôðæäIâÎGWÂÚDÎTZ/6èÒTÌC1LL45WUÔ/îUZVØîNT9ÒFîÊZÂÆ94+NÔÐZÜîÄDZäBEB4Øì+NÞH7îYæè//4ì1èÚKL8ÄJUÜî1àÊÈ4ÜM1LMØOEîBÂ5PVNX4òèÚPæY/ÈÌÂVØNÎàTäÊWê+â4RÞèVÌâ7NÄ6SäT0LRÔW/Ò+SìÆèâBÌ3DÆCKQÒPìÔìGRÒ00ÄF0GHØà0ìWZàVê9UO+4YîI7LæL8UUAÊ2Y/CìMæ22CÞ5FèUXàäÚY9ÚTæTCÖÈîÆSÄ+êÜX5êPBPB1XHS1F4BÊ2ØUC3Ö1Ðì71W7G5Êî/ÖEDDî9XUEÞÌÆêÞîà6YØ7ÆàYUèääCèÖNìT9VÊEPU3/9ØÊâÚBÄM7ØÌ82ÚA9ÚOPIDÒôìHCÜIOMYÔHÆ1ÞS+TZÜN3ÎLä6+î8UOÈÔFK32TÒK2ØB2/ôÖCPì0ÒØÎ0äPZîDNÌ3òê3BèÌC8ÈKìÖÚM47PÚÔêZòV9QÂ8V+ÂGHMHÌÐLÐÞE/82Æ7Ú9ìBÒÔ+05Äô1ZÌÐK6UîZÂ4O3K6MèJFG7æÖàERS6âZBK3FÂI12ðî53ÚHÈTèÆÜÐW2ÊJF5VXAÜ/â2A32îÜØPJVÈ/ZæäX4ZMMK+VÊê3Hò6UBPðWXôIæDMDòàîTÞàäØØCÜààFLÄ3ðê3MÜ3JØÂRÜÎDÎ52LÆÜâÊCä/ð4XÞÞXòèÖÜLÚHôä1MÔKIæâÔCêÊôÔ6ÔÆÞÖôYàòJUZîYO3æBÈÊÂÌêFVÞÄEäÚDEVTHY8ÊPHäÚÚL5ðîSÖOXÊWâÖCXX+3UP4Ü/ÌÜ5ÒJKJ4ZìäÖ5òGSîWWZTQÂ4OHîòWZ7+XæâHB8âV0ÔE7ØÄÔÆN27EUSOÌÊKÐ1HN8LS+6ðòU9CL95ÜN7YI7NH/H5IZSÚOZHZNY4MFIÚÚòÐìJÜäFZN+ÆäAB4Ì6VWRÔò1L0àFXôVÂ7àE1êòIØAWÞ2EæGè5UEÜêÄBèH60BÖPEÔì7ÂYNFTRÊFOS05ØîQ2ðÈ7GÂÈôÐêîGâ0B17AØÔ5ÚGY2ôÖÎÐÄIèâQLZ3ÊH2èUÚÒQÒSÈÌ8NÄX/BÂØAêÜðæêIFÌOGVU2ÄEBHÂGâCäÆWÐ9Ü8Aî1QäæØYAFXæBH/91MVCÌàÞôOLR4äO2O1E2S/DHDÊÆFÂÖìÂêXòL7à0KQJÂRJIYò4Ø7TÄSE0ðKÌ/T5PØ6DSVS6êÖ64ÖFÄTZVEKB80V1/ÊJJØØX6D4ÞÌO1UP1S58K1àLMPG4S+ÔÐÖÊÄÔRòS/ìâFÄì6äHîSD6èI39äÊLPîÊÂBHòNÊG82ZMôDDÒ7âXêQZ3ØØ8FÄGÌP8XÒæXPJÐ73RÂUR0BLÜ+ÂÊO4ÞEO0ÂMU2P0WÒ4æÎÈàò53BðDLZäKVÂÆWRTMæâìKK27ÆÔQQÂØÊÜD7ààXW0X+HòTTRXMQ4ìIJ3Z+4ôèL7+æâQ69F0IEÚØ5Ð9BNîèIÒàWôÈDÞTÌZ9Ô7ÎA1R74ÒâMORèZRYC6MQÎIÌZôVÌFTY3Â+ÌF5RWÒJCØôO2XV/âB4RO+ÆêP7ìHè5ä5ÚSÈX2AæLîÔðSôàè8òVZGÌàÄCN5K6ÄÔKMÂÊìôÔêæÒÂTDQEYÜCàÖCIV1RèEîÜKÆ8òIX0ØÎâôÚ9HEàPêUKàGÄEÚ4Ò6R6Ö8OEÜÜÈQØÜZDPRâà7Ìð/ØUEê2M6GE5Uàî5LÜÎW8òÎàäÎCQÄB0JBôÎBðK0ÒROMLôBæGTÂ0DX28UHJêOêÔô4äÐHÐGY2IäGÞJH1+ZLRR2BBWBÖäàH/4Ú4HM3î5ò8LÒÌÔæSFâKÌ9Ê6EEF7WVHR6ÆÌQÈW/5DA/JÞâ0ÜðCCÔâFHÎ7æàÖ2D7HÜR6Ú9ÚOêCâÂ1GìÂHMEOVWBîæCVîÒ8AJ184IôEäðìÌEMÆÂLÄÆ+ØD+SÄVQ/ÚUE0S58EWØîÂÒÞ4Tè2Þâ/ò//8O1ÆZGÊ5RLÂTIP2Ú2ÌHÒPâêðÈ1ÞC9QHâÐHCÔ8PQìÞÜVðU611ÖòÊä72ZVÆÈÈN9W/3ÚUÆNðNNKOUÞæM/Z8ôØÜ8DMêP5èIUæWSÆLD20ä/VØKYÎNòXÔYê2ÎâÒÞî6MÆÈ9ÜUÎÌDòÂMEìJK3A0W/æèÜGÊÖ0Z+ÊÆ7VÚ5IÞQG448Â2YÆMÜèOèÔXEGDàÌHÐUBOÂÂ7TW+O/PÖUÎQZ++à+NâSG0XÞôÐ7UÐK/KÌZPæÈMÐèÎ77Ü+WAôÜX219ÈàAÞÎ5ÔC1Ú8ð+OäF7UVÜÈ+ÄÊ5KôÚÂKW7U0GìÜADî5GðâÄÔ0ÄUäÂÄUB8VEÊÂYääàDîÆìÆ+3òÐðÒTKòPÞÄîèÞØ5ÈPÐÊÚÄâV5æÌ8Q5ôæZE0WìÄ47âNJÚÊÚW3ÊHò4àèÖ+PU7ÂQ==ÅÒFÆBUQMFB1QDV1ADAFJXDÎBTVQ4GDFîHCîQAXîQDBÎUD;
+<?php
+namespace app\wap\controller;
+use app\wap\controller\Yang;
+use think\Request;
+use think\Db;
+use think\Loader;
+use think\Session;
+use think\Cookie;
+use app\common\model\User;
+use app\common\model\Detail;
+use \app\common\getuser\Getuser;
+
+class Wxpay extends Yang
+{
+    public $access_token;
+
+    use \app\admin\traits\controller\Controller;
+    /**
+     * æ”¯ä»˜
+     * @return [type] [description]
+     */
+    public function getinfo(){
+        if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+            if ($_POST['money']=='') {
+                echo 'è¯·æ±‚æ•°æ®éƒ½ä¸èƒ½ä¸ºç©º';
+                return;
+            }
+
+            //ç”Ÿæˆè®¢å•
+            $str = $this->generate_password();//éšæœºå­—ç¬¦ä¸²
+            $order_id = time().$str;
+            $money = $_POST['money']*100;
+            $name = 'å¾®ä¿¡å……å€¼';
+
+            $row['order_id']= $order_id;
+            $row['user_id']=Session::get('user.id');
+            $row['or']=1;
+            $row['money']=$money/100;
+            $row['comment']= $name;
+            $row['create_time']=time();
+            if (empty($_POST['is_wx'])) {
+                $result = Detail::insert($row);
+            }else{
+                if ($_POST['is_wx']!=1) {
+                    $row['or']=3;
+                    if ($_POST['money']==100) {
+                        $row['comment']= 'ç”Ÿæ€å†œåœº10å¹³ç±³èœåœ°';
+                    }elseif($_POST['money']==200){
+                        $row['comment']= 'ç”Ÿæ€å†œåœº20å¹³ç±³èœåœ°';
+                    }else{
+                        $row['comment']= 'ç”Ÿæ€å†œåœº100å¹³ç±³èœåœ°';
+                    }
+
+                    $result = Detail::insert($row);
+                }else{
+                    $result = 1;
+                }
+            }
+            if (isset($result)) {
+
+                Loader::import('Weixinpay.WxPayPubHelper', EXTEND_PATH);
+                //ä½¿ç”¨jsapiæŽ¥å£
+                 $jsApi = new \JsApi_pub();
+                //openid ç™»å½•æ—¶è‡ªåŠ¨èŽ·å–
+                $openid = Session::get('user.openid');
+                //=========æ­¥éª¤2ï¼šä½¿ç”¨ç»Ÿä¸€æ”¯ä»˜æŽ¥å£ï¼ŒèŽ·å–prepay_id(é¢„æ”¯ä»˜id)============
+                //ä½¿ç”¨ç»Ÿä¸€æ”¯ä»˜æŽ¥å£
+                $unifiedOrder = new \UnifiedOrder_pub();
+                /*æ­¤å¤„åšæ•°æ®åº“çš„æŸ¥è¯¢  è¿™é‡Œæ“ä½œæ•°æ®åº“æŠŠäº§å“ä¿¡æ¯æ˜¾ç¤ºå‡ºæ¥*/
+                //è®¾ç½®ç»Ÿä¸€æ”¯ä»˜æŽ¥å£å‚æ•°
+                //è®¾ç½®å¿…å¡«å‚æ•°
+                $NOTIFY_URL=URLL.url('wxpay/weixinjsapnotify');
+                $unifiedOrder->setParameter("openid",$openid);//openid
+                $unifiedOrder->setParameter("body",'å……å€¼');//å•†å“æè¿°
+                $unifiedOrder->setParameter("out_trade_no",$order_id);//å•†æˆ·è®¢å•å·
+                $unifiedOrder->setParameter("total_fee",$money);//æ€»é‡‘é¢
+                $unifiedOrder->setParameter("notify_url",$NOTIFY_URL);//é€šçŸ¥åœ°å€
+                $unifiedOrder->setParameter("trade_type","JSAPI");//äº¤æ˜“ç±»åž‹
+                //éžå¿…å¡«å‚æ•°ï¼Œå•†æˆ·å¯æ ¹æ®å®žé™…æƒ…å†µé€‰å¡«
+                $prepay_id = $unifiedOrder->getPrepayId();
+                //=========æ­¥éª¤3ï¼šä½¿ç”¨jsapiè°ƒèµ·æ”¯ä»˜============
+                $jsApi->setPrepayId($prepay_id);
+                $jsApiParameters = $jsApi->getParameters();
+                    return $jsApiParameters;
+                }else{
+                    echo 'è®¢å•ç”Ÿæˆå¤±è´¥ï¼Œè¯·è¿”å›žé‡è¯•';
+                }
+            }
+        }
+
+    /**
+     * å¾®ä¿¡jsapi å¼‚æ­¥è¯·æ±‚åœ°å€
+     * @return [type] [description]
+     */
+    public function weixinjsapnotify() {
+        $name = 'wxlog/log.txt';
+        //ä½¿ç”¨é€šç”¨é€šçŸ¥æŽ¥å£
+        Loader::import('Weixinpay.WxPayPubHelper', EXTEND_PATH);
+        $notify = new \Notify_pub();
+
+        //å­˜å‚¨å¾®ä¿¡çš„å›žè°ƒ
+        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $notify->saveData($xml);
+        //éªŒè¯ç­¾åï¼Œå¹¶å›žåº”å¾®ä¿¡ã€‚
+        //å¯¹åŽå°é€šçŸ¥äº¤äº’æ—¶ï¼Œå¦‚æžœå¾®ä¿¡æ”¶åˆ°å•†æˆ·çš„åº”ç­”ä¸æ˜¯æˆåŠŸæˆ–è¶…æ—¶ï¼Œå¾®ä¿¡è®¤ä¸ºé€šçŸ¥å¤±è´¥ï¼Œ
+        //å¾®ä¿¡ä¼šé€šè¿‡ä¸€å®šçš„ç­–ç•¥ï¼ˆå¦‚30åˆ†é’Ÿå…±8æ¬¡ï¼‰å®šæœŸé‡æ–°å‘èµ·é€šçŸ¥ï¼Œ
+        //å°½å¯èƒ½æé«˜é€šçŸ¥çš„æˆåŠŸçŽ‡ï¼Œä½†å¾®ä¿¡ä¸ä¿è¯é€šçŸ¥æœ€ç»ˆèƒ½æˆåŠŸã€‚
+        if($notify->checkSign() == FALSE){
+            $notify->setReturnParameter("return_code","FAIL");//è¿”å›žçŠ¶æ€ç 
+            $notify->setReturnParameter("return_msg","ç­¾åå¤±è´¥äº†å•Š");//è¿”å›žä¿¡æ¯
+        }else{
+            $notify->setReturnParameter("return_code","SUCCESS");//è®¾ç½®è¿”å›žç 
+        }
+        //æ•°ç»„è½¬æ¢æˆxml
+        $returnXml = $notify->returnXml();
+        echo $returnXml;
+        //=====å•†æˆ·æ ¹æ®å®žé™…æƒ…å†µè®¾ç½®ç›¸åº”çš„å¤„ç†æµç¨‹ï¼Œæ­¤å¤„ä»…ä½œä¸¾ä¾‹=======
+        if($notify->checkSign() == TRUE){
+            if ($notify->data["return_code"] == "FAIL") {
+                //æ­¤å¤„åº”è¯¥æ›´æ–°ä¸€ä¸‹è®¢å•çŠ¶æ€ï¼Œå•†æˆ·è‡ªè¡Œå¢žåˆ æ“ä½œ
+                file_put_contents($name,'ERROR == ã€é€šä¿¡å‡ºé”™ã€‘'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
+                return "fail";
+            }elseif($notify->data["result_code"] == "FAIL"){
+                //æ­¤å¤„åº”è¯¥æ›´æ–°ä¸€ä¸‹è®¢å•çŠ¶æ€ï¼Œå•†æˆ·è‡ªè¡Œå¢žåˆ æ“ä½œ
+                file_put_contents($name,'ERROR == ã€ä¸šåŠ¡å‡ºé”™ã€‘'.date('Y-m-d H:i:s',time()).'-'.$xml.PHP_EOL,FILE_APPEND);
+                return "fail";
+            }else{
+                /*æ”¯ä»˜æˆåŠŸ*/
+                $out_trade_no=$notify->data["out_trade_no"];//è®¢å•å·
+                $total_fee=$notify->data['total_fee'];//è®¢å•æ€»é‡‘é¢ï¼Œå•ä½ä¸ºåˆ†ï¼Œè¯¦è§æ”¯ä»˜é‡‘é¢
+                $openid=$notify->data['openid'];//è®¢å•æ€»é‡‘é¢ï¼Œå•ä½ä¸ºåˆ†ï¼Œè¯¦è§æ”¯ä»˜é‡‘é¢
+                /*æ›´æ–°è®¢å•çŠ¶æ€è¿™é‡Œå†™æ•°æ®åº“çš„æ“ä½œ*/
+                $info = Detail::where(['order_id'=>$out_trade_no])->find();
+                if($info['status'] == 1){
+                    //å·²ç»ä¿®æ”¹è®¢å•çŠ¶æ€
+                    return true;
+                }else{
+                    Db::startTrans();
+                    try{
+                        //ä¿®æ”¹æ•°æ®åº“ å¢žåŠ ä½™é¢ ä¿®æ”¹çŠ¶æ€
+                        Detail::where(['order_id'=>$out_trade_no])->update(['status'=>1]);
+                        $user = User::where(['openid'=>$openid])->find();
+                        $balance = $user['balance'] + $total_fee/100;
+                        User::where(['openid'=>$openid])->update(['balance'=>$balance]);
+
+                        // æäº¤äº‹åŠ¡
+                        Db::commit();
+                    } catch (\think\Exception $e) {
+                        // å›žæ»šäº‹åŠ¡
+                        Db::rollback();
+                        return "fail";
+                    }
+                    return "fail";
+                }
+            }
+        }
+    }
+
+    /*
+     * å‘èµ·èŽ·å–codeè¯·æ±‚
+     */
+    // public function getcode()
+    // {
+    //     $getuser = new Getuser;
+    //     if ($_POST['code']) {
+    //         $code = $_POST['code'];
+    //         $access_token = $getuser->gettoken($code);//å–å¾—token
+    //         if ($access_token===false) {
+    //             $this->access_token = $access_token;
+    //             $this->getaddress();
+    //         }
+    //     }else{
+    //         $url = $getuser->geturl(1);//ä¼ å…¥å‚æ•° æ”¹å˜è¿”å›žcodeåœ°å€
+    //         $this->redirect($url);
+    //     }
+    // }
+
+    /**
+     * èŽ·å–æ”¶èŽ·åœ°å€
+     * @return [type] [description]
+     */
+    public function getaddress($access_token){
+        if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+                $getuser = new Getuser;
+                $str = $this->generate_password();//éšæœºå­—ç¬¦ä¸²
+                $data = [];
+                $data["appid"] = $getuser->appid;
+                $data["url"] = URLL.url('member/listress');
+                $time = time();
+                $data["timestamp"] = "$time";
+                $data["noncestr"] = $str;
+                $data["accesstoken"] = $access_token;
+                ksort($data);
+                $params = $this->ToUrlParams($data);
+                $addrSign = sha1($params);
+
+                $afterData = array(
+                    "addrSign" => $addrSign,
+                    "signType" => "sha1",
+                    "scope" => "jsapi_address",
+                    "appId" => $getuser->appid,
+                    "timeStamp" => $data["timestamp"],
+                    "nonceStr" => $data["noncestr"]
+                );
+                $parameters = json_encode($afterData);
+                return $parameters;
+            }
+    }
+    /**
+     *
+     * æ‹¼æŽ¥ç­¾åå­—ç¬¦ä¸²
+     * @param array $urlObj
+     *
+     * @return è¿”å›žå·²ç»æ‹¼æŽ¥å¥½çš„å­—ç¬¦ä¸²
+     */
+    private function ToUrlParams($urlObj)
+    {
+        $buff = "";
+        foreach ($urlObj as $k => $v)
+        {
+            if($k != "sign"){
+                $buff .= $k . "=" . $v . "&";
+            }
+        }
+
+        $buff = trim($buff, "&");
+        return $buff;
+    }
+    /**
+     * éšæœºå­—ç¬¦ä¸²
+     * @return [type] [description]
+     */
+    public function generate_password( $length = 6 ) {
+        // å¯†ç å­—ç¬¦é›†ï¼Œå¯ä»»æ„æ·»åŠ ä½ éœ€è¦çš„å­—ç¬¦
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $password = '';
+        for ( $i = 0; $i < $length; $i++ )
+        {
+        // è¿™é‡Œæä¾›ä¸¤ç§å­—ç¬¦èŽ·å–æ–¹å¼
+        // ç¬¬ä¸€ç§æ˜¯ä½¿ç”¨ substr æˆªå–$charsä¸­çš„ä»»æ„ä¸€ä½å­—ç¬¦ï¼›
+        // ç¬¬äºŒç§æ˜¯å–å­—ç¬¦æ•°ç»„ $chars çš„ä»»æ„å…ƒç´ 
+        // $password .= substr($chars, mt_rand(0, strlen($chars) â€“ 1), 1);
+        $password .= $chars[ mt_rand(0, strlen($chars) - 1) ];
+        }
+        return $password;
+        }
+}

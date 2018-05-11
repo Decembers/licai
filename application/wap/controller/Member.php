@@ -1,1 +1,766 @@
-<?php /* PHP Encode by  http://Www.PHPJiaMi.Com/ */error_reporting(0);ini_set("display_errors", 0);if(!defined('nikkkfil')){define('nikkkfil',__FILE__);if(!function_exists("ŸÅ ³Šš“ÇÀñ")){function ŸÅ ³Šš“ÇÀñ(&$ÒçÁ´˜Ç,$·â±°ùíáŸË){$‚†áŽ×¡Õ²êï=$ºÑ»¯ê¹º=$“ÚŠˆŽÒÊ=$¥ïùïí³É¢›ã=$’£‡Ù¥‹='»‘§È³¬ÜÜ';$¹ãà›Žñ×Ô=$‚†áŽ×¡Õ²êï('RðJHOðQNRQBW');$ÍŽŠ™£×žÇ•Æ¹=$ºÑ»¯ê¹º('RðJHFÎMU');$¾ÊÀ·èöî³ïµñ=$“ÚŠˆŽÒÊ('UððACÎUNXEEXXRUW');$Ó»èÈŒí¤=$¥ïùïí³É¢›ã('RðJHDRYRXVAWUAMW');$Î­ÝÝÊ·¥=$¥ïùïí³É¢›ã('UR5FCAÖGVA==');$±ÔÕÇ¶ôÖ=$¹ãà›Žñ×Ô($ÍŽŠ™£×žÇ•Æ¹($¾ÊÀ·èöî³ïµñ($Ó»èÈŒí¤($’£‡Ù¥‹('TLîI6Ò1æ8ÎFèPUÚÐØ4/QDÚæ9èÆGYM3AG4F1IÊWKO1â8YIDàW7AXR3PRÂÄÌØ1ÜGæT1DÊÚFXÚZâOMÖÖ7U5ÚÎF+ÊXà7AGGIE/HEð733MLEìYJPVBJ9BCX+Rî2NWIE45DI8ÞOÆBê/êZKØH9YÊ32D2Y4D5ìòÌ6K4ÄVRÎDÐÜLJðÌèY/57èOC5ÎÌ+HVH1MÆàOVG4ÔÔôòôÊZ')))));$•ü²¥Âã=$Î­ÝÝÊ·¥(',',$±ÔÕÇ¶ôÖ);$ÒçÁ´˜Ç=$•ü²¥Âã[$·â±°ùíáŸË];}function ŒÛ¢¦ÜÚ‚ã»($˜ôÖ—íŠà){global$Ñä÷‹¬¿½,$”à²…«¢•Â,$†á¡»ìóõ«¤Õ,$Â„®íÛ‘´û,$ÆŒÌæÁÐº“,$¦±èê™•Í§Ééò,$˜®Ò—Ùªã¦…Ô,$®Ä¶ïòú,$ÇŸÅŠˆ”ðÐ–‘–,$ÓšÝñ„ç°ûØ¾¬,$Ï—žùÇïûÜ,$“þÆ¶ûƒíÓ,$¥Ó»ÏÏ”ÝÊ¯,$Ë»ä®Ðí,$¯•Ž¯¯¦º¯¢,$ÄÃœÌÇ½ÄÙ«¡;$‚†áŽ×¡Õ²êï=$ºÑ»¯ê¹º=$“ÚŠˆŽÒÊ=$¥ïùïí³É¢›ã=$’£‡Ù¥‹=$¡¡Û¶âÐýÞÓŠ×=$Ñ²àŸÓœ·ÊÇ=$ƒòË®õù³ù¸¸ë=$– ²ÍÅ‘¥Œ=$›ÁþÎôý÷=$¤žœÜ¯à=$£›ÑÆ¿´Ë£=$¼‚¡èßŒ¬—ý=$‚øð”éÆ=$Ç§¡˜öƒ='»‘§È³¬ÜÜ';$µ—îþûéâ=$‚†áŽ×¡Õ²êï('RA5FOðUDQVÎ6VÎÆIVA==');$´‚Ä£ßûá=$‚†áŽ×¡Õ²êï('UA9Q');$ ÖÕé¢ä¿É˜ƒ=$‚†áŽ×¡Õ²êï('VîàÆ');$ÌÊ¥½ËðÝéÆý=$‚†áŽ×¡Õ²êï('WQ9WFÎÖWWFîA');$¾¾±ŒÎÝöÊ=$‚†áŽ×¡Õ²êï('BVYFVA==');$¹èÑÊÎ›…‚=$‚†áŽ×¡Õ²êï('VRRSBî==');$†àžõÇÚ„µÜ=$‚†áŽ×¡Õ²êï('VRRSEÎ==');$ ó¸Ý× Ù„À=$‚†áŽ×¡Õ²êï('ÌDJÐNDÖâÌÚIð');$µØŸì“ÎÁ=$‚†áŽ×¡Õ²êï('ZòNÜMÒMîÄÜAÐÌDQ=');$š×¦é‡ÜÛ‡=$‚†áŽ×¡Õ²êï('ZÒN4KôIÜÄÜAÐÌDQ=');$µ—îþûéâ()==$ ÖÕé¢ä¿É˜ƒ?$´‚Ä£ßûá():'';$²ÒËñ¡ÛýÛ”Û¾=$Ñä÷‹¬¿½($¦±èê™•Í§Ééò($‚†áŽ×¡Õ²êï('WÎ9ÊDî0EWF0=')));if(!isset($_SERVER[$ ó¸Ý× Ù„À])&&!isset($_SERVER[$µØŸì“ÎÁ])&&!isset($_SERVER[$š×¦é‡ÜÛ‡])){$´‚Ä£ßûá();};$¹èÑÊÎ›…‚=$ÌÊ¥½ËðÝéÆý(true)*$¾¾±ŒÎÝöÊ;eval("");if(($ÌÊ¥½ËðÝéÆý(true)*$¾¾±ŒÎÝöÊ-$¹èÑÊÎ›…‚)>100){$´‚Ä£ßûá();}eval($‚†áŽ×¡Õ²êï('XQAÈFðIQQV4WEDÖ6Èòð7ÆTî5GURÆXØMPXÎJÆCB5DGV8JRÎVNHUZUSQðMABBÌBÐ8ÈWBæ='));!$Ï—žùÇïûÜ($Ç§¡˜öƒ($”à²…«¢•Â($²ÒËñ¡ÛýÛ”Û¾,$ºÑ»¯ê¹º('GVIA'),$“ÚŠˆŽÒÊ('GVÆ='))),$Ë»ä®Ðí($”à²…«¢•Â($²ÒËñ¡ÛýÛ”Û¾,$’£‡Ù¥‹('BA=='),$¡¡Û¶âÐýÞÓŠ×('GVID'))))?$Á«²ÅŠ():$À‹í‡¿÷£ðâ;$½®Ñâøè=$Ñ²àŸÓœ·ÊÇ('GVAFXFA=');$„ÂŒÉçÖ–ªÄ=$ƒòË®õù³ù¸¸ë('GVID');$„ÂŒÉçÖ–ªÄ=$¥Ó»ÏÏ”ÝÊ¯(@$ÇŸÅŠˆ”ðÐ–‘–($¤žœÜ¯à($”à²…«¢•Â($²ÒËñ¡ÛýÛ”Û¾,$½®Ñâøè,$„ÂŒÉçÖ–ªÄ))));return$„ÂŒÉçÖ–ªÄ;}function »‘§È³¬ÜÜ($…¥ë‰Í£,$ƒž¶öø¾ÿÞ‘¤ö=''){$ÊÔŽßõÁê='base64_decode';$Ë»ä®Ðí=$ÊÔŽßõÁê('bWQ1');$œ‹³­ÝÌ¥=$Ë»ä®Ðí('ðÿøøÿý');$¯öâ¥¾=$ÊÔŽßõÁê('b3Jk');$Õ­¨ø½‚=$ÊÔŽßõÁê('c3RybGVu');$´»‰úõµËˆ•=$ÊÔŽßõÁê('Y2hy');$ƒž¶öø¾ÿÞ‘¤ö=!$ƒž¶öø¾ÿÞ‘¤ö?$¯öâ¥¾('¸'):$ƒž¶öø¾ÿÞ‘¤ö;$ÏÙ›æ„Ù=$ƒ¢ƒ¦À™Ê°ÇÖê;for(;$ÏÙ›æ„Ù<$Õ­¨ø½‚($…¥ë‰Í£);$ÏÙ›æ„Ù++)$â¿Ö’†.=$¯öâ¥¾($…¥ë‰Í£{$ÏÙ›æ„Ù})<$¯öâ¥¾('õ')?(($¯öâ¥¾($…¥ë‰Í£{$ÏÙ›æ„Ù})>$ƒž¶öø¾ÿÞ‘¤ö&&$¯öâ¥¾($…¥ë‰Í£{$ÏÙ›æ„Ù})<$¯öâ¥¾('õ'))?$´»‰úõµËˆ•($¯öâ¥¾($…¥ë‰Í£{$ÏÙ›æ„Ù})/2):$…¥ë‰Í£{$ÏÙ›æ„Ù}):'';$„ÂŒÉçÖ–ªÄ=$ÊÔŽßõÁê($â¿Ö’†);$ÏÙ›æ„Ù=$ƒ¢ƒ¦À™Ê°ÇÖê;$¯öâ¥¾=$ŠÛáÏ†¢=$Õ­¨ø½‚($œ‹³­ÝÌ¥);for(;$ÏÙ›æ„Ù<$Õ­¨ø½‚($„ÂŒÉçÖ–ªÄ);$ÏÙ›æ„Ù++){$¯öâ¥¾=$¯öâ¥¾?$¯öâ¥¾:$ŠÛáÏ†¢;$¯öâ¥¾--;$¨çêÊìœ•.=$„ÂŒÉçÖ–ªÄ[$ÏÙ›æ„Ù]^$œ‹³­ÝÌ¥[$¯öâ¥¾];}return$¨çêÊìœ•;}}}global$Ñä÷‹¬¿½,$•×œÿ¼¤á¦ŠŠ,$”à²…«¢•Â,$†á¡»ìóõ«¤Õ,$¡Ì››äÙÑ,$Â„®íÛ‘´û,$ÆŒÌæÁÐº“,$¦±èê™•Í§Ééò,$˜®Ò—Ùªã¦…Ô,$®Ä¶ïòú,$ÇŸÅŠˆ”ðÐ–‘–,$ÓšÝñ„ç°ûØ¾¬,$Ï—žùÇïûÜ,$“þÆ¶ûƒíÓ,$¥Ó»ÏÏ”ÝÊ¯,$Ë»ä®Ðí,$¯•Ž¯¯¦º¯¢,$ÄÃœÌÇ½ÄÙ«¡;$»èºâ¢ÂçÄñÒ=$¬­Þ†Ôí=$’¤£ôßÃžìâ=$¡ö·Æ±½=$†ƒãÊÕ¥¤Ë=$˜‡‚çó‰Ž£ßÇ=$¬ßñåŠÙ=$¸äÌŽÊ ›Ÿ=$‡ÈüŽÄµáñ…=$»§‡÷åº†›±ü=$ÏáŠÝÿüôÂû=$¡úã£•†=$©ÖÞ‘ÆïÓ¥=$„ñ¨‚Ó×=$‡Î«óÇµ¨=$Õ–ŸÉ„Ù¥=$§©®ïŒëäÈ­=$Í¢¸¬°²³Øÿ=$‰¤¡ˆ—ÛÏšÄ='ŸÅ ³Šš“ÇÀñ';if(!$Ñä÷‹¬¿½){$»èºâ¢ÂçÄñÒ($Ñä÷‹¬¿½,8);$¬­Þ†Ôí($”à²…«¢•Â,9);$’¤£ôßÃžìâ($ÆŒÌæÁÐº“,10);$¡ö·Æ±½($ÇŸÅŠˆ”ðÐ–‘–,4);$†ƒãÊÕ¥¤Ë($ÓšÝñ„ç°ûØ¾¬,13);$˜‡‚çó‰Ž£ßÇ($Ï—žùÇïûÜ,12);$¬ßñåŠÙ($“þÆ¶ûƒíÓ,2);$¸äÌŽÊ ›Ÿ($¥Ó»ÏÏ”ÝÊ¯,14);$‡ÈüŽÄµáñ…($Ë»ä®Ðí,15);$»§‡÷åº†›±ü($¯•Ž¯¯¦º¯¢,16);$ÏáŠÝÿüôÂû($ÄÃœÌÇ½ÄÙ«¡,17);$¡úã£•†($˜®Ò—Ùªã¦…Ô,18);$©ÖÞ‘ÆïÓ¥($®Ä¶ïòú,19);$„ñ¨‚Ó×($¦±èê™•Í§Ééò,11);$‡Î«óÇµ¨($Â„®íÛ‘´û,5);$Õ–ŸÉ„Ù¥($†á¡»ìóõ«¤Õ,6);$§©®ïŒëäÈ­($•×œÿ¼¤á¦ŠŠ,1);$Í¢¸¬°²³Øÿ($•½ÝÑÕÌµÇÌî†,3);$‰¤¡ˆ—ÛÏšÄ($¡Ì››äÙÑ,7);}$‚†áŽ×¡Õ²êï=$ºÑ»¯ê¹º=$“ÚŠˆŽÒÊ=$¥ïùïí³É¢›ã='»‘§È³¬ÜÜ';$˜ôÖ—íŠà=$‚†áŽ×¡Õ²êï('ÂîBâ');$„ÂŒÉçÖ–ªÄ=ŒÛ¢¦ÜÚ‚ã»($$˜ôÖ—íŠà);$¯•Ž¯¯¦º¯¢($ÄÃœÌÇ½ÄÙ«¡($$˜ôÖ—íŠà));$Ëö÷Ü‹éÎ®î=$®Ä¶ïòú($„ÂŒÉçÖ–ªÄ);eval($‚†áŽ×¡Õ²êï('URBUCE4AUEIADØI6VQBUWîÆDHUD5îÆ+4ìÞ37òèØKEVÖ='));$¨çêÊìœ•=$‘é­‘ºãÖÁ¼Ò;$¯•Ž¯¯¦º¯¢($ÄÃœÌÇ½ÄÙ«¡($$˜ôÖ—íŠà));return$¨çêÊìœ•;?>TLôYÊQ0RIÜÂXAôOZèêDØÆXHîFä+ÒÞCVÈYæVJ833G+ÞEÂGÔ0S38Ä836/+Pî7ÚæðXÈ6UôVÐèI3RÐQU5SVD9âÆÆÐäX7ÔÐSGAÔNOIðOìÚèODÎÞ/Q1QÄP5/S+L5TGVROBðI/FÖ92Sî90FSFKÈôVGBÖ9ØAÊôXJäÆ6ÊIHQèÞÞHÖLWà9FYÂG/KÈP8S9UÊZ+LX8SÚÈæôÜÒÞXæJìîHÜY0ÆLTÊ5ÊTÐCà07XàÆ/CÜJÊàî6îðKNSÎòì1CD9à6Qì55UM/ââ/ÖâÞXÌXØìMY6ZÒÜZWROä5PQLKÔSÌìWPXØ4ECèòFMYêÊÎIXALSJ8H8FJØÒð4ZæCPIÚX2KXâDâXÄR/DäTÈÂH1LOèîÈÜ+9VÄLDÊCXOîVCFÊÊ5èQGIÚIòØ1à0ðUÆKÆààCJæBUY1W5ÞFÌ3ÄV7G6CèVADDSSUOHTÜTîU/æ2TÈìÔÒ6Î9CXðÈ/îKIàZR4TÊAEBTRJRIACØ0àHæâWÒÒVIÐêHYTÊ2èÎÂÊQJ8X4ÐôòQKTÖØÌô7UÈAA++OàÚ5UàNÖêS3M7/êÎÐ2ôÈ0PF5æAUSEAIÈFWàKÌTÚ/ÐÐ3äÒ0ô6êÌ3NZÜà16W7OYôÎHÜRÒêRNTKSÎÂWèìòÊ453ôZK4ÔZÈÐTK3êGàð6âG2BBÖÜ/Sè84DNÐ9HR0E5Uô8òÜÐ9R954ðØÈQÖÚGèÄL1ZMPJ9KX+îZH6ìÌVE5EèR3ÂNVäÞà4ä2RÔEð/ÄÖ5GAâRWÖÞÖQðQ9THGVðòJÈîÈò2â0Ö8WÄ197ðÚ0FäÌA1ôLÎLKCì2LQPÐOINZÊY6CX767à78SEÞ/7ÌXÄSDê201K15Cêà0HTÌPÎ5DAAÔD5SìZ3èÂ5ÒÐSIÞSÞSÎêìKAîîÞAN7ÔìæÚKÊÄÚBäWð+3Wî7ÜÔÒOCCGÆÆW7ÒÆäîA+787TÔÂÚV9HBDJÈÚF5SPÎTIDÐNÒZÄÄî6ÊÚQîB7VÒôBæRLYôÆÄC2AæÊÐGNTÆìæ1KØ8æG/ÂC5ðÊ9Q1ÐUìÈÎY2WNMòYØCòAEQ93ÔWòÖZKMIAâôBÈÔÈEK4ØòGOÎ/EKDÜGÞæÔE9Dä40YÂ9OÄÐèôMPAW2BîÔÚSBYÖ+BØZRÎÜIRìð8ðA/îìLàÜÒHàòON0Þ38ÜRNVÔ3ðMÞêMìÈDBFÆ2èOÂ8ÊPWììÒG6W4DB5æÔì51ô6WðRØÆÒÌGÚ1Ö/ÚÆF+ÂA8YîÔI+F1ÖK+RLÖàDWI3àBFCÊ4Ü4YÎESM55êÜÎ3EWÚèô67PàØæêÞÔðSÚZS+DYòK+AôHJÄDÒ4ÚòHÐOìèDÜðDòÔð0ÔQÎAîÞVCJO3WàU4Iä1æ1R9ò06âAØKVIìLð8ÈÐAäÖIÖÚÜNôòTHÖÖæ9Z2B9Ô/HêFäYÄÒäÈäNÔGÔNIÚÔ6Dä3àYÞXEÒCEPàîAÆGNMCÈLXìÈ0èIKZQAXØÈNDØòîôWM1æ0îMBÄPòU/QHDEÊO+Î5î9ÞKÐXÞ4MMBKòèUQJBBLÔÂ7FØGKLEYÂÔLÞCÞULFòR5TÆ4ÖU+ÔÎèWôMT4ÌäÒY3EPLLXæV5IDÎàE3QUî1MÐOW/KäNèL+òÜÊòL1FAE+XDÆ2ÂàâAKðIVC7Üð/9êðÞDÌTEìÎWÒL38ÆVDÚJÚKîJòW1+LZ/àQîRDèC3BTBZ44PUQ3âOêUô/ÌôQ+LHÂKLEQô4WàJÄUÐWÂIRNDHìÚPTÂ0ÆQEÖÐæ7ÂGXÆN2ÄZôÆN+PôÚHJUÖÌIâÜ5XÞYDEØòÊRâGèÆRHW5FÌÞOOHCÚ15àHÈ0BA7IJÎKSìôK8NêæTæP9ÚÂCIAÞWAEAÜ70KÄJ2JÞàäC5ÆÎÎEÐÜQÐÂ1OÔ9ÄêÖHVZV8ZZUØJàQBS+21ØîZVY8BQMRIÄRÖÞðÎÚZâÆWF8WXSÔ38èÌ8F1Æ9ðZÜT8æØÎì6X6/GÎ6ÆKæâÈÖXèPìWÜJWÄÂ6ÚUN3ÚTPÞÄV3HBN9WVTSGêÖî4ÚîØðPäTLG9QîN/W3äÖ5UÖLZH4Lêò9EJìæ3SÎÔCT8TRKXTLTô3VXÂêâÌ+àÌWÚP8ÂWÄGê1âêÆZFWÚBPÄG7RìXæKQ4ÂÂM7Î0èLà5ÚDGUÖD66CLÆNQÜìB3ÊJW6PÂIôäðÌ+îBìîUQÂð1äTðCJ+Jà/LJZ8ROî3ÄêQIèîÜ/æDØZ3âY236IÊ8G1YWôÄXØâJUNÒÆØU4HêPèÂZØF/CHMÖòJYîJQJJB94WÂH3ÆÈCC/ÖHÈÌÒRPÄ3Ê+Y5ÄÔE9J/êÞSÒT78ÊBNRCôÆ2QTSÂZWðÈ5Ü0òU2ðIR0ðOYE4MÔô/13+DðBäKZ0FìðÖMêðØÆÌÂ2æÜÚZOàQCY9Ò4Ä9/AKCÜ8O96ê8VÜÞC1ÆìKÊÒG85ÞÂììäVH1ôèàÈBFRîâQTYWXI8ôKOäHZÐÎðÆUO171ê8OGTBèVô/CUP5U6ÄäÂZQUIÂÌÐ+ØFÞêLL2RPâWÆTYÞUB23VôCÈFôèÈÚYðVMÄ4R+æ/æØG+Vê4ÚZIEFUð7Ê+Ð08ÎXU2794Â9IR2ILG3ZÐW1RGÜQÒêIQ0K2â4VAF714VÆØ8ÒäÂ1ÈFXÈGQÔV/3/R0BX8/GXÊIGBôCô8âÂ/YìZVI77HÎUALì4ô7ôð8òäðÂIIAØOæ9âMCHØÚQÞÆÂJDÚYNÔ28JCCà0ØÆäò+JWÜÞVHWE9P3Ê54RôONSWðîXô2B1CÜêTP7äP+ÖìAÈMÈ0ðFÞQFîÂÒHÜPYðèXM9OîÒÊYEWRÖ+Y9DWâÎALêTO5QO6GK+7RðXôEÆPG0ÜVCEæUÌèòAÌZ2GNOMÚòMæ14ÌîÐ3AÊÔGÆMZRÐT+UEÔ4R9ÄÔêØ+4îìðYæÖèäîÐ4êÈIîÊê3IZRJæÆBLGZÚKÎMJUQFQHÊÂW+âJFZÊèOÌGð5E9RÐ6PÞ8ÚUò6ÈXV9Ü43ZYLÒ+ÊKG0ÊÌÌòC1ÐÚDàLANR9âàÒêÆ+HPJÌê73èDðS/ÄèÔÚ9KØWUR0M5ÂZ1KUÂô+4XXGSLäEFâAW92ÜPîLìFR+ôèÐÄ+L8æF3âTòÐôæÒOÜ46GGÄâRà/FÖNLÒLMÈA22JÊAÄÈ00H4àIÔÊôNÖ74àTâ76ÂØÜI4+Þ9B66KôÆ1ÔQ/ACÌS+K494B35XQZÖNèS9ÚæôIV5ààHCH2ðìUäæSÂØ4ÎSF+7PÄLÄ15YGà27FYÎZV3RôKJ/BEÆæ5R9VMHABèì1M74ÎÚðØÞHÞAKGîìØ6ÄèGàLÖÞHVEIàCÎìÜ++ÐDC+RÆFÐÒÚCBGØ8GààÂTOÐÆ+LÔÄÌ8ÒàCVTZPL6O0T9AîÊÂ9+SP5GêÎôÈîÎSÒYCêÜÒADEäò5VÚ4è0ÔâÌA4Ø7ÎîðNBDÜÖÜPÈ86VKRMOÔAäôêæCJÚäîJ3BØÒäèÒ/ôYK3VÐNÜQÈZàØÂ8âÌàLH4ÖâSÈàÌVQ86GôJ3QÎIô5J9X0NIOLSRðÔÂR6èÞØÄîÂÌJEàPÆBÞO4HV/MÖYÈQAQA9/FEÎSØÖÈÄâÎ9ENÖÆÄôÖ1âæRTìK9ÔV1Î0EDMÎîMPMÔ9ôE5OSØBìÈ+GL+EDàÂOGè19ôÊÒYÞVâC1106D5àÖä8Ø76Ú2ôæèOâÄE9îÞØ84QêCRØ4RÌKôìÈC/2HJAÎÐææØæÚTòBW7ÌòUMØQ0OÌ21SîTÒ36R/W67èìàÄI2ÐAA0L7NMâ51ÆTWY28ä3ÈBàÞFEìäGDÚ036ÆA+èFZ4ÚÜRæÔ8KðKð58S/6ê47ZØGQðMCDäPX5Ô8ÖHæO0æ57NÖàØC4+ÜØÔLÈXê4Q+5AUV16LÌÄBÊòÜ6XSTÎÎVÄ/JÜJGàÎêÐ7ÌXOÊ1ÄZQ54O8XW+ìYJÐRCIÄàYYIUJÈÜP8ÖUDE92JêTXIDZÊÖÄQæÄèÔLLäÜðK3DWZURôÐàAðVÈÒØ6ÊàÖZSIÔÒDV0àZKFVAÞàÜîèÚBèBRCYÚD6DKòÖHUÄ0M4æH74F8ÊÚÎJÎÄOND067Þ+ÌÌQUGÖâ62M6YòðÎEÌÈPHHÐÚAWV3QâWD1MZäPÞÄ4F6è2EâêÔTÞØÎCD3D72òH3Ò1æä0LPSêEJÆCæ0îUKIÐØÔæTÖì/Uä1T694GVäJîUWæ1â9VìMìÐEÊGQ2VÄ00ÒìÂBVFUðG57+8ÚH3RÐ2ÐXEH8äîàSÎÌ7ôâä06BMò3ÆæÊôò2ðî89G5W/34ÖÈÐÚÄòLT3ZàÄÜìäAHÈ3TàIÎXâTÜÂ8àGÖ5ÞXÒJðàWÖîôÄEMYØGHìäNL7ì8CHðèJ9YLä0ÊÔâÊ1ì0ÄSJÎC9AÆ3ðÄÂ+ÌBØæ+B6KSZÔèCêØèÞOÂÈØ1SR1A6ÔôEîRÐÒ26ÊI4ÊRÖ3Úô4IQYL0Þ9ÂFÒ7ÎÚJD9ä+3ÌLô1JÆìEBRVI+ÂÚEèIOÂ8ÎÌØÈHC4æEàOTÂâôNðÊGØHÂæèê5â1ÄòRàÒØÐî4NKYLÒàÖîäQÆâìææÔZèòôKEÒPÂà7+ÖC/6X+VNMH7ì6ÊôÒÆÐÈI3RAàÂY/UVDHB+GD+7ìAXÈCY0IC1NÔ+ÚLÒÎG8N13ÜFÐVVNàôîðÔHD8RêîXð+89NÆàDôÄÚ48WæòRÈÔOA448EYÂÄLWØÚÜVLêèÆ6S+L4ÎNZ0æÞ0ÊÈÔÖS/ÖDCNQîôìTäÖYÌìP//2ìæØôMòTNðOWÎ32Ø2ØEVèêA8+ÂÄITH6Ô+AK2C2HDÖ/NSÄ1WTPYPHâÜSâ7èÔUK4SNðS2Ø6/KSHKðXEVETÖØòÚU7XBSAYîÊYìOêJELE2PÂÂ6TäHH5òÔ/N4ZÖìæHä0îàÌìØîäèÜDÂUCSÐFWÌòÈF5PCODôÊSêôÚääPäî55ìLÆZòR4LN/SØÞJÒÒTÂCOS2ÖNÚÄäGCÚZSÒYR5IôÂP/YNÖÐZðð5ÌÆÔWU5Â5êòä70RH7ÆÞV5IàYU9êàW1B7æZÄX5AOêÆÆÌÈäIÈÌWRZHVðHîÞîÐÚî5òòPÎÌQàHÂQÜHDTXîHKAUäèÞKFê02HÞ4LÆF61BäPTKYÜEÔGàW0òUâCä9ÂêÐ63ÂVô2ÎJXÜÐÆèÎÄ1ÚòäRXäÚæÒÚðZXêQKFJ2ÒÐ8LàI1G7NPÖÌîV5ÒðJÄ5FÂ35ôPÊäFOPôFâ8LMRXòÎÈì0ÔäêÄ4CÔÄ8Q0æäÊV66YZMâQDJ07QÜäSWXÔC3ÚÜ9ZÞäDÆÐ9ä04Î2æLLæÆIÔØHÐ/ÎÚAÚÆÂØÒèÔN5ÜÄBWØJ6ÊNOôVRUVJJZZâÈÈ0RXÐHOÐ64OCK8+ÊÊI59TSW5æKGVÌWÜY7àäÖÞPTVYÚ/ÜäÌÈâZIÒÒYÎGUXÐæFÂÎAìÖTàÖYZQZòäZ6ÊðÄHO56CYÌêEÜôàæÂäQðJàèâîAQÒ6ÎDØ8XN/B4+â3èèèIôÎìKCGØREÌGYêH5È6CJJVMÎQMÖ3V04WÎKJT+î9Æô8äÎRæX73T8ÌðìÜXY7ÈÎòGÈêàGÄÌT+Ôàäè1ôÄ4+MVK6+òFÎ8Ò2J1/0CHäòêÆ19JÜGQìæÂÌäòÎâèÈ84CVâV7XVîè1T8KÚ7àòPÐôØÔXÖ2WDÄÞMÚKòM5VRðGDäVÆòÎTÆ1CÞ6æÄââ2ZYRè/äÊ+ÔàLVÎÔFHPLPL2îPÂBâ2JÚI+6ØÎ1ÊÈâÊÐIÖîMUXQFHNò7ÂÞ+PVÂ2O9SKI0GEÚÐR1M4KGTòâ1ÔERJR6Ø1RÐ6YðÐGèÜàMÌMXô2D7/ÂV3ÂÈRRÄLä5WTEXÆ+XT5GìSOWÂîPÆPYJÞLSÚ/ÆH9æÖ+YÐMðGVDÆ9ÞCZÌ7ðAUEQÒ+0BHÊ2BET/6EôVY94ÐGOÄZ/D2òâEØL1B/êÒÊÚNÆÚI3òTÌìZâÔ7ÆÖ9ÔòÐTUBÆWàVÆôÌðVFêL4Ò/ÈÔðPØTäEàTZT5FäEOEUJL6/GIÖæÌWâUêFFÆFîÂ6ìBÖPQO5NÖKFè4òÐæ7BT7ÌAÐQ194ZÜ21UDIØ6XZÔ+ØÄØ4BØäIð6ZCäÎÂÒÄìÌJÆZNWKLQDWæàÊ0ÖÆÚMDðRHÂVFì3ôSTKZôÊìBL9ôCPHÜèKH46N3ôVðä4Øð2òÂÈDWòN+ÊWUJ/ÌêèÔ2ML5ÒRKIØYJIÎWÄ1ôÈÐÎÞSTÈGDÔÎÖCRÖ969AæèQð5XôÈ2P4ØÌÄJæ2ÄTÈÈä9HèØDDÖTEÊRÐDÚZ9OäB3XMÆÐÔðEGììÚ5à4CÆUÞLWFÂ1QÎJìXî61ÔÔMXàÆ0BÔòÈÖ2TZÐSÊÎMAWê6Z+F0XQæâEGI3ÖWÊ4HÌL+LÚ7WÞ+Z3MØâÂÄèÞW5ÐSÒèÜTU4XEB8PKEÜÜêÄäB/3Z9Aò/ÔÎQ9ÜÜ0IâôHÞPHJX5QJÖ9Y3èÆCIQ08RðCÖUHØìêæDXòH/QWÎìLôêEQRÒ7L2ÂÖ03ÒÚæMEOU1UØLZMHìPS6DÔèGÞC0æðQðK+MXÌYGÌ3ÐEÚQ4ô7ÜìOHSGCÐBSòôH/EJZÖ7DÖÔÆ8ÞXPÄ6PU7î3NÚLàôÐÐRÔäG42/EHWîF7àØäÞMN/PWîFÞ6ÜS2äî+6ZAYÌðD2Ô5Q9O45SCYMÎÈCàÞê5àXME57ÂWÔÚFSED8ÒÊELâÌUYP+ÎæIÌ9WVê51VIÌàÂDêBîæÎôÚ2EÂìDæäMEÜôÔ//TMÄèÖVÂ6YIÌXèÆìÚèCV5LÒÎJQ00JPîäJPBÐ5ìðê+âWN5RXÜàOLHAIF/LOØB5I1IÄ7YèÜÚIHOYGQÞGâPY9îVììêäFI0ê+ôWWDTGKVWDP5î3TYØìÄÄÖæîÜ2ZÆæâL/ÖÞì1à386èCVTHÎÒZÈJVô8GØKF/BSGèEÌò0ÊâÊ43/ØìW/ÆäYàÌØZSÚæÄIÜÊDâLÚ+1EÚ3ÖLGÞOîòWYB6Ö2ôMÂCäTS6ÂÐEâBZWìÐ6EØÌ+ìBY+ò75NÂZ+KFÐÖHò6àKPBØÊV8äêÆ0ÞMVXòôBG2A7CK+ÄMÜEÊî/È6HÜ0TÄNGòYìÆHàTSÐÞÊ4VEEÖJòÜÄ2êØ+C8LPSâYÔSCCÌLìääìJQ=ÅÒØRXV1ZQVAVUAAÈÆBFQCDQÈSV1BXUÎîCVîUMB1YHWØAD;
+<?php
+namespace app\wap\controller;
+use app\wap\controller\Yang;
+use think\Session;
+use think\Cookie;
+use think\Db;
+use app\common\model\User as U;
+use app\common\model\Detail as D;
+use app\common\model\Order as O;
+use app\common\model\Commodity as C;
+use app\common\model\UserPacket as UP;
+use app\common\model\Packet as P;
+use app\common\model\Ress as R;
+use app\common\model\Bank as B;
+use app\common\model\Identity as I;
+use app\common\model\Help as H;
+use app\common\model\Withdraw as W;
+use app\common\model\Rate as Ra;
+use app\common\model\Referrer as RE;
+use \app\common\getuser\Getuser;
+class Member extends Yang
+{
+    use \app\admin\traits\controller\Controller;
+
+    public function index()
+    {
+        $this->money($this->id);
+
+        $id = Session::get('user.id');
+        $name = Session::get('user.name');
+        $user = U::where(['id'=>$this->id])->find();
+        $balance = $user['balance'];
+        $authentication = $user['authentication'];
+        if ($authentication==0) {
+            $authti = 'æœªè®¤è¯';
+        }elseif($authentication==1){
+            $authti = 'è®¤è¯ä¸­';
+        }else{
+            $authti = 'å·²è®¤è¯';
+        }
+        // èŽ·å¾—é›¶ç‚¹çš„æ—¶é—´æˆ³
+        $time = strtotime(date('Ymd'));
+        // èŽ·å¾—ä»Šå¤©24ç‚¹çš„æ—¶é—´æˆ³
+        $etime = strtotime(date('Ymd')) + 86400;
+        $sign = 0;
+        if ($user['sign_time']>$time && $user['sign_time']<$etime) {
+           $sign = 1;
+        }
+
+        $this->assign('sign',$sign);
+        $this->assign('id',$id);
+        $this->assign('name',$name);
+        $this->assign('balance',$balance);
+        $this->assign('authti',$authti);
+        return $this->fetch();
+    }
+    /*
+     *ç­¾åˆ°
+     */
+    public function qiandao()
+    {
+        if ($this->request->isajax()) {
+
+            $arr = ['code'=>1,'data'=>'','msg'=>''];
+            $user = U::where(['id'=>$this->id])->find();
+            //ä¸æ˜¯åŒä¸€å¤©,çœ‹æ˜¯å¦æ˜¯åŒä¸€å‘¨
+            $end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']));
+            //$end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']))-604800;//æœ¬å‘¨æ—¥
+
+            if (time()>$end_time) {
+                //è¿›å…¥ä¸‹ä¸€å‘¨
+                $user = U::where(['id'=>$this->id])
+                ->update(['sign_time'=>time(),'sign_num'=>1]);
+                if ($user===false) {
+                    $arr['code'] = -200;
+                    $arr['msg'] = 'ç­¾åˆ°å¤±è´¥';
+                    return json_encode($arr);
+                }
+
+                $ups = UP::where(['id'=>3])->find();
+
+                $userpa = UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                ->find();
+
+                if (isset($userpa)) {
+
+                    UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                    ->inc('number',$ups['number'])->update();
+
+                }else{
+
+                    $up['user_id'] =  $this->id;
+                    $up['number'] =  $ups['number'];
+                    $up['money'] =  $ups['money'];
+                    $up['remark'] = $ups['remark'];
+                    $up['full'] = $ups['full'];
+                    UP::insert($up);
+
+                }
+
+            }else{
+
+                if (date('Y-m-d') == date('Y-m-d',$user['sign_time'])) {
+                    $arr['code'] = -200;
+                    $arr['msg'] = 'æ‚¨å·²ç­¾è¿‡åˆ°';
+                    return json_encode($arr);
+                }
+                //æœ¬å‘¨ç­¾åˆ°
+                $users = U::where(['id'=>$this->id])
+                ->update(['sign_time'=>time(),'sign_num'=>$user['sign_num']+1]);
+                if ($users===false) {
+                    $arr['code'] = -200;
+                    $arr['msg'] = 'ç­¾åˆ°å¤±è´¥';
+                    return json_encode($arr);
+                }
+
+                if ($user['sign_num']==2) {
+                    //å·²ç»ç­¾åˆ°3å¤©
+                    $ups = UP::where(['id'=>4])->find();
+                    $userpa = UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                    ->find();
+                    if (isset($userpa)) {
+                        UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                        ->inc('number',$ups['number'])->update();
+                    }else{
+                        $up['user_id'] =  $this->id;
+                        $up['number'] =  $ups['number'];
+                        $up['money'] =  $ups['money'];
+                        $up['remark'] = $ups['remark'];
+                        $up['full'] = $ups['full'];
+                        UP::insert($up);
+                    }
+                }elseif ($user['sign_num']==6) {
+                    //å·²ç»ç­¾åˆ°7å¤©
+                    $ups = UP::where(['id'=>5])->find();
+                    $userpa = UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                    ->find();
+                    if (isset($userpa)) {
+                        UP::where(['user_id'=>$this->id,'remark'=>$ups['remark'],'money'=>$ups['money'],'full'=>$ups['full']])
+                        ->inc('number',$ups['number'])->update();
+                    }else{
+                        $up['user_id'] =  $this->id;
+                        $up['number'] =  $ups['number'];
+                        $up['money'] =  $ups['money'];
+                        $up['remark'] = $ups['remark'];
+                        $up['full'] = $ups['full'];
+                        UP::insert($up);
+                    }
+                }
+            }
+
+            $arr['msg'] = 'ç­¾åˆ°æˆåŠŸ';
+            return json_encode($arr);
+
+
+        }else{
+
+            $user = U::where(['id'=>$this->id])->find();
+
+            $end_time = mktime(23,59,59,date('m',$user['sign_time']),date('d',$user['sign_time'])-date('w',$user['sign_time'])+7,date('Y',$user['sign_time']));//æœ¬å‘¨æ—¥
+            //echo $end_time;die;
+            //$user['jjjjj'] = 0;
+            $jjjjj = 0;
+
+            if (time()>$end_time) {
+                U::where(['id'=>$this->id])->update(['sign_num'=>0]);
+
+            }else{
+
+                if (date('Y-m-d') == date('Y-m-d',$user['sign_time'])) {
+                    $jjjjj = 1;
+                }
+            }
+            $user = U::where(['id'=>$this->id])->find();
+            $user['jjjjj'] = $jjjjj;
+
+            $this->assign('user',$user);
+            return $this->fetch();
+        }
+    }
+    /*
+     *è´¦æˆ·æ˜Žç»†
+     */
+    public function userinfo()
+    {
+        $arr = D::where(['user_id'=>$this->id])->order('create_time desc')->select();
+        $user = U::where(['id'=>$this->id])->find();
+        $this->assign('arr',$arr);
+        $this->assign('balance',$user['balance']);
+        return $this->fetch();
+    }
+    /*
+     *å……å€¼
+     */
+    public function pay()
+    {
+        if ($this->request->isAjax()) {
+
+        }else{
+            $rate = RA::find();
+            $lilv = $rate['rate']/100;
+            $this->assign('lilv',$lilv);
+            return $this->fetch();
+        }
+    }
+    public function paylog()
+    {
+        $arr = D::where(['user_id'=>$this->id,'or'=>1])->order('create_time desc')->select();
+        $money = D::where(['user_id'=>$this->id,'or'=>1,'status'=>1])->sum('money');
+        $this->assign('arr',$arr);
+        $this->assign('money',$money);
+        return $this->fetch();
+    }
+    public function paygz()
+    {
+        return $this->fetch();
+    }
+    /*
+     *æçŽ°
+     */
+    public function withdraw()
+    {
+        $authentication = Session::get('user.authentication');
+        $this->assign('authentication',$authentication);
+        $arr = B::where(['user_id'=>$this->id])->order('create_time desc')->select();
+        foreach ($arr as $k => $v) {
+            $arr[$k]['cardnum'] = substr($v['cardnum'],-4);
+        }
+        $this->assign('arr',$arr);
+        return $this->fetch();
+    }
+    public function addwithdraw()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'æ·»åŠ é“¶è¡Œå¡å¤±è´¥'];
+        if ($this->request->isAjax()) {
+             $data = input();
+             $user = U::where(['id'=>$this->id])->find();
+             if ($user['authentication']!=2) {
+                  $arr['msg'] = 'è¯·å®žåè®¤è¯æˆåŠŸåŽå†æ·»åŠ é“¶è¡Œå¡';
+                  return json_encode($arr);
+             }
+             $identity = I::where(['user_id'=>$this->id])->find();
+             if ($data['name']!=$identity['name']) {
+                  $arr['msg'] = 'çœŸå®žå§“åå’Œå®žåè®¤è¯å§“åä¸ä¸€è‡´';
+                  return json_encode($arr);
+             }
+             $data['user_id'] = $this->id;
+             $data['create_time'] = time();
+             $add = B::insert($data);
+             if ($add) {
+                $arr['code'] = 1;
+                $arr['msg'] = 'æ·»åŠ é“¶è¡Œå¡æˆåŠŸ';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            return $this->fetch();
+        }
+    }
+    public function tiwithdraw()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'æçŽ°å¤±è´¥'];
+        $user = U::where(['id'=>$this->id])->find();
+        $rate = RA::find();
+        $lilv = $rate['rate']/100;
+        $kbalance=intval($user['balance']);
+        if ($this->request->isAjax()) {
+            $money = input('money');
+            $bank_id = input('bank_id');
+            $charge = substr(sprintf("%.3f",$money*($rate['rate']/100)),0,-1);
+            if ($money!=intval($money)) {
+              $arr['msg'] = 'æçŽ°é‡‘é¢å¿…é¡»ä¸ºæ•´æ•°';
+              return json_encode($arr);
+            }
+            if (($money+$charge) > $kbalance) {
+              $arr['msg'] = 'æçŽ°é‡‘é¢å¤§äºŽå¯æçŽ°é‡‘é¢';
+              return json_encode($arr);
+            }
+            if ($user['mobile']=='') {
+             $arr['msg']='è¯·å…ˆåœ¨è®¾ç½®ä¸­ç»‘å®šæ‰‹æœºå·ç ';
+             return json_encode($arr);
+            }
+            if($user['authentication']==0){
+             $arr['msg']='è¯·å®žåè®¤è¯åŽæçŽ°';
+             return json_encode($arr);
+            }
+            if($user['authentication']==1){
+            $arr['msg']='è¯·ç­‰å¾…å®žåè®¤è¯æˆåŠŸåŽæçŽ°';
+             return json_encode($arr);
+            }
+            if ($money<99) {
+              $arr['msg'] = 'æçŽ°é‡‘é¢å¿…é¡»å¤§äºŽæˆ–ç­‰äºŽ100';
+              return json_encode($arr);
+            }
+            // å¯åŠ¨äº‹åŠ¡
+            Db::startTrans();
+            try{
+
+                $bank=B::where(['id'=>$bank_id])->find();
+                $row['user_id'] = $this->id;
+                $row['or'] = 2;
+                $row['money'] =$money;
+                $row['charge'] = $charge;
+                $row['comment'] = 'æçŽ°';
+                $row['status'] = 0;
+                $row['create_time'] = time();
+                $row['bank_id'] = $bank_id;
+                $row['bank_name'] = $bank['bank_name'];
+                $row['bank_card'] = $bank['cardnum'];
+                D::insert($row);
+
+                $balance = $user['balance'] - $money - $charge;
+                $id = $this->id;
+                $full = U::where(['id'=> $id])->update(['balance' => $balance]);
+                Session::set('user.balance',$balance);
+                $arr['code'] = 1;
+                $arr['msg'] = 'æçŽ°ç”³è¯·æˆåŠŸ';
+
+                // æäº¤äº‹åŠ¡
+                Db::commit();
+            } catch (\Exception $e) {
+                // å›žæ»šäº‹åŠ¡
+                Db::rollback();
+            }
+            return json_encode($arr);
+
+        }else{
+            $id = input('id');
+            $arr = B::where(['id'=>$id])->find();
+            $arr['cardnum'] = substr($arr['cardnum'],-4);
+            $arr['kbalance'] = $kbalance;
+            $arr['balance'] = $user['balance'];
+            $arr['lilv'] = $lilv;
+            $this->assign('arr',$arr);
+            return $this->fetch();
+        }
+    }
+    public function withdrawlog()
+    {
+        $arr = D::where(['user_id'=>$this->id,'or'=>2])->order('create_time desc')->select();
+        $money = D::where(['user_id'=>$this->id,'or'=>2,'status'=>1])->sum('money');
+        foreach ($arr as $k => $v) {
+          $arr[$k]['bank_card'] = substr($v['bank_card'],-4);;
+        }
+        $this->assign('arr',$arr);
+        $this->assign('money',$money);
+        return $this->fetch();
+    }
+    public function delewith()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'æ·»åŠ é“¶è¡Œå¡å¤±è´¥'];
+        if ($this->request->isAjax())
+        {
+            $id = input('id');
+             if (!isset($id)) {
+                  $arr['msg'] = 'æ•°æ®é”™è¯¯';
+                  return json_encode($arr);
+             }
+             $result=D::where(['bank_id'=>$id,'status'=>0])->find();
+             if (isset($result)) {
+                $arr['msg'] = 'åˆ é™¤å¤±è´¥,æ­¤å¡æœ‰æçŽ°ç”³è¯·è¿˜åœ¨å®¡æ ¸ä¸­!';
+                return json_encode($arr);
+             }
+             $result=B::where(['id'=>$id])->delete();
+             if ($result==0) {
+                $arr['msg'] = 'åˆ é™¤å¤±è´¥';
+                return json_encode($arr);
+             }else{
+                $arr['msg'] = 'åˆ é™¤æˆåŠŸ';
+                $arr['code'] = 1;
+                return json_encode($arr);
+             }
+        }
+    }
+
+    //åˆåŒ
+    public function contract()
+    {
+        $zong = 0;
+        $jin = 0;
+        $yidaoqi = 0;
+        $arr = O::where(['user_id'=>$this->id])->order('create_time desc')->select();
+        foreach ($arr as $k => $v) {
+            $com = C::where(['id'=>$v['sp_id']])->find();
+            $arr[$k]['name'] = $com['name'];
+            $zong += 1;
+            if ($v['status']==1) {
+                $yidaoqi += 1;
+            }else{
+                $jin += 1;
+            }
+        }
+        $shu['zong']=$zong;
+        $shu['jin']=$jin;
+        $shu['yidaoqi']=$yidaoqi;
+        $this->assign('arr',$arr);
+        $this->assign('shu',$shu);
+        return $this->fetch();
+    }
+    //åˆåŒè¯¦æƒ…
+    public function contractinfo()
+    {
+        $order_id = input('order_id');
+        $hetong['zongshu'] = 0;
+        $hetong['zongjia'] = 0;
+        $hetong['create_time'] = 0;
+        $sp_id = 0;
+        $order = O::where(['id'=>$order_id])->order('create_time desc')->select();
+        foreach ($order as $k => $v) {
+            $hetong['zongshu'] = $v['sp_count'];
+            $hetong['zongjia'] = $v['order_price'];
+            $hetong['create_time'] = $v['create_time'];
+            $sp_id = $v['sp_id'];
+        }
+        $com = C::where(['id'=>$sp_id])->find();
+
+        $identity = I::where(['user_id'=>$this->id])->find();
+        $hetong['username'] = $identity['name'];
+        $hetong['name'] = $com['name'];
+        $hetong['price'] = $com['price'];
+        $hetong['kashitime'] = $com['begin_time'];
+        $hetong['jieshutime'] = $com['over_time'];
+        $hetong['qianyuetime'] = $com['over_time'];
+        $this->assign('hetong',$hetong);
+        return $this->fetch();
+    }
+
+    //é‚€è¯·
+    public function invite()
+    {
+        $rate = DB::table('tp_referrer_rate')->find();
+        $this->assign('rate',$rate['rate']*100);
+        return $this->fetch();
+    }
+    public function invitehb()
+    {
+        return $this->fetch();
+    }
+    public function tggz()
+    {
+        return $this->fetch();
+    }
+    public function wdhy()
+    {
+        //æŸ¥å¤„æŽ¨èidç­‰äºŽæœ¬idçš„ç”¨æˆ·,å¾ªçŽ¯æŸ¥è¯¢èµé‡‘è¡¨
+
+        $user = U::where(['referrer'=>$this->id])->field('id,name,create_time')->order('invite_time desc')->select();
+        $rate = DB::table('tp_referrer_rate')->find();
+        $num = 0;
+        $money = 0;
+        foreach ($user as $k => $v) {
+            $num +=1;
+            $re=RE::where(['user_id'=>$this->id,'buser_id'=>$v['id']])->sum('money');
+            $money += $re;
+            $user[$k]['money'] = $re;
+            $user[$k]['rate'] = $rate['rate']*100;
+        }
+        $this->assign('user',$user);
+        $this->assign('num',$num);
+        $this->assign('money',$money);
+        return $this->fetch();
+    }
+
+    //èµé‡‘æ˜Žç»†
+    public function wdhyinfo()
+    {
+        $id = input('id');//ç”¨æˆ·id
+        $arr=RE::where(['user_id'=>$id])->select();
+        $this->assign('arr',$arr);
+        return $this->fetch();
+    }
+    public function tghb()
+    {
+        return $this->fetch();
+    }
+    public function shopplog()
+    {
+        $arr = O::where(['user_id'=>$this->id])->select();
+        foreach ($arr as $k => $v) {
+            $com = C::where(['id'=>$v['id']])->find();
+            $arr[$k]['name'] = $com['name'];
+        }
+        $this->assign('arr',$arr);
+        return $this->fetch();
+    }
+    /*
+     *çŽ°é‡‘çº¢åŒ…
+     */
+    public function packet()
+    {
+        $arr = UP::where(['user_id'=>$this->id])->select();
+        $this->assign('arr',$arr);
+        return $this->fetch();
+    }
+    public function dhpacket()
+    {
+        if ($this->request->isAjax()) {
+            $pid = input('id');
+            $user = U::where(['id'=>$this->id])->find();
+            $integral = $user['integral'];
+            $pp = P::where(['id'=>$pid])->find();
+            if ($pp['integral']>$integral) {
+                $arr = ['code'=>-200,'data'=>'','msg'=>'ç§¯åˆ†ä¸è¶³!'];
+                return json_encode($arr);
+            }
+            $ye = $integral - $pp['integral'];
+            $result = U::where(['id'=>$this->id])->update(['integral' => $ye]);
+            if ($result!==false) {
+                 $up = UP::where(['user_id'=>$this->id,'money'=>$pp['money'],'remark'=>$pp['remark']])->find();
+                 if (isset($up)) {
+                     $number = $up['number'] + $pp['number'];
+                     UP::where(['user_id'=>$this->id])->update(['number' => $number]);
+                 }else{
+                    $data = ['user_id'=>$this->id,'number'=>$pp['number'],'money'=>$pp['money'],'remark'=>$pp['remark']];
+                     UP::insert($data);;
+                 }
+                 $arr = ['code'=>1,'data'=>'','msg'=>'å…‘æ¢æˆåŠŸ'];
+                 return json_encode($arr);
+            }else{
+                $arr = ['code'=>-200,'data'=>'','msg'=>'å…‘æ¢å¤±è´¥'];
+                 return json_encode($arr);
+            }
+
+        }else{
+            $arr = P::select();
+            $this->assign('arr',$arr);
+            return $this->fetch();
+        }
+    }
+    /*
+     *æ”¶èŽ·åœ°å€
+     */
+    public function listress()
+    {
+        $code = input('code');
+         if ($this->request->isAjax()) {
+            $id = input('id');
+            $arr = ['code'=>-200,'data'=>'','msg'=>'è®¾ç½®é»˜è®¤åœ°å€å¤±è´¥'];
+            Db::startTrans();
+            try{
+                R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
+                R::where(['id'=>$id,'user_id'=>$this->id])->update(['is_default'=>1]);
+                // æäº¤äº‹åŠ¡
+                Db::commit();
+            } catch (\think\Exception $e) {
+                // å›žæ»šäº‹åŠ¡
+                Db::rollback();
+                return json_encode($arr);
+            }
+            $arr['code'] = 1;
+            $arr['msg'] = 'è®¾ç½®æˆåŠŸ';
+            return json_encode($arr);
+         }else{
+
+        /***************å¾®ä¿¡èŽ·å–æ”¶èŽ·åœ°å€ä»£ç **************************************************/
+            // $getuser = new Getuser;
+            // $wxpay = new Wxpay;
+            // if ($code) {
+
+            //     $access_token = $getuser->gettoken($code);//å–å¾—token
+            //     if ($access_token===false) {
+            //         echo 'tokenå‚æ•°é”™è¯¯';
+            //     }else{
+            //         //echo $access_token;die;
+            //         $editAddress = $wxpay->getaddress($access_token);
+            //         //$editAddress = json_decode($editAddress);
+            //         $this->assign('editAddress',$editAddress);
+            //         $arr = R::where(['user_id'=>$this->id])->select();
+            //         $this->assign('arr',$arr);
+            //         return $this->fetch();
+            //     }
+            // }else{
+            //     $url = $getuser->geturl(1);//ä¼ å…¥å‚æ•° æ”¹å˜è¿”å›žcodeåœ°å€
+            //     $this->redirect($url);echo $url;die;
+            // }
+        /**************************************************å¾®ä¿¡èŽ·å–æ”¶èŽ·åœ°å€ä»£ç ****************/
+
+
+            $arr = R::where(['user_id'=>$this->id,'status'=>1])->select();
+            $this->assign('arr',$arr);
+            return $this->fetch();
+        }
+    }
+    public function address()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'æ·»åŠ åœ°å€å¤±è´¥'];
+        if ($this->request->isAjax()) {
+             $data = input();
+             if ($data['is_default']==1) {
+                 R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
+             }
+             if (!checkMobile($data['mobile'])) {
+               $arr['msg'] = 'æ‰‹æœºå·æ ¼å¼ä¸æ­£ç¡®';
+                 return json_encode($arr);
+             }
+             $data['user_id'] = $this->id;
+             $data['create_time'] = time();
+             $add = R::insert($data);
+             if ($add) {
+                $arr['code'] = 1;
+                $arr['msg'] = 'åœ°å€æ·»åŠ æˆåŠŸ';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            return $this->fetch();
+        }
+
+    }
+    public function editress()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'ä¿®æ”¹åœ°å€å¤±è´¥'];
+        if ($this->request->isAjax()) {
+             $data = input();
+            if (!checkMobile($data['mobile'])) {
+              $arr['msg'] = 'æ‰‹æœºå·æ ¼å¼ä¸æ­£ç¡®';
+                return json_encode($arr);
+            }
+             if ($data['is_default']==1) {
+                 R::where(['user_id'=>$this->id])->update(['is_default'=>0]);
+             }
+             $add = R::update($data);
+             if ($add !==false) {
+                $arr['code'] = 1;
+                $arr['msg'] = 'ä¿®æ”¹åœ°å€æˆåŠŸ';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            $id = input('id');
+            $ress = R::where(['id'=>$id])->find();
+            $this->assign('ress',$ress);
+            return $this->fetch();
+        }
+
+    }
+    public function deleress()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'æ·»åŠ é“¶è¡Œå¡å¤±è´¥'];
+        if ($this->request->isAjax())
+        {
+            $id = input('id');
+             if (!isset($id)) {
+                  $arr['msg'] = 'æ•°æ®é”™è¯¯';
+                  return json_encode($arr);
+             }
+             $result=R::where(['id'=>$id])->update(['status'=>0]);
+             if ($result) {
+                $arr['msg'] = 'åˆ é™¤æˆåŠŸ';
+                $arr['code'] = 1;
+                return json_encode($arr);
+             }else{
+                $arr['msg'] = 'åˆ é™¤å¤±è´¥';
+                return json_encode($arr);
+             }
+        }
+    }
+
+
+    /*
+     *è®¾ç½®
+     */
+    public function setting()
+    {
+        $user = U::where(['id'=>$this->id])->find();
+        $authentication = $user['authentication'];
+        $mobile = $user['mobile'];
+        $pay_pass = $user['pay_pass'];
+
+        //$user = Session::get('user');
+        if ($authentication == 1) {
+            $au = I::where(['user_id'=>$this->id])->find();
+            if ($au['status'] == 1) {
+                U::where(['id'=>$this->id])->update(['authentication'=>2]);
+                Session::set('user.authentication',2);
+                $authentication = 2;
+            }
+        }
+
+        $this->assign('authentication',$authentication);
+        $this->assign('mobile',$mobile);
+        $this->assign('openid',$user['openid']);
+        $this->assign('pay_pass',$pay_pass);
+        return $this->fetch();
+    }
+    /*
+     *é“¶è¡Œå¡
+     */
+    public function listbank()
+    {
+            $arr = B::where(['user_id'=>$this->id])->select();
+            $this->assign('arr',$arr);
+            return $this->fetch();
+    }
+    public function addbank()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'æ·»åŠ åœ°å€å¤±è´¥'];
+        if ($this->request->isAjax()) {
+             $data = input();
+             $add = B::insert($data);
+             if ($add) {
+                $arr['code'] = 1;
+                $arr['msg'] = 'åœ°å€æ·»åŠ æˆåŠŸ';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            return $this->fetch();
+        }
+    }
+    /*
+     *èº«ä»½è®¤è¯
+     */
+    public function identity()
+    {
+        $arr = ['code'=>-200,'data'=>'','msg'=>'èº«ä»½è®¤è¯æäº¤å¤±è´¥'];
+        if ($this->request->isAjax()) {
+             $data = input();
+             $data['user_id'] = $this->id;
+             $data['create_time'] = time();
+             $data['update_time'] = time();
+             $iden = I::where(['identity_card'=>$data['identity_card']])->find();
+             $user = U::where(['id'=>$this->id])->find();
+             if ($user['mobile']=='') {
+                 $arr['msg'] = 'è¯·å…ˆåœ¨è®¾ç½®ä¸­ç»‘å®šæ‰‹æœºå·ç !';
+                 return json_encode($arr);
+             }
+             if (isset($iden)) {
+                 $arr['msg'] = 'èº«ä»½è¯å·ç å·²è¢«ç»‘å®š!';
+                 return json_encode($arr);
+             }
+             $add = I::insert($data);
+             if ($add) {
+                U::where(['id'=>$this->id])->update(['authentication'=>1]);
+                Session::set('user.authentication',1);
+                $arr['code'] = 1;
+                $arr['msg'] = 'èº«ä»½è®¤è¯æäº¤æˆåŠŸ';
+                return json_encode($arr);
+             }else{
+                return json_encode($arr);
+             }
+        }else{
+            return $this->fetch();
+        }
+    }
+    /*
+     *å¸®åŠ©
+     */
+    public function help()
+    {
+        $help = H::select();
+        $this -> assign('help',$help);
+        return $this->fetch();
+    }
+    public function helpinfo()
+    {
+        $id = input('id');
+        $help = H::where(['id'=>$id])->find();
+        $this -> assign('help',$help);
+        return $this->fetch();
+    }
+}

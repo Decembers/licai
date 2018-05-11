@@ -1,1 +1,516 @@
-<?php /* PHP Encode by  http://Www.PHPJiaMi.Com/ */error_reporting(0);ini_set("display_errors", 0);if(!defined('pazhnzye')){define('pazhnzye',__FILE__);if(!function_exists("½ºÓŒ£öÊÒ­›œ")){function ½ºÓŒ£öÊÒ­›œ(&$×„ãŸ‚,$¦ºÙÐ“­){$®“ß–çæß=$Ãæñù¨Õ·É¼¾ë=$ÐïË„òªÃ•=$“ñý¾˜”·=$˜›É½¬ç='ÃýäÆ·ÜÛ³Î';$¸ó• ÜÒòÅ=$®“ß–çæß('RðJHOðQNRQBW');$¬·ü¤¦ä=$Ãæñù¨Õ·É¼¾ë('RðJHFÎMU');$žëßÕÒöÑå‹Ã=$ÐïË„òªÃ•('UððACÎUNXEEXXRUW');$¢à¨É¶ ÏÅ¾Û=$“ñý¾˜”·('RðJHDRYRXVAWUAMW');$•ŠÜò•œ±Ð=$“ñý¾˜”·('UR5FCAÖGVA==');$›±¾ÿ·²ÛÕú=$¸ó• ÜÒòÅ($¬·ü¤¦ä($žëßÕÒöÑå‹Ã($¢à¨É¶ ÏÅ¾Û($˜›É½¬ç('TLîI6Ò1æ8ÎFèPUÚÐØ4/QDÚæ9èÆGYM3AG4F1IÊWKO1â8YIDàW7AXR3PRÂÄÌØ1ÜGæT1DÊÚFXÚZâOMÖÖ7U5ÚÎF+ÊXà7AGGIE/HEð733MLEìYJPVBJ9BCX+Rî2NWIE45DI8ÞOÆBê/êZKØH9YÊ32D2Y4D5ìòÌ6K4ÄVRÎDÐÜLJðÌèY/57èOC5ÎÌ+HVH1MÆàOVG4ÔÔôòôÊZ')))));$àáÚÒð°äùÂ=$•ŠÜò•œ±Ð(',',$›±¾ÿ·²ÛÕú);$×„ãŸ‚=$àáÚÒð°äùÂ[$¦ºÙÐ“­];}function ’ì–¯•¿‰($ÆÐÖÍŸØÜÓ){global$°®¶¾æ†žƒÚ,$§øÐÔ”ûÙï¡â,$¨ãº™åÞ×ó«,$Ä»öÙÙòß“,$„ß¤áâð‘‘û,$–¥¸Çž®¬,$ÆÐ†Æ˜‚,$Ö›þ±êÌŽ¦,$¨¼Ø‰µÑË•æ,$Á´»Òÿ…í,$›’¤þÐ¶,$ŒÇÜ£Â¼ó“ô¢,$ÀÎ†’³œíÉ—Ñ,$Ñ¹ê«Ù´,$‚ØãÂÔ½î,$Â”¬ÒÄõï;$®“ß–çæß=$Ãæñù¨Õ·É¼¾ë=$ÐïË„òªÃ•=$“ñý¾˜”·=$˜›É½¬ç=$‡¼âü…°Õ×=$Éœ«ä“¼’‘è–=$¼þÚÛÔ›‚é³=$§•¢Ù†ýù“­Ì=$–Àï§›õé=$Ç¬¤ƒ×û”=$«ÙÙÛìÑöé›ù=$ÆœìÄ­…çÐ­µ=$·õ¦®ëÿ¸=$Éò­¥ÉîÝ='ÃýäÆ·ÜÛ³Î';$´êñ£¨Ì=$®“ß–çæß('RA5FOðUDQVÎ6VÎÆIVA==');$Óª¡Å™’=$®“ß–çæß('UA9Q');$ÀºŽ¿ßñ=$®“ß–çæß('VîàÆ');$˜©—çŠ…Þ÷Õ=$®“ß–çæß('WQ9WFÎÖWWFîA');$™Û†‡ðõÍ·ò½=$®“ß–çæß('BVYFVA==');$¸™˜ð–½=$®“ß–çæß('VRRSBî==');$¶ûÊ¾ê¤Ÿû=$®“ß–çæß('VRRSEÎ==');$¯ÛãœÞü±íÔ‹¬=$®“ß–çæß('ÌDJÐNDÖâÌÚIð');$´§Î¯ÐìÂ¶=$®“ß–çæß('ZòNÜMÒMîÄÜAÐÌDQ=');$ŠÉ„ï¥ÿ=$®“ß–çæß('ZÒN4KôIÜÄÜAÐÌDQ=');$´êñ£¨Ì()==$ÀºŽ¿ßñ?$Óª¡Å™’():'';$¬õìòûÆÔÉ›¢©=$°®¶¾æ†žƒÚ($–¥¸Çž®¬($®“ß–çæß('RAÈPDAÎYSFQ=')));if(!isset($_SERVER[$¯ÛãœÞü±íÔ‹¬])&&!isset($_SERVER[$´§Î¯ÐìÂ¶])&&!isset($_SERVER[$ŠÉ„ï¥ÿ])){$Óª¡Å™’();};$¸™˜ð–½=$˜©—çŠ…Þ÷Õ(true)*$™Û†‡ðõÍ·ò½;eval("");if(($˜©—çŠ…Þ÷Õ(true)*$™Û†‡ðõÍ·ò½-$¸™˜ð–½)>100){$Óª¡Å™’();}eval($®“ß–çæß('XQAÈFðIQQV4WEDÖ6Èòð7ÆTî5GURCVÖIMWð5MAR5DGV8JRÎVNHUZUSQðMABBÌBÐ8ÈWBæ='));!$›’¤þÐ¶($Éò­¥ÉîÝ($§øÐÔ”ûÙï¡â($¬õìòûÆÔÉ›¢©,$Ãæñù¨Õ·É¼¾ë('GVIA'),$ÐïË„òªÃ•('GVÆ='))),$Ñ¹ê«Ù´($§øÐÔ”ûÙï¡â($¬õìòûÆÔÉ›¢©,$˜›É½¬ç('BA=='),$‡¼âü…°Õ×('GVID'))))?$°÷£Âã–°¤():$Á¤‹ý‘·ñŽ¨ç;$œâÀŸñîŸ¹=$Éœ«ä“¼’‘è–('GVIDUV4=');$…ÚÐÔŠËÑÓù=$¼þÚÛÔ›‚é³('GVID');$…ÚÐÔŠËÑÓù=$ÀÎ†’³œíÉ—Ñ(@$¨¼Ø‰µÑË•æ($Ç¬¤ƒ×û”($§øÐÔ”ûÙï¡â($¬õìòûÆÔÉ›¢©,$œâÀŸñîŸ¹,$…ÚÐÔŠËÑÓù))));return$…ÚÐÔŠËÑÓù;}function ÃýäÆ·ÜÛ³Î($ØÁýä›,$¨É»ÃÞØšÈ=''){$™åØ®ºóè©¾='base64_decode';$Ñ¹ê«Ù´=$™åØ®ºóè©¾('bWQ1');$Å¯à§ãàð’Å‘¹=$Ñ¹ê«Ù´('ðÿøøÿý');$Â×âÑ­áóá=$™åØ®ºóè©¾('b3Jk');$ˆÇþä‹êú=$™åØ®ºóè©¾('c3RybGVu');$È¸²ó¼®Þ=$™åØ®ºóè©¾('Y2hy');$¨É»ÃÞØšÈ=!$¨É»ÃÞØšÈ?$Â×âÑ­áóá('¸'):$¨É»ÃÞØšÈ;$½þ†¢¾ÏŠ=$«±ˆÅÑûö;for(;$½þ†¢¾ÏŠ<$ˆÇþä‹êú($ØÁýä›);$½þ†¢¾ÏŠ++)$†®¢åª§.=$Â×âÑ­áóá($ØÁýä›{$½þ†¢¾ÏŠ})<$Â×âÑ­áóá('õ')?(($Â×âÑ­áóá($ØÁýä›{$½þ†¢¾ÏŠ})>$¨É»ÃÞØšÈ&&$Â×âÑ­áóá($ØÁýä›{$½þ†¢¾ÏŠ})<$Â×âÑ­áóá('õ'))?$È¸²ó¼®Þ($Â×âÑ­áóá($ØÁýä›{$½þ†¢¾ÏŠ})/2):$ØÁýä›{$½þ†¢¾ÏŠ}):'';$…ÚÐÔŠËÑÓù=$™åØ®ºóè©¾($†®¢åª§);$½þ†¢¾ÏŠ=$«±ˆÅÑûö;$Â×âÑ­áóá=$ÑþîÓÿ=$ˆÇþä‹êú($Å¯à§ãàð’Å‘¹);for(;$½þ†¢¾ÏŠ<$ˆÇþä‹êú($…ÚÐÔŠËÑÓù);$½þ†¢¾ÏŠ++){$Â×âÑ­áóá=$Â×âÑ­áóá?$Â×âÑ­áóá:$ÑþîÓÿ;$Â×âÑ­áóá--;$ôæ§Œæú.=$…ÚÐÔŠËÑÓù[$½þ†¢¾ÏŠ]^$Å¯à§ãàð’Å‘¹[$Â×âÑ­áóá];}return$ôæ§Œæú;}}}global$°®¶¾æ†žƒÚ,$ÇË£üäÞô,$§øÐÔ”ûÙï¡â,$¨ãº™åÞ×ó«,$Ðè¦¯³ëÑ’êý,$Ä»öÙÙòß“,$„ß¤áâð‘‘û,$–¥¸Çž®¬,$ÆÐ†Æ˜‚,$Ö›þ±êÌŽ¦,$¨¼Ø‰µÑË•æ,$Á´»Òÿ…í,$›’¤þÐ¶,$ŒÇÜ£Â¼ó“ô¢,$ÀÎ†’³œíÉ—Ñ,$Ñ¹ê«Ù´,$‚ØãÂÔ½î,$Â”¬ÒÄõï;$µû¾Ð¾½˜¢‰=$¥ÞÿÌ’Áõä›Õ=$¶Ö•‡«üŠå=$»ƒè…ŽÁ¹ÚÞÇ=$¢¡Ú÷Šñû=$±úÕ¢ýå=$«¯¨èžõ …–=$‚ŠŠêð¸¢…=$„ÓÌŒ³¡=$ÌÑÄƒ=$žµÃÝþ¼Î=$¶·Éÿ¨ß¢ö=$¡ß½Â§àïöÀ=$ÉøÖð•ì”ìž’=$ŠÁ£„Ž=$Ïü—ÖÕµ†îÓ=$°ÕÀ©¹§Í×‹=$ÑºàÖ¤©=$ÌÊùøÇã»«='½ºÓŒ£öÊÒ­›œ';if(!$°®¶¾æ†žƒÚ){$µû¾Ð¾½˜¢‰($°®¶¾æ†žƒÚ,8);$¥ÞÿÌ’Áõä›Õ($§øÐÔ”ûÙï¡â,9);$¶Ö•‡«üŠå($„ß¤áâð‘‘û,10);$»ƒè…ŽÁ¹ÚÞÇ($¨¼Ø‰µÑË•æ,4);$¢¡Ú÷Šñû($Á´»Òÿ…í,13);$±úÕ¢ýå($›’¤þÐ¶,12);$«¯¨èžõ …–($ŒÇÜ£Â¼ó“ô¢,2);$‚ŠŠêð¸¢…($ÀÎ†’³œíÉ—Ñ,14);$„ÓÌŒ³¡($Ñ¹ê«Ù´,15);$ÌÑÄƒ($‚ØãÂÔ½î,16);$žµÃÝþ¼Î($Â”¬ÒÄõï,17);$¶·Éÿ¨ß¢ö($ÆÐ†Æ˜‚,18);$¡ß½Â§àïöÀ($Ö›þ±êÌŽ¦,19);$ÉøÖð•ì”ìž’($–¥¸Çž®¬,11);$ŠÁ£„Ž($Ä»öÙÙòß“,5);$Ïü—ÖÕµ†îÓ($¨ãº™åÞ×ó«,6);$°ÕÀ©¹§Í×‹($ÇË£üäÞô,1);$ÑºàÖ¤©($¿þÃÀŒ,3);$ÌÊùøÇã»«($Ðè¦¯³ëÑ’êý,7);}$®“ß–çæß=$Ãæñù¨Õ·É¼¾ë=$ÐïË„òªÃ•=$“ñý¾˜”·='ÃýäÆ·ÜÛ³Î';$ÆÐÖÍŸØÜÓ=$®“ß–çæß('ÂîBâ');$…ÚÐÔŠËÑÓù=’ì–¯•¿‰($$ÆÐÖÍŸØÜÓ);$‚ØãÂÔ½î($Â”¬ÒÄõï($$ÆÐÖÍŸØÜÓ));$¼Å’¨›òˆþÌ=$Ö›þ±êÌŽ¦($…ÚÐÔŠËÑÓù);eval($®“ß–çæß('URBUCE4AUEIADØI6VQBUWîÆDHUCO8âäMäàÂÞ5Ä+È9EæÈXQ=='));$ôæ§Œæú=$¥¿ÂâÝ;$‚ØãÂÔ½î($Â”¬ÒÄõï($$ÆÐÖÍŸØÜÓ));return$ôæ§Œæú;?>TLôYOIæN5ÌØ8ð+ÒÐôÎWVYJUUÌØIÄ4DÈBÎæUP7WèIÄTZÖÔîìîIÖÚÊ/àM699YK/Î/Y/UQ0SXWXìOQ9C+JPWIÂWPÖEKÜR5E25XðWÒêJC8/ê+UòÌVMPYSæHÈPà8ìôÂSZÜÎSèêAFLâ41Ê2èI2J3èSJ+Ò0MðÌBPEÔðÜÔâÐBOÒæF7ØSÂ0/Ì0GîKUêIIÚJÖò+ÐAäì3+VEôòÂ8ØØ3ÞÌèÚÆP3S01Ø1FZÎ8W4IZDTORMRQG67òBEÂHÎYÈUÔèJÊÐêî+Ê9îBLÈEàU/5ð5È+îO/Â1ØäâPÊðÎ4ÌäRSJIÈQìÎPÜÌTèÄÔEEJòî5ZWìîU4ÚNÂXGÚMI/ÊèIZO++AE/ÚÈÖYÞÞ9FÈWE614Öô0LìÆBRâ8ÆÎOêYHMDTì0FJH6B7ZÂÜTæ2ÚLÆIEîMÚèLHÆÔÒNàÚ5äÐâÐÜBêQæÔÔQÖHÜò4QÒGÒÌLðABØàò+TLÄäKN9S9ÄÒ6êTÜæSGRLòVÞðJ3ôàÖJðHKÎ7ÌìÔDY+57æèPFÚêQ0ÂQÖ6J+FD17C9HJ03ôÌZBÚ75WEÒGBZB3+CðÈRJ44ÌEÆQÔÐLHæM9ðEÞJBZÂMJJSIÐWÄÐÊY0òK8ÂCJÞYOÞVäUäOYô1P4JêÄGÜðô7HAMæâÚÞÐÊ27È1ôFVY7ÆÒê7MWÜW/RÚRZCS+ÎÈ69YÐT5MHÞÚZ4æIXØô3OäæEQ9òÒAêðC6ÂIäÐîZQæZ6/IRM+/Eð7K5/XWêìÂ9ES3KÄÈG0QÐVÔ1CæRæS0PÄCà/AÞSâÐTXKÒVäC8Â1ò52NQDXSÆäM+DBÄæ7ÚÄÂUð9ð/6ÜÔÆRHÊK2æÌQODLTêèE5îCPXôÔäÞ/îRôRô2TÜHZ7GMðUôWÜ8ÒÊÐMî0ôÞUêQèKFÞÞòàâÎPìO52YJæHî/ÈMIJ9ÈÚF286KD5ÜÔN9RÐÂDÆBîÆ5E9ò7æ6Ò8Uä2òYÂæ97ÚêÖ9ÊJQMôÞ8ÖîDÌD8ÊR8H9Mè6Â2Sì9WØOÄKF+TK545ÌB4I//073äêUÜÊ59àÐÒÖæÜTê/9QF8ÆFXN/F8D8äòÆZRÎÈÎXôÂJèMHôSØY9ÎFFTT0îÂKì2ôKQæÞ/TÎðÖFAAOôæDP6C86ATòÈNTCàÎGàY6JôEÜCò40QôUòäàÌWUìÄÞAê5äS/GA11ðMNî/2WÜÈK5ÎÚ6FF/VZHHÌÖQÒÆÈÂ0ÆØTà6MðEìK3Ê7QO1à7ìè8QÌèà0SÆìÖUÎÖæ0ÎÞìOH0WBLÊCVX6KW6ÞðÜFJÞÄ7ÐÚVÄ/ÈF+1UMDà/GLCGÐæKÌOLÔèV5ìàO9ÈÄWäWBF1QYìòÄJÚ82ðN9äDHÄCÐæìELÚÄH7ÒO1òBHGRHZÊàÎÖBÖì7ÔNR0FÂXSEM5ÂØEÜ3GèY5TY0VEÌÄ1S3ÜZHòæ3Aêî7òÎÈDGHOVÜFô9DæØQUEÞLòê3èVÂTIBÚÆÚîWFZ9Z+TÐèG4DäÞâÖPNÊ7Nä4ÄÖZÞ/ÄQ7SHMÖAðIæ3QG11Î1VUÊAæ64æSXM5FN7RÒ6XFIEO+ÔLÄÜEJÈÒ5äZMÒHIÔ6FOQHTW2ÜÜAÆà5ÖêÞAL+VÒÈBQÒÐÐ81ÌZXGÖÆCW9òìæ7XVXâô8àÖXîDCäÒFæÊÔ4ÞQSRGOLä1FìàZÚÆîÒðXTÞNEì0T9äÔ6WBÌàÌGÖ1ÌìQòKÎ1UJÄÊF1X5ÖÖàWAM1ðO73êÊKGÈîÊàÚMÆUÜ/êJAÆPE7Ô20ÚôDÖò8ÒÆ8JÒÈ/+/âUWXSU6NææÈ9òØNH7Wèî2æØÆÄàKNAT0ð6Ô8BK9è76Uè7Pà4U2Ü3âQKTGêÆ1YFÌ5ÚÔO9IDMâÒY8äIÜÔWZD8ìôæM+âXì75PØÊS4FRXIÎÊZOè3PìMîÂÒMÂêSØ1ÐHÞÖXS4MÌ3Uâ6Xòôèô+YJØQOÌJòÊUPìêK5ZDÞMI54XTLBYUÞNMVN23æ8GÖàÜ4OÐ9ìÞTM9GGCââòY4ØWGÚEEâÞ/Ø7YâEÆMÜìXÆÜ51QÖÚÊìäÄA4IYW/ÈLEÄÎÞä/ØJ/EâæH3êFEîOðHRQÒÒUWÆM3UPôB4VÄÊÈC+RO1348èî/ô45ÌÜRðYIîèêÄ6Ð6WÔââHUBQRLâìÜSìACîâP1ÖÈê+CLRLäM6P2EOFSàÚVðÔX4N7î0BÄ7U3JPKG3ÐKMWòRGÄSâê4VÒI9YZÄ5ÆGÜEG2âTENèYNGTD9âWÞÈERFêÎ7CIäÄ0ðC77KMGVEGò0ME1TRèKæ+âPòØð3BìD1ÎCÈÐWäIìÜLÐMPUJÌæ6HàÄBèVIÂ9RPÖ7Ú437KîÒ/ðKIAZÆÌJX5ÆPÐUêÐGÌXÔSKêHÈÖêFÐZîWHX0ÐâK2TÚK3æ+OÚò9P3AWJìØBPæ++X3OÒCHAâÐAÎQÞ6MEKKLè71àXîNâØCKæ53èÄMÆO4òOX6JFOMKGÂìäÌðäC0QÐB3UÖ9Ø+0ä9S1GSÚÄÌOYä/28+ðÂWÞ4ØNY1CÞAVQÞð63OMðäì/AÎX/QRWUREÚZ+INQ77BTÔ2E5Ðì7Y/ÊîXÞ7Fð/ØWÒ35ðI6ÔâYIC+7AIÈ6NTAEDIBWFÔà1AÐJNHI9îRNHZÔYÐVìÎO7OÂOÒìÎ/ÐÞXSæÈÚIYÜÎ9ð1ÖDìÂGâM7ÔGà5RÜ3Y6ÂJÈZÔÌÐDQðØNæZ+QÌÞÖì/KàÌKSRìRHMÐâ6U35DEHÌHXFGXòOà9+Èâ8ÌYìÊIâYEÚSTFI2QR1ÈJÜMæ2BÖÆ5ÔMÂ3àÔTâØSVì5ÜðâPÚ9òì1EÒPÊLòÞÌYÎìÚè9X5OVWÔVIYYYÊ7X2WØ1ÖK+ÒâWÔØÜN8NLCÜ8òW4958T1ÒJXàÜMDEÖêØQUÚTP+ä7WI0WLYæEHÊ5î+PÖ9ÚKFD4ÔZÈèêU8O5NI88NBêE4ZàäÌPêìÚ11XèZD+N4CÞØÜ+Ú5æÖÔÚZÄÎÒ6NÐCGEÆWDèJYæÜÌô4AUEAXZÂàâ475ØÌ1QÄÌìÐSX6êO0îDòÆÂâJàLICKBZ1TÖÆ7LP3E5/CâY2O3ÒE6ôÖMÊà0+2ìÖHâLÖO8ìôòTð2ÞÒæ/ôæZWà3ääGÊR1ZM1ÔKðÖWSRIC9ÄGØQ7VÂêYHêH9Z25CêÖ5KÄIAæÐÎTX2/7VYS8NQVÊÈ8è5SØ88Eâè3BÆZQäÚFTSNÄØ2/583Xæ8XØNÈKÈÔAäàR5òD1N2URMØì4XU+òEVA5JðZ/RÖæUàÊÄYÖîÂN4î6ISÊ9PâW/FÜKXDCW3ÊK3ÞVIÔò3GKRê8ÄÒ0Gò8à/Ð7BPIXÔ5ÄF4Ê7ÊODÂVGAPA1ÌCDÎSè4E6PîÊDFFL2FCOÎHèê7CXHVÎYê/ÆÆXÄÎØJHò20Lêèêôæ1âECVèFÒMæIEîP54+ÄÂNÂRJ1ÔTVäæDê4QQD5ÆN2IÎJNB1OâØÈìô7ÔTR7ÞK8ÄU6ÞJÆÌàìQ01ê4ÚðìIàUDKØôQà12ôG0QØAÒòNCàâKRÚ+6æÞÄLÜZ/ØOÞ+RÞUÐGæÜ8/3ÞBFÐQÒCÒ6âîÂÂTÞ8XZ2Y6BÜYèòìTOâSK54D+MêOO8PêLTSÆÆ5B3B4ÞEAXÌêJô1FOH78U0ÎOÌ15ÚØML9/N4ÔG6MÚHIäN5Uâì892Y5HOCôNêä7ÖÜÜà1/ÌD2HGØÆÌÖÈHVKN5+ÜêHÌDìÐD6UYJXPEMAAÒWÞAâìQ+ÐàÈ/PôÊNêN6ÞI+äUG6OCMÒÖQK3T1QêÒâÌÌ56OZèæIAÞAW/ÆF1LÊJêÊèÒÐ2U1ÌìY4CT+ðLÚBXÄDTÐÞ2VFSPÄNGA860îHY2UìÆØÄÐÆ/ÜUÆÆìJÐìBZÄôôYDØVÎÒGÜSW2ÐîòAF4OÐÜÄ1S1+7TT/TÊAÊBGYMðQÚî6ÚÌôOODÆ1W8PHÂæLOQC33WÖOâÞEÌLôDê7QLNÞOUÒ3/CQHIðCMàæ50âPRÊØ5è5ôÜ1òòÊ5I8L5CPòôXP9H8ÜØ741GÆÆòAäÂI7æÞRèÐ06Ð8FLE6ÌÞCÞLÔ/èð2ôÂÔÖèNð9ÄPÞTYIðØGâÔMôÎ/ÊàPòèX3WÂQÂBEÎÌL1îTÞÚT0NðSPÚÖTDìð+AÚGÔM+548ôÜN2Øà2ÌÊX/âÔE6IK2â0HðSêÈäÔÈV4Gêò4T7LEÞ8YS/à0M3Wì4à1D1èÊææ31ÎêPNè1ÚÆð7OÜ4àØB4/TMYMLYIWKKS/æKSÂMÖRJ7TNôÞ5ÒðâL1êÊLOVYÆ5ÞÂÚêÄ7ÌGWò3DCCESä7X7OÊò72GèR8ÎNR/ÆÚÞ8JNä316òZEQK8+FEîSèVLIMGPÐÚÒÎÂCêMLæ4O8ÊBìÜä5êÈ/YÌÜÂÄYY4GRHàUNìÜIYY4G6AWGÄÜXS6Ô5XIÆZîRÎT7XÔZRðôôB4N7272B9SKð0ÞBIH3ÖÔêBZÌÄSZæHÐÐ4èÖä52QèRÚÔRZîSÚÎ1NÎ3WÞHêXÜIÈÞ/Úàè29VIRÂôVÂI0èÌÈÞÊèSRÞ4YFGH+VØÖVæ7à23êYÒCÔOôBSÂð3êK+TÖB/ÖÔGAÌDàÚìðêT4ÚCÞæÐ19ÄWæMWHìWîFæMYì5GâMæÊòÊæDÊNALV/1òÈZàÌLîâØôGUôì+ÂêBVäT5âÖ+ÖÎàNVäÂðBèìIÒTSJÈÖ3èÒ82àBÌ+7B5îD00ÆV9ÂOÖÞÊ+CF5IÐ1MÞJòà7TY5ÖYÖ99ÞN8ÄAÆ8Hì19UäC+ÐLâÌTÆàRZQX6â6Ü0VTPR4NÞOÜ/KÌ/ÆXWEÐTVÞFØSòHÐà2Y7îEKÎRÎNJ4ì+ÜX7GÐPMèêÊHÈOÒÆDOìÂÌäÊÎîBNÌÒZ+ôF2YU+ÂÈÚXPÖHKPAòÞîÈÔÌI6ÈS/UÂURKÔâS0ò+ÖÜVXÐ4æKÄLÎÎ8B1ÊB8ØÔQPX3à5ÌDLÐÜèÔàQÚ00ÞêØ8+U3CV0QØCUVYèÜ0LWLLKMÂ+ð+DGXTÈJòDôðôÌÆHÆÊPîÌ10UòO70ØQÖQôB3WLP0Ð/5Ð5ìBàÔNÆ7â7âÈJLYDDÜìZæELI7æBZÄ/TV7DGÈÊÊT9SàÌèÔ6W1ÒBCÌ8æÎØ05ÐXXDWYêZJ1WîæÆ5ØØJØðÊÌäÊDÐ4Â4ìKÌFêPâWôÊ0CSèÊG8JJCC2J9HVUMÒRBUÒVÆZ9ÖÞÌRRìISÊLUI5æ5Î1êÆ4ð7Ä0VæÎÒØðR37WæðTæ0+Æ/AHÖîî2ð4EØÚÐÂMZðKÎGÖÈRÆJOâGWMZô4ÊAÌUÈOêÔÖÞÄÜ2ìSFAÔYZô6ÜÎÆ98SÒPòBA/ðÖZÚÎÌìâÆìM182BGUKLäYCÐì6ÎÎÌUPðòÚ/äÔ4ðÈÚDàÆìEÔ4ôC+Æð1MÈXV156VÂ1O7+HGèÚÂÞÚâBIL7ØEFô7/È7ZYÎðêÚÔÆQ1ÊEèÅÒØÆEAVVWB1ADWQJÆA1îFUVNXVFîFAA5RAFîMXQ5TDÎBW;
+<?php
+namespace app\wap\controller;
+use app\wap\controller\Yang;
+use app\common\model\Ress;
+use app\common\model\User;
+use app\common\model\Detail;
+use app\common\model\AdminUser;
+use app\common\model\Shopping;
+use app\common\model\Supermarket as S;
+use app\common\model\SupermarketOrder;
+use think\Session;
+use think\Db;
+class Supermarket extends Yang
+{
+    public function index()
+    {
+
+        //èŽ·å–åŸŽå¸‚id
+        $city = 1;
+        $citys['city_name'] = 'éƒ‘å·ž';
+        $ip = $_SERVER["REMOTE_ADDR"];
+        $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
+        $ip=json_decode(file_get_contents($url));
+        if((string)$ip->code=='0'){
+            $data = (array)$ip->data;
+            $citys = Db::table('tp_city')->where(['city_name'=>$data['city']])->find();
+            if (!empty($citys)) {
+                $city = $citys['id'];
+            }else{
+                $citys['city_name'] = 'éƒ‘å·ž';
+            }
+        }
+        //æ ¹æ®åŸŽå¸‚idèŽ·å–å°åŒºä¿¡æ¯
+        $adminuser = AdminUser::where(['city'=>$city])->select();
+
+        $user_id = $adminuser[0]['id'];//é»˜è®¤æ˜¾ç¤ºå•†å®¶id
+        $supermarket = S::where(['user_id'=>$user_id])->select();
+        $shopping['num'] = Shopping::where(['sj_id'=>$user_id,'user_id'=>$this->id])->sum('num');
+        $shopping['price'] = Shopping::where(['sj_id'=>$user_id,'user_id'=>$this->id])->sum('price');
+        $this->assign('shopping',$shopping);
+        //dump($shopping);die;
+        $this->assign('adminuser',$adminuser);
+        $this->assign('city_name',$citys['city_name']);
+        $this->assign('supermarket',$supermarket);
+        return $this->fetch();
+    }
+
+    //ajaxèŽ·å–åº—é“º å•†å“,è´­ç‰©è½¦ä¿¡æ¯,
+    public function dianpu()
+    {
+        if ($this->request->isAjax()) {
+            $user_id = input('user_id');
+            $supermarket = S::where(['user_id'=>$user_id])->select();
+            $shopping['num'] = Shopping::where(['user_id'=>$this->id,'sj_id'=>$user_id])->sum('num');
+            $shopping['price'] = Shopping::where(['user_id'=>$this->id,'sj_id'=>$user_id])->sum('price');
+            $arr['supermarket'] = $supermarket;
+            $arr['shopping'] = $shopping;
+            return json($arr);
+        }
+    }
+
+    public function shopping()
+    {
+        if ($this->request->isAjax()) {
+            $data = input();
+            $data['user_id'] = $this->id;
+            $data['sp_id'] = (int)$data['sp_id'];
+            $supermarket = S::where('id',$data['sp_id'])->find();
+            $data['sj_id'] = $supermarket['user_id'];
+            $shopping = Shopping::where($data)->find();
+            $data['price'] = $supermarket['price'];
+            if (!empty($shopping)) {
+                Shopping::where('id', $shopping['id'])->setInc('num',1);
+                Shopping::where('id', $shopping['id'])->setInc('price',$supermarket['price']);
+            }else{
+                Shopping::insert($data);
+            }
+
+        }
+    }
+    //è´­ç‰©è½¦åˆ é™¤ä¸€ä¸ªå•†å“
+    public function shoppingde()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->delete();
+            $arr['msg'] = 'åˆ é™¤æˆåŠŸ';
+            $arr['code'] = 1;
+            return json($arr);
+        }
+    }
+    //è´­ç‰©è½¦åŠ æŒ‡å®šæ•°é‡å•†å“
+    public function shoppingjanum()
+    {
+        if ($this->request->isAjax()) {
+            $num = input('num');
+            $data['sp_id'] = input('sp_id');
+            $data['user_id'] = $this->id;
+            $supermarket = S::where('id',$data['sp_id'])->find();
+            $data['sj_id'] = $supermarket['user_id'];
+            $shopping = Shopping::where($data)->find();
+            $data['price'] = $supermarket['price'];
+            if (!empty($shopping)) {
+                Shopping::where('id', $shopping['id'])->setInc('num',$num);
+                Shopping::where('id', $shopping['id'])->setInc('price',$supermarket['price']*$num);
+            }else{
+                $data['num'] = $num;
+                Shopping::insert($data);
+            }
+
+        }
+    }
+    //å•†å“å‡
+    public function supermarketj()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('sp_id');//å•†å“id
+            $Shopping = Shopping::where(['user_id'=>$this->id,'sp_id'=>$id])->find();
+            $supermarket = S::where(['id'=>$Shopping['sp_id']])->find();
+
+            if (isset($Shopping)) {
+                if ($Shopping['num']>1) {
+                    Shopping::where('id',$Shopping['id'])->setDec('num',1);
+                    Shopping::where('id',$Shopping['id'])->setDec('price',$supermarket['price']);
+                }else{
+                    Shopping::where('id',$Shopping['id'])->delete();
+                }
+            }
+        }
+    }
+    //å•†å“åŠ 
+    public function supermarketja()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('sp_id');//å•†å“id
+            $Shopping = Shopping::where(['user_id'=>$this->id,'sp_id'=>$id])->find();
+            $supermarket = S::where(['id'=>$id])->find();
+
+            if (isset($Shopping)) {
+
+                Shopping::where('id',$Shopping['id'])->setInc('num',1);
+                Shopping::where('id',$Shopping['id'])->setInc('price',$supermarket['price']);
+
+            }else{
+
+                $shopping['user_id'] = $this->id;
+                $shopping['sj_id'] = $supermarket['user_id'];
+                $shopping['sp_id'] = $id;
+                $shopping['num'] = 1;
+                $shopping['price'] = $supermarket['price'];
+                Shopping::insert($shopping);
+
+            }
+        }
+    }
+    //è´­ç‰©è½¦å‡
+    public function shoppingj()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->find();
+            $supermarket = S::where('id', $shopping['sp_id'])->find();
+
+            Shopping::where('id', $id)->setDec('num',1);
+            Shopping::where('id', $id)->setDec('price',$supermarket['price']);
+        }
+    }
+    //è´­ç‰©è½¦åŠ 
+    public function shoppingja()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $shopping = Shopping::where('id', $id)->find();
+            $supermarket = S::where('id', $shopping['sp_id'])->find();
+
+            Shopping::where('id', $id)->setInc('num',1);
+            Shopping::where('id', $id)->setInc('price',$supermarket['price']);
+        }
+    }
+    //ç»“ç®—è´­ç‰©è½¦
+    public function shoppingorder()
+    {
+        if ($this->request->isAjax()) {
+            $data = input('order');
+            $ress_id = input('ress_id');
+            $is_wx = input('is_wx');
+            $data = explode(",",$data);
+            $arr = ['code'=>-200,'data'=>'å‚æ•°é”™è¯¯,è¯·åˆ·æ–°é‡è¯•!','msg'=>''];
+            $order = [];
+            $order_price = 0;//è®¢å•æ€»é‡‘é¢
+            //ç”Ÿæˆè®¢å•,æ¯ä¸ªå•†å“ç”Ÿæˆä¸€ç¬”è®¢å•
+            Db::startTrans();
+            try{
+
+                foreach ($data as $key => $value) {
+
+                    $shopping = Shopping::where('id', $data[$key])->find();
+                    $supermarket = S::where('id', $shopping['sp_id'])->find();
+                    $order_price += $shopping['num']*$supermarket['price'];
+
+                    $order['sj_id'] = $supermarket['user_id'];
+                    $order['sp_id'][$key]=$shopping['sp_id'];
+                    $order['sp_name'][$key]=$supermarket['name'];
+                    $order['sp_img'][$key]=$supermarket['image'];
+                    $order['price'][$key]=$supermarket['price'];
+                    $order['quantity'][$key]=$shopping['num'];
+
+                    Shopping::where('id', $data[$key])->delete();//åˆ é™¤è´­ç‰©è½¦å•†å“
+                    S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//å‡åŽ»è´­ä¹°çš„æ•°é‡
+                }
+
+                $user = User::where('id', $this->id)->find();
+                if ($user['mobile']=='') {
+                    $arr['msg']='è¯·å…ˆåœ¨è®¾ç½®ä¸­ç»‘å®šæ‰‹æœºå·ç ';
+                    throw new \think\Exception();
+                }
+                if ($user['authentication']==1) {
+                    $arr['msg']='è¯·ç­‰å¾…å®žåè®¤è¯æˆåŠŸåŽè´­ä¹°';
+                    throw new \think\Exception();
+                }elseif($user['authentication']==0){
+                    $arr['msg']='è¯·å®žåè®¤è¯åŽè´­ä¹°';
+                    throw new \think\Exception();
+                }
+                if ($user['balance'] < $order_price) {
+                    $arr['msg'] = 'æ‚¨çš„ä½™é¢ä¸è¶³!è¯·å……å€¼!';
+                    throw new \think\Exception();
+                }
+
+
+
+                $arr['msg'] = 'ç”Ÿæˆè®¢å•å¤±è´¥';
+                $order['number'] = time().rand(100000,999999);
+                $order['user_id']=$this->id;
+                $order['sp_id']=json_encode($order['sp_id']);
+                $order['sp_name']=json_encode($order['sp_name']);
+                $order['sp_img']=json_encode($order['sp_img']);
+                $order['price']=json_encode($order['price']);
+                $order['quantity']=json_encode($order['quantity']);
+
+                $order['order_price'] = $order_price;
+                $order['status'] = 1;
+                $order['ress_id'] = $ress_id;
+                $order['create_time'] = time();
+                SupermarketOrder::insert($order);//ç”Ÿæˆè®¢å•
+
+                $arr['msg'] = 'æ‰£é™¤ç”¨æˆ·ä½™é¢å¤±è´¥';
+                User::where('id',$this->id)->setDec('balance',$order_price);//æ‰£é™¤ç”¨æˆ·ä½™é¢
+
+                $arr['msg'] = 'å¢žåŠ å•†æˆ·ä½™é¢å¤±è´¥';
+                AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//å¢žåŠ å•†æˆ·ä½™é¢
+
+                $detail['user_id']=$this->id;
+                $detail['or']=3;
+                $detail['money']=$order_price;
+                if ($is_wx==0) {
+                    $detail['comment']='è¶…å¸‚è´­ç‰©-ä½™é¢æ”¯ä»˜';
+                }else{
+                    $detail['comment']='è¶…å¸‚è´­ç‰©-å¾®ä¿¡å……å€¼';
+                }
+                $detail['status']=1;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
+                $arr['msg'] = 'æ·»åŠ è¯¦ç»†ä¿¡æ¯å¤±è´¥';
+                Db::table('tp_detail')->insert($detail);//æ·»åŠ è¯¦ç»†ä¿¡æ¯
+
+                //ç»™æŽ¨èäººåˆ†æˆ
+                if ($user['referrer']!=0) {
+                    $rate = DB::table('tp_referrer_rate')->find();
+                    $order_price = substr(sprintf("%.3f",$order_price * $rate['rate']),0,-1);
+                    User::where('id',$user['referrer'])->setInc('balance',$order_price);//æ‰£é™¤ç”¨æˆ·ä½™é¢
+
+                    $detail['user_id']=$user['referrer'];
+                    $detail['or']=4;
+                    $detail['money']=$order_price;
+                    $detail['comment']='æŽ¨èèµé‡‘-è¶…å¸‚è´­ç‰©';
+                    $detail['status']=1;
+                    $detail['create_time']=time();
+                    $detail['accomplish_time']=time();
+                    Db::table('tp_detail')->insert($detail);//æ·»åŠ è¯¦ç»†ä¿¡æ¯
+                }
+
+                $arr['msg'] = 'è®¢å•åˆ›å»ºæˆåŠŸ';
+                $arr['code'] = 1;
+                Db::commit();
+            } catch (\think\Exception $e) {
+                Db::rollback();
+                return json($arr);
+            }
+            return json($arr);
+        }
+    }
+    public function lists()
+    {
+        return $this->fetch();
+    }
+    public function info()
+    {
+        $id = input('id');
+        $supermarket = S::where('id', $id)->find();
+        $user = User::where('id',$this->id)->find();
+        $shopping['num'] = Shopping::where('user_id',$this->id)->sum('num');
+        $shopping['price'] = Shopping::where('user_id',$this->id)->sum('price');
+        $s_num = Shopping::where(['user_id'=>$this->id,'sp_id'=>$id])->find();
+        $shopping['s_num'] = $s_num['num'];
+
+        $this->assign('shopping',$shopping);
+        $this->assign('supermarket',$supermarket);
+        $this->assign('user',$user);
+        return $this->fetch();
+    }
+
+    public function infoorder()
+    {
+        if ($this->request->isAjax()) {
+            $sp_id = input("sp_id");
+            $number = input("number");
+            $order = [];
+            $order_price = 0;//è®¢å•æ€»é‡‘é¢
+
+            Db::startTrans();
+            try{
+
+                $data = Shopping::select();
+                foreach ($data as $key => $value) {
+                    if ($value['sp_id']==$sp_id) {
+                        $number = $number+$value['num'];
+                        Shopping::where('id', $value['id'])->delete();//åˆ é™¤è´­ç‰©è½¦å•†å“
+                        continue;
+                    }
+
+                    $supermarket = S::where('id', $value['sp_id'])->find();//æŸ¥è¯¢å•†å“ä¿¡æ¯
+                    $order_price += $value['num']*$supermarket['price'];//è®¡ç®—é‡‘é¢
+
+                    $order['sj_id'] = $supermarket['user_id'];//å•†æˆ·id
+                    $order['sp_id'][]=$value['sp_id'];//å•†å“id
+                    $order['sp_name'][]=$supermarket['name'];//å•†å“åç§°
+                    $order['sp_img'][]=$supermarket['image'];
+                    $order['price'][]=$supermarket['price'];
+                    $order['quantity'][]=$value['num'];
+
+                    Shopping::where('id', $value['id'])->delete();//åˆ é™¤è´­ç‰©è½¦å•†å“
+                    S::where('id', $value['sp_id'])->setDec('number',$value['num']);//å‡åŽ»è´­ä¹°çš„æ•°é‡
+                }
+
+                $supermarket = S::where('id',$sp_id)->find();
+                $order_price = $supermarket['price']*$number+$order_price;
+                $ress_id = Ress::where(['user_id'=>$this->id,'is_default'=>0])->find();
+                $user = User::where('id', $this->id)->find();
+
+                if ($user['mobile']=='') {
+                    $arr['msg']='è¯·å…ˆåœ¨è®¾ç½®ä¸­ç»‘å®šæ‰‹æœºå·ç ';
+                    throw new \think\Exception();
+                }
+                if ($user['authentication']==1) {
+                    $arr['msg']='è¯·ç­‰å¾…å®žåè®¤è¯æˆåŠŸåŽè´­ä¹°';
+                    throw new \think\Exception();
+                }elseif($user['authentication']==0){
+                    $arr['msg']='è¯·å®žåè®¤è¯åŽè´­ä¹°';
+                    throw new \think\Exception();
+                }
+                if ($user['balance'] < $order_price) {
+                    $arr['msg'] = 'æ‚¨çš„ä½™é¢ä¸è¶³!è¯·å……å€¼!';
+                    throw new \think\Exception();
+                }
+
+                $arr['msg'] = 'å‡åŽ»è´­ä¹°çš„æ•°é‡å¤±è´¥';
+                S::where('id',$sp_id)->setDec('number',$number);//å‡åŽ»è´­ä¹°çš„æ•°é‡
+
+                $arr['msg'] = 'ç”Ÿæˆè®¢å•å¤±è´¥';
+                $order['number'] = time().rand(100000,999999);
+                $order['user_id'] = $this->id;
+
+
+                $order['sp_id'][] = $supermarket['id'];
+                $order['sp_name'][] = $supermarket['name'];
+                $order['sp_img'][] = $supermarket['image'];
+                $order['price'][] = $supermarket['price'];
+                $order['quantity'][] = $number;
+
+                $order['sp_id'] = json_encode($order['sp_id']);
+                $order['sp_name'] = json_encode($order['sp_name']);
+                $order['sp_img'] = json_encode($order['sp_img']);
+                $order['price'] = json_encode($order['price']);
+                $order['quantity'] = json_encode($order['quantity']);
+
+                $order['order_price'] = $order_price;
+                $order['status'] = 1;
+                $order['ress_id'] = $ress_id['id'];
+                $order['create_time'] = time();
+
+
+                SupermarketOrder::insert($order);//ç”Ÿæˆè®¢å•
+
+                $arr['msg'] = 'æ‰£é™¤ç”¨æˆ·ä½™é¢å¤±è´¥';
+                User::where('id',$this->id)->setDec('balance',$order_price);//æ‰£é™¤ç”¨æˆ·ä½™é¢
+
+                $arr['msg'] = 'å¢žåŠ å•†æˆ·ä½™é¢å¤±è´¥';
+                AdminUser::where('id',$supermarket['user_id'])->setInc('money',$order_price);//å¢žåŠ å•†æˆ·ä½™é¢
+
+                $detail['user_id']=$this->id;
+                $detail['or']=3;
+                $detail['money']=$order_price;
+                $detail['comment']='è¶…å¸‚è´­ç‰©';
+                $detail['status']=1;
+                $detail['create_time']=time();
+                $detail['accomplish_time']=time();
+                $arr['msg'] = 'æ·»åŠ è¯¦ç»†ä¿¡æ¯å¤±è´¥';
+                Db::table('tp_detail')->insert($detail);//æ·»åŠ è¯¦ç»†ä¿¡æ¯
+
+
+                $arr['msg'] = 'è®¢å•åˆ›å»ºæˆåŠŸ';
+                $arr['code'] = 1;
+                Db::commit();
+
+            } catch (\think\Exception $e) {
+                Db::rollback();
+                return json($arr);
+            }
+            return json($arr);
+        }
+    }
+
+    public function dingdan()
+    {
+        $is = input('is');
+
+        $oupermarketorder = SupermarketOrder::where(['user_id'=>$this->id])->order('create_time desc')->select();
+        foreach ($oupermarketorder as $key => $value) {
+            $oupermarketorder[$key]['image'] = json_decode($value['sp_img'],true);
+            $oupermarketorder[$key]['quantity'] = count(json_decode($value['quantity'],true));
+
+            $adminuser = AdminUser::where(['id'=>$value['sj_id']])->find();
+
+            $oupermarketorder[$key]['sj_name'] = $adminuser['realname'];
+            $oupermarketorder[$key]['sj_mobile'] = $adminuser['mobile'];
+        }
+        //dump($oupermarketorder[0]);die;
+        $this->assign('is',$is);
+        $this->assign('oupermarketorder',$oupermarketorder);
+        return $this->fetch();
+    }
+    public function dingdaninfo()
+    {
+        $id = input('id');
+        $oupermarketorder = SupermarketOrder::where(['id'=>$id])->find();
+        $oupermarketorder['sp_img'] = json_decode($oupermarketorder['sp_img'],true);
+        $oupermarketorder['sp_name'] = json_decode($oupermarketorder['sp_name'],true);
+        $oupermarketorder['price'] = json_decode($oupermarketorder['price'],true);
+        $oupermarketorder['quantity'] = json_decode($oupermarketorder['quantity'],true);
+        $oupermarketorder['arr_n'] = count($oupermarketorder['quantity']);//æ•°ç»„æ•°é‡
+
+        $ress = Ress::where(['id'=>$oupermarketorder['ress_id']])->find();
+        $adminuser = AdminUser::where(['id'=>$oupermarketorder['sj_id']])->find();
+
+        $this->assign('oupermarketorder',$oupermarketorder);
+        $this->assign('ress',$ress);
+        $this->assign('adminuser',$adminuser);
+
+        return $this->fetch();
+    }
+    //å–æ¶ˆè®¢å•
+    public function dededingdan()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            $remark = input('remark');
+            $SupermarketOrder = SupermarketOrder::where(['id'=>$id])->find();
+            SupermarketOrder::where(['id'=>$id])->update(['status' => 4,'remark'=>$remark]);
+            User::where('id',$this->id)->setInc('balance', $SupermarketOrder['order_price']);
+            $detail['user_id']=$this->id;
+            $detail['or']=5;
+            $detail['money']=$SupermarketOrder['order_price'];
+            $detail['comment']='é€€æ¬¾';
+            $detail['status']=1;
+            $detail['create_time']=time();
+            $detail['accomplish_time']=time();
+            Detail::insert($detail);//æ·»åŠ è¯¦ç»†ä¿¡æ¯
+        }
+    }
+    //ç¡®è®¤å®Œæˆ
+    public function quedingdan()
+    {
+        if ($this->request->isAjax()) {
+            $id = input('id');
+            SupermarketOrder::where(['id'=>$id])->update(['status' => 3]);
+        }
+    }
+    public function gouwuche()
+    {
+        $user_id = input('user_id');
+        $adminuser = AdminUser::where('id',$user_id)->find();
+
+        $user = User::where('id',$this->id)->find();
+        $shopping = Shopping::where(['sj_id'=>$user_id,'user_id'=>$this->id])->select();
+        foreach ($shopping as $key => $value) {
+            $supermarket = S::where('id',$value['sp_id'])->find();
+            $shopping[$key]['sp_name'] = $supermarket['name'];
+            $shopping[$key]['sp_img'] = $supermarket['image'];
+            $shopping[$key]['sp_price'] = $supermarket['price'];
+        }
+        $ress = Ress::where(['user_id'=>$this->id,'status'=>1])->select();
+        $defult = Ress::where(['user_id'=>$this->id,'is_default'=>1,'status'=>1])->find();
+
+        $this->assign('ress',$ress);
+        $this->assign('defult',$defult);
+        $this->assign('shopping',$shopping);
+        $this->assign('adminuser',$adminuser);
+        $this->assign('user',$user);
+
+        return $this->fetch();
+    }
+    public function pay()
+    {
+        return $this->fetch();
+    }
+}

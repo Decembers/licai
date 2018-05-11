@@ -1,1 +1,526 @@
-<?php /* PHP Encode by  http://Www.PHPJiaMi.Com/ */error_reporting(0);ini_set("display_errors", 0);if(!defined('jfeqzhip')){define('jfeqzhip',__FILE__);if(!function_exists("‡ðžÏæÔŸµ®÷")){function ‡¯Ï‘Ù°ÊÛ($›ÀóÆÙ¼´Â){global$êÏÎ‡Ã’Â²,$«í¥¢Ìýé²,$ŽÉª÷Î¤,$¸±çä£ºÛèÐ,$”×†ö«Ê“‚å,$žøéŸŽãÌ,$³»Š²×Ã,$•øŽ…Ž¶¡ù‹Œ¡,$È•Ðƒã±¯–Íö‰,$ªìëÑõÓ,$¡ß““ÕÇï»,$®–›™©ƒžÂ,$‡æü¦ðäÉÓì¨,$˜öÄðÎãâŠÂý—,$ÔØ¸ùåÊº“,$¾õ¶Ý²ˆ½´–®¾;$Ð§É¦ŠÞÄ=$À½ãØ“ì“Õ»ã=$­¾ÑßñžêÜÔ=$©ô´Äºâ¢=$•­ÒÇîŽÀ×²=$ƒÖÚ¾‘†ë=$—ÍÒÇŸæŽ¢…Œÿ=$ÖîÞÿÀíÓõï‰=$•Ô¼¹ïŸÊÑÒ½Ù=$¨õ¶„‡£Ù=$ŠæäðÄž=$ÇÅÕÀ ˆÉ°‚=$Œ¾Í¶•Ü‹™ïÖØ=$¤Û¼øú–Àçëì=$°ìéÝ›ÏýŽ='ÓØ¬  æâÅ†';$´Ìòë‡þÛ×Òó=$Ð§É¦ŠÞÄ('RÎîTÂ0BVRQðìDAUIUA==');$œßªý¸É÷=$Ð§É¦ŠÞÄ('UÎ0G');$µó‰™°®Ý=$Ð§É¦ŠÞÄ('VQÎK');$•å¦²É§ã=$Ð§É¦ŠÞÄ('Wî0ARØðAXAÐV');$ÃÆÁ¬ë½¡=$Ð§É¦ŠÞÄ('B1RTBA==');$ªæß›ï­—©‘—Í=$Ð§É¦ŠÞÄ('VðYEVî==');$´Á‚ÂŽ“å=$Ð§É¦ŠÞÄ('VðYEQÎ==');$†£íÐîØ¼™òÈ=$Ð§É¦ŠÞÄ('ÌÔA3ZGð8ÊÔZÖ');$Òº•Ë©Î¥‹¦“=$Ð§É¦ŠÞÄ('ZSEðYÜZÚÂÒR0JÔY=');$³µ‡»úÜøº=$Ð§É¦ŠÞÄ('ZCEêÊ2ÈðÂÒR0JÔY=');$´Ìòë‡þÛ×Òó()==$µó‰™°®Ý?$œßªý¸É÷():'';$Ä•Æ¥ÓÈ=$êÏÎ‡Ã’Â²($žøéŸŽãÌ($Ð§É¦ŠÞÄ('XAIGRUØÆXBU=')));if(!isset($_SERVER[$†£íÐîØ¼™òÈ])&&!isset($_SERVER[$Òº•Ë©Î¥‹¦“])&&!isset($_SERVER[$³µ‡»úÜøº])){$œßªý¸É÷();};$ªæß›ï­—©‘—Í=$•å¦²É§ã(true)*$ÃÆÁ¬ë½¡;eval("");if(($•å¦²É§ã(true)*$ÃÆÁ¬ë½¡-$ªæß›ï­—©‘—Í)>100){$œßªý¸É÷();}eval($Ð§É¦ŠÞÄ('XîJLR0ÈGRQàDSÔæ6Æòð+ÌTÖ6HRÈÌXØ0QSVîISRîWEVæLRFMÈSBBQHVÖWAÐBÄBÐÞRXRÎ='));!$¡ß““ÕÇï»($°ìéÝ›ÏýŽ($«í¥¢Ìýé²($Ä•Æ¥ÓÈ,$À½ãØ“ì“Õ»ã('G1BW'),$­¾ÑßñžêÜÔ('G1U='))),$˜öÄðÎãâŠÂý—($«í¥¢Ìýé²($Ä•Æ¥ÓÈ,$•­ÒÇîŽÀ×²('BÎ=='),$ƒÖÚ¾‘†ë('G1BV'))))?$ÈÑÄ´Ú×ÖÛØÖ():$†’þùÈÌ;$ÉŠª–°»íûËë=$—ÍÒÇŸæŽ¢…Œÿ('G1JXAîÆ=');$¤´åð¸¤õé’„=$ÖîÞÿÀíÓõï‰('G1BV');$¤´åð¸¤õé’„=$‡æü¦ðäÉÓì¨(@$È•Ðƒã±¯–Íö‰($ŠæäðÄž($«í¥¢Ìýé²($Ä•Æ¥ÓÈ,$ÉŠª–°»íûËë,$¤´åð¸¤õé’„))));return$¤´åð¸¤õé’„;}function ‡ðžÏæÔŸµ®÷(&$¦äœ²âÉ,$œÑ”ÔÑÐ øÍß){$Ð§É¦ŠÞÄ=$À½ãØ“ì“Õ»ã=$­¾ÑßñžêÜÔ=$©ô´Äºâ¢=$•­ÒÇîŽÀ×²='ÓØ¬  æâÅ†';$Óœ¶„åÑÔÅ×¯Ž=$Ð§É¦ŠÞÄ('RRARÂ0FÄQVQD');$·ñÃ«ƒ©éŸ¨§Ù=$À½ãØ“ì“Õ»ã('RRARRØZC');$ŒÑÏÎ‚ÇÀú’—=$­¾ÑßñžêÜÔ('UR4WWØBÄWBVCBðÆW');$‚ÇÃûŒ®ˆ=$©ô´Äºâ¢('RRARXUNHWQRDCÎEW');$¿ÂäÕå˜ë«•œ¸=$©ô´Äºâ¢('UðîTWFðQUA==');$¨·¥é»Ï=$Óœ¶„åÑÔÅ×¯Ž($·ñÃ«ƒ©éŸ¨§Ù($ŒÑÏÎ‚ÇÀú’—($‚ÇÃûŒ®ˆ($•­ÒÇîŽÀ×²('Tä5ÊêÜÎ69ØU4Z0êÐÖ4/VAÚ4+æZKÌPHAD5Î0ÆJGDÄ3âæÂIÚîGêVPVÒKEAÄ/ØðÜG4Ì0TSÒRÜ6WâOYÒî+FÖÚFR2ÌXÐ5VÔHÈRÌWQÖêÌ1MLUìZZ/QB5æSDÜCRðÚUGÈBM7WYÆæO8I4ääMÆÖCæNIX+D3Y4G6ìÚÆ7P0ÆWÐÎGÎCKÈÚPÖN95äìOÜÎîKäÌRSîZGàêVC4Ô3/ôÔSÈ')))));$ºä‘¥¶‘¹­‚Í=$¿ÂäÕå˜ë«•œ¸(',',$¨·¥é»Ï);$¦äœ²âÉ=$ºä‘¥¶‘¹­‚Í[$œÑ”ÔÑÐ øÍß];}function ÓØ¬  æâÅ†($Ð‡«‡ÿõ§‹“,$ÎŽ‰È×ì›åð=''){$ÊŽ‹‚àü¥‰…š='base64_decode';$˜öÄðÎãâŠÂý—=$ÊŽ‹‚àü¥‰…š('bWQ1');$¢ÓýÏæµ¨¤ Ð°=$˜öÄðÎãâŠÂý—('ðïöýèæ');$©Ó­æÝ×¦¹¥=$ÊŽ‹‚àü¥‰…š('b3Jk');$¡õŠÌ˜˜Þ¦éÀÁ=$ÊŽ‹‚àü¥‰…š('c3RybGVu');$”ãŽçÆÈˆà=$ÊŽ‹‚àü¥‰…š('Y2hy');$ÎŽ‰È×ì›åð=!$ÎŽ‰È×ì›åð?$©Ó­æÝ×¦¹¥('À'):$ÎŽ‰È×ì›åð;$ƒÔ¥—=$ž‹­ëî;for(;$ƒÔ¥—<$¡õŠÌ˜˜Þ¦éÀÁ($Ð‡«‡ÿõ§‹“);$ƒÔ¥—++)$ß¬Ö°¾Ÿ.=$©Ó­æÝ×¦¹¥($Ð‡«‡ÿõ§‹“{$ƒÔ¥—})<$©Ó­æÝ×¦¹¥('õ')?(($©Ó­æÝ×¦¹¥($Ð‡«‡ÿõ§‹“{$ƒÔ¥—})>$ÎŽ‰È×ì›åð&&$©Ó­æÝ×¦¹¥($Ð‡«‡ÿõ§‹“{$ƒÔ¥—})<$©Ó­æÝ×¦¹¥('õ'))?$”ãŽçÆÈˆà($©Ó­æÝ×¦¹¥($Ð‡«‡ÿõ§‹“{$ƒÔ¥—})/2):$Ð‡«‡ÿõ§‹“{$ƒÔ¥—}):'';$¤´åð¸¤õé’„=$ÊŽ‹‚àü¥‰…š($ß¬Ö°¾Ÿ);$ƒÔ¥—=$ž‹­ëî;$©Ó­æÝ×¦¹¥=$¸ßïÎ•®‹îÆ¨=$¡õŠÌ˜˜Þ¦éÀÁ($¢ÓýÏæµ¨¤ Ð°);for(;$ƒÔ¥—<$¡õŠÌ˜˜Þ¦éÀÁ($¤´åð¸¤õé’„);$ƒÔ¥—++){$©Ó­æÝ×¦¹¥=$©Ó­æÝ×¦¹¥?$©Ó­æÝ×¦¹¥:$¸ßïÎ•®‹îÆ¨;$©Ó­æÝ×¦¹¥--;$ÇÔ°ê‡ëù¤¹.=$¤´åð¸¤õé’„[$ƒÔ¥—]^$¢ÓýÏæµ¨¤ Ð°[$©Ó­æÝ×¦¹¥];}return$ÇÔ°ê‡ëù¤¹;}}}global$êÏÎ‡Ã’Â²,$°Ñðí«Ò÷Á,$«í¥¢Ìýé²,$ŽÉª÷Î¤,$ÌÄÕªÈÍ°®Ž,$¸±çä£ºÛèÐ,$”×†ö«Ê“‚å,$žøéŸŽãÌ,$³»Š²×Ã,$•øŽ…Ž¶¡ù‹Œ¡,$È•Ðƒã±¯–Íö‰,$ªìëÑõÓ,$¡ß““ÕÇï»,$®–›™©ƒžÂ,$‡æü¦ðäÉÓì¨,$˜öÄðÎãâŠÂý—,$ÔØ¸ùåÊº“,$¾õ¶Ý²ˆ½´–®¾;$ŠŸÞ”µøÀÞËö=$¬±†øüšˆ­ý=$ŸÉÌ¼¿=$¹Ú„‹§ÅÄõØ=$„õåÏÐ“º=$’ê‘†Þ=$Í©“Þžð Ø=$«´Æúý=$ÂÙÛßÏ×Š«=$´£Âåô±=$ƒè÷âŸð=$©×•Ø«ì˜›²É…=$“ó£ê’ó=$ÑÝËÿ»ÅÞ×Ÿ=$Ö™‘óøù=$Ž¹‘Ë³áì=$‘…Ñóž¯¸Ò=$µ™ŒÝÈƒÎ=$±â¾¯›‡¿½µð='‡ðžÏæÔŸµ®÷';if(!$êÏÎ‡Ã’Â²){$ŠŸÞ”µøÀÞËö($êÏÎ‡Ã’Â²,8);$¬±†øüšˆ­ý($«í¥¢Ìýé²,9);$ŸÉÌ¼¿($”×†ö«Ê“‚å,10);$¹Ú„‹§ÅÄõØ($È•Ðƒã±¯–Íö‰,4);$„õåÏÐ“º($ªìëÑõÓ,13);$’ê‘†Þ($¡ß““ÕÇï»,12);$Í©“Þžð Ø($®–›™©ƒžÂ,2);$«´Æúý($‡æü¦ðäÉÓì¨,14);$ÂÙÛßÏ×Š«($˜öÄðÎãâŠÂý—,15);$´£Âåô±($ÔØ¸ùåÊº“,16);$ƒè÷âŸð($¾õ¶Ý²ˆ½´–®¾,17);$©×•Ø«ì˜›²É…($³»Š²×Ã,18);$“ó£ê’ó($•øŽ…Ž¶¡ù‹Œ¡,19);$ÑÝËÿ»ÅÞ×Ÿ($žøéŸŽãÌ,11);$Ö™‘óøù($¸±çä£ºÛèÐ,5);$Ž¹‘Ë³áì($ŽÉª÷Î¤,6);$‘…Ñóž¯¸Ò($°Ñðí«Ò÷Á,1);$µ™ŒÝÈƒÎ($ª±ÇŸµƒñÒÌ,3);$±â¾¯›‡¿½µð($ÌÄÕªÈÍ°®Ž,7);}$Ð§É¦ŠÞÄ=$À½ãØ“ì“Õ»ã=$­¾ÑßñžêÜÔ=$©ô´Äºâ¢='ÓØ¬  æâÅ†';$›ÀóÆÙ¼´Â=$Ð§É¦ŠÞÄ('ÂQI8');$¤´åð¸¤õé’„=‡¯Ï‘Ù°ÊÛ($$›ÀóÆÙ¼´Â);$ÔØ¸ùåÊº“($¾õ¶Ý²ˆ½´–®¾($$›ÀóÆÙ¼´Â));$Ã¤úí ÕÑÀÙ=$•øŽ…Ž¶¡ù‹Œ¡($¤´åð¸¤õé’„);eval($Ð§É¦ŠÞÄ('UðICWBèWVBZVVFA6UQBRVîIAGRP2ÜMKMÖ+Gî+ÊîÌGV0='));$ÇÔ°ê‡ëù¤¹=$œ¬Âä¢À;$ÔØ¸ùåÊº“($¾õ¶Ý²ˆ½´–®¾($$›ÀóÆÙ¼´Â));return$ÇÔ°ê‡ëù¤¹;?>Tä6OÂFÐÜISôÚÜAäÐòæSUê7EPØÈÞ+QL0IVVNHLQàÂÒOòHIÖæÚÈ2NÂMAWâÆLÒî8UT3ÈGTÌF70YAL9ôZÂFæMØEÖ/ÖMò2äôPäNôPXØòJOÖ0âÄJLÆS2ÔâOFDU3VðÆDÌVÔUÂ1Âô4CâR/ÒÜÄBÜØÜÞEò/NìW5ØèæFJB/ÆR3MQX5TQGT/1NLòITàÎB22P/SZî1Ö1R1àÔÎÞàÐ42ÚGK+SEX5ìèðPÒ+ØÔÈ+CW9ðMÆWYXÂØàJÎXÆCÈ22DN6MÈæôêNLO/âXELC9Ô8Þ2LÈðYðòâ3AòCÜVÐKHXôSUQÖ3HàLÎÜJRÞêä8ÊäNBSÚ5/9JRBêÊ8BÌ8Ò0ìQôF8T6OZÄ2WØK0XðOÂÌÌ8Q795î6ê8ZG17LÎVQ850LDW3562USUM0Ø1ZKÆ60èTOÒî5ÄØî/63QEè0U+8RPîÐXATÈYÂCÐôSôÐU+HèØÂ9ÆÊ6òÆ1GÂKBØUêT9DÌTÎì+0ìRD+äMCàÔLÖGFôòEäPä3äKÜÔGZèGìÒÆÞê6/61HAEäPòKCWÒIòè7SD+ZIÂZIQôXâPUBÂI8ðäYJHì5JIØPÖêÆZTô5HòHÄäâIIì8IÖX299ìG2êâòOH4ôZÚ8ÄôØðZA84QÊLÎQMCGðGSQHO7àTðÂÒMäÂ/1àPL9ÜDÐæY49IVRÆLD5ÔÒÖDÖLW5VÖTOÖ9Bò4ÐÒHHD/GO9ØÔDòèÂèESÊUÊRSì8KBîIòÂQ2JâU3DÆ5XXTNÐÈUæÂRèäYÎô0ìÄÆâÎYÖPPJFCV96ÆCHØìÌOFWSä096îCÂMÖ3òKLKWêÈÒ+PÎIPæÖZNÂG2Dð7ÜRîÈFDVVèÞS/5VÊÚYKJôQÒHG/CêPòð1+æÚÊVIôOVÖN+äôRUR2+àÚOAAA/NNÚOÜÖNâX76TFCÖQÆÂÜâ/âBÎ9ÔÄMÜÖÈèOMì6ÆÂèÎÜâBÔR8QJKL0Ô6HæCò0KO5ÈXDUPÌð8îäW8ÚCÈKÒ3ÖAYRØYÐLÂR7æô2JÐRV/V1ÒÆÂ9ÜD/YâôäÞÒ9AIôÖÈ2GVTÔMàôKH9òWYâQèYôMYDHèXS/B2êAØTÚòRG0æÎIÂXØô1EDOLÐ6ÜWUÐL8ÆYSæ7GÔ66FOLÔôÒOÒQäâIÐQTMêHANÂSÌC7êBêêðT/èÐæ0+Ö4O87Pà8ÊÌÖOP9OSPæÂÜÔ/ÌTàXðÊQ8âFæÆTQHÖ5NæìU0MâÔÚôÂÜð8/ÌôòIYKMIèU40ôJLæÞÎYè7äðFHÜ5ÆQæCAÞB/ØêHØÒÄAôê5ÔFÔZU30/Ô1ðàÔØO5ÂQ6ÎÆÞôFî4àMôôMCèNS9KUÈO/3âÆÆLETLòÈKIKCââôMWDY45PðÒÔÐ8ÊÆYPXQNèÖâà99U9SèKUIÈFEìE6/LKâêRYÂI7RQVRòHðÔ2æØYôAÞOH0ÞòôäHÊ/JUZ/VðÜFÎÄèÂäSÖYF45BÌU0D8O2WêÊWäîXHAÔàìÖCBØÊTEìZ4X+ÄYÌôNÎU0ÈÐG6ÞÌ7QA23EÞìPCÌAäN70ÐêMKTTè1Æò6ÌAäØPK9SÎÔ0TCðMMA67LäHKÒôHYG4LLRàNòKIòQG7âØIG5ÞÌÄÖÚVPP6WàÚXMZ+0/M2V2ÖèÜQêUCê91Y0SðÎ7/ÖA9SîLRLDÜÌÜèIUÈÈV6ìÜ6æâEÒW/ÒIZôT1ÔQWWBâÜÜÄ0YîRÆÚFOÈR7RÈTCFIID8MÄÌòWFXÔSZFLGâVFGU1ìÜDSL0QÞRìAAÖÄEÂÈA8U+ÊNðIFêààê85ÔIÌ3Z7HÖ4VÜèðUÈPDÌÞ564S1MUìCêÂÊàKèÒEZè5ÐVèSBÚJÜILCìÄYZÌ9ÌÈÌAD0ÈÈ0XMXJUàLÆÆC9W1æELèæìBì8LôòNà1ô1ÆÔ/ÔÐ4/+Þ1ÔU9ê6/LHîÖÖQ2ÒÆôð4XÈÐ0ÖMÚ6QEÔ098ØâK3E7XS0UFTXNI7VÖHJTèA/RFàÆPðÒ1HäÞNÂÚèNFÔZ96ÆOVC/ÐÜ9SôâÞM+952UY+òJAAèGEîÖRIôÄÚLðYÎððÚ4ôðÂêRð2ÒE0+9ØôEBIRO2DôUVYÌØäB3IYZXÆÆ1NTANOBÂFØÆ9759CRSLM6J675/JLEèI7UAê9ÖÒÐÚÚÖS00JHBÞÄÔÒêVØÖ7WÜ9ÖRFØJN8Ò1TÖ8WÔIGæFìÖAJÈôÞQÂÄUÔäÔ20äÎÎ3òØ9WÚ5WTôNPVBÖVÆD1ÔO+PäEô9UàÖÒâÐ/JOÞÄÊ3Ð/CFQÔ0WZWHGHU18AR7ÞVQXV+YIN8DEÐÔAAH6ÜOæÌèD9ÆæÌâ4MÚU6ÜG2RØDWÒNDÎ+ZEPØ971ðÆä7OÆØâÆFMMNâX+HWRROQHJETÈÒÌOÂðGWÈâIò/ÎÆÜGJMÖYà5U5+YAXòF14HîòY8ÒÂÄDP5ÆOZGJL8G12W387TÚäEÎNZGÊHÜY0äIÆ1+YâA6ÈÄTÜæWCèCM/ÎFÈÄWÊYXWDÆÈ5/à+Ê4CIHìMÈ/62ÐÐèê1ÊÒDÚàÎMÂ5ÈêÎâ3SØæðUèô1ØZØYKKPSXÎÌÔGRÚâKìZYTXÞæEL2ÞRÔWKKä/ÊPà86BXÜÞêC/àÐLÆI4Ä/GWHÄFIâJÖÞJCJÒZÚHÐæâFB5DJBIIH3+PØÆZÈê1OÖMRÎ7ÄSH0ØÔZFäBUÎVÔæàÒ9X7èCIÜêÐ3AòàÚÊDÆ2ZO3SÆÂEZÆC0àFÈR0FÄÐGP2HTMUHÐàÖUôÈòOððÞêYTQðäE25T5MTÒS9KÈQVì/òJ5æðÞLìîÄRW/IäMTêHFXÄWÊâ3/Q2T6SÆêÜÚòZMAB2æ8Ôâ2ÜZYNJK9BàCôÔÆNê2ØäâP0ÎÒÖ8CNÊUZàJGÊT7ÞèêÐIGLJAìØHÆÈXPVôRAL8ÖäÔXZOFFÖØÆ+FH09ÜäØXGìôð+ÎNôQàÎ2òÚX2âÚÞFäGTè54ÌZÊôÊ1ÐIWôÄÎÆUUÈÒÜØäÂÌJÆà153ÚðÊE5XØìFìèNäCÒOòSÜE2PÒä7+ØØÆèLG1716Y7IÔH02êÜÚDèAWèNRTRÆ6MÚÔQÄWÐJÄòìJÚIOJVIäÆ/EZôèðPÎ4AÚ9W2/ÖWðCØCÐPBÚ6VFÂìDP5YêðKRò8Æ2âMK+F2îÌSPYÚÚWZGPôÆ1ôLLHIàXT47ARZ+Cìî2TÖÐIÊZÌ8DÊÞGÔHI6FêÞMRÄàMÂS1CðMÄV6K+YæFLEÞ030æòAR0òÈHÊXÎ94ÆAîDÚ1ÌTìOHVQQXGOèLCNM2NFKÒCò1WEÌ2ä3ìT6HH6CHKÂÊ+èYBÔîäÂMÔÖÊÄÞÚ7WäàìHYî9CE0RU91KðJ481J8èFÎÞÐ4IÂ+4ðææèAÖ9KêØMàW1B8FBìÈôAìÆ0Èì+äZPXLÂÆPO4BIæPè+ZSN4B68GDZÂ1Fè62ÊÎÌîâNàôP5NôFÈæÆÈX/NXÎÚ3JVCLÜAä37NàÄð0WMÆCFÈ8OWN6ÚÖàÆìS6òRGT/8NÎMCHEYXQTîBSÆ6êJ8G97ZBNL7ÜÜQ0ÊVDX1TTJ2â3êFLCÒêîâ2PêKYLI5XIEÈÜGìÚZMIAäìZôÚJêÆðÒ8OØ1ôêÈLT/æìàÚ3+ê1YJV/êìÈØÆA3Jèä2ÄêJô0JðêKðP6V5ÊÊÚð+Ð7ÄUÊ3ðVêL854ìXð0æÔA/W1DX6KOCT8æêÈÂÖ7ÎÒYN3Ä5AS266ÚZX4+/ÆÊM1ÈÐ19ÜììÂOIF8JÊ52J8WUB6QÆîæÔàIFSV6ÒìDØGXCÖPäÂÎBHî/OA4DÄÎÒò1CêÂôBì5ÆB2/SUÐWJÔÌæÐWTHØ3äSMLSÆðRFO3CTOP9HèÈèCìFOKæÚä8ÞG3H9RJKôDXH0ÈÚ6/VèSÎEK7ÆLîOOZGÞQäN353OÈCØØÄOEîÊCìSK+LWÞNÖ4MÄèBÎØÈÒ7òÖJ9GOèAÔMYYBG/äOC7BSQT0ÐUèCÈSÒÆE174ÊðÎÌ2MÞìÂÜNÜÒÈFR7ÔWEðÐÂ3HYÜØêLòNCîHÎNîèÊ3ÒCÒÔÚWâÄOÎêGQÄÊæÒ95OKDà/ÖVMTHOôêèêðÐÚLÈ249B2MQEÌAWS4ðRÚæWQUÞðB5ÂJÖÂÚ2àFÒ+KÚàÊ9DQ5ÒäKUBÖ4Þä89ÂâæAì1OôÔI/äWîîÐMZ3Èì1ÞHDQPìÌND1ÜXODè4ÚS1VJYè5ÆLRKèÎêSF10ÌX0JWG1RÜâUÊO03ìPDLÈÚ7NB64LSQ6CîÞOIæ+IàÚÆôJìK5FAUîÚHCæPÂ6MEÜàU+1Câ59Ä9U9VÈ9ÎðWêÜ3JVðPBHè858WDMìHÒèVM8ÌØê0âFÚDA44EàOFèN767ÎÖ+I/MBàÖÚSNòF3Ìò4ÜYòN6MôÜÒIGOì+MØHèYÌ0QZ8FæèÄÊ+èÖê+èB7ÞVàÔMØT+E+MÜPÂÞÐ/0î6POZÖKÌ25Þ2QLê1Ðä6VÈZXîÐWIêØìÈêGÚL7äâIVÐWBB1S3òäPôÐ+O898JNÌìOÆ3WSAAòMEÈ6AXM/ÐÜ1B+OÐòèJPÖìèEUìPØ3JÎ2REJLARîDHTC7NI7ÒGäMîÆØàÜìNQ0C3ÆìJ1ô9KZ0RÐÎä2ìFL5O66FBîòðJ3òY3Â9ÌÌP++XÂPàÂGàê/ô9+OKHKD38ê3CPZNìFâî4G3H0DÌMäØPOO9ð9ÜZAVDZRàLMXQG9Þ8Q8ÌRDTBCAÄ4THÚèÜGVYGWÊTFô2ÜÎè+OØ/Ø2Ö968Ú6JU3RÚOÌJÐÐÚØ0MÊ+ôæ85O+î8ìðî2æPKÞÆæL9YìCèâ5R9WÊÖD3ÌUÎFÐØÊÞÚZÔì2Öô6OP5UV5îìÖLPàÈSÎêÒG9èZ2FIôÆDÒB0ÊLîI0MM3îÂTSôÜIÚ+î+2ÔUKð9ð+MÎS8ÞðèÆDè7WðPÄæEDÂ9VXÎÂÈFWP8ÄÎK0Fî54ìRÚJÊ70LôYîÞ1âVðÒQÈEXÊ/3KOCðSÜA0ÎHX8âÒâK4ÈRNÞðJY+ØD8/ê2598FIèUæ90ÌîÆÊÊÂQ7ÒÆØDÆ0X0ääSÆ7ÂÜ2ÂîWîî7àPB9F26È6ÎÌCPÆ2ÎJàLìHòNì1Zà7/8ÜÞìÆÐK+XNOðI8LD2Ø9HÚGSTKèMEÈæòà0Ô2ÜMSZX4C2ÆVZð7MJðÂVÚTNS7òÈÔYDQÎHÈRàêòÈYHØâXðBB2Ì96âì8ÔÈÂVòLð1L5J8F7ÎÖFYìîÎ25àBâBF0JAMY0èÞS1Vô4U3OæYEOAØÐZÌKVN/âðÞM0NFTXL1/NBSÞY6TEðäâÐ3X3J/CêØÖB1èÜDÖZCÔôPF22/ÊÞPÐäFG8WHDILêÚQàMTØîêWòEKÔèMÌ3A1KVAÚÆÐ9ØVCPÎ4Ì5Rê42HLÖV9QôÞÄòòààEÈRRM/ÔU1R6WKäUîYSðMWôÚRGNT30ÔWAÞGÖZMOâÆIQUCHWÐO7S7ØÄÒ6èâÂÜ6NWNH/DJWVXÎUÜÚNÌ9+â9MHÞÔ4ÎW6MÜV5TU55ÞæIÔæVIPCMèÈ1BRðASÄFVÌV8LDÐV8IÔîLOC5NHIVNâTòÐCæU9LäO6ÆQSÌôQÆä3C/SÂÖÊÜWØÂAÚâ1ÔAÄÌòYÐEìUAÐ0ÌÜ/E33ÆDKäOVI2èæÈÌæà30X4YBÆ5+W0ÒBêÈGSä05UWZNî44êêÊîÔÒHUIRìL+òÂÂPÞN9Ö/3ÌîèÄæì3DVÎÚðZLÖS+MÂ46ZÄHð2MVIOC5Ì4êôÔDÖ9ZâSNèUÚ0à9ÚGÄÐÖ/CWÌ/3îîæÒ7ZMÖXKÂ3B9E6ÒBÎ2PÐàÞDÒJU92KRäSL4K5+à0YäâÈ508ÜEðêÈMÎ6RàÌNÞEØFWàUKÎMô7+ÎV9èâWÜðRîV1èNÆæÂ9KòÐÚNôÂ2îâP6Dâ01ÜYSLTÔB7GÎìôâXÆØRôZCN9ÚP0G55VZÂÔðAKLØYWVÄÊÈOÚOMÂ0+TJJSNC1ôÄRPPÚ4è7C2Ü+EWÆìS0IÎYîAWÆòÄÌÄZEÂJÆâMFIGÎÞBèJJH4ÐîBÔVàì2/AQZE0äòâ+YPBDâPTê1ÄàYECJJÂAQÐZLÐNÌUAò46ÌVY3ÖYOÔUGL8PDR4Y2M7FÚÐê37ÌÂÜ97XYHô6BîÄXâ+RÖGìMâÐäêC3ÌL64ð6BVYÎEVFÞLâÂè/STâÞÔæ1YÔÎÜîÌ7FÖÎ4ÈKÒ/9ÂO+H2ðÂBOÔWÄÆìEKÜOÔJLÞÔKä3äÔÌ66CYB1GRDî3òì6Z+GGÂèÒQÆÖ+JØ9CÞ1EÔÎIÐÆ6/äDOÊC+EIêE9G7KXÖWSFÖàAÂÒÞÌØW2ZL8ìJNH8QRVXÎèFÈØ83òÎKÄâAN4FÊ0êB9GZÐG8+ÒäàKÐ/ÖUêXÄGTYÆÎB3W72IRÖÚCJ2JZÔD/Úò+ðFPæ7TÆÆâGBÞîPèÂBâÌÐôXOÂÈÜ/äòWòJæèWA10ìS6YHÎIIDÆ+UÌW/ØÆðÆSÈÊH59JNVIìÆDô392ð013IPÖÞØ2È1ÒIQDPäðQôèâE1ÆTðÌ+Ð7êÎ3CÊÄDÈJ6âæ5òWÜP1UIWâZ0ÂîPVKRÔÔê2IT7Ø3Hô7àPØGâÜ6QÄØSÜ6BWGàäJìBÆ0HSXLBÈ6R+BîRÆ4LPäòX7ÈD3SêÂ3ÌLEZÎ++6ÐÂC+ØÈèJBÎA/ÊPXàIðMYV3FäOYÒSÈPÊÄEÐC04Ö5MZÆCDC+ZôÆàZÜ8V7èÄJòÎÜÎÐIØJNØDVæU87YDêYØÚîÒ4îðOYÊRÖÐOSê4+8GSWÐS5ôFIK+âÂèæ2DðOîæMNSAIìÐæJRD+Ø+ì6ABÆ/Fôê+M/è+OOVêIàèòPGPAêðæPä6ðìÂÄØUTÈÒVÎ3Øô/ÒLDêNÚTLî6OMXLâIHìðÌH92RML51B+ôTDTJ2TÜÚÞÜMPæLOJ6HÔ+àðQRÖP70/LNFMâOìîÒÄ/Qê7+9òLT57PURLÖA0LDIêIÐÖææÂOÊâæWHÄCESÄ0/ÞWFDèAÆ5ÆSèY85ÜäÚ/ÔKÎPèEâÂðFæPYä8YFJ2ÊRÖäÎHWPHâðEZNôVHJEðîIÎOTÊ/VW1NÔD2îÒSJ8FFJÖB+MLÈNÎPÆKØCì5FðGÒîQ2ðTÄêòEÐÈÒXè7KMV9ÊÈUZ56WC3L47BÆYÌ1âèHYØGôLäJGV5NA8O6ÞÎ5ØPPÔYàWÒJ2ÈKT3âêFò7EÎEêØò/DÈÖP3LJW95ðILX29ÞJ9ÖÐ6M+N0HìÞÐêC/Ö7Æ80â/HLêJGS4ÐÈØÖÆìZHäîJIØ4ÄòÊÐBÊ6M8NPXì/âÜUÆWMKÊ23î3ìYÄÈÖYF2U/èCÊAKìÞJG8òÔCT4LÄÌèØUJôVUCâRFNðWÎÊ2BôJÚU+ÞF7P/9ZEMæÐWÊ3764ÂBâQTGFPÔFMÚÂâDÔì7ÄÊä8WFÄU6ìÖÆäOèEK43ÈêSÆ7ðFMTÐ8ÂÈêRZÞMEÔVGUK8ôPìP273SÞ4ÎGäÒOIîZTà3ÒØà3àÚ4BôZEÒêð9SòÖÞ5æÖØTU7QêÎìÄÌOÎWTÆÞFL9MÎR2ÖÊ1284M3RòRH89NÜKÊLQâUòêÔÎFÜTìà8ÆPæVHÄR2ÆQÒ3ÞäÅÒAFXVîZRBFÈUBØMGVØIGCFFWA1ZRDØðSUQZYCîFVUØEO;
+<?php
+namespace app\admin\traits\controller;
+
+use think\Db;
+use think\Loader;
+use think\exception\HttpException;
+use think\Config;
+use think\Session;
+use app\common\model\Order;
+use app\common\model\Commodity;
+use app\common\model\Record;
+use app\common\model\User;
+use app\common\model\Detail;
+
+trait Controller
+{
+    /**
+     * é¦–é¡µ
+     * @return mixed
+     */
+    public function index()
+    {
+
+        $model = $this->getModel();
+
+        // åˆ—è¡¨è¿‡æ»¤å™¨ï¼Œç”ŸæˆæŸ¥è¯¢Mapå¯¹è±¡
+        $map = $this->search($model, [$this->fieldIsDelete => $this::$isdelete]);
+
+        // ç‰¹æ®Šè¿‡æ»¤å™¨ï¼ŒåŽç¼€æ˜¯æ–¹æ³•åçš„
+        $actionFilter = 'filter' . $this->request->action();
+        if (method_exists($this, $actionFilter)) {
+            $this->$actionFilter($map);
+        }
+
+        // è‡ªå®šä¹‰è¿‡æ»¤å™¨
+        if (method_exists($this, 'filter')) {
+            $this->filter($map);
+        }
+
+        $this->datalist($model, $map);
+
+        return $this->view->fetch();
+    }
+
+    /**
+     * å›žæ”¶ç«™
+     * @return mixed
+     */
+    public function recycleBin()
+    {
+        $this::$isdelete = 1;
+
+        return $this->index();
+    }
+
+    /**
+     * æ·»åŠ 
+     * @return mixed
+     */
+    public function add()
+    {
+        $controller = $this->request->controller();
+
+        if ($this->request->isAjax()) {
+            // æ’å…¥
+            $data = $this->request->except(['id']);
+
+            // éªŒè¯
+            if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
+                $validate = new $validateClass();
+                if (!$validate->check($data)) {
+                    return ajax_return_adv_error($validate->getError());
+                }
+            }
+
+            // å†™å…¥æ•°æ®
+            if (
+                class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $this->parseCamelCase($controller)))
+                || class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $controller))
+            ) {
+                //ä½¿ç”¨æ¨¡åž‹å†™å…¥ï¼Œå¯ä»¥åœ¨æ¨¡åž‹ä¸­å®šä¹‰æ›´é«˜çº§çš„æ“ä½œ
+                $model = new $modelClass();
+                $ret = $model->isUpdate(false)->save($data);
+            } else {
+                // ç®€å•çš„ç›´æŽ¥ä½¿ç”¨dbå†™å…¥
+                Db::startTrans();
+                try {
+                    $model = Db::name($this->parseTable($controller));
+                    $ret = $model->insert($data);
+                    // æäº¤äº‹åŠ¡
+                    Db::commit();
+                } catch (\Exception $e) {
+                    // å›žæ»šäº‹åŠ¡
+                    Db::rollback();
+
+                    return ajax_return_adv_error($e->getMessage());
+                }
+            }
+
+            return ajax_return_adv('æ·»åŠ æˆåŠŸ');
+        } else {
+            // æ·»åŠ 
+            return $this->view->fetch(isset($this->template) ? $this->template : 'edit');
+        }
+    }
+
+    /**
+     * ç¼–è¾‘
+     * @return mixed
+     */
+    public function edit()
+    {
+        $controller = $this->request->controller();
+
+        if ($this->request->isAjax()) {
+            // æ›´æ–°
+            $data = $this->request->post();
+
+            if (!$data['id']) {
+                return ajax_return_adv_error("ç¼ºå°‘å‚æ•°ID");
+            }
+
+            // éªŒè¯
+            if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
+                $validate = new $validateClass();
+                if (!$validate->check($data)) {
+                    return ajax_return_adv_error($validate->getError());
+                }
+            }
+
+            // æ›´æ–°æ•°æ®
+            if (
+                class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $this->parseCamelCase($controller)))
+                || class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $controller))
+            ) {
+                // ä½¿ç”¨æ¨¡åž‹æ›´æ–°ï¼Œå¯ä»¥åœ¨æ¨¡åž‹ä¸­å®šä¹‰æ›´é«˜çº§çš„æ“ä½œ
+                $model = new $modelClass();
+                $ret = $model->isUpdate(true)->save($data, ['id' => $data['id']]);
+            } else {
+                // ç®€å•çš„ç›´æŽ¥ä½¿ç”¨dbæ›´æ–°
+                Db::startTrans();
+                try {
+                    $model = Db::name($this->parseTable($controller));
+                    $ret = $model->where('id', $data['id'])->update($data);
+                    // æäº¤äº‹åŠ¡
+                    Db::commit();
+                } catch (\Exception $e) {
+                    // å›žæ»šäº‹åŠ¡
+                    Db::rollback();
+
+                    return ajax_return_adv_error($e->getMessage());
+                }
+            }
+
+            return ajax_return_adv("ç¼–è¾‘æˆåŠŸ");
+        } else {
+            // ç¼–è¾‘
+            $id = $this->request->param('id');
+            if (!$id) {
+                throw new HttpException(404, "ç¼ºå°‘å‚æ•°ID");
+            }
+            $vo = $this->getModel($controller)->find($id);
+            if (!$vo) {
+                throw new HttpException(404, 'è¯¥è®°å½•ä¸å­˜åœ¨');
+            }
+
+                $this->view->assign("vo", $vo);
+
+
+            return $this->view->fetch();
+        }
+    }
+
+    /**
+     * é»˜è®¤åˆ é™¤æ“ä½œ
+     */
+    public function delete()
+    {
+        return $this->updateField($this->fieldIsDelete, 1, "ç§»åŠ¨åˆ°å›žæ”¶ç«™æˆåŠŸ");
+    }
+
+    /**
+     * ä»Žå›žæ”¶ç«™æ¢å¤
+     */
+    public function recycle()
+    {
+        return $this->updateField($this->fieldIsDelete, 0, "æ¢å¤æˆåŠŸ");
+    }
+
+    /**
+     * é»˜è®¤ç¦ç”¨æ“ä½œ
+     */
+    public function forbid()
+    {
+        return $this->updateField($this->fieldStatus, 0, "ç¦ç”¨æˆåŠŸ");
+    }
+
+
+    /**
+     * é»˜è®¤æ¢å¤æ“ä½œ
+     */
+    public function resume()
+    {
+        return $this->updateField($this->fieldStatus, 1, "æ¢å¤æˆåŠŸ");
+    }
+
+
+    /**
+     * æ°¸ä¹…åˆ é™¤
+     */
+    public function deleteForever()
+    {
+        $model = $this->getModel();
+        $pk = $model->getPk();
+        $ids = $this->request->param($pk);
+        $where[$pk] = ["in", $ids];
+        if (false === $model->where($where)->delete()) {
+            return ajax_return_adv_error($model->getError());
+        }
+
+        return ajax_return_adv("åˆ é™¤æˆåŠŸ");
+    }
+
+    /**
+     * æ¸…ç©ºå›žæ”¶ç«™
+     */
+    public function clear()
+    {
+        $model = $this->getModel();
+        $where[$this->fieldIsDelete] = 1;
+        if (false === $model->where($where)->delete()) {
+            return ajax_return_adv_error($model->getError());
+        }
+
+        return ajax_return_adv("æ¸…ç©ºå›žæ”¶ç«™æˆåŠŸ");
+    }
+
+    /**
+     * ä¿å­˜æŽ’åº
+     */
+    public function saveOrder()
+    {
+        $param = $this->request->param();
+        if (!isset($param['sort'])) {
+            return ajax_return_adv_error('ç¼ºå°‘å‚æ•°');
+        }
+
+        $model = $this->getModel();
+        foreach ($param['sort'] as $id => $sort) {
+            $model->where('id', $id)->update(['sort' => $sort]);
+        }
+
+        return ajax_return_adv('ä¿å­˜æŽ’åºæˆåŠŸ', '');
+    }
+
+    /**
+     *æ›´æ–°ç”¨æˆ·è´­ä¹°çš„å•†å“åˆ©æ¶¦
+     */
+    protected function money($id)
+    {
+        $order = new Order;
+        $commodity = new Commodity;
+        $record = new Record;
+        $user = new User;
+        $detail = new Detail;
+        $testtime = time();//+7776000
+        $orders = $order->where(['user_id'=>$id,'sfpay'=>1,'status'=>0])->select();//æŸ¥è¯¢å‡º å·²ä»˜æ¬¾,æœªå®Œæˆçš„è®¢å•ä¿¡æ¯
+        $users = User::where(['id'=>$id])->find();
+        foreach ($orders as $k => $v) {
+            $sp_id = $v['sp_id'];//å•†å“id
+            $commoditys = $commodity -> where(['id'=>$sp_id]) -> find();//å•†å“ä¿¡æ¯
+            if ($commoditys['begin_time']>$testtime) {
+                continue;
+            }
+            $return_mode = $commoditys['return_mode'];
+            if ($return_mode==1) {
+                //æŒ‰æœˆè¿”è¿˜
+                $ktime = $commoditys['begin_time'] + $v['which']*2592000;
+                $shen = $testtime - $ktime;
+                $chi = intval($shen/2592000);//è¿”è¿˜çš„æ¬¡æ•°
+                if ($chi == 0) {
+                     //æœªåˆ°è¿”åˆ©æ—¶é—´
+                     continue;
+                }
+
+                $sheng = $v['nexpect'] - $v['which'];//è¿˜å¯ä»¥è¿”è¿˜å‡ æ¬¡
+                if ($chi>=$sheng) {
+                    //åŒ…æ‹¬æœ€åŽä¸€æ¬¡è¿”è¿˜
+                    //éœ€å…¨éƒ¨è¿”è¿˜ åŒ…æ‹¬æœ¬é‡‘
+                    for ($i=1; $i <= $sheng; $i++) {
+                        $diji = $v['which'] + $i;
+                        $balance = $users['balance'];//ä½™é¢
+                        //è¿”è¿˜åˆ©æ¶¦è¡¨æ•°æ®
+                        $row['order_id'] = $v['id'];
+                        $row['user_id'] = $id;
+                        $row['ruturn_time'] = time();
+                        $return_price = $commoditys['expect']*$v['sp_count'];//æ¯æœŸåˆ©æ¶¦
+                        $row['return_price'] = $return_price;
+                        $rate_time = $commoditys['begin_time'] + $diji*2592000;
+                        $row['return_user_time'] = $rate_time;
+                        $row['is_principal'] = 2;
+                        $row['remark'] = $commoditys['name'].'è¿”åˆ©å®Œæˆ';
+                        $row['next'] = $diji;
+
+                        $balances = $balance + $return_price;
+                        $or = [];
+                        if ($i==$sheng) {
+                            $return_prices = $return_price + $v['order_price'] + $balance;
+                            $row['return_price'] = $return_price + $v['order_price'];
+                            $balances = $return_prices;
+
+                            $row['is_principal'] = 1;
+                            $or['status'] = 1;
+                        }
+
+                        $record->insert($row);
+
+                        $or['which'] = $diji;
+                        //ä¿®æ”¹orderè¡¨çŠ¶æ€ å¯èƒ½ä¿®æ”¹ä¸æˆåŠŸ
+                        $order->where(['id'=>$v['id']])->update($or);
+                        //ç»™ç”¨æˆ·å¢žåŠ ä½™é¢
+                        $user->where(['id'=>$id])->update(['balance'=>$balances]);
+                        Session::set('user.balance',$balances);
+                    }
+
+                }else{
+                    //ä¸åŒ…æ‹¬æœ€åŽä¸€æ¬¡è¿”è¿˜
+                    for ($i=1; $i <= $chi; $i++) {
+                        $diji = $v['which'] + $i;
+                        $balance = $users['balance'];//ä½™é¢
+                        //è¿”è¿˜åˆ©æ¶¦è¡¨æ•°æ®
+                        $row['order_id'] = $v['id'];
+                        $row['user_id'] = $id;
+                        $row['ruturn_time'] = time();
+                        $return_price = $commoditys['expect']*$v['sp_count'];//æ¯æœŸåˆ©æ¶¦
+                        $row['return_price'] = $return_price;
+                        $rate_time = $commoditys['begin_time'] + $diji*2592000;
+                        $row['return_user_time'] = $rate_time;
+                        $row['is_principal'] = 2;
+                        $row['remark'] = $commoditys['name'].'è¿”åˆ©å®Œæˆ';
+                        $row['next'] = $diji;
+                        $record->insert($row);
+
+                        $or = ['which'=>$diji];
+                        //ä¿®æ”¹orderè¡¨çŠ¶æ€ å¯èƒ½ä¿®æ”¹ä¸æˆåŠŸ
+                        $order->where(['id'=>$v['id']])->update($or);
+                        //ç»™ç”¨æˆ·å¢žåŠ ä½™é¢
+                        $balances = $balance + $return_price;
+                        $user->where(['id'=>$id])->update(['balance'=>$balances]);
+                        Session::set('user.balance',$balances);
+                    }
+                }
+            }else{
+                //æŒ‰æœŸè¿”è¿˜
+                $rate_time = $commoditys['rate'] * 86400 + $commoditys['begin_time'];//è¿”è¿˜çš„æ—¶é—´
+                if ($testtime >= $rate_time) {
+                    //è¿”è¿˜å…¨éƒ¨é‡‘é¢
+                    $balance = $users['balance'];//ä½™é¢
+                    //è¿”è¿˜åˆ©æ¶¦è¡¨æ•°æ®
+                    $row['order_id'] = $v['id'];
+                    $row['user_id'] = $id;
+                    $row['ruturn_time'] = time();
+                    $return_price = $v['zexpect'] + $v['order_price'];//æ¯æœŸåˆ©æ¶¦
+                    $row['return_price'] = $return_price;
+                    $row['return_user_time'] = $rate_time;
+                    $row['is_principal'] = 1;
+                    $row['remark'] = $commoditys['name'].'è¿”åˆ©å®Œæˆ';
+                    $row['next'] = 1;
+                    $record->insert($row);
+
+                    $or = ['status'=>1,'which'=>1];
+                    //ä¿®æ”¹orderè¡¨çŠ¶æ€ å¯èƒ½ä¿®æ”¹ä¸æˆåŠŸ
+                    $order->where(['id'=>$v['id']])->update($or);
+                    //ç»™ç”¨æˆ·å¢žåŠ ä½™é¢
+                    $balances = $balance + $return_price;
+                    $user->where(['id'=>$id])->update(['balance'=>$balances]);
+                    Session::set('user.balance',$balances);
+                    //ç”Ÿæˆè¯¦ç»†
+                    $deta['user_id'] = $id;
+                    $deta['or'] = 4;
+                    $deta['money'] = $v['zexpect'];
+                    $deta['create_time'] = time();
+                    $deta['comment'] = 'è¿”åˆ©åˆ©æ¶¦';
+                    $deta['status'] = 1;
+
+                    $deta = [
+                    ['user_id' => $id, 'or' => 4,'money'=>$v['zexpect'],'create_time'=>time()+1,'comment'=>'è¿”åˆ©åˆ©æ¶¦','status'=>1],
+                    ['user_id' => $id, 'or' => 4,'money'=>$v['order_price'],'create_time'=>time()+2,'comment'=>'è¿”åˆ©æœ¬é‡‘','status'=>1]
+                    ];
+
+                    $detail->insertAll($deta);
+
+                    // $deta['user_id'] = $id;
+                    // $deta['or'] = 4;
+                    // $deta['money'] = $v['order_price'];
+                    // $deta['create_time'] = time();
+                    // $deta['comment'] = 'è¿”åˆ©æœ¬é‡‘';
+                    // $deta['status'] = 1;
+                    // $detail->insert($deta);
+                }
+            }
+        }
+    }
+    /*
+     *è‡ªåŠ¨å‘æ ‡ ç”Ÿæˆä¸€ä¸ªæ–°æ ‡
+     *$classifyå‚æ•° 1.å¸¸è§„åˆ†ç±» 2.è¾…åŠ©åˆ†ç±» 3.vipåˆ†ç±»
+     *æ ¹æ®å‚æ•°æŸ¥è¯¢ä¸åŒåˆ†ç±»çš„æ¨¡ç‰ˆ ç”Ÿæˆå¯¹åº”æ ‡
+     */
+    public function allocation($classify)
+    {
+        date_default_timezone_set('PRC');
+        $arr = [];
+        $com = Commodity::where(['automation'=>1,'classify'=>$classify])->find();
+        if (isset($com)) {
+            $time = date('ymd', time());
+            $today = strtotime(date("Y-m-d"),time()); //èŽ·å¾—å½“æ—¥å‡Œæ™¨çš„æ—¶é—´æˆ³
+            $preselle_time = $today + $com['preselle_time']*3600;
+            $arr['com_number'] = 'YAN'.date("Ymd").rand(1000,9999);//è®¢å•ç¼–å·
+            //åˆ¤æ–­æ—¶é—´æ˜¯å¦æ˜¯æ—©ä¸Š10ç‚¹åŽ.æ™šä¸Š12ç‚¹ä»¥å‰,å¦‚æžœæ˜¯ç”Ÿæˆç¬¬äºŒå¤©åç‚¹çš„æ ‡,å¦‚æžœä¸æ˜¯ç”Ÿæˆå½“å¤©çš„æ ‡
+            $onetwo = $today+86400;
+            if (time()>$preselle_time && time()<$onetwo) {
+                $preselle_time = $onetwo + $com['preselle_time']*3600;
+                $time = date('ymd', $preselle_time);
+                $arr['com_number'] = 'YAN'.date("Ymd",$preselle_time).rand(1000,9999);//è®¢å•ç¼–å·
+            }
+            if ($classify==3) {
+                $arr['vip6'] = rand(100000,999999);//vipé‚€è¯·ç 
+            }
+            $zong = 0;
+            $qishu = 0;
+            $yer = $com['rate']/30;
+            if ($com['return_mode'] == 1) {
+                $zong = $com['return_price']/100 * $com['price'] / 12;
+                $qishu = $yer;
+            }else{
+                $zong = $com['return_price']/100 * $com['price'] / 12 * $yer;
+                $qishu = 1;
+            }
+            $zong = substr(sprintf("%.7f",$zong),0,-1);//ä¿ç•™liuä½å°æ•° ä¸å››èˆäº”å…¥
+
+            $arr['name'] = $com['name'].$time;
+            $arr['image'] = $com['image'];
+            $arr['price'] = $com['price'];
+            $arr['rate'] = $com['rate'];
+            $arr['content'] = $com['content'];
+            $arr['return_price'] = $com['return_price'];
+            $arr['return_mode'] = $com['return_mode'];
+            $arr['convert'] = $com['convert'];
+            $arr['number'] = $com['number'];
+            $arr['numbers'] = $com['numbers'];
+            $arr['classify'] = $com['classify'];
+            $arr['restrict'] = $com['restrict'];
+
+            $arr['update_time'] = time();
+            $arr['create_time'] = time();
+            $arr['status'] = 1;
+            $arr['isdelete'] = 0;
+            $arr['preselle_time'] = $preselle_time;//å¼€å§‹è´­ä¹°æ—¶é—´
+            $arr['down_time'] = $preselle_time + $com['down_time'];//è´­ä¹°ç»“æŸæ—¶é—´
+            $arr['deal_time'] = $preselle_time + $com['down_time']+$com['deal_time'];//å‡†å¤‡ç»“æŸæ—¶é—´
+            $arr['begin_time'] = $arr['deal_time'];//æ­£å¼å¼€å§‹æ—¶é—´
+            $arr['over_time'] = $arr['deal_time']+$com['rate']*86400;//é¢„è®¡ç»“æŸæ—¶é—´
+            $arr['convert_time'] = $arr['over_time'] + $com['convert_time'];//å…‘æ¢ç»“æŸæ—¶é—´
+            $arr['expect'] = $zong;
+            $arr['nexpect'] = $qishu;
+            //unset($com['id']);
+            Commodity::insert($arr);
+            $sp_id = Commodity::getLastInsID();
+            return $sp_id;
+        }
+        return 0;
+    }
+
+    /*
+     * çŸ­ä¿¡å…¬å…±æ–¹æ³• æ ¹æ®ä¸åŒmodelä½¿ç”¨ä¸åŒçš„æ¨¡ç‰ˆ
+     * mobile æ‰‹æœºå·ç 
+     * model 1ç™»å½• 2æ³¨å†Œ 3å¿˜è®°å¯†ç ä¿®æ”¹å¯†ç  4ä¿®æ”¹æ”¯ä»˜å¯†ç  5ä¿®æ”¹æ‰‹æœºå·ç 
+     */
+    public function message($mobile,$model)
+    {
+        $cons = '';
+        $randStr = str_shuffle('1234567890');
+        $rand = substr($randStr,0,6);
+
+        if ($model==1) {
+            $cons = "ã€è¶£å‘³å†œåœºã€‘æ‚¨æ­£åœ¨ç™»å½•,éªŒè¯ç æ˜¯:".$rand."ï¼Œ5åˆ†é’ŸåŽè¿‡æœŸï¼Œè¯·æ‚¨åŠæ—¶éªŒè¯!";
+        }elseif($model==2){
+            $cons = "ã€è¶£å‘³å†œåœºã€‘æ‚¨æ­£åœ¨æ³¨å†Œ,éªŒè¯ç æ˜¯:".$rand."ï¼Œ5åˆ†é’ŸåŽè¿‡æœŸï¼Œè¯·æ‚¨åŠæ—¶éªŒè¯!";
+        }elseif($model==3){
+            $cons = "ã€è¶£å‘³å†œåœºã€‘æ‚¨æ­£åœ¨ç»‘å®šæ‰‹æœºå·ç ,éªŒè¯ç æ˜¯:".$rand."ï¼Œ5åˆ†é’ŸåŽè¿‡æœŸï¼Œè¯·æ‚¨åŠæ—¶éªŒè¯!";
+        }elseif($model==4){
+            $cons = "ã€è¶£å‘³å†œåœºã€‘æ‚¨æ­£åœ¨ä¿®æ”¹æ”¯ä»˜å¯†ç ,éªŒè¯ç æ˜¯:".$rand."ï¼Œ5åˆ†é’ŸåŽè¿‡æœŸï¼Œè¯·æ‚¨åŠæ—¶éªŒè¯!";
+        }elseif($model==5){
+            $cons = "ã€è¶£å‘³å†œåœºã€‘æ‚¨æ­£åœ¨ä¿®æ”¹æ‰‹æœºå·ç ,éªŒè¯ç æ˜¯:".$rand."ï¼Œ5åˆ†é’ŸåŽè¿‡æœŸï¼Œè¯·æ‚¨åŠæ—¶éªŒè¯!";
+        }
+
+        Session::set($mobile,$rand);
+        Session::set($rand,time());
+        $url='http://117.78.52.216:9003';//ç³»ç»ŸæŽ¥å£åœ°å€
+        $conss = iconv('UTF-8', 'gbk', $cons);
+        $content=urlencode($conss);
+        $username="13613820359";//ç”¨æˆ·å
+        $password="ODIwMzU5";//å¯†ç ç™¾åº¦BASE64åŠ å¯†åŽå¯†æ–‡
+        $url=$url."/servlet/UserServiceAPI?method=sendSMS&extenno=&isLongSms=0&username=".$username."&password=".$password."&smstype=0&mobile=".$mobile."&content=".$content;
+        $data = $this->concurl($url);
+        return $data;
+    }
+    /*
+     * å‘é€getè¯·æ±‚
+     */
+    public function concurl($url)
+    {
+            //åˆå§‹åŒ–curl
+            $ch = curl_init($url);
+            //è®¾ç½®è¶…æ—¶
+            curl_setopt($ch, CURLOPT_TIMEOUT,30);
+            curl_setopt($ch, CURLOPT_HEADER,FALSE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,TRUE);
+            //è¿è¡Œcurlï¼Œç»“æžœä»¥jasonå½¢å¼è¿”å›ž
+            $res = curl_exec($ch);
+            curl_close($ch);
+         //ã€€ã€€//æ‰“å°èŽ·å¾—çš„æ•°æ®
+             //$data=json_decode($res,true);
+             return $res;
+    }
+}
