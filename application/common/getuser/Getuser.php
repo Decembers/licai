@@ -22,7 +22,7 @@ class Getuser
     $this->redirect_uri = urlencode(URLL.url('login/getaccess_token'));
     $this->scope = 'snsapi_userinfo';
     $this->state = 'succeed';
-    $this->secret = 'c44186b3f39d8205890824d8144ff4ff';
+    $this->secret = 'b6d14a1e09b2fed7b6badffb17e54c62';
     }
     /*
      * 请求授权地址
@@ -33,7 +33,9 @@ class Getuser
                 $this->redirect_uri = urlencode(URLL.url('member/listress'));
                 $this->scope = 'snsapi_base';
             }
-            $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$this->appid.'&redirect_uri='.$this->redirect_uri.'&response_type=code&scope='.$this->scope.'&state='.$this->state.'#wechat_redirect';
+            //$url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$this->appid.'&redirect_uri='.$this->redirect_uri.'&response_type=code&scope='.$this->scope.'&state='.$this->state.'#wechat_redirect';
+            $url = 'http://wxpay.yingjisong.com?appid='.$this->appid.'&redirect_uri='.$this->redirect_uri.'&response_type=code&scope='.$this->scope.'&state='.$this->state.'&device=phone';
+
             return $url;
     }
     /*
@@ -43,6 +45,8 @@ class Getuser
     {
           $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->secret."&code=".$code."&grant_type=authorization_code";
           $date = $this->curlget($url);
+           //return $date;
+
             if ($date) {
                 if (isset($date['access_token'])) {
                     $userinfo = $this->getuserinfo($date['access_token'],$date['openid']);

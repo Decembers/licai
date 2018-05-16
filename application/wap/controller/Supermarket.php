@@ -10,6 +10,8 @@ use app\common\model\Supermarket as S;
 use app\common\model\SupermarketOrder;
 use think\Session;
 use think\Db;
+use app\common\printer\Printer;
+
 class Supermarket extends Yang
 {
     public function index()
@@ -188,6 +190,12 @@ class Supermarket extends Yang
             $arr = ['code'=>-200,'data'=>'参数错误,请刷新重试!','msg'=>''];
             $order = [];
             $order_price = 0;//订单总金额
+
+            $orderInfo = '<CB>趣味农场</CB><BR>名称　　　　　 单价  数量 金额<BR>';
+            // $orderInfo = '<CB>趣味农场</CB><BR>';
+            // $orderInfo .= '名称　　　　　 单价  数量 金额<BR>';
+            // $orderInfo .= '--------------------------------<BR>';
+
             //生成订单,每个商品生成一笔订单
             Db::startTrans();
             try{
@@ -198,6 +206,22 @@ class Supermarket extends Yang
                     $supermarket = S::where('id', $shopping['sp_id'])->find();
                     $order_price += $shopping['num']*$supermarket['price'];
 
+                    $order_price_p = $shopping['num']*$supermarket['price'];
+
+
+                    $orderInfo .= $supermarket['name'];
+                    $len = strlen($supermarket['name']);
+                    if ($len<19) {
+                        $stri = '';
+                        $len = 19 - $len;
+                        for ($i=0; $i < $len; $i++) {
+                            $stri.=' ';
+                        }
+                        $orderInfo .= $stri;
+                    }
+
+                    $orderInfo .= $supermarket['price'].'  '.$shopping['num'].'   '.$order_price_p.'.00<BR>';
+
                     $order['sj_id'] = $supermarket['user_id'];
                     $order['sp_id'][$key]=$shopping['sp_id'];
                     $order['sp_name'][$key]=$supermarket['name'];
@@ -205,9 +229,18 @@ class Supermarket extends Yang
                     $order['price'][$key]=$supermarket['price'];
                     $order['quantity'][$key]=$shopping['num'];
 
+
                     Shopping::where('id', $data[$key])->delete();//删除购物车商品
                     S::where('id', $shopping['sp_id'])->setDec('number',$shopping['num']);//减去购买的数量
                 }
+
+                $ress = Ress::where('id',$ress_id)->find();
+                $orderInfo .= '--------------------------------<BR>';
+                $orderInfo .= '合计：'.$order_price.'元<BR>';
+                $orderInfo .= '送货地点：'.$ress['address'].'<BR>';
+                $orderInfo .= '联系电话：'.$ress['mobile'].'<BR>';
+                $orderInfo .= '下单时间：'.date("Y-m-d H:i:s",time()) .'<BR>';
+                $orderInfo .= '<QR>http://nongchang.yingjisong.com</QR>';//把二维码字符串用标签套上即可自动生成二维码
 
                 $user = User::where('id', $this->id)->find();
                 if ($user['mobile']=='') {
@@ -286,6 +319,16 @@ class Supermarket extends Yang
                 Db::rollback();
                 return json($arr);
             }
+
+            //调用打印机
+
+            $adminUser = AdminUser::where('id',$order['sj_id'])->find();
+
+            if (!empty($adminUser['printer_user']) && !empty($adminUser['printer_ukey']) && !empty($adminUser['number'])) {
+                $printer = new Printer;
+                $printer->wp_print($adminUser['printer_user'],$adminUser['printer_ukey'],$adminUser['number'],$orderInfo);
+            }
+
             return json($arr);
         }
     }

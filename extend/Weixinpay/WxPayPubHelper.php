@@ -50,8 +50,8 @@ class WxPayConf_pub {
 
 	const APPID = 'wx3dc1191b24a06e74';
 	const MCHID = '1282191401';
-	const KEY = '2eef374f423bdce7a80a2f8cc541d310';
-	const APPSECRET = 'c44186b3f39d8205890824d8144ff4ff';
+	const KEY = 'da0ee0321af8beb10eb7a044e243e3ff';
+	const APPSECRET = 'b6d14a1e09b2fed7b6badffb17e54c62';
 	//=======【JSAPI路径设置】===================================
 	//获取access_token过程中的跳转uri，通过跳转将code传入jsapi支付页面
 	//const JS_API_CALL_URL = '';

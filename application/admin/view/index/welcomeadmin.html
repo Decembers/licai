@@ -1,0 +1,373 @@
+﻿{extend name="template/base" /}
+{block name="title"}我的桌面{/block}
+{block name="content"}
+<style type="text/css">
+.boxsizing{
+    padding-top: 70px;
+    padding-left: 20px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.panel_box {
+   width: 100%;
+   min-width: 1200px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-around;
+
+}
+.panel {
+    float: left;
+    text-align: center;
+    width: 16.6%;
+    margin-bottom: 10px;
+    padding:0px  5px;
+}
+.panel_box a {
+    display: block;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    color: #333; height: 90px;
+    text-decoration: none;
+    overflow: hidden;
+}
+.panel_icon {
+    width: 40%;
+    display: inline-block;
+    padding: 22px 0;
+    height: 90px;
+    float: left;
+}
+.panel_icon img {
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 0px  auto;
+
+}
+
+.layui-icon {
+    font-family: layui-icon!important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.panel_word {
+    width: 60%;
+    display: inline-block;
+    float: right;
+    margin-top: 22px;
+}
+.panel_word span {
+    font-size: 25px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+.panel_box a cite {
+    font-size: 16px;
+    display: block;
+    font-style: normal;
+}
+.panel_box .panel:hover  a .panel_icon img{
+/*  transform: skew(-360deg);*/
+    transform: rotate(-360deg);
+    transition: all .4s ease-in .1s;
+}
+
+</style>
+
+<!-- <div class="page-container">
+    <p class="f-20 text-success">欢迎使用 {$Think.config.site.name} <span class="f-14">{$Think.config.site.version}</span> 后台管理系统！</p>
+    <p>登录次数：{$info.login_count} </p>
+    {if condition="session('last_login_time')"}
+    <p>上次登录IP：{$last_login_ip} &nbsp;&nbsp;&nbsp; 上次登录时间：{$Think.session.last_login_time|date='Y-m-d H:i:s',###} &nbsp;&nbsp;&nbsp; 上次登录地点：{$last_login_loc}</p>
+    {/if}
+    <p>本次登录IP：{$current_login_ip} &nbsp;&nbsp;&nbsp; 本次登录时间：{$info.last_login_time|date='Y-m-d H:i:s',###} &nbsp;&nbsp;&nbsp; 本次登录地点：{$current_login_loc}</p>
+</div> -->
+<!-- <a _href="/admin/detail/index.html" data-title="所有明细" href="javascript:;" data-nav=" 账户明细 <span class=&quot;c-gray en&quot;>&amp;gt;</span> 所有明细">所有明细</a> -->
+        <div class="panel_box row boxsizing">
+            <div class="panel boxsizing" style="padding-left: 0px;">
+                <a _href="/admin/detail/index.html" data-title="所有明细" href="javascript:;" >
+                    <div class="panel_icon boxsizing" style="background-color:#54ade8;">
+                        <img src="__STATIC__/images/icon/icon1.png"/>
+                    </div>
+                    <div class="panel_word newMessage">
+                        <span>{$details}</span>
+                        <cite>未处理提现申请</cite>
+                    </div>
+                </a>
+            </div>
+            <div class="panel boxsizing">
+                <a href="javascript:;"  >
+                    <div class="panel_icon boxsizing" style="background-color:#FF5722;">
+                        <img src="__STATIC__/images/icon/icon2.png"/>
+                    </div>
+                    <div class="panel_word userAll">
+                        <span>{$identitys}</span>
+                        <cite>未处理身份认证申请</cite>
+                    </div>
+                </a>
+            </div>
+            <div class="panel boxsizing">
+                <a href="javascript:;"  >
+                    <div class="panel_icon boxsizing" style="background-color:#009688;">
+                        <img src="__STATIC__/images/icon/icon3.png"/>
+                    </div>
+                    <div class="panel_word userAll">
+                        <span>{$users}</span>
+                        <cite>用户总数</cite>
+                    </div>
+                </a>
+            </div>
+            <div class="panel boxsizing">
+                <a href="javascript:;"  >
+                    <div class="panel_icon boxsizing" style="background-color:#5FB878;">
+                        <img src="__STATIC__/images/icon/icon4.png"/>
+                    </div>
+                    <div class="panel_word imgAll">
+                        <span>{$jinusers}</span>
+                        <cite>今日新增用户</cite>
+                    </div>
+                </a>
+            </div>
+            <div class="panel boxsizing">
+                <a href="javascript:;"  >
+                    <div class="panel_icon boxsizing" style="background-color:#F7B824;">
+                        <img src="__STATIC__/images/icon/icon5.png"/>
+                    </div>
+                    <div class="panel_word waitNews">
+                        <span>{$orders}</span>
+                        <cite>今日订单数量</cite>
+                    </div>
+                </a>
+            </div>
+            <!-- <div class="panel max_panel">
+                <a href="javascript:;"  >
+                    <div class="panel_icon boxsizing" style="background-color:#2F4056;">
+                        <img src="__STATIC__/images/icon/icon6.png"/>
+                    </div>
+                    <div class="panel_word allNews">
+                        <span>30</span>
+
+                        <cite>文章列表</cite>
+                    </div>
+                </a>
+            </div> -->
+        </div>
+
+<ul id="synthesize" style="display: none;">
+{volist name="synthesize" id="vo"}
+    <li>
+    <p>{$vo.pay}</p>
+    <p>{$vo.consume}</p>
+    <p>{$vo.register}</p>
+    <p>{$vo.create_time|date="m-d",###}</p>
+    </li>
+{/volist}
+</ul>
+
+<div id="main" style="width: 1600px;height:400px;"></div>
+<div id="main2" style="width: 1600px;height:400px;"></div>
+<script src="__STATIC__/js/echarts.js"></script>
+<script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+//获取三十天前日期
+// var myDate = new Date();
+// var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 6);//最后一个数字30可改，30天的意思
+// var lastM = lw.getMonth()+1;
+// var lastD = lw.getDate();
+// var startdate6=lastM+"-"+lastD;//六天前
+
+// var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 5);//最后一个数字30可改，30天的意思
+// var lastM = lw.getMonth()+1;
+// var lastD = lw.getDate();
+// var startdate5=lastM+"-"+lastD;//五天前
+
+// var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 4);//最后一个数字30可改，30天的意思
+// var lastM = lw.getMonth()+1;
+// var lastD = lw.getDate();
+// var startdate4=lastM+"-"+lastD;//四天前
+
+// var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 3);//最后一个数字30可改，30天的意思
+// var lastM = lw.getMonth()+1;
+// var lastD = lw.getDate();
+// var startdate3=lastM+"-"+lastD;//三天前
+
+// var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 2);//最后一个数字30可改，30天的意思
+// var lastM = lw.getMonth()+1;
+// var lastD = lw.getDate();
+// var startdate2=lastM+"-"+lastD;//两天前
+
+// var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 1);//最后一个数字30可改，30天的意思
+// var lastM = lw.getMonth()+1;
+// var lastD = lw.getDate();
+// var startdate1=lastM+"-"+lastD;//昨天
+
+var pay = $('#synthesize li:nth-child(1) p:nth-child(1)').text();//今天的数据
+var pay1 = $('#synthesize li:nth-child(2) p:nth-child(1)').text();//昨天的数据
+var pay2 = $('#synthesize li:nth-child(3) p:nth-child(1)').text();//两天前的数据
+var pay3 = $('#synthesize li:nth-child(4) p:nth-child(1)').text();//三天前的数据
+var pay4 = $('#synthesize li:nth-child(5) p:nth-child(1)').text();//四天前的数据
+var pay5 = $('#synthesize li:nth-child(6) p:nth-child(1)').text();//五天前的数据
+var pay6 = $('#synthesize li:nth-child(7) p:nth-child(1)').text();//六天前的数据
+
+var consume = $('#synthesize li:nth-child(1) p:nth-child(2)').text();//今天的数据
+var consume1 = $('#synthesize li:nth-child(2) p:nth-child(2)').text();//昨天的数据
+var consume2 = $('#synthesize li:nth-child(3) p:nth-child(2)').text();//两天前的数据
+var consume3 = $('#synthesize li:nth-child(4) p:nth-child(2)').text();//三天前的数据
+var consume4 = $('#synthesize li:nth-child(5) p:nth-child(2)').text();//四天前的数据
+var consume5 = $('#synthesize li:nth-child(6) p:nth-child(2)').text();//五天前的数据
+var consume6 = $('#synthesize li:nth-child(7) p:nth-child(2)').text();//六天前的数据
+
+var register = $('#synthesize li:nth-child(1) p:nth-child(3)').text();//今天的数据
+var register1 = $('#synthesize li:nth-child(2) p:nth-child(3)').text();//昨天的数据
+var register2 = $('#synthesize li:nth-child(3) p:nth-child(3)').text();//两天前的数据
+var register3 = $('#synthesize li:nth-child(4) p:nth-child(3)').text();//三天前的数据
+var register4 = $('#synthesize li:nth-child(5) p:nth-child(3)').text();//四天前的数据
+var register5 = $('#synthesize li:nth-child(6) p:nth-child(3)').text();//五天前的数据
+var register6 = $('#synthesize li:nth-child(7) p:nth-child(3)').text();//六天前的数据
+
+var time = $('#synthesize li:nth-child(1) p:nth-child(4)').text();//今天的数据
+var time1 = $('#synthesize li:nth-child(2) p:nth-child(4)').text();//昨天的数据
+var time2 = $('#synthesize li:nth-child(3) p:nth-child(4)').text();//两天前的数据
+var time3 = $('#synthesize li:nth-child(4) p:nth-child(4)').text();//三天前的数据
+var time4 = $('#synthesize li:nth-child(5) p:nth-child(4)').text();//四天前的数据
+var time5 = $('#synthesize li:nth-child(6) p:nth-child(4)').text();//五天前的数据
+var time6 = $('#synthesize li:nth-child(7) p:nth-child(4)').text();//六天前的数据
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+var myChart2 = echarts.init(document.getElementById('main2'));
+
+// 指定图表的配置项和数据
+option = {
+    color: ['#48D1CC','#9F79EE',],
+    title : {
+        text: '充值/消费',
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['充值金额','消费金额']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : [time6,time5,time4,time3,time2,time1,time]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'充值金额',
+            type:'bar',
+            data:[pay6, pay5, pay4, pay3, pay2, pay1, pay],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'消费金额',
+            type:'bar',
+            data:[consume6, consume5, consume4, consume3, consume2, consume1, consume],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+option2 = {
+    color: ['#EE9A00','#9F79EE',],
+    title : {
+        text: '注册用户',
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['注册人数']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : [time6,time5,time4,time3,time2,time1,time]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'注册人数',
+            type:'line',
+            data:[register6,register5,register4,register3,register2,register1,register],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+         }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        myChart2.setOption(option2);
+    </script>
+{/block}

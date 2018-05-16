@@ -7,7 +7,7 @@ use app\common\model\User as U;
 
 class yang extends Controller
 {
-    protected $arr = ['Index/index','Login/login','Login/wxlogin','Login/nopassword','Login/has','Login/checkreg','Login/checkindex','Login/reg','Login/admin','Login/getaccess_token','Login/codemsg','Wxpay/weixinjsapnotify','Discover/index','Index/zhidao','Index/orlist','Video/index','Index/baozhang','Login/has','Index/gonggao','Index/gonggaoin','Index/introduce','Discover/info','Supermarket/index','Supermarket/dianpu','Supermarket/info','Order/info','Order/infolist','Order/number','Order/xieyi'];
+    protected $arr = ['Index/index','Login/login','Login/wxlogin','Login/nopassword','Login/has','Login/checkreg','Login/checkindex','Login/reg','Login/admin','Login/getaccess_token','Login/codemsg','Wxpay/weixinjsapnotify','Discover/index','Index/zhidao','Index/orlist','Video/index','Index/baozhang','Login/has','Index/gonggao','Index/gonggaoin','Index/introduce','Discover/info','Supermarket/index','Supermarket/dianpu','Supermarket/info','Order/info','Order/infolist','Order/number','Order/xieyi','Today/index'];
     public $id = null;
     public function __construct()
     {

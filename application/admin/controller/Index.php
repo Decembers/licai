@@ -52,6 +52,7 @@ class Index extends Controller
         }
         $groups = Db::name("AdminGroup")->where(['id' => ['in', $groups_id], 'status' => "1"])->order("sort asc,id asc")->field('id,name,icon')->select();
 
+
         $this->view->assign('groups', $groups);
         $this->view->assign('menu', $menu);
 
@@ -82,6 +83,49 @@ class Index extends Controller
         // 查询个人信息
         $info = Db::name("AdminUser")->where("id", UID)->find();
         $this->view->assign("info", $info);
+
+        return $this->view->fetch();
+    }
+
+    /**
+     * 管理员欢迎页
+     * @return mixed
+     */
+    public function welcomeadmin()
+    {
+        // 查询 ip 地址和登录地点
+        if (Session::get('last_login_time')) {
+            $last_login_ip = Session::get('last_login_ip');
+            $last_login_loc = \Ip::find($last_login_ip);
+
+            $this->view->assign("last_login_ip", $last_login_ip);
+            $this->view->assign("last_login_loc", implode(" ", $last_login_loc));
+
+        }
+        $current_login_ip = $this->request->ip();
+        $current_login_loc = \Ip::find($current_login_ip);
+
+        $this->view->assign("current_login_ip", $current_login_ip);
+        $this->view->assign("current_login_loc", implode(" ", $current_login_loc));
+
+        // 查询个人信息
+        $info = Db::name("AdminUser")->where("id", UID)->find();
+        $this->view->assign("info", $info);
+
+        $synthesize = Db::name("Synthesize")->order('id desc')->limit(7)->select();
+        $users = Db::name("User")->count();
+        $jinusers = Db::name("User")->whereTime('create_time', 'today')->count();
+        $details = Db::name("Detail")->where(['or'=>2,'status'=>0])->count();
+        $identitys = Db::name("Identity")->where(['status'=>0])->count();
+        $orders = Db::name("Order")->whereTime('create_time', 'today')->count();
+
+        //dump($synthesize[0]);die;
+        $this->view->assign('synthesize', $synthesize);
+        $this->view->assign('users', $users);
+        $this->view->assign('jinusers', $jinusers);
+        $this->view->assign('details', $details);
+        $this->view->assign('identitys', $identitys);
+        $this->view->assign('orders', $orders);
 
         return $this->view->fetch();
     }

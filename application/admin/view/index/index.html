@@ -83,7 +83,11 @@
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
             <div style="display:none" class="loading"></div>
+            {if condition="$Think.session.auth_id eq 1"}
+            <iframe scrolling="yes" frameborder="0" src="{:\\think\\Url::build('welcomeadmin')}"></iframe>
+            {else/}
             <iframe scrolling="yes" frameborder="0" src="{:\\think\\Url::build('welcome')}"></iframe>
+            {/if}
         </div>
     </div>
 </section>

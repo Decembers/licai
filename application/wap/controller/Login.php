@@ -53,7 +53,7 @@ class Login extends Yang
         if (isset($code)) {
             $getuser = new Getuser;
             $result = $getuser->getaccess_token($code);
-            //echo $result;die;
+            //var_dump($result);die;
             //是否成功 成功跳转
             if (Session::get('isopenid')==1) {
                 $this->redirect(url('member/pay'));
