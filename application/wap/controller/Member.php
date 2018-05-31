@@ -196,9 +196,12 @@ class Member extends Yang
     {
         if ($this->request->isAjax()) {
 
+
         }else{
+            $user = U::where(['id'=>$this->id])->find();
             $rate = RA::find();
             $lilv = $rate['rate']/100;
+            $this->assign('user',$user);
             $this->assign('lilv',$lilv);
             return $this->fetch();
         }

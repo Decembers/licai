@@ -20,7 +20,6 @@
             <th width="">商家id</th>
             <th width="">商品名称</th>
             <th width="">商品单价</th>
-            <th width="">商品简介</th>
             <th width="">商品图片</th>
             <th width="">商品介绍图片</th>
             <th width="">商品数量</th>
@@ -36,7 +35,6 @@
             <td>{$vo.user_id}</td>
             <td>{$vo.name|high_light=$Request.param.name}</td>
             <td>{$vo.price}</td>
-            <td>{$vo.content}</td>
             <td><img src="{$vo.image}" width="80" height="80"></td>
             <td><img src="{$vo.content_img}" width="80" height="80"></td>
             <td>{$vo.number}</td>

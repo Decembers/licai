@@ -11,3 +11,4 @@
 {/if}
 </td>
 <td>{$vo.create_time|date="Y-m-d H:i",###}</td>
+<td  onclick="layer_open('订单用户详情', '/admin/order/info/id/{$vo.referrer}.html')">{$vo.referrer}</td>

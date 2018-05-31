@@ -97,7 +97,7 @@
                     </div>
                     <div class="panel_word newMessage">
                         <span>{$details}</span>
-                        <cite>未处理提现申请</cite>
+                        <cite>提现申请</cite>
                     </div>
                 </a>
             </div>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="panel_word userAll">
                         <span>{$identitys}</span>
-                        <cite>未处理身份认证申请</cite>
+                        <cite>身份认证申请</cite>
                     </div>
                 </a>
             </div>
@@ -166,12 +166,14 @@
     <p>{$vo.consume}</p>
     <p>{$vo.register}</p>
     <p>{$vo.create_time|date="m-d",###}</p>
+    <p>{$vo.t_register}</p>
     </li>
 {/volist}
 </ul>
 
 <div id="main" style="width: 1600px;height:400px;"></div>
-<div id="main2" style="width: 1600px;height:400px;"></div>
+<!-- <div id="main2" style="width: 1600px;height:400px;"></div> -->
+<div id="main3" style="width: 1600px;height:400px;"></div>
 <script src="__STATIC__/js/echarts.js"></script>
 <script src="__WAP__/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 
@@ -232,6 +234,14 @@ var register4 = $('#synthesize li:nth-child(5) p:nth-child(3)').text();//四天�
 var register5 = $('#synthesize li:nth-child(6) p:nth-child(3)').text();//五天前的数据
 var register6 = $('#synthesize li:nth-child(7) p:nth-child(3)').text();//六天前的数据
 
+var t_register = $('#synthesize li:nth-child(1) p:nth-child(5)').text();//今天的数据
+var t_register1 = $('#synthesize li:nth-child(2) p:nth-child(5)').text();//昨天的数据
+var t_register2 = $('#synthesize li:nth-child(3) p:nth-child(5)').text();//两天前的数据
+var t_register3 = $('#synthesize li:nth-child(4) p:nth-child(5)').text();//三天前的数据
+var t_register4 = $('#synthesize li:nth-child(5) p:nth-child(5)').text();//四天前的数据
+var t_register5 = $('#synthesize li:nth-child(6) p:nth-child(5)').text();//五天前的数据
+var t_register6 = $('#synthesize li:nth-child(7) p:nth-child(5)').text();//六天前的数据
+
 var time = $('#synthesize li:nth-child(1) p:nth-child(4)').text();//今天的数据
 var time1 = $('#synthesize li:nth-child(2) p:nth-child(4)').text();//昨天的数据
 var time2 = $('#synthesize li:nth-child(3) p:nth-child(4)').text();//两天前的数据
@@ -241,7 +251,8 @@ var time5 = $('#synthesize li:nth-child(6) p:nth-child(4)').text();//五天前�
 var time6 = $('#synthesize li:nth-child(7) p:nth-child(4)').text();//六天前的数据
 // 基于准备好的dom，初始化echarts实例
 var myChart = echarts.init(document.getElementById('main'));
-var myChart2 = echarts.init(document.getElementById('main2'));
+// var myChart2 = echarts.init(document.getElementById('main2'));
+var myChart3 = echarts.init(document.getElementById('main3'));
 
 // 指定图表的配置项和数据
 option = {
@@ -366,8 +377,79 @@ option2 = {
     ]
 };
 
+option3 = {
+    title : {
+        text: '注册人数',
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:[
+            '推荐注册','',
+            '总注册'
+        ]
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    grid: {y: 70, y2:30, x2:20},
+    xAxis : [
+        {
+            type : 'category',
+            data : [time6,time5,time4,time3,time2,time1,time]
+        },
+        {
+            type : 'category',
+            axisLine: {show:false},
+            axisTick: {show:false},
+            axisLabel: {show:false},
+            splitArea: {show:false},
+            splitLine: {show:false},
+            data : [time6,time5,time4,time3,time2,time1,time]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel:{formatter:'{value} ms'}
+        }
+    ],
+    series : [
+
+        {
+            name:'推荐注册',
+            type:'bar',
+            itemStyle: {normal: {color:'rgba(181,195,52,1)', label:{show:true,textStyle:{color:'#27727B'}}}},
+            data:[t_register6,t_register5,t_register4,t_register3,t_register2,t_register1,t_register]
+        },
+
+        {
+            name:'总注册',
+            type:'bar',
+            xAxisIndex:1,
+            itemStyle: {normal: {color:'rgba(181,195,52,0.5)', label:{show:true}}},
+            data:[register6,register5,register4,register3,register2,register1,register]
+
+        },
+
+    ]
+};
+
+
+
+
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-        myChart2.setOption(option2);
+        // myChart2.setOption(option2);
+        myChart3.setOption(option3);
     </script>
 {/block}

@@ -6,12 +6,14 @@
 <td>{$vo.sp_price}</td>
 <td>{$vo.sp_count}</td>
 <td>
+<button class="butt">
 {if condition="$vo.sfpay eq 0"}
-<p style="color:#EE2C2C">未支付</p>
+未支付
 {elseif condition="$vo.sfpay eq 1"/}
-<p style="color:#66CDAA">已支付</p>
+已支付
 {elseif condition="$vo.sfpay eq 2"/}
-<p style="color:#4876FF">已退款</p>
+已退款
 {/if}
+</button>
 </td>
 <td>{$vo.packet}</td>

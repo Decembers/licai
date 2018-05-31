@@ -69,13 +69,13 @@ class Identity extends Controller
             if ($data['status']==1) {
                 $authentication = 2;
 
-                $ups = UP::where(['id'=>2])->find();
-                $up['user_id'] =  $data['user_id'];
-                $up['number'] =  $ups['number'];
-                $up['money'] =  $ups['money'];
-                $up['remark'] = $ups['remark'];
-                $up['full'] = $ups['full'];
-                UP::insert($up);
+                // $ups = UP::where(['id'=>2])->find();
+                // $up['user_id'] =  $data['user_id'];
+                // $up['number'] =  $ups['number'];
+                // $up['money'] =  $ups['money'];
+                // $up['remark'] = $ups['remark'];
+                // $up['full'] = $ups['full'];
+                // UP::insert($up);
 
             }else{
                 $authentication = 1;
