@@ -340,9 +340,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						overtop();
 						return false;
 					}
-					var authentication = "{:session('user.authentication')}";
+					var authentication = {$user.authentication};
 					if (authentication != 2) {
-						$(".overtop").text("请实名认证后再充值");
+						$(".overtop").text("请身份认证成功后再充值");
 						$("#big-button").removeAttr("disabled");
 						overtop();
 						return false;

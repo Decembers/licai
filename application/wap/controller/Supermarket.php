@@ -191,10 +191,9 @@ class Supermarket extends Yang
             $order = [];
             $order_price = 0;//订单总金额
 
-            $orderInfo = '<CB>趣味农场</CB><BR>名称　　　　　 单价  数量 金额<BR>';
-            // $orderInfo = '<CB>趣味农场</CB><BR>';
-            // $orderInfo .= '名称　　　　　 单价  数量 金额<BR>';
-            // $orderInfo .= '--------------------------------<BR>';
+            $shopping = Shopping::where('id', $data[0])->find();
+            $adminUser = AdminUser::where('id',$shopping['sj_id'])->find();
+            $orderInfo = '<CB>'.$adminUser["realname"].'</CB><BR>名称　　　　　 单价  数量 金额<BR>';
 
             //生成订单,每个商品生成一笔订单
             Db::startTrans();
@@ -237,6 +236,7 @@ class Supermarket extends Yang
                 $ress = Ress::where('id',$ress_id)->find();
                 $orderInfo .= '--------------------------------<BR>';
                 $orderInfo .= '合计：'.$order_price.'元<BR>';
+                $orderInfo .= '联系人：'.$ress['name'].'<BR>';
                 $orderInfo .= '送货地点：'.$ress['address'].'<BR>';
                 $orderInfo .= '联系电话：'.$ress['mobile'].'<BR>';
                 $orderInfo .= '下单时间：'.date("Y-m-d H:i:s",time()) .'<BR>';
@@ -322,7 +322,7 @@ class Supermarket extends Yang
 
             //调用打印机
 
-            $adminUser = AdminUser::where('id',$order['sj_id'])->find();
+            // $adminUser = AdminUser::where('id',$order['sj_id'])->find();
 
             if (!empty($adminUser['printer_user']) && !empty($adminUser['printer_ukey']) && !empty($adminUser['number'])) {
                 $printer = new Printer;

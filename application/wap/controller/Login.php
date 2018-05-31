@@ -76,7 +76,12 @@ class Login extends Yang
                 }
                 $this->redirect(url('index/index'));
             }else{
-                echo "微信获取失败,请从新登录!";
+                if (Session::get('iswxopneid')==1) {
+                    Session::delete('iswxopneid');
+                    echo "当前微信已被绑定,请更换微信";
+                }else{
+                    echo "微信获取失败,请从新登录!";
+                }
             }
         }else{
             echo "微信获取失败,请从新登录!";

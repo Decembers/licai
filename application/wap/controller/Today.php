@@ -17,6 +17,8 @@ class Today extends Yang
         $data = input('code');
         if ($data == $this->code) {
             $arr['register'] = Db::name("User")->whereTime('create_time', 'today')->count();//今天注册人数
+            $arr['t_register'] = Db::name("User")->where(['referrer'=>0])->whereTime('create_time', 'today')->count();//今天注册人数
+
             $arr['order'] = Db::name("Order")->whereTime('create_time', 'today')->count();//今天订单数量
             $arr['sp_count'] = Db::name("Order")->whereTime('create_time', 'today')->sum('sp_count');//今天卖出羊数量
             $arr['consume'] = Db::name("Order")->whereTime('create_time', 'today')->sum('order_price');//今天卖出羊总金额 消费金额

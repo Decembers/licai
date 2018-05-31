@@ -69,7 +69,7 @@
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
                     <select name="city" class="select" datatype="*" nullmsg="请选择父类id">
-                    {if condition="$vo.city"}
+                    {present name="vo"}
                         {volist name="city" id="vos"}
                             {if condition="$vo.city eq $vos.id"}
                             <option value="{$vos.id}" selected="selected">{$vos.city_name}</option>
@@ -81,9 +81,35 @@
                         {volist name="city" id="vos"}
                         <option value="{$vos.id}">{$vos.city_name}</option>
                         {/volist}
-                    {/if}
+                    {/present}
                     </select>
                 </div>
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
+        <div class="row cl">
+        <p style="margin-left: 27%;color: red;">本后台已对接飞鹅无限打印机,如需要请填写如下参数</p>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">打印机user：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" value="{$vo.printer_user ?? ''}" placeholder="" name="printer_user">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">打印机ukey：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" value="{$vo.printer_ukey ?? ''}" placeholder="" name="printer_ukey">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">打印机编号：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" value="{$vo.number ?? ''}" placeholder="" name="number">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>

@@ -83,6 +83,13 @@ class Getuser
                     $upd['openid'] = $userinfo['openid'];
                     $upd['name'] = $userinfo['nickname'];
                     $upd['image'] = $userinfo['headimgurl'];
+
+                    $user = User::where(['openid'=>$userinfo['openid']])->find();
+                    if (!empty($user)) {
+                        Session::set('iswxopneid',1);//如果该用户已经绑定微信
+                        return false;
+                    }
+
                     User::where(['id'=>Session::get('user.id')])->update($upd);
                     Session::set('user.openid',$userinfo['openid']);
                     Session::set('user.name',$userinfo['nickname']);
